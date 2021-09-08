@@ -4,4 +4,4 @@ The project is split into two main repos. This repo is for the integrated develo
 
 it should help those interested in contributing to at least be familiar with one of the xTalk (HyperTalk, SuperTalk, SenseTalk, OpenXION, LiveCode Script, etc.) family of scripting languages that aspires to be "natural language" and has plain-English-like syntax. 
 
-The xTalk family of languages has mainly been built around Bill Atkinson's now long-defuct HyperCard (Apple / Claris) and Dan Winkler's HyperTalk Script that it used. However xTalk has long history of that dates back decades before the first web-browser appeared or HyperCard appeared, as the "Hyper" in the name stems from the concept of HyperText which originated in th 1960s.
+The xTalk family of languages has mainly been built on top of Bill Atkinson's now long-defuct HyperCard (Apple / Claris) and Dan Winkler's HyperTalk Script that it used. However xTalk has long history, with concepts originating decades before HyperCard appeared, with the "Hyper" in the name stemmming from the concept of HyperText / HyperMedia in the 1960s.

@@ -1,4 +1,4 @@
-﻿script "home"
+script "home"
 constant kImportantTextColor = "#569e54"
 
 on startup

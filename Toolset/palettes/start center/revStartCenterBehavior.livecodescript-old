@@ -4,39 +4,39 @@ constant kSocialMedia = "github,stackoverflow,youtube,facebook,twitter,linkedin"
 
 on openStack
    revIDESubscribe "ideDesktopChanged"
-
-   ## Set up the Start Center UI
+   
+   ## Set up the Start Center UI   
    initialiseInterface
-
+   
    ## Logo
    logoInitialise
-
+   
    ## Social Media
    socialMediaInitialise
    socialMediaSet
-
+   
    ## Recent Files
    recentFilesInitialise
    recentFilesSet
    set the dgHilitedLine of group "recentFiles" to 1
-
+   
    ## Tiles
    tilesInitialise
-
+   
    ## First Run Controls
    set the backgroundColor of button "startTour" to uiColor("edition")
    set the filename of image "firstRunImage" of group "firstRun" to resourcesPath("images/firstRunImage.PNG")
    set the itemdelimiter to "."
    get item 1 to 2 of the version
-   put merge("Welcome to OpenXTalk [[it]]!") into field "firstRunTitle" of me
-
+   put merge("Welcome to LiveCode [[it]]!") into field "firstRunTitle" of me
+   
    ## Set folder icon
    set the foregroundColor of widget "openIcon" to uiColor("dark grey")
    set the iconPresetName of widget "openIcon" to "folder open alt"
-
+   
    ## Show the banner
    --bannerInitialise
-
+   
    ## Show at startup preference
    set the foregroundColor of widget "startupCheckbox" to uiColor("dark grey")
    if revIDEGetPreference("cStartPageShow") is true then
@@ -48,7 +48,7 @@ end openStack
 
 command initialiseInterface
    hide group "Upgrade" of me
-
+   
    ## First run
    if revIDEGetPreference("StartCenterClassic") is true then
       ## Not first run
@@ -56,16 +56,16 @@ command initialiseInterface
       show group "topPanel"
       --show group "tiles"
       set the top of group "recentFiles" to 0
-
+      
       showUpgradeMini
    else
       ## First run
       hide group "banner"
       hide group "topPanel"
       --hide group "tiles"
-
+      
       set the top of group "recentFiles" to 0
-
+      
       set the layer of group "firstRun" to top
       show group "firstRun"
       hide group "UpgradeMini" of me
@@ -92,14 +92,14 @@ on ideOpenStack pTarget
    if not exists(pTarget) then
       exit ideOpenStack
    end if
-
+   
    local tTargetStack
    put the short name of ideStackOfObject(pTarget) into tTargetStack
-
+   
    if the filename of stack (the mainstack of stack tTargetStack) is among the lines of revIDEGetAllPlugins() then
       exit ideOpenStack
    end if
-
+   
    if tTargetStack is not the short name of me then
       startCenterClose
    end if
@@ -113,15 +113,15 @@ command logoInitialise
    ## Set the logo to the correct logo for the version
    set the iconPresetName of widget "logo" of me to "lc-logo"
    set the foregroundColor of widget "logo" of me to uiColor("logo")
-
+   
    ## Set the title to contain the correct version string
    local tMajorVersion
    set the itemDelimiter to "."
    put item 1 to 2 of the version into tMajorVersion
-   put merge("Welcome to OpenXTalk [[tMajorVersion]]") into field "title" of me
+   put merge("Welcome to LiveCode [[tMajorVersion]]") into field "title" of me
 end logoInitialise
 
-command socialMediaInitialise
+command socialMediaInitialise   
    ## Set the images
    local tWidget
    repeat for each item tMedia in kAllSocialMedia
@@ -137,16 +137,16 @@ end socialMediaInitialise
 
 command socialMediaSet
    local tCenterLoc, tMediaCount, tPadding, tWidth, tTotalWidth, tLeft
-
+   
    ## Show the chosen social media
    put item 1 of the loc of group "socialMedia" into tCenterLoc
    put the number of items in kSocialMedia into tMediaCount
    put 20 into tPadding
    put 20 into tWidth
-
+   
    put (tWidth * tMediaCount) + (tMediaCount - 1) * tPadding into tTotalWidth
    put tCenterLoc - round(tTotalWidth / 2) into tLeft
-
+   
    repeat with x = 1 to tMediaCount
       show widget (item x of kSocialMedia)
       set the left of widget (item x of kSocialMedia) to tLeft
@@ -189,27 +189,27 @@ end recentFileOpen
 
 command tilesInitialise
    local tArray, tSourceColor, tColorStep, tTileNumber
-
+   
    ## Set the colors of the tiles
    put uiColor("edition") into tSourceColor
    put revEnvironmentEditionProperty("start_center_tile_color_step") into tColorStep
-
+   
    repeat with tTileNumber = 1 to 8
-      add 1 to tColorStep
+      add 1 to tColorStep      
       set the bgColor of widget ("tile" & tTileNumber) to tileColor(tSourceColor,tColorStep)
       set the bgHoverColor of widget ("tile" & tTileNumber) to uiColor("tileBGHover")
-
+      
       set the fgColor of widget ("tile" & tTileNumber) to uiColor("tileFG")
       set the fgHoverColor of widget ("tile" & tTileNumber) to uiColor("tileFGHover")
-
+      
       set the hoverState of widget ("tile" & tTileNumber) to false
       set the behavior of widget ("tile" & tTileNumber) to the long id of button "tileBehavior"
    end repeat
-
+   
    ## Breadcrumb
    put empty into field "breadcrumb"
    set the textStyle of word 1 of field "breadcrumb" to empty
-
+   
    put tilesArray("home") into tArray
    repeat with x = 1 to 8
       show widget ("tile" & x)
@@ -220,7 +220,7 @@ end tilesInitialise
 command tilesSet pArray
    local tArray
    put pArray into tArray
-
+   
    repeat with x = 1 to 8
       if tArray[x]["tag"] is not empty then
          set the tileLabel of widget ("tile" & x) of me to tArray[x]["label"]
@@ -242,7 +242,7 @@ end resourcesPath
 
 function tilesArray pState
    local tArray
-
+   
    switch pState
       case "home"
          put "Interactive Welcome" into tArray[1]["label"]
@@ -254,7 +254,7 @@ function tilesArray pState
          put "lc-add" into tArray[2]["icon"]
          put "lc-add-filled" into tArray[2]["hoverIcon"]
          put "Sample Projects" into tArray[3]["label"]
-         put "samples" into tArray[3]["tag"]
+         put "samples" into tArray[3]["tag"]   
          put "lc-window" into tArray[3]["icon"]
          put "lc-window-filled" into tArray[3]["hoverIcon"]
          put "Tutorials" into tArray[4]["label"]
@@ -278,7 +278,7 @@ function tilesArray pState
          put "lc-person" into tArray[8]["icon"]
          put "lc-person-filled" into tArray[8]["hoverIcon"]
          break
-      case "interactive_welcome"
+      case "interactive_welcome"         
          put "1. User Interface" into tArray[1]["label"]
          put "tutorial_list_ui" into tArray[1]["tag"]
          put "tablet" into tArray[1]["icon"]
@@ -298,7 +298,7 @@ function tilesArray pState
          put "lc-todo-list" into tArray[2]["icon"]
          put "lc-todo-list-filled" into tArray[2]["hoverIcon"]
          put "3. BMI Calculator" into tArray[3]["label"]
-         put "tutorial_bmi_calculator" into tArray[3]["tag"]
+         put "tutorial_bmi_calculator" into tArray[3]["tag"]   
          put "lc-bmi-calculator" into tArray[3]["icon"]
          put "lc-bmi-calculator-filled" into tArray[3]["hoverIcon"]
          put "1. Hello World" into tArray[1]["label"]
@@ -325,37 +325,37 @@ function tilesArray pState
          put "newStackDefault" into tArray[1]["tag"]
          put "lc-window" into tArray[1]["icon"]
          put "lc-window-filled" into tArray[1]["hoverIcon"]
-
+         
          put "Script Only Stack" into tArray[2]["label"]
          put "newScriptOnlyStack" into tArray[2]["tag"]
          put "lc-filetype-lcs" into tArray[2]["icon"]
          put "lc-filetype-lcs-filled" into tArray[2]["hoverIcon"]
-
+         
          put "Tablet Portrait" into tArray[3]["label"]
          put "newTabletPortrait" into tArray[3]["tag"]
          put "lc-ipad-portrait" into tArray[3]["icon"]
          put "lc-ipad-portrait-filled" into tArray[3]["hoverIcon"]
-
+         
          put "Tablet Landscape" into tArray[4]["label"]
          put "newTabletLandscape" into tArray[4]["tag"]
          put "lc-ipad-landscape" into tArray[4]["icon"]
          put "lc-ipad-landscape-filled" into tArray[4]["hoverIcon"]
-
+         
          put "iPhone 6" into tArray[5]["label"]
          put "newIphone6" into tArray[5]["tag"]
          put "lc-iphone" into tArray[5]["icon"]
          put "lc-iphone-filled" into tArray[5]["hoverIcon"]
-
+         
          put "iPhone 5" into tArray[6]["label"]
          put "newIphone5" into tArray[6]["tag"]
          put "lc-iphone" into tArray[6]["icon"]
          put "lc-iphone-filled" into tArray[6]["hoverIcon"]
-
+         
          put "iPhone 4" into tArray[7]["label"]
          put "newIphone4" into tArray[7]["tag"]
          put "lc-iphone" into tArray[7]["icon"]
          put "lc-iphone-filled" into tArray[7]["hoverIcon"]
-
+         
          break
    end switch
    return tArray
@@ -444,14 +444,14 @@ on breadcrumbLinkClicked pLink
    if pLink is "home" then
       setState "home"
    else if pLink is "Interactive Welcome" then
-      setState "interactive_welcome"
+      setState "interactive_welcome"      
    end if
 end breadcrumbLinkClicked
 
 on startCenterAction pAction
    local tStackName, tArray
    switch pAction
-      case "interactive_welcome"
+      case "interactive_welcome" 
          --tourStart
          put "Home / Interactive Welcome" into field "breadcrumb"
          set the textStyle of word 1 of field "breadcrumb" to "link"
@@ -502,12 +502,11 @@ on startCenterAction pAction
       case "guides"
          revIDEDocumentationLoad "API", "LiveCode Script"
          break
-
       case "tutorials"
          launch url "http://livecode.com/links/livecode/tutorials"
          break
       case "forum"
-         launch url "https://forum.OpenXTalk.org/
+         launch url "http://livecode.com/links/livecode/forum"
          break
       case "dictionary"
          revIDEDocumentationLoad "API", "Guide"
@@ -516,13 +515,13 @@ on startCenterAction pAction
          launch url "http://livecode.com/links/livecode/blog"
          break
       case "upgrade"
-         launch url "https://livecode.com/about/contact/"
+         --launch url "https://livecode.com/about/contact/"
          break
       case "account"
-         launch url "http://forum.OpenXTalk.org"
+         launch url "http://livecode.com/links/livecode/account"
          break
       case "contact"
-         launch url "https://forum.OpenXTalk.org
+         --launch url "https://livecode.com/about/contact/"
          break
       case "website"
          launch url "http://livecode.com"
@@ -531,7 +530,7 @@ on startCenterAction pAction
          launch url "http://livecode.com/links/livecode/facebook"
          break
       case "twitter"
-        launch url "http://livecode.com/links/livecode/twitter"
+         launch url "http://livecode.com/links/livecode/twitter"
          break
       case "github"
          launch url "http://livecode.com/links/livecode/github"
@@ -571,11 +570,11 @@ end startCenterAction
 
 command setState pState
    local tArray
-
+   
    put tilesArray(pState) into tArray
-
+   
    put empty into field "breadcrumb"
-
+   
    if pState is "home" then
       set the textStyle of word 1 of field "breadcrumb" to empty
       showUpgradeMini
@@ -613,14 +612,14 @@ on ideTutorialProgressChanged
    end if
 end ideTutorialProgressChanged
 
-## Banner
+## Banner 
 command bannerInitialise
-   set the top of group "recentFiles" to 0
+   set the top of group "recentFiles" to 0 
    hide group "banner"
    --load url "http://elanorb.on-rev.com/startcenter/banner2.txt" with message "bannerComplete"
 end bannerInitialise
 
-## Social Media
+## Social Media 
 
 
 command startupPreferenceSet
@@ -636,7 +635,7 @@ end startupPreferenceSet
 function uiColor pColor
    local tEdition
    put revLicenseType() into tEdition
-
+   
    switch pColor
       case "edition"
          return revIDEColor("edition_color")
@@ -689,16 +688,16 @@ function uiColor pColor
          put revEnvironmentEditionProperty("start_center_tile_color_step") into tColorStep
          return tileColor(revIDEColor("edition_color"), tColorStep)
          break
-   end switch
+   end switch   
 end uiColor
 
 function tileColor pSourceColor, pTileNumber
    local tRed, tGreen, tBlue, tColor
-
+   
    put item 1 of pSourceColor into tRed
    put item 2 of pSourceColor into tGreen
    put item 3 of pSourceColor into tBlue
-
+   
    put tRed + (pTileNumber*5), tGreen+(pTileNumber*5), tBlue+(pTileNumber*5) into tColor
    return tColor
 end tileColor
@@ -707,33 +706,33 @@ function textProperty pType, pStyle
    switch pType
       case "title"
          if pStyle is "font" then
-
-         else if pStyle is "size" then
-
+            
+         else if pStyle is "size" then 
+            
          end if
          break
       case "tile"
          if pStyle is "font" then
-
-         else if pStyle is "size" then
-
+            
+         else if pStyle is "size" then 
+            
          end if
          break
       case "stackLabel"
          if pStyle is "font" then
-
-         else if pStyle is "size" then
-
+            
+         else if pStyle is "size" then 
+            
          end if
          break
       case "stackPath"
-
+         
          break
       case "option"
-
+         
          break
    end switch
-
+   
 end textProperty
 
 -- Actions triggered by the browser widgets related to upgrade
@@ -755,7 +754,7 @@ on ideAction pAction, pUrl
 end ideAction
 
 private command showUpgradeMini
-   if ideCanShowUpgradeOptions() and \
+   if ideCanShowUpgradeOptions() and \ 
          the cTutorialOverride of me is not true then
       showBrowser "UpgradeMini", \
             revEnvironmentEditionProperty("upgrade_mini_url")
@@ -810,7 +809,7 @@ on browserLoadFailed
 end browserLoadFailed
 
 private command hideUpgradeBrowser
-   -- Don't auto-show the mini upgrade browser when the
+   -- Don't auto-show the mini upgrade browser when the 
    -- upgrade browser is launched from elsewhere
    hide widget "UpgradeMini" of me
    hide group "UpgradeMini" of me

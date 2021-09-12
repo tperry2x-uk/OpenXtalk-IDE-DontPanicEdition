@@ -236,7 +236,7 @@ on setMenuProperties
 
    local tTitle
    set the itemDelimiter to "-"
-   put "LiveCode" into tTitle
+   put "OpenXTalk" into tTitle
    if item 1 of the version ends with ".0" then
       put space & char 1 to -3 of item 1 of the version after tTitle
    else
@@ -1914,14 +1914,14 @@ private function revMenubarHelpMenu pContext
    put "Release Notes/|Release Notes" & return after tHelp
    put "License Agreement/|License Agreement" & return after tHelp
    put "-" & return after tHelp
-   put "&Buy a License.../|Buy" & return after tHelp
-   put "&Support.../|Support" & return after tHelp
+   put "&Commercial Development.../|Buy" & return after tHelp
+   -- put "&Support.../|Support" & return after tHelp
    -- put "-" & return after tHelp
    -- put enableMenuItem("Re-license LiveCode/|Relicense", line 7 of the revLicenseInfo is not "Global") & return after tHelp
    -- put "-" & return after tHelp
    -- put "Check For Updates/|Update" & return after tHelp
    -- put "-" & return after tHelp
-   put "About LiveCode Community/|About" after tHelp
+   put "About OpenXTalk Community/|About" after tHelp
 
    return modifyMenu("Help", tHelp)
 end revMenubarHelpMenu

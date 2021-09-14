@@ -1,4 +1,4 @@
-#The OpenXTalk DON'T PANIC Edition! Inegrated Development Environment (IDE)
+## The OpenXTalk DON'T PANIC Edition! Inegrated Development Environment (IDE)
 
 This project is an effort to maintain and improve a fork of the legacy Opensource LiveCode Community Edition code base.
 LiveCode Ltd. has dropped support for opensource builds (LCC 6.0.1 to 9.6.3) entirely. 

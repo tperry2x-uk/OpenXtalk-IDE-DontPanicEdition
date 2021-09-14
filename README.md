@@ -1,8 +1,8 @@
-## The OpenXTalk DON'T PANIC Edition! Inegrated Development Environment (IDE)
+## The OpenXTalk DON'T PANIC Edition! Inegrated Development Environment
 
-This project is an effort to maintain and improve a fork of the legacy Opensource LiveCode Community Edition code base.
+This project is part of an effort to maintain and improve a fork of the legacy open source (GPL3) LiveCode Community Edition code base.
 LiveCode Ltd. has dropped support for opensource builds (LCC 6.0.1 to 9.6.3) entirely. 
-###This means DO NOT ASK LC Ltd. for support for things related to this project in anyway!
+### This means DO NOT ASK LC Ltd. for support for things related to this project in anyway!
 
 For those that may be unfamiliar with the term, xTalk is a family of scripting languages that aspires to be natural-language-esque, syntactically English-like, "programming for the rest of us" which has been built on top of Bill Atkinson's now long-defuct HyperCard (Apple / Claris) and Dan Winkler's HyperTalk Script. xTalk has an even longer history, with concepts originating decades before HyperCard appeared, the "Hyper" in the name stemmming from the concept of HyperText / HyperMedia in the 1960s.
 

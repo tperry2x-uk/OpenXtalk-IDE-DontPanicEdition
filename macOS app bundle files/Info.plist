@@ -28,7 +28,7 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>LiveCode-Community</string>
+	<string>OpenXTalk-Community</string>
 	<key>CFBundleGetInfoString</key>
 	<string>9.6.3.15543, Copyright 2000-2020 LiveCode Ltd.</string>
 	<key>CFBundleIconFile</key>

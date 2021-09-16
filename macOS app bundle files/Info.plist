@@ -32,7 +32,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>9.6.3.15543, Copyright 2000-2020 LiveCode Ltd.</string>
 	<key>CFBundleIconFile</key>
-	<string>LiveCode.icns</string>
+	<string>OpenXTalk.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.runrev.livecode</string>
 	<key>CFBundleInfoDictionaryVersion</key>

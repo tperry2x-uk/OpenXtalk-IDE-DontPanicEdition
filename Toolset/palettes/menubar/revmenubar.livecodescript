@@ -482,7 +482,7 @@ private command generateUpgradeGroup
    create field "label" in group "upgrade" of me
    set the margins of it to 4
    set the traversalOn of it to false
-   set the text of it to "Upgrade Options"
+   set the text of it to "OpenXTalk"
    set the textStyle["bold"] of it to true
    set the textColor of it to "white"
 

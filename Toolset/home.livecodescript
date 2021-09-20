@@ -332,7 +332,7 @@ local sRepositoryPath
 local sOverrideRuntimePath, sTestEnvironment
 
 -- Parameterize this so it makes it easier to change.
-constant kProductName = "LiveCode"
+constant kProductName = "OpenXTalk"
 
 --------------------------------------------------------------------------------
 -- Internal Setup Functions
@@ -549,7 +549,7 @@ function revInternal__StackFiles
    put item 1 of the version into tIDEVersion
    repeat for each line tPath in tFolders
       repeat for each line tFile in files(tPath)
-         if the last item of tFile is not among the items of "rev.livecode.livecodescript" then next repeat
+         if the last item of tFile is not among the items of "rev.livecode.livecodescript.stk.otxstack.otxscript" then next repeat
 
          put item 1 to -2 of tFile into tStackName
 
@@ -953,7 +953,9 @@ function revInternal__CheckFileAssociations
       -- If .rev, .livecode or .livecodescript classes are not present, then we need new assocs
       # AL-2015-03-13: [[ Bug 14910 ]] Add .livecodescript to valid stack file extensions on windows
       if queryRegistry("HKEY_CURRENT_USER\Software\Classes\.rev\") is not "RevolutionStack" or \
+            queryRegistry("HKEY_CURRENT_USER\Software\Classes\.otxstack\") is not "Stack" or \
             queryRegistry("HKEY_CURRENT_USER\Software\Classes\.livecode\") is not "LiveCodeStack" or \
+            queryRegistry("HKEY_CURRENT_USER\Software\Classes\.otxscript\") is not "ScriptOnlyStack" or \
             queryRegistry("HKEY_CURRENT_USER\Software\Classes\.livecodescript\") is not "LiveCodeScriptOnlyStack"
       then
          return true
@@ -990,11 +992,14 @@ command revInternal__InstallFileAssociations
       replace slash with backslash in tEnginePath
       # AL-2015-03-13: [[ Bug 14910 ]] Add .livecodescript to valid stack file extensions on windows
       get setRegistry("HKEY_CURRENT_USER\Software\Classes\.rev\", "RevolutionStack") and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\.stk\", "Stack") and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\RevolutionStack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\RevolutionStack\DefaultIcon\", tEnginePath & comma & "1") and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\.livecode\", "LiveCodeStack") and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\.otxstack\", "Stack") and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\LiveCodeStack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\LiveCodeStack\DefaultIcon\", tEnginePath & comma & "1") and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\.otxscript\", "ScriptOnlyStack") and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\.livecodescript\", "LiveCodeScriptOnlyStack") and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\LiveCodeScriptOnlyStack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\LiveCodeScriptOnlyStack\DefaultIcon\", tEnginePath & comma & "1")

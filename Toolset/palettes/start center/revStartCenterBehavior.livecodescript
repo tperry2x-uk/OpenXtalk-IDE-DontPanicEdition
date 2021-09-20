@@ -507,7 +507,7 @@ on startCenterAction pAction
          launch url "http://livecode.com/links/livecode/tutorials"
          break
       case "forum"
-         launch url "https://forum.OpenXTalk.org/
+         launch url "https://forum.OpenXTalk.org/"
          break
       case "dictionary"
          revIDEDocumentationLoad "API", "Guide"
@@ -522,7 +522,7 @@ on startCenterAction pAction
          launch url "http://forum.OpenXTalk.org"
          break
       case "contact"
-         launch url "https://forum.OpenXTalk.org
+         launch url "https://forum.OpenXTalk.org"
          break
       case "website"
          launch url "http://livecode.com"

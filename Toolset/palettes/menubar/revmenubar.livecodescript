@@ -235,17 +235,17 @@ on setMenuProperties
    set the resizable of me to false
 
    local tTitle
-   set the itemDelimiter to "-"
+   -- set the itemDelimiter to "-"
    put "OpenXTalk" into tTitle
-   if item 1 of the version ends with ".0" then
-      put space & char 1 to -3 of item 1 of the version after tTitle
-   else
-      put space & item 1 of the version after tTitle
-   end if
-   if item 2 of the version is not empty then
-      put space & "(" & item 2 of the version && item 3 of the version & ")" after tTitle
-   end if
-   set the itemDelimiter to comma
+   -- if item 1 of the version ends with ".0" then
+   --   put space & char 1 to -3 of item 1 of the version after tTitle
+   -- else
+   --   put space & item 1 of the version after tTitle
+   -- end if
+   -- if item 2 of the version is not empty then
+   --   put space & "(" & item 2 of the version && item 3 of the version & ")" after tTitle
+   -- end if
+   -- set the itemDelimiter to comma
    set the title of me to tTitle
 
    local tScreenRect
@@ -2633,7 +2633,7 @@ on revMenubarContextMenuPickTarget pWhich, pTarget
       case "TopLevel Panel Stack"
          toplevel the menuname of pTarget
          break
-         ######## STACK SCPECIFIC ########
+         ######## STACK SCPECIFIC ########
       case "New Card"
          revIDEActionNewCard
          break

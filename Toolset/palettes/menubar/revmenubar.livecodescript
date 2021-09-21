@@ -2633,7 +2633,7 @@ on revMenubarContextMenuPickTarget pWhich, pTarget
       case "TopLevel Panel Stack"
          toplevel the menuname of pTarget
          break
-         ######## STACK SCPECIFIC ########
+         ######## STACK SCPECIFIC ########
       case "New Card"
          revIDEActionNewCard
          break

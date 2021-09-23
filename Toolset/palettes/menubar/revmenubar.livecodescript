@@ -1366,7 +1366,7 @@ private function revMenubarFileMenu pContext
 
    local tFile
    put "&New Stack" & return after tFile
-   put tab & "Default Size" & return after tFile
+   put tab & "Default Size/cmd shift n" & return after tFile
    put tab & "-" & return after tFile
    put tab & "iPhone 4 (320x480)" & return after tFile
    put tab & "iPhone 5 (320x568)" & return after tFile
@@ -2759,6 +2759,8 @@ on revMenubarFileMenuPick pWhich
                put item 2 of pWhich into tStackType
                if tStackType is "Script Only Stack" then
                   revIDEActionNewScriptOnlyStack
+               else if tStackType is "Default Size" then
+                  revIDEActionNewMainstack "Default Size"
                else
                   revIDEActionNewMainstack tStackType
                end if

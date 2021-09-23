@@ -1,5 +1,5 @@
 script "home"
-constant kImportantTextColor = "#673ab7" -- the color of startup messages text in splash screen
+constant kImportantTextColor = "#b84c93" -- the color of startup messages text in splash screen
 
 on startup
    revSetTestEnvironment($TRAVIS is true) -- sets up Travis CI (https://docs.travis-ci.com/) and checking an environmental variable for test mode
@@ -14,7 +14,7 @@ on startup
    revInternal__Log "Start"
    revInternal__Log "Enter", "Startup"
    try
-      revInternal__SetupLicense -- can possiblly be disabled in OpenXTalk
+      revInternal__SetupLicense -- copies some license info to variables, possibly disabled later, to see most of it: put revLicenseInfo into msg
       revInternal__SetupPaths -- Sets Up Preferences and App Support Folders Paths
       revInternal__SetupFolders -- Checks Preferences and App Support folders exist, or creates them
       revInternal__SetupStackFiles -- sets up stack files names & paths via internal Engine function revInternal__StackFiles()
@@ -34,7 +34,7 @@ on relaunch
    if gREVDevelopment then
       pass relaunch
    end if
-
+   -- relaunch is used for installer and updater binariers
    -- Pass the relaunch request through a hook
    local tParameters
    repeat with x = 1 to the paramCount
@@ -81,7 +81,7 @@ on preOpenStack
 
    revInternal__Log "Enter", "Pre-Open Stack"
 
-   revInternal__InitialiseDefaults
+   revInternal__InitialiseDefaults -- sets up some basic IDE app behavior depending on the platform
 
    revInternal__Log "Leave", "Pre-Open Stack"
 end preOpenStack
@@ -93,7 +93,7 @@ on openStack
    revInternal__Log "Enter", "Open Stack"
 
    //send "revInternal__openStack" to me in 0 millisecs
-   revInternal__openStack
+   revInternal__openStack -- does all of the rest of loading the IDE
 
    revInternal__Log "Leave", "Open Stack"
 end openStack
@@ -257,7 +257,7 @@ on revInternal__openStack
          set the itemdelimiter to "/"
          switch the platform
             case "MacOS"
-               put item 1 to -5 of the filename me & "/Contents/MacOS/autoupdater" into tCommand
+               put item 1 to -5 of the filename me & "/Contents/MacOS/autoupdater" into tCommand -- seperate CLI app on macOS
                put quote & tCommand & quote && "install -update" into tCommand
                break
             case "Win32"
@@ -1403,7 +1403,7 @@ command revInternal__InitialiseDefaults
 
    switch sLicensePlatform
       case "MacOS X"
-         set the stackFileType to "RevoRSTK"
+         set the stackFileType to "OXTkSTAK"
          set the hidePalettes to true
          set the dontUseNS to false
          set the itemdelimiter to "."
@@ -1820,7 +1820,7 @@ command revInternal__ConstrainStack pStack
 
 end revInternal__ConstrainStack
 
---------------------------------------------------------------------------------
+--------------------------------------------------------------   This folder structure is outdated -- PM
 -- Global Environment Functions - Installation Structure
 --
 -- <Installation>/
@@ -1890,7 +1890,7 @@ function revEnvironmentEditionProperty pProp, pEdition
          switch pProp
             case "name"
                return "Community"
-            case "color" -- these colors seem to be for drag & drop operations in the IDE in general
+            case "color" -- the following colos seem to be for highlighting and drag & drop operations in the IDE, make user customizeable later - Paul McClernan 9/23/21
                return 117,97,192
             case "pb_line_selected_color"
                return 208,82,165
@@ -1901,13 +1901,13 @@ function revEnvironmentEditionProperty pProp, pEdition
             case "revsplash_text_color"
                return 0,0,0
             case "start_center_tile_color_step"
-               return -9
+               return 0 -- -9
             case "password_protection"
                return false
             case "open_source_required"
                return true
             case "splash_strap"
-               return empty
+               return "<p>DON'T PANIC</p>" -- return empty
             case "upgrade_mini_url"
                return "OpenXTalk" -- https://livecode.com/products/community-plus-ide-2/
             case "upgrade_url"
@@ -1916,8 +1916,8 @@ function revEnvironmentEditionProperty pProp, pEdition
                return "Community" -- "communityplus"
             case "edition_external_url"
                return "" -- https://livecode.com/products/community-edition/
-            case "autocomplete"
-            case "autocomplete_pro"
+            case "autocomplete"     ---      <--------------------------------------------  Insert New Autocomplete Script Here !!!
+            case "autocomplete_pro" --- <------------------------------------------  Personaly I found LC's autocomplete to be annoying -- PM
                return false
             case "script_profiler"
                return false
@@ -1952,7 +1952,7 @@ function revEnvironmentEditionProperty pProp, pEdition
             case "upgrade_edition"
                return "commercial"
             case "edition_external_url"
-               return "https://livecode.com/products/community-plus-edition/"
+               return "OpenXTalk"-- "https://livecode.com/products/community-plus-edition/"
             case "autocomplete"
                return true
             case "autocomplete_pro"

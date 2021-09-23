@@ -1,34 +1,31 @@
-﻿script "home"
-constant kImportantTextColor = "#569e54"
+script "home"
+constant kImportantTextColor = "#673ab7" -- the color of startup messages text in splash screen
 
 on startup
-   revSetTestEnvironment($TRAVIS is true)
+   revSetTestEnvironment($TRAVIS is true) -- sets up Travis CI (https://docs.travis-ci.com/) and checking an environmental variable for test mode
 
    -- MW-2011-03-13: Make sure the externals are empty on startup
    set the externals of me to empty
 
-   set the allowInterrupts to false
+   set the allowInterrupts to false -- prevent users from interrupting handlers while starting the IDE
 
-   set the cREVLaunching of me to true
+   set the cREVLaunching of me to true -- cREVLaunching is true while starting up
 
    revInternal__Log "Start"
    revInternal__Log "Enter", "Startup"
-
    try
-      -- revInternal__SetupLicense
-      revInternal__SetupPaths
-      revInternal__SetupFolders
-      revInternal__SetupStackFiles
-      revInternal__SetupSplash
-      revInternal__SetupPreferences
-      revInternal__SetupCustomizationPath
-      revInternal__SetupExternals
+      revInternal__SetupLicense -- can possiblly be disabled in OpenXTalk
+      revInternal__SetupPaths -- Sets Up Preferences and App Support Folders Paths
+      revInternal__SetupFolders -- Checks Preferences and App Support folders exist, or creates them
+      revInternal__SetupStackFiles -- sets up stack files names & paths via internal Engine function revInternal__StackFiles()
+      revInternal__SetupSplash -- palette revSplash stack
+      revInternal__SetupPreferences -- checks and loads the prefs file and tacks additional line on to Home's stack files
+      revInternal__SetupCustomizationPath -- sets up IDE user's customization directory for add ons and such
+      revInternal__SetupExternals -- loads Externals from IDE path /Tools/Ext/ and user's directory (see above) /Externals
    catch tError
       revInternal__Log "Error", tError
    end try
-
    revInternal__Log "Leave", "Startup"
-
    return tError
 end startup
 
@@ -466,7 +463,7 @@ end revInternal__SetupPaths
 
 command revInternal__SetupCustomizationPath
   revInternal__Log "Enter", "Customization Path Setup"
-
+  -- New OXT names - Paul McClernan 9/23/21
   # If there is a customization path set in the preferences, and it exists, then use it, otherwise
   # revert to old behavior.
   local tUserCustomizationPath
@@ -479,14 +476,14 @@ command revInternal__SetupCustomizationPath
       local tOldFolder
       put the folder into tOldFolder
       set the folder to "~"
-      put the folder & slash & "my_livecode" into sCustomizationPath
+      put the folder & slash & "my_openxtalk" into sCustomizationPath
       set the folder to tOldFolder
       break
     case "Windows"
-      put specialFolderPath(0x0005) & "/My LiveCode" into sCustomizationPath
+      put specialFolderPath(0x0005) & "/My OpenXTalk" into sCustomizationPath
       break
     case "MacOS X"
-      put specialFolderPath("docs") & "/My LiveCode" into sCustomizationPath
+      put specialFolderPath("docs") & "/My OpenXTalk" into sCustomizationPath
       break
     end switch
 
@@ -948,7 +945,7 @@ function revInternal__CheckFileAssociations
    local tEnginePath
    set the itemDelimiter to ":"
    put item 2 to -1 of the address into tEnginePath
-
+   -- Added OXT types -- Paul McClernan 9-23-2021
    if the platform is "win32" then
       -- If .rev, .livecode or .livecodescript classes are not present, then we need new assocs
       # AL-2015-03-13: [[ Bug 14910 ]] Add .livecodescript to valid stack file extensions on windows
@@ -976,12 +973,21 @@ function revInternal__CheckFileAssociations
       if word 1 of it is not quote & tEnginePath & quote then
          return true
       end if
+      get queryRegistry("HKEY_CURRENT_USER\Software\Classes\Stack\Shell\Open\Command\")
+      if word 1 of it is not quote & tEnginePath & quote then
+         return true
+      end if
+      get queryRegistry("HKEY_CURRENT_USER\Software\Classes\ScriptOnlyStack\Shell\Open\Command\")
+      if word 1 of it is not quote & tEnginePath & quote then
+         return true
+      end if
    else
       -- Do Linux at some point!
    end if
 
    return false
 end revInternal__CheckFileAssociations
+
 
 command revInternal__InstallFileAssociations
    local tEnginePath
@@ -1879,20 +1885,19 @@ function revEnvironmentEditionProperty pProp, pEdition
    if pProp is "skin" then
       return revEnvironmentToolsetPath() & "/resources/" & pEdition & "/ideSkin"
    end if
-
    switch pEdition
       case "community"
          switch pProp
             case "name"
                return "Community"
-            case "color"
-               return 173,208,54
+            case "color" -- these colors seem to be for drag & drop operations in the IDE in general
+               return 117,97,192
             case "pb_line_selected_color"
-               return 226,238,185
+               return 208,82,165
             case "revonline_hilite_color"
                return 156,199,45
             case "revabout_hilite_color"
-               return 106,139,15
+               return 156,199,45
             case "revsplash_text_color"
                return 0,0,0
             case "start_center_tile_color_step"
@@ -1904,13 +1909,13 @@ function revEnvironmentEditionProperty pProp, pEdition
             case "splash_strap"
                return empty
             case "upgrade_mini_url"
-               return "https://livecode.com/products/community-plus-ide-2/"
+               return "OpenXTalk" -- https://livecode.com/products/community-plus-ide-2/
             case "upgrade_url"
-               return "https://livecode.com/products/community-plus-ide/"
+               return "OpenXTalk" -- https://livecode.com/products/community-plus-ide/
             case "upgrade_edition"
-               return "communityplus"
+               return "Community" -- "communityplus"
             case "edition_external_url"
-               return "https://livecode.com/products/community-edition/"
+               return "" -- https://livecode.com/products/community-edition/
             case "autocomplete"
             case "autocomplete_pro"
                return false

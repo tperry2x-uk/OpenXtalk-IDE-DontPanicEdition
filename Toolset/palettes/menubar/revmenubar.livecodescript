@@ -2760,7 +2760,7 @@ on revMenubarFileMenuPick pWhich
                if tStackType is "Script Only Stack" then
                   revIDEActionNewScriptOnlyStack
                else if tStackType is "Default Size" then
-                  revIDEActionNewMainstack "Default Size"
+                  revIDEActionNewMainstack "Default Size" --- TO DO: The doesn't appear to be a way to set the default size for stacks in the revPreferencesUI, should be added - Paul McClernan 9-23-21
                else
                   revIDEActionNewMainstack tStackType
                end if

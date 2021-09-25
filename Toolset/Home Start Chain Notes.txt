@@ -23,16 +23,31 @@ HOME Start chain:
       revInternal__InitialiseIcons -- "Loading theme data..."" actually icons are already loaded, this just hides "revIcons" stack!
     Patterns
       stacks "revGeneralPatterns,revCompatibilityPatterns1,revCompatibilityPatterns2" checked for existence, doesn't do anything if they don't exist!
-    revInternal__InitialiseScriptEditor
-    revInternal__InitialiseUserLibraries
-    revInternal__InitialiseErrors
-    revInternal__InitialiseMenus
-    revInternal__InitialiseTools
+    revInternal__InitialiseScriptEditor -- sets the behavior script of stack /palettes/script editor/revscripteditor.8.rev and insures SE invisibles are hidden
+    revInternal__InitialiseUserLibraries -- loads any ~ user/My_OTX/ icon files and sets them to hidden
+    revInternal__InitialiseErrors -- sets _ideoverride on revError display and ensures invisibles are hidden
+    revInternal__InitialiseMenus -- Creates top ToolBar menu (that palette at the top) and the app menus 
+    revInternal__InitialiseTools -- Loads the Tools palette and positions it on screen  
     revInternal__InitialiseProjectBrowser
-    revInternal__InitialiseMessageBox
-    revInternal__InitialisePlugIns
-    revInternal__CleanDocsCache
-    revInternal__BuildDictionary
-    revInternal__InitialiseFinalSteps
+    revInternal__InitialiseMessageBox -- Loads the message box palette and positions it on screen  
+    revInternal__InitialisePlugIns -- Loads IDE plugins
+    revInternal__CleanDocsCache -- Clear Dictionary Cache is need be
+    revInternal__BuildDictionary -- Builds Dictionary if need be
+    revInternal__InitialiseFinalSteps -- Loads FrontScripts, BackScripts, ShortCuts(?), RevOnline and Clears Splash Screen Text
+    revInternal__CheckFileAssociations -- Makes sure the filename extensions are setup on Windows, if not then shows stack "revFileAssociations" dialog
+    load "Start Center"
+    Checks license info for "evaluation" and then runs auto updater per platform -- Commented this whole section out to disable it 
+end
+
+
+IDE Home script interesting functions:
+
+revEnvironmentToolsetPath()
+
+revEnvironmentPlatform()
+
+revEnvironmentExtPath()
 
 !!!! -- try revInternal__StackFiles() in msg box --  disables EVERYTHING!
+
+_ideoverride -- note sure exactly what the property does -- may be similar to 'palette stack'?0

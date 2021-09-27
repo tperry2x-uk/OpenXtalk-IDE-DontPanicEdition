@@ -1,5 +1,5 @@
 OpenXtalk-IDE-DontPanicEdition is set of modifications to 
-LiveCode Community Edition IDE, release in accordance to the licence(s) granted bellow.
+LiveCode Community Edition IDE, release in accordance to the license(s) granted below.
 No warrantee granted or implied. LiveCode Ltd. has dropped support for this work as
 of August 29th 2021. Paul McClernan, September 27th 2021 
 

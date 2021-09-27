@@ -1,0 +1,54 @@
+import module com.livecode.widget.native.android.barcodescanner
+  use com.livecode.java
+  use com.livecode.foreign
+  use com.livecode.canvas
+  use com.livecode.library.androidutils
+  use com.livecode.library.scriptitems
+  use com.livecode.library.native.android.barcodesupport
+  use com.livecode.library.widgetutils
+  use com.livecode.engine
+  use com.livecode.arithmetic
+  use com.livecode.binary
+  use com.livecode.list
+  use com.livecode.logic
+  use com.livecode.string
+  use com.livecode.type
+  use com.livecode.system
+  use com.livecode.array
+  use com.livecode.widget
+  use com.livecode.bitwise
+  use com.livecode.math
+  use com.livecode.commercial.license
+  handler SetDevice(in pDevice as String) returns nothing
+  handler GetDevice() returns String
+  handler SetSnapshotMode(in pDevice as String) returns nothing
+  handler GetSnapshotMode() returns String
+  handler SetOverlayShowLabels(in pOverlayShowLabels as Boolean) returns nothing
+  handler SetOverlayShowRects(in pOverlayShowLabels as Boolean) returns nothing
+  handler SetOverlayShowGuide(in pOverlayShowLabels as Boolean) returns nothing
+  handler SetOverlayLabelColor(in pDevice as String) returns nothing
+  handler SetOverlayRectColor(in pDevice as String) returns nothing
+  handler GetIsOperational() returns Boolean
+  handler SetTorchMode(in pDevice as String) returns nothing
+  handler GetTorchMode() returns String
+  handler OnCreate() returns optional any
+  handler OnSave(out rProperties as Array) returns optional any
+  handler OnLoad(in pProperties as Array) returns optional any
+  handler OnOpen() returns optional any
+  handler OnClose() returns optional any
+  handler OnPaint() returns optional any
+  handler OnGeometryChanged() returns optional any
+  handler OnVisibilityChanged(in pIsVisible as Boolean) returns optional any
+  handler OnClick() returns optional any
+  handler OnTimer() returns optional any
+  handler OnParentPropertyChanged() returns optional any
+  handler OnCameraSourceStarted() returns nothing
+  handler OnCameraSourceAutoFocus(in pSuccess as JObject) returns nothing
+  handler OnBarcodeDetected(in pTracker as JObject, in pBarcode as JObject) returns nothing
+  handler OnBarcodeUpdated(in pTracker as JObject, in pBarcode as JObject) returns nothing
+  handler OnBarcodeHidden(in pSuccess as JObject) returns nothing
+  handler OnBarcodeDone(in pSuccess as JObject) returns nothing
+  handler OnSnapshotTaken(in pSnapshot as JObject, in pBarcodeID as JObject, in pCallback as JObject) returns nothing
+  handler OnLightSensorAccuracyChanged(in pSuccess as JObject) returns nothing
+  handler OnLightSensorChanged(in pSuccess as JObject) returns nothing
+end module

@@ -1,0 +1,210 @@
+import module com.livecode.widget.pdf.pdfium
+  use com.livecode.foreign
+  use com.livecode.arithmetic
+  use com.livecode.binary
+  use com.livecode.list
+  use com.livecode.logic
+  use com.livecode.string
+  use com.livecode.type
+  constant FPDF_OBJECT_UNKNOWN
+  constant FPDF_OBJECT_BOOLEAN
+  constant FPDF_OBJECT_NUMBER
+  constant FPDF_OBJECT_STRING
+  constant FPDF_OBJECT_NAME
+  constant FPDF_OBJECT_ARRAY
+  constant FPDF_OBJECT_DICTIONARY
+  constant FPDF_OBJECT_STREAM
+  constant FPDF_OBJECT_NULLOBJ
+  constant FPDF_OBJECT_REFERENCE
+  type FPDF_OBJECT_TYPE is CSInt
+  constant FPDF_ERR_SUCCESS
+  constant FPDF_ERR_UNKNOWN
+  constant FPDF_ERR_FILE
+  constant FPDF_ERR_FORMAT
+  constant FPDF_ERR_PASSWORD
+  constant FPDF_ERR_SECURITY
+  constant FPDF_ERR_PAGE
+  constant FPDF_ERR_XFALOAD
+  constant FPDF_ERR_XFALAYOUT
+  type FPDF_ERROR is CSInt
+  type FPDF_ACTION is Pointer
+  type FPDF_ANNOTATION is Pointer
+  type FPDF_ATTACHMENT is Pointer
+  type FPDF_BITMAP is Pointer
+  type FPDF_BOOKMARK is Pointer
+  type FPDF_CLIPPATH is Pointer
+  type FPDF_DEST is Pointer
+  type FPDF_DOCUMENT is Pointer
+  type FPDF_FONT is Pointer
+  type FPDF_LINK is Pointer
+  type FPDF_PAGE is Pointer
+  type FPDF_PAGELINK is Pointer
+  type FPDF_PAGEOBJECT is Pointer
+  type FPDF_PAGERANGE is Pointer
+  type FPDF_RECORDER is Pointer
+  type FPDF_SCHHANDLE is Pointer
+  type FPDF_STRUCTELEMENT is Pointer
+  type FPDF_STRUCTTREE is Pointer
+  type FPDF_TEXTPAGE is Pointer
+  type FPDF_PATHSEGMENT is Pointer
+  type FPDF_BOOL is CSInt
+  type FPDF_DWORD is CULong
+  type FS_FLOAT is Float32
+  type FPDF_WCHAR is CUShort
+  type FPDF_LPCBYTE is Pointer
+  type FPDF_BYTESTRING is ZStringNative
+  type FPDF_WIDESTRING is ZStringUTF16
+  type FPDF_STRING is ZStringUTF8
+  type FPDF_SYSFONTINFO is Pointer
+  foreign type FS_RECTF
+  foreign type FPDF_DEST_PARAMS
+  foreign type FPDF_IMAGEOBJ_METADATA
+  constant FPDF_ANNOT
+  constant FPDF_LCD_TEXT
+  constant FPDF_NO_NATIVETEXT
+  constant FPDF_GRAYSCALE
+  constant FPDF_DEBUG_INFO
+  constant FPDF_NO_CATCH
+  constant FPDF_RENDER_LIMITEDIMAGECACHE
+  constant FPDF_RENDER_FORCEHALFTONE
+  constant FPDF_PRINTING
+  constant FPDF_RENDER_NO_SMOOTHTEXT
+  constant FPDF_RENDER_NO_SMOOTHIMAGE
+  constant FPDF_RENDER_NO_SMOOTHPATH
+  constant FPDF_REVERSE_BYTE_ORDER
+  constant FPDFBitmap_Unknown
+  constant FPDFBitmap_Gray
+  constant FPDFBitmap_BGR
+  constant FPDFBitmap_BGRx
+  constant FPDFBitmap_BGRA
+  constant PDFACTION_UNSUPPORTED
+  constant PDFACTION_GOTO
+  constant PDFACTION_REMOTEGOTO
+  constant PDFACTION_URI
+  constant PDFACTION_LAUNCH
+  constant FPDFRender_RotationNormal
+  constant FPDFRender_Rotation90DegreesClockwise
+  constant FPDFRender_Rotation180DegreesClockwise
+  constant FPDFRender_Rotation90DegreesCounterClockwise
+  constant FPDF_ANNOT_UNKNOWN
+  constant FPDF_ANNOT_TEXT
+  constant FPDF_ANNOT_LINK
+  constant FPDF_ANNOT_FREETEXT
+  constant FPDF_ANNOT_LINE
+  constant FPDF_ANNOT_SQUARE
+  constant FPDF_ANNOT_CIRCLE
+  constant FPDF_ANNOT_POLYGON
+  constant FPDF_ANNOT_POLYLINE
+  constant FPDF_ANNOT_HIGHLIGHT
+  constant FPDF_ANNOT_UNDERLINE
+  constant FPDF_ANNOT_SQUIGGLY
+  constant FPDF_ANNOT_STRIKEOUT
+  constant FPDF_ANNOT_STAMP
+  constant FPDF_ANNOT_CARET
+  constant FPDF_ANNOT_INK
+  constant FPDF_ANNOT_POPUP
+  constant FPDF_ANNOT_FILEATTACHMENT
+  constant FPDF_ANNOT_SOUND
+  constant FPDF_ANNOT_MOVIE
+  constant FPDF_ANNOT_WIDGET
+  constant FPDF_ANNOT_SCREEN
+  constant FPDF_ANNOT_PRINTERMARK
+  constant FPDF_ANNOT_TRAPNET
+  constant FPDF_ANNOT_WATERMARK
+  constant FPDF_ANNOT_THREED
+  constant FPDF_ANNOT_RICHMEDIA
+  constant FPDF_ANNOT_XFAWIDGET
+  constant FPDFANNOT_COLORTYPE_Color
+  constant FPDFANNOT_COLORTYPE_InteriorColor
+  constant FPDF_PAGEOBJ_UNKNOWN
+  constant FPDF_PAGEOBJ_TEXT
+  constant FPDF_PAGEOBJ_PATH
+  constant FPDF_PAGEOBJ_IMAGE
+  constant FPDF_PAGEOBJ_SHADING
+  constant FPDF_PAGEOBJ_FORM
+  constant FPDF_DEST_ZOOMMODENONE
+  constant FPDF_DEST_ZOOMMODEXYZ
+  constant FPDF_DEST_ZOOMMODEFIT
+  constant FPDF_DEST_ZOOMMODEFITH
+  constant FPDF_DEST_ZOOMMODEFITV
+  constant FPDF_DEST_ZOOMMODEFITR
+  constant FPDF_DEST_ZOOMMODEFITB
+  constant FPDF_DEST_ZOOMMODEFITBH
+  constant FPDF_DEST_ZOOMMODEFITBV
+  handler FPDF_InitLibrary() returns nothing
+  handler FPDF_DestroyLibrary() returns nothing
+  foreign handler FPDF_LoadDocument(in pPath as ZStringUTF8, in pPassword as optional FPDF_BYTESTRING) returns Pointer
+  foreign handler FPDF_LoadMemDocument(in pBuffer as Pointer, in pLength as CSInt, in pPassword as optional FPDF_BYTESTRING) returns Pointer
+  foreign handler FPDF_GetLastError() returns CSInt
+  handler FPDF_GetLastErrorString() returns String
+  foreign handler FPDF_GetPageCount(in pDocument as Pointer) returns CSInt
+  foreign handler FPDF_LoadPage(in pDocument as Pointer, in pPageIndex as CSInt) returns Pointer
+  foreign handler FPDF_GetPageWidth(in pPage as Pointer) returns Float64
+  foreign handler FPDF_GetPageHeight(in pPage as Pointer) returns Float64
+  foreign handler FPDF_GetPageSizeByIndex(in pDocument as Pointer, in pPageIndex as CSInt, out pWidth as Float64, out pHeight as Float64) returns CSInt
+  foreign handler FPDF_RenderPageBitmap(in pBitmap as Pointer, in pPage as Pointer, in pStartX as CSInt, in pStartY as CSInt, in pSizeX as CSInt, in pSizeY as CSInt, in pRotate as CSInt, in pFlags as CSInt) returns nothing
+  foreign handler FPDF_ClosePage(in pPage as Pointer) returns nothing
+  foreign handler FPDF_CloseDocument(in pPage as Pointer) returns nothing
+  foreign handler FPDF_DeviceToPage(in pPage as Pointer, in pStartX as CSInt, in pStartY as CSInt, in pSizeX as CSInt, in pSizeY as CSInt, in pRotate as CSInt, in pDeviceX as CSInt, in pDeviceY as CSInt, out pPageX as Float64, out pPageY as Float64) returns nothing
+  foreign handler FPDF_PageToDevice(in pPage as Pointer, in pStartX as CSInt, in pStartY as CSInt, in pSizeX as CSInt, in pSizeY as CSInt, in pRotate as CSInt, in pPageX as Float64, in pPageY as Float64, out pDeviceX as CSInt, out pDeviceY as CSInt) returns nothing
+  foreign handler FPDFBitmap_Create(in pWidth as CSInt, in pHeight as CSInt, in pAlpha as CSInt) returns Pointer
+  foreign handler FPDFBitmap_CreateEx(in pWidth as CSInt, in pHeight as CSInt, in pAlpha as CSInt, in pBuffer as Pointer, in pStride as CSInt) returns Pointer
+  foreign handler FPDFBitmap_FillRect(in pBitmap as Pointer, in pLeft as CSInt, in pTop as CSInt, in pWidth as CSInt, in pHeight as CSInt, in pColor as CULong) returns nothing
+  foreign handler FPDFBitmap_GetBuffer(in pBitmap as Pointer) returns Pointer
+  foreign handler FPDFBitmap_Destroy(in pPage as Pointer) returns nothing
+  foreign handler FPDFBitmap_GetWidth(in pDocument as Pointer) returns CSInt
+  foreign handler FPDFBitmap_GetHeight(in pDocument as Pointer) returns CSInt
+  foreign handler FPDFBitmap_GetStride(in pDocument as Pointer) returns CSInt
+  foreign handler FPDFBitmap_GetFormat(in pDocument as Pointer) returns CSInt
+  foreign handler FPDF_GetOpenAction(in pDocument as Pointer) returns optional FPDF_ACTION
+  foreign handler FPDF_CountNamedDests(in pDocument as Pointer) returns CULong
+  foreign handler FPDF_GetNamedDestByName(in pDocument as Pointer, in pName as ZStringNative) returns optional FPDF_DEST
+  foreign handler FPDF_GetNamedDest(in pDocument as Pointer, in pIndex as CSInt, in pBuffer as optional Pointer, inout pLength as CSLong) returns optional FPDF_DEST
+  foreign handler FPDFBookmark_GetFirstChild(in pDocument as Pointer, in pBookmark as optional FPDF_BOOKMARK) returns optional FPDF_BOOKMARK
+  foreign handler FPDFBookmark_GetNextSibling(in pDocument as Pointer, in pBookmark as optional FPDF_BOOKMARK) returns optional FPDF_BOOKMARK
+  foreign handler FPDFBookmark_GetTitle(in pBookmark as Pointer, in pBuffer as optional Pointer, in pLength as CULong) returns CULong
+  foreign handler FPDFBookmark_Find(in pDocument as Pointer, in pTitle as ZStringUTF16) returns Pointer
+  foreign handler FPDFBookmark_GetDest(in pDocument as Pointer, in pBookmark as Pointer) returns Pointer
+  foreign handler FPDFAction_GetDest(in pDocument as Pointer, in pBookmark as Pointer) returns Pointer
+  foreign handler FPDFBookmark_GetAction(in pBitmap as Pointer) returns Pointer
+  foreign handler FPDFAction_GetFilePath(in pBookmark as Pointer, in pBuffer as optional Pointer, in pLength as CULong) returns CULong
+  foreign handler FPDFAction_GetURIPath(in pDocument as Pointer, in pAction as Pointer, in pBuffer as optional Pointer, in pLength as CULong) returns CULong
+  foreign handler FPDFAction_GetType(in pDocument as Pointer) returns CULong
+  foreign handler FPDFDest_GetDestPageIndex(in pDocument as Pointer, in pDest as Pointer) returns CSInt
+  foreign handler FPDFDest_GetView(in pDest as Pointer, out rNumParams as CULong, out rParams as FPDF_DEST_PARAMS) returns CULong
+  foreign handler FPDFDest_GetLocationInPage(in pDest as Pointer, out rHasXCoord as CSInt, out rHasYCoord as CSInt, out rHasZoom as CSInt, out rX as Float32, out rY as Float32, out tZoom as Float32) returns CSInt
+  foreign handler FPDFLink_GetLinkAtPoint(in pPage as Pointer, in pPageX as Float64, in pPageY as Float64) returns optional FPDF_LINK
+  foreign handler FPDFLink_Enumerate(in pPage as Pointer, inout pPageIndex as CSInt, out pLink as Pointer) returns CSInt
+  foreign handler FPDFLink_GetAnnotRect(in pLink as Pointer, out pRect as FS_RECTF) returns CSInt
+  foreign handler FPDFLink_GetDest(in pDocument as Pointer, in pLink as Pointer) returns optional FPDF_DEST
+  foreign handler FPDFLink_GetAction(in pDocument as Pointer) returns optional FPDF_ACTION
+  foreign handler FPDF_GetMetaText(in pDocument as Pointer, in pTag as ZStringNative, in pBuffer as optional Pointer, in pLength as CULong) returns CULong
+  foreign handler FPDF_GetPageLabel(in pDocument as Pointer, in pPageIndex as CSInt, in pBuffer as optional Pointer, in pLength as CULong) returns CULong
+  foreign handler FPDF_VIEWERREF_GetName(in pDocument as Pointer, in pTag as ZStringNative, in pBuffer as optional Pointer, in pLength as CULong) returns CULong
+  foreign handler FPDFPage_GetAnnotCount(in pDocument as Pointer) returns CSInt
+  foreign handler FPDFPage_GetAnnot(in pPage as Pointer, in pIndex as CSInt) returns optional FPDF_ANNOTATION
+  foreign handler FPDFPage_CloseAnnot(in pPage as Pointer) returns nothing
+  foreign handler FPDFAnnot_GetSubtype(in pAnnotation as Pointer) returns CUInt
+  foreign handler FPDFAnnot_GetRect(in pLink as Pointer, out pRect as FS_RECTF) returns CSInt
+  foreign handler FPDFAnnot_GetColor(in pAnnotation as Pointer, in pType as CUInt, out rR as CUInt, out rG as CUInt, out rB as CUInt, out rA as CUInt) returns CSInt
+  foreign handler FPDFAnnot_GetObjectCount(in pDocument as Pointer) returns CSInt
+  foreign handler FPDFAnnot_GetObject(in pDocument as Pointer, in pPageIndex as CSInt) returns Pointer
+  foreign handler FPDFPage_CountObjects(in pDocument as Pointer) returns CSInt
+  foreign handler FPDFPage_GetObject(in pDocument as Pointer, in pPageIndex as CSInt) returns Pointer
+  foreign handler FPDFPageObj_GetType(in pAnnotation as Pointer) returns CUInt
+  foreign handler FPDFPageObj_GetBounds(in pPageObject as Pointer, out pLeft as Float32, out pBottom as Float32, out pRight as Float32, out pTop as Float32) returns CSInt
+  foreign handler FPDFImageObj_GetImageDataDecoded(in pBookmark as Pointer, in pBuffer as optional Pointer, in pLength as CULong) returns CULong
+  foreign handler FPDFImageObj_GetImageDataRaw(in pBookmark as Pointer, in pBuffer as optional Pointer, in pLength as CULong) returns CULong
+  foreign handler FPDFImageObj_GetBitmap(in pBitmap as Pointer) returns Pointer
+  foreign handler FPDFImageObj_GetImageMetadata(in pPageObject as Pointer, in pPage as Pointer, out rMetadata as FPDF_IMAGEOBJ_METADATA) returns CSInt
+  foreign handler FPDF_GetDefaultSystemFontInfo() returns optional FPDF_SYSFONTINFO
+  foreign handler FPDF_SetSystemFontInfo(in pPage as Pointer) returns nothing
+  foreign handler FPDF_FreeDefaultSystemFontInfo(in pPage as Pointer) returns nothing
+  foreign handler FPDFText_LoadPage(in pBitmap as Pointer) returns Pointer
+  foreign handler FPDFText_ClosePage(in pPage as Pointer) returns nothing
+  foreign handler FPDFText_CountChars(in pDocument as Pointer) returns CSInt
+  foreign handler FPDFText_GetCharIndexAtPos(in pPage as Pointer, in pX as Float64, in pY as Float64, in pXTolerance as Float64, in pYTolerance as Float64) returns CSInt
+  foreign handler FPDFText_GetText(in pPage as Pointer, in pIndex as CSInt, in pCount as CSInt, in pBuffer as Pointer) returns CSInt
+  foreign handler FPDFText_CountRects(in pPage as Pointer, in pIndex as CSInt, in pCount as CSInt) returns CSInt
+  foreign handler FPDFText_GetRect(in pPage as Pointer, in pRectIndex as CSInt, out pLeft as Float64, out pTop as Float64, out pRight as Float64, out pBottom as Float64) returns nothing
+end module

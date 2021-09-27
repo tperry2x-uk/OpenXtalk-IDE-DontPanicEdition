@@ -1,0 +1,83 @@
+import module com.livecode.widget.pdf
+  use com.livecode.foreign
+  use com.livecode.widget.pdf.pdfium
+  use com.livecode.canvas
+  use com.livecode.library.widgetutils
+  use com.livecode.library.scriptitems
+  use com.livecode.arithmetic
+  use com.livecode.binary
+  use com.livecode.list
+  use com.livecode.logic
+  use com.livecode.string
+  use com.livecode.type
+  use com.livecode.array
+  use com.livecode.widget
+  use com.livecode.math
+  use com.livecode.mathfoundation
+  use com.livecode.bitwise
+  use com.livecode.byte
+  use com.livecode.char
+  use com.livecode.date
+  use com.livecode.engine
+  use com.livecode.system
+  use com.livecode.commercial.license
+  handler SetFileName(in pFileName as String) returns nothing
+  handler SetFileData(in pFileData as Data) returns nothing
+  handler GetDocumentMetadata() returns Array
+  handler GetDocumentViewerPreferences() returns Array
+  handler GetDocumentOpenAction() returns Array
+  handler GetDocumentPages() returns List
+  handler GetDocumentNamedDestinations() returns Array
+  handler SetLinkStyles(in pLinkStyles as List) returns nothing
+  handler GetDocumentBookmarks() returns List
+  handler SetCurrentPage(in pCurrentPage as Number) returns nothing
+  handler GetCurrentPage() returns Number
+  handler GetNumberOfPages() returns Number
+  handler GetPageDisplay() returns String
+  handler SetPageDisplay(in pFileName as String) returns nothing
+  handler SetHScroll(in pHScroll as Number) returns optional any
+  handler SetVScroll(in pHScroll as Number) returns optional any
+  handler SetSelectedRange(in pRange as Array) returns nothing
+  handler GetHilitedText() returns String
+  handler GetClickedImage() returns Array
+  handler SetZoom(in pHScroll as Number) returns optional any
+  handler OnGeometryChanged() returns nothing
+  handler OnPaint() returns nothing
+  handler __AnimateSlideHandler() returns optional any
+  handler OnTouchStart() returns nothing
+  handler OnTouchMove() returns nothing
+  handler OnTouchFinish() returns nothing
+  handler OnTouchCancel() returns nothing
+  handler __PinchCompleteHandler() returns optional any
+  handler OnMouseScroll(in pDeltaX as Number, in pDeltaY as Number) returns nothing
+  handler OnMouseUp() returns nothing
+  handler OnMouseCancel() returns nothing
+  handler OnMouseDown() returns nothing
+  handler OnMouseMove() returns nothing
+  handler IsLicensed() returns Boolean
+  handler OnCreate() returns optional any
+  handler OnDestroy() returns optional any
+  handler OnSave(out rProperties as Array) returns optional any
+  handler OnLoad(in pProperties as Array) returns optional any
+  handler VelocityTracker_clear(inout xPageInfo as Array) returns nothing
+  handler VelocityTracker_addMovement(inout xTracker as Array, in pID as Number, in pPosition as Point, in pTimestamp as Number) returns nothing
+  handler VelocityTracker_addBreak(inout xTracker as Array, in pID as Number) returns nothing
+  handler VelocityTracker_addEvent(inout xTracker as Array, inout xEvent as Array) returns nothing
+  handler VelocityTracker_computeCurrentVelocity(inout xPageInfo as Array) returns nothing
+  handler VelocityTracker_getXVelocity(inout xTracker as Array, in pID as Number) returns Number
+  handler VelocityTracker_getYVelocity(inout xTracker as Array, in pID as Number) returns Number
+  handler GestureDetector_init(in pRange as Array) returns nothing
+  handler GestureDetector_cancel() returns nothing
+  handler type gestureHandler(in pEvent as Array) returns Boolean
+  handler type gestureFlingHandler(in pDownEvent as Array, in pTouchEvent as Array, in pVelocityX as Number, in pVelocityY as Number) returns Boolean
+  handler type gestureSwipeHandler(in pEvent as Array, in pDirection as String) returns Boolean
+  handler type gestureScrollHandler(in pEvent as Array, in pScrollX as Number, in pScrollY as Number) returns Boolean
+  handler type gesturePinchHandler(in pEvent as Array, in pDeltaScale as Number, in pFocalPoint as Point, in pDeltaX as Number, in pDeltaY as Number) returns Boolean
+  handler type gestureDragHandler(in pEvent as Array, in pPosition as Point) returns Boolean
+  handler type timerHandler() returns optional any
+  handler GestureDetector_onTouchStart(in pID as Number, in pPosition as Point) returns Boolean
+  handler GestureDetector_onTouchEnd(in pID as Number) returns Boolean
+  handler GestureDetector_onTouchMove(in pID as Number, in pPosition as Point) returns Boolean
+  handler GestureDetector_onTouchRelease(in pHScroll as Number) returns optional any
+  handler OnTimer() returns optional any
+end module

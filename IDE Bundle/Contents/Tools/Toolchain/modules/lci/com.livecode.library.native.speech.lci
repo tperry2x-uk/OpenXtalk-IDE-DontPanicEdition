@@ -1,0 +1,24 @@
+import module com.livecode.library.native.speech
+  use com.livecode.objc
+  use com.livecode.foreign
+  use com.livecode.java
+  use com.livecode.engine
+  use com.livecode.arithmetic
+  use com.livecode.binary
+  use com.livecode.list
+  use com.livecode.logic
+  use com.livecode.string
+  use com.livecode.type
+  use com.livecode.math
+  use com.livecode.system
+  use com.livecode.array
+  use com.livecode.char
+  use com.livecode.commercial.license
+  handler speechSetVoice(in pVoiceIdentifier as String) returns optional any
+  handler speechSetRate(in pRate as Number) returns nothing
+  handler speechSetPitch(in pRate as Number) returns nothing
+  handler speechSpeakUtterance(in pString as String) returns nothing
+  handler speechGetVoices() returns Array
+  handler speechInitializeLibrary() returns nothing
+  handler speechFinalizeLibrary() returns nothing
+end module

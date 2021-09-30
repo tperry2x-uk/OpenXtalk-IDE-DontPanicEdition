@@ -7100,7 +7100,7 @@ function revIDEAcceptedTypes pType
       case "media"
          return revIDEAcceptedTypes("audio") & comma & revIDEAcceptedTypes("video")
       case "stack"
-         return "livecode,rev,lc,livecodescript,mc"
+         return "livecode,rev,lc,livecodescript,mc,oxtstack,oxtscript,stk"
       case "text"
          return "txt"
       case "graph"
@@ -7392,7 +7392,7 @@ end __answerGetTypeString
 private function __answerGetDefaultInstructions pType
    switch pType
       case "stack"
-         return revIDELocalise("Please select a LiveCode stack")
+         return revIDELocalise("Please select a stack")
       case "image"
          return revIDELocalise("Please select an image")
       case "video"
@@ -7872,8 +7872,9 @@ on revIDEActionSaveStackAs pStackID, pSubstackOnly
    local tVersion
    switch
       case the scriptOnly of stack tShortName
-         put "script" after tStackName
-         ask file revIDELocalise("Save script only stack %1 as:", tSubstitutions) with tStackName with type (revIDELocalise("Script Only Stack") & "|otxscript|RSTK")
+
+         put "script" into char -5 to -1 of tStackName
+         ask file revIDELocalise("Save script only stack %1 as:", tSubstitutions) with tStackName with type (revIDELocalise("Script Only Stack") & "|otxscript|STAK")
          break
 	  case tStackFileType is 8.0
 	     ask file revIDELocalise("Save stack %1 as:", tSubstitutions) with tStackName with type tStack80Filter or type tStackFilter or type tStack70Filter or type tStack55Filter or type tStack27Filter or type tStack24Filter
@@ -7897,19 +7898,19 @@ on revIDEActionSaveStackAs pStackID, pSubstackOnly
    put the result into tVersion
 
    switch tVersion
-      case revIDELocalise("Legacy LiveCode Stack (8.0)")
+      case revIDELocalise("Legacy Stack (8.0)")
          put 8.0 into tVersion
          break
-      case revIDELocalise("Legacy LiveCode Stack (7.0)")
+      case revIDELocalise("Legacy Stack (7.0)")
          put 7.0 into tVersion
          break
-      case revIDELocalise("Legacy LiveCode Stack (5.5)")
+      case revIDELocalise("Legacy Stack (5.5)")
          put 5.5 into tVersion
          break
-      case revIDELocalise("Legacy LiveCode Stack (2.7)")
+      case revIDELocalise("Legacy Stack (2.7)")
          put 2.7 into tVersion
          break
-      case revIDELocalise("Legacy LiveCode Stack (2.4)")
+      case revIDELocalise("Legacy Stack (2.4)")
          put 2.4 into tVersion
          break
       default

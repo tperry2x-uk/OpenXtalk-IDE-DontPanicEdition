@@ -949,19 +949,24 @@ function revInternal__CheckFileAssociations
    if the platform is "win32" then
       -- If .rev, .livecode or .livecodescript classes are not present, then we need new assocs
       # AL-2015-03-13: [[ Bug 14910 ]] Add .livecodescript to valid stack file extensions on windows
+      -- added OXT types -- Paul McClernan 9/2021
       if queryRegistry("HKEY_CURRENT_USER\Software\Classes\.rev\") is not "RevolutionStack" or \
-            queryRegistry("HKEY_CURRENT_USER\Software\Classes\.otxstack\") is not "Stack" or \
+            queryRegistry("HKEY_CURRENT_USER\Software\Classes\.stk\") is not "Stack" or \
+            queryRegistry("HKEY_CURRENT_USER\Software\Classes\.otxstack\") is not "OXTStack" or \
             queryRegistry("HKEY_CURRENT_USER\Software\Classes\.livecode\") is not "LiveCodeStack" or \
             queryRegistry("HKEY_CURRENT_USER\Software\Classes\.otxscript\") is not "ScriptOnlyStack" or \
             queryRegistry("HKEY_CURRENT_USER\Software\Classes\.livecodescript\") is not "LiveCodeScriptOnlyStack"
       then
          return true
       end if
-
       -- If .rev, .livecode or .livecodescript classes are not present, then we need new assocs
       # AL-2015-03-13: [[ Bug 14910 ]] Add .livecodescript to valid stack file extensions on windows
       replace slash with backslash in tEnginePath
       get queryRegistry("HKEY_CURRENT_USER\Software\Classes\RevolutionStack\Shell\Open\Command\")
+      if word 1 of it is not quote & tEnginePath & quote then
+         return true
+      end if
+      get queryRegistry("HKEY_CURRENT_USER\Software\Classes\OXTStack\Shell\Open\Command\")
       if word 1 of it is not quote & tEnginePath & quote then
          return true
       end if
@@ -982,7 +987,7 @@ function revInternal__CheckFileAssociations
          return true
       end if
    else
-      -- Do Linux at some point!
+      -- Do Linux at some point!    <---------------------------------------------------------------- YEAH, DO LINUX!
    end if
 
    return false
@@ -997,18 +1002,25 @@ command revInternal__InstallFileAssociations
    if the platform is "win32" then
       replace slash with backslash in tEnginePath
       # AL-2015-03-13: [[ Bug 14910 ]] Add .livecodescript to valid stack file extensions on windows
-      get setRegistry("HKEY_CURRENT_USER\Software\Classes\.rev\", "RevolutionStack") and \
-            setRegistry("HKEY_CURRENT_USER\Software\Classes\.stk\", "Stack") and \
+      -- Added OXT types -- Paul McClernan 9/2021
+      get  setRegistry("HKEY_CURRENT_USER\Software\Classes\.rev\", "RevolutionStack") and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\RevolutionStack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
-            setRegistry("HKEY_CURRENT_USER\Software\Classes\RevolutionStack\DefaultIcon\", tEnginePath & comma & "1") and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\RevolutionStack\DefaultIcon\", tEnginePath & comma & "1") and  \      ---------------------------------------- .rev -------------
             setRegistry("HKEY_CURRENT_USER\Software\Classes\.livecode\", "LiveCodeStack") and \
-            setRegistry("HKEY_CURRENT_USER\Software\Classes\.otxstack\", "Stack") and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\LiveCodeStack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
-            setRegistry("HKEY_CURRENT_USER\Software\Classes\LiveCodeStack\DefaultIcon\", tEnginePath & comma & "1") and \
-            setRegistry("HKEY_CURRENT_USER\Software\Classes\.otxscript\", "ScriptOnlyStack") and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\LiveCodeStack\DefaultIcon\", tEnginePath & comma & "1") and \ ------------------------------------------- .livecode -------------
             setRegistry("HKEY_CURRENT_USER\Software\Classes\.livecodescript\", "LiveCodeScriptOnlyStack") and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\LiveCodeScriptOnlyStack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
-            setRegistry("HKEY_CURRENT_USER\Software\Classes\LiveCodeScriptOnlyStack\DefaultIcon\", tEnginePath & comma & "1")
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\LiveCodeScriptOnlyStack\DefaultIcon\", tEnginePath & comma & "1") \  ----------------------------------- .livecodescript ------
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\.stk\", "Stack") and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\Stack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\Stack\DefaultIcon\", tEnginePath & comma & "1") and  \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\.otxstack\", "OXTStack") and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\OXTStack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\OXTStack\DefaultIcon\", tEnginePath & comma & "1") and  \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\.otxscript\", "ScriptOnlyStack") and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\ScriptOnlyStack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\ScriptOnlyStack\DefaultIcon\", tEnginePath & comma & "1")
       if it is false then
          answer error "Failed to set file associations."
       else
@@ -1279,7 +1291,7 @@ command revInternal__InitialiseLibraries
          local tFiles
          put the files into tFiles
          filter tFiles with "*.livecode*"
-
+         -- put tFiles & cr after msg
          repeat for each line tFile in tFiles
             if there is a stack tFile then
                revInternal__LoadIfLibrary the short name of stack tFile

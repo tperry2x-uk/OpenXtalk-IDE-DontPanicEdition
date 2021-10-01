@@ -507,43 +507,43 @@ on startCenterAction pAction
          launch url "http://livecode.com/links/livecode/tutorials"
          break
       case "forum"
-         launch url "https://forum.OpenXTalk.org/"
+         launch url "https://forums.OpenXTalk.org/"
          break
       case "dictionary"
          revIDEDocumentationLoad "API", "Guide"
          break
       case "blog"
-         launch url "http://livecode.com/links/livecode/blog"
+         launch url "https://openxtalk.org"
          break
       case "upgrade"
-         launch url "https://livecode.com/about/contact/"
+         launch url "http://forums.OpenXTalk.org"
          break
       case "account"
-         launch url "http://forum.OpenXTalk.org"
+         launch url "http://forums.OpenXTalk.org"
          break
       case "contact"
-         launch url "https://forum.OpenXTalk.org"
+         launch url "https://forums.OpenXTalk.org"
          break
       case "website"
-         launch url "http://livecode.com"
+         launch url "http://forums.OpenXTalk.org"
          break
       case "facebook"
-         launch url "http://livecode.com/links/livecode/facebook"
+         launch url "https://www.facebook.com/groups/23141438067"
          break
       case "twitter"
         launch url "http://livecode.com/links/livecode/twitter"
          break
       case "github"
-         launch url "http://livecode.com/links/livecode/github"
+         launch url "https://github.com/OpenXTalk-org"
          break
       case "linkedin"
          launch url "http://livecode.com/links/livecode/linkedin"
          break
       case "youtube"
-         launch url "http://livecode.com/links/livecode/youtube"
+         launch url "https://www.youtube.com/channel/UCIW_MwPZ8GNY_JAcf6VIlSQ"
          break
       case "stackoverflow"
-         launch url "http://livecode.com/links/livecode/stackoverflow"
+         launch url "https://stackoverflow.com/questions/tagged/livecode+or+hypercard+or+hypertalk"
          break
       case "newStackDefault"
          revIDEActionNewMainstack "default"

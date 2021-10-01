@@ -12250,18 +12250,18 @@ on revIDEFindMoreWidgets
 end revIDEFindMoreWidgets
 
 command ideShowUpgradeOptions
-   if ideCanShowUpgradeOptions() then
-      lock screen
-      if the mode of stack revIDEPaletteToStackName("start center") is 0 then
-         revIDEOpenPalette "start center"
-      end if
-      dispatch "ideAction" to stack revIDEPaletteToStackName("start center") with "launchAdWithUrl"
-      unlock screen
-   else if ideShouldShowUpgradeOptions() then
-      local tUpgradeEdition
-      put revEnvironmentEditionProperty("upgrade_edition") into tUpgradeEdition
-      launch url revEnvironmentEditionProperty("edition_external_url", tUpgradeEdition)
-   end if
+   -- if ideCanShowUpgradeOptions() then
+   -- lock screen
+   -- if the mode of stack revIDEPaletteToStackName("start center") is 0 then
+      revIDEOpenPalette "start center"
+   -- end if
+   -- dispatch "ideAction" to stack revIDEPaletteToStackName("start center") with "launchAdWithUrl"
+   -- unlock screen
+   -- else if ideShouldShowUpgradeOptions() then
+   --   local tUpgradeEdition
+   --   put revEnvironmentEditionProperty("upgrade_edition") into tUpgradeEdition
+   --   launch url revEnvironmentEditionProperty("edition_external_url", tUpgradeEdition)
+   -- end if
 end ideShowUpgradeOptions
 
 function ideCanShowUpgradeOptions

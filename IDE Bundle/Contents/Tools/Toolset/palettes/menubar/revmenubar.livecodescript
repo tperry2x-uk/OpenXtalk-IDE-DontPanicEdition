@@ -1,4 +1,4 @@
-script "revMenuBar"
+﻿script "revMenuBar"
 local sMenuTarget
 on preOpenStack
    global gREVDontLoadMenus
@@ -1024,12 +1024,16 @@ on mouseUp
       else if tTarget is "skip" then
          revIDETutorialSkipToNextSkipPoint
       end if
+
    else if the short name of the owner of the target is "upgrade" then
       local tStartCenterClassic
-      put revIDEGetPreference("StartCenterClassic") into tStartCenterClassic
-      revIDESetPreference "StartCenterClassic", true
+      --put revIDEGetPreference("StartCenterClassic") into tStartCenterClassic
+      put revIDEGetPreference("StartCenter") into tStartCenterClassic
+      --revIDESetPreference "StartCenterClassic", true
+      revIDESetPreference "StartCenter", true
       ideShowUpgradeOptions
-      revIDESetPreference "StartCenterClassic", tStartCenterClassic
+      --revIDESetPreference "StartCenterClassic", tStartCenterClassic
+      revIDESetPreference "StartCenter", tStartCenterClassic
    else if the short name of the owner of the target is "toolbar" and the target begins with "button" then
       revMenubarMenuButtonClicked the short name of the target
       setButtonReleased the long id of the target
@@ -1840,9 +1844,9 @@ end buildFlipSubmenu
 private function buildRotateSubmenu
    return \
          tab & "By.../|By" & return & \
-         tab & "90° Right/|270" & return & \
-         tab & "90° Left/|90" & return & \
-         tab & "180°/|180"
+         tab & "90¬∞ Right/|270" & return & \
+         tab & "90¬∞ Left/|90" & return & \
+         tab & "180¬∞/|180"
 end buildRotateSubmenu
 
 private function buildDistributeSubmenu
@@ -1894,7 +1898,7 @@ private function revMenubarHelpMenu pContext
    # AL-2015-07-10: Temporarily remove welcome screen option from help menu
    //put "Welcome Screen/|Welcome" & return after tHelp
    put "Start Center/|Start Center" & return after tHelp
-   put "User Guide" & return after tHelp
+   -- put "User Guide" & return after tHelp
    put "Dictionary (API)/|Dictionary" & return after tHelp
 
    put "-" & return  after tHelp
@@ -1902,19 +1906,19 @@ private function revMenubarHelpMenu pContext
    put "Sample Stacks" & return after tHelp
    put "Sample Scripts" & return after tHelp
    put "-" & return after tHelp
-   put "Beginners Guide" & return after tHelp
+   put "Beginners Guide" & return after t
    put "All Guides" & return after tHelp
    put "Tutorials" & return after tHelp
    put "-" & return after tHelp
    put "Forums" & return after tHelp
    put "Technical Questions" & return after tHelp
-   put "Discussion List" & return after tHelp
-   put "Newsletters" & return after tHelp
+   -- put "Discussion List" & return after tHelp
+   -- put "Newsletters" & return after tHelp
    put "-" & return after tHelp
    put "Release Notes/|Release Notes" & return after tHelp
    put "License Agreement/|License Agreement" & return after tHelp
    put "-" & return after tHelp
-   put "&Commercial Development.../|Buy" & return after tHelp
+   -- put "&Commercial Development.../|Buy" & return after tHelp
    -- put "&Support.../|Support" & return after tHelp
    -- put "-" & return after tHelp
    -- put enableMenuItem("Re-license LiveCode/|Relicense", line 7 of the revLicenseInfo is not "Global") & return after tHelp
@@ -3192,9 +3196,6 @@ on revMenubarHelpMenuPick pWhich
          break
       case "All Guides"
          revIDEOpenPalette "guide"
-         break
-      case "Relicense"
-         revIDEActionRelicense
          break
       case "Update"
          revIDECheckForUpdates

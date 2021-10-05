@@ -1,4 +1,4 @@
-script "com.livecode.library.extension-utils"
+﻿script "com.livecode.library.extension-utils"
 /*
 Copyright (C) 2018 LiveCode Ltd.
 
@@ -634,30 +634,30 @@ command extensionBuildPackageAndExtract pProtectifyScript, \
       pProtectifyOutput, pGitHash, pDocsParser, \
       pSourceFolder, pSourceFileName, pTargetFolder, \
       pCommercialExtension, pLCCompile, pLCIPath, pExtraLCIPaths
-  
-  if pCommercialExtension is true and \
-        not (pSourceFileName ends with ".lcb") then
-    extensionProtectStack pProtectifyScript, pSourceFolder, \ 
-          pSourceFileName, pProtectifyOutput, pGitHash
-  end if
-  
-  extensionExtractDocs pDocsParser, pSourceFolder, \
-        pSourceFolder & slash & pSourceFileName
-  
-  local tPackage
-  if not (pSourceFileName ends with ".lcb") then
-    extensionGenerateManifestForLCSExtension pDocsParser, pSourceFolder
-    extensionPackageScriptExtension pSourceFolder, \
-          pTargetFolder, pCommercialExtension
-  else
-    extensionPackageBuilderExtension pSourceFolder, \
-          pTargetFolder, pCommercialExtension, pLCCompile, \
-          pLCIPath, pExtraLCIPaths
-  end if
-  put the result into tPackage
-  
-  extractExtension tPackage, pSourceFolder, pTargetFolder
-  delete file tPackage
+   
+   if pCommercialExtension is true and \
+         not (pSourceFileName ends with ".lcb") then
+      extensionProtectStack pProtectifyScript, pSourceFolder, \ 
+            pSourceFileName, pProtectifyOutput, pGitHash
+   end if
+   
+   extensionExtractDocs pDocsParser, pSourceFolder, \
+         pSourceFolder & slash & pSourceFileName
+   
+   local tPackage
+   if not (pSourceFileName ends with ".lcb") then
+      extensionGenerateManifestForLCSExtension pDocsParser, pSourceFolder
+      extensionPackageScriptExtension pSourceFolder, \
+            pTargetFolder, pCommercialExtension
+   else
+      extensionPackageBuilderExtension pSourceFolder, \
+            pTargetFolder, pCommercialExtension, pLCCompile, \
+            pLCIPath, pExtraLCIPaths
+   end if
+   put the result into tPackage
+   
+   extractExtension tPackage, pSourceFolder, pTargetFolder
+   delete file tPackage
 end extensionBuildPackageAndExtract
 
 private function q pParam
@@ -1146,6 +1146,7 @@ function extensionFetchFolderDetails pFolder, pParseManifest
    if there is a file tInterfaceFile then
       put tInterfaceFile into tDetailsA[kInterfaceKey]
    end if
+   
    return tDetailsA 
 end extensionFetchFolderDetails
 
@@ -1617,26 +1618,25 @@ private function __RegexPatternForSource pType
 end __RegexPatternForSource
 
 private command __FilterFilesForExtension pFiles, @rResult, @rType
-  local tExtFiles, tType
-  filter lines of pFiles without ".*" -- fixes bug where macOS meta data files (.__hidden.lcb for example) interfere with compiling LCB on non-mac platfoms
-  filter pFiles with regex pattern \
-        __RegexPatternForSource("lcb") into tExtFiles
-  if tExtFiles is not empty \
-        or extensionBytecodeFilename("", true) is among the lines of pFiles \
-        or extensionBytecodeFilename("", false) is among the lines of pFiles \
-        then
-    put "lcb" into tType
-  end if
-  
-  if tType is empty then
-    filter pFiles with regex pattern \
-          __RegexPatternForSource("lcs") into tExtFiles
-    if tExtFiles is not empty then
-      put "lcs" into tType
-    end if
-  end if
-  put tExtFiles into rResult
-  put tType into rType
+   local tExtFiles, tType
+   filter pFiles with regex pattern \
+         __RegexPatternForSource("lcb") into tExtFiles
+   if tExtFiles is not empty \
+         or extensionBytecodeFilename("", true) is among the lines of pFiles \
+         or extensionBytecodeFilename("", false) is among the lines of pFiles \
+         then
+      put "lcb" into tType
+   end if
+   
+   if tType is empty then
+      filter pFiles with regex pattern \
+            __RegexPatternForSource("lcs") into tExtFiles
+      if tExtFiles is not empty then
+         put "lcs" into tType
+      end if
+   end if
+   put tExtFiles into rResult
+   put tType into rType
 end __FilterFilesForExtension
 
 /**

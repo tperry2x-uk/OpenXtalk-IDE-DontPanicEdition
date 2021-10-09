@@ -111,88 +111,88 @@ on revInternal__openStack
 
    try
       if tSuccess then
-         revInternal__setSplashStatus "Checking System Parameters..."
-         revInternal__InitialiseSystem
+         revInternal__setSplashStatus "Checking System Parameters..." -- revInternal__setSplashStatus pass string to update Splash Screen loading text
+         revInternal__InitialiseSystem -- sets up crash log
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Loading Libraries..."
-         revInternal__InitialiseLibraries
+         revInternal__InitialiseLibraries -- Loads Libraries
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Setting Globals..."
-         revInternal__InitialiseGlobals
+         revInternal__InitialiseGlobals -- sets global variables
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Setting Preferences..."
-         revInternal__InitialiseOptions
+         revInternal__InitialiseOptions -- sets preferences
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Loading Standard Icons..."
-         set the visible of stack "revGeneralIcons" to false
+         set the visible of stack "revGeneralIcons" to false -- this is where the IDE Logo and other important current icons are!
          put true into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Loading theme data..."
-         revInternal__InitialiseIcons
+         revInternal__InitialiseIcons -- actually icons are already loaded, this just hides "revIcons" stack!
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Loading Patterns..."
          repeat for each item tPatternStack in "revGeneralPatterns,revCompatibilityPatterns1,revCompatibilityPatterns2"
-            get there is a stack tPatternStack
+            get there is a stack tPatternStack -- checked if the above stacks are loaded, seems pointless doesn't do anything if they aren't!
          end repeat
          put true into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Loading Script Editor..."
-         revInternal__InitialiseScriptEditor
+         revInternal__InitialiseScriptEditor -- sets the behavior script of stack /palettes/script editor/revscripteditor.8.rev and insures SE invisibles are hidden
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Loading User Icon Libraries..."
-         revInternal__InitialiseUserLibraries
+         revInternal__InitialiseUserLibraries -- loads any ~ user/My_OTX/ icon files and sets them to hidden
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Loading Error Management..."
-         revInternal__InitialiseErrors
+         revInternal__InitialiseErrors -- sets _ideoverride on revError display and ensures invisibles are hidden
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Loading Menu Bar..."
-         revInternal__InitialiseMenus
+         revInternal__InitialiseMenus  -- Creates top ToolBar menu (that palette at the top) and the IDE app menus
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Loading Tools..."
-         revInternal__InitialiseTools
+         revInternal__InitialiseTools -- Loads the Tools palette and positions it on screen
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Loading Project Browser..."
-         revInternal__InitialiseProjectBrowser
+         revInternal__InitialiseProjectBrowser -- Loads both Project Browser AND Application Overview if present
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Loading Message Box..."
-         revInternal__InitialiseMessageBox
+         revInternal__InitialiseMessageBox -- Loads the message box palette and positions it on screen
          put the result into tSuccess
       end if
 
@@ -200,25 +200,25 @@ on revInternal__openStack
          revInternal__setSplashStatus "Loading Plug-ins..."
          revInternal__InitialisePlugIns
          put the result into tSuccess
-         set the defaultStack to "home" -- plug ins may take away default stack
+         set the defaultStack to "home" -- Loads IDE plugins -- plug ins may take away default stack
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Cleaning Cache"
-         revInternal__CleanDocsCache
+         revInternal__CleanDocsCache -- Clear Dictionary Cache if need be
          put the result into tSuccess
       end if
 
       if tSuccess and not revEnvironmentIsInstalled() then
          revInternal__setSplashStatus "Building Dictionary"
-         revInternal__BuildDictionary
+         revInternal__BuildDictionary -- Builds Dictionary if need be
          put the result into tSuccess
       end if
 
       if tSuccess then
          revInternal__setSplashStatus "Performing Final Steps..."
          revInternal__setSplashStatus ""
-         revInternal__InitialiseFinalSteps
+         revInternal__InitialiseFinalSteps -- Loads FrontScripts, BackScripts, ShortCuts(?), RevOnline and Clears Splash Screen Text
 
          put the result into tSuccess
       end if
@@ -234,7 +234,7 @@ on revInternal__openStack
 
    if $REV_TOOLS_PATH is empty and (revInternal__CheckFileAssociations() is true) and (the platform is "win32") then
       if revIDEGetPreference("cDontShowFileAssociationsDialog") is not true then
-         modal stack "revFileAssociations"
+         modal stack "revFileAssociations"  -- Makes sure the filename extensions are setup on Windows, if not then shows stack "revFileAssociations" dialog
       end if
    end if
 
@@ -245,7 +245,12 @@ on revInternal__openStack
    else if revIDEPrefGet("StartPageShow") is not "false" then
       */
       if revIDEGetPreference("cStartPageShow") is not "false" then  --  <---------------------------- TO DO: Customize Start Stack Here!!! Paul McClernan 9/22/21
-         -- revIDEOpenPalette "Start Center"
+         if there is a file (revEnvironmentCustomizationPath() & "/Start Center.oxtstack") then
+            open (revEnvironmentCustomizationPath() & "/Start Center.oxtstack")
+                  -- revIDEOpenStack "Start Center"
+         else
+            revIDEOpenPalette "Start Center"
+         end if
       end if
 
       -- MM-2011-09-27: The new auto update process is handled entirely by the installer.
@@ -1397,7 +1402,12 @@ end revInternal__SetupExternals
 private command revInternal__SetupStackFiles
    revInternal__Log "Enter", "Stack Files Setup"
 
-   set the stackFiles of stack "Home" to revInternal__StackFiles()
+   put revInternal__StackFiles() into tTempStackFiles
+    if there is a file ( revEnvironmentCustomizationPath() & "/Start Center.oxtstack") then
+      filter lines of tTempStackFiles without "revStartCenter,*" into tTempStackFiles
+   end if
+   set the stackFiles of stack "Home" to tTempStackFiles
+   -- set the stackFiles of stack "Home" to revInternal__StackFiles()
 
    local tStackFile
    set the itemDelimiter to comma

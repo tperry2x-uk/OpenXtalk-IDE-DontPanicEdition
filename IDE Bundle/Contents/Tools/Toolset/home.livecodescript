@@ -249,7 +249,7 @@ on revInternal__openStack
             -- put revInternal__StackFiles() into tTempStackFiles
             filter lines of (the stackFiles of me) without "revStartCenter*" into tTempStackFiles
             put cr & "revStartCenter," & ( revEnvironmentCustomizationPath() & "/Start Center.oxtstack") after tTempStackFiles
-            kmset the stackFiles of me to tTempStackFiles
+            set the stackFiles of me to tTempStackFiles
             -- put tTempStackFiles
             open (revEnvironmentCustomizationPath() & "/Start Center.oxtstack")
          else

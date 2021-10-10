@@ -1,4 +1,4 @@
-script "home"
+﻿script "home"
 constant kImportantTextColor = "#b84c93" -- the color of startup messages text in splash screen
 
 on startup
@@ -68,10 +68,10 @@ on shutdown
    end if
 end shutdown
 
-on saveStackRequest
-   set the cantModify of me to true
-   pass saveStackRequest
-end saveStackRequest
+-- on saveStackRequest
+   -- set the cantModify of me to true
+   -- pass saveStackRequest
+-- end saveStackRequest
 
 on preOpenStack
    local tEdition, tSplashPath
@@ -162,7 +162,7 @@ on revInternal__openStack
 
       if tSuccess then
          revInternal__setSplashStatus "Loading User Icon Libraries..."
-         revInternal__InitialiseUserLibraries -- loads any ~ user/My_OTX/ icon files and sets them to hidden
+         revInternal__InitialiseUserLibraries -- loads any ~ user/My_OTX/ icon files¬†and sets them to hidden
          put the result into tSuccess
       end if
 
@@ -246,10 +246,14 @@ on revInternal__openStack
       */
       if revIDEGetPreference("cStartPageShow") is not "false" then  --  <---------------------------- TO DO: Customize Start Stack Here!!! Paul McClernan 9/22/21
          if there is a file (revEnvironmentCustomizationPath() & "/Start Center.oxtstack") then
+            -- put revInternal__StackFiles() into tTempStackFiles
+            filter lines of (the stackFiles of me) without "revStartCenter*" into tTempStackFiles
+            put cr & "revStartCenter," & ( revEnvironmentCustomizationPath() & "/Start Center.oxtstack") after tTempStackFiles
+            set the stackFiles of me to tTempStackFiles
+            -- put tTempStackFiles
             open (revEnvironmentCustomizationPath() & "/Start Center.oxtstack")
-                  -- revIDEOpenStack "Start Center"
          else
-            revIDEOpenPalette "Start Center"
+            revIDEOpenPalette "revStartCenter"
          end if
       end if
 
@@ -291,7 +295,7 @@ on revInternal__openStack
 
       -- Now the home stack has loaded, we can allow interrupts..
       set the allowInterrupts to true
-end revInternal__openStack
+   end revInternal__openStack
 
 on revInternal__setSplashStatus pMessage
 	revInternal__Log "Message", pMessage
@@ -1404,7 +1408,8 @@ private command revInternal__SetupStackFiles
 
    put revInternal__StackFiles() into tTempStackFiles
     if there is a file ( revEnvironmentCustomizationPath() & "/Start Center.oxtstack") then
-      filter lines of tTempStackFiles without "revStartCenter,*" into tTempStackFiles
+      filter lines of tTempStackFiles without "revStartCenter*" into tTempStackFiles
+      put cr & "revStartCenter," & ( revEnvironmentCustomizationPath() & "/Start Center.oxtstack") after tTempStackFiles
    end if
    set the stackFiles of stack "Home" to tTempStackFiles
    -- set the stackFiles of stack "Home" to revInternal__StackFiles()

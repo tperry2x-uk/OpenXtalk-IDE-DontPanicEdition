@@ -583,7 +583,6 @@ function revFixPath pPath
    end if
    if revExtensionShow() then
       if not (tReturnPath ends with ".rev" or tReturnPath ends with ".livecode") then
-         -- put ".livecode" after tReturnPath
          put ".oxtstack" after tReturnPath -- OXT Generic Stack
       end if
    end if

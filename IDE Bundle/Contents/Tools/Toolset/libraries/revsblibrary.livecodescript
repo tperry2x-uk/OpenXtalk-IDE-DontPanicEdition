@@ -2844,7 +2844,7 @@ private command revSmartChecking pStackFilesList, @xSettings
       put false into tNewSettings["Magnify"]  -- PM-2015-06-24: [[ Bug 15535 ]] Make possible to include magnify palette in standalones
       put false into tNewSettings["pdfPrinter"]
       
-      # OK-2007-11-13 : Support for LiveCode print dialogs
+      # OK-2007-11-13 : Support for print dialogs
       put false into tNewSettings["revolutionPrintDialogs"]
       
       put empty into tNewSettings["databaseDrivers"]
@@ -3018,7 +3018,7 @@ private command revCheckObject pObject,pUserLibraries, @xSettings, @xWidgetKinds
       end if
    end repeat
    
-   # OK-2007-11-13 : Support for LiveCode print dialogs. The dialogs are included if there is any reference to systemPrintSelector in the script,
+   # OK-2007-11-13 : Support for print dialogs. The dialogs are included if there is any reference to systemPrintSelector in the script,
    # or if we are building for linux. (This might include the files more often than they are required).
    if offset("systemPrintSelector", tScript) is not 0 then
       put true into xSettings["revolutionPrintDialogs"]

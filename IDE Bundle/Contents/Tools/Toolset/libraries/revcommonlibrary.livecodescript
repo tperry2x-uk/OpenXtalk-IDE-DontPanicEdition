@@ -1176,51 +1176,51 @@ on revDatabaseError pType, pError, pDataLinkedObject
 end revDatabaseError
 
 function revAnswerFile pType, pPrompt
-  -- KM 4th June 2005
-  -- handler takes file type and brings up answer file with all types listed
-  -- any corrections can be made in one place
-  switch pType
-  case "stack"
-    answer file pPrompt with type "LiveCode Stacks|livecode,rev,mc|RSTK,MSTK" or type "All Files|"
-    break
-  case "image"
-    answer file pPrompt with type "All Picture Files|png,gif,jpg,jpeg,bmp,pct,xbm,xpm,xwd,pbm,ppm,pgm" or type "Portable Network Graphics|png" or type "Joint Photographics Experts Group|jpg,jpeg" or type "Graphics Interchange Format|gif" or type "Windows Bitmap|bmp" or type "Unix Formats|xbm,xpm,xwd,pbm,ppm,pgm" or type "Macintosh PICT - displays on MacOS only|pct" or type "All Files|"
-    break
-  case "quicktime"
-    answer file pPrompt with type "QuickTime Movies|mov" or type "All Files|"
-    break
-  case "audio" -- implement later
-  case "video"
-  case "text"
-  case "eps"
-  default
-    answer file pPrompt
-    break
-  end switch
-  return it
+   -- KM 4th June 2005
+   -- handler takes file type and brings up answer file with all types listed
+   -- any corrections can be made in one place
+   switch pType
+      case "stack"
+         answer file pPrompt with type "Stacks|livecode,rev,mc,livecodescript,oxtstack,oxtscript|RSTK,MSTK,STAK" or type "All Files|"
+         break
+      case "image"
+         answer file pPrompt with type "All Picture Files|png,gif,jpg,jpeg,bmp,pct,xbm,xpm,xwd,pbm,ppm,pgm" or type "Portable Network Graphics|png" or type "Joint Photographics Experts Group|jpg,jpeg" or type "Graphics Interchange Format|gif" or type "Windows Bitmap|bmp" or type "Unix Formats|xbm,xpm,xwd,pbm,ppm,pgm" or type "Macintosh PICT - displays on MacOS only|pct" or type "All Files|"
+         break
+      case "quicktime"
+         answer file pPrompt with type "QuickTime Movies|mov" or type "All Files|"
+         break
+      case "audio" -- implement later
+      case "video"
+      case "text"
+      case "eps"
+      default
+         answer file pPrompt
+         break
+   end switch
+   return it
 end revAnswerFile
 
 # MJVH 13/09/2006 Adding in the ability to open multiple stacks at once. Thus we need to use fileS instead of file.
 function revAnswerFiles pType, pPrompt
-  switch pType
-  case "stack"
-    answer files pPrompt with type "LiveCode Stacks|livecode,rev,mc,livecodescript|RSTK,MSTK" or type "All Files|"
-    break
-  case "image"
-    answer files pPrompt with type "All Picture Files|png,gif,jpg,jpeg,bmp,pct,xbm,xpm,xwd,pbm,ppm,pgm" or type "Portable Network Graphics|png" or type "Joint Photographics Experts Group|jpg,jpeg" or type "Graphics Interchange Format|gif" or type "Windows Bitmap|bmp" or type "Unix Formats|xbm,xpm,xwd,pbm,ppm,pgm" or type "Macintosh PICT - displays on MacOS only|pct" or type "All Files|"
-    break
-  case "quicktime"
-    answer files pPrompt with type "QuickTime Movies|mov" or type "All Files|"
-    break
-  case "audio" -- implement later
-  case "video"
-  case "text"
-  case "eps"
-  default
-    answer files pPrompt
-    break
-  end switch
-  return it
+   switch pType
+      case "stack"
+         answer files pPrompt with type "Stacks|livecode,rev,mc,livecodescript,oxtstack,oxtscript|RSTK,MSTK,STAK" or type "All Files|"
+         break
+      case "image"
+         answer files pPrompt with type "All Picture Files|png,gif,jpg,jpeg,bmp,pct,xbm,xpm,xwd,pbm,ppm,pgm" or type "Portable Network Graphics|png" or type "Joint Photographics Experts Group|jpg,jpeg" or type "Graphics Interchange Format|gif" or type "Windows Bitmap|bmp" or type "Unix Formats|xbm,xpm,xwd,pbm,ppm,pgm" or type "Macintosh PICT - displays on MacOS only|pct" or type "All Files|"
+         break
+      case "quicktime"
+         answer files pPrompt with type "QuickTime Movies|mov" or type "All Files|"
+         break
+      case "audio" -- implement later
+      case "video"
+      case "text"
+      case "eps"
+      default
+         answer files pPrompt
+         break
+   end switch
+   return it
 end revAnswerFiles
 
 
@@ -1249,7 +1249,7 @@ command scrollRight
 end scrollRight
 
 # Parameters
-#   pObject : reference to any LiveCode object that can contain text (field, button, group, card, stack)
+#   pObject : reference to any object that can contain text (field, button, group, card, stack)
 #   pSize : The font size to use. If empty, uses default system font size
 #  pStyles : A list of styles to apply (eg bold,italic,underline). If empty, uses system default.
 # Description

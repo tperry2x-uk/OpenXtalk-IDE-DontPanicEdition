@@ -10967,9 +10967,9 @@ on revIDERegenerateBuiltAPIs
    set the lineDelimiter to "|"
    repeat for each line tAPI in kAPIs
       -- For now, the IDE API is BFS only
-      if item 2 of tAPI is "livecode_ide" and revEnvironmentIsInstalled() then
-         next repeat
-      end if
+      --if item 2 of tAPI is "livecode_ide" and revEnvironmentIsInstalled() then
+      --   next repeat
+      -- end if
 
       put revIDEGetDocsAPIData(item 2 of tAPI) into tAPIData
       dispatch function "revDocsCreateAPIJSON" to stack "revDocsParser" \

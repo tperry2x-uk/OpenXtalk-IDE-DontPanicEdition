@@ -582,7 +582,7 @@ function revFixPath pPath
       -- put tolower(pPath) into tReturnPath
    end if
    if revExtensionShow() then
-      if not (tReturnPath ends with ".rev" or tReturnPath ends with ".livecode") or tReturnPath ends with ".oxtstack") then
+      if not (tReturnPath ends with ".rev" or tReturnPath ends with ".livecode") or (tReturnPath ends with ".oxtstack") then
          put ".oxtstack" after tReturnPath -- OXT Generic Stack
       end if
    end if

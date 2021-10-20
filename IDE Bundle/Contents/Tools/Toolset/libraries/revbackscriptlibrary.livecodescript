@@ -582,7 +582,7 @@ function revFixPath pPath
       -- put tolower(pPath) into tReturnPath
    end if
    if revExtensionShow() then
-      if not (tReturnPath ends with ".rev" or tReturnPath ends with ".livecode") then
+      if not (tReturnPath ends with ".rev" or tReturnPath ends with ".livecode") or tReturnPath ends with ".oxtstack") then
          put ".oxtstack" after tReturnPath -- OXT Generic Stack
       end if
    end if
@@ -857,7 +857,7 @@ on deleteStack
    # OK-2008-07-29 : Bug 6796 - The deletestack message is sent to the card not the stack
    revIDEHandleObjectDeleted the long id of the long owner of the target
 
-   # BB-2014-07-25 : Bug 9598 - Catch an error being thrown when LiveCode IDE is shutting down
+   # BB-2014-07-25 : Bug 9598 - Catch an error being thrown when the IDE is shutting down
    # Fix courtesy of Mark Wieder
    try
       revSetActiveStacks
@@ -1532,7 +1532,7 @@ on errorDialog pWhatError, pWhatError2
    if gREVSuppressErrors then exit errorDialog
    filter pWhatError without "*,0,0"
    if (item 1 of pWhatError is not a number or item 2 of pWhatError is not a number) and the number of words in pWhatError is not 0 then
-      answer "The following user thrown error was generated and not handled, so it was intercepted by LiveCode:" & cr & cr & the params
+      answer "The following user thrown error was generated and not handled, so it was intercepted:" & cr & cr & the params
       exit errorDialog
    end if
    if the number of lines in pWhatError is 0 then exit errorDialog -- bogus error
@@ -1792,7 +1792,7 @@ on revReloadBreakpoints
       local tList
       put the cREVGeneral["debugObjects"] of stack l into tList
       if the number of lines in tList > 250 then
-         answer error "It appears your breakPoint information has been corrupted.  Fixing this will remove all breakPoints from this stack.  If you don't fix this, LiveCode may not work correctly.  Please file a bug report as this problem should not occur." with "Don't fix" or "Fix"
+         answer error "It appears your breakPoint information has been corrupted.  Fixing this will remove all breakPoints from this stack.  If you don't fix this, the engine may not work correctly.  Please file a bug report as this problem should not occur." with "Don't fix" or "Fix"
          if it is "fix" then
             set the cREVGeneral["debugObjects"] of stack l to empty
             put empty into tList
@@ -2150,8 +2150,8 @@ on revImportImageFile pStack
                put true into tConvertPICT
                if not (the cNOPICTWarning of stack "revPreferences") then
                   answer warning "This file is in Macintosh PICT format, which can only be displayed on Mac OS systems.  " & \
-                  "LiveCode can convert the imported image to PNG format, which can be displayed cross platform. " & \
-                  "Would you like LiveCode to convert the imported image to PNG format?" \
+                  "The engine can convert the imported image to PNG format, which can be displayed cross platform. " & \
+                  "Would you like to convert the imported image to PNG format?" \
                         with "Don't Show Again" or "Cancel" or "Don't Convert" or "Convert to PNG Format"
 
                   if it is "Cancel" then
@@ -2346,7 +2346,7 @@ function revDatabaseDriverList
    if revEnvironmentIsInstalled() then
       # OK-2007-09-24 : Legacy driver support. Unfortunately the legacy driver support also includes a legacy revDB external,
       # which does not support the revGetDatabaseDriverPath function. So if legacy drivers are to be used, we need to revert to the old
-      # way of listing the drivers. Because the setting does not take place until LiveCode is restarted, we can't just check it
+      # way of listing the drivers. Because the setting does not take place until the engine is restarted, we can't just check it
       # directly, so instead we simply attempt to call the function revGetDatabaseDriverPath and assume if its not there that legacy drivers
       # are in use.
       local tDriverPaths
@@ -3179,7 +3179,7 @@ command revOpenStacks
    if the systemFileSelector then
       switch the platform
          case "Win32"
-            put "LiveCode Stacks" & cr & "*.rev" & cr & "MetaCard Stacks" & cr & "*.mc" & cr & "All Files" & cr & "*.*" into filterstring
+            put "Stacks" & cr & "*.rev" & cr & "MetaCard Stacks" & cr & "*.mc" & cr & "All Files" & cr & "*.*" into filterstring
          break
          case "MacOS"
             put "MSTKSTAKTEXTRSTK" into filterstring

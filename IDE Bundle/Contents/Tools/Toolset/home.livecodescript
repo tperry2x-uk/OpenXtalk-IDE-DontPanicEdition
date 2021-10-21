@@ -68,9 +68,43 @@ on shutdown
    end if
 end shutdown
 
+
+--- check for HyperCard Stacks on macOS
+on appleEvent theClass,theID
+   if theClass is "aevt" and theID is "odoc" then
+      request appleEvent data
+      put it into theFiles ## files OS is requesting your application opens, one per line
+      if theFiles is not "not found" and theFiles is not empty then
+         repeat for each line tFilePath in theFiles
+            open file tFilePath
+            read from file tFilePath for 8 bytes
+            close file tFilePath
+            if it contains "STAK" then
+               put tFilePath & cr after tHCStackList
+               next repeat
+            else
+               next repeat
+            end if
+         end repeat
+         if tHCStackList is not empty then
+            handleOpenHyperCardSTAKs tHCStackList
+         else
+            pass appleEvent
+         end if
+      else
+         pass appleEvent
+      end if
+   end if
+end appleEvent
+
+on handleOpenHyperCardSTAKs pHCStackList
+   launch (line 1 of pHCStackList) with "/Applications/HyperCardPreview.app"
+   -- put "HyperCard STAKs:" & cr & pHCStackList
+end handleOpenHyperCardSTAKs
+
 -- on saveStackRequest
-   -- set the cantModify of me to true
-   -- pass saveStackRequest
+-- set the cantModify of me to true
+-- pass saveStackRequest
 -- end saveStackRequest
 
 on preOpenStack

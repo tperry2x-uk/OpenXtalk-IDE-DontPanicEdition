@@ -6472,7 +6472,18 @@ end revIDEStandaloneSectionNameToIconName
 on revIDEOpenStack pFilePath
    local tError, tStackName
 
-   if there is not a file pFilePath then return __revIDEError("Specified file does not exist")
+   if there is not a file pFilePath then
+      return __revIDEError("Specified file does not exist")
+   else
+         open file pFilePath
+         read from file pFilePath for 8 bytes
+         close file pFilePath
+         if it contains "STAK" then
+            handleOpenHyperCardSTAKs pFilePath
+            -- answer error "The file is a HyperCard stack:" && pFilePath & cr & tError
+            exit to top
+         end if
+   end if
 
    put empty into tError
    set the cursor to watch

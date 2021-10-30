@@ -7874,7 +7874,7 @@ on revIDEActionSaveStackAs pStackID, pSubstackOnly
    put tShortName into tSubstitutions[1]
 
    local tStackFilter, tStack24Filter, tStack27Filter, tStack55Filter, tStack70Filter, tStack80Filter
-   put (revIDELocalise("Stack") & "|otxstack,stk|STAK") into tStackFilter
+   put (revIDELocalise("Stack") & "|oxtstack,stk|STAK") into tStackFilter
    put (revIDELocalise("Legacy LiveCode Stack (2.4)") & "|livecode,rev|STAK") into tStack24Filter
    put (revIDELocalise("Legacy LiveCode Stack (2.7)") & "|livecode,rev|STAK") into tStack27Filter
    put (revIDELocalise("Legacy LiveCode Stack (5.5)") & "|livecode,rev|STAK") into tStack55Filter
@@ -7885,7 +7885,7 @@ on revIDEActionSaveStackAs pStackID, pSubstackOnly
       case the scriptOnly of stack tShortName
 
          put "script" into char -5 to -1 of tStackName
-         ask file revIDELocalise("Save script only stack %1 as:", tSubstitutions) with tStackName with type (revIDELocalise("Script Only Stack") & "|otxscript|STAK")
+         ask file revIDELocalise("Save script only stack %1 as:", tSubstitutions) with tStackName with type (revIDELocalise("Script Only Stack") & "|oxtscript|STAK")
          break
 	  case tStackFileType is 8.0
 	     ask file revIDELocalise("Save stack %1 as:", tSubstitutions) with tStackName with type tStack80Filter or type tStackFilter or type tStack70Filter or type tStack55Filter or type tStack27Filter or type tStack24Filter

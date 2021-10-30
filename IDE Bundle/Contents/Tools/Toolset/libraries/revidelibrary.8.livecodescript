@@ -7937,11 +7937,11 @@ on revIDEActionSaveStackAs pStackID, pSubstackOnly
 
    # MacOS Auotmatically appends the filetype to the filename
    local tFilePath
-   if the platform is not "MacOS" and not (it ends with ".rev" or it ends with ".livecode" or it ends with ".livecodescript") then
+      if the platform is not "MacOS" and not (it ends with ".rev" or it ends with ".livecode" or it ends with ".livecodescript" or it ends with ".oxtscript" or it ends with ".oxtstack") then
       if the scriptOnly of stack tShortName then
-         put ".otxscript" after it
+         put ".oxtscript" after it
       else
-         put ".otxstack" after it
+         put ".oxtstack" after it
       end if
    end if
    put it into tFilePath

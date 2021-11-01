@@ -1,3 +1,5 @@
+MY NOTE: IDE from "IDE Bundle/Contents/Tools" works on Windows (tested) and Linux (tested), it compiles your livecode or oxtstack scripts to executable for win, lin, macos and android (just apk for now)...
+
 ## The OpenXTalk DON'T PANIC Edition! Inegrated Development Environment
 
 This project is part of an effort to maintain and improve a fork of the legacy open source (GPL3) LiveCode Community Edition code base.

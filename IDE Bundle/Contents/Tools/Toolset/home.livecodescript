@@ -1,8 +1,8 @@
-﻿script "home"
+script "home"
 constant kImportantTextColor = "#b84c93" -- the color of startup messages text in splash screen
 
 on startup
-   revSetTestEnvironment($TRAVIS is true) -- sets up Travis CI (https://docs.travis-ci.com/) and checking an environmental variable for test mode
+   -- xrevSetTestEnvironment($TRAVIS is true) -- sets up Travis CI (https://docs.travis-ci.com/) and checking an environmental variable for test mode
 
    -- MW-2011-03-13: Make sure the externals are empty on startup
    set the externals of me to empty
@@ -36,6 +36,7 @@ on relaunch
    end if
    -- relaunch is used for installer and updater binariers
    -- Pass the relaunch request through a hook
+   answer "relaunch?"
    local tParameters
    repeat with x = 1 to the paramCount
       put param(x) into tParameters[x]
@@ -68,43 +69,9 @@ on shutdown
    end if
 end shutdown
 
-
---- check for HyperCard Stacks on macOS
-on appleEvent theClass,theID
-   if theClass is "aevt" and theID is "odoc" then
-      request appleEvent data
-      put it into theFiles ## files OS is requesting your application opens, one per line
-      if theFiles is not "not found" and theFiles is not empty then
-         repeat for each line tFilePath in theFiles
-            open file tFilePath
-            read from file tFilePath for 8 bytes
-            close file tFilePath
-            if it contains "STAK" then
-               put tFilePath & cr after tHCStackList
-               next repeat
-            else
-               next repeat
-            end if
-         end repeat
-         if tHCStackList is not empty then
-            handleOpenHyperCardSTAKs tHCStackList
-         else
-            pass appleEvent
-         end if
-      else
-         pass appleEvent
-      end if
-   end if
-end appleEvent
-
-on handleOpenHyperCardSTAKs pHCStackList
-   launch (line 1 of pHCStackList) with "/Applications/HyperCardPreview.app"
-   -- put "HyperCard STAKs:" & cr & pHCStackList
-end handleOpenHyperCardSTAKs
-
 -- on saveStackRequest
--- set the cantModify of me to true
--- pass saveStackRequest
+   -- set the cantModify of me to true
+   -- pass saveStackRequest
 -- end saveStackRequest
 
 on preOpenStack
@@ -381,14 +348,17 @@ constant kProductName = "OpenXTalk"
 private command revInternal__SetupLicense
    revInternal__Log "Enter", "License Setup"
 
-   put line 1 of the revLicenseInfo into sLicenseName
-   put line 2 of the revLicenseInfo into sLicenseOrganization
-   put line 3 of the revLicenseInfo into sLicenseClass
-   put line 4 of the revLicenseInfo into sLicenseMultiplicity
-
-   if sLicenseMultiplicity is empty then
-      put 1 into sLicenseMultiplicity
-   end if
+   -- put line 1 of the revLicenseInfo into sLicenseName
+   put "OpenXTalk Community User" into sLicenseName
+   -- put line 2 of the revLicenseInfo into sLicenseOrganization
+   put "" into sLicenseOrganization
+   --put line 3 of the revLicenseInfo into sLicenseClass
+   put "community" into sLicenseClass
+   -- put line 4 of the revLicenseInfo into sLicenseMultiplicity
+   put 1 into sLicenseMultiplicity
+   -- if sLicenseMultiplicity is empty then
+   --   put 1 into sLicenseMultiplicity
+   -- end if
 
    put the version && "build" && the buildnumber into sLicenseVersion
 
@@ -424,10 +394,10 @@ private command revInternal__SetupPaths
          if there is no folder sOldPreferencesPath then
             put the folder & slash & ".runrev/revolution/media/preferences" into sOldPreferencesPath
          end if
-         put the folder & slash & ".runrev/preferences" into sPreferencesPath
-         put the folder & slash & ".runrev/cache" into sCachePath
-         put the folder & slash & ".runrev/crashlogs" into sCrashLogPath
-         put the folder & slash & ".runrev/documentationcache" into sUserDocsPath
+         put the folder & slash & ".openxtalk/preferences" into sPreferencesPath
+         put the folder & slash & ".openxtalk/cache" into sCachePath
+         put the folder & slash & ".openxtalk/crashlogs" into sCrashLogPath
+         put the folder & slash & ".openxtalk/documentationcache" into sUserDocsPath
          set the folder to tOldFolder
 
          -- MW-2013-06-13: Adjust the engine path for Linux
@@ -441,10 +411,10 @@ private command revInternal__SetupPaths
          if there is no folder sOldPreferencesPath then
             put specialFolderPath("Preferences") & "/Runtime Revolution/Revolution Media" into sOldPreferencesPath
          end if
-         put specialFolderPath("Preferences") & "/RunRev" into sPreferencesPath
-         put specialFolderPath("cusr") & "/Library/Application Support/RunRev/Cache" into sCachePath
-         put specialFolderPath("cusr") & "/Library/Application Support/RunRev/Crash Logs" into sCrashLogPath
-         put specialFolderPath("cusr") & "/Library/Application Support/RunRev/Documentation Cache" into sUserDocsPath
+         put specialFolderPath("Preferences") & "/OpenXtalk" into sPreferencesPath
+         put specialFolderPath("cusr") & "/Library/Application Support/OpenXtalk/Cache" into sCachePath
+         put specialFolderPath("cusr") & "/Library/Application Support/OpenXtalk/Crash Logs" into sCrashLogPath
+         put specialFolderPath("cusr") & "/Library/Application Support/OpenXtalk/Documentation Cache" into sUserDocsPath
 
          -- MW-2013-06-13: Adjust the engine path for Mac
          put item 1 to -5 of tEnginePath into tEnginePath
@@ -458,11 +428,11 @@ private command revInternal__SetupPaths
          if there is no folder sOldPreferencesPath then
             put specialFolderPath(0x001a) & "/Runtime Revolution/Revolution Media/Preferences" into sOldPreferencesPath
          end if
-         put specialFolderPath(0x001a) & "/RunRev/Preferences" into sPreferencesPath
+         put specialFolderPath(0x001a) & "/OpenXtalk/Preferences" into sPreferencesPath
          -- We put everything else in the 'Local' AppData folder.
-         put specialFolderPath(0x001c) & "/RunRev/Cache" into sCachePath
-         put specialFolderPath(0x001c) & "/RunRev/Crash Logs" into sCrashLogPath
-         put specialFolderPath(0x001c) & "/RunRev/Documentation Cache" into sUserDocsPath
+         put specialFolderPath(0x001c) & "/OpenXtalk/Cache" into sCachePath
+         put specialFolderPath(0x001c) & "/OpenXtalk/Crash Logs" into sCrashLogPath
+         put specialFolderPath(0x001c) & "/OpenXtalk/Documentation Cache" into sUserDocsPath
 
          -- MW-2013-06-13: Adjust the engine path for Windows
          put item 1 to -2 of tEnginePath into tEnginePath
@@ -1130,14 +1100,14 @@ command revInternal__Log pType, pMessage
       put 0 into sLogIndent
       switch revEnvironmentPlatform()
          case "Linux"
-            put "~/.runrev/logs/" & toLower(kProductName) & "_tools_log.txt" into tLogPath
+            put "~/.OpenXtalk/logs/" & toLower(kProductName) & "_tools_log.txt" into tLogPath
             break
          case "MacOS X"
-            put specialFolderPath("cusr") & "/Library/Logs/RunRev/" & kProductName & "ToolsLog.txt"  into tLogPath
+            put specialFolderPath("cusr") & "/Library/Logs/OpenXtalk/" & kProductName & "ToolsLog.txt"  into tLogPath
             break
          case "Windows"
             -- Make sure we put logs in the 'Local' AppData section.
-            put specialFolderPath(0x001c) & "/RunRev/Logs/" & kProductName & "ToolsLog.txt" into tLogPath
+            put specialFolderPath(0x001c) & "/OpenXtalk/Logs/" & kProductName & "ToolsLog.txt" into tLogPath
             break
       end switch
       set the itemDelimiter to "/"
@@ -1817,13 +1787,13 @@ command revInternal__CleanDocsCache
    local tOldDocsFolder
    switch revEnvironmentPlatform()
       case "Linux"
-         put "~/.runrev/docs" into tOldDocsFolder
+         put "~/.OpenXtalk/docs" into tOldDocsFolder
          break
       case "MacOS X"
-         put specialFolderPath("cusr") & "/Library/Application Support/RunRev/Docs" into tOldDocsFolder
+         put specialFolderPath("cusr") & "/Library/Application Support/OpenXtalk/Docs" into tOldDocsFolder
          break
       case "Windows"
-         put specialFolderPath(0x001c) & "/RunRev/Docs" into tOldDocsFolder
+         put specialFolderPath(0x001c) & "/OpenXtalk/Docs" into tOldDocsFolder
          break
    end switch
    if there is a folder tOldDocsFolder then

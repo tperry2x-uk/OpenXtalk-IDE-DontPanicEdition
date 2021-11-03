@@ -1,19 +1,19 @@
 Dear 
 
-Thank you for participating in the LiveCode Business Academy.
+Thank you for trying out OpenXTalk!
 
-We notice you've watched X videos so far.
+We notice you've created X stacks so far.
 
 We really value your feedback. Please tell us what you think of the course so far by visiting:
 
-We notice you haven't watched any videos so far.
+We notice you haven't created any stacks so far.
 
-Please tell us why you haven't viewed any videos so far by visiting:
+Please tell us why you haven't by visiting:
 
-http://www.livecode.com/feedback/academy?a=
+http://www.yourwebsite.com/feedback?a=
 
-Best regards,
+Thanks a bunch,
 
-The LiveCode Team
+The Team
 
-This email was sent by LiveCode Ltd. 
+This email was sent by OpenXTalk.org 

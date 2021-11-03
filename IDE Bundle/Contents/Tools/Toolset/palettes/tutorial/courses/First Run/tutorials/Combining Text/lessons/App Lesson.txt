@@ -1,7 +1,7 @@
 tutorial "Combining Text"
 
 prologue
-	LiveCode's uniquely powerful text handling capabilities comes in handy for a wide range of applications. Common tasks include:
+	xTalk languages use uniquely powerful text 'chunk' handling capabilities that come in handy for a wide range of applications. Common tasks include:
 
 	- Mail merging a form email
 
@@ -114,7 +114,7 @@ step "Address by name 7"
 
 	- then a comma
 
-	A single ampersand '&' tells LiveCode to combine text together and a double ampersand '&& tells it insert a space when it does so.
+	A single ampersand '&' tells xTalk to combine text together and a double ampersand '&& tells it insert a space when it does so.
 action
 	interlude
 	highlight line "put line 2 of tRecord" of script editor for button "create"

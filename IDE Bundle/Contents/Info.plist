@@ -13,8 +13,8 @@
 			<array>
 				<string>mc</string>
 				<string>stk</string>
-				<string>otxstack</string>
-				<string>otxscript</string>
+				<string>oxtstack</string>
+				<string>oxtscript</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>OpenXTalkDoc.icns</string>
@@ -65,7 +65,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.963.155431</string>
 	<key>CFBundleSignature</key>
-	<string>OTXk</string>
+	<string>OXTk</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
@@ -141,7 +141,7 @@
 			<key>UTTypeDescription</key>
 			<string>Stack</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.otx.ide.stack</string>
+			<string>com/oxt.ide.stack</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>com.apple.macos.ostype</key>

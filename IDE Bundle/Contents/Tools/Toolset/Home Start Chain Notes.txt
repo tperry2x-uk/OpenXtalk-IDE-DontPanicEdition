@@ -24,7 +24,7 @@ HOME Start chain:
     Patterns
       stacks "revGeneralPatterns,revCompatibilityPatterns1,revCompatibilityPatterns2" checked for existence, doesn't do anything if they don't exist!
     revInternal__InitialiseScriptEditor -- sets the behavior script of stack /palettes/script editor/revscripteditor.8.rev and insures SE invisibles are hidden
-    revInternal__InitialiseUserLibraries -- loads any ~ user/My_OXT/ icon files and sets them to hidden
+    revInternal__InitialiseUserLibraries -- loads any ~ user/My_OXT/ (Linux) or ~/Documents/My OpenXTalk/ (macOS) icon stacks and sets them to hidden
     revInternal__InitialiseErrors -- sets _ideoverride on revError display and ensures invisibles are hidden
     revInternal__InitialiseMenus -- Creates top ToolBar menu (that palette at the top) and the app menus 
     revInternal__InitialiseTools -- Loads the Tools palette and positions it on screen  

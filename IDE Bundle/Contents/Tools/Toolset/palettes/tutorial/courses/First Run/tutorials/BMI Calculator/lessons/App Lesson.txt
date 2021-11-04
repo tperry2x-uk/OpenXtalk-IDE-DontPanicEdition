@@ -14,10 +14,10 @@ step "Tutorial Intro I"
 	- How to build the graphical portion of an app by dragging and 
 	  dropping objects into an app
 
-	- The basics of coding in LiveCode to add user interactivity to an
+	- The basics of coding in xTalk to add user interactivity to an
 	  app 
 
-	- How to use the features of the LiveCode Integrated Development 
+	- How to use the features of the Integrated Development 
 	  Environment (IDE) to enhance your app-building productivity
 action
 	interlude
@@ -25,7 +25,7 @@ action
 end step
 
 step "Tutorial Intro II"
-	The tutorial will show you how LiveCode makes complex functionality 
+	The tutorial will show you how xTalk makes complex functionality 
 	easy, including:
 	
 	- Using natively themed widget controls
@@ -66,9 +66,8 @@ action
 end step
 
 step "Stack Interlude"
-	The first step in creating a LiveCode application is creating a 
-	window, which in LiveCode is called a stack. Each window you see in 
-	LiveCode is a stack.
+	The first step in creating an application is creating a 
+	window, which in xTalk is called a stack. Each window you see is a stack.
 action
 	interlude
 	go to step "Create Mainstack"
@@ -545,7 +544,7 @@ end step
 skip point
 
 step "Name Interlude"
-	It is important to name objects in LiveCode when you are going to 
+	It is important to name objects when you are going to 
 	refer to them using code later on. The field we have just created 
 	will have some text entered by the app user, and we will need to use
 	its contents in script to calculate the BMI. So we will give it a 
@@ -1018,7 +1017,7 @@ step "Chart Card Interlude"
 	adding code to make things work, we will set up the UI for the chart 
 	display.
 	
-	LiveCode stacks can have a number of different cards, which function 
+	Stacks can have a number of different cards, which function 
 	like separate screens in the app. We are going to add a card for the
 	chart display.
 action
@@ -1052,7 +1051,7 @@ step "Background Groups Interlude"
 	at the bottom should be visible on the chart card as well as this 
 	card.
 	
-	In order to make this happen, we use a feature of LiveCode called
+	In order to make this happen, we use a feature called
 	a shared group. A shared group can appear on any card of a stack.
 action 
 	interlude
@@ -1305,7 +1304,7 @@ step "Script Editor Interlude"
 	The Script Editor is a window that allows you to add code to the
 	objects on your stack.
 	
-	LiveCode apps work by executing code in response to 'messages', 
+	Apps work by executing code in response to 'messages', 
 	which are usually triggered by some kind of user action. 
 
 	When an object is sent a message, it will execute the code in the 
@@ -1349,7 +1348,7 @@ end step
 
 step "Explain Go To Card"
 	We have named our cards "calculator" and "chart", the same as the 
-	names of the navigation items in the navigation bar (LiveCode is not 
+	names of the navigation items in the navigation bar (xTalk is not 
 	case-sensitive by default). So going to the appropriate card is as
 	simple as going to the card corresponding to the 'hilitedItemName'.
 action
@@ -1375,7 +1374,7 @@ end step
 skip point
 
 step "Run Edit Tools Interlude"
-	LiveCode has two modes: edit mode and run mode. 
+	There are two modes: edit mode and run mode. 
 	
 	Up until now you have been in edit mode all the time. In edit mode
 	you can click or drag to select objects on your stack, and move and 
@@ -1493,8 +1492,8 @@ action
 end step
 
 step "Explain JSON Library"
-	LiveCode comes with pre-packaged library functions to convert 
-	between JSON and a format understood by LiveCode. 
+	The IDE comes with pre-packaged library functions to convert 
+	between JSON and a format understood by xTalk. 
 	
 	In this case the JSON is converted to an array - which is a single
 	variable in which many values can be stored. 
@@ -1564,7 +1563,7 @@ step "Explain Calculate Script II"
 	getBMI that we added to the stack script.
 	
 	The answer command brings up a dialog box with some content. Here we
-	are telling LiveCode to pop up a dialog box with the result of the 
+	are telling xTalk to pop up a dialog box with the result of the 
 	getBMI function with the height and weight values entered by the 
 	user.
 action
@@ -1957,8 +1956,8 @@ end step
 skip point
 
 step "Dictionary Interlude"
-	The dictionary contains information about all the syntax available
-	in LiveCode. There is also a Guide tab which contains all the user
+	The dictionary contains information about all the syntax available. 
+	There is also a Guide tab which contains all the user
 	guides available.
 action
 	interlude
@@ -2221,7 +2220,7 @@ end step
 skip point
 
 step "Create Browser Widget"
-	One of the built-in widgets in LiveCode 8 is a cross-platform 
+	One of the built-in widgets is a cross-platform 
 	browser object.
 	
 	Drag a new browser widget from the tools palette onto your stack.
@@ -2288,7 +2287,7 @@ skip point
 
 step "More Info In Lessons"
 	Congratulations! You have completed this app tutorial. For more 
-	practical information on how to make apps in LiveCode, click the
+	practical information on how to make apps, click the
 	tutorials toolbar icon for a wealth of step-by-step guides on 
 	a wide range of topics.
 action
@@ -2298,7 +2297,7 @@ end step
 
 epilogue
 	Once you have made an app, you might want to share it with others.
-	LiveCode allows you to deploy the same app to Mac, Windows, Linux, 
+	The IDE allows you to deploy the same app to Mac, Windows, Linux, 
 	iOS, Android, and HTML5. For more information on building standalone
 	applications, see the "Deploying Your Application" guide in the 
 	dictionary. Happy coding!

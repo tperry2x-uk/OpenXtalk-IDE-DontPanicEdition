@@ -28,7 +28,7 @@ skip point
 step "Stack Interlude"
 	We start by creating the User Interface (UI) for the Hello World app.
 
-	The first step is to create a new LiveCode app at the default size.
+	The first step is to create stack at the default size.
 
 	Click on the File menu, and select 'New Stack' → 'Default Size'.
 action
@@ -42,7 +42,7 @@ end step
 skip point
 
 step "Properties interlude"
-	Every object in LiveCode has a set of properties associated with it. These
+	Every object has a set of properties associated with it. These
 	properties control the appearance, location and behavior of the objects
 	in your app.
 
@@ -162,7 +162,7 @@ step "Events and messages interlude"
 	Now that the UI is complete the next stage is to add code to the app
 	to make it interactive.
 
-	LiveCode apps work by responding to 'messages', which are usually triggered by some kind of user action. A message might tell the app that the user has
+	Apps work by responding to 'messages', which are usually triggered by some kind of user action. A message might tell the app that the user has
 	clicked on a button or typed in a field. You add code to tell the app what
 	to do when a message is received.
 
@@ -229,7 +229,7 @@ end step
 skip point
 
 step "Edit Tool Interlude"
-	LiveCode has two modes: Edit mode and Run mode.
+	There are two modes: Edit mode and Run mode.
 
 	Up until now you have been in Edit mode all the time. In Edit mode
 	you can add, edit and move objects on your stack. You can also select objects
@@ -266,7 +266,7 @@ step "Next Steps"
 
 	Why don't you try customizing it by changing the message or adding multiple buttons that display different messages.
 
-	To learn more about LiveCode development why not try a more advanced tutorial or take a look at some of the lessons in our Lessons portal.
+	To learn more about xTalk development why not try a more advanced tutorial or take a look at some of the lessons in our Lessons portal.
 action
 		interlude
     highlight toolbar "Tutorials"
@@ -274,11 +274,11 @@ action
 end step
 
 epilogue
-	Congratulations on completing your first LiveCode app. You have learned
+	Congratulations on completing your first app. You have learned
 
 	- How to build the User Interface(UI) of an app by dragging and dropping objects
 
-	- The basics of coding in LiveCode to add interactivity to your app
+	- The basics of coding in xTalk to add interactivity to your app
 
-	- How to use the features of the LiveCode Integrated Development Environment (IDE)
+	- How to use the features of the Integrated Development Environment (IDE)
 end epilogue

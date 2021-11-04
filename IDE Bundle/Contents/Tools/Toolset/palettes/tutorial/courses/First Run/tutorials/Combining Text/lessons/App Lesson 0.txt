@@ -1,7 +1,7 @@
 tutorial "Combining Text"
 
 prologue
-	LiveCode's uniquely powerful text handling capabilities comes in handy for a wide range of applications. Common tasks include:
+	xTalk languages have uniquely powerful text 'chunk' handling capabilities that come in handy for a wide range of applications. Common tasks include:
 
 	- Mail merging a form email
 

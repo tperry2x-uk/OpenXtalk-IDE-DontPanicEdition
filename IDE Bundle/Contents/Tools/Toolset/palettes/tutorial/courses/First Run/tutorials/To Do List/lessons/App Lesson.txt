@@ -4,7 +4,7 @@ prologue
 	In this tutorial we will create a simple To Do List.
 
 	The finished app can be built into a self-contained app that can be shared
-	with anyone, even if they don't have LiveCode.
+	with anyone.
 image
 	ToDoListScreenshot.png
 end prologue
@@ -14,11 +14,11 @@ step "Tutorial Intro I"
 
 	- How to build the User Interface(UI) of an app by dragging and dropping objects
 
-	- The basics of coding in LiveCode to add user interactivity to your app
+	- The basics of coding in xTalk to add user interactivity to your app
 
-	- How to use the features of the LiveCode Integrated Development Environment (IDE)
+	- How to use the features of the Integrated Development Environment (IDE)
 
-	- How to build your app as a self contained application. In LiveCode we call this a standalone.
+	- How to build your app as a self contained application. We call this a standalone.
 action
 	interlude
 	go to step "Tutorials Intro"
@@ -48,8 +48,8 @@ step "Stack Interlude"
 	In this first section of the tutorial, we will create the User
 	Interface (UI) for the To Do List app.
 
-	The first step in creating a LiveCode application is creating a
-	stack. A stack is the canvas for your app. Every window you see in LiveCode
+	The first step in creating an application is creating a
+	stack. A stack is the canvas for your app. Every window you see
 	is a stack.
 
 	In this tutorial we will create our stack at iPhone 5 size.
@@ -78,7 +78,7 @@ action
 end step
 
 step "Properties interlude"
-	Every object in LiveCode has a set of properties associated with it. These
+	Every object has a set of properties associated with it. These
 	properties control the appearance, location and behavior of the objects
 	in your app.
 
@@ -303,7 +303,7 @@ step "Events and messages interlude"
 	Now that the first part of the UI is complete the next stage is to add code to the app
 	to allow the user to interact with it.
 
-	LiveCode apps work by responding to 'messages', which are usually triggered by
+	Apps work by responding to 'messages', which are usually triggered by
 	some kind of user action. A message might tell the app that the user has
 	clicked on a button or typed in a field. You add code to tell the app what
 	to do when a message is received.
@@ -391,7 +391,7 @@ end step
 skip point
 
 step "Edit Tool Interlude"
-	LiveCode has two modes: Edit mode and Run mode.
+	There are two modes: Edit mode and Run mode.
 
 	Up until now you have been in Edit mode all the time. In Edit mode
 	you can add, edit and move objects on your stack. You can also select objects

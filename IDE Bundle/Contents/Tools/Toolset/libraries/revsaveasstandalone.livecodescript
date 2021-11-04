@@ -528,7 +528,7 @@ private on revStandalonePreBuild pStack, pFolder, pPlatform, pArchs, @rStackName
    put item -1 of tStackName into tExtension
    set the itemdelimiter to comma
    if tExtension is not among the items of revIDELiveCodeFileExtensions() then
-      put ".livecode" after tStackName
+      put ".oxtstack" after tStackName
    end if
    
    local tStackFileList
@@ -2033,8 +2033,8 @@ private function revSaveToFolder pFolder, pStack, pGeneric
    # already contain ".rev". In this case, the stack ends up being called something.rev.rev,
    # and the standalone builder breaks further along because it makes assumptions about 
    # the stack's filename. I'm not 100% sure that this fix is correct...
-   if not (tFileName ends with ".livecodescript" or tFileName ends with ".livecode" or tFileName ends with ".rev") then 
-      put ".livecode" after tFileName
+   if not (tFileName ends with ".livecodescript" or tFileName ends with ".livecode" or tFileName ends with ".rev" or tFileName ends with ".oxtstack" or tFileName ends with ".oxtscript") then 
+      put ".oxtstack" after tFileName
    end if
    lock screen
    // SN-2015-07-01: [[ Bug 15259 ]] We don't want the saving to be trapped by

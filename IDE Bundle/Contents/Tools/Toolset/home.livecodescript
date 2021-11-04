@@ -163,7 +163,7 @@ on revInternal__openStack
 
       if tSuccess then
          revInternal__setSplashStatus "Loading User Icon Libraries..."
-         revInternal__InitialiseUserLibraries -- loads any ~ user/My_OTX/ icon files¬†and sets them to hidden
+         revInternal__InitialiseUserLibraries -- loads any ~ user/My_OXT/ icon files¬†and sets them to hidden
          put the result into tSuccess
       end if
 
@@ -559,7 +559,7 @@ function revInternal__StackFiles
    put item 1 of the version into tIDEVersion
    repeat for each line tPath in tFolders
       repeat for each line tFile in files(tPath)
-         if the last item of tFile is not among the items of "rev.livecode.livecodescript.stk.otxstack.otxscript" then next repeat
+         if the last item of tFile is not among the items of "rev.livecode.livecodescript.stk.oxtstack.oxtscript" then next repeat
 
          put item 1 to -2 of tFile into tStackName
 
@@ -965,9 +965,9 @@ function revInternal__CheckFileAssociations
       -- added OXT types -- Paul McClernan 9/2021
       if queryRegistry("HKEY_CURRENT_USER\Software\Classes\.rev\") is not "RevolutionStack" or \
             queryRegistry("HKEY_CURRENT_USER\Software\Classes\.stk\") is not "Stack" or \
-            queryRegistry("HKEY_CURRENT_USER\Software\Classes\.otxstack\") is not "OXTStack" or \
+            queryRegistry("HKEY_CURRENT_USER\Software\Classes\.oxtstack\") is not "OXTStack" or \
             queryRegistry("HKEY_CURRENT_USER\Software\Classes\.livecode\") is not "LiveCodeStack" or \
-            queryRegistry("HKEY_CURRENT_USER\Software\Classes\.otxscript\") is not "ScriptOnlyStack" or \
+            queryRegistry("HKEY_CURRENT_USER\Software\Classes\.oxtscript\") is not "ScriptOnlyStack" or \
             queryRegistry("HKEY_CURRENT_USER\Software\Classes\.livecodescript\") is not "LiveCodeScriptOnlyStack"
       then
          return true
@@ -1028,10 +1028,10 @@ command revInternal__InstallFileAssociations
             setRegistry("HKEY_CURRENT_USER\Software\Classes\.stk\", "Stack") and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\Stack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\Stack\DefaultIcon\", tEnginePath & comma & "1") and  \
-            setRegistry("HKEY_CURRENT_USER\Software\Classes\.otxstack\", "OXTStack") and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\.oxtstack\", "OXTStack") and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\OXTStack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\OXTStack\DefaultIcon\", tEnginePath & comma & "1") and  \
-            setRegistry("HKEY_CURRENT_USER\Software\Classes\.otxscript\", "ScriptOnlyStack") and \
+            setRegistry("HKEY_CURRENT_USER\Software\Classes\.oxtscript\", "ScriptOnlyStack") and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\ScriptOnlyStack\Shell\Open\Command\", quote & tEnginePath & quote && quote & "%1" & quote) and \
             setRegistry("HKEY_CURRENT_USER\Software\Classes\ScriptOnlyStack\DefaultIcon\", tEnginePath & comma & "1")
       if it is false then

@@ -1,1 +1,4 @@
-Speech,revspeech.bundleXML,revxml.bundleBrowser,revbrowser.bundleRevolution Zip,revzip.bundleDatabase,revdb.bundle
+XML,revxml.so
+Revolution Zip,revzip.so
+Browser,revbrowser.so
+Database,revdb.so

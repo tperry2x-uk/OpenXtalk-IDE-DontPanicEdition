@@ -1,4 +1,4 @@
-script "home"
+﻿script "home"
 constant kImportantTextColor = "#b84c93" -- the color of startup messages text in splash screen
 
 on startup
@@ -68,6 +68,48 @@ on shutdown
       __revInternal_SavePreferences
    end if
 end shutdown
+
+
+--- check for HyperCard Stacks on macOS
+on appleEvent theClass,theID
+   if theClass is "aevt" and theID is "odoc" then
+      request appleEvent data
+      put it into theFiles ## files OS is requesting your application opens, one per line
+      if theFiles is not "not found" and theFiles is not empty then
+         repeat for each line tFilePath in theFiles
+            open file tFilePath
+            read from file tFilePath for 8 bytes
+            close file tFilePath
+            if it contains "STAK" then
+               put tFilePath & cr after tHCStackList
+               next repeat
+            else
+               next repeat
+            end if
+         end repeat
+         if tHCStackList is not empty then
+            handleOpenHyperCardSTAKs tHCStackList
+         else
+            pass appleEvent
+         end if
+      else
+         pass appleEvent
+      end if
+   end if
+end appleEvent
+
+on handleOpenHyperCardSTAKs pHCStackList
+   if there is a folder "/Applications/HyperCardPreview.app" then
+         put "/Applications/HyperCardPreview.app"  into tHCPrv
+      else if there is a folder "~/Applications/HyperCardPreview.app" then
+          put "~/Applications/HyperCardPreview.app"  into tHCPrv
+   end if
+   if tHCPrv is not empty then
+      launch (line 1 of pHCStackList) with tHCPrv
+   else
+      put "HyperCard STAKs:" & cr & pHCStackList
+   end if
+end handleOpenHyperCardSTAKs
 
 -- on saveStackRequest
    -- set the cantModify of me to true
@@ -163,7 +205,7 @@ on revInternal__openStack
 
       if tSuccess then
          revInternal__setSplashStatus "Loading User Icon Libraries..."
-         revInternal__InitialiseUserLibraries -- loads any ~ user/My_OXT/ icon files¬†and sets them to hidden
+         revInternal__InitialiseUserLibraries -- loads any ~ user/My_OXT/ icon files¬¨‚Ä†and sets them to hidden
          put the result into tSuccess
       end if
 

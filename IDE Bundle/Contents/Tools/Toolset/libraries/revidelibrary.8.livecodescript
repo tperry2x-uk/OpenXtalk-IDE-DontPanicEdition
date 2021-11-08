@@ -7865,15 +7865,14 @@ on revIDEActionSaveStackAs pStackID, pSubstackOnly
 
    local tStackFilter, tStack24Filter, tStack27Filter, tStack55Filter, tStack70Filter, tStack80Filter
    put (revIDELocalise("Stack") & "|otxstack,stk|STAK") into tStackFilter
-   put (revIDELocalise("Legacy LiveCode Stack (2.4)") & "|livecode,rev|STAK") into tStack24Filter
-   put (revIDELocalise("Legacy LiveCode Stack (2.7)") & "|livecode,rev|STAK") into tStack27Filter
-   put (revIDELocalise("Legacy LiveCode Stack (5.5)") & "|livecode,rev|STAK") into tStack55Filter
-   put (revIDELocalise("Legacy LiveCode Stack (7.0)") & "|livecode,rev|STAK") into tStack70Filter
-   put (revIDELocalise("Legacy LiveCode Stack (8.0)") & "|livecode,rev|STAK") into tStack80Filter
+   put (revIDELocalise("Legacy LiveCode Stack (2.4)") & "|livecode,rev|RSTK") into tStack24Filter
+   put (revIDELocalise("Legacy LiveCode Stack (2.7)") & "|livecode,rev|RSTK") into tStack27Filter
+   put (revIDELocalise("Legacy LiveCode Stack (5.5)") & "|livecode,rev|RSTK") into tStack55Filter
+   put (revIDELocalise("Legacy LiveCode Stack (7.0)") & "|livecode,rev|RSTK") into tStack70Filter
+   put (revIDELocalise("Legacy LiveCode Stack (8.0)") & "|livecode,rev|RSTK") into tStack80Filter
    local tVersion
    switch
       case the scriptOnly of stack tShortName
-
          put "script" into char -5 to -1 of tStackName
          ask file revIDELocalise("Save script only stack %1 as:", tSubstitutions) with tStackName with type (revIDELocalise("Script Only Stack") & "|otxscript|STAK")
          break
@@ -7927,7 +7926,8 @@ on revIDEActionSaveStackAs pStackID, pSubstackOnly
 
    # MacOS Auotmatically appends the filetype to the filename
    local tFilePath
-   if the platform is not "MacOS" and not (it ends with ".rev" or it ends with ".livecode" or it ends with ".livecodescript") then
+   if the platform is not "MacOS" and not (it ends with ".rev" or it ends with ".livecode" or it ends with ".livecodescript"\
+      or it ends with ".otxscript" or it ends with ".otxstack" ) then
       if the scriptOnly of stack tShortName then
          put ".otxscript" after it
       else

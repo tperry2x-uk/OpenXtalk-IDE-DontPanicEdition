@@ -1,5 +1,12 @@
 
-IDE revMenuBar handers:
+IDE handlers:
+
+on revIDEGenerateDistributedDocs
+   start using stack (revEnvironmentRepositoryPath() & slash & "ide-support" & slash & "revdocsparser.livecodescript")
+   revIDEGenerateDistributedGuide
+   revIDEGenerateDistributedAPI
+   revIDERegenerateBuiltDictionaryData
+end revIDEGenerateDistributedDocs
 
 
 revMenuBarRecentFiles()
@@ -81,7 +88,8 @@ revIDEActionDistributeControls pIsHorixontal, "First to last selected" -- "Edge 
 revIDEActionAlign "Top" -- Left, Right, Top, Bottom,
 revIDEAlignControls pTarget, item 2 of pWhich -- "alignCenter"
 revIDECenterControls the selectedObjects, "vertical" -- or "horizontal"
-revIDEEqualizeControls pControls, pPosition -- the selectedObjects, pPosition= "width" or "height"
+revIDEEqualizeControls pControls, pPosition -- the selectedObjects, pPosition= "width","height", or "rect"
+
 
 repeat for each line X in the selectedObjects; set the left of X to 0; end repeat -- sets all object to left side of card
 repeat for each line X in the selectedObjects; set the top of X to 0; end repeat -- sets all object to top side of card

@@ -79,9 +79,9 @@ revIDEActionRotateGraphic item 2 of pWhich
 revIDEActionDistributeControls pIsHorixontal, "First to last selected" -- "Edge to edge", "Across card"
 
 revIDEActionAlign "Top" -- Left, Right, Top, Bottom,
-revIDEAlignControls pTarget, item 2 of pWhich
-"alignCenter"
+revIDEAlignControls pTarget, item 2 of pWhich -- "alignCenter"
 revIDECenterControls the selectedObjects, "vertical" -- or "horizontal"
+revIDEEqualizeControls pControls, pPosition -- the selectedObjects, pPosition= "width" or "height"
 
 repeat for each line X in the selectedObjects; set the left of X to 0; end repeat -- sets all object to left side of card
 repeat for each line X in the selectedObjects; set the top of X to 0; end repeat -- sets all object to top side of card

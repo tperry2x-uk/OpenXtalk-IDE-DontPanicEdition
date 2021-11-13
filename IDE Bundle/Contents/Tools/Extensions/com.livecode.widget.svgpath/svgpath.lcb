@@ -22,6 +22,19 @@ This widget displays an SVG path as an icon.  It has a default state and a
 widget com.livecode.widget.svgpath
 --
 
+/*
+Name: mouseUp
+Type: message
+
+Name: mouseDown
+Type: message
+
+Name: mouseLeave
+Type: message
+
+Name: mouseEnter
+Type: message
+*/
 -- dependency declarations
 use com.livecode.canvas
 use com.livecode.widget

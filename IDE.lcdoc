@@ -834,7 +834,7 @@ Summary: Determines whether an object is considered part of the IDE
 
 pLongID: The long id of the object.
 
-Returns: 
+Returns: Boolean
 
 Description:
 Use the <revIDEObjectIsOnIDEStack> function to determine whether an object is
@@ -846,9 +846,7 @@ References: revIDEStackIsIDEStack (function)
 
 Parameters:
 :
-
-
-
+Returns: 
 
 Name: revIDEMessages
 
@@ -858,7 +856,7 @@ Syntax: revIDEMessages()
 
 Summary: Use to get a list of all the messages that the IDE allows subscriptions for
 
-returns: Return delimited list of message names, 1 per line.
+returns: Returns comms delimited list of message names that the IDE allows subscriptions for.
 
 references: revIDESubscribedObjects (function), revIDESubscriptions (function), revIDEUnsubscribe (command), revIDESubscribe (command)
 

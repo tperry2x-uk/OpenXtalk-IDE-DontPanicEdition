@@ -326,20 +326,20 @@ on generateMenubarUI
    if there is a group "icons" of me then
       delete group "icons" of me
    end if
-   
+
    if there is a group "toolbar" of me then
       delete group "toolbar" of me
    end if
-   
+
    reset the templatebutton
-   
+
    create group "icons"
    create group "toolbar"
-   
+
    lock messages
    # Setup the default button
    put the cMenuToolBarFontSize of stack "revPreferences" into tTextSize
-   if it is empty then 
+   if it is empty then
       set the cMenuToolBarFontSize of stack "revPreferences" to 12
       put 12 into tTextSize
    end if
@@ -352,10 +352,10 @@ on generateMenubarUI
    set the margins of the templatebutton to "4,0,4,1"
    set the traversalOn of the templatebutton to false
    set the autoHilite of the templatebutton to false
-   
+
    # Setup the default image
    set the resizequality of the templateimage to "best"
-   
+
    # Setup the default field
    set the traversalon of the templatefield to false
    set the threed of the templatefield to false
@@ -364,7 +364,7 @@ on generateMenubarUI
    set the opaque of the templatefield to false
    set the height of the templatefield to 21
    set the locktext of the templatefield to true
-   
+
    local tDividerCount
    put 1 into tDividerCount
    repeat for each item tItem in revMenubarItems()
@@ -407,25 +407,25 @@ on generateMenubarUI
                end if
             end if
          end repeat
-         
+
          create button tItem in group "toolbar" of me
          set the cIcon of it to the id of image tItem of group "icons" of me
          set the icon of it to the cIcon of it
          set the label of it to revIDELocalizeMenuItem(tItem)
       end if
    end repeat
-   
+
    set the hilitedIcon of the templatebutton to 0
    set the disabledIcon of the templatebutton to 0
-   
+
    generateTutorialGroup
    generateUpgradeGroup
-   
+
    reset the templategraphic
    reset the templatebutton
    reset the templateimage
    reset the templatefield
-   
+
    unlock messages
 end generateMenubarUI
 
@@ -1942,7 +1942,7 @@ end revMenubarHelpMenu
 
 private function revMenubarViewMenu pContext
    global gREVPalettes, gREVShowStacks
-   
+
    local tView
    put enableMenuItem("Go &First/1", the mode of the topStack is 1) & return after tView
    put enableMenuItem("Go Pre&v/2", the mode of the topStack is 1) & return after tView
@@ -1962,7 +1962,7 @@ private function revMenubarViewMenu pContext
    put toggleMenuItem("Show IDE Stacks In Lists", gREVShowStacks) & return after tView
    put "-" & return after tView
    put toggleMenuItem("Show &Invisible Objects" , the showInvisibles) & return after tView
-   
+
    return modifyMenu("View", tView)
 end revMenubarViewMenu
 
@@ -3184,7 +3184,7 @@ on revMenubarHelpMenuPick pWhich
    put item 1 of pWhich into tPick
    switch tPick
       case "Dictionary"
-         revIDEDocumentationLoad "API", "LiveCode Script"
+         revIDEDocumentationLoad "API", "Script"
          break
       case "Start Center"
       case "Welcome"

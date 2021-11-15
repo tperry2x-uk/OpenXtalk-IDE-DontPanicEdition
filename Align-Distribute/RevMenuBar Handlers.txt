@@ -16,7 +16,7 @@ put revMenubarItems() -- Toolbar Items
 revMenubarMenus()
 
 revIDEDocumentationLoad "API", "Script"
-revIDEDocumentationLoad "API", "Builder" -- doesn't work???
+revIDEDocumentationLoad "", "Builder" -- doesn't work???
 
 revIDEActionInspectStack
 revIDEActionInspectObjects
@@ -26,7 +26,7 @@ revIDEOpenInspectorForObjects pTarget
 revIDECutObjects pTarget
 revIDECopyObjects pTarget
 revIDEToggleLockLocationOfObjects pTarget
-revIDEGoToObjectAPI pTarget --- example usage: revIDEGoToObjectAPI "Button"
+revIDEGoToObjectAPI pTarget --- example usage: revIDEGoToObjectAPI "Button" -- Opens the Dictionary and searches for the parameter string
 revIDEShowInProjectBrowser pTarget
 
 revIDEToggleMagnifyOfImage pTarget???

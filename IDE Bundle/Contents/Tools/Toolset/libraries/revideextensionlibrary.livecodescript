@@ -1412,15 +1412,15 @@ end extensionUpdateDataReceived
 private function __TypeToAPI pType
    switch pType
       case "module"
-         return "oxt_builder"
+         return "builder"
          break
       case "plugin"
-         return "oxt_ide"
+         return "ide"
          break
       case "library"
       case "widget"
       default
-         return "oxt_script"
+         return "script"
          break
    end switch
 end __TypeToAPI

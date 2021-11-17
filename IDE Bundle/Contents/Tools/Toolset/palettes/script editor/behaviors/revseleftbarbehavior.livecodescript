@@ -37,48 +37,49 @@ command resize
 end resize
 
 command update pDontUpdateSelectedHandler, pClearFilter
-   lock screen
-   
-   local tObject, tFilter
-   put the long id of group "Left Handler List" of me into tObject
-   put the long id of field "Filter" of me into tFilter
-   
-   set the cCallback of tObject to "handlerSelected"
-   set the cCallbackTarget of tObject to the long id of me
-   
-   local tHandler
-   revSEGetSelectedHandler pDontUpdateSelectedHandler
-   put the result into tHandler
-   if tHandler is not empty then
-      set the cSelectedHandler of tObject to tHandler
-   end if
-   
-   local tCurrentObject
-   revSEGetCurrentObject
-   put the result into tCurrentObject
-   
-   set the cObject of tObject to tCurrentObject
-   set the cCaller of tObject to the long id of stack (revTargetStack(the long id of me))
-   
-   set the cMaxWidth of tObject to the width of me
-   set the cMinWidth of tObject to the width of me
-   set the cMaxHeight of tObject to (the height of me - the height of tFilter)
-   set the cMinHeight of tObject to (the height of me - the height of tFilter)
-   
-   call "initializeWithoutGrabbingFocus" to tObject
-   
-   -- Hook up the filter field to the list of handlers, and initialise it.
-   set the cCallback of tFilter to "filterChanged"
-   set the cCallbackTarget of tFilter to tObject
-   set the cPlaceholderText of tFilter to "Filter..."
-   
-   if pClearFilter then
-      dispatch "clearFilter" to tFilter
-   else
-      send "update" to tFilter
-   end if
-   
-   unlock screen
+  lock screen
+  
+  local tObject, tFilter
+  put the long id of group "Left Handler List" of me into tObject
+  put the long id of field "Filter" of me into tFilter
+  set the foregroundColor of tObject to "Black"
+  
+  set the cCallback of tObject to "handlerSelected"
+  set the cCallbackTarget of tObject to the long id of me
+  
+  local tHandler
+  revSEGetSelectedHandler pDontUpdateSelectedHandler
+  put the result into tHandler
+  if tHandler is not empty then
+    set the cSelectedHandler of tObject to tHandler
+  end if
+  
+  local tCurrentObject
+  revSEGetCurrentObject
+  put the result into tCurrentObject
+  
+  set the cObject of tObject to tCurrentObject
+  set the cCaller of tObject to the long id of stack (revTargetStack(the long id of me))
+  
+  set the cMaxWidth of tObject to the width of me
+  set the cMinWidth of tObject to the width of me
+  set the cMaxHeight of tObject to (the height of me - the height of tFilter)
+  set the cMinHeight of tObject to (the height of me - the height of tFilter)
+  
+  call "initializeWithoutGrabbingFocus" to tObject
+  
+  -- Hook up the filter field to the list of handlers, and initialise it.
+  set the cCallback of tFilter to "filterChanged"
+  set the cCallbackTarget of tFilter to tObject
+  set the cPlaceholderText of tFilter to "Filter..."
+  
+  if pClearFilter then
+    dispatch "clearFilter" to tFilter
+  else
+    send "update" to tFilter
+  end if
+  
+  unlock screen
 end update
 
 command updateSelectedHandler

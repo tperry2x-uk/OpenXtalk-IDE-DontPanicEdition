@@ -1,0 +1,54 @@
+<Stack>
+
+  <Card>
+    <Field>
+    </Field>
+    <Button>
+    </Button>
+  </Card>
+
+  <Card>
+
+    <Group name="MyBackgroundGrp">
+
+      <Widget kind="org.oxt.widget.coolwidget.paulmcclernan">
+          <Rect> 20,20,1002,748 </Rect>
+          <Disbled> true </Disbled>
+          <Opaque> true </Opaque>
+      </Widget>
+
+       <Button name="Test Button">
+          <showName> true </showName>
+          <xTalkScript>
+            on mouseUp
+              answer "Hello World" with "Hello"
+              put the result into fld "Output Fld"
+            end mouseUp
+          </xTalkScript>
+       </Button>
+
+       <Field name="Output Fld">
+       </Field>
+
+    </Group>
+
+  </Card>
+
+  <Card>
+    <Field>
+    </Field>
+  </Card>
+
+  <subStack name="MyGroovyPalette" rect="20,20,500,500">
+    <Card>
+      <Widget kind="org.oxt.widget.coolwidget.paulmcclernan" Disbled = true Opaque= true >
+        <xTalkScript>
+          on mouseEnter
+            put "Mouse is within Widget"
+          end mouseEnter
+        </xTalkScript>
+      </Widget>
+    </Card>
+  </subStack>
+
+</Stack>

@@ -1,0 +1,82 @@
+<Stack stackPreviewImage="./Images/MyStack.png">
+  <mainStack> </stackRect>
+  <stackRect> 0,0,1000,720 </stackRect>
+  <stackForeGroundColor> 120,60,90 </stackForeGroundColor>
+  <stackBackgroundColor> 90,60,30 </stackBackgroundColor>
+
+  <Card name="This is Card One" ID=1>
+
+  <Group name="Hello Card Numero Uno!">
+    <showName>false</showName>
+    -- Some html style text in a fld and button grouped together
+    <Field>
+      <htmlText> <b> Welcome to OpenXTalk </b> </htmlText>
+    </Field>
+    <Button>
+      <xTalkScript>
+        on mouseUp
+          answer "Hello World" with "Hello" with "Hello" or "OK"
+          put it into the message box
+        end mouseUp
+      </xTalkScript>
+    </Button>
+  </Group>
+
+  </Card>
+
+  <Card name="This is Card Two" ID=2>
+  -- -- two dashes is a comment indicator, the text following it up until
+  -- ----- a new line is encountered, should be ignored
+  --------------------------------------------------------
+    <backgroundGroup name="MyBackgroundGrp">
+    -- A grouped that with it's backgroundBehavior group set to true (in LCC / OXT DPE),
+    --  that can be placed on multiple cards
+      <Widget kind="org.oxt.widget.coolwidget.paulmcclernan">
+          <Rect> 20,20,1002,748 </Rect>
+          <Disbled> true </Disbled>
+          <Opaque> true </Opaque>
+      </Widget>
+
+       <Button name="Test Button">
+          <showName> true </showName>
+          <xTalkScript>
+            on mouseUp
+              answer "Hello World" with "Hello"
+              put the result into fld "Output Fld"
+            end mouseUp
+          </xTalkScript>
+       </Button>
+
+       <Field name="Output Fld">
+         <foreGroundColor> 120,60,90 </foreGroundColor>
+         <backgroundColor> 90,60,30 </backgroundColor>
+       </Field>
+
+    </backgroundGroup>
+
+  </Card>
+
+  <Card>
+    <Field>
+        <text> Just some plain old text </text>
+    </Field>
+  </Card>
+
+  <subStack name="MyGroovyPalette">
+    <stackRect> 0,0,150,240 </stackRect>
+    <stackForeGroundColor> 120,60,90 </stackForeGroundColor>
+    <stackBackgroundColor> 90,60,30 </stackBackgroundColor>
+    <Card>
+      <Widget kind="org.oxt.widget.coolwidget.paulmcclernan">
+         <disbled> true </disbled>
+         <dpaque> true </dpaque>
+        <xTalkScript>
+          on coolWidgetMouseDown
+            put "Mouse is within Widget"
+          end coolWidgetMouseDown
+        </xTalkScript>
+      </Widget>
+    </Card>
+  </subStack>
+
+</Stack>

@@ -1,4 +1,4 @@
-import module community.livecode.paulmcclernan.pianowidget
+import module org.oxt.paulmcclernan.pianowidget
   use com.livecode.canvas
   use com.livecode.library.widgetutils
   use com.livecode.byte

@@ -1,5 +1,5 @@
 <package version="0.0">
-  <name>community.livecode.paulmcclernan.pianowidget</name>
+  <name>org.oxt.paulmcclernan.pianowidget</name>
   <title>Piano Widget</title>
   <author>Paul McClernan, Bernd Niggemann</author>
   <version>1.3.6</version>
@@ -34,7 +34,7 @@
   <metadata key="hilitedNotes.user_visible">false</metadata>
   <property name="addHilitedNotes" get="any" set="string"/>
   <metadata key="addHilitedNotes.user_visible">false</metadata>
-  <property name="unhiliteNotes" get="any" set="string"/>
+  <property name="unhiliteNotes" get="any" set="optional string"/>
   <metadata key="uhiliteNotes.user_visible">false</metadata>
   <property name="colorNotes" get="string" set="string"/>
   <metadata key="colorNotes.user_visible">false</metadata>
@@ -85,7 +85,7 @@
   <metadata key="naturalsColor.default">255,255,255,255</metadata>
   <handler name="setNaturalsColor" parameters="in string" return="nothing"/>
   <handler name="getNaturalsColor" parameters="" return="string"/>
-  <metadata key="hiliteColor.editor">com.livecode.pi.color</metadata>
+  <metadata key="hiliteColor.editor">com.livecode.pi.colorwithalpha</metadata>
   <metadata key="hiliteColor.section">Colors</metadata>
   <metadata key="hiliteColor.label">Hilite fill</metadata>
   <metadata key="hiliteColor.default"></metadata>

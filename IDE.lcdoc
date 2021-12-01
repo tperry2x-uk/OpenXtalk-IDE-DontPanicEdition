@@ -919,7 +919,7 @@ Name: revIDEGetPreference(pPreferenceStackProperty)
 
 Type: function
 
-Syntax: revIDEObjectIsOnIDEStack(<pLongID>)
+Syntax: revIDEObjectIsOnIDEStack(<pPreferenceStackProperty>)
 
 Summary: Determines whether an object is considered part of the IDE
 

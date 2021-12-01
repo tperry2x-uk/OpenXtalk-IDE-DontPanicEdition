@@ -1,8 +1,10 @@
-Library: revidelibrary
+Library: IDE library
 
 Type: library
 
 Summary: Main IDE library providing functionality for palettes and other IDE add-ons.
+
+
 
 Name: ideNewControl
 
@@ -20,6 +22,7 @@ IDE palettes, or the create command.
 See the <revIDESubscribe> command for more details.
 
 References: revIDESubscribe (command)
+
 
 
 Name: ideSubscribe
@@ -50,14 +53,6 @@ on ideSelectedObjectsChanged
 end ideSelectedObjectsChanged
 
 Description: Subscribe to messages to have a notification sent for particular IDE actions.
-
-
-Parameters:
-:
-
-
-:
-
 
 
 
@@ -91,7 +86,7 @@ Syntax: ideObjectTypeFromObject(<pObjectID>)
 
 Summary: The IDE object type corresponding to the given object
 
-Parameters: 
+Parameters:
 
 pObjectID: An object ID
 
@@ -117,22 +112,14 @@ Syntax: revIDEUnsubscribe <pMessage>,<pObject>,<pObjectList>
 
 Summary: Unsubscribes the calling object from the given message
 
+
+Parameters:
+
 pMessage: The message to unsubscribe from.
 
 pObject: The long ID of the object you wish to unsubscribe from the message. This is an optional parameter, if not specified, the calling object will be used.
 
 pObjectList: A list of objects, one per line.
-
-
-Parameters:
-:
-
-
-:
-
-
-:
-
 
 
 
@@ -159,6 +146,8 @@ Summary:
 Returns the error description associated with the given
 error code.
 
+Parameters:
+
 pType: either "compilation", "execution" or "warning"
 
 pCode: the id of the error as returned by the engine.
@@ -168,13 +157,6 @@ The description of the specified error.
 
 >*Note:* if <pType> is "warning", this function will currently return
 empty.
-
-Parameters:
-:
-
-
-:
-
 
 
 
@@ -240,11 +222,14 @@ Type: command
 
 Syntax: revIDEMakeSubstackMainstack <pObj>
 
+
+Parameters:
+pObj
+
+
 Summary: Used by the PI to make a substack into a mainstack
 
 
-Parameters:
-:
 
 
 
@@ -253,7 +238,7 @@ Name: ideSetWindowBoundingRect
 
 Type: command
 
-Syntax: ideSetWindowBoundingRect 
+Syntax: ideSetWindowBoundingRect
 
 Summary: Update the window bounding rect for the current IDE palette layout
 
@@ -268,7 +253,7 @@ Syntax: revIDEPushDefaultFolder <pFolder>
 
 Summary: Stores the current default folder.
 
-Parameters: 
+Parameters:
 
 pFolder: The new defaultFolder
 
@@ -301,7 +286,7 @@ Summary: Determines whether a stack is considered part of the IDE
 
 pStackName: The short name of the stack
 
-Returns: 
+Returns:
 
 Description:
 Use the <revIDEStackNameIsIDEStack> function to determine whether a stack is
@@ -315,16 +300,13 @@ A stack is considered part of the IDE if any of the following are satisfied:
 * Its _ideoverride property is true
 
 Parameters:
-:
-
-
 
 
 Name: revIDEPopDefaultFolder
 
 Type: command
 
-Syntax: revIDEPopDefaultFolder 
+Syntax: revIDEPopDefaultFolder
 
 Summary: Restores the default folder to the last saved path.
 
@@ -354,7 +336,7 @@ Syntax: revIDEObjectPropertyInfo(<pObjectType>,<pPropName>)
 
 Summary: Information pertaining to the property <pPropName> in the context of <pObjectType>.
 
-Parameters: 
+Parameters:
 
 pPropName: One of the IDE canonical object property names.
 
@@ -384,7 +366,7 @@ Syntax: ideObjectTypesFromObjectList(<pObjectIDs>)
 
 Summary: A list of the IDE object types corresponding to the list of objects given
 
-Parameters: 
+Parameters:
 
 pObjectIDs: A list, one per line, of object IDs
 
@@ -402,7 +384,7 @@ Syntax: revIDEIsFilesetStale(pInputs, pOutputs, pRecursive, rError)
 
 Summary: Compute whether derived files are up-to-date
 
-Parameters: 
+Parameters:
 
 pInputs: A numerically-keyed array of filenames, or a filename
 
@@ -447,7 +429,7 @@ Summary: Group a list of objects in their layer order
 
 Description: Group a list of objects in the order they are layered in
 
-Parameters: 
+Parameters:
 
 objectList(string): A return delimited list of long object IDs
 
@@ -489,8 +471,6 @@ shared properties falls, each of which in turn has a sub-array for each property
 containing the values and metadata associated with it.
 
 Parameters:
-:
-
 
 
 
@@ -502,7 +482,7 @@ Syntax: revIDEPropertyInfo(<pPropName>)
 
 Summary: Information pertaining to the property <pPropName>.
 
-Parameters: 
+Parameters:
 
 pPropName: One of the IDE canonical object property names.
 
@@ -531,7 +511,7 @@ Summary: Determines whether a stack is considered part of the IDE
 
 pLongID: The long id of the stack.
 
-Returns: 
+Returns: Boolean
 
 Description:
 Use the <revIDEStackIsIDEStack> function to determine whether a stack is
@@ -549,8 +529,6 @@ References: revIDEStackNameIsIDEStack (function)
 
 
 Parameters:
-:
-
 
 
 
@@ -558,7 +536,7 @@ Name: extensionInitialize
 
 Type: command
 
-Syntax: extensionInitialize 
+Syntax: extensionInitialize
 
 Summary: Called when loading the IDE library
 
@@ -588,6 +566,7 @@ Syntax: ideMainStackOfObject(<pLongID>)
 
 Summary: The mainstack containing an object
 
+Parameters:
 pLongID: The long id of an object
 
 Returns: the long id of the mainstack containing <pLongID>
@@ -598,11 +577,6 @@ To retrieve the immediate parent stack of an object which may be a substack,
 use the <ideStackOfObject> function.
 
 References: ideStackOfObject (function)
-
-
-Parameters:
-:
-
 
 
 
@@ -632,11 +606,6 @@ Summary: Attempts to compile the target script
 The result: If the compilation fails, the result is set to the description of the compile error
 
 
-Parameters:
-:
-
-
-
 
 Name: revIDEGraphics
 
@@ -661,6 +630,7 @@ Syntax: ideStackOfObject(<pLongID>)
 
 Summary: The parent stack of an object
 
+Parameters:
 pLongID: The long id of an object
 
 Returns: the long id of the parent stack of <pLongID>
@@ -670,10 +640,6 @@ Returns the long id of the (immediate) parent stack of the object with long id <
 To retrieve the mainstack of an object, use the <ideMainStackOfObject> function.
 
 References: ideMainStackOfObject (function)
-
-
-Parameters:
-:
 
 
 
@@ -716,7 +682,7 @@ Syntax: idePropertyNames(<pObjectType>)
 
 Summary: A list of the object property names considered canonical by the IDE
 
-Parameters: 
+Parameters:
 
 pObjectType: One of the IDE's object type IDs
 
@@ -745,11 +711,8 @@ Syntax: revIDEUnsubscribeAll <pObject>
 
 Summary: Unsubscribes the object from all messages
 
-pObject: The long ID of the object you wish to unsubscribe from all message. This is an optional parameter, if not specified, the calling object will be used.
-
-
 Parameters:
-:
+pObject: The long ID of the object you wish to unsubscribe from all message. This is an optional parameter, if not specified, the calling object will be used.
 
 
 
@@ -764,7 +727,7 @@ Summary:
 Determine if a list of objects are selectable using
 the select command
 
-Parameters: 
+Parameters:
 
 pObjects: A return delimited list of object references
 
@@ -773,7 +736,6 @@ Returns true if all objects exist, are on an editable open stack and
 have the same owner.
 
 Returns: True if the objects can be selected
-
 
 
 
@@ -790,10 +752,6 @@ pMessage: The name of the message.
 returns: Return delimited list of object ID's, 1 per line.
 
 
-Parameters:
-:
-
-
 
 
 Name: ideMessageSendWithParameters
@@ -804,7 +762,7 @@ Syntax: ideMessageSendWithParameters <pMessage>,<pTriggeringObjects>,<pParamsArr
 
 Summary: Sends the given message to all subscribed objects.
 
-Parameters: 
+Parameters:
 
 pMessage: The message to send
 
@@ -834,7 +792,7 @@ Summary: Determines whether an object is considered part of the IDE
 
 pLongID: The long id of the object.
 
-Returns: Boolean
+Returns:
 
 Description:
 Use the <revIDEObjectIsOnIDEStack> function to determine whether an object is
@@ -846,7 +804,70 @@ References: revIDEStackIsIDEStack (function)
 
 Parameters:
 :
-Returns: 
+
+
+
+Name: revEnvironmentExtPath
+
+Type: function
+
+Syntax: revEnvironmentExtPath()
+
+Summary: Get the path of the IDE Externals folder
+which is where IDE Externals are pre-installed
+
+Returns: the path of the IDE Externals folder
+
+Description:
+Use the <revEnvironmentToolsetPath> function to get the path of the
+IDE Externals folder which the IDE pre-installed Externals such as revZip.
+
+References: revEnvironmentExtPath (function)
+
+
+Parameters:
+:
+
+
+Name: revEnvironmentCustomizationPath
+
+Type: function
+
+Syntax: revEnvironmentCustomizationPath()
+
+Summary: Get the path of the IDE User's IDE Customization folder
+
+Returns: the path of the IDE User's IDE Customization folder
+
+Description:
+Use the <revEnvironmentToolsetPath> function to get the path of the
+path of the IDE User's IDE Customization folder which can contain
+subfolders for user installed IDE Plugins, Extensions, Externals
+and other customizations.
+
+References: revEnvironmentCustomizationPath (function)
+
+
+
+Name: revEnvironmentToolsetPath
+
+Type: function
+
+Syntax: revEnvironmentToolsetPath()
+
+Summary: Get the path of the IDE Toolset folder which contains IDE
+Stacks and Libraries
+
+Returns: the path of the IDE Toolset folder
+
+Description:
+Use the <revEnvironmentToolsetPath> function to get the path of the
+IDE Toolset folder which contains IDE Stacks and Libraries that
+make up IDE Windows, Menus, and Palettes.
+
+References: revEnvironmentToolsetPath (function)
+
+
 
 Name: revIDEMessages
 
@@ -856,10 +877,60 @@ Syntax: revIDEMessages()
 
 Summary: Use to get a list of all the messages that the IDE allows subscriptions for
 
-returns: Returns comms delimited list of message names that the IDE allows subscriptions for.
+returns: Return delimited list of message names.
 
-references: revIDESubscribedObjects (function), revIDESubscriptions (function), revIDEUnsubscribe (command), revIDESubscribe (command)
-
-
+References: revIDESubscribedObjects (function), revIDESubscriptions (function), revIDEUnsubscribe (command), revIDESubscribe (command)
 
 
+
+Name: revIDEPlugins
+
+Type: function
+
+Syntax: revIDEPlugins()
+
+Example: put the keys of revIDEPlugins() -- a list of the Plugins
+
+Summary: Use to get an array with information about installed IDE Plugins
+
+returns: Return an array with information about installed IDE Plugins.
+
+References: revIDEPlugins
+
+
+
+Name: revIDEGetAllPlugins
+
+Type: function
+
+Syntax: revIDEGetAllPlugins()
+
+Example: put revIDEGetAllPlugins() -- a list of the full paths of all IDE plugins
+
+Summary: Use to lsit pf patchs of IDE Plugins
+
+returns: list of the full paths of all IDE plugins.
+
+References: revIDEPlugins (function), revIDEGetAllPlugins (function)
+
+
+
+Name: revIDEGetPreference(pPreferenceStackProperty)
+
+Type: function
+
+Syntax: revIDEObjectIsOnIDEStack(<pLongID>)
+
+Summary: Determines whether an object is considered part of the IDE
+
+pPreferenceStackProperty: The name of a property in the IDE preferences stack.
+
+Returns: var
+
+Example:
+put revIDEGetPreference("cToolbarText") into tShowText
+
+Description:
+Use the <revIDEGetPreference> function to retrieve an IDE property from the IDE preferences stack.
+
+References: revIDEStackIsIDEStack (function)

@@ -1,78 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<STACK name="Test Markup" ID="8984" foregroundColor="0,0,0" RECT="186,98,1184,933">
-  <CARD name="This is the main card" ID="1002">
-    <CONTROL KIND="image" NAME="davinci_vman.jpg" ID="7921" RECT="351,-104,776,396">
-      <IMAGETEXT>QkFTRTY0REFUQQ==</IMAGETEXT>
-    </CONTROL>
-    <CONTROL KIND="button" NAME="Convert revTools Palette to XML:" ID="1003" RECT="47,507,277,530">
-    </CONTROL>
-    <CONTROL KIND="field" NAME="Out" ID="1004" RECT="126,45,700,423">
-      <TEXT>Test</TEXT>
-      <RTFTEXT>{\rtf1\mac {\fonttbl{\f0\fnil \fcharset77 (Text);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue0;}\pard \f0 \fs24 \cf2 Test}</RTFTEXT>
-      <HTMLTEXT>
-        <p>Test</p>
-      </HTMLTEXT>
-    </CONTROL>
-    <CONTROL KIND="button" NAME="XML to STACK ..." ID="1409" RECT="307,548,537,571">
-    </CONTROL>
-    <CONTROL KIND="graphic" NAME="Red Triangle" ID="1472" RECT="559,89,765,410" Points="567,95760,329569,405564,94">
-    </CONTROL>
-    <CONTROL KIND="widget" NAME="SVG Icon" ID="1588" RECT="616,-7,698,70">
-      <SVGPATH>"M1664 698Q1664 720 1638 746L1275 1100 1361 1600Q1362 1607 1362 1620 1362 1641 1351.5 1655.5 1341 1670 1321 1670 1302 1670 1281 1658L832 1422 383 1658Q361 1670 343 1670 322 1670 311.5 1655.5 301 1641 301 1620 301 1614 303 1600L389 1100 25 746Q0 719 0 698 0 661 56 652L558 579 783 124Q802 83 832 83 862 83 881 124L1106 579 1608 652Q1664 661 1664 698Z"</SVGPATH>
-    </CONTROL>
-    <CONTROL KIND="button" NAME="Radio" ID="1609" RECT="651,502,733,525">
-    </CONTROL>
-    <CONTROL KIND="scrollbar" NAME="Progress Scrollbar" ID="1712" RECT="632,559,832,573" startValue="0" endValue="100" thumbPosition="50">
-    </CONTROL>
-    <CONTROL KIND="image" NAME="1-12121495914tsn.jpg" ID="8246" RECT="713,11,862,130" fileName="/Volumes/Storage/__Works/_ART/  Public Domain Images/1-12121495914tsn.jpg">
-      <IMAGEDATA>QkFTRTY0REFUQQ==</IMAGEDATA>
-    </CONTROL>
-    <CONTROL KIND="graphic" NAME="Round Rectangle" ID="1473" RECT="673,122,741,205">
-    </CONTROL>
-    <CONTROL KIND="image" NAME="OXT_tiny_32px_v2.png" ID="7777" RECT="691,147,723,179">
-      <IMAGETEXT>QkFTRTY0REFUQQ==</IMAGETEXT>
-    </CONTROL>
-    <CONTROL KIND="button" NAME="Test Convert This Stack to XML:" ID="8971" RECT="48,548,278,571">
-    </CONTROL>
-    <CONTROL KIND="group" NAME="id 8972" ID="8972" RECT="628,467,763,504">
-    </CONTROL>
-    <CONTROL KIND="button" NAME="PopUp Menu  >" ID="1631" RECT="632,471,759,500">
-      <TEXT>Level 1Level 42</TEXT>
-    </CONTROL>
-    <CONTROL KIND="button" NAME="Include Resources as Base64" ID="8973" RECT="48,464,272,487">
-    </CONTROL>
-    <CONTROL KIND="button" NAME="Load XML .xml ..." ID="8976" RECT="552,602,760,633">
-    </CONTROL>
-    <CONTROL KIND="button" NAME="Save GameList.xml" ID="8977" RECT="551,635,762,663">
-    </CONTROL>
-    <CONTROL KIND="button" NAME="Get Record Count" ID="8978" RECT="290,681,422,704">
-    </CONTROL>
-    <CONTROL KIND="button" NAME="Save Record" ID="8979" RECT="282,645,411,668">
-    </CONTROL>
-    <CONTROL KIND="button" NAME="Print Tree" ID="8980" RECT="398,611,527,634">
-    </CONTROL>
-    <CONTROL KIND="button" NAME="Search" ID="8981" RECT="440,638,522,661">
-    </CONTROL>
-    <CONTROL KIND="field" NAME="TheXMLPath" ID="8982" RECT="300,726,550,782">
-      <TEXT>/Users/paul/Desktop</TEXT>
-      <RTFTEXT>{\rtf1\mac {\fonttbl{\f0\fnil \fcharset77 (Text);}}{\colortbl;\red0\green0\blue0;\red202\green204\blue204;}\pard \f0 \fs24 \cf2 /Users/paul/Desktop}</RTFTEXT>
-      <HTMLTEXT>
-        <p>/Users/paul/Desktop</p>
-      </HTMLTEXT>
-    </CONTROL>
-    <CONTROL KIND="field" NAME="indexNumber" ID="8984" RECT="595,747,695,768">
-      <TEXT>1</TEXT>
-      <RTFTEXT>{\rtf1\mac {\fonttbl{\f0\fnil \fcharset77 (Text);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue0;}\pard \f0 \fs24 \cf2 1}</RTFTEXT>
-      <HTMLTEXT>
-        <p>1</p>
-      </HTMLTEXT>
-    </CONTROL>
-  </CARD>
-  <CARD name="card id 1083" ID="1083">
-    <CONTROL KIND="button" NAME="Card 2 test!" ID="7921" RECT="278,240,682,263">
-    </CONTROL>
-    <CONTROL KIND="button" NAME="OXTLevel" ID="1003" RECT="85,66,187,88">
-      <TEXT>Level 1Level 42</TEXT>
-    </CONTROL>
-  </CARD>
-</STACK>
+<STACK name="Test Markup" ID="8985" foregroundColor="0,0,0" RECT="368,659,1190,1640"><CARD name="This is the main card" ID="1002"><CONTROL KIND="image" NAME="davinci_vman.jpg" ID="7921" RECT="351,-104,776,396"><IMAGETEXT>QkFTRTY0REFUQQ==</IMAGETEXT></CONTROL><CONTROL KIND="button" NAME="Convert revTools Palette to XML:" ID="1003" RECT="47,507,277,530"></CONTROL><CONTROL KIND="field" NAME="Out" ID="1004" RECT="126,45,700,423"><TEXT>Tests</TEXT><RTFTEXT>{\rtf1\mac {\fonttbl{\f0\fnil \fcharset77 (Text);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue0;}\pard \f0 \fs24 \cf2 Tests}</RTFTEXT><HTMLTEXT><p>Tests</p></HTMLTEXT></CONTROL><CONTROL KIND="button" NAME="XML to STACK ..." ID="1409" RECT="307,548,537,571"></CONTROL><CONTROL KIND="graphic" NAME="Red Triangle" ID="1472" RECT="559,89,765,410" Points="567,95760,329569,405564,94"></CONTROL><CONTROL KIND="widget" NAME="SVG Icon" ID="1588" RECT="616,-7,698,70"><SVGPATH>"M1664 698Q1664 720 1638 746L1275 1100 1361 1600Q1362 1607 1362 1620 1362 1641 1351.5 1655.5 1341 1670 1321 1670 1302 1670 1281 1658L832 1422 383 1658Q361 1670 343 1670 322 1670 311.5 1655.5 301 1641 301 1620 301 1614 303 1600L389 1100 25 746Q0 719 0 698 0 661 56 652L558 579 783 124Q802 83 832 83 862 83 881 124L1106 579 1608 652Q1664 661 1664 698Z"</SVGPATH></CONTROL><CONTROL KIND="button" NAME="Radio" ID="1609" RECT="651,502,733,525"></CONTROL><CONTROL KIND="scrollbar" NAME="Progress Scrollbar" ID="1712" RECT="632,559,832,573" startValue="0" endValue="100" thumbPosition="50"></CONTROL><CONTROL KIND="image" NAME="1-12121495914tsn.jpg" ID="8246" RECT="713,11,862,130" fileName="/Volumes/Storage/__Works/_ART/  Public Domain Images/1-12121495914tsn.jpg"><IMAGEDATA>QkFTRTY0REFUQQ==</IMAGEDATA></CONTROL><CONTROL KIND="graphic" NAME="Round Rectangle" ID="1473" RECT="673,122,741,205"></CONTROL><CONTROL KIND="image" NAME="OXT_tiny_32px_v2.png" ID="7777" RECT="691,147,723,179"><IMAGETEXT>QkFTRTY0REFUQQ==</IMAGETEXT></CONTROL><CONTROL KIND="button" NAME="Test Convert This Stack to XML:" ID="8971" RECT="48,548,278,571"></CONTROL><CONTROL KIND="group" NAME="id 8972" ID="8972" RECT="588,467,763,543" backgroundBehavior=true selectGroupedControls=true sharedBehavior=true tabGroupBehavior=false radioBehavior=true CONTROL_COUNT=2 GROUPCONTROL=PopUp Menu  > GROUPCONTROL=Test group ></CONTROL><CONTROL KIND="button" NAME="PopUp Menu  >" ID="1631" RECT="632,471,759,500"><TEXT>Level 1Level 42</TEXT></CONTROL><CONTROL KIND="field" NAME="Test group" ID="8985" RECT="592,518,692,539"><TEXT>Label:</TEXT><RTFTEXT>{\rtf1\mac {\fonttbl{\f0\fnil \fcharset77 (Message);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue0;}\pard \qr \f0 \fs26 \cf2 Label:}</RTFTEXT><HTMLTEXT><p>Label:</p></HTMLTEXT></CONTROL><CONTROL KIND="button" NAME="Include Resources as Base64" ID="8973" RECT="48,464,272,487"></CONTROL><CONTROL KIND="button" NAME="Load XML .xml ..." ID="8976" RECT="552,602,760,633"></CONTROL><CONTROL KIND="button" NAME="Save GameList.xml" ID="8977" RECT="551,635,762,663"></CONTROL><CONTROL KIND="button" NAME="Get Record Count" ID="8978" RECT="290,681,422,704"></CONTROL><CONTROL KIND="button" NAME="Save Record" ID="8979" RECT="282,645,411,668"></CONTROL><CONTROL KIND="button" NAME="Print Tree" ID="8980" RECT="398,611,527,634"></CONTROL><CONTROL KIND="button" NAME="Search" ID="8981" RECT="440,638,522,661"></CONTROL><CONTROL KIND="field" NAME="TheXMLPath" ID="8982" RECT="300,726,550,782"><TEXT>/Users/pmcclernan/Desktop</TEXT><RTFTEXT>{\rtf1\mac {\fonttbl{\f0\fnil \fcharset77 (Text);}}{\colortbl;\red0\green0\blue0;\red202\green204\blue204;}\pard \f0 \fs24 \cf2 /Users/pmcclernan/Desktop}</RTFTEXT><HTMLTEXT><p>/Users/pmcclernan/Desktop</p></HTMLTEXT></CONTROL><CONTROL KIND="field" NAME="indexNumber" ID="8984" RECT="595,747,695,768"><TEXT>1</TEXT><RTFTEXT>{\rtf1\mac {\fonttbl{\f0\fnil \fcharset77 (Text);}}{\colortbl;\red0\green0\blue0;\red222\green221\blue223;}\pard \f0 \fs24 \cf2 1}</RTFTEXT><HTMLTEXT><p>1</p></HTMLTEXT></CONTROL></CARD><CARD name="card id 1083" ID="1083"><CONTROL KIND="button" NAME="Card 2 test!" ID="7921" RECT="278,240,682,263"></CONTROL><CONTROL KIND="button" NAME="OXTLevel" ID="1003" RECT="85,66,187,88"><TEXT>Level 1Level 42</TEXT></CONTROL><CONTROL KIND="group" NAME="id 8972" ID="1004" RECT="588,467,763,543" backgroundBehavior=true selectGroupedControls=true sharedBehavior=true tabGroupBehavior=false radioBehavior=true CONTROL_COUNT=2 GROUPCONTROL=PopUp Menu  > GROUPCONTROL=Test group ></CONTROL><CONTROL KIND="button" NAME="PopUp Menu  >" ID="1409" RECT="632,471,759,500"><TEXT>Level 1Level 42</TEXT></CONTROL><CONTROL KIND="field" NAME="Test group" ID="1472" RECT="592,518,692,539"><TEXT>Label:</TEXT><RTFTEXT>{\rtf1\mac {\fonttbl{\f0\fnil \fcharset77 (Message);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue0;}\pard \qr \f0 \fs26 \cf2 Label:}</RTFTEXT><HTMLTEXT><p>Label:</p></HTMLTEXT></CONTROL></CARD></STACK>

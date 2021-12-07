@@ -1,0 +1,463 @@
+{
+  "user_level" : 5,
+  "backgrounds" : [
+    {
+      "script" : "",
+      "parts" : [
+        {
+          "button" : {
+            "style" : "opaque",
+            "text_style" : {
+              "extend" : false,
+              "italic" : false,
+              "shadow" : false,
+              "condense" : false,
+              "outline" : false,
+              "group" : false,
+              "underline" : false,
+              "bold" : false
+            },
+            "text_align" : "center",
+            "selected_item" : 29999,
+            "text_height" : 16,
+            "text_font_identifier" : 0,
+            "name" : "NEXT",
+            "rectangle" : {
+              "right" : 512,
+              "top" : 289,
+              "left" : 472,
+              "bottom" : 342
+            },
+            "text_font_size" : 12,
+            "auto_hilite" : true,
+            "show_name" : true,
+            "hilite" : false,
+            "script" : "on mouseUp\rvisual effect shrink to center fast\rGo Next card\rend mouseUp",
+            "identifier" : 1,
+            "family" : 0,
+            "enabled" : true,
+            "icon_identifier" : 30000,
+            "title_width" : 0,
+            "visible" : true,
+            "content" : "",
+            "shared_hilite" : true
+          }
+        },
+        {
+          "button" : {
+            "style" : "opaque",
+            "text_style" : {
+              "extend" : false,
+              "italic" : false,
+              "shadow" : false,
+              "condense" : false,
+              "outline" : false,
+              "group" : false,
+              "underline" : false,
+              "bold" : false
+            },
+            "text_align" : "center",
+            "selected_item" : 30000,
+            "text_height" : 16,
+            "text_font_identifier" : 0,
+            "name" : "BACK",
+            "rectangle" : {
+              "right" : 40,
+              "top" : 289,
+              "left" : 0,
+              "bottom" : 342
+            },
+            "text_font_size" : 12,
+            "auto_hilite" : true,
+            "show_name" : true,
+            "hilite" : false,
+            "script" : "on mouseUp\rvisual effect shrink to center fast\rGo Prev Card\rend mouseUp",
+            "identifier" : 2,
+            "family" : 0,
+            "enabled" : true,
+            "icon_identifier" : 30001,
+            "title_width" : 0,
+            "visible" : true,
+            "content" : "",
+            "shared_hilite" : true
+          }
+        }
+      ],
+      "next_available_part_identifier" : 2,
+      "cant_delete" : false,
+      "identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    }
+  ],
+  "cant_abort" : false,
+  "version_at_last_modification" : {
+    "minor1" : 3,
+    "minor2" : 5,
+    "major" : 2,
+    "state" : "final"
+  },
+  "cant_modify" : false,
+  "screen_rectangle" : {
+    "right" : 1152,
+    "top" : 0,
+    "left" : 0,
+    "bottom" : 870
+  },
+  "cant_delete" : false,
+  "scroll_point" : {
+    "x" : 0,
+    "y" : 0
+  },
+  "font_name_references" : [
+    {
+      "name" : "Chicago",
+      "identifier" : 0
+    }
+  ],
+  "size" : {
+    "width" : 512,
+    "height" : 342
+  },
+  "window_rectangle" : {
+    "right" : 832,
+    "top" : 264,
+    "left" : 320,
+    "bottom" : 606
+  },
+  "version_at_creation" : {
+    "minor1" : 1,
+    "minor2" : 0,
+    "major" : 2,
+    "state" : "final"
+  },
+  "script" : "",
+  "version_at_last_modification_since_last_compacting" : {
+    "minor1" : 1,
+    "minor2" : 0,
+    "major" : 2,
+    "state" : "final"
+  },
+  "cant_peek" : false,
+  "version_at_last_compacting" : {
+    "minor1" : 1,
+    "minor2" : 0,
+    "major" : 2,
+    "state" : "final"
+  },
+  "private_access" : false,
+  "password_hash" : null,
+  "cards" : [
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+        {
+          "button" : {
+            "style" : "round_rect",
+            "text_style" : {
+              "extend" : false,
+              "italic" : false,
+              "shadow" : false,
+              "condense" : false,
+              "outline" : false,
+              "group" : false,
+              "underline" : false,
+              "bold" : false
+            },
+            "text_align" : "center",
+            "selected_item" : -1,
+            "text_height" : 16,
+            "text_font_identifier" : 0,
+            "name" : "Those Who Enter Beware...",
+            "rectangle" : {
+              "right" : 368,
+              "top" : 320,
+              "left" : 147,
+              "bottom" : 342
+            },
+            "text_font_size" : 12,
+            "auto_hilite" : false,
+            "show_name" : true,
+            "hilite" : false,
+            "script" : "on mouseUp\rvisual effect barn door open very slow\rGo Next\rend mouseUp",
+            "identifier" : 1,
+            "family" : 0,
+            "enabled" : true,
+            "icon_identifier" : 0,
+            "title_width" : 0,
+            "visible" : true,
+            "content" : "",
+            "shared_hilite" : true
+          }
+        }
+      ],
+      "next_available_part_identifier" : 1,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 2872,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 4118,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 9314,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 4387,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 4917,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 5521,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 6029,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 6451,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 7240,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 8755,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 9937,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 10176,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 10729,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 11222,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 8240,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    },
+    {
+      "script" : "",
+      "marked" : false,
+      "parts" : [
+
+      ],
+      "next_available_part_identifier" : 0,
+      "background_part_contents" : [
+
+      ],
+      "cant_delete" : false,
+      "identifier" : 7549,
+      "background_identifier" : 2636,
+      "dont_search" : false,
+      "name" : "",
+      "show_pict" : true
+    }
+  ]
+}

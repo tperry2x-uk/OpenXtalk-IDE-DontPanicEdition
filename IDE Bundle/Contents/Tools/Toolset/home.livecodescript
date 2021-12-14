@@ -1990,7 +1990,7 @@ end revInternal__InitialiseOptions
                case "start_center_tile_color_step"
                   return 0 -- -9
                case "password_protection"
-                  return false
+                  return true
                case "open_source_required"
                   return true
                case "splash_strap"
@@ -2464,50 +2464,49 @@ on IDEToLightMode
     -- setWindowToLightMode
   end try
   lock screen
-  ---
   --- for All OS ---
   --- Tools Palette ---
   set the backGroundColor of stack "revTools" to "White"
   set the foreGroundColor of stack "revTools" to "Black"
-  
+
   set the opaque of group "background" of stack "revTools" to false
   set the backgroundColor of group "background" of stack "revTools" to "White"
   set the foreGroundColor of group "background" of stack "revTools" to "Black"
-  
+
   set the opaque of group "runedit" of stack "revTools" to false
   set the backgroundColor of group "runedit" of stack "revTools" to "White"
   set the foreGroundColor of group "runedit" of stack "revTools" to "Black"
   set the backgroundColor of graphic "tool_hilite" of stack "revTools" to "Gray70"
   set the backgroundColor of graphic "tool_hover" of stack "revTools" to "Gray50"
-  
+
   set the opaque of group "contents" of stack "revTools" to false
   set the backgroundColor of group "contents" of stack "revTools" to "White"
   set the foreGroundColor of group "contents" of stack "revTools" to "Black"
-  
+
   set the opaque of group "widget" of stack "revTools" to false
   set the backgroundColor of group "widget" of stack "revTools" to "White"
   set the foreGroundColor of group "widget" of stack "revTools" to "Black"
-  
+
   set the opaque of group "classic" of stack "revTools" to false
   set the backgroundColor of group "classic" of stack "revTools" to "White"
   set the foreGroundColor of group "classic" of stack "revTools" to "Black"
-  
+
   set the opaque of group "graphictoolscontrols" of stack "revTools" to false
   set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
   set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "Black"
-  
+
   set the opaque of group "graphictools" of stack "revTools" to false
   set the backgroundColor of group "graphictools" of stack "revTools" to "White"
   set the foreGroundColor of group "graphictools" of stack "revTools" to "Black"
-  
+
   --- revMenuBar Palette ---
   set the backGroundColor of stack "revMenuBar" to "White"
   set the foreGroundColor of stack "revMenuBar" to "Black"
-  
+
   set the opaque of group "toolbar" of stack "revMenuBar" to true
   set the backgroundColor of group "toolbar" of stack "revMenuBar" to "White"
   set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "Black"
-  
+
   unlock screen
 end IDEToLightMode
 
@@ -2518,10 +2517,9 @@ on IDEToDarkMode
       -- setWindowToDarkMode
    end try
    lock screen
-   ---
    --- for All OS ---
    --- Tools Palette ---
-   set the backGroundColor of stack "revTools" to "Gray33"
+   set the backGroundColor of stack "revTools" to "Gray30"
    set the foreGroundColor of stack "revTools" to "White"
    
    set the opaque of group "background" of stack "revTools" to true
@@ -2529,41 +2527,37 @@ on IDEToDarkMode
    set the foreGroundColor of group "background" of stack "revTools" to "White"
    
    set the opaque of group "contents" of stack "revTools" to true
-   set the backgroundColor of group "contents" of stack "revTools" to "Gray33"
+   set the backgroundColor of group "contents" of stack "revTools" to "Gray25"
    set the foreGroundColor of group "contents" of stack "revTools" to "White"
    
    set the opaque of group "runedit" of stack "revTools" to false
-   set the backgroundColor of group "runedit" of stack "revTools" to "Gray30"
+   set the backgroundColor of group "runedit" of stack "revTools" to "Gray25"
    set the foreGroundColor of group "runedit" of stack "revTools" to "White"
    set the backgroundColor of graphic "tool_hilite" of stack "revTools" to 120,63,170
    set the backgroundColor of graphic "tool_hover" of stack "revTools" to 80,23,150
    
    set the opaque of group "widget" of stack "revTools" to true
-   set the backgroundColor of group "widget" of stack "revTools" to "Gray67"
+   set the backgroundColor of group "widget" of stack "revTools" to "Gray60"
    set the foreGroundColor of group "widget" of stack "revTools" to "White"
    
    set the opaque of group "classic" of stack "revTools" to true
-   set the backgroundColor of group "classic" of stack "revTools" to "Gray67"
+   set the backgroundColor of group "classic" of stack "revTools" to "Gray60"
    set the foreGroundColor of group "classic" of stack "revTools" to "White"
    
    set the opaque of group "graphictoolscontrols" of stack "revTools" to true
-   set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "Gray33"
+   set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "Gray25"
    set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
    
    set the opaque of group "graphictools" of stack "revTools" to true
-   set the backgroundColor of group "graphictools" of stack "revTools" to "Gray33"
+   set the backgroundColor of group "graphictools" of stack "revTools" to "Gray25"
    set the foreGroundColor of group "graphictools" of stack "revTools" to "White"
    
-   
    --- revMenuBar Palette ---
-   set the backGroundColor of stack "revMenuBar" to "Gray33"
+   set the backGroundColor of stack "revMenuBar" to "Gray25"
    set the foreGroundColor of stack "revMenuBar" to "White"
    
    set the opaque of group "toolbar" of stack "revMenuBar" to true
-   set the backgroundColor of group "toolbar" of stack "revMenuBar" to "Gray33"
+   set the backgroundColor of group "toolbar" of stack "revMenuBar" to "Gray25"
    set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "White"
-   
-   if the systemVersion is "NT 10.0" then set the textColor of group "revMenuBar" of stack "revMenuBar" to "Black"
-   
    unlock screen
 end IDEToDarkMode

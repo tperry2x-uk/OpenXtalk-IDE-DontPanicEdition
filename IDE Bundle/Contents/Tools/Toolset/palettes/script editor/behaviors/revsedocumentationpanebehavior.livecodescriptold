@@ -34,8 +34,8 @@ command paneOpenControl
    set the name of the templateField to "View"
    set the lockText of the templateField to true
    set the traversalOn of the templateField to true
-   set the textSize of the templateField to 14
-   set the backgroundColor of the templateField to "64,64,64"
+
+   -- set the backgroundColor of the templateField to "255,255,255"
    set the showBorder of the templateField to false
    set the lockLocation of the templateField to true
    set the margins of the templateField to sMetrics["viewFieldMargins"]
@@ -47,7 +47,6 @@ command paneOpenControl
    reset the templateButton
    set the name of the templateButton to "FullMode"
    set the style of the templateButton to "checkbox"
-   set the foreColor of the templateButton to "Black"
    set the label of the templateButton to "Full Document"
    set the lockLocation of the templateButton to true
    set the hilite of the templateButton to false
@@ -61,9 +60,9 @@ command paneOpenControl
    create button in me
    reset the templateButton
    set the cDocPaneObject of button "FullMode" of me to true
+
    # Button to launch docs
    reset the templateButton
-   set the foreColor of the templateButton to "Black"
    set the name of the templateButton to "LaunchDocs"
    set the label of the templateButton to "Launch Documentation"
    set the lockLocation of the templateButton to true
@@ -150,7 +149,7 @@ private function renderDocDataShort pData, pIndex
    put tType & return after tResult
 
    # Documentation library: returns html ending tags
-   put "<b><font size=" & quote & "16" & quote && "color=" & quote & "#606060" & quote & ">" after tResult
+   put "<b><font size=" & quote & "25" & quote && "color=" & quote & "#606060" & quote & ">" after tResult
    put tName & "</font></b>" & return after tResult
 
    if the number of elements in pData > 1 then
@@ -200,7 +199,7 @@ function revDocumentationPlatformImage pPlatform
 end revDocumentationPlatformImage
 
 private function fontTag
-   return "<font size=" & quote & "16" & quote && "color=" & quote & "#606060" & quote & ">"
+   return "<font size=" & quote & "25" & quote && "color=" & quote & "#606060" & quote & ">"
 end fontTag
 
 private function renderElement pKey, pData, pIndex

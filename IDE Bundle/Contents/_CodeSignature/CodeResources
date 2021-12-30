@@ -4,15 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Resources/Dutch.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			H87qIRXmoPW9cvHhnisZ7rzCb8I=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>Resources/English.lproj/Localisation.strings</key>
 		<dict>
 			<key>hash</key>
@@ -22,46 +13,18 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>Resources/French.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fo4RTTf8rUcrXD7HVxOTdXJi1Qo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/German.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			L+oTKQggWAYpazyZ2x4A6wk/rIY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<key>Resources/FlatStack.icns</key>
+		<data>
+		QvCaULmyt1zmGIRQ6zuNnfROVFc=
+		</data>
+		<key>Resources/Installer.zip</key>
+		<data>
+		6ToS2HQ2Tf6+d2aqAgFHaMCDbJA=
+		</data>
 		<key>Resources/Installer/ShowDmgWindow.scpt</key>
 		<data>
 		wINuMyPkSgSUFzF1U/2CQEj90UA=
 		</data>
-		<key>Resources/Italian.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			6psafFQfgQ4ybJaSd5EjH2EVzVQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/Japanese.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			qqg+h/baKX/FkrZrKflgepvDAJE=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>Resources/LiveCode-Community.rsrc</key>
 		<data>
 		3QsvxBlc9N4gKUu+3jER1kEApU8=
@@ -74,170 +37,21 @@
 		<data>
 		qGts+RGBdJ6t65riClntcokkbd0=
 		</data>
-		<key>Resources/Spanish.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zNp74gfb9BglOTdIJgkZ+3Yy6SA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ar.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			f3DziPveiZEO4xneVeIcZfkrlgs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/da.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wNt0WqKwScxQzrmpc2+qsVygGps=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/fi.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			T3mG42FTRoxQ1PLkKvXY05/BWFc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/he.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Cn5aBnvSWpn0TnINBfKkm0q8KOA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ko.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wGrxZHnYevbkvidIMzTPrsQz1/c=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/no.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ollpnHMt1oyX0CDFL8jMjaFFA4Q=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/pt.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			X95/PaOTQH4ahcMQvD7mEAoEb+w=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ru.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oUsu5K8Zv80Ti2nk/orJU2SU8Oc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/sv.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ZEbLVbajVXf029/YucpQelh8U+o=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<key>Resources/OpenXTalk.icns</key>
+		<data>
+		lSoc79RJdi2VvVkw3bIPtYLMVIs=
+		</data>
+		<key>Resources/OpenXTalkDoc.icns</key>
+		<data>
+		K7EF5rWgFFDRswqYdUGgaFyIV58=
+		</data>
 		<key>Resources/terminology.sdef</key>
 		<data>
 		CQJPjQnGRBKArLqhDhOk19HQJ/4=
 		</data>
-		<key>Resources/zh_CN.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			dKcORqfYRLy+KpUSC5vgw2yRyoE=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/zh_TW.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			v+N00oPG0BjTGeIWjcUc5Mj8Gsw=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>MacOS/autoupdater</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			ALB7cUQtQolvVOfDz76H2K2t8BE=
-			</data>
-			<key>requirement</key>
-			<string>identifier autoupdater and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = KR649NSGHP</string>
-		</dict>
-		<key>MacOS/installer</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			xfPEb7hL6RekkjmZY3iMiU+Cy88=
-			</data>
-			<key>requirement</key>
-			<string>identifier installer and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = KR649NSGHP</string>
-		</dict>
-		<key>MacOS/revpdfprinter.bundle</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			bepXYuW6ieArZE/ycb9ftKXBgXQ=
-			</data>
-			<key>requirement</key>
-			<string>identifier "com.runrev.revpdfprinter" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = KR649NSGHP</string>
-		</dict>
-		<key>MacOS/revsecurity.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			ZxSIeCn1wpdpwTTtcXGBN67ztE4=
-			</data>
-			<key>requirement</key>
-			<string>identifier revsecurity and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = KR649NSGHP</string>
-		</dict>
-		<key>Resources/Dutch.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			H87qIRXmoPW9cvHhnisZ7rzCb8I=
-			</data>
-			<key>hash2</key>
-			<data>
-			6AEFEl8loZevSHcgs8tkYqYJrziRJIP1NOOEAvdWQcQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>Resources/English.lproj/Localisation.strings</key>
 		<dict>
 			<key>hash</key>
@@ -251,31 +65,27 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>Resources/French.lproj/Localisation.strings</key>
+		<key>Resources/FlatStack.icns</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fo4RTTf8rUcrXD7HVxOTdXJi1Qo=
+			QvCaULmyt1zmGIRQ6zuNnfROVFc=
 			</data>
 			<key>hash2</key>
 			<data>
-			M+JA+QTJGA3zNctDwlNdcBQJMXv2ebiRNBAPcZehY7U=
+			6Eaktq3+4k4chHg0RwujigSeRBORjsxvvempt41POUs=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
-		<key>Resources/German.lproj/Localisation.strings</key>
+		<key>Resources/Installer.zip</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L+oTKQggWAYpazyZ2x4A6wk/rIY=
+			6ToS2HQ2Tf6+d2aqAgFHaMCDbJA=
 			</data>
 			<key>hash2</key>
 			<data>
-			xbVA3cYxE8qwUmRs6X9DV98UKe4gx/YDX8S1KFq9wE4=
+			RGPi4v+MU36kLI6wOa5Qw6k2r1b22qxnuKVM6ykf8Po=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>Resources/Installer/ShowDmgWindow.scpt</key>
 		<dict>
@@ -287,32 +97,6 @@
 			<data>
 			xxh69WH3B+E80kFN720rLj6ddxBfgFMZ3eGcwdsS7/Y=
 			</data>
-		</dict>
-		<key>Resources/Italian.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			6psafFQfgQ4ybJaSd5EjH2EVzVQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			CKtxEEqkB5fDRO5ouRF6FiLaK1AqUJDV3FjIze2alEk=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/Japanese.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			qqg+h/baKX/FkrZrKflgepvDAJE=
-			</data>
-			<key>hash2</key>
-			<data>
-			CvfuLJWomLOTx0C/fxRLaf3Aaj5BjAxLzp+ajPkUfcg=
-			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>Resources/LiveCode-Community.rsrc</key>
 		<dict>
@@ -347,135 +131,27 @@
 			jYdc88o6atT8j5jd2a48/ha1W9RQWatFnRfbfKe4e08=
 			</data>
 		</dict>
-		<key>Resources/Spanish.lproj/Localisation.strings</key>
+		<key>Resources/OpenXTalk.icns</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zNp74gfb9BglOTdIJgkZ+3Yy6SA=
+			lSoc79RJdi2VvVkw3bIPtYLMVIs=
 			</data>
 			<key>hash2</key>
 			<data>
-			SFBHGwWoU0tWB9ibKLm7ri6qkvwWWEfKilRCv9o17sU=
+			ETdB0sozz9u7n/EkDUrki4gbnZ25B77EXaQxiQvIQNk=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
-		<key>Resources/ar.lproj/Localisation.strings</key>
+		<key>Resources/OpenXTalkDoc.icns</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			f3DziPveiZEO4xneVeIcZfkrlgs=
+			K7EF5rWgFFDRswqYdUGgaFyIV58=
 			</data>
 			<key>hash2</key>
 			<data>
-			f40+hWI1XtVFBKPR46fWTS2En3Xoifg9j9JAdWyiR3E=
+			6vvveR0BFJAP7Sp8YdLO1PMvBTjiFS8wlBa7VPGjheU=
 			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/da.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wNt0WqKwScxQzrmpc2+qsVygGps=
-			</data>
-			<key>hash2</key>
-			<data>
-			FuMroWdURjYLkVhY6ZmXIUScncVc1LdLLujMBakFKJ4=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/fi.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			T3mG42FTRoxQ1PLkKvXY05/BWFc=
-			</data>
-			<key>hash2</key>
-			<data>
-			wYgZ/5P5RuIBjk5BIooONPDFltympDOaNt0iYl2QXGo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/he.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Cn5aBnvSWpn0TnINBfKkm0q8KOA=
-			</data>
-			<key>hash2</key>
-			<data>
-			ffM2RaDBJbmz3rYJK9JJQSYHDQLyuzLJGASDkbNYPaw=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ko.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wGrxZHnYevbkvidIMzTPrsQz1/c=
-			</data>
-			<key>hash2</key>
-			<data>
-			qXccpwLdqqIPnsoMYruIQAzw7iCzypRJnKoC5A8d2iE=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/no.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ollpnHMt1oyX0CDFL8jMjaFFA4Q=
-			</data>
-			<key>hash2</key>
-			<data>
-			LE4x7Onod+on06o9xGNPj4cllqW816rjgLNC0X3HaMw=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/pt.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			X95/PaOTQH4ahcMQvD7mEAoEb+w=
-			</data>
-			<key>hash2</key>
-			<data>
-			HuCaLdDb+IcEll96mQFo/eBfSvZeDpvrYxw5muS+u5c=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ru.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oUsu5K8Zv80Ti2nk/orJU2SU8Oc=
-			</data>
-			<key>hash2</key>
-			<data>
-			ikyeggWAQmw+sYXzqDbQoOmEne9NsQc+I8IciDHKtdc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/sv.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ZEbLVbajVXf029/YucpQelh8U+o=
-			</data>
-			<key>hash2</key>
-			<data>
-			SGTiyvyC6jYuuUrtegvoK38o6skbR8B/cU03NZtNvH0=
-			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>Resources/terminology.sdef</key>
 		<dict>
@@ -488,31 +164,16 @@
 			KhDXQpitp99tC3zeq8BDm2PbVSynE36Vp7kISFqtFzU=
 			</data>
 		</dict>
-		<key>Resources/zh_CN.lproj/Localisation.strings</key>
+		<key>Tools/Documentation/Docs Helper.livecode</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dKcORqfYRLy+KpUSC5vgw2yRyoE=
+			vrsgPPPwH5rtYb+kJqzLhqZxt7o=
 			</data>
 			<key>hash2</key>
 			<data>
-			91nsXE2fTkpNQafl0ZXuYX86tV5CADL5o0HJCEmh8OI=
+			+DXN1NVBt6bUPp49srOGfjyP92wDUx3mZVmosJkO6FU=
 			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/zh_TW.lproj/Localisation.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			v+N00oPG0BjTGeIWjcUc5Mj8Gsw=
-			</data>
-			<key>hash2</key>
-			<data>
-			Q9zS4cW6ljhkjNPjRgiCzk3soSm9RIqV5lAcXw2Xn8o=
-			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>Tools/Documentation/SearchEngineStandardUrls.txt</key>
 		<dict>
@@ -525,29 +186,95 @@
 			CSWgCAZdNRcpGvuO+X/v0TyKq8322AIWs5HEB8+8NB4=
 			</data>
 		</dict>
+		<key>Tools/Documentation/dictionary/datagrid.lcdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zsrooOU8B4aoVzzpG7umeZQ68H0=
+			</data>
+			<key>hash2</key>
+			<data>
+			srOzHwlMgZZ1vEnqr/XirS3Q4c9PiPlKYVX17HxmJ00=
+			</data>
+		</dict>
+		<key>Tools/Documentation/guides/Builder Bytecode Reference.md</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xnotpNIESGF7ej5TjmMDV8MgZVA=
+			</data>
+			<key>hash2</key>
+			<data>
+			SzmOGEpuipHjfnzR4i+vRENbg7yx7jFsvzmqVOuNYX4=
+			</data>
+		</dict>
+		<key>Tools/Documentation/guides/Builder Language Reference.md</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Nx8eka7IbS6ABLLyOs+cHzczgog=
+			</data>
+			<key>hash2</key>
+			<data>
+			f8U1wzHE0wssRpNACSkSit2xmC8z51mvYVrGSJsKJuM=
+			</data>
+		</dict>
+		<key>Tools/Documentation/guides/Builder Style Guide.md</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			u7tTDudlYs9ErG2jsLPu7N8sBys=
+			</data>
+			<key>hash2</key>
+			<data>
+			dYSY4B/ZzUn3EGeK8gYX8MATr9lzWiko9qUqKC1+l3U=
+			</data>
+		</dict>
+		<key>Tools/Documentation/guides/Data Grid.md</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XnxFTMNQCe+h48+iWI0qmm+1PSU=
+			</data>
+			<key>hash2</key>
+			<data>
+			+c/NRH10xEKzgkAvj+/qoXFgMuHdMl2rQpezY0yd3hM=
+			</data>
+		</dict>
 		<key>Tools/Documentation/guides/Deploying Your Application.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WRsgPsPPwOCZgU1IuUljMY/YnIw=
+			eqbZfVTMcp3hqMWthuMkhuMog2E=
 			</data>
 			<key>hash2</key>
 			<data>
-			yMAjpxefEQDnt4t8M5Lk74vp7K2mHarS70Hp1huhGj8=
+			xGYsLcbbX5HFQM5acGcK77CID4s5YjieW8n/HZwy4I0=
+			</data>
+		</dict>
+		<key>Tools/Documentation/guides/Documentation Format Reference.md</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VbJbbsBQfc/5n/10cDVe4w9enDM=
+			</data>
+			<key>hash2</key>
+			<data>
+			3F3UjLNNv8gb7jFdgjzghQo6JV+Ki/16nR93Mam7z3s=
 			</data>
 		</dict>
 		<key>Tools/Documentation/guides/Error Handling And Debugging.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WgAie6RDqn09xyb8xaRS9OoilbE=
+			T3Q2SSSM+avBoTdKFIkFfvXQhaY=
 			</data>
 			<key>hash2</key>
 			<data>
-			tJ1Y154a1WTKaLiIw91/4s9VgaIZepnq6RaW8X7Yhwk=
+			FEQvxXNS4qGci9n5sriSITiiPxiWamRMnIxwxKQpLb0=
 			</data>
 		</dict>
-		<key>Tools/Documentation/guides/Extending LiveCode.md</key>
+		<key>Tools/Documentation/guides/Extending the Environment.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -558,103 +285,59 @@
 			qDkEd7dLOWCh/fWtN/FEo0EEDs4tUS3EiFUoKmXL06w=
 			</data>
 		</dict>
-		<key>Tools/Documentation/guides/LiveCode Builder Bytecode Reference.md</key>
+		<key>Tools/Documentation/guides/Extending xTalk.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1Hrnt3a2oyuv0C3XMs4Pst+0e18=
+			mLxnGvtjZKac80LKf5zJfxaImtM=
 			</data>
 			<key>hash2</key>
 			<data>
-			t8SCrJxqpVrtZ7Hm4JAeam8Vogxc3UiN/1PBH2f7U/g=
+			qDkEd7dLOWCh/fWtN/FEo0EEDs4tUS3EiFUoKmXL06w=
 			</data>
 		</dict>
-		<key>Tools/Documentation/guides/LiveCode Builder Language Reference.md</key>
+		<key>Tools/Documentation/guides/Extending.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			R+FuAoe0zUArqNDGkzFdf2xHyts=
+			0LZcqC3JvSXNC4fqnDHMOCubz/U=
 			</data>
 			<key>hash2</key>
 			<data>
-			r0fQFAtwXFDZpC4rop1wCmF8hq1wJAilt1rpjCbT0yY=
+			HGu4XfGXQwy+BTJZlUC8UssvSWQi94E+tl67UfNzI10=
 			</data>
 		</dict>
-		<key>Tools/Documentation/guides/LiveCode Builder Style Guide.md</key>
+		<key>Tools/Documentation/guides/Printing.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aUsgD7Pnlu7xoZCxgR7TwUC4dPk=
+			4sDvYCwaf93IsXZ2k+UVSTFMaTM=
 			</data>
 			<key>hash2</key>
 			<data>
-			g5GwRgIHEUKu+FmRByeW/92OUGjmG4CQJnDGp0XHTW4=
-			</data>
-		</dict>
-		<key>Tools/Documentation/guides/LiveCode Data Grid.md</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Dz5UufR+X5dalrmnNbPmkksrrWA=
-			</data>
-			<key>hash2</key>
-			<data>
-			A+iZp0FwqUmkBbxl9pmM8/yI+Ro1cE8yNNMP+2fCwsw=
-			</data>
-		</dict>
-		<key>Tools/Documentation/guides/LiveCode Documentation Format Reference.md</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			4W5Rz3/+TK1vGuIJmICW9CNRAAI=
-			</data>
-			<key>hash2</key>
-			<data>
-			WHWCBCicK6Obsg2t1C8dHuYRA4jWK91bBM7Q4dqmJKQ=
-			</data>
-		</dict>
-		<key>Tools/Documentation/guides/LiveCode Script.md</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			0p2Wp24qau6zeVHkujG0RvGmHNc=
-			</data>
-			<key>hash2</key>
-			<data>
-			S1jzSdTaOJcr7+EFDZyCUQzVHPgFIZPfrcCmGmE+o0U=
-			</data>
-		</dict>
-		<key>Tools/Documentation/guides/Printing In LiveCode.md</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			NrICvn7NDQ372nm0YqlDeKnS6/w=
-			</data>
-			<key>hash2</key>
-			<data>
-			EAuwyy58vK3NS6UQKCIPOtdyvoCeglYF7thdh0JwFbQ=
+			z/0QXrrtycRXntBTl6wf2mprfllilt5/TCnZAH2GzGc=
 			</data>
 		</dict>
 		<key>Tools/Documentation/guides/Processing Text and Data.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			m1IY+/oDoOkejlcgMfkQQn6D8bE=
+			BaiP2lCZpP+vUcOIeS86ACx7lP8=
 			</data>
 			<key>hash2</key>
 			<data>
-			vvjZbPHVnN7nQW4GefKxZPOdnvftueBedDD/zLdTv04=
+			3D6vkVhL4OKQ52kQcVjgDOYzSZImhVvNd30OJ7vg230=
 			</data>
 		</dict>
 		<key>Tools/Documentation/guides/Programming a User Interface.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tnaAat6CPD5jfzQAGVqwZfzfs7A=
+			qqlIgnZ9M8xUSVbiiHuC6NW4fkA=
 			</data>
 			<key>hash2</key>
 			<data>
-			mnvgzz1h1HflzCouMO0AB8Qjx0wO1SC+qHO1F68LPJA=
+			Euvis28R/ROQboU8Gbg9LBaOfAfiblh92WgfKq4O5dA=
 			</data>
 		</dict>
 		<key>Tools/Documentation/guides/Release Notes.md</key>
@@ -668,48 +351,48 @@
 			JMUxIE/hy96Hw9c9GFyaHseAHtH2w/OT4i1mBW8pF8M=
 			</data>
 		</dict>
-		<key>Tools/Documentation/guides/The LiveCode IDE.md</key>
+		<key>Tools/Documentation/guides/The IDE.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qo66gDjyvQmZGiIvA6/tqrLw24E=
+			OXmQ0wv7QjcdRqI6/QbAVYPJ4MA=
 			</data>
 			<key>hash2</key>
 			<data>
-			lboMQMibOAcCrSBEbqFo0qXAN8U8coNBxY/boGvEIcA=
+			t20axR5BlbrNWJhKD8vGonH+f5ijAhGdXbBzmkztS8g=
 			</data>
 		</dict>
 		<key>Tools/Documentation/guides/Transferring Information.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2EJIBJZDPXuH1nCevShqugkxOEE=
+			pNtob1AhOarbybN0jS+yFbBgK0g=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ea7IlYAOLSnHWpneTWAomsxq4de9SG+1EO/bfuJPolI=
+			MB1rf4ToFuK+zA58bWcqsu94Ar+aej3SSlKZn4b+Tos=
 			</data>
 		</dict>
 		<key>Tools/Documentation/guides/Working With Databases.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xg8gx/BwuMpAqdIlFUqA7XcHTnw=
+			eC6DZJJD9Ckqb+/QDoEPndryBFY=
 			</data>
 			<key>hash2</key>
 			<data>
-			MuUspbwqsFHSDkMx6Idk5yyfNwMOQFFI/hpswFz0T58=
+			6Rsc0WW0ILp5jWyJ1kp384HwCqDzjC7FTinwR3AMPms=
 			</data>
 		</dict>
 		<key>Tools/Documentation/guides/Working with Media.md</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/VS0Y1qRobdP5qONWFpBXlXEATk=
+			9+Xh044hhNgZIc/sXAdCeUJmWkQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			Dj9BozoIv/xGIKQBGWNZ/0S6XJ81VwchZArZ8YpcK3k=
+			A1Jxxs2JAONROY6uSgK7OIMoJ4kS4Yk6mJuvFkQqlis=
 			</data>
 		</dict>
 		<key>Tools/Documentation/guides/guide-order.yml</key>
@@ -5255,6 +4938,17 @@
 			nXprkUVCLitBEu22F8g6Gh4MT3z8AcmeuLD18feNySE=
 			</data>
 		</dict>
+		<key>Tools/Documentation/guides/xTalk Script.md</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			V55V+oijRRAm5kWWWTlXbG+tpXo=
+			</data>
+			<key>hash2</key>
+			<data>
+			wTPTHTtHV33t58zT1SR1gVedhgF41f8gsEMActD0VTs=
+			</data>
+		</dict>
 		<key>Tools/Documentation/html_viewer/api.html.template</key>
 		<dict>
 			<key>hash</key>
@@ -5600,66 +5294,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ui7StbebuUaY9X1Kw5bBr6KABqY=
+			K6qBU2DgdXj17gnxhW4zA40FWho=
 			</data>
 			<key>hash2</key>
 			<data>
-			5TnTIWOelMbJcDiMBm5MK9LxJ4qeb+fYYW+AeTbrab8=
+			FNIh8AvXQR6ede9salVbhJvGmZcbppxWoOolGZnj5WM=
 			</data>
 		</dict>
-		<key>Tools/Documentation/html_viewer/resources/data/api_livecode_builder/builder.js</key>
+		<key>Tools/Documentation/html_viewer/resources/data/api_builder/builder.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			I2xVgnvEByxu3URHWPMUZFertsY=
+			2c09fhjaK7ny7FbHfJDY5fbffks=
 			</data>
 			<key>hash2</key>
 			<data>
-			N5ZIxSeFOgnpgH3SHv4mMTfd34HoiYr6aei7gw8zKrU=
+			nogF2hpl2Ca4e+IY5vnGAAbMzZdRXGmr3BbzwluP2Ig=
 			</data>
 		</dict>
-		<key>Tools/Documentation/html_viewer/resources/data/api_livecode_script/dg.js</key>
+		<key>Tools/Documentation/html_viewer/resources/data/api_script/dg.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ElsHfUezzh4LT9auC7LFxPXfOsU=
+			9wkwOaWZZwDjCxeKxeZOlrpQpuw=
 			</data>
 			<key>hash2</key>
 			<data>
-			r4uoHSi+moFV3ohZf4DEaJDS/sWJle4Brgl1EftcCHo=
+			AGjIi451Q/qW1Ws33UTRiYHZdePPhGnQvVhbjK/Q750=
 			</data>
 		</dict>
-		<key>Tools/Documentation/html_viewer/resources/data/api_livecode_script/mediafoundation.js</key>
+		<key>Tools/Documentation/html_viewer/resources/data/api_script/script.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pQ0rO+d1WNB0f2ZiPkSVREBw4xs=
+			fy0MfH+kJMg8ROHAF+pqq6D5Ukc=
 			</data>
 			<key>hash2</key>
 			<data>
-			aQDy9SsCKs7uPqWyhPS4JxhqbMy6h4BcqqzdXYcL0Kc=
-			</data>
-		</dict>
-		<key>Tools/Documentation/html_viewer/resources/data/api_livecode_script/script.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bqaOi/yccmfD/AB0IZnT7dCUReU=
-			</data>
-			<key>hash2</key>
-			<data>
-			2XZzVtjMclbJ09rKi3TkhJUephZMiO1PQRj7mPmpGNY=
+			L4848l9tDBvJ6+hljgBLG/ZSauWpv5l+MUHdvP+L/UE=
 			</data>
 		</dict>
 		<key>Tools/Documentation/html_viewer/resources/data/guide/distributed_guide.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vWNHzMe/ljryBeQTW/mv6scjG7k=
+			c/IXGLRHi0UaMY2+f7YbHBOTpj0=
 			</data>
 			<key>hash2</key>
 			<data>
-			azq53zgNceJzlgum0VeP3ww6bfstOwUCvKBt/HDYoGk=
+			NCVHCdjfFoGP8Gc6RtOjjh2VDeCu/BkzICZ1NvYfI+Q=
 			</data>
 		</dict>
 		<key>Tools/Documentation/html_viewer/resources/media/spinner.gif</key>
@@ -5695,15 +5378,15 @@
 			GK6tnAZfA7iZNUWwGzFLGfPw2hpEuUeFBn1Oc7L64bE=
 			</data>
 		</dict>
-		<key>Tools/Documentation/pdf/LiveCode User Guide.pdf</key>
+		<key>Tools/Documentation/pdf/UserGuidePDFPlaceHolder</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AbfuH2wT0+fYK7vXg6iK8ueIOxk=
+			K8Kt5eENHuIOqsu81psktBCRYmY=
 			</data>
 			<key>hash2</key>
 			<data>
-			lsWShoqjhYl7ksw0wKmGsxb4t5mOXTMshEPfzLAk2S8=
+			AKH9rQFxX13XLzxN3Yi5avIEB/fRhTF7ehS4O1B8cUU=
 			</data>
 		</dict>
 		<key>Tools/Documentation/rev/Color Names Reference.rev</key>
@@ -5836,6 +5519,17 @@
 			<key>hash2</key>
 			<data>
 			d0XETSfSz1ulqxnvhXgOCCKf60HU6gPskZA9Q4BWiG8=
+			</data>
+		</dict>
+		<key>Tools/Documentation/specs/tutorial-syntax.md</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Md9gatuLFzRSnLQdBXLLGl5zC9o=
+			</data>
+			<key>hash2</key>
+			<data>
+			Ju49tM4x2gNdwkp3XbCrsQjxkZoBUNKC9kjMtw2ls+k=
 			</data>
 		</dict>
 		<key>Tools/Ext/blur-1.1.53/LICENSE.txt</key>
@@ -7202,6 +6896,17 @@
 			196DrJQh9mQGxH+bBZ6eaQ0ZJseYwiM73IXRXAdH5yI=
 			</data>
 		</dict>
+		<key>Tools/Ext/mergMicrophone-1.0.66.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LEEMWdziXdiTOCkB9pqvqXXUQKk=
+			</data>
+			<key>hash2</key>
+			<data>
+			ucnUDFpG/5Bjf6639/0YWbnrs2i11M6IiYquDeKin+U=
+			</data>
+		</dict>
 		<key>Tools/Ext/mergMicrophone-1.0.66/LICENSE.txt</key>
 		<dict>
 			<key>hash</key>
@@ -7239,22 +6944,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WjzNkE0Z9OcfeGSyQ78rL88ReHk=
+			FGrnMCyuObwCa4puhR6vSGi5+ko=
 			</data>
 			<key>hash2</key>
 			<data>
-			PRQsfSXTjAopCqhoD2BsDyYd+oo1LUAS0Uo7yVobusM=
-			</data>
-		</dict>
-		<key>Tools/Ext/mergMicrophone-1.0.66/mergMicrophone.bundle/Contents/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YwoIhzByBpYWzcwx9V5tdCMIbXg=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZobeEKKKL+EbNsu4bcusyCfPxOoRa02r8YReWu5inps=
+			G4EYwhrmC2C92KJGxYDh0sIdGBpi3HVpNpdt0b/d7pM=
 			</data>
 		</dict>
 		<key>Tools/Ext/mergMicrophone-1.0.66/mergMicrophone.lcextd/iOS/External-Device-11_2</key>
@@ -7371,11 +7065,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wqORcJCBSzu1Ykd/MC7oWLxVgcc=
+			blM8uy5KNYcLUy/aNDPUUxmTvtc=
 			</data>
 			<key>hash2</key>
 			<data>
-			t0VE3kPBq/k78wGjOI6NXpGpcTRzcgct132xIQXOElE=
+			4Gkv2klxKmL7qfZln2D0EGdyp2IaxzhVtfnxknXSO/U=
 			</data>
 		</dict>
 		<key>Tools/Ext/mergScreen-1.0.56/LICENSE.txt</key>
@@ -15804,6 +15498,160 @@
 			CCxeeS7pOC/is/8gcRAKHOV+wLhIwEewBoDPXtjVAgk=
 			</data>
 		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/api.lcdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sZs96CmQj9wKqg5HiGlixzyBPv0=
+			</data>
+			<key>hash2</key>
+			<data>
+			azVa/FtX+0Rj0rPcLG1d9F6Po9STEpyUcCOFT5u5xk4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/macOStools.lcb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gtcGZDrv8A3dLMaA+RZDc5Tk9Lc=
+			</data>
+			<key>hash2</key>
+			<data>
+			Mw25LSUsX95MrQTK3QbearAGDpQTETgyU83RbppCn5c=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/manifest.xml</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			h04+TiODvf/GnpJhoMoiBjoz7Is=
+			</data>
+			<key>hash2</key>
+			<data>
+			Jy8VXK+nkjK7b5HvFOuARbs7E415Zebsn9B2ov0WKRk=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/module.0.lcm</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			b9k1V/qyZ92H2WHvSkMku5pDcGo=
+			</data>
+			<key>hash2</key>
+			<data>
+			JsVyc2xIJi4pJtr/hZ/qXIDzyQ9Bs4kCtkWB72n+XgY=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/module.2.lcm</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			b9k1V/qyZ92H2WHvSkMku5pDcGo=
+			</data>
+			<key>hash2</key>
+			<data>
+			JsVyc2xIJi4pJtr/hZ/qXIDzyQ9Bs4kCtkWB72n+XgY=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/org.oxt.paulmcclernan.macosnativeapptools.lci</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eD0mK2oKBKkwUhO0xIIv9tME5E8=
+			</data>
+			<key>hash2</key>
+			<data>
+			iCE+JG7FeVc8r84OB52MChiMqjYHNcMIcNqDTo+bG28=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/samples/MacOS-Native-Tools-Tester.livecode</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			oM/EezhkskVufEro4XoP1fdWAHU=
+			</data>
+			<key>hash2</key>
+			<data>
+			3C7ul0Pn6VAxB65gxjcEHmaY0FRogNnDfpmePfwhhY8=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/api.lcdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			GBAi0up2gXxmSeVJpVNUz7CAngA=
+			</data>
+			<key>hash2</key>
+			<data>
+			00BScWrohRCD4OzxAaIdX6tqQTE86rGcdO2Bdlr1+Ik=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/full127_piano.lcb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			BKH8rbVSKomrJcEkgZKLSkWgfPc=
+			</data>
+			<key>hash2</key>
+			<data>
+			/Qy4i4SVv/lR3Om5u3AxMKfbWegLdJLXwK9A0X9Dd6M=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/manifest.xml</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MpBbGy2E8c1PE2Kcy8PIIyfj+XA=
+			</data>
+			<key>hash2</key>
+			<data>
+			JuwNWGBmIwuA8zpgknOEV+vEI5uTflZfujmNvwGAoRg=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/module.0.lcm</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WlArP9Ejd+rn1fEL3kItuieU+Xc=
+			</data>
+			<key>hash2</key>
+			<data>
+			j8JbwoLqyflIpnPbB/v/9/JVkQKMWf39uAy1GLE+94E=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/module.2.lcm</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WlArP9Ejd+rn1fEL3kItuieU+Xc=
+			</data>
+			<key>hash2</key>
+			<data>
+			j8JbwoLqyflIpnPbB/v/9/JVkQKMWf39uAy1GLE+94E=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/org.oxt.paulmcclernan.pianowidget.lci</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			5sLvWvV29i3ERFBGOW2M0VcRsbc=
+			</data>
+			<key>hash2</key>
+			<data>
+			bPy3zrdpBzBmu1x6E53BaPBELNUZRvrMbmmVgKitTiQ=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/support/defaultscript.livecodescript</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8QQMtSQAeLeMLzSCoiqdsE5sFdI=
+			</data>
+			<key>hash2</key>
+			<data>
+			I/SG/hKhWrJaILjLjeby6045a1v0p/jm+BqDQo3ybaE=
+			</data>
+		</dict>
 		<key>Tools/Externals/Database Drivers/Database Drivers.txt</key>
 		<dict>
 			<key>hash</key>
@@ -15973,22 +15821,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SAnAiJkMexWAv5MRTq+zqje5VF0=
+			Ewr9ibc4nugy1InKEqDS2RV7iRc=
 			</data>
 			<key>hash2</key>
 			<data>
-			0auXIFReDqp/u5RKSx8CQiXL7bI+XTyqFjSX+4apcMA=
-			</data>
-		</dict>
-		<key>Tools/Externals/revandroid.bundle/Contents/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YwoIhzByBpYWzcwx9V5tdCMIbXg=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZobeEKKKL+EbNsu4bcusyCfPxOoRa02r8YReWu5inps=
+			mt5qAIN86OpclXeq+MhHx4cJEu3dgHlNfDO8AqCtq8Y=
 			</data>
 		</dict>
 		<key>Tools/Externals/revbrowser.bundle/Contents/Info.plist</key>
@@ -16006,22 +15843,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IdTlyHvDrnWidWCrc9ml0FiO6Gs=
+			Fqai3NHziD+FQTlzG8v3zKGQU60=
 			</data>
 			<key>hash2</key>
 			<data>
-			UBZLTqVG0qlCXaWBObNa4pJr+IAH6c0JjgMi7uo6y9w=
-			</data>
-		</dict>
-		<key>Tools/Externals/revbrowser.bundle/Contents/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YwoIhzByBpYWzcwx9V5tdCMIbXg=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZobeEKKKL+EbNsu4bcusyCfPxOoRa02r8YReWu5inps=
+			z9Lim6fXFl2XstucGSDiI+/x/YlQU42bd9lbt/NEN1A=
 			</data>
 		</dict>
 		<key>Tools/Externals/revdb.bundle/Contents/Info.plist</key>
@@ -16039,22 +15865,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UcC6I7OeTxZfySQNuGEonFdYjpE=
+			g7WyW+UM1Y3PKWvj1HamMgV9lJo=
 			</data>
 			<key>hash2</key>
 			<data>
-			JLXiXb9UpSMap0jKHY7RqM6uzcnmoUeV2qIAvgmgWZs=
-			</data>
-		</dict>
-		<key>Tools/Externals/revdb.bundle/Contents/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YwoIhzByBpYWzcwx9V5tdCMIbXg=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZobeEKKKL+EbNsu4bcusyCfPxOoRa02r8YReWu5inps=
+			hLHLJhaeG5Iqz7paE4RXMuAyJ5Ci4KKzhnDhqV+xk5s=
 			</data>
 		</dict>
 		<key>Tools/Externals/reviphone.bundle/Contents/Info.plist</key>
@@ -16072,11 +15887,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			w3SMVf8mMmILsQDVrJqmnfjT92o=
+			18egK+P1QKX120KzsfdA2vEpdFg=
 			</data>
 			<key>hash2</key>
 			<data>
-			WR3dnZMGs9I1s9/+8lVT1prlljMoOBj30ATDgElEp8c=
+			GNdxzofYitAztPr1RIrssEtArtAz7gRDlaBGZa/FqiQ=
 			</data>
 		</dict>
 		<key>Tools/Externals/reviphone.bundle/Contents/MacOS/reviphoneproxy</key>
@@ -16088,17 +15903,6 @@
 			<key>hash2</key>
 			<data>
 			ExNChivPN8kl1OvytjVJIza9/5/snPruF3lHVDs/zxY=
-			</data>
-		</dict>
-		<key>Tools/Externals/reviphone.bundle/Contents/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			dz7UyX+MmCK0bExparBuN/vZYx8=
-			</data>
-			<key>hash2</key>
-			<data>
-			kD/I7Tpoapy9AF81aZNQ3qJF1rRJJi9TQeE3Qv80nfw=
 			</data>
 		</dict>
 		<key>Tools/Externals/revspeech.bundle/Contents/Info.plist</key>
@@ -16116,22 +15920,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			raYCFw0DowIZ5FgIIdOmRaEXwaY=
+			PkIQhE8FOHuC+CXDSMl1Hpv6CKc=
 			</data>
 			<key>hash2</key>
 			<data>
-			ga53oJ1TqKg+zG+G2burtpi2u9ty3C/LT80GSab4iAw=
-			</data>
-		</dict>
-		<key>Tools/Externals/revspeech.bundle/Contents/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YwoIhzByBpYWzcwx9V5tdCMIbXg=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZobeEKKKL+EbNsu4bcusyCfPxOoRa02r8YReWu5inps=
+			jpGWIgB8EYVGdxtQ9+2bBQbWFBfYcaIPhPrAyCaMm+c=
 			</data>
 		</dict>
 		<key>Tools/Externals/revxml.bundle/Contents/Info.plist</key>
@@ -16149,22 +15942,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3uWI1FqZTJph1+lRRPcmff6mfJE=
+			tariWlF1S+eAoFa4lVtEamg+wUg=
 			</data>
 			<key>hash2</key>
 			<data>
-			0W0Xy+0h/907dTRtiHFQRk01FyzgAXfBTn1MYvuIo/w=
-			</data>
-		</dict>
-		<key>Tools/Externals/revxml.bundle/Contents/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YwoIhzByBpYWzcwx9V5tdCMIbXg=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZobeEKKKL+EbNsu4bcusyCfPxOoRa02r8YReWu5inps=
+			3MA47aC9inRN7YxzcEqPfc0UJyYyJjQO8mqaNIA5aPc=
 			</data>
 		</dict>
 		<key>Tools/Externals/revzip.bundle/Contents/Info.plist</key>
@@ -16182,44 +15964,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rWLWErH5GAuXOGx8ro9f/fAt6cI=
+			JsWfGHE9+BRRyRE+9kdIdwhr0iQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			maqCWgIeOymOI7UhCb9GlZvJITgjz2eCTUdpi+/cxuQ=
-			</data>
-		</dict>
-		<key>Tools/Externals/revzip.bundle/Contents/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YwoIhzByBpYWzcwx9V5tdCMIbXg=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZobeEKKKL+EbNsu4bcusyCfPxOoRa02r8YReWu5inps=
+			m+LQwYHZdyzZGETLZAPzrrzUuErqgo0qMfv6d1oq1Ag=
 			</data>
 		</dict>
 		<key>Tools/License Agreement.txt</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0o6sabQ8Oe1b+x1Kwp7OuJhf9pE=
+			ygeWaWmtKbD+zlpFI3MS6RJ/lxc=
 			</data>
 			<key>hash2</key>
 			<data>
-			M7jeGjQGjSkYelGlDqTWsrs/HmV/ogw4SBQ5LsFk4Rw=
+			JgESlOyaATSGhiuQdXQFxOgxWIyfMk1UovVrKvoe9UM=
+			</data>
+		</dict>
+		<key>Tools/Modded.jpg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EkT5b8SQFkpFmyhwPW3lO6W2+n8=
+			</data>
+			<key>hash2</key>
+			<data>
+			koOrCPlZQAb6moCiEQpGzqDFCVQ4XjbLgixCiYiiFCw=
 			</data>
 		</dict>
 		<key>Tools/Open Source Licenses.txt</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FBesSZwTh8mGjFCOqBSg4mIJbNM=
+			kGNf6OilS6kkgNPLqtE71jODMAA=
 			</data>
 			<key>hash2</key>
 			<data>
-			2zgYjnSsUDyfCrUdqz/nkHTlrxLg3NXvy3IdNsaRSTo=
+			ridvRz9E4PVsw1XiJx+a4NuHDNZO/zUNc0Pd+mrNzF0=
+			</data>
+		</dict>
+		<key>Tools/Plugins/4W_Props.rev</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+vuAF0yT1p+8uQ6N0iF0qGqtHWM=
+			</data>
+			<key>hash2</key>
+			<data>
+			nM5fpal3P7VtHeoIPjyjjK4vEEqw1HPIHFEGAT8g7yE=
 			</data>
 		</dict>
 		<key>Tools/Plugins/Go_LiveNet.livecode</key>
@@ -16253,6 +16046,17 @@
 			<key>hash2</key>
 			<data>
 			epLp6Uric9nSngLIVpnW4jS3JS8k3L8opWPfkqOq20I=
+			</data>
+		</dict>
+		<key>Tools/Plugins/livecodeTestInterface.livecode</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			l52XT/rJ0IgV8efaswlwwdvOVN0=
+			</data>
+			<key>hash2</key>
+			<data>
+			d37lMI4bBBu5QrhZwLKzDkLC7xGHpNC9iUmWdTAgKTU=
 			</data>
 		</dict>
 		<key>Tools/Plugins/revSmartProperties 1.2.rev</key>
@@ -16644,11 +16448,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			S/zSQExwhqft9uWD4HYNTv4jzdI=
+			gcXUgGIxGnk/VzUgb+HAGYrz7s4=
 			</data>
 			<key>hash2</key>
 			<data>
-			8AMJ61M4AB5YQwFNKjGvMArZQ+RcPpT8c7tQgxVTs3o=
+			MHlI8Py7rccHWbqhT+N+BHa34yTOAvhCBo15XW9aFw8=
 			</data>
 		</dict>
 		<key>Tools/Resources/Start Center/samples/sample_1/Balls.livecode</key>
@@ -25781,15 +25585,103 @@
 			XngVd2XcZ4dW/pw2laiZzJvAhhaNgtFB3bWOBEm4eV8=
 			</data>
 		</dict>
+		<key>Tools/Toolset/HOME OLD.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Oxl8nR/vOhaTXSoN946ohKqOZLw=
+			</data>
+			<key>hash2</key>
+			<data>
+			YBzpG9vJKifTy/neRGAK6n/FkX86yWf+cD0SAmlZDXQ=
+			</data>
+		</dict>
+		<key>Tools/Toolset/Home Start Chain Notes.txt</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			McSqg9qVSEX17CI5v8ZKo5EQ9lk=
+			</data>
+			<key>hash2</key>
+			<data>
+			EHm2fJDF9MX+N8lbir4UhduvBwOjMuH7OVmfmdNAjPE=
+			</data>
+		</dict>
+		<key>Tools/Toolset/Stacks Loaded by Home Stack.txt</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			iCQiCXZhXeCqAFOM39UojIo+YkU=
+			</data>
+			<key>hash2</key>
+			<data>
+			h2LlMdWv+teo+p895uU9fJD/6AWThQ3f7sfYtuEsiwg=
+			</data>
+		</dict>
+		<key>Tools/Toolset/home 2.livecodescript.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			aUApH9PaQY8+YT15j4TjCQcWYEM=
+			</data>
+			<key>hash2</key>
+			<data>
+			7DcKSldsE7HNnHuiCWHT17+/2TwDKVz2n4RVfDY4Ef8=
+			</data>
+		</dict>
+		<key>Tools/Toolset/home 3.livecodescript</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8fFMNmsZ5ZCI150TVqKgRqHd5LY=
+			</data>
+			<key>hash2</key>
+			<data>
+			ufELV1iSmq0xKE2lXCbJi/3ssmBwMX94TJK1VwgIINM=
+			</data>
+		</dict>
+		<key>Tools/Toolset/home copy.livecodescript.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7uBZM7ANCpVR8+KaaSbF47zPXo4=
+			</data>
+			<key>hash2</key>
+			<data>
+			gy+nuOaOElM9Zc2EQY5447iR1VgNi5FWTaVLDv8GdIY=
+			</data>
+		</dict>
+		<key>Tools/Toolset/home old.livecodescript</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zTUYRgtBHH3q6WwBuybdIhz+luI=
+			</data>
+			<key>hash2</key>
+			<data>
+			5M3juXFTjfJzxCfef/vEtgVBSeO2RvBmCtNjZhvBJGI=
+			</data>
+		</dict>
 		<key>Tools/Toolset/home.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EEByn3NKdGaVaEcv4U1g+8lrH44=
+			04OIf+XZCMJMbJtZGljmk2dJdGg=
 			</data>
 			<key>hash2</key>
 			<data>
-			utkZu2vExmxOnySgit1S3ReLMy52vYHCoE+L+DlXmd4=
+			AMPqNX+Rc3ZXyj+vC3hWmhCZdG7NBmGqVgJCGd9WNxg=
+			</data>
+		</dict>
+		<key>Tools/Toolset/libraries/autocomplete.livecode.placeholder.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZfSfHPk5COs+rM4hddVkIeYG/y4=
+			</data>
+			<key>hash2</key>
+			<data>
+			qZ0tfK+bv3GCEO7lBoKBGAfPq1DW9AtgwE068CWpCOI=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revanimationlibrary.livecodescript</key>
@@ -25803,26 +25695,48 @@
 			LnerNGKMghY3HZYtIP72f8Z9nSTa8xDLYP+JDq/LOzg=
 			</data>
 		</dict>
+		<key>Tools/Toolset/libraries/revbackscriptlibrary old.livecodescript-old</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rLNHGHXGqd7cS+sUxQtUUujvn4o=
+			</data>
+			<key>hash2</key>
+			<data>
+			dJgVCIqN+kh4w81brWIYCiQ+HCTvS+2iLLa4ewRWqsw=
+			</data>
+		</dict>
 		<key>Tools/Toolset/libraries/revbackscriptlibrary.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			f5mF7oO5RNatBi50X0ZYI9p7/mA=
+			rLNHGHXGqd7cS+sUxQtUUujvn4o=
 			</data>
 			<key>hash2</key>
 			<data>
-			0qDWwxAoOBoI3lbpxJiPbmwI782Q/Cz7CWfoSoalU+U=
+			dJgVCIqN+kh4w81brWIYCiQ+HCTvS+2iLLa4ewRWqsw=
+			</data>
+		</dict>
+		<key>Tools/Toolset/libraries/revbackscriptlibrary.livecodescript-old</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2QQzYJ4XoMup+6j6CpGYR87sYS0=
+			</data>
+			<key>hash2</key>
+			<data>
+			ybvG0XA3rVvvl6ZmNkfUMK/Zz62+BYwFGn8EAe1W5o4=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revcommonlibrary.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8yISrsZsm22FFJ+CcK5gzSsuVkc=
+			kXzerVfRXpMxd68I6iIFiw/r3hI=
 			</data>
 			<key>hash2</key>
 			<data>
-			ke/3gVdK4OJv6G3Jmi+Hla5ci7ao05Q6XwqVCwqAQUs=
+			2nvKDGPatrebZ9wYOErO3CaYyBusjoCs2j0tvyvTyv0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revdatabaselibrary.livecodescript</key>
@@ -25862,11 +25776,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JYgjEnUmDLCk2SaStF92vVDY7Q0=
+			4uY0gy8sqLVE8ei9p4E3JfcJP98=
 			</data>
 			<key>hash2</key>
 			<data>
-			eXPEvquans9CYUNAieTABb/CcXzFRxnxZ/HD5AiWJuA=
+			3jeUxgQjWANLr73gheH40yIZhA+S7LpD+1RRII9T/d8=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revdeploylibraryemscripten.livecodescript</key>
@@ -25950,25 +25864,69 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bDKWr3PgcK4JGnlNpr/7CxVSB3M=
+			r5H0YKgkLRYNdGp8E6nRBHS4Iik=
 			</data>
 			<key>hash2</key>
 			<data>
-			BS7Jlx9smXxcAFIQlS1Jh9cxjupgrCuimkJ6ybJH7U8=
+			OSUx1VQWTTOZGFF4AGJldygwdPNTVZBGeEnrk0cW/fA=
+			</data>
+		</dict>
+		<key>Tools/Toolset/libraries/revidedocumentationlibrary.livecodescript-old</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			r5H0YKgkLRYNdGp8E6nRBHS4Iik=
+			</data>
+			<key>hash2</key>
+			<data>
+			OSUx1VQWTTOZGFF4AGJldygwdPNTVZBGeEnrk0cW/fA=
+			</data>
+		</dict>
+		<key>Tools/Toolset/libraries/revidedocumentationlibrary.livecodescript-old.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mez9C2emdArYLzg8x2acyphrNYc=
+			</data>
+			<key>hash2</key>
+			<data>
+			QGFxEq3WHbK3kjONzPSIOdPG/8VSelIYwB8eQAxOZkI=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revideextensionlibrary.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WycNx6/kD6LZKUKW9jHyVgAguXo=
+			Ou/7A6rT0rh3qZR/IMNlO96JAHk=
 			</data>
 			<key>hash2</key>
 			<data>
-			uzlgRPPSqBB5NyYiFDcFlN3zxg0cv13nWj5SsOLBBT0=
+			T0f4UVzIfMLuwZZRYF/ADqgitkKNB9FfrYtHl6/O93w=
+			</data>
+		</dict>
+		<key>Tools/Toolset/libraries/revideextensionlibrary.livecodescript old.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vet3VPUzPMWrAOExRymkGs5ifRs=
+			</data>
+			<key>hash2</key>
+			<data>
+			iGQqxYOmA6pd3p8nWuRpKfcBCqTFWjSwJvsRE27sa2U=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revidelibrary.8.livecodescript</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4gZH3MAhv+cDH4y3byx1kkqA5vE=
+			</data>
+			<key>hash2</key>
+			<data>
+			4s5k6S3pvKz+Hrb15Mhg0w6ZlfxGdRqIAvEimPUrpOs=
+			</data>
+		</dict>
+		<key>Tools/Toolset/libraries/revidelibrary.8.livecodescript-old</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -25977,6 +25935,17 @@
 			<key>hash2</key>
 			<data>
 			QAkqAlEDFvH2F+XQgOq4YTxyfHUrczYtt9QvhH0STJo=
+			</data>
+		</dict>
+		<key>Tools/Toolset/libraries/revidelibrary.8.livecodescript-old2</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0bz7zbAZPOsn+/sG4ZxrvdvM8BM=
+			</data>
+			<key>hash2</key>
+			<data>
+			JvL/jqFJi/RT01QRYz+zMo5URFlTV/rTqlSrfqaUp5M=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revidemessagehandlerlibrary.livecodescript</key>
@@ -26016,11 +25985,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			crUDeEv1s5LY9GVdpbvUub76Rc4=
+			BrvNi0rPrHNKlSsq3j6RM70hsOw=
 			</data>
 			<key>hash2</key>
 			<data>
-			lq1RixLgnwMzqi3/JyEjhoqIbCzF/ERFjDcAyisXcUQ=
+			o/VJCSRzjE/RVzJ45ivpTKPfCKAvue7OxFpfR8j3pXQ=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revmetadatalibrary.livecodescript</key>
@@ -26126,22 +26095,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/NcTbaHy8Vp7pIEJ7FerM5CaYlA=
+			h00BtEI6O1b1KcYJ7O6DosqMHC4=
 			</data>
 			<key>hash2</key>
 			<data>
-			YJgKe5hvuLvzzb0hsVnkauADgKreIElwrQ5osGNDF/s=
+			i3FU8F5hsfvLym9I5h23C2EVjsZCMuMY+/qnqEqi5OA=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revsblibrary.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Xve/f70cu9bUCE7GWlYlns5O8rM=
+			gsTz7S4tHtyHYxg9bs4/b50SGq8=
 			</data>
 			<key>hash2</key>
 			<data>
-			UUs5DxsILru1RUFvHCawdp7cDhtedYTsEjY2ze2CBVc=
+			32nsJLK0Xx6EURHQEd43KZWSy2s3x3w5/9RRYJIst48=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revshortcutslibrary.livecodescript</key>
@@ -26181,11 +26150,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PoXIGFILnqhmicF6v3mmNc4w654=
+			bTKojsX5s//szYxRzljE90KAaUk=
 			</data>
 			<key>hash2</key>
 			<data>
-			z7rOU7jibfmHtQr2cYfftn3ZYPZTGUosaBJ9d6LvPLc=
+			tzOIK05iaUHQwTupwWbcdgQ9mWOV+SYd0IcGDnravm4=
+			</data>
+		</dict>
+		<key>Tools/Toolset/libraries/revxmlrpclibrary.livecodescript-old</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			bTKojsX5s//szYxRzljE90KAaUk=
+			</data>
+			<key>hash2</key>
+			<data>
+			tzOIK05iaUHQwTupwWbcdgQ9mWOV+SYd0IcGDnravm4=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/ResourceCenter.rev</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/okS9HDzg0N5A1Z38cy/NE8caW0=
+			</data>
+			<key>hash2</key>
+			<data>
+			Lgyc6FahkXabDEYKESs085s9ddEbfRQzvwH2feSGV9g=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/ResourceCenter.rev~old</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			bqVWNxLRI9wSdwpMedgGSJMACMc=
+			</data>
+			<key>hash2</key>
+			<data>
+			EDjDDQwZlZ4AGbj7noAKLXicorLa2d5wstVwB3ejeWg=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/behaviors/revaboutcardbehavior.livecodescript</key>
@@ -26225,11 +26227,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b4aiBve0UyK54L5ZaABY8bn7Kxc=
+			HaVyYoEYWzgtxIkatqnOUR0mDwM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Da2nW8CsDzwCzXYpV/+41Xcv1EKEXrdbR9ouUcwhXxw=
+			/lU4bjHk+KIi8dUIUYD/ySqhfafWyr0sJLrgdRRscrs=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/behaviors/revpalettebehavior.livecodescript</key>
@@ -26258,33 +26260,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wli0LXOxyOHfOAtJimIcA2jAAuA=
+			uV55FTZmQLuzGBehQ9sU37lmEZk=
 			</data>
 			<key>hash2</key>
 			<data>
-			XZTM2pEWHLmQStatyxKc2qarf7IEsZAPH84wbRrwjNs=
+			7/yE7xlRZZAnM9PyFmz+NxiAt1yY2yKbb8R4w0UVF/8=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/extension builder/revextensionbuilder.livecode</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3dgQBe3CAo5JiA8RIljijDpcfMc=
+			/R7Wtyz4oF+kBuyxW0Yco7To/CQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			sJfxSrOHzX3VrgkYcEoCsOGQNcDYwmGsokb/97reWtI=
+			6SfJjpUVKueJBO7EbMJdNT64qGF7kKbDdSK6lFt5iNE=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/extension builder/revextensionbuilderbehavior.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9kS+YgquHceRzLmcwyXPdBUum+4=
+			tZp2IvSJ0WqD1McJnLAIdOKpLLA=
 			</data>
 			<key>hash2</key>
 			<data>
-			rV6mXHN/1Z8nWpRzzbfuD4uzlSsq0IURCf0oehwkWe8=
+			it2kBBjeMvW+Rz6DDxCekxVm2prslAp9dFkYqzHCNWk=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/extension manager/revideextensionmanager.livecode</key>
@@ -26390,11 +26392,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			A1z1zz9QwgkADdEM/ugoOq7+gyM=
+			ZOGiOTrU4UO1Hj+MoMsmAY8XHqU=
 			</data>
 			<key>hash2</key>
 			<data>
-			nQ4GMMSPYT2uCetmJALiGwZCV5+hpnkcQTp8pi84VYo=
+			Ny+IeLM2GZMtmP8h/UVpOUgFjfrKGjlQM1M/Rokvg+I=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.align.behavior.livecodescript</key>
@@ -26453,6 +26455,17 @@
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.array.livecode</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			uv4pIvVMw54oLBbEqIs3790X0Hg=
+			</data>
+			<key>hash2</key>
+			<data>
+			cCaME+a4JB53as7CigiekQhXLmObm8W0FAP4O6u+CLg=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.array.livecode-orig</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -26544,6 +26557,17 @@
 		<dict>
 			<key>hash</key>
 			<data>
+			/yK3U9+LLCE5ioM/i8a3oCxreyk=
+			</data>
+			<key>hash2</key>
+			<data>
+			Mrm9hURlpVvuDxV671p5xCDVVwMK0wqWQgoGQNbwsig=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.customprops.livecode-orig</key>
+		<dict>
+			<key>hash</key>
+			<data>
 			U9mx8iTth2ygwV74dQqmLsmCajg=
 			</data>
 			<key>hash2</key>
@@ -26555,11 +26579,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EgMSNmmBrP42BIaG0YrjnZd6iZQ=
+			rsYpxWeO/WuEL+Ym1tL8phXlGR0=
 			</data>
 			<key>hash2</key>
 			<data>
-			+7WW8FKVHNuRI7K56kCs/DcDcz3HZOopR4WFU68grUw=
+			T/33/45cJB4DVSMUYbUUBw3Pwiimer1QRF37i9fwOYU=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.datagridcolumns.behavior.livecodescript</key>
@@ -26720,11 +26744,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oAcwa49kIK3kftYe12l3XUUHXOw=
+			h3eU1QMrXZSxxPMFVZagTHWuin4=
 			</data>
 			<key>hash2</key>
 			<data>
-			FkLK7/aCJFuF+Kiwm0h59sqC5MBofEZFwbcBklpSH6Y=
+			PN+GnDNRyPS2kkcaiTH669fq0XzIdgeZjoEe2t5mypU=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.dimension.behavior.livecodescript</key>
@@ -26742,11 +26766,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZMjToofkL4XqpzcYgU6jjyw9Se8=
+			A/z5H2GKBSY3ynducs7tw4nDDbI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Zpk4VmkuBzae45NmwUys0eELEZyRTFidyABzm5esfD4=
+			6wUCRHqg+34gdrPGdWkQxATB+G8ivH5oimfjr8SctUk=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.distribute.behavior.livecodescript</key>
@@ -26808,11 +26832,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			B+UxkMydCwnQmxCbU2CucSNCW0E=
+			2R/Tvs/it27sYNtRmPjbEI8aneU=
 			</data>
 			<key>hash2</key>
 			<data>
-			6Uh7mi8/6AWp8qHJRdw7oEkAZjUExGKZD2EUaTaWT+8=
+			5BmHSFPGcchtzjb1/qrquoMF+H2tG0TIEf8M77y+LCA=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.equalize.behavior.livecodescript</key>
@@ -26852,11 +26876,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TR4BONt/qzECFSPYDkjD90w1gsI=
+			v3OfX/WgmUdOhWcfCcPysmTSpQc=
 			</data>
 			<key>hash2</key>
 			<data>
-			qeO9Lcvq2bsFA4+89LCtIiCINzNYQziIwL4Uaswyf1s=
+			WvKCwOPxdnC9RLtErS8QEzkhu1xZwZnaTVB5KfR09cY=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.filelist.behavior.livecodescript</key>
@@ -26874,11 +26898,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			D6BbVky00JSdwkiGVN4VsaaqFs4=
+			jhxt+b6G5ikjkfWqbbPaizDCFR0=
 			</data>
 			<key>hash2</key>
 			<data>
-			tOO5A+VLdWXpi7Nzs3/iWwdj2O/rvMf8IFYJHopZ8g8=
+			4M7S8gNWmFF4E9cd8DKd3SjL9kkdQXYQlCmcE7oGUJ0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.font.behavior.livecodescript</key>
@@ -26918,11 +26942,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/BbmIDQ1zeOcbIspE8gzceDxonw=
+			l35nMPp5QL1hZ9F2iPF5auGqIQk=
 			</data>
 			<key>hash2</key>
 			<data>
-			QJ07liKGsPms2T3eBHuXUXdHlqTqSSCmklpC+HYpfNo=
+			lJepCsYuY+Oxw3HNRXzBvvrXDzYll7tIXYRb1ZdFWsQ=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.gradient.behavior.livecodescript</key>
@@ -27028,11 +27052,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DpevP/h/GcsTd+jSUw6xZHSJA84=
+			fJ+76rDYbRLZlt1W2jKGMCUQo0s=
 			</data>
 			<key>hash2</key>
 			<data>
-			SnKaAClSC5mg+cpAFh6iMiCdFtLOswhJSn1G6e6IWsI=
+			5oos8xegx3q9K4N8v8QOr6/N9mRqA1uR1QT5GYUQzcs=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.navbar.behavior.livecodescript</key>
@@ -27204,11 +27228,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			l6byPVW32apdpAfJruHJ08X/amQ=
+			vLSgbciKvNr9WOAAVZ8wz1G/9Ro=
 			</data>
 			<key>hash2</key>
 			<data>
-			Wtu3MqSv2reaSy8g4hRWQnGqIPVedTqZOSoLDmH3iRs=
+			O6nwyAnyvm8vjpO03VuSY6F0dYM2G8CcnKecKfWAl8E=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/editors/com.livecode.pi.set.behavior.livecodescript</key>
@@ -27424,11 +27448,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			L+arMfryuf+shRry29UrkaMs4dI=
+			Tc8OyYgD2rjb6d4sg7b5Zj9GQP8=
 			</data>
 			<key>hash2</key>
 			<data>
-			zBlbi7Z/gXuZQbbomWICyQNCU1A3XRfOMmmwmMXonCU=
+			70ZVP0QHtmuOqQ8mqgiOHkFanF6s4l39ShHggLY7mjA=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/inspector/revinspector.livecodescript</key>
@@ -27464,6 +27488,28 @@
 			5qPA29TkbdaPSzr9iVhORNa5tLp2iXu6O5RiC+8XL9g=
 			</data>
 		</dict>
+		<key>Tools/Toolset/palettes/menubar/OLD.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+j15fSN64NsBns1wlotoGn9vzRE=
+			</data>
+			<key>hash2</key>
+			<data>
+			YWGPR5TfzgmYKRB1UYpBHmm/pTBxh6HQ2Hrh84CxAtk=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/menubar/images.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lciOe4aDhG68FhXMW3rctwTvcik=
+			</data>
+			<key>hash2</key>
+			<data>
+			CklvSyuHTk952qytUboRzQgKwxBRbZYNFyoBC1X7RQQ=
+			</data>
+		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/code-depressed.png</key>
 		<dict>
 			<key>hash</key>
@@ -27479,11 +27525,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			saDAYxspWJLEEdjTSxYcheO8Fas=
+			9/gfs8JiE9jmPrszkU7iyLfslS4=
 			</data>
 			<key>hash2</key>
 			<data>
-			VPw7wrbmU7xkERGyCfqdTp0790h2gPVf5abadD+sEiw=
+			7n8zZTY7G5J/dAlK+qoCuSqNTPWnlkb5vzFsNdwyBGM=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/code-disabled.png</key>
@@ -27567,11 +27613,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1n2TvdkgcJoJn2YLg2VWdiv42Uo=
+			ee5YoXjQJL3Bmt8aVUcdP4/mUfI=
 			</data>
 			<key>hash2</key>
 			<data>
-			buHFrEtoKZzFvGbwVlWXSlz9ip0tDDe9bRDm38GtWQQ=
+			okxj9j19HRKAsrcZW+KrTlGkVbGlpdGhU64jNJSF/wI=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/dictionary.png</key>
@@ -27589,11 +27635,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OoC3rU69ORQgCGM34GZjsU/T1eo=
+			fmbGii8iCXANeCIzFyRXvBB+p8M=
 			</data>
 			<key>hash2</key>
 			<data>
-			T4OUpgSEMyghhhEqZ2e/eVBc6Ny3OflRoetsxkNaUkw=
+			OwzuyWNDM/uTqH0H7zEkdCiQz2hJ2QcqrOYarfnUnvg=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/divide.png</key>
@@ -27996,11 +28042,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WVAVsu9kuJYHlEoYEslmU8ZRjvA=
+			gVQmjNYvJvrs2/CZtvcg5IkSaw8=
 			</data>
 			<key>hash2</key>
 			<data>
-			55FHST8/0H0gCmVoRmQvdxjNoidP91ezWl7cF2zA3ak=
+			q7hEtE4zLW5nskAW68ue2XRKQH9e8fC5VvA4kaRc0ao=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/message-box-depressed.png</key>
@@ -28073,110 +28119,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wnGsfDPNIzX16k6lwZ8HZlf5bfk=
+			crVPkhneQkrDg6rSEkesWwa39Eg=
 			</data>
 			<key>hash2</key>
 			<data>
-			dZ7Wp4WPpTBfU680J8QdMUJf11udOqa52Zj9TKPcz5E=
+			WRXaD7lv+QKKdbgLln8vT1XsMwl8V0nu3h6w4GinEVY=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/messages-depressed@extra-high.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5zV49DnqrCU+XAjNpMaE8R7LrwA=
+			B/13URu2tKCvp7ncn72K0NILQF4=
 			</data>
 			<key>hash2</key>
 			<data>
-			PlXam8R7eaSyDJqaJwTLo0yf5Aw+Dx/qWU1fBZasR6A=
+			WeKxuQGWxdVpQy7ro8wksipoydtY/xwGX8nBt+J4rz0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/messages-disabled.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			y66LPFLaXeIrXQgwXtNPRjh+N0Q=
+			qxk9EvFB2ZucJNm1eGUnsNnnNZg=
 			</data>
 			<key>hash2</key>
 			<data>
-			vuh7zd9Zi5CZGcX+oBBIh0cvteyVHnjU7/TVUlKhjYg=
+			Wb6EOpAi0Qz0kuTfczNsav/IUkt+j4fDxobm2/12JDk=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/messages-disabled@extra-high.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OMQQjqgH/NQI9ky3GCQRD+cF3uU=
+			A9KExN6i19AmYn99QpRiEwLU4QE=
 			</data>
 			<key>hash2</key>
 			<data>
-			gzlEruhAPRu9QISgMR3demhgdTDEaOLo/6rFGQMYq00=
+			pnmjjMHKHVK8gl5Nr8k8W9JmjDGO9d+UEmOIHrmRKns=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/messages-hilited-depressed.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+M6FKHcvS544ge3TijCG9uF5Ags=
+			jQMd2J6HsEt6lqoxnG28MwHggnQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			Of0VO+GvtzJUtKi6IBal+frOVa1d6iqS+YbX5cBeVrk=
+			0XPPHw9L5xTQigeG29IRGuoqWXTCJQhVUspRE0/bYSg=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/messages-hilited-depressed@extra-high.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YukV8260TefkjBexdLQuSxwl7nQ=
+			zvLrW3brz+nQr+agShnF3ldEzLY=
 			</data>
 			<key>hash2</key>
 			<data>
-			S/ZO92gueKA5VxvhfkI4iF49TTKA8bJIcwg1HSJiiyE=
+			NDnlSE09vxTokPLnjUR2w8Vc3JYpyS7XN5ccIV1pm6Q=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/messages-hilited.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mQfiLBYy0YCBwKHVO/u7b5W+o7o=
+			ZA+7BIFHmlg41ZoZLJz7nPSeGw8=
 			</data>
 			<key>hash2</key>
 			<data>
-			ktnsU8D7AjBFINnOSwygvRKOyW7cdGgyJrx+LORtoHE=
+			1zT+Wo2e5CrJ9fGJkEcK/rjH4jEW/AQhy0NsIAeN9fA=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/messages-hilited@extra-high.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5hM0QhJ/YHVNzoiS1A/IyufXFqQ=
+			Qd6mRNOjgWHZlFMeEakOc0hWGyA=
 			</data>
 			<key>hash2</key>
 			<data>
-			nRM66PugAdmg/ulRBZazCKtDwIQlMniEd2YqoQ2W5DU=
+			G3vgl3aZkE9zXiDWeuWiEx28AW1dYuw/vMhrcweXkbk=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/messages.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OZpUI5TeuJbYc8zXvJXNQcatF+Y=
+			sVF0li1FKvUryMe3SLUAk7DJcjY=
 			</data>
 			<key>hash2</key>
 			<data>
-			EYWyvgcqgtF11pf2ytZwN2/pMlU2Nf/YMjozLC9crhs=
+			PKV+PGCto1CQ4DfCyNSzH7y5gb0zHneZIy0pSEK2QJ0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/messages@extra-high.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lqzahfQBPsm07zaoZ3yq4DruMgU=
+			gqbUT/2ff3UMETqxbffwQHI4R8E=
 			</data>
 			<key>hash2</key>
 			<data>
-			qHBwq3pRoF9bTg3UXshTqP6Doz+UOkv1vreCVzUrh0M=
+			PWMgmA8d5o9lJBLQaFzd4a6r+/g1npjd7/254UdK33w=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/images/resources-depressed.png</key>
@@ -28557,11 +28603,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			K3z5InPolOSCHTiQa5kWrzH9tio=
+			vvIID+S+wjjWGy9S9UhwPmH+fyw=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ve44gahHDDlwDC5zuj72fAEipYrv5Q66QoiP5OjtBi4=
+			L29yYZtjBHCa+8USCBrpB1Zse5zVxfAg7vAM+wFnrU0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/svg/icons-depressed.svg</key>
@@ -28656,11 +28702,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sjAl44zq2uMU0vXKpENF7Gsqz+k=
+			wDsX2dAgp2z1AKopWsCV0JQEW+8=
 			</data>
 			<key>hash2</key>
 			<data>
-			CEYab/ddLk1Gae95dEXtuNGgN92FA2Co4q8aG4BoH6c=
+			DR/I/DCz1bzvvionhKHcKVLBRDsBL/S/8As8f9HZiOY=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/project browser/behaviors/revideprojectbrowsercontainerrowbehavior.livecodescript</key>
@@ -28799,11 +28845,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ePiXugMs03KXhIBIiGGKitMoXXQ=
+			rtZQjJEI8Fn+6UOQTAIsrIQBv4Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			qClGwgMwlt6/3riKovU6Y/Crfs6rhfqBv8ipuVq1Gks=
+			+qVEeBCA9Mnkkl3EFsNZPtMo8/27wjJ/argGbUzhFkU=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revCore.8.livecode_old.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			m+GsX1AMSjKOVOJ/fAI4AJblV/c=
+			</data>
+			<key>hash2</key>
+			<data>
+			7nDPBT4BEfF+SSVNIJkQb4Eolkl+8CGS7qGZVy4QEx4=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revabout.rev</key>
@@ -28815,6 +28872,17 @@
 			<key>hash2</key>
 			<data>
 			lO2iTaDiLQD91q2W8MGXlvR1zzJEiwewRCBqILMFrgc=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revabout.rev.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			n01ppfTJEqoSGm78hgaYotMtkZ4=
+			</data>
+			<key>hash2</key>
+			<data>
+			X65o507pH1e69gtmVdTYThxxe60iYfD/Y0XgmXW/xkg=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revaddlibrarystack.livecode</key>
@@ -28832,22 +28900,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			y+kJfRYnabTL2vBnFmI3KnT0dzY=
+			ieJ/DRTAuTtrf++sj0IiPA4bHhE=
 			</data>
 			<key>hash2</key>
 			<data>
-			3k3YGIcQ3OweTWrx7mqD4DktNKkjhxjjIw2FDESIb5k=
+			bpV+XA5e+T9Y3nxHNee2pjNTDyf1ZfdGP217Y+q6kzA=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revaskdialog.rev</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SVbFq4BrtEXlvX9Gdw7p2tFxReU=
+			pVKFemPFEMITUXRTEKCIQYvTv4g=
 			</data>
 			<key>hash2</key>
 			<data>
-			9YjJwE9s1zwdfl5FcnkPlut6kwNdO7U0k5khloS0Ru0=
+			bunu254ARvSXIE7XncKF++O3A9pPOx6mFEKl+jdPug0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revcolorchooser.rev</key>
@@ -29063,11 +29131,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			B4YiN8TLJslTIEnfcSpxYpOn1ro=
+			5Kiwx1JVMTWXbw8T1Y/Hf4Kf6KU=
 			</data>
 			<key>hash2</key>
 			<data>
-			IpWMG57g/C2vARNy7oT4s0zkapYzCxFxNO4MK9nUl24=
+			pckhv2SFGy8BZ422cl1qUzQk7vMMNcqCT26VaHRpQlI=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revfileselector.rev</key>
@@ -29085,11 +29153,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IdLmhNqGD7Iv4blgFxCKb6azCfw=
+			IGYT0xHufLOm9P0PEidNQjmJVCI=
 			</data>
 			<key>hash2</key>
 			<data>
-			6b6XC0TmQDFJzOZw26GGHidZxEPxZ+WABGfYwFViChs=
+			6+sqeicGISL+MB0ZOuVTDuO1/48HmGsORp/Q7TbV/aY=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revgeneralpatterns.rev</key>
@@ -29107,11 +29175,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			q/nleYo3wYKTFKXT3xbYFxpSA3E=
+			rTEsLT6f/6FepcBfSzv0Fuj3Lqo=
 			</data>
 			<key>hash2</key>
 			<data>
-			gHHg4CrnGXVkHK8MptREcrOuctrk7VArOP7OfKQlipg=
+			D+e/2FunnzCEdFjaVzJ65VIAf2IKehSUx6KBwHkvH7c=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revicons.rev</key>
@@ -29195,22 +29263,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MFSb9ZyOQkPO7BRJ2YAHk4bucN4=
+			myR4o++vk5qAjYBg/bjVO/S7RZ4=
 			</data>
 			<key>hash2</key>
 			<data>
-			gDmzhkB7qdqKGtBfV1Eg7f6cDPjn8ZKb0KFn0u1ZukE=
+			PUGbe8sSC+KvcBxDm2imJy43tDrAzczYC0slDWPghAM=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revonlinelibrary.rev</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			RrkGUmRN166r950D9XYB421ASYU=
+			uJp5XFJ/PegKWPDmdnxrgt4V+gA=
 			</data>
 			<key>hash2</key>
 			<data>
-			oPWPK4tmGpY4IKqF4XXfZHZWWqSu6Yp+qCvo8Ka/Hz8=
+			5FBYx34bXE/9cemzCizQi4Hv2CNt8g2VxUIRI0KEV3s=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revpagesetup.rev</key>
@@ -29239,22 +29307,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4aZr3qlNvMYiUCuNQ1YKClcKfK8=
+			XMUHv6pj7bM4ffzC9EL/A0Mm5EQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			q9QEGr9pVBJPFi9hgh5i10rIhxAtrkCIC3bkyiE+gPM=
+			2YfqeVxsvfQGStIKYozu1d4jZ8x5Ocd2/wSrrj9ATCY=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revpreferencesgui.orig.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0pePHHDHrxQSnXNRT8yTMIf4xfo=
+			</data>
+			<key>hash2</key>
+			<data>
+			mqsGfK5MlNjiFepvD+hPA+nhRjTvC6ynUETxyhGQRpg=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revpreferencesgui.rev</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gF4uDZhidxPmG8P3nd4CNxcd8ts=
+			Ctb9d09YxJYyszr5kVFIqJ8SZDo=
 			</data>
 			<key>hash2</key>
 			<data>
-			L5fe75riAubYLLVR8F0erSrmh3sBfI8ZJlVlzfNvc1E=
+			i91lsMspWAjfXJjGcbSZpKZ2EljwAiLKWnMkz6cDnwE=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revpreferencesgui.rev-old.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1MvpK61wol1S9jVx9l6yvQeV8xc=
+			</data>
+			<key>hash2</key>
+			<data>
+			1bsOZGJ96ovXyo7NDssrMJ0OPrj+SniIrBex0BnCq4g=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revpreferencesgui.rev-old2.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Au9V9hL5X7ThBr723d35mphwsmw=
+			</data>
+			<key>hash2</key>
+			<data>
+			kVXEg1eaySLUM39/n01U5r/FoqyzW21YA1GjWxEyBW8=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revprintdialog.rev</key>
@@ -29294,11 +29395,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
+			+Jgl92dHh6BKK1huSwJFRLxOBwY=
+			</data>
+			<key>hash2</key>
+			<data>
+			kV2NKYeili8AHCjsmRMSayArk6rTkszmFE9ZLvxmpDQ=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revresourcecenter.rev-old.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			5g20afLuTDoH5KfnnaVkUP6bf+M=
+			</data>
+			<key>hash2</key>
+			<data>
+			PdLWIdolrnFY9Tr6eF4N97Hqmbl5ROrza2OHkjKiefI=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revresourcecenter.rev-orig</key>
+		<dict>
+			<key>hash</key>
+			<data>
 			TKqNmbDHT552UI+HpDoqj4sm+ac=
 			</data>
 			<key>hash2</key>
 			<data>
 			n/f+7YiLtNQuooavGF3lfiuxN+njC5oRNM3VxB0GoPU=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revresourcecenter.rev_old</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+Jgl92dHh6BKK1huSwJFRLxOBwY=
+			</data>
+			<key>hash2</key>
+			<data>
+			kV2NKYeili8AHCjsmRMSayArk6rTkszmFE9ZLvxmpDQ=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revrestore.livecode</key>
@@ -29360,6 +29494,17 @@
 		<dict>
 			<key>hash</key>
 			<data>
+			8HDD/cslp7F/Aoy0iNbsQCdKeJE=
+			</data>
+			<key>hash2</key>
+			<data>
+			t/HzYSvOrzRJHadiAUXtAEfSSIquirnkJHODKR8302Y=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revsearch.rev-old</key>
+		<dict>
+			<key>hash</key>
+			<data>
 			zvrqWcehXgKBjkZQXpOkib+fNBk=
 			</data>
 			<key>hash2</key>
@@ -29393,6 +29538,17 @@
 		<dict>
 			<key>hash</key>
 			<data>
+			f6n080RiljXWot4NqSqu7LV86hU=
+			</data>
+			<key>hash2</key>
+			<data>
+			EPysnF5fsZrG6dNy5aAwgjrMhMvs7Kpng+JVjRR0SrM=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revsecommoneditorbehavior.livecodescript-orig</key>
+		<dict>
+			<key>hash</key>
+			<data>
 			+/Mu2V+gcLwhYzFOJ8OsvELu4m0=
 			</data>
 			<key>hash2</key>
@@ -29404,11 +29560,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
+			an3Ath77Y3WJQdArE911a2Sa4pM=
+			</data>
+			<key>hash2</key>
+			<data>
+			55sbfVbZxTP7E+cCE+td7hwVgqemi4SP1bzbwT57NEo=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revsedocumentationpanebehavior.livecodescript-orig</key>
+		<dict>
+			<key>hash</key>
+			<data>
 			Q/GZWOHh+4iHfDC3+cnBd23uV/4=
 			</data>
 			<key>hash2</key>
 			<data>
 			rInp5Su9oJcb8D/qOhTwR7bQeTFeLwfRK7LpXMCuYKM=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revsedocumentationpanebehavior.livecodescriptold</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JMp4EzxnAtDyrnWSYc4k1cYu6NA=
+			</data>
+			<key>hash2</key>
+			<data>
+			0XJPmrmfumJph9pKKN7cKX1F1Q38w9SGb9/GgsyG/XY=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/script editor/behaviors/revseeditbreakpointstackbehavior.livecodescript</key>
@@ -29422,7 +29600,29 @@
 			S4pWFIegGNakjWTJQ0Y+UeX8BqzZr8Juk+u7yqRAkUY=
 			</data>
 		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revseeditbreakpointstackbehavior.orig</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HuwcXkYqZ97ofrjlcF9D9QrdOfw=
+			</data>
+			<key>hash2</key>
+			<data>
+			S4pWFIegGNakjWTJQ0Y+UeX8BqzZr8Juk+u7yqRAkUY=
+			</data>
+		</dict>
 		<key>Tools/Toolset/palettes/script editor/behaviors/revseeditorbehavior.livecodescript</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			GYPF7QuCZJi5QlkRHzCIvXCr96s=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZRpkYdgIVUR6xMkVASKCc4kiFdW37im7oiq0IwVuS7Q=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revseeditorbehavior.livecodescript-orig</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -29445,6 +29645,17 @@
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/script editor/behaviors/revseerrortemplatebehavior.livecodescript</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+RSUHgTu/kjDF9RnsYfEokG31do=
+			</data>
+			<key>hash2</key>
+			<data>
+			AjFkhPu106R5v8hF0BvOKb/dq2QzxAQfXuJxW9cjY+M=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revseerrortemplatebehavior.livecodescript-orig</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -29492,6 +29703,17 @@
 		<dict>
 			<key>hash</key>
 			<data>
+			3p0ydmJddLyYtLI7jibjxc6E0Bo=
+			</data>
+			<key>hash2</key>
+			<data>
+			kRmn3ztgzS5gdSE56N2tc5J4W9+i0cjsgUN0lXiQvEA=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revsehandlerlistbehavior.livecodescript-orig</key>
+		<dict>
+			<key>hash</key>
+			<data>
 			mcFCuNcsBrAmHu3PUs6H+HMKhHw=
 			</data>
 			<key>hash2</key>
@@ -29514,11 +29736,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GMtcFCn0S9Q44/+xqXcoWLrLj08=
+			nQrVdxkVCKyif/lrJ+NphskM1lA=
 			</data>
 			<key>hash2</key>
 			<data>
-			3zmtc9sAUn3NL5voEgcNAan36mEUAUSCZ9XOGO/trWg=
+			lgHjPg/jrzCfAkZIq/38l7TTPtqowWSDcrGjNIvN7Rw=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revseleftbarbehavior.livecodescript-old.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vv1HrdeR4D8NqF94uf91OCKywN4=
+			</data>
+			<key>hash2</key>
+			<data>
+			zNFppl4NhfRI1LAX2cOPKbtUJmrP2zTsW+WzeDYOwb8=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/script editor/behaviors/revsemenubarbehavior.livecodescript</key>
@@ -29547,11 +29780,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
+			vU3G7/LkWk+lE9hjDT0CsHG+VOw=
+			</data>
+			<key>hash2</key>
+			<data>
+			tN2qbqwHoerSdc0wDTdNBG/iZzMn/lI9S6bvCggJ+RI=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revsestackbehavior.livecodescript older.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SrvcKFgSQSQxa/CNWH9EbGyQQF4=
+			</data>
+			<key>hash2</key>
+			<data>
+			OmhmC1PXosm20PQ9hF9AfIqDqCsh+xnLLf+eG9dsYpo=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revsestackbehavior.livecodescript-orig</key>
+		<dict>
+			<key>hash</key>
+			<data>
 			eK+RzrWC2fQgE9u5ysFIjDGGr1w=
 			</data>
 			<key>hash2</key>
 			<data>
 			yUC5ll1jyuCbNZxnjtl+Of5DFj1yD/BZmMzprJL+tl4=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revsestackbehavior.livecodescript-orig.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			BXXpWHAQvBt9H0q7m9DBhCrhyuE=
+			</data>
+			<key>hash2</key>
+			<data>
+			IRTP848RroQrruw5K6Z4fqiSsoA5Nnezieyf05+AhLo=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/script editor/behaviors/revsetoolbarbehavior.livecodescript</key>
@@ -29566,6 +29832,17 @@
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/script editor/behaviors/revseutilities.livecodescript</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+0oDPGNfGQfH4hCQgISFAstMtlg=
+			</data>
+			<key>hash2</key>
+			<data>
+			YrLbymDLUqSZbIiQIpA8Vew8+o7xk6gWo1x9jk0+osw=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revseutilities.livecodescript-orig</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -29613,11 +29890,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fxjquUohOvm5MdczdlNJXmGDS0c=
+			A+qsBZOPEdhLG2UdyK0GUQ+6TMo=
 			</data>
 			<key>hash2</key>
 			<data>
-			IDH+pNYr8e4BGDMjzOU2Wc+0oiZmUQKWGy91bbXeWDc=
+			U0mEDTm8G1LDyWUQ1fuEHpEo0fUMZTYLcans8KE4Hfo=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/script editor/revscripteditor.8.revold</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dx3ueOO10i4AGrn8sF61g62glm8=
+			</data>
+			<key>hash2</key>
+			<data>
+			+o85hVkEoNBYsW/th6Ltex89/WgcTmhpjH6bq9krNwY=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/snippet viewer/behaviors/revidesnippetviewerbehavior.livecodescript</key>
@@ -29657,11 +29945,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ajJLGFARTejU6mj20cyhS7MLo0w=
+			7heylCh83TcVBk1XCdn2snFyZDY=
 			</data>
 			<key>hash2</key>
 			<data>
-			YCgm4hMdYvvt33ICqSbu8RXJtcvPWXKTLnFkpsGh24c=
+			dy2iwsxOqzYNSIBYFD1Azrs0OWcdbyD1XHuZvaV0UjU=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/standalone settings/revstandalonesettings.8.rev</key>
@@ -29818,37 +30106,59 @@
 			W/TW+SLUrc30yfee4gKkh1v/KTiujEP4EyYQtWFP5TQ=
 			</data>
 		</dict>
+		<key>Tools/Toolset/palettes/start center/OLD.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nQuVPpNAnx8Y6UXGyCagNIOpP5M=
+			</data>
+			<key>hash2</key>
+			<data>
+			bsszR5ndBTz9gvqqu2a/jce5WQJ6vE+0bBiE0Z5ZgT0=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/start center/StartCenterKey rev Functions.txt</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jdfjlJ0eJuDB0luAKI83pw39NgM=
+			</data>
+			<key>hash2</key>
+			<data>
+			yIiXg8Up66eufje9YK5aZh0QF11UuUC50BoQFVXoCls=
+			</data>
+		</dict>
 		<key>Tools/Toolset/palettes/start center/images/firstRunImage.PNG</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vVSWLmTBOIW3SQQF622cwu2EuOA=
+			E4d7YxNp1VwYegRM/pLMNHjgwuQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			IRpjwH117zI0E2/kMHB9XOxk6HudebeufFElognOI6E=
+			znXL+9A/qogjrJXj/KAWxHVsiCpzhDJCDrPIUYMzCLU=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/start center/revStartCenter.livecode</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WfdZ3JZUKyeZ73sN+c7p/1fB6Gs=
+			8OvN8OzmXmeKV+h8clt7X1nHqGw=
 			</data>
 			<key>hash2</key>
 			<data>
-			Kc2YIjotCSn/8jSpzmclZleK9KD3obSazo/zIfr/0xg=
+			z1pQfatFmDRRGFteOXXBTaY9E4UUxEBd9oOXpTx/qP4=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/start center/revStartCenterBehavior.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			n8XxHPlWQaxzt4gp+PmMypdTQek=
+			UqIJVywreQzbC04UPZUsv8aOXT8=
 			</data>
 			<key>hash2</key>
 			<data>
-			h3pbuSA739mCioMIpUdBNRDCmL4N9qQ01h00QhZSNMM=
+			J4GiQ3X7sXMZQANHV6BD80+t9ul3iWM6oYonaavyN9c=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tools/revBrushpopup.livecode</key>
@@ -29943,11 +30253,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			T9CSqrTNKYnokcpNOmKdsg18Wro=
+			acnppvXbGa0l3WHbMZFF04A8Sqs=
 			</data>
 			<key>hash2</key>
 			<data>
-			ANClCqk2AHH10ITvO4mfZxULAwguimWmIkKEe5N5xSc=
+			sUKSX49uOjJwrEjH3v1DyAgSX3VPmslYN1R6SivcsF0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/First Run/tutorials/BMI Calculator/resources/bmi.csv</key>
@@ -29976,55 +30286,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8ML8XuS54d0WZZzU0MxVIg8KyYE=
+			ep1UG+phlMoINOzttd5OxV2FVEE=
 			</data>
 			<key>hash2</key>
 			<data>
-			VgckFqZZOUVWZ/+97q24MXMQo8yY1xeEVYIZQTrU848=
+			KUlTviPtVjE3DYXqTvhpqXeZ3rq8tnpwreSiEZyeafM=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/First Run/tutorials/Combining Text/lessons/App Lesson.txt</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gVKcyldbH9UrPv4YS7UXV9Eu1p0=
+			2CczlkPQI7H37aG63epnpdfIso0=
 			</data>
 			<key>hash2</key>
 			<data>
-			N7eHP9/Qz3Vw555gZwwPIZ+hjEeab9lgPiPPRaE3cGo=
+			+jRhwX+IopvylJs7F+4XxicE8Sx009FUlAZOLT+VqZg=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/First Run/tutorials/Combining Text/resources/record.txt</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KGLypo4fX46wCadS7ZcfXsylBk4=
+			ZA+Lo6gS886pNX0cRRXLNH3Ciws=
 			</data>
 			<key>hash2</key>
 			<data>
-			SZloKbThnSxQLcylba9RlL91WnNOJWNVzv9egVh4Vzg=
+			kWqU8OV+cA5N3cf6PJCBzuDc1MVv4wDweAjOeoTwUUc=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/First Run/tutorials/Combining Text/resources/template.txt</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			j90dszFjePDXogqpQozScYDGA2c=
+			GGOqGrLpwoGAaZS8g2nwzjiFhAc=
 			</data>
 			<key>hash2</key>
 			<data>
-			yx3dxP9KZjVyV1n9qqFqi6l5hupzR0xZ42OkLouZlTQ=
+			FjzLxjnfndKr2cnhCm+RPyDB3V1iQQT3BZZ/xiEbCns=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/First Run/tutorials/Hello World/lessons/App Lesson.txt</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nPVI/AQ+R61dMwtyXrwHz05YHCM=
+			exHs3WbmcEQ3xbPAC6hBsa+zAlM=
 			</data>
 			<key>hash2</key>
 			<data>
-			VdeEsVPnx/CUYz8nvghT9ZzmO+ZcEYq7BbbkCfMLjWg=
+			GhfzMraVX6kQiTp6q13sMp6nVtCsuF+y0KEtaaMmcBA=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/First Run/tutorials/Timers/lessons/App Lesson 0.txt</key>
@@ -30196,11 +30506,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Y3gpvtt3568jMlLvoxnBnKzSykA=
+			oK/VQ0kFIu31sP5h3tESXmXLCDs=
 			</data>
 			<key>hash2</key>
 			<data>
-			E1xWXbVI9KRhL38ea7PSfwnwnc+M6FCKIN6n9gnG/z8=
+			Jt5I9izRLufp6BwgpXk3jWmWpcI3cGr8jMyDUNxKPAI=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/General Tutorials/description.txt</key>
@@ -30218,22 +30528,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MYl1Ted6I8ocH+9KXRe0v2TJ8wc=
+			QZsdRkmjvthxE58jo7eXpPvIb2I=
 			</data>
 			<key>hash2</key>
 			<data>
-			V3P/etFc/42YroDYC+4oAlgvnRInjnTKZUlFM7T6sQA=
+			ZtqtvSVZ2XudBZBiursoAQ8p4dl7uXEK6GFZ0H0ZTIU=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/General Tutorials/tutorials/Using Objects/lessons/Using Fields.txt</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gojaZgtje9VRz9WlY6Gk60PNysY=
+			fa0XS3ZfvyAJwqbzqdLD2wdt7k8=
 			</data>
 			<key>hash2</key>
 			<data>
-			ldiCl2cbP2ac4Bx+Ej6n9PrtzSwPRYDg1AYrj9MRsUc=
+			C1To+8O/XSsOdLs5ncseI/Ubq8j2p6Yk1+B6zpb/iKg=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/Getting Started/description.txt</key>
@@ -30394,22 +30704,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LEdCj+xYMWo/RZKy896SWhM9s1E=
+			SxsZDX7mw8wgh4P87h+yLZ1R4ug=
 			</data>
 			<key>hash2</key>
 			<data>
-			fIXPb3NMLTrp+h7XjlggzVO+4PQZiHaFYBb7hTXwyFQ=
+			SbddPSf0H7j7wKMP7VP2LO3gnhmu3Ol6j9fqoCqo0vk=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/Welcome/tutorials/1. Newbies/description.txt</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uR41Tm50E02IytvcLdIgNnJT/qo=
+			j55ewD0oVGh6+4p3d11ExCOIoYY=
 			</data>
 			<key>hash2</key>
 			<data>
-			jwfPasWMgz2DNFWeIBD8HTdvkGTXI4qrGZCyPuw6WwA=
+			3CiUC+ZfSj3jaXUeN5RZmWWl2/TV/t9B/Id1+MwY1Oo=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/Welcome/tutorials/1. Newbies/lessons/1. The LiveCode Basics.txt</key>
@@ -30449,11 +30759,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ryZRbvtTF3E6qDcMdVoc90R1U2w=
+			Fut4ZS2ZptEdB6KtBaKiKZ51s7I=
 			</data>
 			<key>hash2</key>
 			<data>
-			75oQnPO2e+nwfUB/vw2FAUjJ4STaFHFEDFHAJnVWW20=
+			Krf4bWG2MKrbX/8G9S5p1zugxnlPtbYBVOOUmKqstJs=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/tutorial/courses/Welcome/tutorials/2. Coders/lessons/Hello World.txt</key>
@@ -30533,587 +30843,125 @@
 			xlQqlc4yEiIxdUVB68b8Q0tRpv4v+z86nHb7LvQMoLk=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb1_on.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			9shtN8icdSoViewadLbq8HuQ+UU=
-			</data>
-			<key>hash2</key>
-			<data>
-			3y0gIyJOJYprbV2vO/quuiIx6znPNFbuYwgACiEFmDE=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb1_over.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			hFHgEtdgWTCr1eciF/DYuHF6keg=
-			</data>
-			<key>hash2</key>
-			<data>
-			27i6w2zmlPyzCIrwsSmSzBjyb4P15sEATOL9XaNAAII=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb1_up.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oPrJq3AzmRAAalltPXOeFsx7o9A=
-			</data>
-			<key>hash2</key>
-			<data>
-			huOWamPtd1MY76LSIi5VW0A04jukWGsF3PyiquI51yM=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb2_on.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			P9pJu570wrMkGk29ej79bTvEv7w=
-			</data>
-			<key>hash2</key>
-			<data>
-			G4m0rQOns4M0rbtQBCmNNNBPAbDBS/N4WosWV/3vmVY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb2_over.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			0rdPSINQMx+qauYKnf50TJqqW08=
-			</data>
-			<key>hash2</key>
-			<data>
-			2aNebBIYNZQ5QjGxxwxJKTt6BTp80MtMme+SF+VEUPQ=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb2_up.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wOsbg37FmfRW5OQnUWSVNv0gitg=
-			</data>
-			<key>hash2</key>
-			<data>
-			TuYProFEXuF78pEXGV1VoDN+hu3kZsV1EN27LDBLKSc=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb3_on.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			GuOXpOIZwRP8td6oA4+zYLYOhmo=
-			</data>
-			<key>hash2</key>
-			<data>
-			4Q8mZoXFs/X8SIvkN57wM6yIwN6yPbpshTYbdYyzm10=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb3_over.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			IqS3ZBQj0tbWQ72jGXQhQwA3jSg=
-			</data>
-			<key>hash2</key>
-			<data>
-			5U3ohLO7P5Zr7Bzy9ccfzxKsgf7+ZJxaEtEqRfdkeRk=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb3_up.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QLSTvV7MRmvMgJHnSkfMKJN+ti4=
-			</data>
-			<key>hash2</key>
-			<data>
-			n4X036aupxz8gBlxiz+ycJuI2xyll2+9J0W4N8tShZ8=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb4_on.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			r9aLSx1hyTA8VuUlSU5wNRqpNPw=
-			</data>
-			<key>hash2</key>
-			<data>
-			a5/gKAvA2A/K/CdWhxxw+oXZ8C79ai50k7sNECYnzJw=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb4_over.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			BkI0H0gdDC1vX4SPrSqzYBB9uss=
-			</data>
-			<key>hash2</key>
-			<data>
-			5m9zoWeYA86TGxt4zaFc7egyOTXmAb/BAEYdNRLiI34=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/IDEthumb4_up.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			J5e5Lc+F+DAV5p7D+2n8Mpu9Yj8=
-			</data>
-			<key>hash2</key>
-			<data>
-			hooswsqjfBSr1xslVNq0N+B5dg0N8LuC0T8APt53oQA=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/about-background.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jvcCoo+yXKwbRkbL1RFGRPMwim4=
-			</data>
-			<key>hash2</key>
-			<data>
-			939AdGv70N+1Vv+mfD0a+TLPYNvy7Klr+W8cxxL56Ps=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/about-background@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			mSubmunHzvBpwnqK/k2spT7nKs4=
-			</data>
-			<key>hash2</key>
-			<data>
-			bqyx+8VxNafT3cXufywXY5MSB7/hDCUrzIi67FFC6js=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/about-background_legacy.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			GSrrnOTmAqxxHu/LK++Y6e3hjFU=
-			</data>
-			<key>hash2</key>
-			<data>
-			O4a7irJ2H6oVPK/YQAmRz64WnDF4/9odm9Sxt08zR4Q=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/bubble.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			1PwVWYxYO1vi+9fVahJk8wEjLj4=
-			</data>
-			<key>hash2</key>
-			<data>
-			EktikTdbJbPz8JRR60hYMaTrsak0YO8/zMC0n576BtE=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/getStartedAcademy.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			hYNMrZIMdCdHqyOtkvAwKDWyFgA=
-			</data>
-			<key>hash2</key>
-			<data>
-			h57QQMPDquBZXSlqN0Gt1gtjOaoqkc7uecGDGP6WZ/0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/getStartedVideo.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			PKv4Ac+j4Ud8SqckgUbo7smazlI=
-			</data>
-			<key>hash2</key>
-			<data>
-			EgQKL66ADGNEn4MGI5ZIXKmcViVX4ZPoBYASavhdXr8=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/logo.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YpBgoZX59bp6pbqI2WbkZd3xqt4=
-			</data>
-			<key>hash2</key>
-			<data>
-			HtjYCbZk+mtYCSNGGjMICgoMbbwsAFoOQTEW8Up7uVc=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/logo@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			lDTrThLURPOPGa/jVRM5bvMxnto=
-			</data>
-			<key>hash2</key>
-			<data>
-			2CjnLj+XawbW1Ib2jsFGGrUpJSBMmzikfNGvrpijSvY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/resource-center-bottom.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			t+iBuxQmx/cG2nNmTJLb3re4vn8=
-			</data>
-			<key>hash2</key>
-			<data>
-			1/3Ct3mDCKY1NQWZXcsIHEbLbI72jFdZNT005fHYJ9k=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/resource-center-title.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			nYa3oGf8+t9yBbnpmLhj4n6IIUw=
-			</data>
-			<key>hash2</key>
-			<data>
-			VO8kS2JRQa6gDO28vgbdborfJXDdQ/QEmWpEwy/r4vg=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/resource-center-title_legacy.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			d7E/1M9aQbQALlE0n1Idqf3sJGw=
-			</data>
-			<key>hash2</key>
-			<data>
-			edYPju21X7ytytM030EMOv6WeZUYOFNSAfI3KyOByb4=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/resource-center-top.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LLwXvLxqTrpgNZRgGthelSYDh3w=
-			</data>
-			<key>hash2</key>
-			<data>
-			zXDMKhM6ceLJa8jyn1UmnN3kg+y7fjMvW6NbaC4q1lY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/resource-center-top@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bATanDRX+U7mThM23oa15+XxK4g=
-			</data>
-			<key>hash2</key>
-			<data>
-			x2QGY38cH8IXuBOP6ru9UDTCxJngWQl9TBO8dHyDuAU=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/resource-center-top_legacy.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			7I0tUJohW2gcWzNyuOuhB1VfYrc=
-			</data>
-			<key>hash2</key>
-			<data>
-			FExDV9hZb5h3yQSWbGZdPCATmJhKwDjo+n1IgngJdXI=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/revOnline-top.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LLwXvLxqTrpgNZRgGthelSYDh3w=
-			</data>
-			<key>hash2</key>
-			<data>
-			zXDMKhM6ceLJa8jyn1UmnN3kg+y7fjMvW6NbaC4q1lY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/revOnline-top@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bATanDRX+U7mThM23oa15+XxK4g=
-			</data>
-			<key>hash2</key>
-			<data>
-			x2QGY38cH8IXuBOP6ru9UDTCxJngWQl9TBO8dHyDuAU=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/revOnline-top_legacy.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			C8Roth1/48Rox2FadetfxcF5UfI=
-			</data>
-			<key>hash2</key>
-			<data>
-			6CKB+YsF8cBHPikZncO9AnJvcfDb8HRSYYB+pnMcXro=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/road-map-up.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			RD2uwJmv6M+0wZKbfy0nuUE+KSI=
-			</data>
-			<key>hash2</key>
-			<data>
-			agdZmfJ9y0mhqIOCyM30fDVCAq1OeQPmsWuCtVwzZtY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/splash.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Qj8tNvFL5ewN03nor8oMqfb4g6g=
-			</data>
-			<key>hash2</key>
-			<data>
-			VdNkiTs5DDqR0YemTX7A15JVswFuIXtKkrplVqvfydA=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/splash@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			F0d7uj+rgA9KPA4kM2uU0nBLSHQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			5n73+V7grZyOQTyVmNkuS8/gfjiw7vpQmf/3x3iJANs=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/splash_legacy.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3HaZWkvf0HzEXID8K4NbOIT1EDw=
-			</data>
-			<key>hash2</key>
-			<data>
-			g3c7SSQWKvBzYhMgHVnotqmckvUIAvRBt0vv/RxiEYo=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/startCenterBackground.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wt82MQ8FThIL1oaj1OSz2tqmyqk=
-			</data>
-			<key>hash2</key>
-			<data>
-			S9uRKJ0y3CRoR+CmxP+bYGPd6bLseFi8Gz1UKmKZ3Ho=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/visit_blog_over.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			qPEYF3p6DpJ/4pxj8dNf5iWsQiM=
-			</data>
-			<key>hash2</key>
-			<data>
-			UiTlJ7aZmzGjIxoX8Vif6IdaNbOZqLtzDViMI8KpA2I=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/visit_blog_up.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			I98+0djoD78sRM8TTZTwmknJaX0=
-			</data>
-			<key>hash2</key>
-			<data>
-			/ddRPY9ZYJwEdOq4B0pE8OCU7ez/MTOblFtJ0inNrO0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/visit_forum_over.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			W/5af3VrkyLSDHQaBYt7PPIkUkI=
-			</data>
-			<key>hash2</key>
-			<data>
-			e+LlamLXIqvPGl55BwrYJtlx78np/o1Mew5q7YU/Dkw=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/visit_forum_up.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			RUsjdg0rAzLsenVKgcv7Dqh0RTY=
-			</data>
-			<key>hash2</key>
-			<data>
-			rKhsr4ETZag/Ldyx+L0KEiHmraWl0SZaaqVWB2FbYOY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/visit_foum_over.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			W/5af3VrkyLSDHQaBYt7PPIkUkI=
-			</data>
-			<key>hash2</key>
-			<data>
-			e+LlamLXIqvPGl55BwrYJtlx78np/o1Mew5q7YU/Dkw=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/visit_foum_up.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			RUsjdg0rAzLsenVKgcv7Dqh0RTY=
-			</data>
-			<key>hash2</key>
-			<data>
-			rKhsr4ETZag/Ldyx+L0KEiHmraWl0SZaaqVWB2FbYOY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/visit_stack_over.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			6C7z0HpcIB9sOuo0CdWxiuErTTY=
-			</data>
-			<key>hash2</key>
-			<data>
-			tZsbzi/D+IQcIu9JhBtBq2PlIXqc4eu4zJC9IrXuoEY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/commercial/ideSkin/visit_stack_up.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			n/jGrVlaO4b7c3AB8LXXvZEC5/U=
-			</data>
-			<key>hash2</key>
-			<data>
-			U+dSwg1M7kdn60AUcan6XQ+kv96PZjb823c50hgDZqE=
-			</data>
-		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/about-background.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sfG5gbI7q4EcHNz8UzjDhzAoDAo=
+			1anwI3dH7yhjk1t4VDcEdZBWQOk=
 			</data>
 			<key>hash2</key>
 			<data>
-			tk1336isfxErH9yFQWMvEyBlSBWSMEVlmGaFqknfHRs=
+			TmM0EjVfKTYXiR/KAOea/QElH+5csu2bwqltiOmGajU=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/about-background@extra-high.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BFIYL0+DekP738rJUOjYeyzr3TQ=
+			asER63i+9DLqOYd6X2HDrJfaQHA=
 			</data>
 			<key>hash2</key>
 			<data>
-			KgvKERm54ioWHDhCVhB+6TQWMrxpCdj0rH9QpC+FKlQ=
+			N4jhTOBVBexHKxxpX8a/Ko7mWIotqa2k7E2EdnzbsSc=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/about-background_legacy.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			APy1jIMh+TBYj8XUELKX6KyAdh8=
+			aE61HxZOxj9Z+Mj9zgTmJtTgTMw=
 			</data>
 			<key>hash2</key>
 			<data>
-			jreCuU5Sjh48d0XUSguJjHb/z2HFm5TwtTpL96inyyg=
+			EmIa0gBnCQC8r4AA5qvUzjQ9K5OW+NGenqaQQUwurks=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/bubble.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fqrXszC9TjJrISOSOjq3RoL/K9o=
+			PMu9S0NhjUEh1kU2BJc8kOT0348=
 			</data>
 			<key>hash2</key>
 			<data>
-			PfA2mGT10w8O5D8KbyzJVVybqixJjndtYFrG4zKcKuk=
+			pZLcSvhL0WVVYFwvzJqIDOAbhPZMghXjeQvcEg21eH0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/html-donate.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gJNXXuz8xOg3hH1QFpZydij5mSE=
+			a153eSrp/f1z1v8tKXah7MwHdZQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			wjxZihrRfrv8TzETvoUpYqk9CVGeX1zH2JifsypjGvg=
+			3Zf6QAgwG2rbIwlxWhNRdLMTtg4BaoFoqlNKPD1gh2k=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/html-donate@extra-high.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9QhYD2e0tGrkDFeSAfa57l+dB1w=
+			ZdimOuUAEECDW0cHA3V1CTYADyE=
 			</data>
 			<key>hash2</key>
 			<data>
-			vzXuOo6iN2miXPe+CEffZme2oDvZOKyjjQEEFTX0mAw=
+			1M3XdyLd6H5AhTFajVUQNC1r49k/fgzAlz6nWB3QFhI=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/html-tease.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4pw7172IFeguWaqXMRkWoOW1Hxw=
+			y5A8Kg10slUP53LYTbrSEJNfPB4=
 			</data>
 			<key>hash2</key>
 			<data>
-			4s+7kTrJQ/3ChuiqPpZ+9QR/JtwVpOwRAyvlPeYn81I=
+			/4nhMsxlKXNIs0pVepANl2ZkIDw62NxeH8A+9bMBzjs=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/html-tease@extra-high.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wEOrKSgAuAyo5pmWOL+oZC36KMo=
+			mbNq/9etVxRBaAZG0UWqUx5ymB0=
 			</data>
 			<key>hash2</key>
 			<data>
-			3wnXw+XliUz6+M6nuZdb+UHoWdSOteuiJbI9xrEZ/6M=
+			ZwdPasIbYCneK/vYl7jIIIUhpH8tsXRARE3fdvWlCKU=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/logo.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fd5edhSXrZuIeFCnQSvszeypiGY=
+			ixcWxaSlcucmuqSDPEC6K9lJqnI=
 			</data>
 			<key>hash2</key>
 			<data>
-			kWfRLsqt+1WY3k/QsIZcLXjUOlQiD6/bqhDc4tvIct4=
+			eKQ4kExwiOWfWQz79Gne0rpckRJJTfpbaml4uJYMz54=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/logo@extra-high.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			I9xF3pN6jD+YuFN6Q1r7W09zZEc=
+			nPRgjGoie1J/+Bc0jtWFdJimxoM=
 			</data>
 			<key>hash2</key>
 			<data>
-			dBgNBj9uq9y0OwwdDSrn29MOd05DjNJo7PDX0NzFLMc=
+			tFLmg+qRnEToWINCKMjv45Ncc65gMkJhTtHlXUAOC3k=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/resource-center-bottom.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Xa0dT4yCc+2Ea40lECuwFH7iem4=
+			n2GSnjUz+JLBj9McaQPfmbjmBTg=
 			</data>
 			<key>hash2</key>
 			<data>
-			FcP88sbPm7/JCmv/TCJPKBd2zKriCN1kN/LM8WXkwA0=
+			TR67SXFJzGAv6BGs7EPy+e3eB8AjCzx4HWYckWvSjPw=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/resource-center-title.png</key>
@@ -31142,69 +30990,91 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qZNXrrveHzjTtw+jBRIQz9eZmSI=
+			xigm/LAFzx9hJhixPTXQubxKwqo=
 			</data>
 			<key>hash2</key>
 			<data>
-			MmDzZizD7cZkDlRZMKN3fuolE93BbeYrpolDq8AN3eM=
+			XwUYfS3rWj3RfrNn90BqzjzLIV0REoDJUWAR8a3rCvY=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/resource-center-top@extra-high.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5/9g+b5/akH1n02bKi37LIYPTUY=
+			Sde7IEpRTvXh2fUe/+rLqCQI3Ho=
 			</data>
 			<key>hash2</key>
 			<data>
-			HTrljeGZG6uq8F0U0UfNvWsh2bcsorK+FZHYj2ed/0I=
+			cOEPA9VRsuZC8LaPQU/9uxiqt4+J7LRdeF05n6VJrOc=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/resource-center-top_legacy.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gAlPC/JAULK7dYBPDVDsCGSp2ko=
+			tHcKZAehHyr4Tk/+D0dPCjHlKZ8=
 			</data>
 			<key>hash2</key>
 			<data>
-			bmO4KUd1BJK2Eq7HBvjJ41SdK/vfwhdAtHj0B0AwsKU=
+			ravnVBYtWp5V6aTNOLooc5OBh2g1uBO+JazBOu3ryn0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/revOnline-top.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qZNXrrveHzjTtw+jBRIQz9eZmSI=
+			99Gn6RTuNOT4MAeV/EoNTLsJCBs=
 			</data>
 			<key>hash2</key>
 			<data>
-			MmDzZizD7cZkDlRZMKN3fuolE93BbeYrpolDq8AN3eM=
+			0hU3Kmpu67vSyC+BZvPXaJv821cNG7EQ4FZ5xfFZVow=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/revOnline-top@extra-high.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5/9g+b5/akH1n02bKi37LIYPTUY=
+			5RAEu9JjQiRZ93MmmM/oz2XhixU=
 			</data>
 			<key>hash2</key>
 			<data>
-			HTrljeGZG6uq8F0U0UfNvWsh2bcsorK+FZHYj2ed/0I=
+			gD4D4MGqa/lVuCPAWVIBpw6Y+mvjobBzZb15HTnS+lg=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/revOnline-top_legacy.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6bQcIkWUUNYlCtTgFm9+IgMGLKI=
+			Nof+ktUpKRR+xeVY7ywmvTr49Bw=
 			</data>
 			<key>hash2</key>
 			<data>
-			8JPsspjAwYm88dkgWq8nqcU7goqB40n+kOZjJDE2ukI=
+			se8JaaYSZlvCUhMVIQWOmvsxH848gxANqtCfhhvoNjk=
+			</data>
+		</dict>
+		<key>Tools/Toolset/resources/community/ideSkin/splash-LCCDontPanic.psd</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Fhxer/AoAjUwpS1jIORgqMVcPhE=
+			</data>
+			<key>hash2</key>
+			<data>
+			qGIsZhtsJtVvHk2BR28LgK7LCJ5pcJv/YzDYJ8dsWbg=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/splash.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			l3VZox9G0XbDF6uwSFOO6qxjaXA=
+			</data>
+			<key>hash2</key>
+			<data>
+			6Wpfs6LKJMBCsSkrMOUyXiijRHszozejEgH297IGQqo=
+			</data>
+		</dict>
+		<key>Tools/Toolset/resources/community/ideSkin/splash.png-orig</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -31219,341 +31089,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qqx6QMYazy5FaGAzfuF2jps/V04=
+			FrrEhvCiwX846yK0yHiePnG0GkI=
 			</data>
 			<key>hash2</key>
 			<data>
-			+C4UZ05bvZuSgsVfI4NgMHL6HcHzjxxgROHaXPuaZrU=
+			EVSlroXMgwiePDp7/iAuxcLcnDevnduGVdoxan7JOJc=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/splash_legacy.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/7DjaFttREMTxYGDQN28hQeCUJM=
+			Ez11zA9FvjqofW4L5NMnZXDWiTQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			d2IFgVRZ2aHFgC9M9HtMdiH3e3i61HvU4Q+6jShUugk=
+			xGLHY3UlbpWTemS7GMHF5rAqX7k5wfPRLT41IRzB1Ls=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/community/ideSkin/startCenterBackground.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CjmnavGj/uUOkwk/LOUy2k5t3v4=
+			QtUCKqogSoPNXFWWvZjYS/jUQUA=
 			</data>
 			<key>hash2</key>
 			<data>
-			FwIpcde1NaIZPsORBpRYs1By9lbkWyPC2uOeWT6h2BI=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/about-background.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			uu/Z5mAt+zGiKQCYmP5Nz9LLxjE=
-			</data>
-			<key>hash2</key>
-			<data>
-			ttDgO+Mhf2J2t/MpDt5oVOmd7oqv9EZ6m/xhQjl7nNo=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/about-background@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			+chFy6jJ3b875TUNbz1Wg2dA6Yo=
-			</data>
-			<key>hash2</key>
-			<data>
-			/9tEo7y1h44GrqxPg8vAg3Hy024SnMBwbkPZkMZmhVY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/activation-background.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			CVV6cgkfxpc7EjgBjEEQaakCm7g=
-			</data>
-			<key>hash2</key>
-			<data>
-			Me0FQzpQbk0/MGiFSmtb2R1vLzPRSsEjkcOPRoq8x7A=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/activation-background@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			BZHlSlfMQbbQXdvjPH007xugbuk=
-			</data>
-			<key>hash2</key>
-			<data>
-			vSWBvJJXqw5uFO2xSL6lYHuQrRo4vRPUsliBa2/P4MQ=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/bubble.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ugzUUNHmNtP44K2gIImjuInuFJo=
-			</data>
-			<key>hash2</key>
-			<data>
-			HpOWxJ3n8TjK7XNrRh1PVmVBb8c6SXViOhsKkw0OdFE=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/logo.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			NCi1DN/f6W6wbFRIgqyxtsoS2Zw=
-			</data>
-			<key>hash2</key>
-			<data>
-			wt5s6GYZld9tETacH9qKFn0YQI/sxLRPUaWsM9PBBGY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/logo@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			iFNs6LMvMpZQjSZo6KBZLr+3I4E=
-			</data>
-			<key>hash2</key>
-			<data>
-			Ja0/xGkuzo1PVUl47f6zCvLR0MMfXamG3JRMq3tdGUc=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/resource-center-bottom.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			PvOrSEZmkZZWEI//6KSSxAKwN4g=
-			</data>
-			<key>hash2</key>
-			<data>
-			RkswYb3D/8p7wkXPPbM25o55rXxft0wQn86hR+el6kk=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/resource-center-top.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jJ5rWkDvJWTKbTbcrPPPD5C7SSU=
-			</data>
-			<key>hash2</key>
-			<data>
-			3HEHwKsOqknzhUY9mWYWEo2+QQiaWJ0HZLtvF5k3LCI=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/resource-center-top@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Ve+3WN0EVazdMx2nXIuUDzabpSU=
-			</data>
-			<key>hash2</key>
-			<data>
-			eHkorVbUK2aZakhJ+TKxbdTjeHnPbcAyaOLM5MESigw=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/revOnline-top.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			9AbaztpyC6T+Xn73ezIgJ9Z9n2U=
-			</data>
-			<key>hash2</key>
-			<data>
-			Qq0cjnBCsrKm9hVF/PVOWMaHVWwHWeFt5P38Xc0ruE8=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/revOnline-top@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			4gF9Ez90J8ujfg3CHEtgOHXCOaE=
-			</data>
-			<key>hash2</key>
-			<data>
-			G9XB5wlAQrry8C4/+aEgCNrCro5vm9HsCNYGiX9lVa4=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/splash.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			4h1UsJ4Pl63MOkkW7F27zuzrgeQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			J+Vvw/gehfVw4FiOayxfrqhhuyT7iM8dqKoIHL9ESDI=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/communityplus/ideSkin/splash@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			j74RwacKcUkjAjrbbkghRQS2W7M=
-			</data>
-			<key>hash2</key>
-			<data>
-			L3eSfVJl7wKohmyHJVf2AiNhOoOjojWpjuJD09gihVE=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/about-background.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			eC6H3e/34ZTg1nuL0N2XqOUW+3c=
-			</data>
-			<key>hash2</key>
-			<data>
-			W8yd0igL0FKcnaYCtI7+C7D9IuI08oG1hiM/fTzbDpU=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/about-background@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zykQK7UR/bitzmKB69ErhiOACxU=
-			</data>
-			<key>hash2</key>
-			<data>
-			KjGj3j2TJHx1mkDNG9DwYKQXMQi8G29LHdZqTxAeX90=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/activation-background.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			4KwE/J+hKyyFuQVyeoOioHE/QEE=
-			</data>
-			<key>hash2</key>
-			<data>
-			qMBVF3LdofxVB6PacYqh+O9pBQzqMYzgRq+O4bzeYg8=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/activation-background@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			70ws/LyrTcLoRBcruOSEvQ+JRKc=
-			</data>
-			<key>hash2</key>
-			<data>
-			YoLmlAmIceFUtTvajqa9SO4nGtHZAOkUa3SW31RmPsM=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/bubble.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			NaAdhXCQlxTQVPeOnr+j2CvfL4k=
-			</data>
-			<key>hash2</key>
-			<data>
-			0+o2ZTGabX+wrA/tjFxlnJ1SF4iHZ5iFgjw2g1X1Qrw=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/logo.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			J/hZp/7oULW87S97CK02dfhpmxU=
-			</data>
-			<key>hash2</key>
-			<data>
-			V9uaWXS7spvVn2RvfJWp/Bn0/XVy2GZ+f4vsxSElqQ0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/logo@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Eq5S67gTcOc/hYaEg8oAqvkfXIc=
-			</data>
-			<key>hash2</key>
-			<data>
-			uexWFa8CCKGIyqO5sjq6V/VyWJO6xE4+M7bdstc2k+k=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/resource-center-bottom.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ISXKaKUX7KFC29tdLGDX86xsk0Q=
-			</data>
-			<key>hash2</key>
-			<data>
-			EtujoHpL+8cGDg6lhBJ9m08uPcZY7AMN7veSq2c9ayU=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/resource-center-top.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FFiBC5H9Jg2kwduABGDKyHHJHsA=
-			</data>
-			<key>hash2</key>
-			<data>
-			gyVwk//Xwgxkh/zMqOK8+mVP8UZrDb8hQHrB+OZSMGc=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/resource-center-top@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QoQqfnSGcKLl20oI7/8OnFjFY40=
-			</data>
-			<key>hash2</key>
-			<data>
-			nwyi6C5+K1S7gT7jhAawYOqm5FArGGfbUszVtcw5CPc=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/revOnline-top.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FFiBC5H9Jg2kwduABGDKyHHJHsA=
-			</data>
-			<key>hash2</key>
-			<data>
-			gyVwk//Xwgxkh/zMqOK8+mVP8UZrDb8hQHrB+OZSMGc=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/revOnline-top@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QoQqfnSGcKLl20oI7/8OnFjFY40=
-			</data>
-			<key>hash2</key>
-			<data>
-			nwyi6C5+K1S7gT7jhAawYOqm5FArGGfbUszVtcw5CPc=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/splash.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			GgogpdYQbgYXQTvlrHWHTCrKhlc=
-			</data>
-			<key>hash2</key>
-			<data>
-			vd2JU2hJeL4uIZptkqpIGaviugBVG+B9sNDdINqyOFY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/professional/ideSkin/splash@extra-high.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			KrTJ9efZ3XTbWkyQIEasgnhJ9gc=
-			</data>
-			<key>hash2</key>
-			<data>
-			Sq1z6PtYQkJMEJ1T3pYh/EYTj3ypQ7PLj8YOKcigBts=
+			pS7wdzwxxZ56Y80K315LZIdRTiNxwk9k0ZJrjv4IYEQ=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/supporting_files/default_scripts/com.livecode.interface.classic.Button.livecodescript</key>
@@ -36653,11 +36215,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MEir1aUtjsEoxDcZ5gkZSIpTnik=
+			iozu/cBfwVjXBLGyFRS5Rj8Iuho=
 			</data>
 			<key>hash2</key>
 			<data>
-			ILW1tuKJZn59tvsnzyiZQ8YjmDpyuERCFsgYFwBPYm8=
+			RZFhfeLmAKeBqSC+IleXv0gsyjcQzbRQbm38mStOmxs=
 			</data>
 		</dict>
 		<key>Tools/edition.txt</key>

@@ -2511,13 +2511,13 @@ function revIDEColor pTag
          return "48,160,209"
          break
       case "dataView_alternateHiliteColor"
-         return "34,154,206"
+         return "84,34,207"
          break
       case "dataView_TextHiliteColor"
          return "255,255,255"
          break
       case "dataView_scriptBackgroundColor"
-         return "34,154,206"
+         return "84,34,207"
          break
       case "dataView_scriptErrorBackgroundColor"
          return "255,0,0"
@@ -2536,7 +2536,7 @@ function revIDEColor pTag
          end if
          break
       case "propertyInspector_multiValueBackground"
-         return "200,206,215"
+         return "200,206,220"
          break
    end switch
 

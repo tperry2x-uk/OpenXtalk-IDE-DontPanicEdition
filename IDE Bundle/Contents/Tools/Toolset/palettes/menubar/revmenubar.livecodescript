@@ -18,7 +18,7 @@ on preOpenStack
    revIDEPositionPalette the short name of me
    # Since the menubar is topleveled on Linux and Windows, set the cantModify to true
    # to prevent users being able to alter the menubar stack.
-   -- set the cantModify of me to true
+   set the cantModify of me to true -- may help to set this to false while editing
 end preOpenStack
 
 on closeStackRequest

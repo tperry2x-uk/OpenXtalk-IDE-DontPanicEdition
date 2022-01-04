@@ -52,6 +52,24 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>MacOS/revpdfprinter.bundle</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			9YU+7BP8uwRRtiENqpJHGkMQV4M=
+			</data>
+			<key>requirement</key>
+			<string>identifier "com.runrev.revpdfprinter" and certificate root = H"5542197867ba18db241cd58d0a04f50c765d2561"</string>
+		</dict>
+		<key>MacOS/revsecurity.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			PEYCHCRc3ZpvCKZ59JkrNbTn/lA=
+			</data>
+			<key>requirement</key>
+			<string>identifier revsecurity and certificate root = H"5542197867ba18db241cd58d0a04f50c765d2561"</string>
+		</dict>
 		<key>Resources/English.lproj/Localisation.strings</key>
 		<dict>
 			<key>hash</key>
@@ -13918,36 +13936,58 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UaEa29zTHewJhEOpxMR0ryldYyU=
+			6oeoFZAre0TwMXhC93hM4cedEIo=
 			</data>
 			<key>hash2</key>
 			<data>
-			00RnT7DqvA0jlskcfIxCUPfareYDy6KaeYZUcClOh8w=
+			n07tcgL51JkOyFiPwVoKQFs6is/PKUgvnCz2KZiLvPM=
+			</data>
+		</dict>
+		<key>Tools/Extensions/com.livecode.widget.gradientrampeditor/com.livecode.widget.gradientrampeditor.0.0.1.lce</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			p4x61xFTNy5lV89nu+2NB/Jl/OA=
+			</data>
+			<key>hash2</key>
+			<data>
+			HbYc6EuXzPA4U0i17lQLLHLsdqci1o/mnBrwYorhSkw=
+			</data>
+		</dict>
+		<key>Tools/Extensions/com.livecode.widget.gradientrampeditor/com.livecode.widget.gradientrampeditor.lci</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			q1XN/21RCTMiAxk/6CBHbQfhBxA=
+			</data>
+			<key>hash2</key>
+			<data>
+			NKz9X0cpk7QTUNfSy2jvSsOKjOseVpS0xo43i73vNzo=
 			</data>
 		</dict>
 		<key>Tools/Extensions/com.livecode.widget.gradientrampeditor/gradientrampeditor.lcb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			16NV6ooL/XNUnvIKrAfY68LO74w=
+			KolC2TmkZs/kMvI12bF4Bw9+XtM=
 			</data>
 			<key>hash2</key>
 			<data>
-			GaKz33bVW/51565VgR77Y6IF3VRjqNhNic2/LX/66e4=
+			ZXLwATgGGudymld7F5RmuUopcB6H+C7GVE/YKxiLb1Q=
 			</data>
 		</dict>
 		<key>Tools/Extensions/com.livecode.widget.gradientrampeditor/manifest.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cVhPi4rmZy6lZ2gRk2Z0mVJIaF8=
+			RmIWoe8pAZM9chOhA//y06z9qws=
 			</data>
 			<key>hash2</key>
 			<data>
-			apScEAz7ug2y5irRDZ2L7z7UCKIVfpfqQhi0d4ilIFQ=
+			copAZgnOsF6t2BMcoKaVklVmXmwqRgCqCCDcNbvMW/A=
 			</data>
 		</dict>
-		<key>Tools/Extensions/com.livecode.widget.gradientrampeditor/module.lcm</key>
+		<key>Tools/Extensions/com.livecode.widget.gradientrampeditor/module.2.lcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -13967,6 +14007,28 @@
 			<key>hash2</key>
 			<data>
 			b2l5RXZgjgkPU/3J6VW3+SF60oHozatPLweA+iopKzk=
+			</data>
+		</dict>
+		<key>Tools/Extensions/com.livecode.widget.headerbar/com.livecode.widget.headerbar.2.0.0.lce</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			AUnUzhsh6vRPS3Bn73jQHRvz3D0=
+			</data>
+			<key>hash2</key>
+			<data>
+			Ad5SHJIVB+N+bQQ4hOe3Fhl2mPYtR0dIB+Bua4ojAIw=
+			</data>
+		</dict>
+		<key>Tools/Extensions/com.livecode.widget.headerbar/com.livecode.widget.headerbar.lci</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ou+4T0X2n+XMJ1AYkHvyIr5UKPM=
+			</data>
+			<key>hash2</key>
+			<data>
+			Pcs2eg1isEd1v1L8NuPbaPTs9FufPj1GUugsV7kw1hY=
 			</data>
 		</dict>
 		<key>Tools/Extensions/com.livecode.widget.headerbar/docs/guide/guide.md</key>
@@ -14134,6 +14196,17 @@
 			9cfwTucWPKiMhanpBdL/rbFgAYg8onA+xpFJsO205f0=
 			</data>
 		</dict>
+		<key>Tools/Extensions/com.livecode.widget.headerbar/module.2.lcm</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XXhnfvZM3IFG6cKBE1wTJxheOSQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			pEONpUBcR6waHuHi5h0YDzONd3DWsKDSSvoIgLjlfps=
+			</data>
+		</dict>
 		<key>Tools/Extensions/com.livecode.widget.headerbar/module.lcm</key>
 		<dict>
 			<key>hash</key>
@@ -14189,29 +14262,51 @@
 			5HaNs6RSTraMIOT4YuWnE6EVpgLLSc330mRigRpmTbU=
 			</data>
 		</dict>
+		<key>Tools/Extensions/com.livecode.widget.iconpicker/com.livecode.widget.iconpicker.1.0.3.lce</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zXygiOfONuV+q8kap/B7pxXaNRc=
+			</data>
+			<key>hash2</key>
+			<data>
+			AlsJrCYDfzRFhCgDFDqSThXhcT4kB5aZnF5XtFpd+BA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/com.livecode.widget.iconpicker/com.livecode.widget.iconpicker.lci</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			GYvoCGjt4YtgTdSYb/gCN5/gHbc=
+			</data>
+			<key>hash2</key>
+			<data>
+			yCA4Zh9PKJnyMWxRgVe8a5zo7QEEECfUPTw/3HmydZk=
+			</data>
+		</dict>
 		<key>Tools/Extensions/com.livecode.widget.iconpicker/iconpicker.lcb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sK4qmB7dRw9zBduVLpf+b5uBKkU=
+			FxE/rJl4TSIc2HqHzat3KPGNq9g=
 			</data>
 			<key>hash2</key>
 			<data>
-			KeUY32S/bfowJKO+3kh+kqkxwYOhHm6vWldxQti/ibY=
+			olbXJql2QL0G5QiDiLPwIxEXL00Qbx3L+V07YDk31RY=
 			</data>
 		</dict>
 		<key>Tools/Extensions/com.livecode.widget.iconpicker/manifest.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BYWymnUy51nc4SXdifi53TzNhAg=
+			Gd37WKsBpNe4EhYTb5RI72RMnwc=
 			</data>
 			<key>hash2</key>
 			<data>
-			Rw0S9MPymXig63pvXaYP1PdATy2Ht60JW9TWibBMEEc=
+			tU3c45GHqByR4Oy0c41ZGG7fjTWaZPx5UPy9JZHJ734=
 			</data>
 		</dict>
-		<key>Tools/Extensions/com.livecode.widget.iconpicker/module.lcm</key>
+		<key>Tools/Extensions/com.livecode.widget.iconpicker/module.2.lcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -14820,22 +14915,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Y8qLNsyNwE0M9+31tGZvQTohExo=
+			pbHG/y+hTMczLDoVTSsgc5qNDQE=
 			</data>
 			<key>hash2</key>
 			<data>
-			CJG5uNOHCIyMawyCSVV99wMz6JTuaOUGPCr0tem/tEw=
+			EWI5ZNE31nRI5ONg5nShlJFVtLUDh3Hm9jvb6Cfku/w=
+			</data>
+		</dict>
+		<key>Tools/Extensions/com.livecode.widget.paletteactions/com.livecode.widget.paletteactions.1.0.1.lce</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			S7CX2wypo8y2vXI1Et6iwaPHc3U=
+			</data>
+			<key>hash2</key>
+			<data>
+			RQS/Pcv8jwNSIDsTNbMBDuSJXLCG+uAn8VY0RPaE4e8=
+			</data>
+		</dict>
+		<key>Tools/Extensions/com.livecode.widget.paletteactions/com.livecode.widget.paletteactions.lci</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WXPF0uUWlicTTzZ17tjcsxDO5gg=
+			</data>
+			<key>hash2</key>
+			<data>
+			n1mMpkPB1DemK0v1FUgZHr2z+Bj7X+avXEuEjlSJv0s=
 			</data>
 		</dict>
 		<key>Tools/Extensions/com.livecode.widget.paletteactions/manifest.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0rVE/aaBRw0bQ/bgDjvjfww/E6A=
+			tOO3BHompsRme1TCgjNodT6jU3g=
 			</data>
 			<key>hash2</key>
 			<data>
-			z3Jy63gAJzKibKgTGLBbSHtVWpZ2KgmI0/o36EoRV6M=
+			3E1qe/ObetipBjKQJl8Ta3AMOzPhrV5KlqQLWCjsDuA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/com.livecode.widget.paletteactions/module.2.lcm</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			TsqszqgRnxd5i11ei4Qxg2OjfMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			YmOF7GvuHYhVBIcQy9xr/a65UxZPip0rFDYP8yfVfJw=
 			</data>
 		</dict>
 		<key>Tools/Extensions/com.livecode.widget.paletteactions/module.lcm</key>
@@ -14853,11 +14981,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Y8kUCr0zHnXegEDK9hdRhGAuSyM=
+			S0SSqgpFCUu+f8g3cNkEKJvxvws=
 			</data>
 			<key>hash2</key>
 			<data>
-			+vtJ6E9aJ+6MwMbx/fGmeF49yrCPgTgYxw1NqyStYqs=
+			T9/QLEE7Lj3LzcJD9Z7cpqbQVhZ3BM9fT5KLw3igRkk=
 			</data>
 		</dict>
 		<key>Tools/Extensions/com.livecode.widget.segmented/api.lcdoc</key>
@@ -15333,18 +15461,40 @@
 			6RRcSl9osK0qb8xCa6bBNIlJxJt4nZvsWh1j0/jmHC8=
 			</data>
 		</dict>
+		<key>Tools/Extensions/com.livecode.widget.tile/com.livecode.widget.tile.1.0.0.lce</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fDs8ROXmdazw8at9B9GvykOWsKc=
+			</data>
+			<key>hash2</key>
+			<data>
+			Ah1kNqarS+j9zKh3gjrrZICQIGgFtXq2a9sqNoRyEVo=
+			</data>
+		</dict>
+		<key>Tools/Extensions/com.livecode.widget.tile/com.livecode.widget.tile.lci</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NDEC2sVr04Qq3bsm5MZUl6KQIFQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			LNpzAvkv1zHeeWmcbxB5A82DMTbWy3VaacK2ku28HF8=
+			</data>
+		</dict>
 		<key>Tools/Extensions/com.livecode.widget.tile/manifest.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			i38qYkixLRu+lu91Ib0PFAX66VM=
+			fTQYg55FX3i6uhGPMawL9o6qOLU=
 			</data>
 			<key>hash2</key>
 			<data>
-			S5MRHeGbCoCy3WuNmnOlO+vTG/feb6XekkbB/CjMeyM=
+			fC61uYzPfRZ0nwXC8cj1kOh17oeOZdWF4aqjrgZDuUk=
 			</data>
 		</dict>
-		<key>Tools/Extensions/com.livecode.widget.tile/module.lcm</key>
+		<key>Tools/Extensions/com.livecode.widget.tile/module.2.lcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15359,11 +15509,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			n1cYc8/mSlhhQbTn/NDrC1gboyM=
+			ylZ4rRzTY7Vd0izeWikUf+nTUK8=
 			</data>
 			<key>hash2</key>
 			<data>
-			SrOcrPCF75IIhYPT5psQA9yoI0mG+RkiV7Aj45O+FD4=
+			G8tk2i8cadYdhLQbeEkel4uADE3BjmrutwB62Mo6o1c=
 			</data>
 		</dict>
 		<key>Tools/Extensions/com.livecode.widget.treeview/api.lcdoc</key>
@@ -15498,40 +15648,1657 @@
 			CCxeeS7pOC/is/8gcRAKHOV+wLhIwEewBoDPXtjVAgk=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/api.lcdoc</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/api.lcdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sZs96CmQj9wKqg5HiGlixzyBPv0=
+			WD3zPirKS8GJyHNiNnf5RrfCAs8=
 			</data>
 			<key>hash2</key>
 			<data>
-			azVa/FtX+0Rj0rPcLG1d9F6Po9STEpyUcCOFT5u5xk4=
+			REA7t9eiZjQB8ouVKFiJpt6oSRUpgHcf1gHAqEqVp20=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/macOStools.lcb</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libFLAC.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gtcGZDrv8A3dLMaA+RZDc5Tk9Lc=
+			79sO5vUwFaRX3aVk5EHsof9S8GY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Mw25LSUsX95MrQTK3QbearAGDpQTETgyU83RbppCn5c=
+			g+yaQwbVzzpLVwavIgdcGVfqZ+yus99dd2F8adVOv/0=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/manifest.xml</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libc++_shared.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			h04+TiODvf/GnpJhoMoiBjoz7Is=
+			a6pSR95jo0tALwGbEE6/A/qyNR8=
 			</data>
 			<key>hash2</key>
 			<data>
-			Jy8VXK+nkjK7b5HvFOuARbs7E415Zebsn9B2ov0WKRk=
+			pq618IzvMW+pDlTfvFaHgbKvMov4iOJa7kmWhR5Uy80=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/module.0.lcm</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libcharset.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mjsbfeLFvfK2dg1in9IUzCubzHc=
+			</data>
+			<key>hash2</key>
+			<data>
+			D+6uZx7u+PQEfoycpLIUMt48sbh8iVhBtd8eYkQqzcc=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libffi.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WeNOOeHZH3p2oZ77kNIg/XOhXBA=
+			</data>
+			<key>hash2</key>
+			<data>
+			nlilSzb/32FNKC8oYht3eeS7lm4TK2inPgntlR6Py1w=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libfluidsynth-assetloader.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pvekWepk/pFVPiRlE5/wAY0whyA=
+			</data>
+			<key>hash2</key>
+			<data>
+			BVE8P4YtL9ggaXWVNB5cu45hRNI0IzQl7YsCc1RWNu0=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libfluidsynth.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			o6tO2OjW909EB/RpjCB6HAMNDL8=
+			</data>
+			<key>hash2</key>
+			<data>
+			dtUDbNlpmo1V7jDuun8YQBuYVq5122BfBV48Rp/H8go=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libgio-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XRCcU7d0ehn8f65RwR6pBkSaSLY=
+			</data>
+			<key>hash2</key>
+			<data>
+			wJ9ewPLb+IaYwNkMiNTfV5Fc9w362e2DiMCZ6Zbp55U=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libglib-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HXRDQIqFJEz+OCSxJCHZozth/qY=
+			</data>
+			<key>hash2</key>
+			<data>
+			rUDMvFP0hc3e4jrz9227Fc9avKC6zAt50YVZxmKOA98=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libgmodule-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PLRQZW5ieIfHYRz+do5f8NLlHwY=
+			</data>
+			<key>hash2</key>
+			<data>
+			b9x1pcJyGwRqK4fbiZqkGHZOvpY8Ebemf38ZZb0Sqxw=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libgobject-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Svga7b8lO9Wqu6nDlGcmrEtC+Fw=
+			</data>
+			<key>hash2</key>
+			<data>
+			aDI9MHiANJBMpLYwhKQ/4pglIZlFFVJwBKoj83C91cE=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libgthread-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			d8ts/FNxDA7Z60xRxA4ds8CQmII=
+			</data>
+			<key>hash2</key>
+			<data>
+			GiRYD/JQBDtEVh66k4PgQmb0X8f+HcQinBVXvGZSTkI=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libiconv.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PJlCzIgG6W4UiFRf1TyYiSAxgM0=
+			</data>
+			<key>hash2</key>
+			<data>
+			hBX8H6SWGwpGLAAzh6rtEJnddZsJRp+99R0YAC+7/ko=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libintl.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lW+0B7My2mAtCCpMKmIBZVwB/5c=
+			</data>
+			<key>hash2</key>
+			<data>
+			Frx3CE5v/OWQ8lQ38LmLLyABBPrEvztoNr9VixJ+odE=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/liboboe.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2WOXssbHkmsFlR8rRsO3pQnyFKM=
+			</data>
+			<key>hash2</key>
+			<data>
+			xaUkcOSty0HKNJZtVtCu01Y6JBvqTrrIZ0NvutLgN7g=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libogg.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			H1CyovSMv86MVBzggUP6qW6wREY=
+			</data>
+			<key>hash2</key>
+			<data>
+			i6SqJ3JncR7R+P+f/zFx40afvzrnq3mNtZ3a6T9bYY0=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libsndfile.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Eb5eHTYCOpCQSBKPnbRGK87F1fI=
+			</data>
+			<key>hash2</key>
+			<data>
+			MW77RypOWY5MPq9YmqIUo/LGYMBIcbIhmMU24dhwz2k=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libvorbis.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			T4F3yq0PsBraajYGqc/rLK0sqAg=
+			</data>
+			<key>hash2</key>
+			<data>
+			RuhRrtTlhy4ZwznJVgbcJh2sgOOMMSNAhfWWKjgkv1Y=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libvorbisenc.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Eobvmnb3jXF9Xux2913edGmHTkI=
+			</data>
+			<key>hash2</key>
+			<data>
+			WXafBGq44jOomt9uqu1bqpM6Vz9SJ+9ciV1w8yiwLao=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libvorbisfile.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2FewwTIFlhlhnqi4um/x6eCxVNo=
+			</data>
+			<key>hash2</key>
+			<data>
+			VoX7u8cxEr92m6XrgcLAqs+EkJADQ+upKeJ69vmNSII=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libz.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6QQEk6v4MZsZHOkvZ3s3vkaqX1U=
+			</data>
+			<key>hash2</key>
+			<data>
+			faZaGT5h8KLEabT+zTWfz40ZAzR0uT2FLwPjNduu73c=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/preloadable_libiconv.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			S5gGEEqdnQ0HNR4ZVRED30sKlXI=
+			</data>
+			<key>hash2</key>
+			<data>
+			G1WBqU/l35SRch0aI4zodkexN4Zwg8BYTmV20tZ7RAY=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libFLAC.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pH9BOThd4dJjeNePbKVOCrwgc88=
+			</data>
+			<key>hash2</key>
+			<data>
+			ywlESc8xwdNeVPUuL1hOywRCK+OOaoVurjMsONQcZ3M=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libc++_shared.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			BmbvQXek8hBRjnHNQ/f+nBci0TU=
+			</data>
+			<key>hash2</key>
+			<data>
+			PSCQg0e7JSFMtC4rwOrlj7t3iONWv4f6yp8L6dXkysc=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libcharset.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MAqZfCQ1HJ9T6oCCqd9f+Ommz+E=
+			</data>
+			<key>hash2</key>
+			<data>
+			+rbTf/5qCyGuFBBoIJpFT9je8JF+/pdwIpTS80lkgTs=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libffi.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rlGSbxlcRYPy5qemNJkuaMEkLlY=
+			</data>
+			<key>hash2</key>
+			<data>
+			3oI7gCLmqtNy/UPfZOFPrh/obP1APkFZuWYjswUnx78=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libfluidsynth-assetloader.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fcOt8yNvQ9iwUdPPUanK6TMeHrs=
+			</data>
+			<key>hash2</key>
+			<data>
+			yptR3KeEfn+l22YCOERH4R25/XnuZDJU6RdT3vrCkMs=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libfluidsynth.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9H5XE1rb1zN2STXqAJiaMtlMWos=
+			</data>
+			<key>hash2</key>
+			<data>
+			5e0Gq/fzW1G33+PRPyJdXvohKRviZV7u7AXYjKhP9qY=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libgio-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3SJCZqlr1I0F/z+7nI/zUCKKgFI=
+			</data>
+			<key>hash2</key>
+			<data>
+			EmVuuI9nFXGsnS/jt9zaPZwUxTw9bGzx/WMxBnud6oE=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libglib-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vge0JXikEZha4fLmNHulzhjX4as=
+			</data>
+			<key>hash2</key>
+			<data>
+			QNEgQMB+FgZZ3cQkn9ei0yYYCRHE2b+pqUx5w0UhFN4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libgmodule-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SSRSmZYQja/jXzZ3hMOXSQZpIl0=
+			</data>
+			<key>hash2</key>
+			<data>
+			4Qs7wNftq/hUDmrxdu8s8V+vxyT0Ch0cHaxz0jsbXOM=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libgobject-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/anzxIzgxIUlJ9DsEEj2NarUlL0=
+			</data>
+			<key>hash2</key>
+			<data>
+			xQNfpgq4WFfafd8wkEG00AXdyQMZ6FqFzdsiPPS+K1k=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libgthread-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Mftg2ZTDHElcvY0tzsIUsGwR91I=
+			</data>
+			<key>hash2</key>
+			<data>
+			KiWhnrGL9er52C8IAs6uewRfxv/HxmJ7OKrqoSFOmvc=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libiconv.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MgJcRs4rcCw+9vqoPmIMBsV5w8c=
+			</data>
+			<key>hash2</key>
+			<data>
+			bv/ezTXBmMoLioVfnwh7J94bX2M2BFJpljg/dB/uhqg=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libintl.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0AkpUw9iqjgUWLnHizqSuS2mgfQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			wzWXcjEl6PRsCTMNbBUKAgquMFrlwSxDjvwFaHj7QpE=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/liboboe.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jjJzckHO0Splp0h3VpYOLCZkEK8=
+			</data>
+			<key>hash2</key>
+			<data>
+			UuHVJvxCSwmKgW34TqHyhVKRNr1erj7/BI+e/v1SDyk=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libogg.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PbyDCDuptCedCWIDBQYXMcvP/1k=
+			</data>
+			<key>hash2</key>
+			<data>
+			ezNXGOroUpvt5LXV8TB5l1aI7Y21yOt1WcBCkkl05mY=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libsndfile.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QrVjotTj+EaJ3uu2PYKPlRZbGkY=
+			</data>
+			<key>hash2</key>
+			<data>
+			aLw4c89x53RQI54jSye9zpf481Oo044fg1hlTXlVnvM=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libvorbis.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mNY+Dl+J8GeZZT85eSw1WQf/H7U=
+			</data>
+			<key>hash2</key>
+			<data>
+			FkM/AS6V5cOoI5YeI8NM/tFybm/oOClRqR22H2oWz/A=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libvorbisenc.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wc8Qv/XqaPV62uyjvfjHc1cp5kg=
+			</data>
+			<key>hash2</key>
+			<data>
+			FJxmGi2eqeZxv22dusySUD9boSG2qvS5rykoOfyTMQo=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libvorbisfile.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			t3wSODhj12NFQqEkGBM4uw8Rfxc=
+			</data>
+			<key>hash2</key>
+			<data>
+			3U1jwv4pU+yfF8Yo/893PRqKED+87u1iR8VspKInEYY=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libz.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			AdCTHV5C3LWoYvWKNLaTB2mO6Gc=
+			</data>
+			<key>hash2</key>
+			<data>
+			2gy6e5SOQjl8Ks53CegHIAWzH6sjIii2+pM0chtQnUA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/preloadable_libiconv.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/jyrbau0eUblvt3CtcIApSbq17s=
+			</data>
+			<key>hash2</key>
+			<data>
+			A+TdyCJ2eoT6H8y6yH65meBG7fdbxl1i5ywSSSeCLMg=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libFLAC.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gH6PE2ZAiK5cMwD+gCo7chI6rPs=
+			</data>
+			<key>hash2</key>
+			<data>
+			EBBfc5M3TgfRFZNdOT8/D3kCE7oARzPSHM7+MxDXtcU=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libc++_shared.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4+ti+4gnYuU6WKTAYZIiGF3g3Ws=
+			</data>
+			<key>hash2</key>
+			<data>
+			nxpRKTFDBnqMaV++nga2XvPbNR0ImsPGYk4bMj0jaog=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libcharset.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			a9U7e+gPiMsJDBPWehJuN5Ti5qk=
+			</data>
+			<key>hash2</key>
+			<data>
+			XGIDRxjpsFj2PRkGPOa56UJs3SgnhwP6/Pz6Xst/TE4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libffi.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SdV1JQvcpXl89QUCBqAHj7bB2GQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			s3L/dHWs5cDyjmKoID5SCTZkJDb25KGkE1MsPy8R+U4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libfluidsynth-assetloader.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CeRjnbNciaorOhjjAMD3gNQK7+k=
+			</data>
+			<key>hash2</key>
+			<data>
+			RrcSoef1TC/lzi6vIqhHoHFFKVlKTjmZGmZcMCXlwSY=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libfluidsynth.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			BW3VqgPDMB1jabiWQTwaDTcEdfE=
+			</data>
+			<key>hash2</key>
+			<data>
+			wdZPb8vmEwChKfSzQzi7Gp1VUJ4zWJFEP0ooH/ZaEkw=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libgio-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LMiIMYAlPtgnEsSmNYhg5ixRRlw=
+			</data>
+			<key>hash2</key>
+			<data>
+			v7Zqbr0zW/IgF7IJ8Z3/jCnsMf27RB8AGAL6uxUYM5E=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libglib-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			k6Ax7JrOdvxqxwcshl7BdTPObUU=
+			</data>
+			<key>hash2</key>
+			<data>
+			T7eUvFhQZLGqBrHfJ3qkt4dgOBSjvbLnPiIbELCVBGA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libgmodule-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7kNXAEg7NI9RA1yluUYk1/fHEHY=
+			</data>
+			<key>hash2</key>
+			<data>
+			yP00LCSWdzW/q4HzzMIDE5Ros2N+CSIQYkfbmyS8XZs=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libgobject-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dXcUuw7jZ7NVG6iG4s8ZpzijNFs=
+			</data>
+			<key>hash2</key>
+			<data>
+			hNcwjHFC4AAm5sdXlElBvcmgWCAiqiz46X5cIH/+e10=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libgthread-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			laiOytFwQYsBdIcCY0KhpOn0zDY=
+			</data>
+			<key>hash2</key>
+			<data>
+			X6RXGdLGxrw86VBeEHVfqfVnKAHQIww++SmBjhccuXs=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libiconv.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Bgex9T40O3JVpstywPllhetXPho=
+			</data>
+			<key>hash2</key>
+			<data>
+			DCEFXLQYOUR8uK6b6LwK6nbxdBc/jGw//YtfVZXjBc0=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libintl.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EyZ+wbRWbZH9ZpQVK548IFPdvsk=
+			</data>
+			<key>hash2</key>
+			<data>
+			bvlnk+SBz9GdHpZEtr4J/2rVU0kQXItMfc30x7PEdr4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/liboboe.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			uqLTFJ5RcS59vEeWbvkMCdLcv5Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			Cg0fH+/xr5NVwPTSDR3PEaOOP+5CFxKR0YX9dwaufuU=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libogg.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6n4XJGlyeroXl4TjqX9NmGDViI0=
+			</data>
+			<key>hash2</key>
+			<data>
+			yl/FJZYg317fivA6iVwR1hFTAbBpjwNANqBdpLgodUg=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libsndfile.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2Jf8CDEe7AnkU3OpwpqW8evEJ14=
+			</data>
+			<key>hash2</key>
+			<data>
+			2CBndckZlaAog73B1JylUNZM7x9wh/b+5FMyubUNOZM=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libvorbis.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			q8t60HQfo/PLjKfjRSe2LZj89Ws=
+			</data>
+			<key>hash2</key>
+			<data>
+			wTUnHah7p0mQ+7ieBpW8cG8cCrQZaAXR9Q6EtOZ97TI=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libvorbisenc.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			P5THcYIw2gJ1p8W+EWxCHXHhyKs=
+			</data>
+			<key>hash2</key>
+			<data>
+			OJ1EYB6jIaO0TJwJDG4G4m60tpp8/fhxo39iZpk6+Cg=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libvorbisfile.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			c87HPwZtECuPmA/7Wi8kDENhXZ0=
+			</data>
+			<key>hash2</key>
+			<data>
+			1AMbfPkxe0/O3j7V+K06FL/ZalPe11BIs0CW2XZ+lzs=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libz.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xG/xvd50ekc0ZKeS+99hz7EgZLk=
+			</data>
+			<key>hash2</key>
+			<data>
+			f7shT+7XYXfSV/bqDmlV1zKQJQ6IIv3UnES0tgggrkQ=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/preloadable_libiconv.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QzUF7avaF3l0MSUqA63S/Kh6oIk=
+			</data>
+			<key>hash2</key>
+			<data>
+			XcgdXufglZpKk+57FUvemb8ScV1GwcR/GbdOyKgeoyQ=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/intl.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sybsSRnh7JWVwGSySFOx5rcVMKM=
+			</data>
+			<key>hash2</key>
+			<data>
+			aC1CdwkkcsrJQFWPnmebRKY5QVnknJu9opnjO/xv3JI=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libfluidsynth-2.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eZR4IAH9/MXs2TwFU1fr4Lorltg=
+			</data>
+			<key>hash2</key>
+			<data>
+			sjjcfbzrz6tKu5lHmV1hEWvRQJbtLGbYWXpcWEJCnyk=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libglib-2.0-0.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9GzYQR5XnanzF0mAmlcH/ssot9s=
+			</data>
+			<key>hash2</key>
+			<data>
+			wPNbDl+bJfNr+e+IWoE159zbd9Ql+KyIEk2QzyvzL94=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libgobject-2.0-0.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EhgkPJtOjm+rzF8urBrbeAArAcI=
+			</data>
+			<key>hash2</key>
+			<data>
+			dbTooHV/fbJu8ZXzxeLaV3DZXDrwgcLNrg7BW0YKqeo=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libgthread-2.0-0.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jZTE1LBjOoDihQSjxpTdK64lKFQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			7i6Ehf2/ssViYJnMr83EGsYEFN/9XGw77694ZjS69cM=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libinstpatch-2.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			u49MCd1mj8nU0X3zYD0q1f3uv3I=
+			</data>
+			<key>hash2</key>
+			<data>
+			6u8SCpRedi/oFj3SrgOObF3vcwlaJuKCRu8XTLswknU=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libsndfile-1.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mHu/2pMfygIMvRxhsOrG/kS8WDw=
+			</data>
+			<key>hash2</key>
+			<data>
+			2G3kNQydbUKx7EIk8ronAHBlNLip9aaQAjB4kP1XYC4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libFLAC.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WM2/qJoYNFQOxIdVP9S98u0rIo4=
+			</data>
+			<key>hash2</key>
+			<data>
+			6s/Yz20Nz6kYtEabJpesoAiOaSIfIwSVd5rJV2tfBcc=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libc++_shared.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			IQ40RfbRR8uHymxPW2YomYEg/is=
+			</data>
+			<key>hash2</key>
+			<data>
+			+9n4QTXWYLrX6WkAORqFbFhZzt0EKfD3GQMjaIZOhlo=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libcharset.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			agXxN9SC8OUwDkiyehuQvHlLXwk=
+			</data>
+			<key>hash2</key>
+			<data>
+			/B8Yf7Aax6PQGaj2ktKzVhH70tju+2gv9YZ65LpWVl4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libffi.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OV+0gU4pUljWrKlJSoelcTvPNDk=
+			</data>
+			<key>hash2</key>
+			<data>
+			2uIzMV2g7Z6fKAHQNCpYWugLvKXRCDQjZujdUC9EHb4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libfluidsynth-assetloader.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WB7ButuPJDNw27y12LDva/So+U0=
+			</data>
+			<key>hash2</key>
+			<data>
+			FB7dMPg9Ybyexa+pYXvGGtRGROKZ/mxnzTN5oI5utCE=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libfluidsynth.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PeVI/fA+2q4fgJ4PfunNA8ezE9k=
+			</data>
+			<key>hash2</key>
+			<data>
+			ikJ/QGAwu2xt3MAxQTXDYyyVO9yCHy09oTg88Z9nYrs=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libgio-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9mbfVuE8eCmmpLb/8JaHa3Y6vwA=
+			</data>
+			<key>hash2</key>
+			<data>
+			hlpVjNTAAdHoQ84ML21OIuRdHJXQhd0hqo6MRLBrB1M=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libglib-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9q7xE/fPkO3A7nwyoF3nLdvftFk=
+			</data>
+			<key>hash2</key>
+			<data>
+			4ESV+axrE3mUd5HEl81gplE0Zl6MqniOBcX8DBJIIAQ=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libgmodule-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zuwDKKyj5SnCMIAxNbEFJwx+RIQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			L+yc45X2RXMgPfYxQd9YH23fHBf9dYquHpIFGIAJmM4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libgobject-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9NB6pkwrko9Mm4wnKqk9wFM1beE=
+			</data>
+			<key>hash2</key>
+			<data>
+			sfcZCJDjl6IZ9ZbA3nA9LyWttQmko7h5IZ9m5meoi9E=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libgthread-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			c8wH2FNoxDFfkzGLnfGftZ2VlVE=
+			</data>
+			<key>hash2</key>
+			<data>
+			8XbgG5RkiTm0UwlUwji2Bm1qTpM+AnE0D2EzwgONP9c=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libiconv.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8xzRkJ741/S6dhZObUXwWir9z48=
+			</data>
+			<key>hash2</key>
+			<data>
+			a7cDeQSsyV+suC/lST9KsfqA8L4l3I39eKkF8MraJB4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libintl.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vyGcR9RJCvKIT9yiSj14jQ5PQJY=
+			</data>
+			<key>hash2</key>
+			<data>
+			8Fd41SPo1LNuxoA0oG1lCJaHaYAaw5OvbGfFgCrPPzA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/liboboe.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fgcOLszkHxHfRDyFq0LImXwI9+Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			5R7c1SZPEFsEknHAma9eHW6oQoX6Bo84bnIPqVuOtto=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libogg.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gMJQJmnlhBhkxYK/TZkZg9ALao4=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZKFPszwA0glbPE0dZe6ykGHxwH5I+U0YOeUp2pA1jiw=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libsndfile.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6LeEH2+2XsoASjYom21kFF8SaSA=
+			</data>
+			<key>hash2</key>
+			<data>
+			cLAc8UE6Ivd7yhZxaudZ8Ig16wODNNLvrdTmlWc7elM=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libvorbis.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			16JejiKlCgh/x5K7jDUO/Tm0BRs=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZddScYTDUfrHzqo6qwJFTix5gUtY1u4ZnZtze3c9yvg=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libvorbisenc.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			O8W1x8HMma/hHMiWp45GwhLh/HA=
+			</data>
+			<key>hash2</key>
+			<data>
+			li3Ng85Yb/Huk4UySX6lhR70sZLy6vLZz116Z20VP4A=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libvorbisfile.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PnAy5FOpAooGpGsFt1GaZtyho8Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			mh3AYLeTf2HrFypE9tgXFcWpqpOsbCBbi7tC0AZHXwc=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libz.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			re72IfB00ypjF64VZhdwt0MeJ7s=
+			</data>
+			<key>hash2</key>
+			<data>
+			YwctaFkdbW++dshBqLkdPwvZNKnXedd4yQ0I8dCnJyo=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/preloadable_libiconv.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YLpDe2JKciLnV3uqRCV1pwUz6VE=
+			</data>
+			<key>hash2</key>
+			<data>
+			IEzoFwFb7SrBEOUtN8lGSpYBcNQ0O+af/mW7erMW4mk=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libFLAC.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			cFrpjpggmVGnadxmmrimbIL3UKs=
+			</data>
+			<key>hash2</key>
+			<data>
+			MGIIQ0P9UuduJyD0h60jdl29DQevQ3TFTGdODUjFHSo=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libfluidsynth.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0G0j/Yal2RP9Q4+o9w3CJx06uTI=
+			</data>
+			<key>hash2</key>
+			<data>
+			c5ZI8/Y165uWTKKycvGfnGOYkxzQboH8q2joRaJnZb8=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libgio-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Fz8v0bymxch5lc5INDnkOWMzW9E=
+			</data>
+			<key>hash2</key>
+			<data>
+			tM1FUrLq2nW+PfhIYzilovOuTNDkaEMPrT/1I7Zg/T8=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libglib-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JEhieAo62wzoeiYdTPkunx5zpjI=
+			</data>
+			<key>hash2</key>
+			<data>
+			9LXVVACq+4FGXmAi3EB1/scKEeQFRB1ZM5yqfZhiiGY=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libgmodule-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZkB1agzFRFguS6azkR9oCdOZV/8=
+			</data>
+			<key>hash2</key>
+			<data>
+			l0HuUYMRrNP7ePHKxL0B3IIEeX64tdZyQfOybrYPmgc=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libgobject-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OEd9rd3caeG/w+/HLQ1BGH3NDH4=
+			</data>
+			<key>hash2</key>
+			<data>
+			oIExRsrqp5jUIe67US4QdgLe99YQDNvXu4Xewly+56I=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libgthread-2.0.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			geWgl0KL5dT2fE97pNlj/ZtZShI=
+			</data>
+			<key>hash2</key>
+			<data>
+			iDJFnGPjG6OpqC3M8HlwocRmeeWDXftkCL/t8iH2P7E=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libogg.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			anyj+idFFZvyE42+1kpkPhUzSTg=
+			</data>
+			<key>hash2</key>
+			<data>
+			Pd5igb1AFMBFGfeGDxWSbXIoYODQcFXydoBb1wE+Hm8=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libreadline.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vMOE7G2piA2E4Bs7kRu5Au18MzE=
+			</data>
+			<key>hash2</key>
+			<data>
+			Gok4rkzfxFsUIpYn50foJ1bAsXO4uQEKM7iIA2G8aZc=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libsndfile.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ySv8NHVcpFd9iH5A91WmlCdDDA0=
+			</data>
+			<key>hash2</key>
+			<data>
+			Y2pBXNK8DwhpbO4yna4Kqd4WQfu/k38jBATuo8S9lo0=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libvorbis.so</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UOXr/cnZ0nrSer3qikRL9NvCAPU=
+			</data>
+			<key>hash2</key>
+			<data>
+			5urIfII2N6lQX+YxgeegP9b+xVa155FjmvYhtkXqRR4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/editpath.sh</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wUkKfvx4Urq8s3KLQmiQpqGHd2E=
+			</data>
+			<key>hash2</key>
+			<data>
+			P5qxyO0VPSbJQvKUVKI7jiF+VnI2paBQbQQh4PQ0Ofo=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libFLAC.8.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eUvHTzNRw2b+41nj1wTcPDzNQ7Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			pYI/78Dir50IU5yg4BjhThceOvs6Dl4Bu90I0M4mkjs=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libfluidsynth.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7asqjwWUrL5laxnzAdjVnRg7Vlg=
+			</data>
+			<key>hash2</key>
+			<data>
+			Vu+UY4EtwXzhtVRCP6grybuOKB+YMVYqv64qMEf3dWw=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libfluidsynth.dylib~</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nIz/5KsW3ilx+zDYpX6sh8yBXYY=
+			</data>
+			<key>hash2</key>
+			<data>
+			NkAr2wvpcSDAbuO9tbvWzaj8cQIFwbGng1unIR4HtFg=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libglib-2.0.0.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3yi6TywL/xKWCVPs6k1n9Gf/lVs=
+			</data>
+			<key>hash2</key>
+			<data>
+			WdkbU5Yq2Hat9FsEY4bFHmeDIz6i5v8+QyzYX9Jh/yM=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libgthread-2.0.0.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7qCri8uXYlnei8dMppf6orh9mrQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			jupCDCkA9ahs0JMqYvrU9rkBocSeeEtn0QjMrLFSqK4=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libhistory.8.0.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kX/wUreAMoa1JWjj7A/Afx5j984=
+			</data>
+			<key>hash2</key>
+			<data>
+			uNM1W8oPnp6LyRR/pN2AvIjks3N/e3e6cdTnlw65NdY=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libinstpatch.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6xQYyps5YLjQenHvtaHJLMZmVL0=
+			</data>
+			<key>hash2</key>
+			<data>
+			zot9ShjR3sU9z2gHmkRgnCLsb8fewxr8zopPOzL01SE=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libintl.8.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			cXavbLeD41wcjDBW19gJXhaMOxU=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZVbWCHRb7juYIl+il5d+9VE8nKxN5Fh3LmdyY03Akfg=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/liblzma.5.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			huQ6qYquxg5R+pzELAy/N7GxXdw=
+			</data>
+			<key>hash2</key>
+			<data>
+			zv44p++VjcN8sy4QwlGJ8/WPERSokC4F0glprD6dCbo=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libogg.0.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Im2TYUkSAHxEPBBI6aP3PA8Izck=
+			</data>
+			<key>hash2</key>
+			<data>
+			tiSL4rNGk5pVliMG3BRRqfmPt74coO+f1DbFOZDHCBA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libopus.0.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Lls6Y4xTYfjihctIB5Co/1c2I4s=
+			</data>
+			<key>hash2</key>
+			<data>
+			bvdN9NWJONQOXcfOLHC+8DBbSXATxUHMCWC7Y8zjqBI=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libpcre.1.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DpROYFxDqV82zJQ3xzMkf+wUYN8=
+			</data>
+			<key>hash2</key>
+			<data>
+			cR2MbjyTfm1t1mt21MG99kbc9szonTGWjCgVMIJLa8o=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libpcre16.0.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+9nQDsu8TLlGlOzChpN/S5mayr8=
+			</data>
+			<key>hash2</key>
+			<data>
+			a8gZDRP+sm89pVZq2qDEKQ/P+qc66xliEbkGn6f+yDg=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libpcre32.0.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			23bdmd65FLjzpStDTaeqpReaH4w=
+			</data>
+			<key>hash2</key>
+			<data>
+			ic+VauuD27+FkP0ZZQARzbW0BzhE8pdc9jKaDwr0S6Y=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libpcrecpp.0.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1feyU1GSOzLxObWRRmb2kTP6rBY=
+			</data>
+			<key>hash2</key>
+			<data>
+			KjOC8PouZNWQjB8JQFYYKO596LltHUQHbCQ3Wzn2IaE=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libpcreposix.0.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jd5gzhlsNYBYREmAYq4cGYzxc7Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			HFEA6nhWaCDW4fhtli1jUAuq5BfgOsCkUHXvDHCkU24=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libportaudio.2.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PNKiIpuFdfhTZbvaPHefI03CYvQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			1QmFgGiVamDlFt88HHXUNLHhcmyFc7Aiqj41E3cP43E=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libportaudiocpp.0.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			cnqV1iTLvxoSuAGwZOlWPPzbNg8=
+			</data>
+			<key>hash2</key>
+			<data>
+			G9cvdNIE09WAMg2Ru2eauvIISxFUqavO2IhiXshjyL0=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libreadline.8.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HsOEp1WZ3howWDJ6CoPwZsFle4U=
+			</data>
+			<key>hash2</key>
+			<data>
+			LmzQgEaJdRLQDkp24YdAvQgwOXIGJpj9A7L/spfBBf8=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libsndfile.1.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			5v/FzpH+dRSNg8hWgUXhPqmcJUU=
+			</data>
+			<key>hash2</key>
+			<data>
+			Tr8M2ZU/Cc+C+0L7LojwtMy2xnFzauSzt1sy4o4e8mY=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libsndfile.1.dylib~</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0PKFGbCWsE3aTTe4QbjiBLzFJWU=
+			</data>
+			<key>hash2</key>
+			<data>
+			5aTS+8tbCRr46IvKpKTjLnPtm27KTuf2/X3DNmxneNo=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libvorbis.0.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FTBXt8KhMz0glRe9hM1yDkulTDM=
+			</data>
+			<key>hash2</key>
+			<data>
+			l0/J/+3wB3iJGOf9Is9mFa9ulWNU7MU0XE5T9yJt0nk=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libvorbisenc.2.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			5Kz2HZF6NuzH0qCg6n//L4odN30=
+			</data>
+			<key>hash2</key>
+			<data>
+			H7A/pYjWnOgJNjr03PQwsCpAl6PxeyKJe36ZYFAhJUA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libvorbisfile.3.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			TwViSsazBWWJKS2WlXMnRBhdvaA=
+			</data>
+			<key>hash2</key>
+			<data>
+			zA0gshmMZq3pZ29Ao/MDRQAVeADntWzzvUQXhAU4tpI=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac_10.14.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pasALnIou/YKQd5dJya7xBafwrY=
+			</data>
+			<key>hash2</key>
+			<data>
+			BYoFcpJ3zBNLjiBgFZS9adnzUFmgdkVzbdhh4RU7kPI=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libfluidsynth-2.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rwzmMrntQLs23SfDxmFld9zTBmg=
+			</data>
+			<key>hash2</key>
+			<data>
+			vgb+H5sNop0BOdoS6Ep3RKFw43w2TiflLima/jtrNBw=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libfluidsynth.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rwzmMrntQLs23SfDxmFld9zTBmg=
+			</data>
+			<key>hash2</key>
+			<data>
+			vgb+H5sNop0BOdoS6Ep3RKFw43w2TiflLima/jtrNBw=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libglib-2.0-0.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			H5yfwaWgOPuAIaFoyeJMDOyKdYw=
+			</data>
+			<key>hash2</key>
+			<data>
+			DDcgtYiHT8PGD2a0hsQXLEl2xWsLDwSQj3MNchXJNAA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libgobject-2.0-0.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tN3ZVVjezy9s4ecRdRMzLP/ovnI=
+			</data>
+			<key>hash2</key>
+			<data>
+			KMo/5Tktzi6MSLYVe6qdox+I67cQPcLOf+7KfVo7F8o=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libgthread-2.0-0.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nef5dbOfUHDPHhy8TLH6uT7EK/A=
+			</data>
+			<key>hash2</key>
+			<data>
+			9Jqr+deAvKro9yhwovKmgX6Yfv0RWq7myUQtQBq0uzQ=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libinstpatch-2.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UklpRxhYbz3voVDzQttJInEEhxA=
+			</data>
+			<key>hash2</key>
+			<data>
+			qvQ2h3BVmp7SKAWRoGQLM8x4pz2bySknGOD3zKlCEGw=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libintl-8.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			X8U40gmhbkP90dSQ4A6CUjGxAyI=
+			</data>
+			<key>hash2</key>
+			<data>
+			fPWnBcgl4ILY57V9ET68uol6lCH0ZafkOtYQuJo1mxQ=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libsndfile-1.dll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yJWyVV6Zo0vtV+yqMoxWvaRIGzs=
+			</data>
+			<key>hash2</key>
+			<data>
+			dA3HlYmBPIP1prjqIUtcEDEEGIG03JZwPilafATQn1s=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/fluidsynth_MIDIINTests.lcb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			J9u9GuE85R30hnkQCdH27kI9T3c=
+			</data>
+			<key>hash2</key>
+			<data>
+			tDcJJLeKVQjX8xyjhSRBN9ZhxzLTbnih4Ln/MUxtDHA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/manifest.xml</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CA2woRLb9nqDobXfa7JTCEgMcKw=
+			</data>
+			<key>hash2</key>
+			<data>
+			kobjwYwjzQ8XboDZTa96lyM3B4L90714C/1vXJ5XWm0=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/module.2.lcm</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ien2wmyXsin36PPtV0T6LTe1gpY=
+			</data>
+			<key>hash2</key>
+			<data>
+			4PJZchEslYytADKAQa1f4qeB/hED7e1Ql8XM6c076OM=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/org.openxtalk.library.fluidsynth.lci</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jaBiLB3FVXywkXeZHNiwOIBVwRc=
+			</data>
+			<key>hash2</key>
+			<data>
+			I+ucf9fsUp0dGfuGjCZMIhrTWyVd4IYIAxspXGSiNfc=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/1OctaveKeyboardCoreMIDI 0.5.livecode</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FfR239sFSCXymX2mkRK+Ky4E/Hk=
+			</data>
+			<key>hash2</key>
+			<data>
+			64vJlaGVDn346FDP9yax/HEsRYoLZcgWIdrpa1aJEmA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/BASSGTRKeyboard 0.6.livecode</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XNBin/XP3Y1Cy/SFYy5i1BGqwCE=
+			</data>
+			<key>hash2</key>
+			<data>
+			GIus+jQqRNoQ8r4PV6wJ5D1LkB1sVXHb6x0vVd9iWWA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/BASSGTRKeyboard_0.5.2.livecode</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4bGdPMY8YqyilH/HTDPe/mYzU2o=
+			</data>
+			<key>hash2</key>
+			<data>
+			TJfBeUltsKvwuOFEJ1Fht0OwsQkBJoinN6d2tKLyYAA=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/BASSGTRKeyboard_0.6.1.livecode</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			j8SEpNd1Z+bf9grPDnlCYP3DFgQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			Ns8Fzts/WP7V4dZ7oU8tsKhZ07j8QWM8I5XVG7d21xg=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/My MIDI Data Grid LCBFLUIDSYNTH.livecode</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ze4AoAPNXuym+ZNSkf+FK4Vd8XU=
+			</data>
+			<key>hash2</key>
+			<data>
+			0QA0YgWHjCDyTiVMW1fsyUUR9hN987DnoxIpOjX4Taw=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/My MIDI Data Grid LCBFLUIDSYNTH2.livecode</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2r7Nb8WVKuqvM8PVT85UY6rx0ow=
+			</data>
+			<key>hash2</key>
+			<data>
+			e1rwLc9Ymv8AcDSshBdXnjeUTQqxg8pmNLrMEuMJGbk=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.macosnativeapptools.1.0.1/api.lcdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mreRjeKHhRiFLlKvy7sNmUlFTTs=
+			</data>
+			<key>hash2</key>
+			<data>
+			6sdsBOfLGpGHorRkHbhn5BuGwll58j0UUnyuTfgrrK0=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.macosnativeapptools.1.0.1/macOStools.lcb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			H7YaS+yH0KJ0/Vop4DSx11aantQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			yskMwIxnZs111bmU/aBg0kbVHN2ITmKugyMG6MpTOnk=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.macosnativeapptools.1.0.1/manifest.xml</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JFhppswS4vjFpemHEQXrhFKPs4s=
+			</data>
+			<key>hash2</key>
+			<data>
+			wyVQMYPwtEtXazf5myW/X1VQOpyTZSvJOQkBLPXyz48=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.library.macosnativeapptools.1.0.1/module.0.lcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15542,29 +17309,29 @@
 			JsVyc2xIJi4pJtr/hZ/qXIDzyQ9Bs4kCtkWB72n+XgY=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/module.2.lcm</key>
+		<key>Tools/Extensions/org.openxtalk.library.macosnativeapptools.1.0.1/module.2.lcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			b9k1V/qyZ92H2WHvSkMku5pDcGo=
+			L/ZDBa+2FYx0t7JYwF1dBI9qLgQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			JsVyc2xIJi4pJtr/hZ/qXIDzyQ9Bs4kCtkWB72n+XgY=
+			eFeG7B2jJ9ik3ExW9A39f1RkZh0g7TCyBvQi5uZf5nA=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/org.oxt.paulmcclernan.macosnativeapptools.lci</key>
+		<key>Tools/Extensions/org.openxtalk.library.macosnativeapptools.1.0.1/org.openxtalk.library.macosnativeapptools.lci</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eD0mK2oKBKkwUhO0xIIv9tME5E8=
+			8NK+4vwdR4h4QByGwvodZq8NvbM=
 			</data>
 			<key>hash2</key>
 			<data>
-			iCE+JG7FeVc8r84OB52MChiMqjYHNcMIcNqDTo+bG28=
+			IqUMmf0kwsIbNua4R0wzma79ZOZhg/fuykEVIGjBwOg=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.macosnativeapptools.1.0.1/samples/MacOS-Native-Tools-Tester.livecode</key>
+		<key>Tools/Extensions/org.openxtalk.library.macosnativeapptools.1.0.1/samples/MacOS-Native-Tools-Tester.livecode</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15575,51 +17342,40 @@
 			3C7ul0Pn6VAxB65gxjcEHmaY0FRogNnDfpmePfwhhY8=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/api.lcdoc</key>
+		<key>Tools/Extensions/org.openxtalk.widget.pianowidget.1.3.6/api.lcdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GBAi0up2gXxmSeVJpVNUz7CAngA=
+			QJ/zu5E/YCSxgK8wOTRdggUt0SU=
 			</data>
 			<key>hash2</key>
 			<data>
-			00BScWrohRCD4OzxAaIdX6tqQTE86rGcdO2Bdlr1+Ik=
+			OeEcUwNM+sX/LpOgCKqp5F4vDE5VVe3ZwQ/N1I774ac=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/full127_piano.lcb</key>
+		<key>Tools/Extensions/org.openxtalk.widget.pianowidget.1.3.6/full127_piano.lcb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BKH8rbVSKomrJcEkgZKLSkWgfPc=
+			xvVT3nesuzow2yYfw72J/op+q/k=
 			</data>
 			<key>hash2</key>
 			<data>
-			/Qy4i4SVv/lR3Om5u3AxMKfbWegLdJLXwK9A0X9Dd6M=
+			ypa2VLo2UJa5qQPCNMQZ6qIuqxaKtdiyygQSLJEw+TM=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/manifest.xml</key>
+		<key>Tools/Extensions/org.openxtalk.widget.pianowidget.1.3.6/manifest.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MpBbGy2E8c1PE2Kcy8PIIyfj+XA=
+			H2PapUlaicU0dtb4mV+sj6GMr+Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			JuwNWGBmIwuA8zpgknOEV+vEI5uTflZfujmNvwGAoRg=
+			Hymwqs7nEeOPlUs6tbLWMA/3HCoBQz2J+MAxWGhfxe8=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/module.0.lcm</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WlArP9Ejd+rn1fEL3kItuieU+Xc=
-			</data>
-			<key>hash2</key>
-			<data>
-			j8JbwoLqyflIpnPbB/v/9/JVkQKMWf39uAy1GLE+94E=
-			</data>
-		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/module.2.lcm</key>
+		<key>Tools/Extensions/org.openxtalk.widget.pianowidget.1.3.6/module.0.lcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15630,18 +17386,29 @@
 			j8JbwoLqyflIpnPbB/v/9/JVkQKMWf39uAy1GLE+94E=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/org.oxt.paulmcclernan.pianowidget.lci</key>
+		<key>Tools/Extensions/org.openxtalk.widget.pianowidget.1.3.6/module.2.lcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5sLvWvV29i3ERFBGOW2M0VcRsbc=
+			QqfLfwlPThYhieE1AwjMMBe2pqY=
 			</data>
 			<key>hash2</key>
 			<data>
-			bPy3zrdpBzBmu1x6E53BaPBELNUZRvrMbmmVgKitTiQ=
+			SASgK7oUa1IxY9MdIOECOEX2Zc/IQJBudXHH+xRoRSE=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.oxt.paulmcclernan.pianowidget.1.3.6/support/defaultscript.livecodescript</key>
+		<key>Tools/Extensions/org.openxtalk.widget.pianowidget.1.3.6/org.openxtalk.widget.pianowidget.lci</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3jeM3u+ynZ3ShWrtbsQ2cb6gmD4=
+			</data>
+			<key>hash2</key>
+			<data>
+			WMCKYKgR5v1XRf/Pj1rplSZp+Nj1ef3NU00a5HnWT9k=
+			</data>
+		</dict>
+		<key>Tools/Extensions/org.openxtalk.widget.pianowidget.1.3.6/support/defaultscript.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -25585,15 +27352,37 @@
 			XngVd2XcZ4dW/pw2laiZzJvAhhaNgtFB3bWOBEm4eV8=
 			</data>
 		</dict>
-		<key>Tools/Toolset/HOME OLD.zip</key>
+		<key>Tools/Toolchain/modules/lci/org.openxtalk.library.fluidsynth.lci</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Oxl8nR/vOhaTXSoN946ohKqOZLw=
+			jaBiLB3FVXywkXeZHNiwOIBVwRc=
 			</data>
 			<key>hash2</key>
 			<data>
-			YBzpG9vJKifTy/neRGAK6n/FkX86yWf+cD0SAmlZDXQ=
+			I+ucf9fsUp0dGfuGjCZMIhrTWyVd4IYIAxspXGSiNfc=
+			</data>
+		</dict>
+		<key>Tools/Toolchain/modules/lci/org.openxtalk.library.macosnativeapptools.lci</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8NK+4vwdR4h4QByGwvodZq8NvbM=
+			</data>
+			<key>hash2</key>
+			<data>
+			IqUMmf0kwsIbNua4R0wzma79ZOZhg/fuykEVIGjBwOg=
+			</data>
+		</dict>
+		<key>Tools/Toolchain/modules/lci/org.openxtalk.widget.pianowidget.lci</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3jeM3u+ynZ3ShWrtbsQ2cb6gmD4=
+			</data>
+			<key>hash2</key>
+			<data>
+			WMCKYKgR5v1XRf/Pj1rplSZp+Nj1ef3NU00a5HnWT9k=
 			</data>
 		</dict>
 		<key>Tools/Toolset/Home Start Chain Notes.txt</key>
@@ -25607,6 +27396,17 @@
 			EHm2fJDF9MX+N8lbir4UhduvBwOjMuH7OVmfmdNAjPE=
 			</data>
 		</dict>
+		<key>Tools/Toolset/OLD.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			AxWwnFOJG37qS8ivHRRnPaN3jYs=
+			</data>
+			<key>hash2</key>
+			<data>
+			GdEHPD4hfrhday37t4R7LO4X6LasUeJFbR2Y/OgbvVw=
+			</data>
+		</dict>
 		<key>Tools/Toolset/Stacks Loaded by Home Stack.txt</key>
 		<dict>
 			<key>hash</key>
@@ -25618,59 +27418,15 @@
 			h2LlMdWv+teo+p895uU9fJD/6AWThQ3f7sfYtuEsiwg=
 			</data>
 		</dict>
-		<key>Tools/Toolset/home 2.livecodescript.zip</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			aUApH9PaQY8+YT15j4TjCQcWYEM=
-			</data>
-			<key>hash2</key>
-			<data>
-			7DcKSldsE7HNnHuiCWHT17+/2TwDKVz2n4RVfDY4Ef8=
-			</data>
-		</dict>
-		<key>Tools/Toolset/home 3.livecodescript</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8fFMNmsZ5ZCI150TVqKgRqHd5LY=
-			</data>
-			<key>hash2</key>
-			<data>
-			ufELV1iSmq0xKE2lXCbJi/3ssmBwMX94TJK1VwgIINM=
-			</data>
-		</dict>
-		<key>Tools/Toolset/home copy.livecodescript.zip</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			7uBZM7ANCpVR8+KaaSbF47zPXo4=
-			</data>
-			<key>hash2</key>
-			<data>
-			gy+nuOaOElM9Zc2EQY5447iR1VgNi5FWTaVLDv8GdIY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/home old.livecodescript</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zTUYRgtBHH3q6WwBuybdIhz+luI=
-			</data>
-			<key>hash2</key>
-			<data>
-			5M3juXFTjfJzxCfef/vEtgVBSeO2RvBmCtNjZhvBJGI=
-			</data>
-		</dict>
 		<key>Tools/Toolset/home.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			04OIf+XZCMJMbJtZGljmk2dJdGg=
+			lRz1lCp5V/CUfU6WGd+rexAv0Os=
 			</data>
 			<key>hash2</key>
 			<data>
-			AMPqNX+Rc3ZXyj+vC3hWmhCZdG7NBmGqVgJCGd9WNxg=
+			zwFcgAElKj7YGA2RPKUJeYjD3hve60mefNF6Pm0M8Mk=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/autocomplete.livecode.placeholder.zip</key>
@@ -25897,11 +27653,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ou/7A6rT0rh3qZR/IMNlO96JAHk=
+			Rl7DHDQPMVIeyyY9NcPsvZIXcGQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			T0f4UVzIfMLuwZZRYF/ADqgitkKNB9FfrYtHl6/O93w=
+			KEJrMhLRNMtWrm/GfZtnLetbDymL9rv+StUVm2AH0R0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revideextensionlibrary.livecodescript old.zip</key>
@@ -25919,11 +27675,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4gZH3MAhv+cDH4y3byx1kkqA5vE=
+			IvwMcM3+Ei+fdJsM+McqA3daWeQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			4s5k6S3pvKz+Hrb15Mhg0w6ZlfxGdRqIAvEimPUrpOs=
+			1EScGO0ylhq3/kkULQnDFmrQ+tsgQl/tHrTwZCunOcA=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revidelibrary.8.livecodescript-old</key>
@@ -25941,11 +27697,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0bz7zbAZPOsn+/sG4ZxrvdvM8BM=
+			5lFdaSlbzUl4Dz0jNvCyPkVZ6eY=
 			</data>
 			<key>hash2</key>
 			<data>
-			JvL/jqFJi/RT01QRYz+zMo5URFlTV/rTqlSrfqaUp5M=
+			1oO0Zn7jE04bXYGSU3f5mXkPIXiPhqNTXbRxPU+i9Dw=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revidemessagehandlerlibrary.livecodescript</key>
@@ -25963,11 +27719,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			06jMW5PN2/Te2VG89y5jCAIvxjg=
+			3Zs31537CvDIkFuIlKqis9+jG/4=
 			</data>
 			<key>hash2</key>
 			<data>
-			lghoIESL5mmnqfanERB5lt6pOrMtoQO3RlPfDCIPh7w=
+			Th5R965ktBn1BkZk4isHDryaEEFxetcjpAzhYsWsYs4=
 			</data>
 		</dict>
 		<key>Tools/Toolset/libraries/revinitialisationlibrary.livecodescript</key>
@@ -26234,6 +27990,28 @@
 			/lU4bjHk+KIi8dUIUYD/ySqhfafWyr0sJLrgdRRscrs=
 			</data>
 		</dict>
+		<key>Tools/Toolset/palettes/behaviors/revonlinestackbehavior.livecodescript-old</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			b4aiBve0UyK54L5ZaABY8bn7Kxc=
+			</data>
+			<key>hash2</key>
+			<data>
+			Da2nW8CsDzwCzXYpV/+41Xcv1EKEXrdbR9ouUcwhXxw=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/behaviors/revonlinestackbehavior.old2</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HaVyYoEYWzgtxIkatqnOUR0mDwM=
+			</data>
+			<key>hash2</key>
+			<data>
+			/lU4bjHk+KIi8dUIUYD/ySqhfafWyr0sJLrgdRRscrs=
+			</data>
+		</dict>
 		<key>Tools/Toolset/palettes/behaviors/revpalettebehavior.livecodescript</key>
 		<dict>
 			<key>hash</key>
@@ -26249,11 +28027,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+SoVHBpxPTuL8B/BzoHZv9ZYuMI=
+			McrS1+y4yC2vkd7/6EAqLbsq6s8=
 			</data>
 			<key>hash2</key>
 			<data>
-			YXeVD4ex4GYh9uK8+QfLWIt6Z55uJNIK+XWBK/JaIWc=
+			XrSTbxGXoHRryeve55TSnTVXVxQ32k71Db+7geP2jMg=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/dictionary/revdictionary.livecode</key>
@@ -26293,33 +28071,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZXpNsdW0IZWC9Rfol4spH1dY/JY=
+			SKNg76x+ydp/yx6HSXJ09TIe1PI=
 			</data>
 			<key>hash2</key>
 			<data>
-			HryEkJV/Isa48zz5M3LuZrEA37K2mEn3tRbej+ONn5A=
+			AzdW6F/k724YBVAT3JKZQD4j6DvTrS0dZaZdnHdsE6Q=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/extension manager/revideextensionmanagerbehavior.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qax9AE0JxxoSufI7MlB2GVeR8Ug=
+			9wJHdkv8kz2SQrLMG6ROlzZ88eE=
 			</data>
 			<key>hash2</key>
 			<data>
-			BW59Lv4Yhx80sA6v/ZRs0n3Wy0eOI+P79LSNDIKCXBY=
+			BcrdjjfYtjvICQQdewSExcgx3+q6uObv3kXdY0T2vB4=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/extension manager/revideextensionmanagerlistbehavior.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xUUuF3GpBQIeFuNpbWxrQiJ2laI=
+			IguhDu6M0kil8YvyyomIAcR2Yow=
 			</data>
 			<key>hash2</key>
 			<data>
-			/csViEN18dbB1SBMl6xlyixaNF3ixG2vVMEI8AxO4uQ=
+			6EatfjL9cOx6K06eMrTbyTWXpHr293utAWnHcMPgt7k=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/extension manager/revideextensionmanagerrowbehavior.livecodescript</key>
@@ -28603,11 +30381,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vvIID+S+wjjWGy9S9UhwPmH+fyw=
+			vhgRb+6ig7JjC82b3e0N/nDy1kI=
 			</data>
 			<key>hash2</key>
 			<data>
-			L29yYZtjBHCa+8USCBrpB1Zse5zVxfAg7vAM+wFnrU0=
+			dkyCuiein7vEg7Ll0oEHA+YqoL/mGdrmp1Mrvzn4Y3M=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/menubar/svg/icons-depressed.svg</key>
@@ -28713,11 +30491,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fbhy0igF/RXV9RCny9sA5NmyLA4=
+			aIF//YdBnGav+S1qxlvAFIt/D7E=
 			</data>
 			<key>hash2</key>
 			<data>
-			VZgLPauRr5hpy0Zl2RV99DVVPBFLKwjws9HastAtDtE=
+			EYBZaF6C2bX2iRhdUVPw4od3QsiA12dRCqudDPqLzyc=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/project browser/behaviors/revideprojectbrowsercontrolrowbehavior.livecodescript</key>
@@ -28735,47 +30513,69 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1fSYNkJge0vwmHaYg0oblTm04Xg=
+			TPfCAgCy5ytKAevIz84B79g2c8U=
 			</data>
 			<key>hash2</key>
 			<data>
-			LOkSh62gjkNgP4CsPjcRMdUT5If+R4WUu7GsgOoECvg=
+			TV0HI9EVzKorlczmyKfz7YvVmhFP/J97+x1MURAosM8=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/project browser/behaviors/revideprojectbrowserlibraryrowbehavior.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4swJXeYAMpwLiYZ+5i0s/6MZdn4=
+			Ezr4yyd80mo341lW/l89s1xRVBs=
 			</data>
 			<key>hash2</key>
 			<data>
-			qjN9tU/zbpk7RFPRwfCh9KFZv2fOjkvJ7Jqz0fmD764=
+			SnNoWMXALsL85WMkHZPXMOgBHGmwsZ5UiBe3DplnurE=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/project browser/behaviors/revideprojectbrowsersectionrowbehavior.livecodescript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bNvhDn+ZT6Vm5dArMvl23RCsFsk=
+			LgqGJUJJu3gST/bkJ/kK2aJLwhM=
 			</data>
 			<key>hash2</key>
 			<data>
-			VztoCEAS/cUEHHs3AnUAxhqOnyWVClI51Hy5MTYY3WA=
+			MnLq8bab1rdbgOgFoSrsG5ghC7zWEEeX07wJ17PpoCs=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/project browser/revideprojectbrowser.livecode</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ast5K/lLJeOowy0PGcYZh4rWi3c=
+			oyrEnRx5d9aN83OuuLMqNn4Xt5M=
 			</data>
 			<key>hash2</key>
 			<data>
-			HAYhhqcWtnku/gdYwYl5fSNstuCAPI7kzta/InZs3qM=
+			QVK2m9jFiP5SyX0nWcLcORdwO0YXpvx2OkR1xyVP6qw=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/project browser/revideprojectbrowser.livecode-opt</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			H4hJepVIVblypLB2OHaY5xDVy5I=
+			</data>
+			<key>hash2</key>
+			<data>
+			S9Ssy4Uutqh4OVouJJACjTqWl8PpmnAFWw+HBGn1/b8=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/project browser/revprojectbrowserbehavior.livecodescript</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/ILmyJIv/Wqwb97EEXXuTV5AY94=
+			</data>
+			<key>hash2</key>
+			<data>
+			2E1mmccRn+BQr8DDkqb6krLNxT2SVAxRB3sncF7hYhQ=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/project browser/revprojectbrowserbehavior.livecodescript-opt</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -28790,11 +30590,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uKBIgjeF4HSKANWA5Ihaa5xda4A=
+			4sQz6fg+Y5ncZWNuJqtBZZYUHmM=
 			</data>
 			<key>hash2</key>
 			<data>
-			zsBmEKx/Vqqq404GlvlPd03JoTDkcm/I+5ndodFQ4AY=
+			vTLPco/oMcNPn3VjkEHbRapMt1REnCxtrYoI5tP6FJ8=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/project browser/templates/revideprojectbrowsercontrolrowtemplate.livecode</key>
@@ -28812,11 +30612,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			j7VcPRSAerALwUaDDULaEhKSlE0=
+			89MjRpshgiNoxIpF/qS2G7RFKG8=
 			</data>
 			<key>hash2</key>
 			<data>
-			e8aJ8GqXXF+Hr0whiQplpzjYNKe+Utnxoac7ccu/q3E=
+			ysegLltknjHeNodcHsE+P1ExyruSzZ77Q+XbNX4fR4g=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/project browser/templates/revideprojectbrowserlibraryrowtemplate.livecode</key>
@@ -28834,11 +30634,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DeFG/WGR/Ron1FEfQKh5K6ApLGE=
+			uhRiIaWFzN7h3Jlb7BZwLbepBds=
 			</data>
 			<key>hash2</key>
 			<data>
-			QSNGzrAtYCIa8w8MUk0K7imkgxGO3+Kl+Tiz+WX+CY4=
+			nZGfJZcmTglSFmyUKH6rOzfOHTHB0uKKC3MSL1Nb+fE=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revCore.8.livecode</key>
@@ -28900,22 +30700,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ieJ/DRTAuTtrf++sj0IiPA4bHhE=
+			pEfyjyEjllEt2OIkkxU5gIsv0Yo=
 			</data>
 			<key>hash2</key>
 			<data>
-			bpV+XA5e+T9Y3nxHNee2pjNTDyf1ZfdGP217Y+q6kzA=
+			FR6dF8Nidu34tq7WNwc0MxKlHlxqEnJ22g0cDVlTVV4=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revanswerdialog.revold</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			y+kJfRYnabTL2vBnFmI3KnT0dzY=
+			</data>
+			<key>hash2</key>
+			<data>
+			3k3YGIcQ3OweTWrx7mqD4DktNKkjhxjjIw2FDESIb5k=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revaskdialog.rev</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pVKFemPFEMITUXRTEKCIQYvTv4g=
+			Ke2gTM6DH0+DPxqFMCTh98Y6oyA=
 			</data>
 			<key>hash2</key>
 			<data>
-			bunu254ARvSXIE7XncKF++O3A9pPOx6mFEKl+jdPug0=
+			My747LkXq6K5C6/WlG3vBQ9z2So5eb8VjpJgjEdXQtM=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revaskdialog.revold</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SVbFq4BrtEXlvX9Gdw7p2tFxReU=
+			</data>
+			<key>hash2</key>
+			<data>
+			9YjJwE9s1zwdfl5FcnkPlut6kwNdO7U0k5khloS0Ru0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revcolorchooser.rev</key>
@@ -29230,36 +31052,36 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+wUK2Ep6YBkA0+77aeWG1mgxJYg=
+			jo10LAS4fyURdLbpcVP8WP/ewY0=
 			</data>
 			<key>hash2</key>
 			<data>
-			qRPQkGtZMcMj3Mi9dvaHludGVekPUJjFscvlv6LD1SY=
+			NZw74BUumHbvlpilwvRjNSoeNbhNhccBQLW0A1pMaT8=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revmessagewatcher.rev</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			29ahA6t51rvCNSN1OllYmE3f+SM=
+			SAQPxTr3HAS6jC/938mZQYDbkhY=
 			</data>
 			<key>hash2</key>
 			<data>
-			IvXVRROR9NPP8AwQQGE+H9lHEMmXQ686/aCV7vL5HW0=
+			iqzN6Zdxvoj1V4ipdbzKqSczR3tXrc6XU36d1mLBEYc=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revmobiledeployer.rev</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0Jbsdx9d/oz/3ssJRub+8IPtd+o=
+			lZQyUpFTsvzB40hFstnWjjGf+uM=
 			</data>
 			<key>hash2</key>
 			<data>
-			XmNyWcZFesB17sCAWoar3JhyJksVin81fK+3TJCMX1k=
+			ghS6pOGCRaFbNMTCboqpziBV9+RiaDW82sX/ZmGiK5w=
 			</data>
 		</dict>
-		<key>Tools/Toolset/palettes/revonline.rev</key>
+		<key>Tools/Toolset/palettes/revonline.old</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -29268,6 +31090,17 @@
 			<key>hash2</key>
 			<data>
 			PUGbe8sSC+KvcBxDm2imJy43tDrAzczYC0slDWPghAM=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revonline.rev</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UtmvC2sMaEw48T14J1Qw7V362Fs=
+			</data>
+			<key>hash2</key>
+			<data>
+			8+ynsW0I/91kwuIVE9GmGC7n5qEAiviEe/5NfxGpApg=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revonlinelibrary.rev</key>
@@ -29279,6 +31112,17 @@
 			<key>hash2</key>
 			<data>
 			5FBYx34bXE/9cemzCizQi4Hv2CNt8g2VxUIRI0KEV3s=
+			</data>
+		</dict>
+		<key>Tools/Toolset/palettes/revonlinelibrary.rev-old</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LFgQm0o/fiDBOam7D8tVxVEg8mM=
+			</data>
+			<key>hash2</key>
+			<data>
+			6oJSCkNBtq7atK2z6ssi1vToIae/cRsLUVeivzOKbzw=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revpagesetup.rev</key>
@@ -29329,11 +31173,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ctb9d09YxJYyszr5kVFIqJ8SZDo=
+			eElTIOF0FwEnr/TtvjDBwuolazI=
 			</data>
 			<key>hash2</key>
 			<data>
-			i91lsMspWAjfXJjGcbSZpKZ2EljwAiLKWnMkz6cDnwE=
+			NkX+ztI+bgLAzIlvHxMMQGTi2o4XBxMfObVyQcCSE3Q=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/revpreferencesgui.rev-old.zip</key>
@@ -29560,14 +31404,14 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			an3Ath77Y3WJQdArE911a2Sa4pM=
+			3vr8JRlBY/1RGs5WP0zzNzz/jRo=
 			</data>
 			<key>hash2</key>
 			<data>
-			55sbfVbZxTP7E+cCE+td7hwVgqemi4SP1bzbwT57NEo=
+			v5h4msHmdP7sUAmJKtEuQphvpmMpBY5GSAqeKpbyP6M=
 			</data>
 		</dict>
-		<key>Tools/Toolset/palettes/script editor/behaviors/revsedocumentationpanebehavior.livecodescript-orig</key>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revsedocumentationpanebehavior.livecodescript~</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -29578,7 +31422,7 @@
 			rInp5Su9oJcb8D/qOhTwR7bQeTFeLwfRK7LpXMCuYKM=
 			</data>
 		</dict>
-		<key>Tools/Toolset/palettes/script editor/behaviors/revsedocumentationpanebehavior.livecodescriptold</key>
+		<key>Tools/Toolset/palettes/script editor/behaviors/revsedocumentationpanebehavior.livecodescript~~</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -29897,15 +31741,15 @@
 			U0mEDTm8G1LDyWUQ1fuEHpEo0fUMZTYLcans8KE4Hfo=
 			</data>
 		</dict>
-		<key>Tools/Toolset/palettes/script editor/revscripteditor.8.revold</key>
+		<key>Tools/Toolset/palettes/script editor/revscripteditor.8.rev~</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dx3ueOO10i4AGrn8sF61g62glm8=
+			A+qsBZOPEdhLG2UdyK0GUQ+6TMo=
 			</data>
 			<key>hash2</key>
 			<data>
-			+o85hVkEoNBYsW/th6Ltex89/WgcTmhpjH6bq9krNwY=
+			U0mEDTm8G1LDyWUQ1fuEHpEo0fUMZTYLcans8KE4Hfo=
 			</data>
 		</dict>
 		<key>Tools/Toolset/palettes/snippet viewer/behaviors/revidesnippetviewerbehavior.livecodescript</key>
@@ -32090,11 +33934,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xy54JUmJP7nBaMkIuV0g9qzpdl0=
+			mxpMm1AyuCXYJdUoeyDR/BLeJJs=
 			</data>
 			<key>hash2</key>
 			<data>
-			bWvrTMrNY2NZPauxilGww1aelShow2JI804eHPfYFrE=
+			2512kBKagf1p/3aDp2cY6jRB0+sLg3VpibLq8u7bRfQ=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/supporting_files/property_definitions/com.livecode.interface.classic.Card.tsv</key>
@@ -32123,11 +33967,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Wt74sz21nNxVKX1ZYMoU0LLCKk0=
+			Q7xI8bElMW1osWxnNbeJwMYLT/Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			XdLktjPVpstyypfzSpFRuRCbl+gvPcCbcwIGNMkmfzA=
+			+a9+KOHWycQgbNYo2WYwOYzdsYj13w2u4aNNgdpI7W0=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/supporting_files/property_definitions/com.livecode.interface.classic.CurveGraphic.tsv</key>
@@ -32255,11 +34099,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ucRPZDo4ZRADKCfhqc91IgBENsg=
+			IAN3zgJ17FsY04B65AKyTiawtmc=
 			</data>
 			<key>hash2</key>
 			<data>
-			u/QVtMR2284Jp7T746jij7YIUSB/PJJWVr+YbTCuE/8=
+			lUV4rVS1mmOF9+XNVbDNjuoe6EVfJbwMWsYuGj/1/dk=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/supporting_files/property_definitions/com.livecode.interface.classic.OvalGraphic.tsv</key>
@@ -32321,11 +34165,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hHUGsItnZcj6aFwoiytCiLfGWgU=
+			1vWqKkhNmRcHLLmo6/oIyfaPUbE=
 			</data>
 			<key>hash2</key>
 			<data>
-			7oJ5iivEcN6UmkrgKRACK+DfTYAOgct3mjEfCxFadWI=
+			pIi46lwr/qGIiA7RDQBHbgjsLljARdFoG70yISgFwog=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/supporting_files/property_definitions/com.livecode.interface.classic.RadioButton.tsv</key>
@@ -32343,11 +34187,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FBPxoRiw9Z58JWaG3osVEulTOkk=
+			wNwJKkNL3KxagR9L7+LXAHwAgco=
 			</data>
 			<key>hash2</key>
 			<data>
-			1qQkle8KDryHkamvhz6yqIOfDoEcJ/rGrgpeSnVl2sY=
+			dz23/kt3tggTkjfPpLhp9YotmBnY9MeVBU2/Kek+hjo=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/supporting_files/property_definitions/com.livecode.interface.classic.RectangleGraphic.tsv</key>
@@ -32431,11 +34275,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AD7Fvq1SeMVQ6muOXrR2N7AxtTY=
+			IbhmqTLrDBxjNCryO3RDbvb8izw=
 			</data>
 			<key>hash2</key>
 			<data>
-			+Sp7B54trH/K46FbBgUK8fjNt9rwOfnuEB8uEYj0Tqc=
+			xjMVOO6libqhY8PJbQk+S7mRYRDw8CoaI2XoqILVQyw=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/supporting_files/property_definitions/com.livecode.interface.classic.TableField.tsv</key>
@@ -32469,6 +34313,17 @@
 			<key>hash2</key>
 			<data>
 			1J8kIz8ETGGV/1rgAVGxQrT2orTzANEvmEJN50fM/DA=
+			</data>
+		</dict>
+		<key>Tools/Toolset/resources/supporting_files/property_definitions/propertyInfo.pdf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			m/fwYNDdpcn/8UcnFQP2vRi8dOo=
+			</data>
+			<key>hash2</key>
+			<data>
+			wdMYLs/w8tFRhChH1z7CZNgwcmgK1M4Jt1D6xpiAbiA=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/supporting_files/property_definitions/propertyInfo.tsv</key>
@@ -33417,7 +35272,18 @@
 			iIISkoDXdoiKLXNXCwTcYh/uT2OXXlW98iyXsf/OREs=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.cursor.grab.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0-orig.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DmN8/o1MPzcXmm+swnRIooiuDaQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			4AO7473cpihVfpDijIJwN+v4LRAmnnHmgJL2pBZ79YM=
+			</data>
+		</dict>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.cursor.grab.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -33428,7 +35294,7 @@
 			MASD4+TRNZ3vglc9jSRWGtxL7BdFBNbMYLq8wzYq72k=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.cursor.grabclose.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.cursor.grabclose.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -33439,73 +35305,73 @@
 			dlFNj6KMOLYTzSVlZ94yb8sgjkmwA7caCraGu946fkY=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Button.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Button.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3CVS7y+30MkQSTqjw0OF6kLL1ng=
+			3So6Vezcp5AGSQeFIP+mscEJNRw=
 			</data>
 			<key>hash2</key>
 			<data>
-			1ItOul2eQJHNISv4p8y2pICV7k9TVo80vS+oQ09Suz8=
+			VsoFH72wSfu7Rte32a6qsHzgL2t0Roa8pGXu/3MhXSs=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Button.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Button.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8eeRKLLSe+ldp3B1RKAH4BYj1B0=
+			y/EJoM3f5Yj5nCQbrgDM4qrXE3k=
 			</data>
 			<key>hash2</key>
 			<data>
-			XmiwOET9pv+FbyUTQlDX8lQ5nnEh72BiqvEq9w7Ro0w=
+			VWbw+NhEqTuFHTDQsVOL+jrjMz0F5ST0vtrSFVclp6Q=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Checkbox.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Checkbox.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ow59Oc75AegxGCucKe6bKxXPXlw=
+			eQyubW1XasUxru8NOU/s0vq7KwU=
 			</data>
 			<key>hash2</key>
 			<data>
-			we/Tw/qdBvf0xfwBkU4SwMVo7cy9ccGT3gmiV/rFuTs=
+			6QR5ocKbSJ9RiSkOhehwLsbtnyBLl/ebz6Zxc9MrKTc=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Checkbox.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Checkbox.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nnRcnglLaBsqIB06GePBDeS+498=
+			7pA00v9+HXHVE6N2m05k3/Z8tvg=
 			</data>
 			<key>hash2</key>
 			<data>
-			+cn6jal7LoyHOhqOkwju3FBBryKgebmAEfGIOVnwsp4=
+			ea6xDHNlg3N1G3cBv7LZYJdN5wTcAdFXOriPrXyYikM=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Combobox.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.ComboBox.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/ou6B7T+gLFguL5MXBxLhB72PPk=
+			3igNFMuhL05ZcKIDp7P/B4Zo9Ng=
 			</data>
 			<key>hash2</key>
 			<data>
-			HfZyzx5nIgVQkgoZAzv/qjQpGrKP54W2bv6XOxRYESs=
+			CkE555N5gcv0bTv1WTr0XfOORXvg2qihzqFtBVYL3Pc=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Combobox.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.ComboBox.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			t2G18ecObfc1ypp5j70dKK8xrTo=
+			7mCQ7Rc1VjSjcCkC29RWw8p6e2Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			QmVojJ7G5SL0q+EX10zRefv0+HObIlGiVzX9Emma5wA=
+			8NeHpe93SoM3E2q/+JlRdsJvhElk0zdvHM5WYawL8d8=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.CurveGraphic.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.CurveGraphic.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -33516,73 +35382,73 @@
 			GCmz4zLmvLka5N+MQGBqWeaDCTdGzY5DAnxn6EZ6IxI=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.DataGrid.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.DataGrid.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tvg5aYca2fgajMwI/oczEG0mo8o=
+			lyD27XEGkzcJOw60IkeVGAk5O10=
 			</data>
 			<key>hash2</key>
 			<data>
-			ujb2bgviwGHCNhmzErr/vao2my46MBRVsM4AVvXNmvo=
+			Pn5OIXmCL/5dioS5biiQVo1VPecWi1gY+y6kOpPfMN0=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.DataGrid.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.DataGrid.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3Ci/5Ubjg9wDmxxnORn/wVLJWbw=
+			05oOJn5SgUxD3mCwuXQEnm70Gr8=
 			</data>
 			<key>hash2</key>
 			<data>
-			KRvgNntTLqD0XFtGfXKYIf9TX0c/aSc6GJSQ6xaivps=
+			JexxkwJmaX+5SnBzNxNNr4P0C5gCcDuILOTyEe2WrlA=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.DefaultButton.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.DefaultButton.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HemxIS3ZD0XI1djnzl9kntdWWsM=
+			rhu5D31dxiGoEDt/ADef6R5psgQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			1cvTITYofQQC8EF7F9z02gP3lUdbnR6kOYBuTGEKSB8=
+			WIKLpUBAbTmvOaJDu+LG+D2z/BHJxcGl+HHrKFMaZDo=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.DefaultButton.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.DefaultButton.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			RSQ53YuXP5WLfChDIyNPnI1kGoU=
+			6Rf2VtJJlcBolR566jjy1bB+4oo=
 			</data>
 			<key>hash2</key>
 			<data>
-			ow212Oj3l2l7e34jXbEu+8Ek9WT1j5II+l8t6Se/WcE=
+			mRRokNfJEhQouS7UwPEEEIwGL1IJt93IuP+SJAgMG1c=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Field.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Field.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XVssIebHvNH4A2QR4sOvSlXIL7s=
+			8nGUpDolTbMxM7ei6u8texQipHE=
 			</data>
 			<key>hash2</key>
 			<data>
-			r0JRJDg/DsF6hrGhi1OhdNbViB5DY8YGfH3CSfQXERA=
+			v9+8LOOXaBxOUCHbEt03gQWeq6rTIzZJZOqRneJ5QtQ=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Field.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Field.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4yrJIg3uXY3CfEP19T5F/qZClNI=
+			Dtv8sM2NQdeHflTtd/f/PqeaV3I=
 			</data>
 			<key>hash2</key>
 			<data>
-			3qLR0hAr/Vo7/A66m1KKarfxqYzbO1goxVNdSYCduYM=
+			Yk26+I8WiiYtb9PBAGcHWPBqyIrhhuBkd82LDjeUG+A=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.FreehandGraphic.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.FreehandGraphic.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -33593,7 +35459,7 @@
 			MFJ+ppGpLYSSSy3wx8qC50z9We70RJn8k7xG7/lSDWE=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Image.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Image.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -33604,7 +35470,7 @@
 			7XewCpfwuC+c9rvssGbm6VeM5r86Hs5vrtLnrfRpkio=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Image.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Image.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -33615,7 +35481,7 @@
 			DymSVyr8hMHr5iB4hVu1yhSk1UcI9ydUQsNVPb85JDE=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.LabelField.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.LabelField.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -33626,7 +35492,7 @@
 			JsOsI6KVnlwAJpvq8NBvrZJ4GwxiEUPC9Nhdfh0pC4w=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.LabelField.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.LabelField.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -33637,7 +35503,7 @@
 			i4YnHcTRAWSZ1oWZQgYiG4gsU1KK9U8lTVEa2zpCWjE=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.LineGraphic.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.LineGraphic.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -33648,73 +35514,73 @@
 			NYIrWFxEV5GQOTBuP3lKGGpdOyTjg3Cig+KhWNIxPDs=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.ListField.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.ListField.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fD5yz/YZXiwfs8cg6pJFCGbE+1E=
+			Ophq6ur+Tgkj7cGruw4AFFoRqV0=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZY3MO8depqZLMX1Je+yWztgJ1MDVgKgdyrVmBdY/w5k=
+			XZUgALBzP3+bhG0kpc0G18C+DJwnuoQ309vBa7Iwu1w=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.ListField.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.ListField.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qBe0cAzvNYZDzc2OI/6Vtqj52Yc=
+			VxTLSHJPD1p5P4yDF3plD0Yg1Xg=
 			</data>
 			<key>hash2</key>
 			<data>
-			+9RPbMmrCa4GltLdMtRrRIFS/g7ChsoV/cQMovrmKk4=
+			EfuZXp4kDfkOb1z50P7AoL8Mjp2kDQ0UuwvlT3Hojpo=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.LittleArrows.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.LittleArrows.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wHCdpb+VJ9T7vxFWa8mOlwceQ6I=
+			NIDinu8UP1kM0/rN2ARfUurPALc=
 			</data>
 			<key>hash2</key>
 			<data>
-			xHdvaHS0qboNJe/eWLu545Kv8+YgekBOME2aYZzy1kY=
+			bP/8Nx06SQvZiWPkFJeNa0BlSt6Pz4n8yDl+vzOgnEo=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.LittleArrows.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.LittleArrows.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L78qB8uAyPDwECsUqV/eT9FQmWE=
+			HNzW3WbFhEZHanSLAUUMraqyJM8=
 			</data>
 			<key>hash2</key>
 			<data>
-			V0GysyT70ZwW48LI7Ia1W4Dgda4hD+okLBC2Nh54cGk=
+			/v1Fwb57JzUWZF22DvdpN+Wk+n9dueQdVQpZhmoLUNM=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.OptionMenu.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.OptionMenu.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ELSNaMJpEsUl21Jtq8Ztsxnz5NU=
+			wDgRYmT9hLLhKkkriBxDV5muGhA=
 			</data>
 			<key>hash2</key>
 			<data>
-			fwJV1GsriODU0CugZYMIQEShGBXx4NK3hhxUcmQEQOQ=
+			ROjCUs/o12JxRRWhGNaY5UaBwC+IG4i6a8LSY8aFw2w=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.OptionMenu.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.OptionMenu.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XTztWZ99HBPF6VRTQO29EeTeF0U=
+			CmaRdbRYt+zf8dfYyPrxPE0qObc=
 			</data>
 			<key>hash2</key>
 			<data>
-			hZ+eSta6++rvJv+ngHPwK4sM5VGhv0kfqEzJcKKtZW0=
+			ab/9kGuKA2KSbsBEBeR0E6R7lrMTVhYN6M7Q+KreUoI=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.OvalGraphic.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.OvalGraphic.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -33725,7 +35591,7 @@
 			hw/+DuE/LHQ83NiwNEBzSxj6+S6TI8E2DWVzo29Yb4M=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.OvalGraphic.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.OvalGraphic.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -33736,293 +35602,7 @@
 			lvb0uJHJfpj/QyrJ6mOgy89KT8yWFLpFMG8AUAEvB78=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.PolygonGraphic.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zFCMoYAippK8ijoO2ry9XEcu6j4=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZyJd4JuUCmm1eSk1e6N3ACwNLu3s5k7foaKlek/RZK0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.PopupMenu.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FBzKVHQUXT4hdOnDBSAG2WOHmsU=
-			</data>
-			<key>hash2</key>
-			<data>
-			blsJg7w82P2fdU7xzwdGu0hlNO5Qqm3zDGrzo65Tnss=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.PopupMenu.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			y6a6HkxXVqw8wVm1vqycjEuJC+s=
-			</data>
-			<key>hash2</key>
-			<data>
-			vQjiu72igFVHKVVvj+1IfSYgR/GIOm6ZgAdz3LvFJwA=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Progressbar.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			EtzpACI69BtphD2xzH6r/VZSwbE=
-			</data>
-			<key>hash2</key>
-			<data>
-			/QoyzwM86GqoXwnegcPUktvYPw1wOSeD/inCEcAkm6M=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Progressbar.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Xc0r5o+tD//XD7MQEvc6p48YA5Q=
-			</data>
-			<key>hash2</key>
-			<data>
-			UBAhVY5ZZ/6+jWhg98Mfewme3Gj7KP0SrSJcu7Jiplw=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.PulldownMenu.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ciiWS9+o/mAynG8Heyde892MCkw=
-			</data>
-			<key>hash2</key>
-			<data>
-			MRuIa6pKqZ765j3/o+glr6zupd4VL1IcgsFH/n6bt3c=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.PulldownMenu.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QAqNPxITiECWqXXMGUvVzHzm6B4=
-			</data>
-			<key>hash2</key>
-			<data>
-			gOu2T3AlARboq1W7RmSOjxqlfn+bXc/XUA6ETjucZUo=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.RadioButton.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			L/AQ7/Otdgm9B2y9JqM0yYftosY=
-			</data>
-			<key>hash2</key>
-			<data>
-			+lZ1z6GTqHKOvBdt+FgkADmDEwCaarLaaZDwAvt39B0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.RadioButton.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			hjqbbRxp3qNLJey/SOADOfMgFs0=
-			</data>
-			<key>hash2</key>
-			<data>
-			7WQ136cn8y9mz4YGEXp927OXAx9dsxqHiUo9jFvMwh4=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.RectangleButton.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LzkFvDOmTPVaz9g9LtpzBJWkqUs=
-			</data>
-			<key>hash2</key>
-			<data>
-			kHNq6SWiKGcHYwGTLwFftD3KJdrZt5y9a6TwN0ShHhM=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.RectangleButton.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ZX1INtFB19tgFZSi/yuMSQu8m34=
-			</data>
-			<key>hash2</key>
-			<data>
-			Tj0fFmEPJUtNR7HfB27SV2qPVyiiBVJeH9k0fNNw2nc=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.RectangleGraphic.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			+ZQiLfP8HvowSm150Dkyr54X3Lk=
-			</data>
-			<key>hash2</key>
-			<data>
-			cW5bDKSwlu+DNGRQo6j4IixLyomHxLKpa9iVCCb5tJQ=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.RectangleGraphic.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			iPrT3dcvvWSYn6SnveJz1dRzejw=
-			</data>
-			<key>hash2</key>
-			<data>
-			8D/e4S/YcQBruoxSrwWQS/2iT38zXmqOkjebs9b0URg=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.RectangularGraphic.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			yBTimOScQ5c89scFTgXX4MVEsZA=
-			</data>
-			<key>hash2</key>
-			<data>
-			XyoQdP+xX0Lrc7Hm9siEtSqLN9aTmXY0x9ITjeSZjP0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.RegularGraphic.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			upw7SJIHYkgHHDeWVwEsI8UkEmA=
-			</data>
-			<key>hash2</key>
-			<data>
-			pkaeMdbCpeUrA8BReMhy3EKSEnJZKTRj1GeFba8apJw=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.RoundRectGraphic.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			xKmRM9APSQXSI6YOy/F50fCxM/E=
-			</data>
-			<key>hash2</key>
-			<data>
-			qBeHecLsMa25FvH5nnV8bopBsrr+aGvc329gL72UzzQ=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Scrollbar.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			R76jt4IP8N56fcKQ4eX+/zc9law=
-			</data>
-			<key>hash2</key>
-			<data>
-			SosbWEipGZcFrgToxnTMJsa6mqMI5A5Ot57ZibI7pD0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Scrollbar.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			T6eRew9oR32/2wo6hhQbqUwpQEA=
-			</data>
-			<key>hash2</key>
-			<data>
-			NoackrC4DJ4qIyarBKIr/pCrx3gL5dolYcTxxWxl/4Q=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Slider.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			X90ZjfjOo0aSpJvEk1jZvICCsoc=
-			</data>
-			<key>hash2</key>
-			<data>
-			C+d/4x95XLhVB7PU+/aKTPkLp3u3yACvQMSzzOe0pS4=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.Slider.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zLOUd/ffKIUC35UAeziyAvWeRwI=
-			</data>
-			<key>hash2</key>
-			<data>
-			lWYYpl+RFzpvh01Gxw9tMSDkt/KijmsUnVdZ/+JfAM4=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.TabPanel.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			7ocBh1+rb4BANMT+n8Ri7fNOD2A=
-			</data>
-			<key>hash2</key>
-			<data>
-			WDO/q9nUmi+kky1KHHJzlAgKrWaHNozpqQzz1eXQdRQ=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.TabPanel.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bfU8npa+qs+7f0xB2NQY2/eJNXI=
-			</data>
-			<key>hash2</key>
-			<data>
-			OONwm+vK0UqA0rmK80QJKoHgUit5p2+GVChIDoyDYXA=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.TableField.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LxdvLHHKVjQ8vSy/wyn3UarSfQs=
-			</data>
-			<key>hash2</key>
-			<data>
-			JK5Xa6WBW6eaimO1KxNDz95TdPAMktKld6sR4ZjEnug=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.TableField.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			BLUpvBIsY2uz/SBsYWaloKhMuAU=
-			</data>
-			<key>hash2</key>
-			<data>
-			EEX2+Nejgq3t/Oe7d1AoRs3wnJspiVzy0e77ROUdy3Y=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.TextArea.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			NJeOF4nD5dEoWDhz+waa8OJCPLs=
-			</data>
-			<key>hash2</key>
-			<data>
-			vFoPZ5YaRqMgqwbd8c2jSHJFVAJgP6wG8DkrJMzCbWE=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.TextArea.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			CcEECzEljoSN9YsuV5oSLqLVN9U=
-			</data>
-			<key>hash2</key>
-			<data>
-			lVyEckCHzFwLblf29Qol11L1uZgWSfPAQjvR1pVUfYg=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.player.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Player.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -34033,7 +35613,7 @@
 			SNlo1Aao+Q7FUBxAgZm7jU2hupNfOXyRcy0S0gwHQBU=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.classic.player.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Player.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -34044,271 +35624,7 @@
 			fXGx75+HQfM2iVopXe5BCDMEOeG6o8BJy6c57hVx6cE=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.tools.hover.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			gaUrg/1JW+34SRdyNzcNGS4rLwI=
-			</data>
-			<key>hash2</key>
-			<data>
-			uNsyHNG8GRvQ9tBo4NjRR/QZNckOJm6WTdisP2fAuGQ=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.interface.widget.generic.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Tm4ced/HTCDWB3c96yR1iWKL8AQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			9cmzZjvwA0q84JgwRThGyTZlM23Um9RZiMMHCfOl0B8=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.pb.tree.expand.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			nmFQbDTBkcEW/R2ugTA+VPgbhkU=
-			</data>
-			<key>hash2</key>
-			<data>
-			nkAWRD0xdY8Rocc3VSs+eeX07btzdd07vNQckvsL4Ok=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.pb.tree.expanded.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			njq7wwcjsyCD8ocZ+WGvhKIqdhg=
-			</data>
-			<key>hash2</key>
-			<data>
-			IoHn9TQ8ttgSE0+mgWEI1nWs4/i9oYfpv6iNJH+4ddA=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.pb.tree.linecorner.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			yw7MSSCoC9Sv9hJ1DZ4hRi2vOEQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			GQsxP4+7pY1lINiXabTccXm5ksgqD9KngCAbiwa1w1U=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.pb.tree.lineexpanded.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			+OtedBUCqF/wJgKT3Du0X/wpQEA=
-			</data>
-			<key>hash2</key>
-			<data>
-			oUf3ciuj20alDW0oEtU+p5K4FnZhgTW19NVkUHL9in0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.pb.tree.linehorz.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			F4y8WSRabg567pUX4R5w4UmnPdU=
-			</data>
-			<key>hash2</key>
-			<data>
-			GrisXsHKmH9oMC19LoRoPbMfEGKz541t6TzmK/OHLXc=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.pb.tree.lineitem.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			orwMNASH1FCNcmsGyRP+aDVvDAE=
-			</data>
-			<key>hash2</key>
-			<data>
-			BwOdqMzebwUGJlRMtikshDFTKijlfEdPCYkcxYP+1Zs=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.pb.tree.linepattern.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			r+wSTZzJmXGPbBk63ttAxWgTHPc=
-			</data>
-			<key>hash2</key>
-			<data>
-			igfoqLMpMzw6byVrO1AhfvBe8fQGkz7wCuCKK2ulkTo=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.pb.tree.noexpand.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			sewK+OuJMD08iNrGk7VV0TqL2Y0=
-			</data>
-			<key>hash2</key>
-			<data>
-			Kbg+xHmMymMKIuSo7iIHTd55nOyQFqd9i6/bj7wO64g=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.pb.tree.topexpand.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			b7C/i535ApqRrdm1TwJ4oiXJ7E0=
-			</data>
-			<key>hash2</key>
-			<data>
-			Tkw4mm9Bf0MKUPV8Yi2gUwVXLlufuDES6Gw2okEYP08=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.pb.tree.topexpanded.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			w5EWm3ITLtS5+/L97XaAWWEZF4Y=
-			</data>
-			<key>hash2</key>
-			<data>
-			n4LUDX+5TMI9jOCyRon/sZgC22rwy9xpxOZivw+262k=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.property.brush.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fQUoweh857EAorsTAmoyVhxVc7I=
-			</data>
-			<key>hash2</key>
-			<data>
-			yOaZUTqqMy6sVAQ6fOR6tvDXUduntBPPIAvZgThGJBs=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.Browse.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3qAT2LgTRpNI/kBU8v/3TuYkAMk=
-			</data>
-			<key>hash2</key>
-			<data>
-			qXZb1BlRqxSUY2lwvVhGVWl853o8whXLB8bgcVal+jk=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.Brush.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Zl6mAsPY+shTujiYmh3SYHdJNNc=
-			</data>
-			<key>hash2</key>
-			<data>
-			OiVKRcbgHxLnBHCi+D65ck1bF6krqbb51H8Z9+XHJ4w=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.BrushPattern.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			mrDQM4mMLUk/DnnNj2+HNKgSJks=
-			</data>
-			<key>hash2</key>
-			<data>
-			4DdhUBrZxWqMNX1Gx8tkDjPMwVt1FTMEOPUoHjfeCDw=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.Bucket.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			veUm7MD3g5uEcE8H1RFaMPEaQcQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			VhQbzu4SDHo6NvF+z0U1zf7vX8bV6ctS+rGdGY3kc2w=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.Curve.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			G63UIclfkcRwEC1EmEfJOR6xe4Q=
-			</data>
-			<key>hash2</key>
-			<data>
-			GCmz4zLmvLka5N+MQGBqWeaDCTdGzY5DAnxn6EZ6IxI=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.Eraser.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			P9rgwEk7ocLQChe3yr7eKiLkS9k=
-			</data>
-			<key>hash2</key>
-			<data>
-			K5FDQ2cZO4ULy5pmkodjZJC1tSY8A1Mezp0r0VlJ1/E=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.FillColor.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8qBPmvRDm8e1o0lWi0yxCLmdY24=
-			</data>
-			<key>hash2</key>
-			<data>
-			dV4cSJ6ianEMBT+LVVVldtd6qYiCWiJU0EktlS+91V4=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.LineColor.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bx7/fwh3ZNoS9toPNfw3d+VevJ0=
-			</data>
-			<key>hash2</key>
-			<data>
-			MOWGLM4j4faBmnTR3zi6Ig+aN6zKnLSEnR+QKy1fAT4=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.LineSize.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/zm4A7skp7tqMCD6RsAEJSu0wQw=
-			</data>
-			<key>hash2</key>
-			<data>
-			F9yZZMnL7KTSuro2wH3uTCgsS40a3wTI3KyDacQTXe0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.Pencil.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fQUoweh857EAorsTAmoyVhxVc7I=
-			</data>
-			<key>hash2</key>
-			<data>
-			yOaZUTqqMy6sVAQ6fOR6tvDXUduntBPPIAvZgThGJBs=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.Pointer.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			PuKGNOUtnRTMeM52VjuXcQTjhP4=
-			</data>
-			<key>hash2</key>
-			<data>
-			oupS9nUsUUzd9+LJrHiNgC4mnLg9GsC0z5BERDO/aqs=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.Polygon.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.PolygonGraphic.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -34319,491 +35635,117 @@
 			ZyJd4JuUCmm1eSk1e6N3ACwNLu3s5k7foaKlek/RZK0=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.PolygonSides.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.PopupMenu.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ikwF+8l9P/wmp7CuqQ0jVG7I3Ck=
+			Fofwoc64f5MygrlckFJN1pExhSs=
 			</data>
 			<key>hash2</key>
 			<data>
-			FWUUX6KV6OWprWHCpHtOEapQNzHCZ7FD0WtjO0/ttcg=
+			W24rjA463qsuGtb4ls7brABOMYK0pXhZ7Ke9rdvj9yE=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.Select.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.PopupMenu.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			S/4Q5cLSHHBZ0G9fRL36JNTJVhk=
+			evFNSv8qElCDY+fTTlEGYgCNHK0=
 			</data>
 			<key>hash2</key>
 			<data>
-			KALb4KR89bup74fpvLSpfZdw6VBZ3DXxv+d6cizom40=
+			WDFiOi1+6hZwKx9LwgIjfHsOwQvOO54yyfurqp3NSx8=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/com.livecode.tool.SprayCan.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Progressbar.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oLqlaRqjZ5iewh6vxxwgB/D1KI8=
+			hYaTDTvg+49maUJzpOGdTvt1qmc=
 			</data>
 			<key>hash2</key>
 			<data>
-			IIXb3lYw+VAp7ipZmGxlSzL4Z3HjduHGJVEZIpAUZwc=
+			XyUVSSQqzfoN2YJX+JVIUBP7bjQN2eBaHyNWX3x0c48=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac.10.0/loading.gif</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Progressbar.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mv1jSnTkLefzkmbgDZ1c1ytY1CM=
+			FmHs4Gu9e6qlJT7RI5KeLzAMrCE=
 			</data>
 			<key>hash2</key>
 			<data>
-			iIISkoDXdoiKLXNXCwTcYh/uT2OXXlW98iyXsf/OREs=
+			axoAoc+YJnObcXb/w273lBicmal97moRtqlbdx0U4EQ=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.cursor.grab.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.PulldownMenu.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			46u9m2dhXFHt6TRZF0KKPk+kVxw=
+			ZtWSNyMC2U+FyQJl0SG42u5irqo=
 			</data>
 			<key>hash2</key>
 			<data>
-			MASD4+TRNZ3vglc9jSRWGtxL7BdFBNbMYLq8wzYq72k=
+			I+aV0wttwl4uuTpTzQTq5UBC/VXLoMHldKcS+yBFb/A=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.cursor.grabclose.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.PulldownMenu.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tOoECt6RYXiIl4nlQSYfE7Urzaw=
+			rvlgItcjKjYedjNmn5euhTk+BkA=
 			</data>
 			<key>hash2</key>
 			<data>
-			dlFNj6KMOLYTzSVlZ94yb8sgjkmwA7caCraGu946fkY=
+			+Nas5+3SrkcTBIcIY09PrQFt4f6gHP17KMwmDWlKduE=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Button.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.RadioButton.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			g3K8zJf7vwovLv6eGq9mN8Lmx9I=
+			YdcTQI2V765VXMZtDnOsBtmgCew=
 			</data>
 			<key>hash2</key>
 			<data>
-			goJGWKfr6zw/C+WRkCmmQUwVyXqRVyHgSLoDjJoqEMA=
+			992ZYZw0jjdqDr7ivo0r5jmMeEvOHqo27kVYhjOddjA=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Button.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.RadioButton.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oDIcir0aaURLKDj9xt9UXXxZJZQ=
+			xmCPO+OeY/GZkB8xq9x7wDESrqY=
 			</data>
 			<key>hash2</key>
 			<data>
-			ln+otf5Q+PcRQTjgJSofdI/rhit0ySkldS640tmllpU=
+			jNQaWlycg7UkZEpWvIxb8fy42yfQNrQr/+fOJJeBiCU=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Checkbox.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.RectangleButton.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xuHC7UDGzNIefyXYduTZ5WgQAgU=
+			3So6Vezcp5AGSQeFIP+mscEJNRw=
 			</data>
 			<key>hash2</key>
 			<data>
-			1NawZcgifHL/yk/XdyXFtO42OueaoJdbJogQgDPAU0M=
+			VsoFH72wSfu7Rte32a6qsHzgL2t0Roa8pGXu/3MhXSs=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Checkbox.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.RectangleButton.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			s3W3C3wHCyPKFoqzMdk9mt/Cj8U=
+			y/EJoM3f5Yj5nCQbrgDM4qrXE3k=
 			</data>
 			<key>hash2</key>
 			<data>
-			qOQKk39/qNHNxicbAT/6m8mT8ENlz0Z5jUPNAuxTwVU=
+			VWbw+NhEqTuFHTDQsVOL+jrjMz0F5ST0vtrSFVclp6Q=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Combobox.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/5Rt8Wu82iFLa5IRcT7nQiE1W54=
-			</data>
-			<key>hash2</key>
-			<data>
-			w6acAoJdZZQwYZ3AlM0SWMt63W6uJwALbDaT//VNEIA=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Combobox.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			7liu+pyLxyn05vFq9SxnTphK4CE=
-			</data>
-			<key>hash2</key>
-			<data>
-			SDwgoYZja6ZPkf5xcnsx5aViUbkRWKtPNiL8IwsMK3k=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.CurveGraphic.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			G63UIclfkcRwEC1EmEfJOR6xe4Q=
-			</data>
-			<key>hash2</key>
-			<data>
-			GCmz4zLmvLka5N+MQGBqWeaDCTdGzY5DAnxn6EZ6IxI=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.DataGrid.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			AIZjV1HHyeS5Urj+561d1p8wQ58=
-			</data>
-			<key>hash2</key>
-			<data>
-			w7DUTib9piIYvbQl2Hu3cLDomquDm8iTcA6LCKcL7vQ=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.DataGrid.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			x9ghw09NtXrhUnz0kWzOgqF3SZo=
-			</data>
-			<key>hash2</key>
-			<data>
-			56dC9TU5RW3M4cU4vzKVNsUuJhC3HT99O7eU2um6i6A=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.DefaultButton.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			D7QG4kFEeO8UtR1cUFoXS0/BloI=
-			</data>
-			<key>hash2</key>
-			<data>
-			D32tklbnJZILXedC/cpf+TouH5o2YMnbHq1aMGqDThU=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.DefaultButton.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ByY6pQ+zvqrRgyHDNG2uQ38LmlU=
-			</data>
-			<key>hash2</key>
-			<data>
-			2QJwrMD5/DsNG3qIdIKV0fSoLquKfjwAyGwHdN2fmbE=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Field.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			cbq909mFxA9S+yikNOUITEjKKlY=
-			</data>
-			<key>hash2</key>
-			<data>
-			4gh/0u0/ZPmhlySQW5+T2kKBtTZY7joSXZp5BLbkDFE=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Field.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			DAdqZMjOreYhv9/1X5QVcBRE0yc=
-			</data>
-			<key>hash2</key>
-			<data>
-			l9ht0yJSWMWoFOCL5qeUL71hLWoMyOzRIPm/0tYZhQg=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.FreehandGraphic.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			xGLauJ+kz7or2qc83rJKVLOnfqE=
-			</data>
-			<key>hash2</key>
-			<data>
-			MFJ+ppGpLYSSSy3wx8qC50z9We70RJn8k7xG7/lSDWE=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Image.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			gN4/pZb159g9WRAClxyo50zjuJc=
-			</data>
-			<key>hash2</key>
-			<data>
-			7XewCpfwuC+c9rvssGbm6VeM5r86Hs5vrtLnrfRpkio=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Image.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			lm+XVqwtR/LCw5jNAbr0N4Xw5Sc=
-			</data>
-			<key>hash2</key>
-			<data>
-			DymSVyr8hMHr5iB4hVu1yhSk1UcI9ydUQsNVPb85JDE=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.LabelField.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bAqOr+jG0VauM+pS7dsYuloLr0g=
-			</data>
-			<key>hash2</key>
-			<data>
-			JsOsI6KVnlwAJpvq8NBvrZJ4GwxiEUPC9Nhdfh0pC4w=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.LabelField.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bDDRz5XLAdvJRABK4Sq++VsWLN0=
-			</data>
-			<key>hash2</key>
-			<data>
-			i4YnHcTRAWSZ1oWZQgYiG4gsU1KK9U8lTVEa2zpCWjE=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.LineGraphic.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oGyf4DoJznqQE/cvJzPKKf7ZY08=
-			</data>
-			<key>hash2</key>
-			<data>
-			NYIrWFxEV5GQOTBuP3lKGGpdOyTjg3Cig+KhWNIxPDs=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.ListField.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			HcquUYvM2AeuY7B18OFk7HigK1w=
-			</data>
-			<key>hash2</key>
-			<data>
-			wrbmvU3gR/NbZ8BL+hVkyHbna97yVvYWzbAcDT744Jk=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.ListField.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zcCYjCA4BeC+1u/bLYAwIz2VC/U=
-			</data>
-			<key>hash2</key>
-			<data>
-			qAfFcb/vA2q9bXNn3kvWMOE/lHCabbuziOchRHFJ738=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.LittleArrows.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3PcZSRP2UGFPff8aQINxc6v3ZKs=
-			</data>
-			<key>hash2</key>
-			<data>
-			G9x96OvsIgw0D8r8sHvZPVTLs0sH6EKGPiG24U8LaKY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.LittleArrows.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			mxPf+FlOSKew5hGEy7kPq+KMDXw=
-			</data>
-			<key>hash2</key>
-			<data>
-			MxJpbHubKi352TGXNvg/u+YF2VYB+9IxTPfDBV7MrJI=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.OptionMenu.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			drR3wWHMfRKJDnR+RIjpGUbdKPg=
-			</data>
-			<key>hash2</key>
-			<data>
-			rut83ZCJgR71erQYxKDUqHd3JOgW9D8JBvMAtPCVZUY=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.OptionMenu.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			I3q8qBJOkBBUpXiw0P0zyxivJEo=
-			</data>
-			<key>hash2</key>
-			<data>
-			p1zW5AsDglaxe1euTZ7akG8oky6Ybfpmb290i7G1XqA=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.OvalGraphic.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FNZbpxgqRrG3F/4PbNvL1bBo6L4=
-			</data>
-			<key>hash2</key>
-			<data>
-			hw/+DuE/LHQ83NiwNEBzSxj6+S6TI8E2DWVzo29Yb4M=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.OvalGraphic.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FJXgj8GZqcnmRZjc4ggSgF+A6KE=
-			</data>
-			<key>hash2</key>
-			<data>
-			lvb0uJHJfpj/QyrJ6mOgy89KT8yWFLpFMG8AUAEvB78=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.PolygonGraphic.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zFCMoYAippK8ijoO2ry9XEcu6j4=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZyJd4JuUCmm1eSk1e6N3ACwNLu3s5k7foaKlek/RZK0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.PopupMenu.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2hGv9qHS7V5E256USHZQvj/hwZA=
-			</data>
-			<key>hash2</key>
-			<data>
-			yAiOZa1d64X+a7w1immI5CCiDlHfTu+U3gxxZ3dZUoA=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.PopupMenu.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ELJBu4K7XV21RpfSmBnbc7e5qZQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			xgD/hb3+ecy360p5gR5KHmt+Hk0cUF3/2olhfcrUGMM=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Progressbar.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			U5Em0WyMb7MPaV5kf+g+lsG9nTw=
-			</data>
-			<key>hash2</key>
-			<data>
-			/m2yZrC9SIHn0t6Zn7nAEeuvgapssXjMqUhjthtaDPA=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Progressbar.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2tkapqgSGA+/XUIFWk59vXM3Pu0=
-			</data>
-			<key>hash2</key>
-			<data>
-			xGiBk1vsU2gDO2xGXqQjd6q11J3IkMcsjMwN8j+wZTM=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.PulldownMenu.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			T+7V7vwszMI6Qdjr7xNs/UgmhUU=
-			</data>
-			<key>hash2</key>
-			<data>
-			muc+IvnDB2nX3LDooHHQmwj0KTAI6TfRWPGLiFlyGx0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.PulldownMenu.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/d5rfyePEFvvY1LrKlD5330443g=
-			</data>
-			<key>hash2</key>
-			<data>
-			w0tNj53G5+POdeg2H5ooDAo1R8zbsepfZWSmhtBgU3w=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.RadioButton.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			yT6kHSVo8gHepMZKw1tscjGvuHo=
-			</data>
-			<key>hash2</key>
-			<data>
-			VvSgFcekrCLh1r5R3hC1KvwpPDWxJRwaost0YJ+imt0=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.RadioButton.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			N5/c0OHci4Sa3ZJbCkBcSJAwAYQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			qm57gtY/gnpBCQvZZmOs7jEhcqR5iM9TTIwO0RKR1Qk=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.RectangleButton.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			yTIUp1SjS01MQUXE4Hdo8pRC9QI=
-			</data>
-			<key>hash2</key>
-			<data>
-			Sp44AXkhlBlUiRcvS2GpeMuNpKj3LkF8jUNSLHIiFz8=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.RectangleButton.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			i8eUIlybzy7hgQ3C36ZRqp1s2pY=
-			</data>
-			<key>hash2</key>
-			<data>
-			6yaZ2jBw5c5ku242MZ68o9X2NcLEQZaZRBfIAUT0iZo=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.RectangleGraphic.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.RectangleGraphic.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -34814,7 +35756,7 @@
 			cW5bDKSwlu+DNGRQo6j4IixLyomHxLKpa9iVCCb5tJQ=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.RectangleGraphic.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.RectangleGraphic.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -34825,7 +35767,7 @@
 			8D/e4S/YcQBruoxSrwWQS/2iT38zXmqOkjebs9b0URg=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.RectangularGraphic.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.RectangularGraphic.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -34836,7 +35778,7 @@
 			XyoQdP+xX0Lrc7Hm9siEtSqLN9aTmXY0x9ITjeSZjP0=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.RegularGraphic.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.RegularGraphic.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -34847,7 +35789,7 @@
 			pkaeMdbCpeUrA8BReMhy3EKSEnJZKTRj1GeFba8apJw=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.RoundRectGraphic.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.RoundRectGraphic.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -34858,150 +35800,117 @@
 			qBeHecLsMa25FvH5nnV8bopBsrr+aGvc329gL72UzzQ=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Scrollbar.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Scrollbar.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4PqQjNTKrI7mgdxpn23+A/ODEpw=
+			vybloCTzzPjuqVJ9kfd8VWAs7TY=
 			</data>
 			<key>hash2</key>
 			<data>
-			9DOiCMbsVRasDCBPpVU75+zDFozF8XpYWh82z1/FdrY=
+			D1hdqStv2cPxCAag+fGM4qQIRzGUThjzuat4Lf56Y28=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Scrollbar.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Scrollbar.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9R+G5VO+Z/9omhreIba8RNVeZEI=
+			c+N2yt20gLve3TQvYBaB2rAfi+s=
 			</data>
 			<key>hash2</key>
 			<data>
-			IwFMSmj8SFGIR1q+LW4Xi/h5jgepGsCyl2cvHc1pF9o=
+			BKvNttbeWYxjxiiHexHRdnBbEN8h+J1sii2Uw14MFMQ=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Slider.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Slider.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FVl8rcB4lLfVCb4yI4dokFJC0zE=
+			F/p0JeG/Sf03qLnygK+Wtcr6vP4=
 			</data>
 			<key>hash2</key>
 			<data>
-			VYh9TOtR7K7O4FizuH/qbrtj4JupN+LAras2k5pAYAs=
+			XQBYHZDe7/RyPZ23wSCF2RVV48tbfi1GLPtTTix5gvM=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.Slider.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.Slider.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6dk01c03uSk0yXK15oXCM8dvd2g=
+			Rv1TD7QoBvbDAZFNjiSZfb2GtPo=
 			</data>
 			<key>hash2</key>
 			<data>
-			GTCQsyggvBhK6KhXuFWQvPLMJ78KkPNVbkOlnku5Xwk=
+			ju2fxiLDOBE7QzsBNDsiKGzlQXFTQljPO5zjyNAF+zE=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.TabPanel.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.TabPanel.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zrhof7THPTjeVIHThW0H0iZ58nE=
+			nLI/RxMJAGAdJb2XFR4VKBlpqg8=
 			</data>
 			<key>hash2</key>
 			<data>
-			rU80UWzPHpjwGqiD6j8KRHacT444tl2Wae2ksIQ1Qlo=
+			K3gxuHdgsrxixzPIv/x3LLBb6SJ+R8flU0SO4p0odak=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.TabPanel.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.TabPanel.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kRX1f0z+Zg61DFOkP3j7bppBcfU=
+			WnYG1YCavb+HRX2kEmOL2E0CJtA=
 			</data>
 			<key>hash2</key>
 			<data>
-			siOCjcLswrCRvH/Ny5eitiR17qxujflgYLSTtEzItzs=
+			9oc37LMIkTE+ndKczHFGNy/6CrNywDaHlDDhVfRr2U4=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.TableField.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.TableField.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			h9KG4ubLgTso2rs5POM8Y+Hatko=
+			tmY+OsdVVypyyLkf4/uLIjLTF8Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			KjdHVfDoBvJqeoeXXQma/Mx7J1TFmCTVJglNaqX9fLY=
+			RAp8dI2Jv3RXZqTmzvrHiQZtW1/ZdW03oLE9w+Wl9AM=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.TableField.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.TableField.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aUy6+LrtwlliJFsyDrv9ItNPksk=
+			6BIMWmpNH5fJp+pPRYf7DJJF13Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vizo6VhPBUigy3d/ex4HozKLz4PDMDqL9GHNrzEYt4o=
+			r/uCAlk9WA4hsuh6UGD/99our04374RVcs6CowdqrRE=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.TextArea.icon-hilite.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.TextArea.icon-hilite.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FL+9zWvj+GtbHmBESRTuTLk0KIA=
+			Yq8kC2HzmfoNt8sarP1Ss99ax5I=
 			</data>
 			<key>hash2</key>
 			<data>
-			QBZFa/mJ4vYTfDs9nkC+PsDXHUAAB8Nak4fJEr1Ky3Y=
+			IzfdYpl6mr6QCwm+V6c/+BsApssHY3WucwleZx6o3VQ=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.TextArea.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.classic.TextArea.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wbaGVAkPvbX1TrEW3C5sx2mkLXo=
+			extuNRQqDsBJHRgjyp3b22SX3Ow=
 			</data>
 			<key>hash2</key>
 			<data>
-			pSKOu0xi+OK+TrnhWAiCbdvZHZPp1s6RivsfbCu7Ejo=
+			H7OorXddjYWOGmFZ+X/iMcn+dAGQ+INLeMdjTyOO5wA=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.player.icon-hilite.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			C9YmZEpJ44EWvtr4bwk8T2bhChY=
-			</data>
-			<key>hash2</key>
-			<data>
-			SNlo1Aao+Q7FUBxAgZm7jU2hupNfOXyRcy0S0gwHQBU=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.classic.player.icon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Xd+mbl6E2eIssNb4KOl1NlNAnBE=
-			</data>
-			<key>hash2</key>
-			<data>
-			fXGx75+HQfM2iVopXe5BCDMEOeG6o8BJy6c57hVx6cE=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.tools.hover.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MTVKOvb7fdy9j8SdTLfWkNerVOw=
-			</data>
-			<key>hash2</key>
-			<data>
-			7JU6KCu2ATj+OMESbfUMOQXWj+yxWcBlKsO/Nz11v0g=
-			</data>
-		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.interface.widget.generic.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.interface.widget.generic.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35012,7 +35921,7 @@
 			9cmzZjvwA0q84JgwRThGyTZlM23Um9RZiMMHCfOl0B8=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.pb.tree.expand.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.pb.tree.expand.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35023,7 +35932,7 @@
 			nkAWRD0xdY8Rocc3VSs+eeX07btzdd07vNQckvsL4Ok=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.pb.tree.expanded.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.pb.tree.expanded.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35034,7 +35943,7 @@
 			IoHn9TQ8ttgSE0+mgWEI1nWs4/i9oYfpv6iNJH+4ddA=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.pb.tree.linecorner.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.pb.tree.linecorner.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35045,7 +35954,7 @@
 			GQsxP4+7pY1lINiXabTccXm5ksgqD9KngCAbiwa1w1U=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.pb.tree.lineexpanded.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.pb.tree.lineexpanded.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35056,7 +35965,7 @@
 			oUf3ciuj20alDW0oEtU+p5K4FnZhgTW19NVkUHL9in0=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.pb.tree.linehorz.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.pb.tree.linehorz.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35067,7 +35976,7 @@
 			GrisXsHKmH9oMC19LoRoPbMfEGKz541t6TzmK/OHLXc=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.pb.tree.lineitem.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.pb.tree.lineitem.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35078,7 +35987,7 @@
 			BwOdqMzebwUGJlRMtikshDFTKijlfEdPCYkcxYP+1Zs=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.pb.tree.linepattern.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.pb.tree.linepattern.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35089,7 +35998,7 @@
 			igfoqLMpMzw6byVrO1AhfvBe8fQGkz7wCuCKK2ulkTo=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.pb.tree.noexpand.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.pb.tree.noexpand.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35100,7 +36009,7 @@
 			Kbg+xHmMymMKIuSo7iIHTd55nOyQFqd9i6/bj7wO64g=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.pb.tree.topexpand.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.pb.tree.topexpand.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35111,7 +36020,7 @@
 			Tkw4mm9Bf0MKUPV8Yi2gUwVXLlufuDES6Gw2okEYP08=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.pb.tree.topexpanded.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.pb.tree.topexpanded.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35122,7 +36031,7 @@
 			n4LUDX+5TMI9jOCyRon/sZgC22rwy9xpxOZivw+262k=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.Browse.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.Browse.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35133,7 +36042,7 @@
 			qXZb1BlRqxSUY2lwvVhGVWl853o8whXLB8bgcVal+jk=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.Brush.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.Brush.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35144,7 +36053,7 @@
 			OiVKRcbgHxLnBHCi+D65ck1bF6krqbb51H8Z9+XHJ4w=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.BrushPattern.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.BrushPattern.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35155,7 +36064,7 @@
 			4DdhUBrZxWqMNX1Gx8tkDjPMwVt1FTMEOPUoHjfeCDw=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.Bucket.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.Bucket.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35166,7 +36075,7 @@
 			VhQbzu4SDHo6NvF+z0U1zf7vX8bV6ctS+rGdGY3kc2w=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.Curve.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.Curve.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35177,7 +36086,7 @@
 			GCmz4zLmvLka5N+MQGBqWeaDCTdGzY5DAnxn6EZ6IxI=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.Eraser.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.Eraser.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35188,7 +36097,7 @@
 			K5FDQ2cZO4ULy5pmkodjZJC1tSY8A1Mezp0r0VlJ1/E=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.FillColor.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.FillColor.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35199,7 +36108,7 @@
 			dV4cSJ6ianEMBT+LVVVldtd6qYiCWiJU0EktlS+91V4=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.LineColor.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.LineColor.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35210,7 +36119,7 @@
 			MOWGLM4j4faBmnTR3zi6Ig+aN6zKnLSEnR+QKy1fAT4=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.LineSize.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.LineSize.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35221,7 +36130,7 @@
 			F9yZZMnL7KTSuro2wH3uTCgsS40a3wTI3KyDacQTXe0=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.Pencil.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.Pencil.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35232,7 +36141,7 @@
 			yOaZUTqqMy6sVAQ6fOR6tvDXUduntBPPIAvZgThGJBs=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.Pointer.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.Pointer.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35243,7 +36152,7 @@
 			oupS9nUsUUzd9+LJrHiNgC4mnLg9GsC0z5BERDO/aqs=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.Polygon.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.Polygon.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35254,7 +36163,7 @@
 			ZyJd4JuUCmm1eSk1e6N3ACwNLu3s5k7foaKlek/RZK0=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.PolygonSides.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.PolygonSides.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35265,7 +36174,7 @@
 			FWUUX6KV6OWprWHCpHtOEapQNzHCZ7FD0WtjO0/ttcg=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.Select.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.Select.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35276,7 +36185,7 @@
 			KALb4KR89bup74fpvLSpfZdw6VBZ3DXxv+d6cizom40=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/com.livecode.tool.SprayCan.icon.png</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/com.livecode.tool.SprayCan.icon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35287,7 +36196,7 @@
 			IIXb3lYw+VAp7ipZmGxlSzL4Z3HjduHGJVEZIpAUZwc=
 			</data>
 		</dict>
-		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1/loading.gif</key>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.mac/loading.gif</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -35296,6 +36205,17 @@
 			<key>hash2</key>
 			<data>
 			iIISkoDXdoiKLXNXCwTcYh/uT2OXXlW98iyXsf/OREs=
+			</data>
+		</dict>
+		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.5.1.zip</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Q656eZKVFKYFO55B6UaumcJF37Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			poKosnxs97drZrJw1MgC5s9nmdW1iwCgeyGaCQ8OKS4=
 			</data>
 		</dict>
 		<key>Tools/Toolset/resources/supporting_files/themes/com.livecode.theme.win.6.0/com.livecode.cursor.grab.png</key>

@@ -21,7 +21,6 @@
   <requires name="com.livecode.mathfoundation"/>
   <requires name="com.livecode.sort"/>
   <requires name="com.livecode.typeconvert"/>
-  <metadata key="userVisible">false</metadata>
   <metadata key="_ide">true</metadata>
   <property name="navNames" get="string" set="string"/>
   <property name="navIcons" get="string" set="string"/>

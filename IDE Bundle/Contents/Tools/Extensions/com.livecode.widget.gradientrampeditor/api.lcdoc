@@ -23,7 +23,7 @@ Example:
     end gradientStopsChanged
 
 Description:
-Handle the <gradientStopsChanged> message to perform an operation when 
+Handle the <gradientStopsChanged> message to perform an operation when
 the gradientStops property of a gradient ramp editor widget changes.
 
 Name: selectedStopChanged
@@ -55,7 +55,7 @@ Example:
     end selectedStopChanged
 
 Description:
-Handle the <selectedStopChanged> message to perform an operation when 
+Handle the <selectedStopChanged> message to perform an operation when
 the selectedStop property of a gradient ramp editor widget changes.
 
 Name: selectedStop

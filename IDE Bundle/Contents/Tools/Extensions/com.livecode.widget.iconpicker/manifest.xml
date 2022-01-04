@@ -21,7 +21,6 @@
   <requires name="com.livecode.math"/>
   <requires name="com.livecode.engine"/>
   <requires name="com.livecode.mathfoundation"/>
-  <metadata key="userVisible">false</metadata>
   <metadata key="_ide">true</metadata>
   <property name="preferredSize" get="list"/>
   <metadata key="preferredSize.user_visible">false</metadata>

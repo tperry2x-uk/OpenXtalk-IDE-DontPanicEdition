@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.developer-tools</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Dark</string>
+	<key>CFBundleDisplayName</key>
+	<string>OpenXTalk</string>
 	<key>BuildMachineOSBuild</key>
 	<string>20D91</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -53,7 +59,7 @@
 	<key>CFBundleIconFile</key>
 	<string>OpenXTalk.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.openxtalk.ide</string>
+	<string>org.openxtalk</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleLongVersionString</key>
@@ -114,6 +120,10 @@
 	<string>2021 Paul McClernan and © 2021 LiveCode Ltd., GPL3 with exceptions</string>
 	<key>NSPrincipalClass</key>
 	<string>com_runrev_livecode_MCApplication</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Needed to record sound</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Needed for AppleEvents and AppleScript</string>
 	<key>OSAScriptingDefinition</key>
 	<string>terminology.sdef</string>
 	<key>UTExportedTypeDeclarations</key>
@@ -141,7 +151,7 @@
 			<key>UTTypeDescription</key>
 			<string>Stack</string>
 			<key>UTTypeIdentifier</key>
-			<string>com/oxt.ide.stack</string>
+			<string>org.openxtalk.oxtide.stack</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>com.apple.macos.ostype</key>
@@ -160,11 +170,11 @@
 			<key>UTTypeDescription</key>
 			<string>Script Only Stack</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.oxt.ide.stack</string>
+			<string>org.openxtalk.oxtide.stack</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>com.apple.macos.ostype</key>
-				<string>STAK</string>
+				<string>TEXT</string>
 				<key>public.filename-extension</key>
 				<array>
 					<string>oxtscript</string>
@@ -179,7 +189,7 @@
 			<key>UTTypeDescription</key>
 			<string>Stack</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.oxt.ide.stack</string>
+			<string>org.openxtalk.oxtide.stack</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>com.apple.macos.ostype</key>

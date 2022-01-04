@@ -1,4 +1,4 @@
-﻿script "revIDEExtensionManagerBehavior"
+﻿script "revIDEExtensionManagerBehavior" with behavior "revPaletteBehavior"
 on preOpenStack
    lock screen
    dispatch "setAsBehavior" to revIDEFrameBehavior() with the long id of this me

@@ -71,13 +71,13 @@ use com.livecode.library.widgetutils
 metadata title is "Palette Actions"
 metadata author is "LiveCode"
 metadata version is "1.0.1"
-metadata userVisible is "false"
+-- metadata userVisible is "true"
 metadata _ide is "true"
 
 /**
 The names of the nav items
 
-Syntax: 
+Syntax:
 set the navNames of <widget> to <pNameList>
 get the navNames of <widget>
 
@@ -89,7 +89,7 @@ property navNames		get getNavNames			set setNavNames
 /**
 The icons of the nav items
 
-Syntax: 
+Syntax:
 set the navIcons of <widget> to <pIconList>
 get the navIcons of <widget>
 
@@ -101,7 +101,7 @@ property navIcons		get getNavIcons			set setNavIcons
 /**
 The labels of the nav items
 
-Syntax: 
+Syntax:
 set the navLabels of <widget> to <pLabelList>
 get the navLabels of <widget>
 
@@ -113,7 +113,7 @@ property navLabels		get getNavLabels		set setNavLabels
 /**
 Whether to show the nav icons or not
 
-Syntax: 
+Syntax:
 set the showNavIcons of <widget> to { true | false }
 get the showNavIcons of <widget>
 
@@ -123,7 +123,7 @@ property showNavIcons	get mShowNavIcons		set setShowNavIcons
 /**
 The name of the currently selected nav item
 
-Syntax: 
+Syntax:
 set the selectedNavItem of <widget> to <pItemName>
 get the selectedNavItem of <widget>
 
@@ -138,7 +138,7 @@ property selectedNavItem	get getSelectedNavItem	set setSelectedNavItem
 /**
 The color to use for the selected nav item
 
-Syntax: 
+Syntax:
 set the selectedNavColor of <widget> to <pColor>
 get the selectedNavColor of <widget>
 
@@ -150,7 +150,7 @@ property selectedNavColor	get mSelectedNavColor	set setSelectedNavColor
 /**
 The array of navigation data
 
-Syntax: 
+Syntax:
 set the navData of <widget> to <pNavArray>
 get the navData of <widget>
 
@@ -165,7 +165,7 @@ property navData		get getNavData			set setNavData
 /**
 The names of the action items
 
-Syntax: 
+Syntax:
 set the actionNames of <widget> to <pNameList>
 get the actionNames of <widget>
 
@@ -177,7 +177,7 @@ property actionNames		get getActionNames		set setActionNames
 /**
 The icons of the action items
 
-Syntax: 
+Syntax:
 set the actionIcons of <widget> to <pIconList>
 get the actionIcons of <widget>
 
@@ -189,7 +189,7 @@ property actionIcons		get getActionIcons		set setActionIcons
 /**
 The labels of the action items
 
-Syntax: 
+Syntax:
 set the actionLabels of <widget> to <pLabelList>
 get the actionLabels of <widget>
 
@@ -201,7 +201,7 @@ property actionLabels		get getActionLabels		set setActionLabels
 /**
 Whether to show the action icons or not
 
-Syntax: 
+Syntax:
 set the showActionIcons of <widget> to { true | false }
 get the showActionIcons of <widget>
 */
@@ -210,7 +210,7 @@ property showActionIcons	get mShowActionIcons	set setShowActionIcons
 /**
 The array of action data
 
-Syntax: 
+Syntax:
 set the actionData of <widget> to <pActionArray>
 get the actionData of <widget>
 
@@ -225,16 +225,16 @@ property actionData		get getActionData		set setActionData
 /**
 Whether the widget is a header or footer
 
-Syntax: 
+Syntax:
 set the isHeader of <widget> to { true | false }
 get the isHeader of <widget>
 */
 property isHeader		get mIsHeader			set mIsHeader
 
 /**
-The horizontal extent of the rendered navigation items 
+The horizontal extent of the rendered navigation items
 
-Syntax: 
+Syntax:
 get the navBarRight of <widget>
 */
 property navBarRight	get getNavBarRight
@@ -242,7 +242,7 @@ property navBarRight	get getNavBarRight
 /**
 The minimum width needed to display nav items and action items
 
-Syntax: 
+Syntax:
 get the minWidth of <widget>
 */
 property minWidth get mMinWidth
@@ -384,11 +384,11 @@ public handler OnPaint()
 
 	-- draw the line above / below
 	strokePathWithPaints(getPath("line"), "line")
-	
+
 	drawActions()
 
 	drawTabs()
-	
+
 	drawTabNav()
 end handler
 
@@ -407,7 +407,7 @@ public handler OnClick()
 				variable tMenuString as String
 
 				put menuArrayToString(mActionData[tIndex]["menu"], 0) into tMenuString
-				
+
 				popup menu tMenuString at the mouse position
 				put the result into tResult
 				if tResult is not nothing then
@@ -532,13 +532,13 @@ private handler GoBackForward(in pBack as Boolean)
 
 	        put calculateRects(true, true, mShowNavIcons, tNavData, tWidth) into tTabRects
 	        put calculateLastTab(tTabRects, tFirstTab) into tLastTab
-	        
+
 	        -- If we can see the first previously undisplayable tab with
 	        -- this starting point, then we are done.
 	        if tLastTab >= mFirstTab - 1 then
 	            exit repeat
 	        end if
-	    end repeat   
+	    end repeat
 	else
 	    -- Find the maximum number of newly displayable tabs
         repeat with tCounter from mFirstTab + 1 up to mLastTab + 1
@@ -548,15 +548,15 @@ private handler GoBackForward(in pBack as Boolean)
 
 	        put calculateRects(true, true, mShowNavIcons, tNavData, tWidth) into tTabRects
 	        put calculateLastTab(tTabRects, tFirstTab) into tLastTab
-	        
-	        -- If we can see the rest of the tabs with this starting 
+
+	        -- If we can see the rest of the tabs with this starting
 	        -- point, then we are done.
 	        if tLastTab is the number of elements in mNavData then
 	            exit repeat
 	        end if
 	    end repeat
-    end if    
-    
+    end if
+
     post "navChanged"
     put tFirstTab into mFirstTab
     put true into mRecalculate
@@ -628,9 +628,9 @@ private handler drawTabNav()
         fillSvgPathWithPaints(iconSVGPathFromName("double angle left"), \
         mBackForwardRects[1], tMode)
     end if
-    
+
     if mLastTab < the number of elements in mNavData then
-    
+
         if (mHoverIndex is 2 and mHoverTab is "backforward") then
             put "hover nav" into tMode
         else
@@ -646,7 +646,7 @@ private handler drawTabs()
     if mNavData is [] then
         return
     end if
-    
+
 	variable tTabIndex as Integer
 	put 0 into tTabIndex
 	repeat with tTabIndex from mFirstTab up to mLastTab
@@ -736,14 +736,14 @@ private handler recalculateRects()
 	variable tActionWidth as Real
 	calculateActionRects(tActionWidth)
 	calculateTabRects(tTabWidth)
-	
+
 	variable tMinWidth as Real
 	put tTabWidth + tActionWidth into tMinWidth
 	-- Add extra padding if there are actions and tabs
 	if tTabWidth is not 0 and tActionWidth is not 0 then
 		add internalPadding() to tMinWidth
-	end if 
-	
+	end if
+
 	put tMinWidth into mMinWidth
 	put false into mRecalculate
 end handler
@@ -751,7 +751,7 @@ end handler
 private handler fetchRectAndUpdate(in pIcons as Boolean, in pFromLeft as Boolean, \
     in pElement as Array, in pPadding as Real, in pTabs as Boolean, \
     inout xLeft as Real, inout xRight as Real) returns Rectangle
-    
+
     variable tTop as Real
 	variable tBottom as Real
 	if pTabs then
@@ -760,7 +760,7 @@ private handler fetchRectAndUpdate(in pIcons as Boolean, in pFromLeft as Boolean
 		put pPadding into tTop
 	end if
 	put my height - pPadding into tBottom
-    
+
 	variable tWidth as Real
     if pIcons is false then
         variable tTextRect as Rectangle
@@ -775,7 +775,7 @@ private handler fetchRectAndUpdate(in pIcons as Boolean, in pFromLeft as Boolean
     else
         put xRight - (tWidth + 2 * pPadding) into xLeft
     end if
-    
+
     variable tRect as Rectangle
     put rectangle [xLeft, tTop, xRight, tBottom] into tRect
 
@@ -784,14 +784,14 @@ private handler fetchRectAndUpdate(in pIcons as Boolean, in pFromLeft as Boolean
     else
         put xLeft into xRight
     end if
-    
+
     return tRect
 end handler
 
 private handler calculateRects(in pTabs as Boolean, in pFromLeft as Boolean, in pIcons as Boolean, in pData as List, out rMinWidth as Real) returns List
 	variable tMinWidth as Real
 	put 0 into tMinWidth
-	
+
 	variable tPadding as Real
 	if pTabs then
 		put my height * kPaddingRatio * (1 - kTabPaddingRatio) into tPadding
@@ -827,8 +827,8 @@ private handler calculateRects(in pTabs as Boolean, in pFromLeft as Boolean, in 
 		end if
 		-- Add the padding to the opposite side
 		add tPadding to tMinWidth
-	end if 
-	
+	end if
+
 	put tMinWidth into rMinWidth
 	return tRects
 end handler
@@ -844,13 +844,13 @@ private handler calculateLastTab(in pTabRects as List, in pFirstTab as Integer) 
     else
         put the right of my bounds into tActionsLeft
     end if
-    
+
     // Some padding between actions and tabs
     subtract internalPadding() from tActionsLeft
-    
+
     variable tIconWidth as Real
     put iconWidth() into tIconWidth
-    
+
     variable tRect as Rectangle
     variable tLastTab as Integer
     put 0 into tLastTab
@@ -860,14 +860,14 @@ private handler calculateLastTab(in pTabRects as List, in pFirstTab as Integer) 
         end if
         add 1 to tLastTab
     end repeat
-	
+
 	// Ensure there is space for the 'go right' icon
 	if tLastTab > 0 and tLastTab + pFirstTab is not the number of elements in mNavData then
 	    if the right of pTabRects[tLastTab] + tIconWidth > tActionsLeft then
 	        subtract 1 from tLastTab
 	    end if
 	end if
-	
+
 	-- Show at least 1 tab even if we are too small
 	put the maximum of tLastTab and 1 into tLastTab
 	return pFirstTab + tLastTab - 1
@@ -887,12 +887,12 @@ private handler calculateTabRects(out rWidth as Real)
     put element mFirstTab to -1 of mNavData into tNavData
 
 	put calculateRects(true, true, mShowNavIcons, tNavData, rWidth) into mTabRects
-	
+
     put calculateLastTab(mTabRects, mFirstTab) into mLastTab
-	
+
 	// Ensure mTabRects only contains visible tab rects
 	put element 1 to mLastTab - mFirstTab + 1 of mTabRects into mTabRects
-		
+
 	variable tPadding as Real
 	put my height * kPaddingRatio * (1 - kTabPaddingRatio) into tPadding
 
@@ -908,14 +908,14 @@ private handler calculateTabRects(out rWidth as Real)
     variable tRects as List
 	push fetchRectAndUpdate(true, true, {}, tPadding, \
 	        true, tBackLeft, tBackRight) onto tRects
-	        
+
 	push fetchRectAndUpdate(true, true, {}, tPadding, \
-	        true, tForwardLeft, tForwardRight) onto tRects	
-	
+	        true, tForwardLeft, tForwardRight) onto tRects
+
     -- return the minimum width
 	put the width of tRects[1] + the width of tRects[2] + \
 	    the width of mTabRects[1] + tPadding into rWidth
-	        
+
     put tRects into mBackForwardRects
 end handler
 
@@ -1055,13 +1055,13 @@ end handler
 private handler CompareKeysNumeric(in pLeft as any, in pRight as any) returns Integer
 	variable tLeft as optional Number
 	variable tRight as optional Number
-	
+
 	if pLeft is a number then
 		put pLeft into tLeft
 	else
 		put pLeft parsed as number into tLeft
 	end if
-	
+
 	if pRight is a number then
 		put pRight into tRight
 	else
@@ -1071,15 +1071,15 @@ private handler CompareKeysNumeric(in pLeft as any, in pRight as any) returns In
 	if tRight is tLeft then
 		return 0
 	end if
-		
+
 	if tRight is nothing then
 		return -1
 	end if
-	
+
 	if tLeft is nothing then
 		return 1
 	end if
-	
+
 	if tLeft < tRight then
         return -1
 	end if

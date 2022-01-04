@@ -18,7 +18,7 @@
   <requires name="com.livecode.math"/>
   <requires name="com.livecode.engine"/>
   <metadata key="preferredSize">200,200</metadata>
-  <metadata key="userVisible">false</metadata>
+  <metadata key="userVisible">true</metadata>
   <metadata key="_ide">true</metadata>
   <metadata key="sourceColor.editor">com.livecode.pi.color</metadata>
   <metadata key="sourceColor.default">blue</metadata>

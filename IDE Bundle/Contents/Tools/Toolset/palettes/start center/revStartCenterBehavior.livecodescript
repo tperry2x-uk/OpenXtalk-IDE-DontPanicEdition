@@ -92,14 +92,11 @@ on ideOpenStack pTarget
    if not exists(pTarget) then
       exit ideOpenStack
    end if
-
    local tTargetStack
    put the short name of ideStackOfObject(pTarget) into tTargetStack
-
    if the filename of stack (the mainstack of stack tTargetStack) is among the lines of revIDEGetAllPlugins() then
       exit ideOpenStack
    end if
-
    if tTargetStack is not the short name of me then
       startCenterClose
    end if
@@ -111,9 +108,8 @@ end startCenterClose
 
 command logoInitialise
    ## Set the logo to the correct logo for the version
-   set the iconPresetName of widget "logo" of me to "lc-logo"
+   set the iconPresetName of widget "logo" of me to "lc-hello-world"
    set the foregroundColor of widget "logo" of me to uiColor("logo")
-
    ## Set the title to contain the correct version string
    local tMajorVersion
    set the itemDelimiter to "."
@@ -137,7 +133,6 @@ end socialMediaInitialise
 
 command socialMediaSet
    local tCenterLoc, tMediaCount, tPadding, tWidth, tTotalWidth, tLeft
-
    ## Show the chosen social media
    put item 1 of the loc of group "socialMedia" into tCenterLoc
    put the number of items in kSocialMedia into tMediaCount
@@ -146,7 +141,6 @@ command socialMediaSet
 
    put (tWidth * tMediaCount) + (tMediaCount - 1) * tPadding into tTotalWidth
    put tCenterLoc - round(tTotalWidth / 2) into tLeft
-
    repeat with x = 1 to tMediaCount
       show widget (item x of kSocialMedia)
       set the left of widget (item x of kSocialMedia) to tLeft

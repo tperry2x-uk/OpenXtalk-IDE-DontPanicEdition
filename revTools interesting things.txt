@@ -143,9 +143,81 @@ dispatch "menuPick" to btn "File" of grp "revMenuBar" of stack "revMenuBar" with
 
 
 revIDEActionInspectStack
-
 revIDEActionInspectCard
-
 revIDEActionInspectObjects
+revPropertyInspector:
+	put the selObj into tSelObj
+		if tSelObj is empty then
+          		revIDEActionInspectStack
+        		else
+			switch word 1 of tSelObj
+            			case "stack"
+              				revIDEActionInspectStack
+             				 break
+            			case "card"
+              				revIDEActionInspectCard
+              				break
+            			default
+              				revIDEActionInspectObjects
+          			end switch
+        		end if
+
+put the defaultStack into defaultStack
+set the defaultStack to "revMenubar"
+
+get idePropertyNames( ) ; get ArrayToJSON(it,true,true); replace "\n" with cr in it; put it
+
+put the stackFiles of stack "Home"
+
+revIDEStackIsIDEStack(tTargetStack)
+
+revScriptEditor -- not sure how this works
+
+revPoints pGraphic -- returns the points property of a graphic
+
+get revIDEPropertyInfo("name"); put ArrayToJSON(it,true,true)
+get revIDEPropertyInfo("location"); put ArrayToJSON(it,true,true
+
+the controlnames of grp "revMenubar"
+Put the childControlNames of grp "revMenubar" of stack "revMenubar"
+put the childControlIDs of group "revMenubar" of stack "revMenubar"
+put the controlnames of grp "revMenubar" of stack "revMenubar"
+
+put the name of last group
+create group "Options"
+HCAddressing
+sharedBehavior, backgroundNames, backgroundIDs, dynamicPaths
+message: preOpenBackground, openControl, openBackground, closeBackground, preOpenControl, closeControl
 
 revIDETogglePalette "Project Browser"
+
+revIDESaveStack the long ID of stack pWhichStack
+
+revIDEActionSaveStackAs the long id of stack pShortName, pSubstackOnly
+
+revIDEStackFileVersion(pStackFile)
+
+put revInternal__ListLoadedLibraries()
+
+on revInsertMessageBlock
+   revInternal__LoadLibrary "revNoMessagesLibrary" --- revNoMessagesLibrary ??? Disables some plugin messages?
+end revInsertMessageBlock
+
+put revInternal__ListLoadedLibraries()
+
+revIDEStackOfObject(the long id of the target)
+
+revScriptEditor pObject
+
+get ideDocsFetchScriptData("card"); put arraytojson(it,true,true)
+get ideDocsFetchLCBData("OnPaint"); put arraytojson(it,true,true)
+get ideDocsFetchExtensionEntries(); put arraytojson(it,true,true) --- lots of dictionary data
+put ideDocsFetchLibraryNames()
+get ideDocsFetchLibraryEntries("Browser"); put arraytojson(it,true,true)
+
+launch URL "dict:///m:cool" -- Launch System Dictionary App with Word
+
+ideObjectTypeFromObject(the SelectedObject)
+ideObjectTypesFromObjectList(the SelectedObjects)
+
+revIDEExtensionProperty

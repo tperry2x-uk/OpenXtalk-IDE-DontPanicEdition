@@ -30,17 +30,24 @@ on revGoURL pUrl
    global gREVWebBrowser
    revSetWindowsShellCommand
    
-   local tNT
-   put revRunningWindowsNT() into tNT
+   -- revRunningWindowsNT is not used for anything in this handler -- Paul McClernan - 1/11/2022
+   --   local tNT
+   --   put revRunningWindowsNT() into tNT
+   
    if "file://" is not in pUrl then
       replace "file:/" with "file:///" in pUrl
    end if
    
    if char 1 to 4 of pUrl is not "file" \
-          and char 1 to 4 of pUrl is not "http" \
-          and char 1 to 7 of pUrl is not "mailto:" \
-          and char 1 to 3 of pUrl is not "ftp" \
-          and char 1 to 4 of pUrl is not "feed" then 
+         and char 1 to 4 of pUrl is not "http" \
+         and char 1 to 7 of pUrl is not "mailto:" \
+         and char 1 to 3 of pUrl is not "ftp" \
+         and char 1 to 4 of pUrl is not "feed" \
+         and char 1 to 11 of pUrl is not "x-man-page:"\
+         and char 1 to 5 of pUrl is not "dav:/"\
+         and char 1 to 5 of pUrl is not "tel:/"\ 
+         and char 1 to 11 of pUrl is not "facetime://"\
+         then
       put "http://" before pUrl
    end if
    
@@ -48,6 +55,8 @@ on revGoURL pUrl
 end revGoURL
 
 on revGoPDF pFilename
+   -- This is a good spot for inserting a PDF Widget display
+   -- if no PDF Wiget available then launch with System default PDF Viewer App
   launch document pFilename
 end revGoPDF
 

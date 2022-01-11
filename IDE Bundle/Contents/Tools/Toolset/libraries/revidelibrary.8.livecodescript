@@ -2493,50 +2493,57 @@ function revIDEColor pTag
 
    switch pTag
       case "text_1"
-         return "0,0,0"
+         return "0,0,0" -- black
          break
       case "text_2"
-         return "125,125,125"
+         return "125,125,125" -- 50% grey
          break
       case "text_3"
-         return "255,255,255"
+         return "200,200,200"
+         -- return "255,255,255" -- pure white
          break
       case "dataView_rowColor"
-         return "255,255,255"
+         -- return "255,255,255" -- pure white
+         return "160,160,160"
          break
       case "dataView_rowAlternateColor"
-         return "238,238,238"
+         return "200,200,200"
+         -- return "238,238,238" -- off White
          break
       case "dataView_hiliteColor"
-         return "48,160,209"
+         return revEnvironmentEditionProperty("color")
+          -- return "40,160,209" -- a Blue color
          break
       case "dataView_alternateHiliteColor"
-         return "84,34,207"
+         return revEnvironmentEditionProperty("color")
+         -- return "34,154,206" -- a Blue color
          break
       case "dataView_TextHiliteColor"
-         return "255,255,255"
+         return "200,200,200"
+         -- return "255,255,255" -- White
          break
       case "dataView_scriptBackgroundColor"
-         return "84,34,207"
+         return revEnvironmentEditionProperty("color")
+         -- return "34,154,206" -- a Blue color
          break
       case "dataView_scriptErrorBackgroundColor"
-         return "255,0,0"
+         return "255,0,0" -- red indicates an error
          break
       case "dataView_disclosureIconColor"
-         return "99,99,99"
+         return "99,99,99" -- a dark grey
          break
       case "dataView_disclosureIconHiliteColor"
-         return "216,216,216"
+         return "216,216,216" -- a lightgrey
          break
       case "palette_background"
          if the platform is "Win32" then
-            return "240,240,240"
+            return "240,240,240" -- an off White
          else
             return the effective backgroundColor of this stack
          end if
          break
       case "propertyInspector_multiValueBackground"
-         return "200,206,220"
+         return "200,206,215" -- a cool grey
          break
    end switch
 
@@ -2544,7 +2551,7 @@ function revIDEColor pTag
 end revIDEColor
 
 function revIDETextSize
-   return 12
+   return 11
 end revIDETextSize
 
 function revIDECardOfObject pLongID

@@ -1,0 +1,151 @@
+revIDESetCursor "com.livecode.cursor.grabclose"
+revIDESetCursor "com.livecode.cursor.grab"
+
+revIDECreateObject tObjectTypeID, the long ID of card 1 of this stack, "0,0"
+
+   set the loc of this stack to the screenmouseloc
+
+   revIDEEditableStacks()
+
+   revIDEResetCursor
+
+   revIDESetTool "pointer"
+
+
+   function toolObjectName pTool
+      local tTool
+      switch pTool
+         case "Run Mode"
+            put "com.livecode.tool.Browse" into tTool
+            break
+         case "Edit Mode"
+            put "com.livecode.tool.Pointer" into tTool
+            break
+         case "Create Data Grid"
+            put "com.livecode.interface.classic.DataGrid" into tTool
+            break
+         case "Create Label Field"
+            put "com.livecode.interface.classic.LabelField" into tTool
+            break
+         case "Create Button"
+            put "com.livecode.interface.classic.Button" into tTool
+            break
+         case "Create Text Area"
+            put "com.livecode.interface.classic.TextArea" into tTool
+            break
+         case "Create Field"
+            put "com.livecode.interface.classic.Field" into tTool
+            break
+         case "Create Combo Box"
+            put "com.livecode.interface.classic.ComboBox" into tTool
+            break
+         case "Create Option Menu"
+            put "com.livecode.interface.classic.OptionMenu" into tTool
+            break
+         case "Create Popup Menu"
+            put "com.livecode.interface.classic.PopupMenu" into tTool
+            break
+         case "Create Radio Button"
+            put "com.livecode.interface.classic.RadioButton" into tTool
+            break
+         case "Create Image"
+            put "com.livecode.interface.classic.Image" into tTool
+            break
+         case "Create Rectangle Button"
+            put "com.livecode.interface.classic.RectangleButton" into tTool
+            break
+         case "Create Slider"
+            put "com.livecode.interface.classic.Slider" into tTool
+            break
+         case "Create Default Button"
+            put "com.livecode.interface.classic.DefaultButton" into tTool
+            break
+         case "Create Scrollbar"
+            put "com.livecode.interface.classic.Scrollbar" into tTool
+            break
+         case "Create Little Arrows"
+            put "com.livecode.interface.classic.LittleArrows" into tTool
+            break
+         case "Create Tab Panel"
+            put "com.livecode.interface.classic.TabPanel" into tTool
+            break
+         case "Create Checkbox"
+            put "com.livecode.interface.classic.Checkbox" into tTool
+            break
+         case "Create Pulldown Menu"
+            put "com.livecode.interface.classic.PulldownMenu" into tTool
+            break
+         case "Create Player"
+            put "com.livecode.interface.classic.Player" into tTool
+            break
+         case "Create Table Field"
+            put "com.livecode.interface.classic.TableField" into tTool
+            break
+         case "Create List Field"
+            put "com.livecode.interface.classic.ListField" into tTool
+            break
+         case "Create Progress Bar"
+            put "com.livecode.interface.classic.ProgressBar" into tTool
+            break
+         case "Create Regular Graphic"
+            put "com.livecode.interface.classic.RegularGraphic" into tTool
+            break
+         case "Create Oval Graphic"
+            put "com.livecode.interface.classic.OvalGraphic" into tTool
+            break
+         case "Create Round Rect Graphic"
+            put "com.livecode.interface.classic.RoundRectGraphic" into tTool
+            break
+         case "Create Rectangle Graphic"
+            put "com.livecode.interface.classic.RectangleGraphic" into tTool
+            break
+         case "Create Line Graphic"
+            put "com.livecode.interface.classic.LineGraphic" into tTool
+            break
+         default
+            # Try and resolve as a reference to a widget creation tool
+            if word 1 of pTool is "Create" then
+               return word 2 of pTool
+            end if
+      end switch
+      return tTool
+   end toolObjectName
+
+
+   case "widget"
+       put revIDEWidgets() into tTools
+       break
+    case "classic"
+       put revIDEClassicControls() into tTools
+       break
+    case "graphic"
+       put revIDEGraphics() into tTools
+       break
+    case "graphictools"
+       put revIDEGraphicTools() into tTools
+       break
+    case "paint"
+       put revIDEPaintTools() into tTools
+       break
+
+
+revIDEResizeImageInBounds tImageID, pSizeAPx ,pSizeBPx
+
+revIDEDefaultExtensionIcon("widget")
+
+
+set the colorOverlay["color"] of pTarget to sToolColors[tToolName]
+set the colorOverlay["blendMode"] of pTarget to "multiply"
+
+
+dispatch "menuPick" to btn "File" of grp "revMenuBar" of stack "revMenuBar" with "Standalone Application Settings..."
+dispatch "menuPick" to btn "File" of grp "revMenuBar" of stack "revMenuBar" with "Save as Standalone Application..."
+
+
+revIDEActionInspectStack
+
+revIDEActionInspectCard
+
+revIDEActionInspectObjects
+
+revIDETogglePalette "Project Browser"

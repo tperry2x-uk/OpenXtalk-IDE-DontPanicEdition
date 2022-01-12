@@ -2,5 +2,6 @@
 -- Sent when the mouse is released after clicking
 -- pMouseButton specifies which mouse button was pressed
 on mouseUp pMouseButton
-
+  -- toggle hilite
+  -- set the hitle of me to not the hilite of me
 end mouseUp

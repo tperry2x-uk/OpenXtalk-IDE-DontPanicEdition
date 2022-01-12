@@ -34,7 +34,7 @@ isolateTool pWhich
 toolEnable pWhich
 toolDisable pWhich
 
-function toolObjectName pTool
+toolObjectName pTool
 "Run Mode" = "com.livecode.tool.Browse"
 "Edit Mode" = "com.livecode.tool.Pointer"
 "Create Data Grid"= "com.livecode.interface.classic.DataGrid"'

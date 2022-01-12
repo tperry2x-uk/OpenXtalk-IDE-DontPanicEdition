@@ -3,164 +3,103 @@ revIDESetCursor "com.livecode.cursor.grab"
 
 revIDECreateObject tObjectTypeID, the long ID of card 1 of this stack, "0,0"
 
-   set the loc of this stack to the screenmouseloc
+set the loc of this stack to the screenmouseloc
 
-   revIDEEditableStacks()
+revIDEEditableStacks()
 
-   revIDEResetCursor
+revIDESetCursor "com.livecode.cursor.grab"
+revIDESetCursor "com.livecode.cursor.grabclose"
+revIDESetCursor "help"
+revIDEResetCursor
 
-   revIDESetTool "pointer"
+revIDESetTool "pointer"
 
+groupDisable pWhich, pDisable --- Valid pWhich items: widget,classic,graphic,graphictools,paint
+groupDisable "widget", true
 
-   function toolObjectName pTool
-      local tTool
-      switch pTool
-         case "Run Mode"
-            put "com.livecode.tool.Browse" into tTool
-            break
-         case "Edit Mode"
-            put "com.livecode.tool.Pointer" into tTool
-            break
-         case "Create Data Grid"
-            put "com.livecode.interface.classic.DataGrid" into tTool
-            break
-         case "Create Label Field"
-            put "com.livecode.interface.classic.LabelField" into tTool
-            break
-         case "Create Button"
-            put "com.livecode.interface.classic.Button" into tTool
-            break
-         case "Create Text Area"
-            put "com.livecode.interface.classic.TextArea" into tTool
-            break
-         case "Create Field"
-            put "com.livecode.interface.classic.Field" into tTool
-            break
-         case "Create Combo Box"
-            put "com.livecode.interface.classic.ComboBox" into tTool
-            break
-         case "Create Option Menu"
-            put "com.livecode.interface.classic.OptionMenu" into tTool
-            break
-         case "Create Popup Menu"
-            put "com.livecode.interface.classic.PopupMenu" into tTool
-            break
-         case "Create Radio Button"
-            put "com.livecode.interface.classic.RadioButton" into tTool
-            break
-         case "Create Image"
-            put "com.livecode.interface.classic.Image" into tTool
-            break
-         case "Create Rectangle Button"
-            put "com.livecode.interface.classic.RectangleButton" into tTool
-            break
-         case "Create Slider"
-            put "com.livecode.interface.classic.Slider" into tTool
-            break
-         case "Create Default Button"
-            put "com.livecode.interface.classic.DefaultButton" into tTool
-            break
-         case "Create Scrollbar"
-            put "com.livecode.interface.classic.Scrollbar" into tTool
-            break
-         case "Create Little Arrows"
-            put "com.livecode.interface.classic.LittleArrows" into tTool
-            break
-         case "Create Tab Panel"
-            put "com.livecode.interface.classic.TabPanel" into tTool
-            break
-         case "Create Checkbox"
-            put "com.livecode.interface.classic.Checkbox" into tTool
-            break
-         case "Create Pulldown Menu"
-            put "com.livecode.interface.classic.PulldownMenu" into tTool
-            break
-         case "Create Player"
-            put "com.livecode.interface.classic.Player" into tTool
-            break
-         case "Create Table Field"
-            put "com.livecode.interface.classic.TableField" into tTool
-            break
-         case "Create List Field"
-            put "com.livecode.interface.classic.ListField" into tTool
-            break
-         case "Create Progress Bar"
-            put "com.livecode.interface.classic.ProgressBar" into tTool
-            break
-         case "Create Regular Graphic"
-            put "com.livecode.interface.classic.RegularGraphic" into tTool
-            break
-         case "Create Oval Graphic"
-            put "com.livecode.interface.classic.OvalGraphic" into tTool
-            break
-         case "Create Round Rect Graphic"
-            put "com.livecode.interface.classic.RoundRectGraphic" into tTool
-            break
-         case "Create Rectangle Graphic"
-            put "com.livecode.interface.classic.RectangleGraphic" into tTool
-            break
-         case "Create Line Graphic"
-            put "com.livecode.interface.classic.LineGraphic" into tTool
-            break
-         default
-            # Try and resolve as a reference to a widget creation tool
-            if word 1 of pTool is "Create" then
-               return word 2 of pTool
-            end if
-      end switch
-      return tTool
-   end toolObjectName
+revIDEWidgets()
+revIDEClassicControls()
+revIDEGraphics()
+revIDEGraphicTools()
+revIDEPaintTools()
 
+send toolDisable "com.livecode.tool.Browse" to stack "revTools"
+toolDisable "com.livecode.tool.Pointer" to stack "revTools"
+send disableTools to stack "revTools" -- Does NOT fully disable Widget tools group, but it does disables all others, 
+-- Widgets group get updated graphically but grab-and-dragging a widget always works.
+--- I'm pretty sure this is a BUG of sorts.
+send enableTools to stack "revTools" -- Does NOT enable Widget tools, but it does enable all others, 
 
-   case "widget"
-       put revIDEWidgets() into tTools
-       break
-    case "classic"
-       put revIDEClassicControls() into tTools
-       break
-    case "graphic"
-       put revIDEGraphics() into tTools
-       break
-    case "graphictools"
-       put revIDEGraphicTools() into tTools
-       break
-    case "paint"
-       put revIDEPaintTools() into tTools
-       break
+isolateTool pWhich
+toolEnable pWhich
+toolDisable pWhich
 
+function toolObjectName pTool
+"Run Mode" = "com.livecode.tool.Browse"
+"Edit Mode" = "com.livecode.tool.Pointer"
+"Create Data Grid"= "com.livecode.interface.classic.DataGrid"'
+"Create Label Field" = "com.livecode.interface.classic.LabelField" 
+"Create Button" = "com.livecode.interface.classic.Button"
+"Create Text Area" = "com.livecode.interface.classic.TextArea"
+"Create Field" = "com.livecode.interface.classic.Field"
+"Create Combo Box" = "com.livecode.interface.classic.ComboBox"
+"Create Option Menu" = "com.livecode.interface.classic.OptionMenu"
+"Create Popup Menu" = "com.livecode.interface.classic.PopupMenu"
+"Create Radio Button" = "com.livecode.interface.classic.RadioButton"
+"Create Image" = "com.livecode.interface.classic.Image"
+"Create Rectangle Button" = "com.livecode.interface.classic.RectangleButton"
+"Create Slider" = "com.livecode.interface.classic.Slider"
+"Create Default Button" = "com.livecode.interface.classic.DefaultButton"
+"Create Scrollbar" = "com.livecode.interface.classic.Scrollbar"
+"Create Little Arrows"= "com.livecode.interface.classic.LittleArrows"
+"Create Tab Panel" = "com.livecode.interface.classic.TabPanel" 
+"Create Checkbox" = "com.livecode.interface.classic.Checkbox" 
+"Create Pulldown Menu" = "com.livecode.interface.classic.PulldownMenu"
+"Create Player" = "com.livecode.interface.classic.Player"
+Create Table Field" = "com.livecode.interface.classic.TableField"
+"Create List Field" = "com.livecode.interface.classic.ListField"
+"Create Progress Bar" = "com.livecode.interface.classic.ProgressBar" 
+"Create Regular Graphic" = "com.livecode.interface.classic.RegularGraphic"
+"Create Oval Graphic" = "com.livecode.interface.classic.OvalGraphic" 
+"Create Round Rect Graphic" = "com.livecode.interface.classic.RoundRectGraphic"
+"Create Rectangle Graphic" = "com.livecode.interface.classic.RectangleGraphic" 
+"Create Line Graphic" = "com.livecode.interface.classic.LineGraphic"
+
+# Try and resolve as a reference to a widget creation tool
+if word 1 of pTool is "Create" then
+ return word 2 of pTool
+end if
 
 revIDEResizeImageInBounds tImageID, pSizeAPx ,pSizeBPx
 
 revIDEDefaultExtensionIcon("widget")
 
-
 set the colorOverlay["color"] of pTarget to sToolColors[tToolName]
 set the colorOverlay["blendMode"] of pTarget to "multiply"
 
-
 dispatch "menuPick" to btn "File" of grp "revMenuBar" of stack "revMenuBar" with "Standalone Application Settings..."
 dispatch "menuPick" to btn "File" of grp "revMenuBar" of stack "revMenuBar" with "Save as Standalone Application..."
-
 
 revIDEActionInspectStack
 revIDEActionInspectCard
 revIDEActionInspectObjects
 revPropertyInspector:
-	put the selObj into tSelObj
-		if tSelObj is empty then
-          		revIDEActionInspectStack
-        		else
-			switch word 1 of tSelObj
-            			case "stack"
-              				revIDEActionInspectStack
-             				 break
-            			case "card"
-              				revIDEActionInspectCard
-              				break
-            			default
-              				revIDEActionInspectObjects
-          			end switch
-        		end if
+
+put the selObj into tSelObj
+if tSelObj is empty then
+	revIDEActionInspectStack
+else
+	switch word 1 of tSelObj
+		case "stack"
+			revIDEActionInspectStack
+			 break
+		case "card"
+			revIDEActionInspectCard
+			break
+		default
+			revIDEActionInspectObjects
+	end switch
+end if
 
 put the defaultStack into defaultStack
 set the defaultStack to "revMenubar"
@@ -176,7 +115,7 @@ revScriptEditor -- not sure how this works
 revPoints pGraphic -- returns the points property of a graphic
 
 get revIDEPropertyInfo("name"); put ArrayToJSON(it,true,true)
-get revIDEPropertyInfo("location"); put ArrayToJSON(it,true,true
+get revIDEPropertyInfo("location"); put ArrayToJSON(it,true,true)
 
 the controlnames of grp "revMenubar"
 Put the childControlNames of grp "revMenubar" of stack "revMenubar"
@@ -185,9 +124,7 @@ put the controlnames of grp "revMenubar" of stack "revMenubar"
 
 put the name of last group
 create group "Options"
-HCAddressing
-sharedBehavior, backgroundNames, backgroundIDs, dynamicPaths
-message: preOpenBackground, openControl, openBackground, closeBackground, preOpenControl, closeControl
+HCAddressing, sharedBehavior, backgroundNames, backgroundIDs, dynamicPaths, preOpenBackground, openControl, openBackground, closeBackground, preOpenControl, closeControl
 
 revIDETogglePalette "Project Browser"
 
@@ -198,6 +135,7 @@ revIDEActionSaveStackAs the long id of stack pShortName, pSubstackOnly
 revIDEStackFileVersion(pStackFile)
 
 put revInternal__ListLoadedLibraries()
+put revInternal__LoadedLibraryStackName("drawing") -- returns "com.livecode.library.drawing"
 
 on revInsertMessageBlock
    revInternal__LoadLibrary "revNoMessagesLibrary" --- revNoMessagesLibrary ??? Disables some plugin messages?
@@ -215,9 +153,134 @@ get ideDocsFetchExtensionEntries(); put arraytojson(it,true,true) --- lots of di
 put ideDocsFetchLibraryNames()
 get ideDocsFetchLibraryEntries("Browser"); put arraytojson(it,true,true)
 
-launch URL "dict:///m:cool" -- Launch System Dictionary App with Word
+launch URL "dict:///m:cool" -- Launch System Dictionary app to word "cool"
 
 ideObjectTypeFromObject(the SelectedObject)
 ideObjectTypesFromObjectList(the SelectedObjects)
 
 revIDEExtensionProperty
+
+
+// A array that stores whether a library is loaded
+// sLoadedLibraries["library name"] = true
+local sLoadedLibraries
+
+constant kLCLibraryPrefix = "com.livecode.library"
+
+
+revInternal__LoadLibrary pLibrary, pFullPath
+revInternal__LoadIfLibrary pLibrary
+revInternal__UnloadLibrary pLibraryName
+revInternal__ListLoadedLibraries
+revInternal__LoadedLibraryStackName pLibName
+revInternal__SetAppIcon pAppIcon
+revInternal__SetSmallAppIcon pSmallAppIcon
+revInternal_SetJAVA_HOME
+revInternal_SetJAVA_HOME
+revInternal_SetCLASSPATH
+
+
+revTargetStack( pObject ) -- returns the name of the object's stack
+
+revGoURL pUrl -- a filtered 'launch url'
+
+revGoPDF pFilename --- just launches the file with the OS PDF viewer
+
+revMail pTo, pCC, pSubject, pBody
+revMailUnicode pTo, pCC, pSubject, pBody -- sending unicode characters, the original revMail can be used otherwise
+
+revLoadedStacks pWhich -- pWhich can be empty, "all", or "preferences"
+global gREVShowStacks -- Show IDE stacks global boolean
+
+revStackNameIsIDEStack pStackName
+
+revFilterStacksList pStacks -- Filters list of stacks returns only non-IDE stacks
+
+revRotatePoly pGraphic, pAngle
+revRotatePolygonOld pGraphic, pAngle
+revPoints pGraphic
+
+revUnixFromMacPath thePath -- OLD macOS Classic style file paths
+revMacFromUnixPath thePath
+revWindowsFromUnixPath pUnixPath
+
+revCopyFile pSrcFile, pDestFile
+revCopyFolder pSrcFolder, pDestFolder
+revCopyFolder__Standalone pSrcFolder, pDestFolder
+revCopyFolder pSrcFolder, pDestFolder
+revCopyPackage pSrcFolder, pDestFolder
+revDeleteFolder pSrcFolder
+revDeleteFile pWhich
+revMoveFolder pSrcFolder, pDestFolder
+
+revAbsoluteFolderListing pDirectory
+
+revApplescriptFull pFunction, pSrc, pDest -- pFunction is deleteFolder, copyFolder, copyFile, moveFolder, or copyPackage
+
+revChangeWindowSize pWidth, pHeight, pSlide, pCard, pDelay -- an animated window resizing
+revChangeWindowSize 1024,768,true,1,100
+revChangeWindowSize 640,400,true,1,1000 -- slower
+
+on revChangePage
+  ---- Hmmm? What was this for?
+end revChangePage
+
+on revUpdateCellValue
+    ---- Hmmm? What was this for?
+end revUpdateCellValue
+
+on revMoveCellDirection
+    ---- Hmmm? What was this for?
+end revMoveCellDirection
+
+on revDatabaseError pType, pError, pDataLinkedObject
+revDatabaseError
+
+revAnswerFile pType, pPrompt -- type can be "stack", "image","audio" (not implemented),"video","text","eps"
+revAnswerFiles pType, pPrompt -- "stack", "image","audio" (not implemented),"video","text","eps"
+
+ 
+--- SCROLL MESSAGES?
+scrollUp
+scrollDown
+scrollLeft
+scrollRight
+
+
+#   Applies the preferred IDE system font style (face, size and weight / decorations) to the specified object in the correct way for the
+#   current platform and system version.
+# Parameters
+#   pObject : reference to any object that can contain text (field, button, group, card, stack)
+#   pSize : The font size to use. If empty, uses default system font size
+#  pStyles : A list of styles to apply (eg bold,italic,underline). If empty, uses system default.
+revFontApplySystemStyle pObject, pSize, pStyles
+_revFontApplyStylesToObject pObject, tFont, tSize, tStyles
+
+
+revFontGetSystemFont() -- returns hardcoded (and outdated) values based on the IDE platform version.
+
+revFontGetSystemFontSize()
+
+revFontGetSystemFontStyles() -- returns empty, but could be updated to return some actual information!
+
+# This is wrapped for now as its good for testing.
+private function _revFontGetPlatform
+   return   _revEnvironmentPlatform()
+end _revFontGetPlatform
+
+revEnsurePath pPath -- Makes sure that a path exists by creating any folders that are required. 
+-- Will take a path including a filename, but will not create the file, only the folders that contain it. 
+-- Returns empty on success or error string otherwise.
+
+revLicenseType() -- Function to return license type in 6.0+
+_revEnvironmentPlatform()
+
+revRuggedId pObject
+Returns ruggedID -- The "rugged" id of the object can be used the same as a long id, but is slightly more resistant to stuff like objects being grouped, renamed etc.
+The script editor uses rugged ids to store object ids when there is a chance that the object could be renamed or grouped etc. 
+
+
+revAbsoluteFolderListing pDirectory
+revCombineFilePaths pPaths, pPaths2 -- combines file paths based on last item, where duplicates keeps list 1
+
+ideSetWindowBoundingRect-- Update the window bounding rect for the current IDE palette layout

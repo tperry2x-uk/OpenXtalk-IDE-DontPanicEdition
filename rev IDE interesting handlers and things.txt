@@ -284,3 +284,12 @@ revAbsoluteFolderListing pDirectory
 revCombineFilePaths pPaths, pPaths2 -- combines file paths based on last item, where duplicates keeps list 1
 
 ideSetWindowBoundingRect-- Update the window bounding rect for the current IDE palette layout
+
+
+put ideObjectTypesFromObjectList( the long id of card 1 of this stack ) into pObjectType
+Put "name" into pPropName
+Get revIDEObjectPropertyInfo( pObjectType, pPropName) -- returns array Information pertaining to the property <pPropName> in the context of <pObjectType>.
+Put ArrayToJSON( it, true, true)
+
+
+get revIDEWidgets(); put arraytojson(it,true,true) -- puts a list of data about currently available widgets

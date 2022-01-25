@@ -3,7 +3,7 @@ iconMenuOpening?
 
 go stack Index in window "Part 2" -- replaces stack on screen!!! this is perfect for "docking palettes" for the IDE!
 
-LiveCode 4.6 Release  Contents
+4.6 Release  Contents
 
 4.6.x Release Notes – Revision 14 – 2011-03-25 – Mark Waddingham
 

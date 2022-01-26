@@ -1,18 +1,20 @@
 ﻿script "revTools" with behavior "revPaletteBehavior"
-constant BLOCK_SIZE = 24
+constant BLOCK_SIZE = 24 -- the smallest icon width allowed
+constant kToolsColumnCountDefault = 9
 
-constant kToolsColumnCountDefault = 6
 on preOpenStack
-   dispatch "setAsBehavior" to revIDEFrameBehavior() with the long id of me
+   dispatch "setAsBehavior" to revIDEFrameBehavior() with the long id of me --- this is for the widget palette header at the top of the palette
 
    set the title of me to "Tools"
-   set the opaque of card 1 of me to false
-   set the blendLevel of me to 3
+   -- set the opaque of card 1 of me to true
+   set the blendLevel of me to 2 -- just a hint of translucency
 
    # Preferences
    if revIDEGetPreference("revTools_columns") is not a number then revIDESetPreference "revTools_columns", kToolsColumnCountDefault
-   addFrameItem "revTools_columns", "header", "preference", "View Columns", "enum","01,02,03,04,05,06,07,08,09,10", "framePreferenceSelected", the long id of me
+
+   addFrameItem "revTools_columns", "header", "preference", "View Columns", "enum","002,003,004,005,006,007,008,009,010,012,014,016,018,020,022,024,026,028", "framePreferenceSelected", the long id of me
    addFrameItem "add_widget","header", "action", "Find More Widgets", "plus", "plus","findMoreWidgets", the long id of me
+   --- that takes care of setting up the widget palette header at the top of the palette
 
    # Look at the preference setting and validate the entries against the tool data
    local tAllViewList, tObjectData
@@ -44,7 +46,11 @@ on preOpenStack
    if tObjectViewsToShow is not tObjectViewsPreferenceSetting then
       revIDESetPreference "revTools_show", tObjectViewsToShow
    end if
-   addFrameItem "revTools_show", "header", "preference", "Show Sections", "set","widget:Widgets Controls,classic:Classic Controls,graphic:Graphic Objects,graphictools:Graphic Tools,paint:Paint Tools", "framePreferenceSelected", the long id of me
+
+    --- not sure whats exactly this addFrameItem is doing, removinging it doesn;t seem to make any difference
+   addFrameItem "revTools_show", "header", "preference", "Show Sections", "set",\
+      "widget:Widgets Controls,classic:Classic Controls,graphic:Graphic Objects,graphictools:Graphic Tools,paint:Paint Tools", \
+     "framePreferenceSelected", the long id of me
 
    ### Properties
    set the resizable of me to false
@@ -56,28 +62,32 @@ end preOpenStack
 
 on openStack
    lock screen
-   layoutpalette
+   layoutpalette --- this is what we are most interested in!
    registerForMessages
    set the visible of me to true
    unlock screen
 end openStack
 
 on registerForMessages
-   ### Messages
-   revIDESubscribe "idePreferenceChanged:revTools_columns"
-   revIDESubscribe "idePreferenceChanged:revTools_show"
-   revIDESubscribe "idePreferenceOfSetChanged"
-   revIDESubscribe "ideToolChanged"
-   revIDESubscribe "ideExtensionsChanged"
+    --- subscribe to changes Messages
+   revIDESubscribe "idePreferenceChanged:revTools_columns" -- the number of columns of Tool items per row to layout the controls into.
+   revIDESubscribe "idePreferenceChanged:revTools_show" -- show/hide tools
+   revIDESubscribe "idePreferenceOfSetChanged" --- so there is 'prefernce sets', good to know
+   revIDESubscribe "ideToolChanged" -- we're going to want to be subscribed to this ono!
+   revIDESubscribe "ideExtensionsChanged" -- adding new widgets causes the Tools palette to be rebuilt, at least as far as UI is concerned
 end registerForMessages
 
 on findMoreWidgets
+   --- this is the handler for the "+" icon button in the header bar at the top of the Tools palette
     lock screen
-    revIDEFindMoreWidgets
+    revIDEFindMoreWidgets -- this opens the "Extension Manager" to it's "Extension Store" tab,
+    -- which is currently basically just a card with a Browser Widget and a webpage with
+    -- the same 4 widgets from the introduction of the Extention Builder (some time around 2016)
     unlock screen
  end findMoreWidgets
 
 on ideExtensionsChanged
+   -- a widget was added or removed from the available widgets so the layout needs updating
    lock screen
    generatePalette
    layoutPalette
@@ -126,8 +136,10 @@ on ideToolChanged
          if tTool is "graphic tool" and the style of the templategraphic is not the cStyle of tControlID then
             next repeat
          end if
+         -- show graphic "tool_hilite" of group "contents"
+         -- move graphic "tool_hilite" from the loc of graphic "tool_hilite" to the loc of tControlID in 0 seconds
          set the loc of graphic "tool_hilite" of group "contents" to the loc of tControlID
-         show graphic "tool_hilite" of group "contents"
+          show graphic "tool_hilite" of group "contents"
          exit ideToolChanged
       end if
    end repeat
@@ -160,12 +172,13 @@ end framePreferenceSelected
 on resizeStack
    lock screen
    lock messages
+   --- we could insert something here to make the palette resizable and have the columns resize accourdingly
    layoutPalette
    unlock messages
    unlock screen
 end resizeStack
 
-constant kNoSeparatorSections = "runedit,graphictoolscontrols,paintcontrols"
+constant kNoSeparatorSections = "runedit,graphictoolscontrols,paintcontrols" -- the three main sections of the palette
 on generatePalette
    lock screen
    # Clean up existing UI
@@ -175,41 +188,43 @@ on generatePalette
    reset the templateGroup
    create group "contents"
 
-   # Clear the error group
+   # Clear the error group -- ERROR GROUP? WHAT ERROR GROUP?
    if there is a group "errors" then delete group "errors"
 
    # Get the appropriate platform theme folder
    local tThemePath
-   put revIDEThemePath() into tThemePath
+   put revIDEThemePath() into tThemePath -- this is where it pulls the .PNG image files from
 
    # Get the data used for generating the palette
    local tViews, sViewsData
    put revIDEGetPreference("revTools_show") into tViews
 
    put revIDERunEditTools() into sViewsData["runedit"]
+   -- "com.livecode.tool.Browse": { "order": 1, "tool": "browse tool","tooltip": "Browse Tool - Your stack is running and can be interacted with","type": "tool" },
+   -- "com.livecode.tool.Pointer": { "order": 2,"tool": "pointer tool","tooltip": "Pointer Tool - Select and edit objects","type": "tool"}
    repeat for each item tView in tViews
       switch tView
          case "widget"
-            put revIDEWidgets() into sViewsData["widget"]
+            put revIDEWidgets() into sViewsData["widget"] --- an array of data about the widgets, editors, properties etc.
             break
          case "classic"
-            put revIDEClassicControls() into sViewsData["classic"]
+            put revIDEClassicControls() into sViewsData["classic"] --- an array of data about the classic controls
             break
          case "graphic"
-            put revIDEGraphics() into sViewsData["graphic"]
+            put revIDEGraphics() into sViewsData["graphic"] --- an array of data about the graphic controls (Oval,Rectangle,Curve,etc.)
             break
          case "graphictools"
             put revIDEGraphicTools() into sViewsData["graphictools"]
-            put revIDEGraphicToolControllers() into sViewsData["graphictoolscontrols"]
+            put revIDEGraphicToolControllers() into sViewsData["graphictoolscontrols"] -- -- graphics options such as 'PolygonSides'
             break
          case "paint"
             put revIDEPaintTools() into sViewsData["paint"]
-            put revIDEPaintToolControllers() into sViewsData["paintcontrols"]
+            put revIDEPaintToolControllers() into sViewsData["paintcontrols"] -- paint options such as 'LineSize'
             break
       end switch
    end repeat
 
-   # Generate UI
+   # Generate UI ---------------------------THIS is were the palette gets drawn
    lock messages
 
    # Reset the templates we are going to use
@@ -237,12 +252,12 @@ on generatePalette
 
    # Create hilite and hover graphic for tools
    create graphic "tool_hover" in group "contents"
-   set the backgroundcolor of the templategraphic to "175,175,175"
+   -- set the backgroundcolor of the templategraphic to "175,175,175"
    create graphic "tool_hilite" in group "contents"
 
    set the visible of the templategraphic to true
    set the height of the templategraphic to 1
-   set the backgroundcolor of the templategraphic to "200,200,200"
+   -- set the backgroundcolor of the templategraphic to "200,200,200"
 
    set the itemdel to "."
    create group "images" in group "contents"
@@ -310,7 +325,7 @@ on generatePalette
          create image in group "images" of group "contents"
          set the id of it to revIDENewIconID()
          put the long id of image (tControlTypeID & ".icon.png") of group "images" of group "contents" into tImageID
-         revIDEResizeImageInBounds tImageID, BLOCK_SIZE * 2,BLOCK_SIZE
+         revIDEResizeImageInBounds tImageID, BLOCK_SIZE * 2.1,BLOCK_SIZE
          set the icon of the templatebutton to the ID of tImageID
 
          # If the object is a tool, set the key custom properties to make it behave like a tool
@@ -352,13 +367,13 @@ on generatePalette
          end if
 
          if sViewsData[tView][tControlTypeID]["svgicon"] is empty then
-            create button tControlTypeID in group tView of group "contents"
+            create button tControlTypeID in group tView of group "contents" --- need to replace this with SVGPath data in a svgpath widget
             set the cType of button tControlTypeID to tView
          else
-            create widget tControlTypeID as "com.livecode.widget.svgpath" in group tView of group "contents"
+            create widget tControlTypeID as "com.livecode.widget.svgpath" in group tView of group "contents" --- if its got SVGPath data then use an svgpath widget
             set the width of widget tControlTypeID to BLOCK_SIZE * 2
             set the height of widget tControlTypeID to BLOCK_SIZE
-            set the foregroundColor of widget tControlTypeID to 100,100,100
+            -- set the foregroundColor of widget tControlTypeID to 100,100,100
             set the iconpath of widget tControlTypeID to sViewsData[tView][tControlTypeID]["svgicon"]
             set the cType of widget tControlTypeID to tView
             set the cStyle of widget tControlTypeID to sViewsData[tView][tControlTypeID]["properties"]["style"]["default"]
@@ -420,15 +435,15 @@ on layoutPalette
    repeat with x = 1 to the number of elements of tObjectTypeData
       # Get the column count
       local tColumnCount, tBlockSize
-      if  tObjectTypeData[x]["block size"] < 24 then
+      -- if  tObjectTypeData[x]["block size"] < 25 then
          put tColumns into tColumnCount
-         put BLOCK_SIZE * 2 into tBlockSize
          -- put tColumns * 2 into tColumnCount
          -- put BLOCK_SIZE into tBlockSize
-      else
+         -- put BLOCK_SIZE * 2 into tBlockSize
+      -- else
          put tColumns into tColumnCount
          put BLOCK_SIZE * 2 into tBlockSize
-      end if
+      -- end if
 
       local tPadding
       put (tWidth - (tColumnCount * tBlockSize)) / (tColumnCount *2) into tPadding
@@ -481,31 +496,32 @@ on layoutPalette
    unlock screen
 end layoutPalette
 
-function objectTypes
+function objectTypes --- this also sets the default "block size" which is the horizontal space that the control will take up in the Tools palette
    local tData
    put "runedit" into tData[1]["name"]
-   put 20 into tData[1]["block size"]
+   -- put 20 into tData[1]["block size"]
+   put 24 into tData[1]["block size"]
 
    put "widget" into tData[2]["name"]
-   put 20 into tData[2]["block size"]
+   put 24 into tData[1]["block size"] -- put 20 into tData[2]["block size"]
 
    put "classic" into tData[3]["name"]
-   put 20 into tData[3]["block size"]
+   put 24 into tData[1]["block size"] -- put 20 into tData[3]["block size"]
 
    put "graphic" into tData[4]["name"]
-   put 10 into tData[4]["block size"]
+   put 24 into tData[1]["block size"] -- put 10 into tData[4]["block size"]
 
    put "graphictools" into tData[5]["name"]
-   put 10 into tData[5]["block size"]
+   put 24 into tData[1]["block size"] -- put 10 into tData[5]["block size"]
 
    put "graphictoolscontrols" into tData[6]["name"]
-   put 10 into tData[6]["block size"]
+   put 24 into tData[1]["block size"] -- put 10 into tData[6]["block size"]
 
    put "paint" into tData[7]["name"]
-   put 10 into tData[7]["block size"]
+   put 24 into tData[1]["block size"] -- put 10 into tData[7]["block size"]
 
    put "paintcontrols" into tData[8]["name"]
-   put 10 into tData[8]["block size"]
+   put 24 into tData[1]["block size"] -- put 10 into tData[8]["block size"]
 
    return tData
 end objectTypes
@@ -720,6 +736,7 @@ on mouseDown pButton
          exit repeat
       end if
    end repeat
+
 end mouseDown
 
 on mouseEnter
@@ -732,7 +749,8 @@ on mouseEnter
       # We are hovering over a draggable item
       revIDESetCursor "com.livecode.cursor.grab"
       set the coloroverlay["opacity"] of the target to "50"
-      set the coloroverlay["color"] of the target to "0,0,0"
+      -- set the coloroverlay["color"] of the target to "0,0,0" --  Black
+      set the coloroverlay["color"] of the target to "127,127,127" -- Gray 50
    else if the cStatus of the target is "error" then
       # Not working on windows.. get the egg timer so disabling for now
       --revIDESetCursor "help"
@@ -747,7 +765,8 @@ on mouseLeave
    if the cDisabled of the target is true then exit mouseLeave
    try
       if word 1 of the target is "widget" then
-         set the foregroundColor of the target to "100,100,100"
+         set the foregroundColor of the target to empty
+         -- set the foregroundColor of the target to "100,100,100"
       else
          hide graphic "tool_hover" of group "contents"
          if the cTool of the target is empty then
@@ -884,7 +903,7 @@ on toolDisable pWhich
       disable button pWhich of me
    else
       set the cDisabled of widget pWhich of me to true
-      set the foregroundColor of widget pWhich of me to 200,200,200
+      -- set the foregroundColor of widget pWhich of me to 200,200,200
    end if
 end toolDisable
 
@@ -903,7 +922,7 @@ on toolEnable pWhich
       enable button pWhich of me
    else
       set the cDisabled of widget pWhich of me to false
-      set the foregroundColor of widget pWhich of me to 100,100,100
+      -- set the foregroundColor of widget pWhich of me to 100,100,100
    end if
 end toolEnable
 
@@ -1024,23 +1043,26 @@ function toolObjectName pTool
    return tTool
 end toolObjectName
 
+ ---------------------------- These are for setting paint and graphics tool's stroke color, fill, and polygone sides
 local sToolColors, sLineSizes, sBrushes, sPolygon, sPolygonSides
 on revToolsOptionClicked pButton, pTarget
    local tToolName, tSection
    put the cToolName of the target into tToolName
    put segment 1 of tToolName into tSection
    switch tToolName
-      case "paint fill color tool"
-      case "paint line color tool"
-      case "graphic fill color tool"
-      case "graphic line color tool"
+      case "paint fill color tool"  ---- NEED TO FIX THIS SO THAT IT IS A COLOR SWATCH SIMILAR TO STANDARD GRAPHICS APPS
+      case "paint line color tool" ---- NEED TO FIX THIS SO THAT IT IS A COLOR SWATCH SIMILAR TO STANDARD GRAPHICS APPS
+      case "graphic fill color tool" ---- NEED TO FIX THIS SO THAT IT IS A COLOR SWATCH SIMILAR TO STANDARD GRAPHICS APPS
+      case "graphic line color tool"  ---- NEED TO FIX THIS SO THAT IT IS A COLOR SWATCH SIMILAR TO STANDARD GRAPHICS APPS
          # Popup the system color dialog
          answer color with sToolColors[tToolName]
          if the result is not "Cancel" then
             put it into sToolColors[tToolName]
 
-            # We use a color overlay with the multiply blend mode
+            # LCC used a color overlay with the multiply blend mode
             # to just change the white part of the icon to the target color
+            -- I don't know why, the white area is so small that it's barely even noticiable in the palette
+            -- Need to replace with a normal color swatch icon (like a paintone or paint sample swatch) that is filled with the current color
             set the colorOverlay["color"] of pTarget to sToolColors[tToolName]
             set the colorOverlay["blendMode"] of pTarget to "multiply"
          end if
@@ -1088,7 +1110,6 @@ end revToolsOptionClicked
 
 local sPicksA
 on menuPick pWhich
-
    # Generic menuPick processing
    put pWhich into sPicksA[the cName of the target]
 
@@ -1148,7 +1169,6 @@ end menuPick
 private command setChecked pTarget, pChecked
    local tText
    put the text of pTarget into tText
-
    replace "!c" with empty in tText
    put "!c" before line lineOffset(pChecked,tText) of tText
    set the text of pTarget to tText
@@ -1213,16 +1233,13 @@ on revToolsConfigureTemplateGraphic pStyle, pName
 end revToolsConfigureTemplateGraphic
 
 on revToolsConfigureTemplateGraphicProperties
-   set the foreColor of the templategraphic to \
-         sToolColors["graphic line color tool"]
+   set the foreColor of the templategraphic to sToolColors["graphic line color tool"]
    if sToolColors["graphic fill color tool"] is not empty then
       set the opaque of the templategraphic to true
-      set the backColor of the templategraphic to \
-            sToolColors["graphic fill color tool"]
+      set the backColor of the templategraphic to sToolColors["graphic fill color tool"]
    end if
    if sLineSizes["graphic line size tool"] is not empty then
-      set the lineSize of the templategraphic to \
-            sLineSizes["graphic line size tool"]
+      set the lineSize of the templategraphic to sLineSizes["graphic line size tool"]
    end if
 end revToolsConfigureTemplateGraphicProperties
 

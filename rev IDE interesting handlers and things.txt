@@ -293,3 +293,30 @@ Put ArrayToJSON( it, true, true)
 
 
 get revIDEWidgets(); put arraytojson(it,true,true) -- puts a list of data about currently available widgets
+
+
+revIDELaunchResource "sample stacks" --- Opens "revOnline" stack
+
+revIDEDocumentationLoad "API", "LiveCode Script"
+revIDEDocumentationLoad "API", "Script" --- OXT version
+
+
+   revIDEStartTutorial "First Run", "Hello World", "App Lesson"
+   revIDEStartTutorial "First Run", "Timers", "App Lesson"
+   revIDEStartTutorial "First Run", "To Do List", "App Lesson"
+   revIDEStartTutorial "First Run", "BMI Calculator", "App Lesson"
+   revIDEStartTutorial "First Run", "Combining Text", "App Lesson"
+
+revIDEStartTutorial "Getting Started", "3. Notes App", "1. User interface" -- launches but super wonky!
+revIDEStartTutorial "Getting Started", "2. Calculator App", "1. User interface" -- launches but super wonky!
+revIDEStartTutorial "Getting Started", "1. Clock App", "1. User interface"
+
+revIDEStartTutorial "Welcome", "1. Newbies", "1. The Basics"
+revIDEStartTutorial "Welcome", "1. Newbies", "2. My First App"
+revIDEStartTutorial "Welcome", "2. Coders", "Hello World"
+
+revIDEStartTutorial "General Tutorials", "Using Objects", "Using Fields"
+
+
+
+revIDESubscribe "ideTutorialProgressChanged"

@@ -824,8 +824,8 @@ Updated listStyle rtf export section
 MW Updated engine bug fix list for 4.6.0-rc-1
 Updated dictionary section of resource and documentation changes. MW Updated ide bug fix list for 4.6.0-rc-2
 Updated datagrid section to mention update to 1.0.2 build 13. MW Updated ide bug fix list for 4.6.0-rc-3
-MW No changes.
-MW No changes.
-MW Updated engine bug fix list for 4.6.0-gm-2
-34
-ormat that LiveCode exports to the clipboard on Mac has been updated to be RTF – this brings it inline with both Windows and Linux, and will allow support for hyperlinks and listStyles to be supported in a subsequent build.
+
+format that LiveCode exports to the clipboard on Mac has been updated to be RTF – this brings it inline with both Windows and Linux, and will allow support for hyperlinks and listStyles to be supported in a subsequent build.
+
+
+

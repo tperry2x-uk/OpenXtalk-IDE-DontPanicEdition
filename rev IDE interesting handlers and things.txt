@@ -317,6 +317,65 @@ revIDEStartTutorial "Welcome", "2. Coders", "Hello World"
 
 revIDEStartTutorial "General Tutorials", "Using Objects", "Using Fields"
 
-
-
 revIDESubscribe "ideTutorialProgressChanged"
+
+
+------------------      revIDE Library 8 undocumented public functions of interest:
+
+revIDEStackAudioClips(pStack) returns array that could contain tAudioClipArray[rClipNumber] with keys: "type" "name" "long id" "level" "scriptlines" "scriptstatus" "behavior" "behavior scriptlines"
+-- So apparently AudioClips objects can have scripts and behaviors attached to them??? Which perhaps makes them "invisible"/GUI-less controls or 'scriptObjects'(LCB)?
+
+revIDEControlPropertiesOfGroup pGroupID, pLevel
+
+Interesting example of a recursive function calling itself and passing parameter variables by '@'reference which has some execution speed advantage.
+ 
+private function __dumpArrayRecurse pArray, pLevel, @pCounter, @pList
+   local tOrderedKeys
+   put the keys of pArray into tOrderedKeys
+   sort lines of tOrderedKeys numeric
+   repeat for each line tKey in tOrderedKeys
+      add 1 to pCounter
+      repeat for pLevel
+         put tab after line pCounter of pList
+      end repeat
+      put (tKey && "= ") after line pCounter of pList
+
+      if (the keys of pArray[tKey]) is empty then
+         put line 1 of pArray[tKey] after line pCounter of pList
+      else
+         put __dumpArrayRecurse(pArray[tKey], (pLevel + 1), pCounter, pList) into pList
+      end if
+   end repeat
+   return pList
+end __dumpArrayRecurse
+
+
+The revIDE contains private on __fetchPropertyOfControl pProp, @xData 
+which has a reference to "custom control", AND THEN refences "Data Grid" seperately which would indicate that another "custom control" type is possible there.
+case "custom control"
+ if the the cIDEProperties["cCustomControl"] of the Target is "true" then -- these custom controls would have a 'cCustomControl' prop set to true
+   put "true" into xData["custom control"]
+ else if the dgProp["control type"] of the target is "Data Grid" then
+   put "true" into xData["custom control"]
+ else
+   put "false" into xData["custom control"]
+end if
+
+From revCoreStackBehavior:
+
+idePropertyInspectorReadProperties pList -- pList is a line delimited list of properties so format like: "name"&cr&"loc"&cr&"id", returns array of properties
+
+ideProjectBrowserReadProperties pList
+Reading object properties used to the project browser and application browser
+There are two variations. Each wants slightly different properties so for 
+optimisations sake we've implemented two functions
+
+ideProjectBrowserReadStackProperties pList
+ideProjectBrowserReadCardProperties pList
+
+ideCoreCardOfcontrol pLongID
+
+ideCoreParentOfControl pLongID
+
+ideCoreStackIsIDE
+

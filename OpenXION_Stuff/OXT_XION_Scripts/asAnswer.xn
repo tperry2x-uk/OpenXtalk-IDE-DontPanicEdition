@@ -1,0 +1,18 @@
+on asAnswer pDialogText, pBtnOne, pBtnTwo, pBtnThree, pIcon
+	-- with icon (stop | note | caution
+	if pIcon is empty then put "Note" into pIcon
+	if pBtnOne is empty then put "OK" into pBtnOne
+	if pBtnTwo is empty and pBtnThree is empty then
+	    do ("display dialog " & quote & pDialogText &quote& " Buttons {"&quote& pBtnOne &quote&"} with icon " & pIcon) as AppleScript
+	 else if pBtnThree is empty then
+	    do ("display dialog " & quote & pDialogText &quote& " Buttons {"&quote& pBtnOne &quote&","&quote& pBtnTwo &quote&"} with icon " & pIcon) as AppleScript
+         else 
+	    do ("display dialog " & quote & pDialogText &quote& " Buttons {"&quote& pBtnOne &quote&","&quote& pBtnTwo &quote&","&quote& pBtnThree &quote&"} with icon " & pIcon) as AppleScript
+	end if
+	get the result
+	put it into tResult
+	if char 1 to 16 of tResult = "button returned:" then 
+		delete char 1 to 16 of tResult
+	end if
+	put tResult
+end asAnswer

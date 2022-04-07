@@ -1,0 +1,15 @@
+on pyTkAnswer pMessage, pTitle
+		Put "from tkinter import * " & return & newline into tPyScript
+		Put "import tkSimpleDialog"  & return & newline after tPyScript
+		Put "import tkMessageBox"  & return & newline after tPyScript
+		Put "root = Tk()"  & return & newline after tPyScript
+		Put "w = Label(root, text= "& Quote & "Answer" & Quote &")" & return & newline after tPyScript
+		Put "w.pack()"  & return & newline after tPyScript
+		Put "answer = tkMessageBox.showinfo("& Quote & pTitle & Quote &","& Quote & pMessage & Quote &")"  & return & newline after tPyScript
+		put "Print answer"  & return & newline after tPyScript
+		do tPyScript as Python
+		put tPyScript
+		put the result
+end pyTkAnswer
+
+pyTkAnswer "Hello World", "Answer"

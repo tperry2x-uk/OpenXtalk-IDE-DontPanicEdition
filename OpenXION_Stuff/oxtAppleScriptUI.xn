@@ -14,6 +14,7 @@ on answer pDialogType,pDialogText,pParam1,pParam2,pParam3,pParam4,pParam5,pParam
       else
         put asAnswer(pDialogText)
       end if
+
    case file
      --  function asAnswerFile pDialogText, pTypes, pInvisibles, pShowBundleContents
      if pParam1 is "of type" then
@@ -21,6 +22,24 @@ on answer pDialogType,pDialogText,pParam1,pParam2,pParam3,pParam4,pParam5,pParam
      else
        put asAnswerFile(pDialogText,"*.*")
      end if
+
+   case files
+    if pDialogText is empty then put "Select A Folder" into pDialogText
+     --  function asAnswerFiles pDialogText, pTypes, pInvisibles, pShowBundleContents
+     if pParam1 is "of type" then
+       put asAnswerFiles(pDialogText,pParam2,false,false)
+     else
+       put asAnswerFiles(pDialogText,"*.*",true,true)
+     end if
+
+     case folder
+      if pDialogText is empty then put "Select Folder(s)" into pDialogText
+       -- function asAnswerFolder pDialogText, pInvisibles, pShowBundleContents, pDefaultPath
+       if pParam1 is "of type" then
+         put asAnswerFolder(pDialogText,pParam2,false,false)
+       else
+         put asAnswerFolder(pDialogText,true,true,)
+       end if
    default
    end switch
 end answer
@@ -110,15 +129,16 @@ function asAskFile pDialogText, pDefaultName, pInvisibles, pShowBundleContents
    return tResult
 end asAskFile
 
-function asAnswerFolder pDialogText, pDefaultName, pInvisibles, pShowBundleContents
+function asAnswerFolder pDialogText, pInvisibles, pShowBundleContents, pDefaultPath
    put "choose folder with prompt " & quote & pDialogText &quote into tAppleScript
    if pInvisibles is true then put " invisibles true" after tAppleScript
    if pShowBundleContents is true then put " showing package contents true " after tAppleScript
-   -- Put tAppleScript & return
+   Put tAppleScript & return
    -- the default file location
    do tAppleScript as AppleScript
    put the result into tResult
-   Delete char 1 to 16 of tResult
+   Put tResult
+   If word one of the result is "alias" then Delete word 1 of tResult
    return tResult
 end asAnswerFolder
 

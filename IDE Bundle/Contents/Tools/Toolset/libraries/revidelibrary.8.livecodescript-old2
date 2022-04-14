@@ -2424,7 +2424,8 @@ function revIDEThemePath
       if char 1 of tThemeFolder is "." then next repeat
 
       local tThemeFolderStart
-      put "com.livecode.theme." & tPlatformName into tThemeFolderStart
+      put "com.livecode.theme.generic" into tThemeFolderStart
+      -- put "com.livecode.theme." & tPlatformName into tThemeFolderStart
 
       if tThemeFolder begins with tThemeFolderStart then
          delete char 1 to the number of chars of tThemeFolderStart + 1 of tThemeFolder
@@ -2445,12 +2446,15 @@ function revIDEThemePath
    local tThemeName
    if tClosestThemeNumber is empty then
       if tHighestThemeNumber is not empty then
-         put "com.livecode.theme." & tPlatformName & "." & tHighestThemeNumber into tThemeName
+         put "com.livecode.theme.generic" into tThemeName
+         -- put "com.livecode.theme." & tPlatformName & "." & tHighestThemeNumber into tThemeName
       else
-         put "com.livecode.theme." & tPlatformName into tThemeName
+         put "com.livecode.theme.generic" into tThemeName
+         -- put "com.livecode.theme." & tPlatformName into tThemeName
       end if
    else
-      put "com.livecode.theme." & tPlatformName & "." & tClosestThemeNumber into tThemeName
+      put "com.livecode.theme.generic"
+   --   put "com.livecode.theme." & tPlatformName & "." & tClosestThemeNumber into tThemeName
    end if
 
    revIDEPopDefaultFolder
@@ -2505,7 +2509,7 @@ function revIDEColor pTag
          return "255,255,255"
          break
       case "dataView_rowAlternateColor"
-         return "238,238,238"
+         return "90,90,90"
          break
       case "dataView_hiliteColor"
          return "48,160,209"

@@ -832,7 +832,7 @@ private command __extensionsChanged
       end try
       send "IDEToLightMode" to me in 0 millisecs
    end if
-   
+
 end __extensionsChanged
 
 # Sent progress update on installation of widget
@@ -1407,7 +1407,8 @@ function __extensionSampleStacks pID, pFolder
       put files(tSampleFolder) into tSamples
       filter tSamples without ".*"
       repeat for each line tStack in tSamples
-         put pFolder & slash & "samples/" & tStack into tSampleArray[tStack]
+         put pFolder & slash & "samples/" & tStack & cr after msg
+          put pFolder & slash & "samples/" & tStack into tSampleArray[tStack]
       end repeat
    end if
 
@@ -1644,20 +1645,22 @@ on ideOpenStack pCard
 end ideOpenStack
 
 command revIDEExtensionLaunchSampleStack pSampleStack
-    // Check if the sample stack has already been opened,
-    // i.e. if its name is mapped in the array. If so, just
-    // open it.
-    if there is a stack (sOpenedStacksA[pSampleStack]) then
-        open stack sOpenedStacksA[pSampleStack]
-        exit revIDEExtensionLaunchSampleStack
-    end if
+   -- put pSampleStack
+   // Check if the sample stack has already been opened,
+   // i.e. if its name is mapped in the array. If so, just
+   // open it.
+   if there is a stack (sOpenedStacksA[pSampleStack]) then
+         open stack sOpenedStacksA[pSampleStack] ---- THIS IS NOT WORKING FOR SOME REASON!?!?!
+         exit revIDEExtensionLaunchSampleStack
+   end if
+   -- open stack sOpenedStacksA[pSampleStack]
 
-    // Otherwise open the stack from the file. Wait until we
-    // get the openStack message before emptying the filename
-    // otherwise we will get a long id clash
-    revIDESubscribe "ideOpenStack"
-    put pSampleStack into sSampleFileName
-
-    ## Open the sample stack
-    open stack pSampleStack
+   // Otherwise open the stack from the file. Wait until we
+   // get the openStack message before emptying the filename
+   // otherwise we will get a long id clash
+   revIDESubscribe "ideOpenStack"
+   put pSampleStack into sSampleFileName
+   -- put sSampleFileName
+   ## Open the sample stack
+   open stack pSampleStack
 end revIDEExtensionLaunchSampleStack

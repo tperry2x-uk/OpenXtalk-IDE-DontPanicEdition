@@ -7871,18 +7871,20 @@ on revIDEActionSaveStackAs pStackID, pSubstackOnly
    put tShortName into tSubstitutions[1]
 
    local tStackFilter, tStack24Filter, tStack27Filter, tStack55Filter, tStack70Filter, tStack80Filter
-   put (revIDELocalise("Stack") & "|otxstack,stk|STAK") into tStackFilter
+   put (revIDELocalise("Stack") & "|oxtstack,stk|STAK") into tStackFilter
    put (revIDELocalise("Legacy LiveCode Stack (2.4)") & "|livecode,rev|STAK") into tStack24Filter
    put (revIDELocalise("Legacy LiveCode Stack (2.7)") & "|livecode,rev|STAK") into tStack27Filter
    put (revIDELocalise("Legacy LiveCode Stack (5.5)") & "|livecode,rev|STAK") into tStack55Filter
    put (revIDELocalise("Legacy LiveCode Stack (7.0)") & "|livecode,rev|STAK") into tStack70Filter
    put (revIDELocalise("Legacy LiveCode Stack (8.0)") & "|livecode,rev|STAK") into tStack80Filter
    local tVersion
+
+   replace "livecode" with "oxtstack" in tStackName
    switch
       case the scriptOnly of stack tShortName
-
+         -- put "script" after tStackName
          put "script" into char -5 to -1 of tStackName
-         ask file revIDELocalise("Save script only stack %1 as:", tSubstitutions) with tStackName with type (revIDELocalise("Script Only Stack") & "|otxscript|STAK")
+         ask file revIDELocalise("Save script only stack %1 as:", tSubstitutions) with tStackName with type (revIDELocalise("Script Only Stack") & "|oxtscript|STAK")
          break
 	  case tStackFileType is 8.0
 	     ask file revIDELocalise("Save stack %1 as:", tSubstitutions) with tStackName with type tStack80Filter or type tStackFilter or type tStack70Filter or type tStack55Filter or type tStack27Filter or type tStack24Filter
@@ -7934,11 +7936,11 @@ on revIDEActionSaveStackAs pStackID, pSubstackOnly
 
    # MacOS Auotmatically appends the filetype to the filename
    local tFilePath
-   if the platform is not "MacOS" and not (it ends with ".rev" or it ends with ".livecode" or it ends with ".livecodescript") then
+   if the platform is not "MacOS" and not (it ends with ".rev" or it ends with ".livecode" or it ends with ".livecodescript" or it ends with ".oxtstack" or it ends with ".oxtscript") then
       if the scriptOnly of stack tShortName then
-         put ".otxscript" after it
+         put ".oxtscript" after it
       else
-         put ".otxstack" after it
+         put ".oxtstack" after it
       end if
    end if
    put it into tFilePath
@@ -8940,7 +8942,7 @@ on revIDELaunchResource pName
          launch document (revEnvironmentToolsPath() & slash & "Release Notes.pdf")
          break
       case "User Guide"
-         launch document revEnvironmentDocumentationPath() & "/pdf/LiveCode User Guide.pdf"
+         launch document revEnvironmentDocumentationPath() & "/pdf/UserGuide.pdf"
          break
       case "Sample Stacks"
          set the _ideoverride of stack "revonline" to true
@@ -8977,7 +8979,7 @@ on revIDELaunchResource pName
 end revIDELaunchResource
 
 on revIDEActionRelicense
-   answer question "Are you sure you want to re-license? Clicking " & quote & "Ok" & quote & " will restart LiveCode and you will be asked re-activate." with "Cancel" or "OK"
+   answer question "Are you sure you want to re-license? Clicking " & quote & "Ok" & quote & " will restart OpenXTalk and you will be asked re-activate." with "Cancel" or "OK"
    if it is "OK" then
       revIDERelicense
    end if
@@ -10969,7 +10971,7 @@ on revIDERegenerateBuiltGuides
    revIDESetUTF8FileContents tDocsCache & slash & "built_guide.js", tData
 end revIDERegenerateBuiltGuides
 
-constant kAPIs = "Script,script|Builder,builder|IDE,ide"
+constant kAPIs = "Script,script|Extension Builder,builder"
 on revIDERegenerateBuiltAPIs
    local tData, tAPIData
    set the lineDelimiter to "|"
@@ -11080,7 +11082,7 @@ private command revIDEGenerateDistributedAPI
       local tScriptA
       put "Script" into tScriptA["display name"]
       put revDocsModifyForUrl(tScriptA["display name"]) into tScriptA["name"]
-      put "LiveCode" into tScriptA["author"]
+      put "OpenXTalk" into tScriptA["author"]
       put "dictionary" into tScriptA["type"]
       # Parse the dictionary files into a structured array
       put revDocsParseDictionaryToLibraryArray(tDocsFolder) into tScriptA["doc"]
@@ -11138,9 +11140,9 @@ private command revIDEGenerateDistributedAPI
          end repeat
          put empty into tParsedA
       end repeat
-      put "LiveCode Builder" into tBuilderA["display name"]
+      put "Extension Builder" into tBuilderA["display name"]
       put revDocsModifyForUrl(tBuilderA["display name"]) into tBuilderA["name"]
-      put "LiveCode" into tBuilderA["author"]
+      put "OpenXTalk" into tBuilderA["author"]
       put "dictionary" into tBuilderA["type"]
 
       # Update the database

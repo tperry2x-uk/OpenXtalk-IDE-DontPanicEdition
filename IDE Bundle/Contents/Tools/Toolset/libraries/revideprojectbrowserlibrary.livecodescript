@@ -22,7 +22,7 @@ function ideProjectBrowserShowThumbnailsGet
 end ideProjectBrowserShowThumbnailsGet
 
 on ideProjectBrowserShowThumbnailsSet
-
+   return true
 end ideProjectBrowserShowThumbnailsSet
 
 function ideProjectBrowserShowGroupThumbnailsGet

@@ -3,14 +3,14 @@ constant kImportantTextColor = "#b84c93" -- the color of startup messages text i
 
 on startup
    -- xrevSetTestEnvironment($TRAVIS is true) -- sets up Travis CI (https://docs.travis-ci.com/) and checking an environmental variable for test mode
-   
+
    -- MW-2011-03-13: Make sure the externals are empty on startup
    set the externals of me to empty
-   
+
    set the allowInterrupts to false -- prevent users from interrupting handlers while starting the IDE
-   
+
    set the cREVLaunching of me to true -- cREVLaunching is true while starting up
-   
+
    revInternal__Log "Start"
    revInternal__Log "Enter", "Startup"
    try
@@ -22,8 +22,18 @@ on startup
       revInternal__SetupPreferences -- checks and loads the prefs file and tacks additional line on to Home's stack files
       revInternal__SetupCustomizationPath -- sets up IDE user's customization directory for add ons and such
       revInternal__SetupExternals -- loads Externals from IDE path /Tools/Ext/ and user's directory (see above) /Externals
+
+       if the systemAppearance is "dark" then
+          try
+           setAppToDarkMode
+         end try
+        else
+           try
+           setAppToLightMode
+         end try
+        end if
+
       revInternal__Log "Leave", "Pre-Open Stack"
-      
    catch tError
       revInternal__Log "Error", tError
    end try
@@ -52,7 +62,7 @@ on relaunch
       end if
       return empty
    end if
-   
+
    -- The hook did nothing, so do our default processing
    repeat with x = 1 to the paramcount
       local tStackFile
@@ -126,9 +136,9 @@ on preOpenStack
    if the short name of the owner of the target is not "Home" then
       pass preOpenStack
    end if
-   
+
    revInternal__Log "Enter", "Pre-Open Stack"
-   
+
    revInternal__InitialiseDefaults -- sets up some basic IDE app behavior depending on the platform
 end preOpenStack
 
@@ -137,61 +147,61 @@ on openStack
       pass openStack
    end if
    revInternal__Log "Enter", "Open Stack"
-   
+
    //send "revInternal__openStack" to me in 0 millisecs
    revInternal__openStack -- does all of the rest of loading the IDE
-   
+
    revInternal__Log "Leave", "Open Stack"
 end openStack
 
 local sSplashStartTime
 on revInternal__openStack
    revInternal__Log "Enter", "revInternal__openStack"
-   
+
    put the milliseconds into sSplashStartTime
-   
+
    set the cREVLaunching of stack "Home" to true
-   
+
    local tSuccess
    put true into tSuccess
-   
+
    try
       if tSuccess then
          revInternal__setSplashStatus "Checking System Parameters..." -- revInternal__setSplashStatus pass string to update Splash Screen loading text
          revInternal__InitialiseSystem -- sets up crash log
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading Libraries..."
          revInternal__InitialiseLibraries -- Loads Libraries
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Setting Globals..."
          revInternal__InitialiseGlobals -- sets global variables
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Setting Preferences..."
          revInternal__InitialiseOptions -- sets preferences
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading Standard Icons..."
          set the visible of stack "revGeneralIcons" to false -- this is where the IDE Logo and other important current icons are!
          put true into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading theme data..."
          revInternal__InitialiseIcons -- actually icons are already loaded, this just hides "revIcons" stack!
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading Patterns..."
          repeat for each item tPatternStack in "revGeneralPatterns,revCompatibilityPatterns1,revCompatibilityPatterns2"
@@ -199,97 +209,97 @@ on revInternal__openStack
          end repeat
          put true into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading Script Editor..."
          revInternal__InitialiseScriptEditor -- sets the behavior script of stack /palettes/script editor/revscripteditor.8.rev and insures SE invisibles are hidden
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading User Icon Libraries..."
          revInternal__InitialiseUserLibraries -- loads any ~ user/My_OXT/ icon files¬¨‚Ä†and sets them to hidden
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading Error Management..."
          revInternal__InitialiseErrors -- sets _ideoverride on revError display and ensures invisibles are hidden
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading Menu Bar..."
          revInternal__InitialiseMenus  -- Creates top ToolBar menu (that palette at the top) and the IDE app menus
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading Tools..."
          revInternal__InitialiseTools -- Loads the Tools palette and positions it on screen
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading Project Browser..."
          revInternal__InitialiseProjectBrowser -- Loads both Project Browser AND Application Overview if present
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading Message Box..."
          revInternal__InitialiseMessageBox -- Loads the message box palette and positions it on screen
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Loading Plug-ins..."
          revInternal__InitialisePlugIns
          put the result into tSuccess
          set the defaultStack to "home" -- Loads IDE plugins -- plug ins may take away default stack
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Cleaning Cache"
          revInternal__CleanDocsCache -- Clear Dictionary Cache if need be
          put the result into tSuccess
       end if
-      
+
       if tSuccess and not revEnvironmentIsInstalled() then
          revInternal__setSplashStatus "Building Dictionary"
          revInternal__BuildDictionary -- Builds Dictionary if need be
          put the result into tSuccess
       end if
-      
+
       if tSuccess then
          revInternal__setSplashStatus "Performing Final Steps..."
          revInternal__setSplashStatus ""
          revInternal__InitialiseFinalSteps -- Loads FrontScripts, BackScripts, ShortCuts(?), RevOnline and Clears Splash Screen Text
-         
+
          put the result into tSuccess
       end if
    catch tError
       revInternal__Log "Error", tError
    end try
-   
+
    set the cREVLaunching of stack "Home" to false
-   
+
    if not tSuccess then
       quit
    end if
-   
+
    if $REV_TOOLS_PATH is empty and (revInternal__CheckFileAssociations() is true) and (the platform is "win32") then
       if revIDEGetPreference("cDontShowFileAssociationsDialog") is not true then
          modal stack "revFileAssociations"  -- Makes sure the filename extensions are setup on Windows, if not then shows stack "revFileAssociations" dialog
       end if
    end if
-   
+
    --AL-2015-07-10: Temporarily disable welcome screen
-   /*
-   if revIDEGetPreference("welcomeScreenShown") is not "true" then
-      revIDEOpenPalette "Welcome"
-   else if revIDEPrefGet("StartPageShow") is not "false" then
-      */
+
+   -- if revIDEGetPreference("welcomeScreenShown") is not "false" then
+   --    revIDEOpenPalette "Welcome" <--------------------------- The "Welcome" stack is an obsoleted part of the IDE that could be used for something else
+   --    else if revIDEPrefGet("StartPageShow") is not "false" then
+
       if revIDEGetPreference("cStartPageShow") is not "false" then  --  <---------------------------- TO DO: Customize Start Stack Here!!! Paul McClernan 9/22/21
          if there is a file (revEnvironmentCustomizationPath() & "/Start Center.oxtstack") then
             -- put revInternal__StackFiles() into tTempStackFiles
@@ -302,7 +312,7 @@ on revInternal__openStack
             revIDEOpenPalette "revStartCenter"
          end if
       end if
-      
+
       -- MM-2011-09-27: The new auto update process is handled entirely by the installer.
       -- Luanch the installer in update mode to begin update process.
       --
@@ -333,29 +343,29 @@ on revInternal__openStack
       --   open process tCommand for neither
       --   put tOldPath into $PATH
       -- end if
-      
+
       close stack "revSplash"
-      
+
       revInternal__Log "Leave", "revInternal__openStack"
       revInternal__Log "End"
-      
+
       -- Now the home stack has loaded, we can allow interrupts..
       set the allowInterrupts to true
    end revInternal__openStack
-   
+
    on revInternal__setSplashStatus pMessage
       revInternal__Log "Message", pMessage
       set the statusMessage of stack "revSplash" to pMessage
    end revInternal__setSplashStatus
-   
-   
+
+
    local sLicensePlatform
    local sLicenseClass
    local sLicenseVersion
    local sLicenseName
    local sLicenseOrganization
    local sLicenseMultiplicity
-   
+
    -- This is the path to the folder containing the IDE's folders
    local sToolsPath
    -- This is the path to the folder containing user preferences
@@ -367,32 +377,32 @@ on revInternal__openStack
    local sCustomizationPath
    -- This is the path to the folder containing per-user dictionary data
    local sUserDocsPath
-   
-   
+
+
    -- This is the path to the folder containing user preferences for the IDE prior to 4.5
    local sOldPreferencesPath
    -- This is the path to the folder containing support files for the IDE prior to 4.5
    local sOldSupportPath
-   
+
    -- MW-2013-06-10: [[ CloneAndRun ]] This is the path containing all the binaries the IDE should
    --    use. If empty it means use default installed locations, otherwise this is a git repo build
    local sBinariesPath
    -- MW-2013-06-10: [[ CloneAndRun ]] This is the path containing the root of the git repository.
    local sRepositoryPath
-   
+
    //EJB
    local sOverrideRuntimePath, sTestEnvironment
-   
+
    -- Parameterize this so it makes it easier to change.
    constant kProductName = "OpenXTalk"
-   
+
    --------------------------------------------------------------------------------
    -- Internal Setup Functions
    --
-   
+
    private command revInternal__SetupLicense
       revInternal__Log "Enter", "License Setup"
-      
+
       -- put line 1 of the revLicenseInfo into sLicenseName
       put "OpenXTalk Community User" into sLicenseName
       -- put line 2 of the revLicenseInfo into sLicenseOrganization
@@ -404,23 +414,23 @@ on revInternal__openStack
       -- if sLicenseMultiplicity is empty then
       --   put 1 into sLicenseMultiplicity
       -- end if
-      
+
       put the version && "build" && the buildnumber into sLicenseVersion
-      
+
       put revEnvironmentPlatform() into sLicensePlatform
-      
+
       revInternal__Log "Leave", "License Setup"
    end revInternal__SetupLicense
-   
+
    private command revInternal__SetupPaths
       revInternal__Log "Enter", "Path Setup"
-      
+
       local tHomePath
       put the filename of me into tHomePath
-      
+
       set the itemDelimiter to "/"
       put item 1 to -3 of tHomePath into sToolsPath
-      
+
       -- MW-2013-06-13: Extract the engine path from 'the address' (needs adjustment
       --    per platform).
       local tEnginePath
@@ -444,7 +454,7 @@ on revInternal__openStack
             put the folder & slash & ".openxtalk/crashlogs" into sCrashLogPath
             put the folder & slash & ".openxtalk/documentationcache" into sUserDocsPath
             set the folder to tOldFolder
-            
+
             -- MW-2013-06-13: Adjust the engine path for Linux
             put item 1 to -2 of tEnginePath into tEnginePath
             break
@@ -460,7 +470,7 @@ on revInternal__openStack
             put specialFolderPath("cusr") & "/Library/Application Support/OpenXtalk/Cache" into sCachePath
             put specialFolderPath("cusr") & "/Library/Application Support/OpenXtalk/Crash Logs" into sCrashLogPath
             put specialFolderPath("cusr") & "/Library/Application Support/OpenXtalk/Documentation Cache" into sUserDocsPath
-            
+
             -- MW-2013-06-13: Adjust the engine path for Mac
             put item 1 to -5 of tEnginePath into tEnginePath
             break
@@ -478,47 +488,47 @@ on revInternal__openStack
             put specialFolderPath(0x001c) & "/OpenXtalk/Cache" into sCachePath
             put specialFolderPath(0x001c) & "/OpenXtalk/Crash Logs" into sCrashLogPath
             put specialFolderPath(0x001c) & "/OpenXtalk/Documentation Cache" into sUserDocsPath
-            
+
             -- MW-2013-06-13: Adjust the engine path for Windows
             put item 1 to -2 of tEnginePath into tEnginePath
             break
       end switch
-      
+
       # The docs cache is per-version and edition
       local tEdition
       put tolower(sLicenseClass) into tEdition
-      
+
       local tVersion
       put the version into tVersion
       put replaceText(tVersion, "[-,\.]", "_") into tVersion
       put slash & tVersion & "_" & tEdition after sUserDocsPath
-      
+
       -- MW-2013-06-13: [[ CloneAndRun ]] Set up the binaries path.
       local tRepositoryPath
       put revEnvironmentGuessRepositoryPath(tEnginePath) into tRepositoryPath
       if tRepositoryPath is not empty then
          put tRepositoryPath into sRepositoryPath
          put tEnginePath into sBinariesPath
-         
+
          global gRevDevelopment
          put true into gRevDevelopment
-         
+
          global gRevPopups
          put true into gRevPopups
       else
          put empty into sRepositoryPath
       end if
-      
+
       revInternal__Log "Message", "Tools Path = " & sToolsPath
       revInternal__Log "Message", "Old Preferences Path = " & sOldPreferencesPath
       revInternal__Log "Message", "Preferences Path = " & sPreferencesPath
       revInternal__Log "Message", "Cache Path = " & sCachePath
       revInternal__Log "Message", "Crash Log Path = " & sCrashLogPath
       revInternal__Log "Message", "Binaries Path = " & sBinariesPath
-      
+
       revInternal__Log "Leave", "Path Setup"
    end revInternal__SetupPaths
-   
+
    command revInternal__SetupCustomizationPath
       revInternal__Log "Enter", "Customization Path Setup"
       -- New OXT names - Paul McClernan 9/23/21
@@ -544,27 +554,27 @@ on revInternal__openStack
                put specialFolderPath("docs") & "/My OpenXTalk" into sCustomizationPath
                break
          end switch
-         
+
          revInternal__Log "Message", "Customization Path = " & sCustomizationPath
       end if
-      
+
       revInternal__Log "Leave", "Customization Path Setup"
    end revInternal__SetupCustomizationPath
-   
+
    function revInternal__StackFiles
       local tPaletteFolder, tFolders
       put revEnvironmentToolsetPath() & slash & "palettes" into tPaletteFolder
       put tPaletteFolder into tFolders
-      
+
       repeat for each line tFolder in folders(tPaletteFolder)
          if char 1 of tFolder is "." then next repeat
          put return & tPaletteFolder & slash & tFolder after tFolders
       end repeat
-      
+
       put return & revEnvironmentToolsetPath() & slash & "libraries" after tFolders
       if not revEnvironmentIsInstalled() then
          put return & revEnvironmentRepositoryPath() & slash & "ide-support" after tFolders
-         
+
          -- legacy from commercial repo
          put return & revEnvironmentCommercialRepositoryPath() & "/ide/Toolset/libraries" after tFolders
          put revEnvironmentCommercialRepositoryPath() & "/ide/Toolset/palettes" into tPaletteFolder
@@ -572,7 +582,7 @@ on revInternal__openStack
             if tFolder begins with "." then next repeat
             put return & tPaletteFolder & slash & tFolder after tFolders
          end repeat
-         
+
          -- components
          local tComponentFolder
          put revEnvironmentCommercialRepositoryPath() & "/components" into tComponentFolder
@@ -580,7 +590,7 @@ on revInternal__openStack
             if tFolder begins with "." then next repeat
             put return & tComponentFolder & slash & tFolder after tFolders
          end repeat
-         
+
          -- commercial extensions (ensure they are loaded from the repo)
          local tExtensionFolder
          put revEnvironmentCommercialRepositoryPath() & "/extensions/script-libraries" into tExtensionFolder
@@ -588,7 +598,7 @@ on revInternal__openStack
             if tFolder begins with "." then next repeat
             put return & tExtensionFolder & slash & tFolder after tFolders
          end repeat
-         
+
          -- extensions (ensure they are loaded from the repo)
          put revEnvironmentRepositoryPath() & "/extensions/script-libraries" into tExtensionFolder
          repeat for each line tFolder in folders(tExtensionFolder)
@@ -596,18 +606,18 @@ on revInternal__openStack
             put return & tExtensionFolder & slash & tFolder after tFolders
          end repeat
       end if
-      
+
       local tStackFiles, tStackName
       local tStackFilesA, tIDEVersion
       set the itemdel to "."
-      
+
       put item 1 of the version into tIDEVersion
       repeat for each line tPath in tFolders
          repeat for each line tFile in files(tPath)
             if the last item of tFile is not among the items of "rev.livecode.livecodescript.stk.oxtstack.oxtscript" then next repeat
-            
+
             put item 1 to -2 of tFile into tStackName
-            
+
             local tVersion
             put empty into tVersion
             // AL-2015-02-18: [[ Named Stack Versions ]] Check if this stack should be loaded in this version.
@@ -621,10 +631,11 @@ on revInternal__openStack
                   end if
                end if
             end if
-            
+
             if tStackName is "revpreferences" then next repeat
-            
+
             // AL-2015-02-18: [[ Named Stack Versions ]] Choose a versioned stack file name over an unversioned one, and a later version over an earlier one.
+            --- AHA! Soooo... this is for those  *.8.rev on some IDE stacks overrides earlier versions that may also be mixed within the IDE files!
             local tExistingVersion
             put tStackFilesA[tStackName]["version"] into tExistingVersion
             if tExistingVersion is empty or tVersion > tExistingVersion then
@@ -633,7 +644,7 @@ on revInternal__openStack
             end if
          end repeat
       end repeat
-      
+
       lock messages
       repeat for each key tKey in tStackFilesA
          try
@@ -648,49 +659,49 @@ on revInternal__openStack
       delete the last char of tStackFiles
       return tStackFiles
    end revInternal__StackFiles
-   
+
    private command revInternal__SetupPreferences
       revInternal__Log "Enter", "Preferences Setup"
-      
+
       local tOldPreferencesStackFile, tOldNewPreferencesStackFile
       put sOldPreferencesPath & "/revpreferences.rev" into tOldPreferencesStackFile
       put sPreferencesPath & "/reventerprise.rev" into tOldNewPreferencesStackFile
-      
+
       local tPreferencesStackFile
       put sPreferencesPath & "/" & toLower(kProductName) & ".rev" into tPreferencesStackFile
-      
+
       local tPreferencesStackFile7
       put sPreferencesPath & "/" & toLower(kProductName) & "7.rev" into tPreferencesStackFile7
-      
+
       local tIndex, tStackFiles
       -- First check to see if we have a preferences stack file in the new location that
       -- will not load.
       if there is a file tPreferencesStackFile7 and there is no stack tPreferencesStackFile7 then
          revInternal__Log "Message", "Existing Preferences 7 Stack Corrupted"
-         
+
          put 1 into tIndex
          repeat while there is a file (tPreferencesStackFile7 & ".corrupt." & tIndex)
             add 1 to tIndex
          end repeat
-         
+
          revInternal__Log "Message", "Moving Broken Stack to '" & tPreferencesStackFile7 & "'"
-         
+
          rename file tPreferencesStackFile7 to (tPreferencesStackFile7 & ".corrupt." & tIndex)
       end if
-      
+
       -- Next check to see that if there is a preferences file in the old location, if there
       -- there is no preferences stackfile in the new location.
       if there is no file tPreferencesStackFile7 and there is a file tPreferencesStackFile then
          revInternal__Log "Message", "Found 2.7 preferences file, copying to new location."
          put url ("binfile:" & tPreferencesStackFile) into url ("binfile:" & tPreferencesStackFile7)
       end if
-      
+
       if there is no file tPreferencesStackFile7 and there is a file tOldNewPreferencesStackFile then
          revInternal__Log "Message", "Found preferences in new location with old name, copying to new location."
          -- MM-2012-05-03: Fixed typo - changed tOldPreferencesStackFile to tOldNewPreferencesStackFile
          put url ("binfile:" & tOldNewPreferencesStackFile) into url ("binfile:" & tPreferencesStackFile7)
       end if
-      
+
       -- Next check to see if there is a preferences file in the new location under the
       -- name 'reventerprise'.
       if there is no file tPreferencesStackFile7 and there is a file tOldNewPreferencesStackFile then
@@ -698,11 +709,11 @@ on revInternal__openStack
          -- MM-2012-05-03: Fixed typo - changed tOldPreferencesStackFile to tOldNewPreferencesStackFile
          put url ("binfile:" & tOldNewPreferencesStackFile) into url ("binfile:" & tPreferencesStackFile7)
       end if
-      
+
       if there is no file tPreferencesStackFile7 then
          revInternal__Log "Message", "No Existing Preferences Stack Found"
          revInternal__Log "Message", "Copying template preferences to '" & tPreferencesStackFile7 & "'"
-         
+
          lock messages
          if there is not a stack "revpreferences" then
             create invisible stack "revpreferences"
@@ -710,52 +721,52 @@ on revInternal__openStack
          set the filename of stack "revpreferences" to tPreferencesStackFile7
          revInternal__ResetPreferences
          unlock messages
-         
+
       end if
-      
+
       -- ensure the script of stack preferences is empty
       -- as setprops could be dangerous
       set the script of stack tPreferencesStackFile7 to empty
-      
+
       put the stackFiles of stack "Home" into tStackFiles
       put return & "revPreferences", tPreferencesStackFile7 after tStackFiles
       set the stackFiles of stack "Home" to tStackFiles
-      
+
       revInternal__Log "Message", "Mapping Stack 'revpreferences.rev' to stackfile '" & tPreferencesStackFile7 & "'"
-      
+
       revInternal__Log "Leave", "Preferences Setup"
    end revInternal__SetupPreferences
-   
+
    private command revInternal__SetupFolders
       revInternal__Log "Enter", "Folders Setup"
-      
+
       local tPath, tComponent
       set the itemDelimiter to "/"
-      
+
       revInternal__Log "Message", "Setting up Preferences Path"
       revInternal__EnsureFolder sPreferencesPath
-      
+
       revInternal__Log "Message", "Setting up Cache Path"
       revInternal__EnsureFolder sCachePath
-      
+
       revInternal__Log "Message", "Setting up Crash Log Path"
       revInternal__EnsureFolder sCrashLogPath
-      
+
       revInternal__Log "Message", "Setting up Docs Path"
       revInternal__EnsureFolder sUserDocsPath
-      
+
       revInternal__Log "Leave", "Folders Setup"
    end revInternal__SetupFolders
-   
+
    private command revInternal__SetupSplash
       palette stack "revSplash"
    end revInternal__SetupSplash
-   
+
    command revInternal__ResetPreferences
       -- clear the preferences stack
       set the customKeys of stack "revPreferences" to empty
       set the customPropertySets of stack "revPreferences" to empty
-      
+
       local tPropsArray
       -- default custom property set
       put "true" into tPropsArray["cREVToolsPaintToolsVisible"]
@@ -790,7 +801,7 @@ on revInternal__openStack
       put "modification date" into tPropsArray["cRecentSort"]
       put "true" into tPropsArray["cDocsFirstRun"]
       put "86400" into tPropsArray["cUpdate,MaxAutoPopupFrequency"]
-      put "false" into tPropsArray["cDarkMode"] -- Added Dark Mode Setting 11/8/2021 - Paul McClernan
+      put "true" into tPropsArray["cDarkMode"] -- Added Dark Mode Setting 11/8/2021 - Paul McClernan
       put "true" into tPropsArray["cREVExtension"]
       put "102" into tPropsArray["cMenuWidth"]
       put "417,72" into tPropsArray["cREVMsgTabRectcard id 1147"]
@@ -924,7 +935,7 @@ on revInternal__openStack
       put "filtering" into tPropsArray["revHelpListMethod"]
       set the customProperties[""] of stack "revPreferences" to tPropsArray
       delete variable tPropsArray
-      
+
       -- cABDoubleClick
       put "Play" into tPropsArray["videoclips"]
       put "Toplevel" into tPropsArray["stacks"]
@@ -933,7 +944,7 @@ on revInternal__openStack
       put "Go" into tPropsArray["cards"]
       set the customProperties["cABDoubleClick"] of stack "revPreferences" to tPropsArray
       delete variable tPropsArray
-      
+
       -- cABCommandDoubleClick
       put "Edit Script" into tPropsArray["videoclips"]
       put "Edit Script" into tPropsArray["stacks"]
@@ -942,7 +953,7 @@ on revInternal__openStack
       put "Edit Script" into tPropsArray["cards"]
       set the customProperties["cABCommandDoubleClick"] of stack "revPreferences" to tPropsArray
       delete variable tPropsArray
-      
+
       -- cABOptionDoubleClick
       put "Property Inspector" into tPropsArray["videoclips"]
       put "Property Inspector" into tPropsArray["stacks"]
@@ -951,22 +962,22 @@ on revInternal__openStack
       put "Property Inspector" into tPropsArray["cards"]
       set the customProperties["cABOptionDoubleClick"] of stack "revPreferences" to tPropsArray
       delete variable tPropsArray
-      
+
       revInternal__SavePreferences
    end revInternal__ResetPreferences
-   
+
    --------------------------------------------------------------------------------
    -- Internal Utility Functions
    --
    --
    local sSavePreferencesMessage
-   
+
    command revInternal__SavePreferences
       cancel sSavePreferencesMessage
-      send "__revInternal_SavePreferences" to me in 30 seconds
+      send "__revInternal_SavePreferences" to me in 1 second
       put the result into sSavePreferencesMessage
    end revInternal__SavePreferences
-   
+
    command __revInternal_SavePreferences
       lock messages
       -- MM-2014-02-22: [[ Bug 11442 ]] Saving the prefs stack when security permissions is true is not possible.
@@ -976,13 +987,13 @@ on revInternal__openStack
       end try
       unlock messages
    end __revInternal_SavePreferences
-   
+
    private command revInternal__EnsureFolder pFolder
       revInternal__Log "Enter", "Ensuring Folder '" & pFolder & "'"
-      
+
       local tPath
       local tComponent
-      
+
       set the itemDelimiter to "/"
       put item 1 of pFolder & "/" into tPath
       repeat for each item tComponent in item 2 to -1 of pFolder
@@ -996,10 +1007,10 @@ on revInternal__openStack
             end if
          end if
       end repeat
-      
+
       revInternal__Log "Leave", "Ensuring Folder '" & pFolder & "'"
    end revInternal__EnsureFolder
-   
+
    function revInternal__CheckFileAssociations
       local tEnginePath
       set the itemDelimiter to ":"
@@ -1048,16 +1059,16 @@ on revInternal__openStack
       else
          -- Do Linux at some point!    <---------------------------------------------------------------- YEAH, DO LINUX!
       end if
-      
+
       return false
    end revInternal__CheckFileAssociations
-   
-   
+
+
    command revInternal__InstallFileAssociations
       local tEnginePath
       set the itemDelimiter to ":"
       put item 2 to -1 of the address into tEnginePath
-      
+
       if the platform is "win32" then
          replace slash with backslash in tEnginePath
          # AL-2015-03-13: [[ Bug 14910 ]] Add .livecodescript to valid stack file extensions on windows
@@ -1088,58 +1099,57 @@ on revInternal__openStack
       else
       end if
    end revInternal__InstallFileAssociations
-   
+
    local sLogIndent, sLogPath, sLog
    private command revInternal__LogToFile pType, pMessage
       if sLogPath is empty then
          exit revInternal__LogToFile
       end if
-      
+
       open file sLogPath for text append
-      
+
       if pType is not "Message" then
          put pType && pMessage into pMessage
       end if
-      
+
       repeat for each line tLine in pMessage
          if sLogIndent > 0 then
             write char 1 to sLogIndent of "                                " to file sLogPath
          end if
          write tLine & return to file sLogPath
       end repeat
-      
+
       close file sLogPath
    end revInternal__LogToFile
-   
+
    private command revInternal__LogToVariable pType, pMessage
       if pType is "Error" then
          repeat for each line tLine in pMessage
             put tLine & return after sLog["Error"]
          end repeat
       end if
-      
+
       if pType is not "Message" then
          put pType && pMessage into pMessage
       end if
-      
+
       repeat for each line tLine in pMessage
          if sLogIndent > 0 then
             put char 1 to sLogIndent of "                                " after sLog["Message"]
          end if
          put tLine & return after sLog["Message"]
       end repeat
-      
+
    end revInternal__LogToVariable
-   
+
    -- For test mode
    function revEnvironmentGetStartupLog pType
-      if sTestEnvironment is not true then
-         return empty
-      end if
-      
+      -- if sTestEnvironment is not true then --- <--  What's this test environment?
+      --   return empty
+      -- end if
       return sLog[pType]
    end revEnvironmentGetStartupLog
-   
+
    command revInternal__Log pType, pMessage
       if pType is "Start" then
          local tLogPath
@@ -1172,31 +1182,31 @@ on revInternal__openStack
          put empty into sLogPath
          exit revInternal__Log
       end if
-      
+
       if pType is "Leave" then
          subtract 2 from sLogIndent
       else if pType is "Enter" then
          add 2 to sLogIndent
       end if
-      
+
       if sTestEnvironment is true then
          revInternal__LogToVariable pType, pMessage
       else
          revInternal__LogToFile pType, pMessage
       end if
    end revInternal__Log
-   
+
    --------------------------------------------------------------------------------
    -- Internal Initialisation Functions
    --
-   
+
    command revInternal__InitialiseSystem
       local tSuccess
-      
+
       revInternal__Log "Enter", "System Initialisation"
-      
+
       put true into tSuccess
-      
+
       get the cCrashReportStyle of stack "revPreferences"
       if it is empty then
          get "Small"
@@ -1206,46 +1216,46 @@ on revInternal__openStack
          put the version into tVersion
          replace "." with "_" in tVersion
          replace "-" with "_" in tVersion
-         
+
          put it is "Medium" into tCrashSettings["verbose"]
-         
+
          convert the seconds to dateItems
          put format("%s/%s-%s-%04d_%02d_%02d-%02d_%02d_%02d.dmp", \
                sCrashLogPath, kProductName, tVersion, item 1 of it, item 2 of it, item 3 of it, \
                item 4 of it, item 5 of it, item 6 of it) into tCrashSettings["filename"]
-         
+
          revInternal__Log "Message", "Configuring crash log output to" && tCrashSettings["filename"]
          do "set the revCrashReportSettings to tCrashSettings"
       end if
-      
+
       revInternal__Log "Leave", "System Initialisation"
-      
+
       return tSuccess
    end revInternal__InitialiseSystem
-   
+
    command revInternal__InitialiseGlobals
       revInternal__Log "Enter", "Globals Initialisation"
-      
+
       global gREVDevelopment
       if gREVDevelopment is empty then
          put false into gREVDevelopment
       end if
-      
+
       global gREVAccelerator
       if the platform is "MacOS" then
          put "Cmd" into gREVAccelerator
       else
          put "Cntrl+" into gREVAccelerator
       end if
-      
+
       revInternal__SetAppIcon 210096
       revInternal__SetSmallAppIcon 210096
-      
+
       revInternal__Log "Leave", "Globals Initialisation"
-      
+
       return true
    end revInternal__InitialiseGlobals
-   
+
    private function revInternal__FilterHandlerList pList
       local tNewList
       repeat for each line tLine in pList
@@ -1257,18 +1267,18 @@ on revInternal__openStack
       delete the last char of tNewList
       return tNewList
    end revInternal__FilterHandlerList
-   
+
    command revInternal__InitialiseLibraries
       revInternal__Log "Enter", "Libraries Initialisation"
-      
+
       try
          insert script of stack "revInitialisationLibrary" into back
       catch tError
          revInternal__Log "Error", "Error loading initialisation library" & return & tError
       end try
-      
+
       revInternal_SetJAVA_HOME
-      
+
       local tLoadList
       put "revCommonLibrary" into tLoadList
       put return & "revDatabaseLibrary" after tLoadList
@@ -1288,15 +1298,15 @@ on revInternal__openStack
       put return & "revProfilesLibrary" after tLoadList
       put return & "revTableLibrary" after tLoadList
       put return & "revhtml5urllibrary" after tLoadList
-      
+
       if revEnvironmentEditionProperty("autocomplete_pro") then
          put return & "autocomplete-pro" after tLoadList
       end if
-      
+
       if revEnvironmentEditionProperty("autocomplete") then
          put return & "autocomplete" after tLoadList
       end if
-      
+
       local tBackList
       put "revidedeveloperextensionlibrary" into tBackList
       put return & "revsaveasstandalone" after tBackList
@@ -1305,10 +1315,10 @@ on revInternal__openStack
       put return & "revsaveasemscriptenstandalone" after tBackList
       put return & "revOnlineLibrary" after tBackList
       put return & "revCore" after tBackList
-      
+
       # AL-2015-09-02: [[ Bug 15841 ]] Temporarily add project browser library to prevent preference errors
       put return & "revIDEProjectBrowserLibrary" after tBackList
-      
+
       local tLib
       repeat for each line tLib in tLoadList
          revInternal__Log "Message", "Loading library" && tLib
@@ -1317,7 +1327,7 @@ on revInternal__openStack
             revInternal__Log "Error", the result
          end if
       end repeat
-      
+
       try
          repeat for each line tLib in tBackList
             insert script of stack tLib into back
@@ -1325,28 +1335,28 @@ on revInternal__openStack
       catch tError
          revInternal__Log "Error", "Error loading library" && tLib & return & tError
       end try
-      
+
       # MW-2010-10-13: [[ Bug 8600 ]] Make sure the handler lists of the rev frontscript, backscript and shortcuts script
       #    are all up to date (used by revNoMessages script).
       set the cREVGeneral["handlerlist"] of stack "revBackScriptLibrary" to revInternal__FilterHandlerList(the revAvailableHandlers of stack "revBackScriptLibrary")
-      
+
       # Now we have the IDE scripts in place, initiaize the deployment platforms
       try
          revIDEDeployInitialize
       end try
-      
+
       -- Load libraries in the Ext externals bundle
       if there is a folder revEnvironmentExtPath() then
          local tOldFolder
          put the folder into tOldFolder
-         
+
          set the folder to revEnvironmentExtPath()
          repeat for each line tExternal in the folders
             if tExternal is empty or tExternal is "." or tExternal is ".." then
                next repeat
             end if
             set the folder to revEnvironmentExtPath() & "/" & tExternal
-            
+
             local tFiles
             put the files into tFiles
             filter tFiles with "*.livecode*"
@@ -1357,18 +1367,18 @@ on revInternal__openStack
                end if
             end repeat
          end repeat
-         
+
          set the folder to tOldFolder
       end if
-      
+
       revInternal__Log "Leave", "Libraries Initialisation"
-      
+
       return true
    end revInternal__InitialiseLibraries
-   
+
    private command revInternal__SetupExternals
       revInternal__Log "Enter", "Externals Setup"
-      
+
       local tExtension
       switch revEnvironmentPlatform()
          case "Linux"
@@ -1381,10 +1391,10 @@ on revInternal__openStack
             put "dll" into tExtension
             break
       end switch
-      
+
       local tOldFolder, tExternals
       put the folder into tOldFolder
-      
+
       -- MW-2013-06-13: [[ CloneAndRun ]] If this is an installed build, load all externals in the
       --    (installed) Externals folder. Otherwise, use the binaries path.
       if revEnvironmentIsInstalled() then
@@ -1398,7 +1408,7 @@ on revInternal__openStack
          end if
          put the folder & "/" & tExternal & return after tExternals
       end repeat
-      
+
       -- Load the Ext externals bundle
       if there is a folder revEnvironmentExtPath() then
          set the folder to revEnvironmentExtPath()
@@ -1407,19 +1417,19 @@ on revInternal__openStack
                next repeat
             end if
             set the folder to revEnvironmentExtPath() & "/" & tExternal
-            
+
             -- The folder contains externals for multiple platforms, potentially
             -- Remember: .bundle "files" are really folders
             local tFiles
             put the files & return & the folders into tFiles
             filter tFiles with ("*." & tExtension)
-            
+
             repeat for each line tFile in tFiles
                put revEnvironmentExtPath() & "/" & tExternal & "/" & tFile & return after tExternals
             end repeat
          end repeat
       end if
-      
+
       if there is a folder revEnvironmentUserExternalsPath() then
          set the folder to revEnvironmentUserExternalsPath()
          repeat for each line tExternal in the folders & return & the files
@@ -1429,11 +1439,11 @@ on revInternal__openStack
             put revEnvironmentUserExternalsPath() & "/" & tExternal & return after tExternals
          end repeat
       end if
-      
+
       set the folder to tOldFolder
-      
+
       filter tExternals with ("*." & tExtension)
-      
+
       # OK-2007-09-24 : Support for legacy drivers. If the legacy drivers are in use, then the revdb
       # external should come from the user legacy externals folder rather than the main externals folder.
       if the cREVUseLegacyDrivers of stack "revPreferences" then
@@ -1443,19 +1453,19 @@ on revInternal__openStack
             put revEnvironmentUserExternalsPath() & "/Legacy/revdb." & tExtension into line tOffset of tExternals
          end if
       end if
-      
+
       set the externals of stack "Home" to tExternals
-      
+
       repeat for each line tExternal in the externals of stack "Home"
          revInternal__Log "Message", "Registering External '" & tExternal & "'"
       end repeat
-      
+
       revInternal__Log "Leave", "Externals Setup"
    end revInternal__SetupExternals
-   
+
    private command revInternal__SetupStackFiles
       revInternal__Log "Enter", "Stack Files Setup"
-      
+
       put revInternal__StackFiles() into tTempStackFiles
       if there is a file ( revEnvironmentCustomizationPath() & "/Start Center.oxtstack") then
          filter lines of tTempStackFiles without "revStartCenter*" into tTempStackFiles
@@ -1463,21 +1473,21 @@ on revInternal__openStack
       end if
       set the stackFiles of stack "Home" to tTempStackFiles
       -- set the stackFiles of stack "Home" to revInternal__StackFiles()
-      
+
       local tStackFile
       set the itemDelimiter to comma
       repeat for each line tStackFile in the stackFiles of stack "Home"
          revInternal__Log "Message", "Mapping Stack '" & item 1 of tStackFile & "' to stackfile '" & item 2 of tStackFile & "'"
       end repeat
-      
+
       revInternal__Log "Leave", "Stack Files Setup"
    end revInternal__SetupStackFiles
-   
+
    command revInternal__InitialiseDefaults
       revInternal__Log "Enter", "Defaults Initialisation"
-      
+
       set the _ideoverride of stack "home" to true
-      
+
       switch sLicensePlatform
          case "MacOS X"
             set the stackFileType to "OXTkSTAK"
@@ -1485,7 +1495,7 @@ on revInternal__openStack
             set the dontUseNS to false
             set the itemdelimiter to "."
             revInternal__Log "message", "Trying to set the default text of stack home"
-            
+
             hide stack "revMacCursors"
             break
          case "Windows"
@@ -1494,48 +1504,54 @@ on revInternal__openStack
             break
          case "Linux"
             set the hidePalettes to false
-            
+
             hide stack "revLinuxCursors"
             hide stack "revCursors"
             break
          default
             set the hidePalettes to false
-            
+
             hide stack "revLinuxCursors"
             hide stack "revCursors"
             break
       end switch
-      
+
       set the traceDelay to the cTraceDelay of stack "revPreferences"
-      
+
       revInternal__Log "Leave", "Defaults Initialisation"
-      
+
       return true
    end revInternal__InitialiseDefaults
-   
+
    command revInternal__InitialiseOptions
       revInternal__Log "Enter", "Options Initialisation"
-      
+         if the cDarkMode of stack "revPreferences" is true then
+            IDEToDarkMode
+            -- send "IDEToDarkMode" to me in 0 millisecs
+         else
+            IDEToLightMode
+         end if
+
       set the selectGroupedControls to the cSelectGrouped of stack "revPreferences"
       set the tooltipDelay to the cREVToolTipDelay of stack "revPreferences"
       set the grid to the cGrid of stack "revPreferences"
       set the scriptTextFont to the cREVScriptFont of stack "revPreferences"
       set the scriptTextSize to the cREVScriptSize of stack "revPreferences"
-      
+
       if the cHttpProxy of stack "revPreferences" is not empty then
          set the httpProxy to the cHttpProxy of stack "revPreferences"
       end if
-      
+
       set the gridSize to the cGridSize of stack "revPreferences"
-      
+
       if the cSelectionHandleColor of stack "revPreferences" is empty then
          set the selectionHandleColor to "Gray50"
       else
          set the selectionHandleColor to the cSelectionHandleColor of stack "revPreferences"
       end if
-      
+
       set the navigationArrows to the cNavigationArrows of stack "revPreferences"
-      
+
       global gREVShowStacks, gREVDevelopment
       if gREVDevelopment then
          put true into gREVShowStacks
@@ -1544,158 +1560,145 @@ on revInternal__openStack
       else
          put the cShowRevolutionStacks of stack "revPreferences" into gREVShowStacks
       end if
-      
+
       global gREVLanguageNames
       put the cLanguageNames of card 1 of stack "revPreferences" into gREVLanguageNames
-      
+
       revInternal__Log "Message", "Obtained preference languageNames = " & gREVLanguageNames
-      
+
       global gREVPopups
       put the cRevPopups of stack "revPreferences" into gREVPopups
-      
+
       global gREVAutoFormat
       put the cAutoFormat of stack "revPreferences" into gREVAutoFormat
-      
+
       global gREVUIScriptShortcut
       put the cREVUIScriptShortcut of stack "revPreferences" into gREVUIScriptShortcut
-      
+
       global gREVScriptShortcut
       put the cREVScriptShortcut of stack "revPreferences" into gREVScriptShortcut
-      
+
       global gREVCommentCharacter
       if the cCommentCharacter of stack "revPreferences" is not empty then
          put the cCommentCharacter of stack "revPreferences" into gREVCommentCharacter
       else
          put "--" into gREVCommentCharacter
       end if
-      
+
       global gREVTemplateMasterName
       put the cREVTemplateMasterName of stack "revPreferences" into gREVTemplateMasterName
-      
+
       global gREVAutoCreateProfiles
       put the cREVAutoCreateProfiles of stack "revPreferences" into gREVAutoCreateProfiles
-      
+
       global gREVProfileReadOnly
       put the cREVProfileReadOnly of stack "revPreferences" into gREVProfileReadOnly
-      
-      get the cDarkMode of stack "revPreferences"
-      if it is true then
-         try
-            setAppToDarkMode
-         end try
-         send "IDEToDarkMode" to me in 0 millisecs
-      else
-         try
-            setAppToLightMode
-         end try
-         send "IDEToLightMode" to me in 0 millisecs
-      end if
-      
+
       revInternal__Log "Leave", "Options Initialisation"
-      
+
       return true
    end revInternal__InitialiseOptions
-   
+
    command revInternal__InitialiseUserLibraries
       local tEnvironmentIcons, tUserIcons, tList
-      
+
       revInternal__Log "Enter", "User Libraries Initialisation"
       put revAbsoluteFolderListing(revEnvironmentResourcesPath("Icon Libraries")) into tEnvironmentIcons
       put revAbsoluteFolderListing(revEnvironmentUserResourcesPath("Icon Libraries")) into tUserIcons
       put revCombineFilePaths(tUserIcons,tEnvironmentIcons) into tList
-      
+
       lock messages
-      
+
       repeat for each line l in tList
          if there is a stack l then
             hide stack l
          end if
       end repeat
-      
+
       unlock messages
-      
+
       revInternal__Log "Leave", "User Libraries Initialisation"
-      
+
       return true
    end revInternal__InitialiseUserLibraries
-   
+
    command revInternal__InitialiseScriptEditor
       revInternal__Log "Enter", "Script Editor Initialisation"
-      
+
       set the behavior of stack revScriptEditorMain() to the long id of stack revIDEScriptEditorBehavior("utilities")
-      
+
       # IM-2016-03-01: [[ Bug 16244 ]] IDE stacks should always hide invisible objects
       set the showInvisibles of stack revScriptEditorMain() to false
       set the _ideoverride of stack revScriptEditorMain() to true
-      
+
       revInternal__Log "Leave", "Script Editor Initialisation"
-      
+
       return true
    end revInternal__InitialiseScriptEditor
-   
+
    command revInternal__InitialiseErrors
       revInternal__Log "Enter", "Errors Initialisation"
-      
+
       # IM-2016-03-01: [[ Bug 16244 ]] IDE stacks should always hide invisible objects
       set the showInvisibles of stack "revErrorDisplay" to false
       set the _ideoverride of stack "revErrorDisplay" to true
-      
+
       revInternal__Log "Leave", "Errors Initialisation"
-      
+
       return true
    end revInternal__InitialiseErrors
-   
+
    command revInternal__InitialiseTools
       revInternal__Log "Enter", "Tools Initialisation"
-      
+
       local tToolsStackName
       put revIDEPaletteToStackName("Tools") into tToolsStackName
-      
+
       --PM-2015-10-05: [[ Bug 16099 ]] IDE should default to Pointer tool and highlight its icon on the Tools palette
       revIDESetTool "pointer"
-      
+
       lock screen
       go invisible stack tToolsStackName as palette
       revIDEPositionPalette("tools")
-      
+
       # IM-2016-03-01: [[ Bug 16244 ]] IDE stacks should always hide invisible objects
       set the showInvisibles of stack tToolsStackName to false
       set the _ideoverride of stack tToolsStackName to true
-      
+
       show stack tToolsStackName
       unlock screen
-      
+
       revInternal__Log "Leave", "Tools Initialisation"
-      
+
       return true
    end revInternal__InitialiseTools
-   
+
    command revInternal__InitialiseIcons
       revInternal__Log "Enter", "Icons Initialisation"
-      
+
       lock screen
       hide stack "revicons"
-      
+
       # IM-2016-03-01: [[ Bug 16244 ]] IDE stacks should always hide invisible objects
       set the showInvisibles of stack "revicons" to false
       set the _ideoverride of stack "revicons" to true
-      
+
       unlock screen
-      
+
       revInternal__Log "Leave", "Icons Initialisation"
-      
+
       return true
    end revInternal__InitialiseIcons
-   
+
    command revInternal__InitialiseMenus
       revInternal__Log "Enter", "Menus Initialisation"
-      
+
       revInternal__Log "message", "Trying to get the platform"
       revInternal__Log "message", the platform
-      
+
       local tMenuBar
       put revIDEPaletteToStackName("menubar") into tMenuBar
-      
+
       if the platform is "MacOS" then
          lock messages
          modeless stack tMenuBar
@@ -1704,12 +1707,12 @@ on revInternal__openStack
          toplevel stack tMenuBar
       end if
       set the defaultMenuBar to the long id of group "revMenuBar" of stack tMenuBar
-      
+
       revInternal__ConstrainStack tMenuBar
-      
+
       local tToolsRight
       put the right of stack revIDEPaletteToStackName("tools") into tToolsRight
-      
+
       local tWindowRect
       put line (the screen of stack tMenuBar) of the working screenRects into tWindowRect
       if tWindowRect is not empty then
@@ -1717,60 +1720,60 @@ on revInternal__openStack
          put the bottom of stack tMenuBar + 5 into item 2 of tWindowRect
          set the windowBoundingRect to tWindowRect
       end if
-      
+
       # IM-2016-03-01: [[ Bug 16244 ]] IDE stacks should always hide invisible objects
       set the showInvisibles of stack tMenuBar to false
       set the _ideoverride of stack tMenubar to true
-      
+
       revInternal__Log "Leave", "Menus Initialisation"
-      
+
       if the platform is not "macos" or revIDEGetPreference("cToolbarText") or revIDEGetPreference("cToolbarIcons") then
          show stack tMenuBar
       end if
-      
+
       return true
    end revInternal__InitialiseMenus
-   
+
    command revInternal__InitialiseProjectBrowser
       revInternal__Log "Enter", "Project Browser Initialisation"
-      
+
       if the cAppOverview of stack "revPreferences" and there is a stack "revApplicationOverview" then
          set the _ideoverride of stack "revApplicationOverview" to true
          toplevel "revApplicationOverview"
       end if
-      
+
       // EJB
       if there is a stack "revProjectBrowser" then
          if the cIDEProjectBrowserOpen of stack "revPreferences" is not false then
             modeless "revProjectBrowser"
          end if
       end if
-      
+
       revInternal__Log "Leave", "Project Browser Initialisation"
-      
+
       return true
    end revInternal__InitialiseProjectBrowser
-   
+
    command revInternal__InitialiseMessageBox
       revInternal__Log "Enter", "Message Box Initialisation"
-      
+
       if the platform is among the items of "MacOS,Win32" then
          set the style of stack "Message Box" to "palette"
       else
          set the style of stack "Message Box" to "modeless"
       end if
       dispatch "ideInitialiseMessageBox" to stack "Message Box"
-      
+
       revInternal__Log "Leave", "Message Box Initialisation"
-      
+
       return true
    end revInternal__InitialiseMessageBox
-   
+
    command revInternal__InitialisePlugIns
       revInternal__Log "Enter", "Plug-Ins Initialisation"
-      
+
       revIDEUpdatePlugins
-      
+
       local tPluginInfo
       put revIDEPlugins() into tPluginInfo
       repeat for each key tPlugin in revIDEPlugins()
@@ -1778,68 +1781,68 @@ on revInternal__openStack
             revIDEOpenPlugin tPlugin
          end if
       end repeat
-      
+
       revInternal__Log "Leave", "Plug-Ins Initialisation"
-      
+
       return true
    end revInternal__InitialisePlugIns
-   
+
    command revInternal__InitialiseFinalSteps
       revInternal__Log "Enter", "Final Initialisation"
-      
+
       --the following *MUST* be the last item to avoid excess sending to overview as environment loads
       revInternal__Log "Message", "Installing Remaining Libraries"
-      
+
       revInternal__LoadLibrary "revFrontScriptLibrary"
       if the result is not empty then
          revInternal__Log "Error", the result
       end if
-      
+
       set the cREVGeneral["handlerlist"] of stack "revFrontScriptLibrary" to revInternal__FilterHandlerList(the revAvailableHandlers of stack "revFrontScriptLibrary")
-      
+
       revInternal__LoadLibrary "revShortCutsLibrary"
       if the result is not empty then
          revInternal__Log "Error", the result
       end if
-      
+
       set the cREVGeneral["handlerlist"] of stack "revShortCutsLibrary" to revInternal__FilterHandlerList(the revAvailableHandlers of stack "revShortCutsLibrary")
-      
+
       revInternal__Log "Message", "Setting up verbose debugging"
       send "revVerboseDebug" && the cVerboseDebug of stack "revPreferences" to stack "revFrontScriptLibrary"
-      
+
       if the cBackDrop of stack "revPreferences" is not "none" then
          revInternal__Log "Message", "Setting up backdrop"
          set the backdrop to the cBackDropColor of stack "revPreferences"
       end if
-      
+
       revInternal__Log "Message", "Closing Splash"
       if the milliseconds - sSplashStartTime < 500 then
          wait 500 - (the milliseconds - sSplashStartTime) milliseconds
       end if
       close stack "home"
-      
+
       revInternal__Log "Message", "Resetting Cursors"
       reset cursors
-      
+
       if the cStartupRevOnline of stack "revPreferences" then
          revInternal__Log "Message", "Launching revOnline"
-         send "revGoOnline" to stack "revOnline"
+         send "revGoOnline" to stack "revOnline" in 1 millisecs
       end if
-      
+
       revInternal__Log "Message", "Initialising revFrontScript"
-      
+
       revInternal__Log "Leave", "Final Initialisation"
-      
+
       return true
    end revInternal__InitialiseFinalSteps
-   
+
    command revInternal__BuildDictionary
       revInternal__Log "Enter", "Building Dictionary"
       revIDEGenerateDistributedDocs
       revInternal__Log "Leave", "Building Dictionary"
       return true
    end revInternal__BuildDictionary
-   
+
    command revInternal__CleanDocsCache
       revInternal__Log "Enter", "Cleaning Docs Cache"
       # Clean up old non-versioned docs
@@ -1861,7 +1864,7 @@ on revInternal__openStack
       revInternal__Log "Leave", "Cleaning Docs Cache"
       return true
    end revInternal__CleanDocsCache
-   
+
    command revInternal__ConstrainStack pStack
       local tStackTitleBarRect
       local tTitleBarHeight, tBorderWidth, tTitleBarBuffer
@@ -1878,17 +1881,17 @@ on revInternal__openStack
             put 5 into tBorderWidth
          end if
       end if
-      
+
       put 30 into tTitleBarBuffer
-      
+
       put the rect of stack pStack into tStackTitleBarRect
       subtract tTitleBarHeight from item 2 of tStackTitleBarRect -- the "real" stack rect
       put item 2 of tStackTitleBarRect + tTitleBarHeight into item 4 of tStackTitleBarRect
-      
+
       -- We calculate the intersection with its current screen..
       put the screen of stack pStack into tScreenNo
       put line tScreenNo of the working screenRects into tWorkingScreenRect
-      
+
       -- Simply check top, bottom, left and right
       #top
       if item 4 of tStackTitleBarRect < item 2 of tWorkingScreenRect + tTitleBarHeight then
@@ -1907,9 +1910,9 @@ on revInternal__openStack
       if item 1 of tStackTitleBarRect > item 3 of tWorkingScreenRect - tTitleBarBuffer then
          set the right of stack pStack to item 3 of tWorkingScreenRect - tBorderWidth -- allowing for a window border
       end if
-      
+
    end revInternal__ConstrainStack
-   
+
    --------------------------------------------------------------   This folder structure is outdated -- PM
    -- Global Environment Functions - Installation Structure
    --
@@ -1942,36 +1945,36 @@ on revInternal__openStack
    --     Toolset/
    --     Unsupported/
    --
-   
+
    function revEnvironmentToolsPath
       return sToolsPath
    end revEnvironmentToolsPath
-   
+
    function revEnvironmentResourcesPath pType
       local tFolder
-      
+
       put hookToolsPath("resources", sToolsPath & "/Resources") into tFolder
-      
+
       if pType is not empty then
          put slash & pType after tFolder
       end if
-      
+
       return tFolder
    end revEnvironmentResourcesPath
-   
+
    function revEnvironmentDocumentationPath
       return hookToolsPath("documentation", sToolsPath & "/Documentation")
    end revEnvironmentDocumentationPath
-   
+
    function revEnvironmentToolsetPath
       return hookToolsPath("toolset", sToolsPath & "/Toolset")
    end revEnvironmentToolsetPath
-   
+
    function revEnvironmentEditionProperty pProp, pEdition
       if pEdition is empty then
          put the editionType into pEdition
       end if
-      
+
       if pProp is "skin" then
          return revEnvironmentToolsetPath() & "/resources/" & pEdition & "/ideSkin"
       end if
@@ -1990,14 +1993,14 @@ on revInternal__openStack
                   return 156,199,45
                case "revsplash_text_color"
                   return 0,0,0
-               case "start_center_tile_color_step"
-                  return 0 -- -9
+               -- case "start_center_tile_color_step"
+               --    return - 9 -- This affects the tints in the blocks of the original startcenter
                case "password_protection"
                   return true
                case "open_source_required"
                   return true
                case "splash_strap"
-                  return "<p>DON'T PANIC</p>" -- return empty
+                  return "<b>DON'T PANIC</b>" -- return empty
                case "upgrade_mini_url"
                   return "OpenXTalk" -- https://livecode.com/products/community-plus-ide-2/
                case "upgrade_url"
@@ -2007,6 +2010,7 @@ on revInternal__openStack
                case "edition_external_url"
                   return "" -- https://livecode.com/products/community-edition/
                case "autocomplete"     ---      <--------------------------------------------  Insert New Autocomplete Script Here !!!
+                   return false
                case "autocomplete_pro" --- <------------------------------------------  Personaly I found LC's autocomplete to be annoying -- PM
                   return false
                case "script_profiler"
@@ -2051,95 +2055,15 @@ on revInternal__openStack
                   return false
             end switch
             break
-         case "indy"
-         case "commercial"
-            switch pProp
-               case "name"
-                  return "Indy"
-               case "color"
-                  return 28,154,206
-               case "pb_line_selected_color"
-                  return 222,243,255
-               case "revonline_hilite_color"
-                  return 124,193,222
-               case "revabout_hilite_color"
-                  return 44,113,170
-               case "revsplash_text_color"
-                  return 0,0,0
-               case "start_center_tile_color_step"
-                  return 0
-               case "password_protection"
-                  return true
-               case "open_source_required"
-                  return false
-               case "splash_strap"
-                  if revLicenseInfo["com.livecode.norevenuelimit"] is not empty then
-                     return empty
-                  else
-                     return "<p>This Indy license is only valid for organizations with annual revenues of $500,000 USD or less</p>"
-                  end if
-               case "upgrade_mini_url"
-                  return empty
-               case "upgrade_url"
-                  return empty
-               case "upgrade_edition"
-                  return "professional"
-               case "edition_external_url"
-                  return "https://livecode.com/products/indy-edition/"
-               case "autocomplete"
-               case "autocomplete_pro"
-                  return true
-               case "script_profiler"
-                  return false
-            end switch
-            break
-         case "business"
-         case "professional"
-            switch pProp
-               case "name"
-                  return "Business"
-               case "color"
-                  return 82,82,82
-               case "pb_line_selected_color"
-                  return 222,243,255
-               case "revonline_hilite_color"
-                  return 124,193,222
-               case "revabout_hilite_color"
-                  return 44,113,170
-               case "revsplash_text_color"
-                  return 255,255,255
-               case "start_center_tile_color_step"
-                  return 0
-               case "password_protection"
-                  return true
-               case "open_source_required"
-                  return false
-               case "splash_strap"
-                  return empty
-               case "upgrade_mini_url"
-                  return empty
-               case "upgrade_url"
-                  return empty
-               case "upgrade_edition"
-                  return empty
-               case "edition_external_url"
-                  return "https://livecode.com/products/business-edition/"
-               case "autocomplete"
-               case "autocomplete_pro"
-                  return true
-               case "script_profiler"
-                  return true
-            end switch
-            break
       end switch
-      
+
       throw "Unknown edition property"
    end revEnvironmentEditionProperty
-   
+
    function revEnvironmentPluginsPath
       return hookToolsPath("plugins", sToolsPath & "/Plugins")
    end revEnvironmentPluginsPath
-   
+
    function revEnvironmentDevelopmentPluginsPath
       if not revEnvironmentIsInstalled() then
          -- check for private repo plugins
@@ -2152,15 +2076,15 @@ on revInternal__openStack
       end if
       return empty
    end revEnvironmentDevelopmentPluginsPath
-   
+
    function revEnvironmentExternalsPath
       return hookToolsPath("externals", sToolsPath & "/Externals")
    end revEnvironmentExternalsPath
-   
+
    function revEnvironmentExtensionsPath
       return line 1 of revEnvironmentExtensionsPaths()
    end revEnvironmentExtensionsPath
-   
+
    function revEnvironmentExtensionsPaths
       if revEnvironmentIsInstalled() then
          return hookToolsPath("extensions", sToolsPath & "/Extensions")
@@ -2168,117 +2092,117 @@ on revInternal__openStack
          return sBinariesPath & slash & "packaged_extensions"
       end if
    end revEnvironmentExtensionsPaths
-   
+
    function revEnvironmentRuntimePath
       return hookToolsPath("runtime", sToolsPath & "/Runtime")
    end revEnvironmentRuntimePath
-   
+
    function revEnvironmentUserRuntimePath
       return sCustomizationPath & "/Runtime"
    end revEnvironmentUserRuntimePath
-   
+
    function revEnvironmentExtPath
       return hookToolsPath("ext", sToolsPath & "/Ext")
    end revEnvironmentExtPath
-   
+
    //EJB for Testing System
    function revOverrideRuntimePath
       return sOverrideRuntimePath
    end revOverrideRuntimePath
-   
+
    command revSetOverrideRuntimePath pPath
       put pPath into sOverrideRuntimePath
    end revSetOverrideRuntimePath
-   
+
    command revSetTestEnvironment pValue
       put pValue into sTestEnvironment
    end revSetTestEnvironment
-   
+
    function revTestEnvironment
       return sTestEnvironment
    end revTestEnvironment
    //
-   
+
    function revEnvironmentCustomizationPath
       return sCustomizationPath
    end revEnvironmentCustomizationPath
-   
+
    function revEnvironmentUserResourcesPath pType, pCreate
       local tFolder
-      
+
       put sCustomizationPath & "/Resources" into tFolder
       if pType is not empty then
          put "/" & pType after tFolder
       end if
-      
+
       if pCreate then
          revInternal__EnsureFolder tFolder
       end if
-      
+
       if there is no folder tFolder then
          return empty
       end if
-      
+
       return tFolder
    end revEnvironmentUserResourcesPath
-   
+
    function revEnvironmentUserToolsetPath
       return sCustomizationPath & "/Toolset"
    end revEnvironmentUserToolsetPath
-   
+
    function revEnvironmentUserPluginsPath
       return sCustomizationPath & "/Plugins"
    end revEnvironmentUserPluginsPath
-   
+
    function revEnvironmentUserExternalsPath
       return sCustomizationPath & "/Externals"
    end revEnvironmentUserExternalsPath
-   
+
    function revEnvironmentUserExtensionsPath
       return sCustomizationPath & "/Extensions"
    end revEnvironmentUserExtensionsPath
-   
+
    function revEnvironmentUserPreferencesPath
       return sPreferencesPath
    end revEnvironmentUserPreferencesPath
-   
+
    function revEnvironmentUserCachePath
       return sCachePath
    end revEnvironmentUserCachePath
-   
+
    function revEnvironmentUserDocsPath
       return sUserDocsPath
    end revEnvironmentUserDocsPath
-   
+
    function revEnvironmentIsUpdateable
       return true
    end revEnvironmentIsUpdateable
-   
+
    function revEnvironmentIsMultiVersion
       return true
    end revEnvironmentIsMultiVersion
-   
+
    function revEnvironmentIsPortable
       return true
    end revEnvironmentIsPortable
-   
+
    -- MW-2013-06-13: [[ CloneAndRun ]] Returns true if this is an installed IDE (as opposed
    --   to being run from a repo build).
    function revEnvironmentIsInstalled
       return sBinariesPath is empty
    end revEnvironmentIsInstalled
-   
+
    -- MW-2013-06-13: [[ CloneAndRun ]] Returns the path to the binaries for a repo build.
    function revEnvironmentBinariesPath
       return sBinariesPath
    end revEnvironmentBinariesPath
-   
+
    // SN-2015-05-15: [[ DeployAllPlatforms ]] Allow the deployment to happen for any
    //  platform, from any repository platform
    function revEnvironmentNonNativeBinariesPath pPlatform, pSDK
       local tNonNativeBinariesPath
       put sRepositoryPath into tNonNativeBinariesPath
-      
+
       switch pPlatform
          case "Windows"
             put slash & "win-x86-bin" after tNonNativeBinariesPath
@@ -2333,46 +2257,46 @@ on revInternal__openStack
          default
             return empty
       end switch
-      
+
       return tNonNativeBinariesPath
    end revEnvironmentNonNativeBinariesPath
-   
+
    -- MW-2013-06-13: [[ CloneAndRun ]] Returns the path to the repo.
    function revEnvironmentRepositoryPath
       return sRepositoryPath
    end revEnvironmentRepositoryPath
-   
+
    function revEnvironmentCommercialRepositoryPath
       set the itemDelimiter to slash
       return item 1 to -2 of sRepositoryPath
    end revEnvironmentCommercialRepositoryPath
-   
+
    -- Deprecated Path Functions
-   
+
    function revEnvironmentPreferencePath
       return revEnvironmentUserPreferencesPath()
    end revEnvironmentPreferencePath
-   
+
    function revEnvironmentPreferencesPath
       return revEnvironmentUserPreferencesPath()
    end revEnvironmentPreferencesPath
-   
+
    function revEnvironmentCachePath
       throw "Component has attempted to use a non-existant environment path function: revEnvironmentCachePath"
    end revEnvironmentCachePath
-   
+
    function revEnvironmentSupportPath
       throw "Component has attempted to use a non-existant environment path function: revEnvironmentSupportPath"
    end revEnvironmentSupportPath
-   
+
    function revEnvironmentInstallationPath
       throw "Component has attempted to use a non-existant environment path function: revEnvironmentInstallationPath"
    end revEnvironmentInstallationPath
-   
+
    function revEnvironmentDistributionPath
       throw "Component has attempted to use a non-existant environment path function: revEnvironmentDistributionPath"
    end revEnvironmentDistributionPath
-   
+
    private function hookToolsPath pPath, pDefault
       dispatch function "revHookGetToolsPath" to me with pPath
       if it is "handled" then
@@ -2380,8 +2304,8 @@ on revInternal__openStack
       end if
       return pDefault
    end hookToolsPath
-   
-   
+
+
    -- Works out the source repository path for the engine (if any)
    private function revEnvironmentGuessRepositoryPath pEnginePath
       -- Build and package directories
@@ -2391,7 +2315,7 @@ on revInternal__openStack
       local tPackageDir
       local tAltPackageDir
       local tRepositoryPath
-      
+
       switch the platform
          case "win32"
             put "win" into tPlatform
@@ -2403,7 +2327,7 @@ on revInternal__openStack
             put the platform into tPlatform
             break
       end switch
-      
+
       switch the processor
          case "i386"
             put "x86" into tProcessor
@@ -2412,11 +2336,11 @@ on revInternal__openStack
             put the processor into tProcessor
             break
       end switch
-      
+
       put "build-" & tPlatform & "-" & tProcessor into tBuildDir
       put tPlatform & "-" & tProcessor & "-bin" into tPackageDir
       put tPlatform & "-bin" into tAltPackageDir
-      
+
       set the itemDelimiter to "/"
       if tBuildDir is among the items of pEnginePath then
          put item 1 to (itemOffset(tBuildDir,pEnginePath) - 1) of pEnginePath into tRepositoryPath
@@ -2427,17 +2351,17 @@ on revInternal__openStack
       else if "_build" is among the items of pEnginePath then
          put item 1 to (itemOffset("_build",pEnginePath) - 1) of pEnginePath into tRepositoryPath
       end if
-      
+
       return tRepositoryPath
    end revEnvironmentGuessRepositoryPath
-   
+
    --------------------------------------------------------------------------------
    -- Global Environment Functions - General Support
    --
-   
+
    function revEnvironmentPlatform
       local tPlatform
-      
+
       switch the platform
          case "Linux"
             put "Linux" into tPlatform
@@ -2452,80 +2376,86 @@ on revInternal__openStack
             put "Unsupported" into tPlatform
             break
       end switch
-      
+
       return tPlatform
    end revEnvironmentPlatform
-   
-   on updateMenuToolBar
-      send "layoutMenu" to stack "revMenuBar" in 0 millisecs
-   end updateMenuToolBar
-   
+
+on updateMenuToolBar
+   if the cREVLaunching of me is true then exit updateMenuToolBar -- cREVLaunching is true while starting up
+   send "layoutMenu" to stack "revMenuBar" in 1 millisecs
+end updateMenuToolBar
+
 on IDEToLightMode
-   --- for macOS ---
+    lock screen
    try
+      --- for macOS ---
       setAppToLightMode
       -- setWindowToLightMode
    end try
-   -- unlock screen with visual effect "dissolve" very fast to white
-   lock screen for visual effect
-   --- for All OS ---
-   --- Tools Palette ---
-   set the backGroundColor of stack "revTools" to "White"
-   set the foreGroundColor of stack "revTools" to "Black"
-   
-   set the opaque of group "background" of stack "revTools" to false
-   set the backgroundColor of group "background" of stack "revTools" to "White"
-   set the foreGroundColor of group "background" of stack "revTools" to "Black"
-   
-   set the opaque of group "runedit" of stack "revTools" to false
-   set the backgroundColor of group "runedit" of stack "revTools" to "White"
-   set the foreGroundColor of group "runedit" of stack "revTools" to "Black"
-   set the backgroundColor of graphic "tool_hilite" of stack "revTools" to "Gray70"
-   set the backgroundColor of graphic "tool_hover" of stack "revTools" to "Gray50"
-   
-   set the opaque of group "contents" of stack "revTools" to false
-   set the backgroundColor of group "contents" of stack "revTools" to "White"
-   set the foreGroundColor of group "contents" of stack "revTools" to "Black"
-   
-   set the opaque of group "widget" of stack "revTools" to false
-   set the backgroundColor of group "widget" of stack "revTools" to "White"
-   set the foreGroundColor of group "widget" of stack "revTools" to "Black"
-   
-   set the opaque of group "classic" of stack "revTools" to false
-   set the backgroundColor of group "classic" of stack "revTools" to "White"
-   set the foreGroundColor of group "classic" of stack "revTools" to "Black"
-   
-   set the opaque of group "graphictoolscontrols" of stack "revTools" to false
-   set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
-   set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "Black"
-   
-   set the opaque of group "graphictools" of stack "revTools" to false
-   set the backgroundColor of group "graphictools" of stack "revTools" to "White"
-   set the foreGroundColor of group "graphictools" of stack "revTools" to "Black"
-   
-   --- revMenuBar Palette ---
-   set the backGroundColor of stack "revMenuBar" to "White"
-   set the foreGroundColor of stack "revMenuBar" to "Black"
-   
-   set the opaque of group "toolbar" of stack "revMenuBar" to true
-   set the backgroundColor of group "toolbar" of stack "revMenuBar" to "White"
-   set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "Black"
-   
-   unlock screen
+      -- unlock screen with visual effect "dissolve" very fast to white
+      -- lock screen -- for visual effect
+
+      --- for All OS ---
+      --- Tools Palette ---
+      set the backGroundColor of stack "revTools" to empty -- "White"
+      set the foreGroundColor of stack "revTools" to empty -- "Black"
+
+      set the opaque of group "background" of stack "revTools" to false
+      set the backgroundColor of group "background" of stack "revTools" to empty -- "White"
+      set the foreGroundColor of group "background" of stack "revTools" to empty -- "Black"
+
+      -- set the opaque of group "runedit" of stack "revTools" to false
+      -- set the backgroundColor of group "runedit" of stack "revTools" to "White"
+      -- set the foreGroundColor of group "runedit" of stack "revTools" to "Black"
+      --set the backgroundColor of graphic "tool_hilite" of stack "revTools" to "Gray70"
+      -- set the backgroundColor of graphic "tool_hover" of stack "revTools" to "Gray50"
+
+      set the opaque of group "contents" of stack "revTools" to false
+      -- set the backgroundColor of group "contents" of stack "revTools" to "White"
+      -- set the foreGroundColor of group "contents" of stack "revTools" to "Black"
+
+      set the opaque of group "widget" of stack "revTools" to false
+      -- set the backgroundColor of group "widget" of stack "revTools" to "White"
+      set the foreGroundColor of group "widget" of stack "revTools" to "Black"
+
+      -- set the opaque of group "classic" of stack "revTools" to false
+      -- set the backgroundColor of group "classic" of stack "revTools" to "White"
+      -- set the foreGroundColor of group "classic" of stack "revTools" to "Black"
+
+      -- set the opaque of group "graphictoolscontrols" of stack "revTools" to false
+      -- set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
+      -- set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "Black"
+
+      -- set the opaque of group "graphictools" of stack "revTools" to false
+      -- set the backgroundColor of group "graphictools" of stack "revTools" to "White"
+      -- set the foreGroundColor of group "graphictools" of stack "revTools" to "Black"
+
+      --- revMenuBar Palette ---
+      -- set the backGroundColor of stack "revMenuBar" to empty -- "White"
+      -- set the foreGroundColor of stack "revMenuBar" to empty --  "Black"
+
+      -- set the opaque of group "toolbar" of stack "revMenuBar" to false
+      -- set the backgroundColor of group "toolbar" of stack "revMenuBar" to "White"
+      -- set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "Black"
+
+      unlock screen
+   -- end try
+
 end IDEToLightMode
-   
-on IDEToDarkMode  
+
+on IDEToDarkMode
+    lock screen
    -- TO DO: the dissolve effect as seen in other mac apps when switching to/from darkMode
-   -- NOTE: To do that effect each window would have to be iterated though and have darkMode 
+   -- NOTE: To do that effect each window would have to be iterated though and have darkMode
    -- individually applied to that window and to the stack it contains with the visual effect individually,
    -- otherwise an image of the topStack is cached by the engine and applied to EVERY window during the effect
    -- which only works in the topStack's window.
    -- For mose users most of the time this would be the IDE's revToolBar, revTools, an iterations or two
    -- of the property inspector, and perhaps the dictionary,so this should be doable in a visually smooth way.
-   -- it would also allow the use of all sorts of CoreImage Transitions to be applied by the OS, 
+   -- it would also allow the use of all sorts of CoreImage Transitions to be applied by the OS,
    -- which is likely similar to Apple's own implimemntations of this in apps like Safari.
-   
-   -- set the compositorTileSize to 256 
+
+   -- set the compositorTileSize to 256
    -- set the rect of templateStack to the screenRect
    -- create stack --------------------------------- <--- NOTE: 'create' is only available in the IDE, not in standalones!
    -- set the rect of templateGraphic to -50,-50,the width of defaultStack + 50,the height of defaultStack + 50
@@ -2540,106 +2470,112 @@ on IDEToDarkMode
    --   end try
    -- lock screen -- for visual effect in rect (rect of graphic "test") -- screenRect() -- in rect top,left,bottom,right
    -- lock screen for visual effect -- in rect screenRect() -- in rect top,left,bottom,right
-   unlock screen with visual effect "dissolve" very fast to white
-   lock screen for visual effect
+   -- unlock screen with visual effect "dissolve" very fast to white
+   -- lock screen for visual effect
    --- for macOS --- NOTE: This uses the OpenXTalk.org macOS Native Library if available - Paul McClernan - 1/16/22
    try
       setAppToDarkMode
       -- setWindowToDarkMode
+
+      --- for All OS ---
+
+      -- unlock screen with visual effect "dissolve" very fast to white
+      -- lock screen  -- for visual effect
+
+      --- Tools Palette ---
+      -- lock screen for visual effect in rect (rect of stack "revTools")
+      set the backGroundColor of stack "revTools" to empty -- "Gray30"
+      set the foreGroundColor of stack "revTools" to empty -- "White"
+
+      -- set the opaque of group "background" of stack "revTools" to true
+      -- set the backgroundColor of group "background" of stack "revTools" to 59,63,63
+      set the foreGroundColor of group "background" of stack "revTools" to "White"
+
+      -- set the opaque of group "contents" of stack "revTools" to true
+      -- set the backgroundColor of group "contents" of stack "revTools" to "Gray25"
+      -- set the foreGroundColor of group "contents" of stack "revTools" to "White"
+
+      -- set the opaque of group "runedit" of stack "revTools" to false
+      -- set the backgroundColor of group "runedit" of stack "revTools" to "Gray25"
+      -- set the foreGroundColor of group "runedit" of stack "revTools" to empty -- "White"
+      -- set the backgroundColor of graphic "tool_hilite" of stack "revTools" to 120,63,170
+      -- set the backgroundColor of graphic "tool_hover" of stack "revTools" to 80,23,150
+
+      -- set the opaque of group "widget" of stack "revTools" to false
+       set the backgroundColor of group "widget" of stack "revTools" to empty -- "Gray50"
+      set the foreGroundColor of group "widget" of stack "revTools" to  "White"
+
+      -- set the opaque of group "classic" of stack "revTools" to true
+      set the backgroundColor of group "classic" of stack "revTools" to empty -- "Gray60"
+      -- set the foreGroundColor of group "classic" of stack "revTools" to "White"
+
+      -- set the opaque of group "graphictoolscontrols" of stack "revTools" to true
+      -- set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "Gray25"
+      -- set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
+
+      -- set the opaque of group "graphictools" of stack "revTools" to true
+      -- set the backgroundColor of group "graphictools" of stack "revTools" to "Gray25"
+      -- set the foreGroundColor of group "graphictools" of stack "revTools" to "White"
+      -- visual effect dissolve fast
+      -- unlock screen
+      --- revMenuBar Palette ---
+      -- set the opaque of stack "revMenuBar" to false
+      -- set the backGroundColor of stack "revMenuBar" to empty -- "Gray25"
+      -- set the foreGroundColor of stack "revMenuBar" to empty -- "White"
+
+      -- set the opaque of group "toolbar" of stack "revMenuBar" to false
+      -- set the backgroundColor of group "toolbar" of stack "revMenuBar" to "Gray25"
+      -- set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "White"
+
+      if the systemVersion is "NT 10.0" then set the textColor of group "revMenuBar" of stack "revMenuBar" to "Black"
+
+      -- The visual effect command affects only navigation within a window.
+      -- If you want to create a transition effect when moving between stacks, use the go...in window form of the go command
+      -- visual effect "CIPageCurlTransition" very slow with Angle 1.0 and Radius 70 -- and Extent "0,0,500,500" -- macOS CoreImage effect
+      -- visual effect "CIDissolveTransition" -- slow with Angle 90 and Radius 100 --  and Extent "0,0,1024,1024" -- macOS CoreImage effect
+
+      -- unlock screen with visual effect "CIModTransition" with Angle -1 and Radius 70
+      -- visual effect "dissolve" -- to black
+      -- unlock screen with visual effect "CIModTransition" with Angle -1 and Radius 70
+      -- unlock screen
+      -- wait 1 millisec
+      -- lock screen for visual effect
+      -- delete graphic "test"
+      -- visual effect "dissolve" -- slow -- to black
+     -- unlock screen -- with visual effect "dissolve" very fast to black
    end try
-   --- for All OS ---
-   
-   unlock screen with visual effect "dissolve" very fast to white
-   lock screen for visual effect
-   
-   --- Tools Palette ---
-   -- lock screen for visual effect in rect (rect of stack "revTools")
-   set the backGroundColor of stack "revTools" to "Gray30"
-   set the foreGroundColor of stack "revTools" to "White"
-   
-   set the opaque of group "background" of stack "revTools" to true
-   set the backgroundColor of group "background" of stack "revTools" to 59,63,63
-   set the foreGroundColor of group "background" of stack "revTools" to "White"
-   
-   set the opaque of group "contents" of stack "revTools" to true
-   set the backgroundColor of group "contents" of stack "revTools" to "Gray25"
-   set the foreGroundColor of group "contents" of stack "revTools" to "White"
-   
-   set the opaque of group "runedit" of stack "revTools" to false
-   set the backgroundColor of group "runedit" of stack "revTools" to "Gray25"
-   set the foreGroundColor of group "runedit" of stack "revTools" to empty -- "White"
-   set the backgroundColor of graphic "tool_hilite" of stack "revTools" to 120,63,170
-   set the backgroundColor of graphic "tool_hover" of stack "revTools" to 80,23,150
-   
-   set the opaque of group "widget" of stack "revTools" to true
-   set the backgroundColor of group "widget" of stack "revTools" to empty -- "Gray50"
-   set the foreGroundColor of group "widget" of stack "revTools" to "White"
-   
-   set the opaque of group "classic" of stack "revTools" to true
-   set the backgroundColor of group "classic" of stack "revTools" to empty -- "Gray60"
-   set the foreGroundColor of group "classic" of stack "revTools" to "White"
-   
-   set the opaque of group "graphictoolscontrols" of stack "revTools" to true
-   set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "Gray25"
-   set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
-   
-   set the opaque of group "graphictools" of stack "revTools" to true
-   set the backgroundColor of group "graphictools" of stack "revTools" to "Gray25"
-   set the foreGroundColor of group "graphictools" of stack "revTools" to "White"
-   visual effect dissolve slow
-   unlock screen 
-   --- revMenuBar Palette ---
-   set the backGroundColor of stack "revMenuBar" to "Gray25"
-   set the foreGroundColor of stack "revMenuBar" to "White"
-   
-   set the opaque of group "toolbar" of stack "revMenuBar" to true
-   set the backgroundColor of group "toolbar" of stack "revMenuBar" to "Gray25"
-   set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "White"
-   
-   if the systemVersion is "NT 10.0" then set the textColor of group "revMenuBar" of stack "revMenuBar" to "Black"
-   
-   -- The visual effect command affects only navigation within a window. 
-   -- If you want to create a transition effect when moving between stacks, use the go...in window form of the go command
-   -- visual effect "CIPageCurlTransition" very slow with Angle 1.0 and Radius 70 -- and Extent "0,0,500,500" -- macOS CoreImage effect
-   -- visual effect "CIDissolveTransition" -- slow with Angle 90 and Radius 100 --  and Extent "0,0,1024,1024" -- macOS CoreImage effect
-   
-   -- unlock screen with visual effect "CIModTransition" with Angle -1 and Radius 70 
-   -- visual effect "dissolve" -- to black
-   -- unlock screen with visual effect "CIModTransition" with Angle -1 and Radius 70 
-   -- unlock screen
-   -- wait 1 millisec
-   -- lock screen for visual effect
-   -- delete graphic "test"
-   -- visual effect "dissolve" -- slow -- to black
-   unlock screen with visual effect "dissolve" very fast to black
-   
+    unlock screen
 end IDEToDarkMode
-   
-on iconMenuOpening pParamMaybe
-   set the iconMenu to (tab & "Utilities" & cr & tab & tab & "Gather Windows")
-   -- set the icon of this stack to image id
-   -- set the statusIconMenu to iconMenuSpec 
-   -- set the statusIconToolTip to "app toolTip here"
-   
-   put "Home Stack Message Recieved:" &cr& "IconMenuOpening" & cr after msg
-   pass iconMenuOpening
-end iconMenuOpening
-   
-on iconMenuPick pParamMaybe
-   put "Home Stack Message Recieved:" &cr& "iconMenuPick" & cr after msg
-   if pParamMaybe is not empty then 
-         put pParamMaybe after msg
-      end if
-   pass iconMenuPick
-end iconMenuPick
+
+   -- on iconMenuOpening
+   --   -- lock screen
+   --   if the cREVLaunching of me is true then exit iconMenuOpening
+   --   set the iconMenu to (tab & "Utilities" & cr & tab & tab & "Gather Windows")
+   --   -- set the icon of this stack to image id
+   --   -- set the statusIconMenu to iconMenuSpec
+   --   -- set the statusIconToolTip to "app toolTip here"
+
+   --   -- put "Home Stack Message Recieved:" &cr& "IconMenuOpening" & cr after msg
+   --   -- pass iconMenuOpening
+   --   -- unlock screen
+   ---- end iconMenuOpening
+
+   ---- on iconMenuPick pParamMaybe
+   --   if the cREVLaunching of me is true then exit iconMenuPick
+   --   put "Home Stack Message Recieved:" &cr& "iconMenuPick" & cr after msg
+   --   if pParamMaybe is not empty then
+   --      put pParamMaybe after msg
+   --   end if
+   --   -- pass iconMenuPick
+   -- end iconMenuPick
 
 on systemAppearanceChanged
    put the systemAppearance into tAppearance
    put "Home Stack Message Recieved:" &cr& "systemAppearanceChanged" && tAppearance & cr after msg
-   if tAppearance is "dark" then 
+   if tAppearance is "dark" then
       send "IDEToDarkMode" to stack "home" in 1 milliseconds
    else
       send "IDEToLightMode" to me in 1 milliseconds
    end if
-   pass systemAppearanceChanged
+   -- pass systemAppearanceChanged
 end systemAppearanceChanged

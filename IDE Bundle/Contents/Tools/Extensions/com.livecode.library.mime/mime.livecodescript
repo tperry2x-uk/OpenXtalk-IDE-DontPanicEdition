@@ -14,20 +14,20 @@ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 for more details.
 
 You should have received a copy of the GNU General Public License
-along with LiveCode.  If not see <http://www.gnu.org/licenses/>. 
+along with LiveCode.  If not see <http://www.gnu.org/licenses/>.
 */
 
 on extensionInitialize
    if the target is not me then
       pass extensionInitialize
    end if
-   
+
    insert the script of me into back
-   
+
    if the environment contains "development" then
       set the _ideoverride of me to true
    end if
-   
+
    __Initialize
 end extensionInitialize
 
@@ -35,7 +35,7 @@ on extensionFinalize
    if the target is not me then
       pass extensionFinalize
    end if
-   
+
    remove the script of me from back
 end extensionFinalize
 
@@ -47,9 +47,9 @@ Version: 1.0.0
 Author: LiveCode
 
 Description:
-This script library implements portions of Multipurpose Internet Mail 
-Extensions (MIME) as described in RFCs 2045 - 2049. Use this library to 
-implement common data formats such as email message bodies and form 
+This script library implements portions of Multipurpose Internet Mail
+Extensions (MIME) as described in RFCs 2045 - 2049. Use this library to
+implement common data formats such as email message bodies and form
 encoding in HTTP.
 */
 
@@ -94,15 +94,15 @@ A mime type for the given file extension.
 
 function mimeTheMIMETypeOfExtension pExtension
    local tMIMEType
-   
+
    set the caseSensitive to true
    put sMIMETypes[pExtension] into tMIMEType
-   
+
    if tMIMEType is empty then
       set the caseSensitive to false
       put sMIMETypes[pExtension] into tMIMEType
    end if
-   
+
    if tMIMEType is empty then
       return "application/octet-stream" for value
    else
@@ -136,17 +136,17 @@ A list of extensions or empty if none were found.
 function mimeTheExtensionsOfMIMEType pMimeType
    local tExtensions
    filter elements of sMIMETypes with wildcard pattern pMimeType into tExtensions
-   
+
    set the caseSensitive to true
-   
+
    local tExtensionList
    repeat for each key tExtension in tExtensions
       put true into tExtensionList[tExtension]
    end repeat
-   
+
    combine tExtensionList with return as set
    sort tExtensionList
-   
+
    return tExtensionList
 end mimeTheExtensionsOfMIMEType
 
@@ -162,7 +162,7 @@ Parameters:
 pData:
 The data to be encoded. If the parameter is not binary data then it will
 be encoded to binary as UTF-8 encoded text before encoding with the
-requested form. 
+requested form.
 
 pEncoding (enum):
 The encoding to return the data in
@@ -184,7 +184,7 @@ function mimeEncodeForMIMETransfer pData, pEncoding
    if pData is not strictly a binary string then
       put textEncode(pData, "UTF-8") into pData
    end if
-   
+
    switch pEncoding
       case "quoted-printable"
          return __EncodeAsQuotedPrintable(pData)
@@ -203,26 +203,26 @@ private function __EncodeAsQuotedPrintable pData
    local tData
    local tLineLength = 1
    local tNumBytes
-   
+
    put the number of bytes of pData into tNumBytes
-   
+
    local tIndex = 1
    repeat for each byte tByte in pData
       if tLineLength is 76 then
          put "=" & crlf after tData
          put 1 into tLineLength
       end if
-      
+
       local tByteNum
       put byteToNum(tByte) into tByteNum
-      
+
       local tPrevByteNum
-      
+
       switch
          case tByteNum is 10 and tPrevByteNum is not 13
             put crlf after tData
             put 1 into tLineLength
-            break 
+            break
          case (tByteNum is 9 or tByteNum is 32) and  tLineLength is not 76 and tIndex is not tNumBytes
          case tByteNum >= 33 and tByteNum <= 126 and tByteNum is not 61
             put tByte after tData
@@ -234,7 +234,7 @@ private function __EncodeAsQuotedPrintable pData
                put "=" & crlf after tData
                put 3 into tLineLength
             end if
-            
+
             local tConverted
             put baseConvert(tByteNum,10,16) into tConverted
             if the length of tConverted is 1 then
@@ -244,11 +244,11 @@ private function __EncodeAsQuotedPrintable pData
             add 3 to tLineLength
             break
       end switch
-      
+
       put tByteNum into tPrevByteNum
       add 1 to tIndex
    end repeat
-   
+
    return tData
 end __EncodeAsQuotedPrintable
 
@@ -284,27 +284,27 @@ function mimeEncodeAsMIMEMultipartDocument pContentA, pMultipartType, pParamA
    if pMultipartType is empty then
       put "mixed" into pMultipartType
    end if
-   
+
    local tBoundary
    put "Boundary-" & uuid() into tBoundary
-   
+
    local tData
    put "Content-Type: multipart/" & pMultipartType into tData
-   
+
    local tParam
    repeat for each key tParam in pParamA
       put ";" & crlf & tab & tParam & "=" & quote & pParamA[tParam] & quote after tData
    end repeat
-   
+
    put ";" & crlf & tab & "boundary=" & tBoundary & crlf & crlf after tData
-   
+
    local tIndex
    repeat with tIndex = 1 to the number of elements of pContentA
       put crlf & "--" & tBoundary & crlf & pContentA[tIndex] after tData
    end repeat
-   
+
    put crlf & "--" & tBoundary & "--" & crlf & crlf after tData
-   
+
    return tData for value
 end mimeEncodeAsMIMEMultipartDocument
 
@@ -336,36 +336,36 @@ function mimeEncodeFieldAsMIMEMultipartDocument pField
    if there is not a pField then
       return "Object does not exist" for error
    end if
-   
+
    local tAlternativeA
-   
+
    put "Content-Type: text/plain; charset=UTF-8" & crlf & \
          "Content-Transfer-Encoding: quoted-printable" & crlf & crlf after tAlternativeA[1]
-   
+
    put mimeEncodeForMIMETransfer(the text of pField, "quoted-printable") after tAlternativeA[1]
-   
+
    put "Content-Type: text/html; charset=UTF-8" & crlf & \
          "Content-Transfer-Encoding: quoted-printable" & crlf & crlf into tAlternativeA[2]
-   
+
    local tHTML
    put the htmlText of pField into tHTML
-   
+
    local tImages
    __ParseImages tHTML, tImages
-   
+
    put "<!DOCTYPE HTML PUBLIC " & quote & "-//W3C//DTD HTML 4.01 Transitional//EN" & quote & ">" & return & \
          "<html>" & return & \
          "<head>" & return & \
          "<meta http-equiv=" & quote & "content-type" & quote & " content=" & quote & "text/html; charset=UTF-8" & quote & ">" & return & \
          "</head>" & return before tHTML
-   
+
    put "</html>" after tHTML
-   
+
    put mimeEncodeForMIMETransfer(tHTML, "quoted-printable") after tAlternativeA[2]
-   
+
    local tRelatedA
    put mimeEncodeAsMIMEMultipartDocument(tAlternativeA, "alternative") into tRelatedA[1]
-   
+
    local tIndex = 1
    local tImage
    repeat for each key tImage in tImages
@@ -382,42 +382,42 @@ function mimeEncodeFieldAsMIMEMultipartDocument pField
                & tab & "name="& quote & tImage & "." & the paintCompression of it & quote & crlf & \
                "Content-Disposition: inline;" & crlf \
                & tab & "filename="& quote & tImage & "." & the paintCompression of it & quote & crlf & crlf into tRelatedA[tIndex]
-         
+
          put mimeEncodeForMIMETransfer(the text of it, "base64") after tRelatedA[tIndex]
       end if
    end repeat
-   
+
    if the number of elements of tRelatedA > 1 then
       local tParamA
       put "text/html" into tParamA["type"]
-      
+
       return mimeEncodeAsMIMEMultipartDocument(tRelatedA, "related", tParamA) for value
    end if
-   
+
    return tRelatedA[1] for value
 end mimeEncodeFieldAsMIMEMultipartDocument
 
 private command __ParseImages @xHTML, @rImages
    local tHTML
-   
+
    local tStart, tEnd
    repeat while matchChunk(xHTML,"(?i)<img src=" & quote & "([^" & quote & "]*)" & quote,tStart,tEnd)
       local tID
       put char tStart to tEnd of xHTML into tID
-      
+
       if tID begins with "http" then
          put char 1 to tEnd of xHTML after tHTML
       else
-         
+
          if rImages[tID] is empty then
             put uuid() into rImages[tID]
          end if
-         
+
          put char 1 to tStart - 1 of xHTML & "cid:" & rImages[tID] after tHTML
       end if
       delete char 1 to tEnd of xHTML
    end repeat
-   
+
    put tHTML before xHTML
 end __ParseImages
 
@@ -479,86 +479,86 @@ Set to the email body including headers
 
 command mimeEncodeAsMIMEEmail pBody, pFrom, pTo, pCc, pSubject, pAttachmentA
    local tHeaders
-   
+
    put "Date:" && the internet date & crlf into tHeaders
    put "From:" && pFrom & crlf after tHeaders
    replace return with ", " in pTo
    put "To:" && pTo & crlf  after tHeaders
-   
+
    if pCc is not empty then
       replace return with ", " in pCc
       put "Cc:" && pCc & crlf  after tHeaders
    end if
-   
+
    if pSubject is not an ascii string then
       local tSubject
       put mimeEncodeForMIMETransfer(pSubject, "quoted-printable") into tSubject
       put "=?UTF-8?Q?" & tSubject & "?=" into pSubject
    end if
    put "Subject:" && pSubject & crlf after tHeaders
-   
+
    put "MIME-Version:" && mimeTheMIMEVersion() & crlf after tHeaders
-   
+
    if pAttachmentA is an array then
-      
+
       local tMixedA
       put pBody into tMixedA[1]
-      
+
       repeat with tIndex = 1 to the number of elements of pAttachmentA
          if pAttachmentA[tIndex] is not an array then
             next repeat
          end if
-         
+
          if pAttachmentA[tIndex]["data"] is empty then
             if there is not a file pAttachmentA[tIndex]["filepath"] then
                next repeat
             end if
-            
+
             put url ("binfile:" & pAttachmentA[tIndex]["filepath"]) into pAttachmentA[tIndex]["data"]
          end if
-         
+
          if pAttachmentA[tIndex]["name"] is empty then
             if pAttachmentA[tIndex]["filepath"] is empty then
                next repeat
             end if
-            
+
             set the itemDelimiter to slash
             put the last item of pAttachmentA[tIndex]["filepath"] into pAttachmentA[tIndex]["name"]
          end if
-         
+
          if pAttachmentA[tIndex]["mimetype"] is empty then
             set the itemDelimiter to "."
             local tExtension
             put the last item of pAttachmentA[tIndex]["name"] into tExtension
             put mimeTheMIMETypeOfExtension(tExtension) into pAttachmentA[tIndex]["mimetype"]
          end if
-         
+
          put "Content-Type:" && pAttachmentA[tIndex]["mimetype"] & ";" & crlf \
                & tab & "name="& quote & pAttachmentA[tIndex]["name"] & quote & crlf & \
                "Content-Transfer-Encoding: base64" & crlf & \
                "Content-Disposition: attachment;" & crlf \
                & tab & "filename="& quote & pAttachmentA[tIndex]["name"] & quote & crlf & crlf into tMixedA[tIndex+1]
-         
+
          put mimeEncodeForMIMETransfer(pAttachmentA[tIndex]["data"], "base64") after tMixedA[tIndex+1]
       end repeat
-      
+
    end if
-   
+
    if the number of elements of tMixedA > 1 then
       return tHeaders & mimeEncodeAsMIMEMultipartDocument(tMixedA, "mixed") for value
    end if
-   
+
    return tHeaders & pBody for value
 end mimeEncodeAsMIMEEmail
 
 
 private command __Initialize
    -- MIME to extension mapping generated via the following command:
-   -- curl http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types 
+   -- curl http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
    --   | egrep -v ^#
-   --   | awk '{ for (i=2; i<=NF; i++) {print "put \""$1"\" into sMIMETypes[\""$i"\"\]"}}' 
+   --   | awk '{ for (i=2; i<=NF; i++) {print "put \""$1"\" into sMIMETypes[\""$i"\"\]"}}'
    --   | sort
-   
+
    put "application/andrew-inset" into sMIMETypes["ez"]
    put "application/applixware" into sMIMETypes["aw"]
    put "application/atom+xml" into sMIMETypes["atom"]

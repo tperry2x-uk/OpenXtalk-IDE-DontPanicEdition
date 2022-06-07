@@ -58,6 +58,8 @@ on preOpenStack
    # Ensure paint defaults are set
    reset paint
    set the filled to true
+   
+   if the platform is "Linux" then topLevel me
 end preOpenStack
 
 on openStack

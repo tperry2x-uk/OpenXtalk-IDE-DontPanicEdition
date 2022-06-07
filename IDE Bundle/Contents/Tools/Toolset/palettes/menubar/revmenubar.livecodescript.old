@@ -1178,11 +1178,6 @@ on revMenubarMenuButtonClicked pWhich
          revIDEOpenPalette "Resource Center"
          break
       case "Dictionary"
-         global $LIVECODE_USE_CEF
-         if $LIVECODE_USE_CEF  is not 1 then
-            if the platform is "Linux" and the processor is "x86_64" then put 1 into $LIVECODE_USE_CEF
-         end if
-         
          revIDEDocumentationLoad "API", "Script"
          break
       case "Test"
@@ -3189,10 +3184,6 @@ on revMenubarHelpMenuPick pWhich
    put item 1 of pWhich into tPick
    switch tPick
       case "Dictionary"
-         global $LIVECODE_USE_CEF
-         if $LIVECODE_USE_CEF  is not 1 then
-            if the platform is "Linux" and the processor is "x86_64" then put 1 into $LIVECODE_USE_CEF
-         end if
          revIDEDocumentationLoad "API", "Script"
          break
       case "Start Center"

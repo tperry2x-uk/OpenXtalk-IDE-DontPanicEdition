@@ -6933,7 +6933,14 @@ on revIDEActionOpenStack
    repeat for each line tStackFilePath in tStackFilePaths
       # Check the stack exists
       if there is not a file tStackFilePath then exit revIDEActionOpenStack
-
+      -- CHECK MAGIC NUMBER -- PM
+      open file tStackFilePath for binary read
+      read from file tStackFilePath for 8 bytes
+      close file tStackFilePath
+      if it contains "STAK" then
+         put it
+         handleOpenHyperCardSTAKs tStackFilePath
+      end if
       # Open the stack
       revIDEOpenStack tStackFilePath
    end repeat
@@ -7792,7 +7799,7 @@ on revIDERevertToSavedStack pStackID
 end revIDERevertToSavedStack
 
 on revIDEActionSaveStack pStackID
-   if there is a file the filename of pStackID then
+   if there is a file the filename of pStackID and NOT (the optionKey is not "down") then
       revIDESaveStack pStackID
    else
       revIDEActionSaveStackAs pStackID

@@ -104,13 +104,14 @@ on appleEvent theClass,theID
          else
             pass appleEvent
          end if
-         pass appleEvent
       else
          pass appleEvent
       end if
-      pass appleEvent
+      -- put "appleEvent:" & theClass,theID
+      -- pass appleEvent
+   else
+      -- put "appleEvent:" & theClass,theID
    end if
-   pass appleEvent
 end appleEvent
 
 on handleOpenHyperCardSTAKs pHCStackList
@@ -119,8 +120,26 @@ on handleOpenHyperCardSTAKs pHCStackList
    else if there is a folder "~/Applications/HyperCardPreview.app" then
       put "~/Applications/HyperCardPreview.app"  into tHCPrv
    end if
+   put line 1 of pHCStackList into tStakFile
+   set the itemdelimiter to "."
+   if the last item of tStakFile is not "stak" then
+      --rename file with .stak filename extention
+      --	rename [{file | folder | directory}] filePath to newPath
+      try
+         -- put GetHFSCreatorTypeCodesOfFile(tStakFile) into tCreatorAndType
+         -- if line 1 of tCreatorAndType <> "WILD" then
+         --   get SetHFSCreatorCodeOfFile(tStakFile,"WILD")
+         -- end if
+         -- if line 2 of tCreatorAndType <> "STAK" then
+         --   get SetHFSTypeCodeOfFile(tStakFile,"STAK")
+          -- end if
+         rename file tStakFile to tStakFile & ".stak"
+      end try
+      if there is a file (tStakFile & ".stak") then put (tStakFile & ".stak") into tStakFile
+   end if
+   set the itemdelimiter to ","
    if tHCPrv is not empty then
-      launch (line 1 of pHCStackList) with tHCPrv
+      launch tStakFile with tHCPrv
    else
       put "HyperCard STAKs:" & cr & pHCStackList
    end if
@@ -825,8 +844,10 @@ on revInternal__openStack
       put "false" into tPropsArray["cShowRevolutionStacks"]
       put "22" into tPropsArray["cMenuHeight"]
       put "1067,251,1882,827" into tPropsArray["cRevDocsRect"]
-      put "Gray88" into tPropsArray["cBackDropColor"]
-      put "Gray88" into tPropsArray["cBackdrop"]
+      put "Black" into tPropsArray["cBackDropColor"]
+      put "Black" into tPropsArray["cBackdrop"]
+      set the backDrop to "none"
+
       put "false" into tPropsArray["cREVMsgShowUIFrontScripts"]
       put "false" into tPropsArray["revstack"]
       put "100" into tPropsArray["cMacOSProgressScrollbarWidth"]
@@ -838,6 +859,8 @@ on revInternal__openStack
       put "250" into tPropsArray["cFieldWidth"]
       put "16" into tPropsArray["cScrollbarHeight"]
       put "true" into tPropsArray["cToolbarIcons"]
+      put "10" into tPropsArray["cToolBarFontSize"]
+
       put "true" into tPropsArray["cShowAudioclipsclips"]
       put "1,2,3,4,5" into tPropsArray["cAudioclipTabs"]
       put "620,235" into tPropsArray["cREVMsgTabRectSingleLine"]
@@ -1701,14 +1724,14 @@ on revInternal__openStack
 
       if the platform is "MacOS" then
          lock messages
-         modeless stack tMenuBar
+         modeless stack tMenuBar -- PM
          unlock messages
       else
          toplevel stack tMenuBar
       end if
       set the defaultMenuBar to the long id of group "revMenuBar" of stack tMenuBar
 
-      revInternal__ConstrainStack tMenuBar
+       revInternal__ConstrainStack tMenuBar
 
       local tToolsRight
       put the right of stack revIDEPaletteToStackName("tools") into tToolsRight
@@ -1873,8 +1896,9 @@ on revInternal__openStack
          put 0 into tTitleBarHeight
          put 0 into tBorderWidth
       else
-         -- We assume this is about 30 pixels
-         put 30 into tTitleBarHeight
+      -- We assume this is about 30 pixels -- MAYBE DON"T ASS-U-ME
+      -- put 30 into tTitleBarHeight -- for palettes on macOS 11 this is more like 19 pixels
+       put 30 into tTitleBarHeight
          if the platform is "macos" then
             put 0 into tBorderWidth
          else
@@ -2438,9 +2462,9 @@ on IDEToLightMode
       -- set the backgroundColor of group "toolbar" of stack "revMenuBar" to "White"
       -- set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "Black"
 
+      set the cDarkMode of stack "revPreferences" to false
       unlock screen
    -- end try
-
 end IDEToLightMode
 
 on IDEToDarkMode
@@ -2454,7 +2478,7 @@ on IDEToDarkMode
    -- of the property inspector, and perhaps the dictionary,so this should be doable in a visually smooth way.
    -- it would also allow the use of all sorts of CoreImage Transitions to be applied by the OS,
    -- which is likely similar to Apple's own implimemntations of this in apps like Safari.
-
+   --
    -- set the compositorTileSize to 256
    -- set the rect of templateStack to the screenRect
    -- create stack --------------------------------- <--- NOTE: 'create' is only available in the IDE, not in standalones!
@@ -2478,7 +2502,6 @@ on IDEToDarkMode
       -- setWindowToDarkMode
 
       --- for All OS ---
-
       -- unlock screen with visual effect "dissolve" very fast to white
       -- lock screen  -- for visual effect
 
@@ -2544,6 +2567,7 @@ on IDEToDarkMode
       -- visual effect "dissolve" -- slow -- to black
      -- unlock screen -- with visual effect "dissolve" very fast to black
    end try
+   set the cDarkMode of stack "revPreferences" to true
     unlock screen
 end IDEToDarkMode
 

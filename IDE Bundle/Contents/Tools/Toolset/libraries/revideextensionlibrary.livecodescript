@@ -1407,7 +1407,7 @@ function __extensionSampleStacks pID, pFolder
       put files(tSampleFolder) into tSamples
       filter tSamples without ".*"
       repeat for each line tStack in tSamples
-         put pFolder & slash & "samples/" & tStack & cr after msg
+         -- put pFolder & slash & "samples/" & tStack & cr after msg -- display sample stacks list in msg box
           put pFolder & slash & "samples/" & tStack into tSampleArray[tStack]
       end repeat
    end if

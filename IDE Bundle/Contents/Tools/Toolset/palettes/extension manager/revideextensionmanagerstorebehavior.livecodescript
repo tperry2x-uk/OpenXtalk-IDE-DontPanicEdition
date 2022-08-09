@@ -2,7 +2,7 @@
 on preOpenCard
    send "resizeStack" to me
    browserHide
-   setStatus "Loading LiveCode extensions store"
+   setStatus "Loading Extensions Repository"
    set the repeatcount of image "loading" of me to -1
 end preOpenCard
 
@@ -35,10 +35,10 @@ on resizeStack
    set the loc of field "status" of me to the loc of me
    set the loc of image "loading" of me to the loc of me
    set the bottom of image "loading" of me to the top of field "status" of me - tPadding
-   
+
    set the rect of graphic "browser_background" of me to tContentRect
    set the rect of widget "browser" of me to tContentRect
-   
+
    unlock screen
    pass resizeStack
 end resizeStack

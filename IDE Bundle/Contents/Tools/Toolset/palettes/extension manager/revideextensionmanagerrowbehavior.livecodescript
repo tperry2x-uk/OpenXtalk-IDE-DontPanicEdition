@@ -161,7 +161,8 @@ private function _canLoad pDataA
    switch pDataA["type"]
       case "snippet"
       case "sample"
-         return false
+         return true
+      --    return false
    end switch
    return true
 end _canLoad
@@ -299,8 +300,8 @@ on menuPick pAction
          put the cSampleStacks of me into tSampleStacks
          -- open stack tSampleStacks
          launchExtensionSampleStack tSampleStacks[tSample]
-         put element 1 of tSampleStacks
-         put tSample
+         -- put element 1 of tSampleStacks
+         -- put tSample
          break
       case "Show Documentation"
          revIDEGoToExtensionAPI tKind

@@ -189,11 +189,19 @@ on cancelExtensionInstall pExtensionIdentifier
    revIDECancelInstallExtension pExtensionIdentifier
 end cancelExtensionInstall
 
-on launchExtensionSampleStack pExtensionId
-   local tSourceFolder, tSourceFile
-   put revIDEExtensionProperty(pExtensionId, "install_path") into tSourceFolder
-   put revIDEExtensionProperty(pExtensionId, "source_file") into tSourceFile
-   revIDEExtensionLaunchSampleStack tSourceFolder & slash & tSourceFile
+on launchExtensionSampleStack pParam
+   -- changed because pExtensionId was NOT an Extension Identifier,
+   -- it was recieving a filePath instead
+   if there is a file pParam then 
+      go stack pParam
+      -- revIDEExtensionLaunchSampleStack pParam
+   else 
+      local tSourceFolder, tSourceFile
+      put revIDEExtensionProperty(pParam, "install_path") into tSourceFolder
+      put revIDEExtensionProperty(pParam, "source_file") into tSourceFile
+      -- put pExtensionId && tSourceFolder & slash & tSourceFile
+      revIDEExtensionLaunchSampleStack tSourceFolder & slash & tSourceFile
+   end if
 end launchExtensionSampleStack
 
 on showExtensionSnippet pExtensionId

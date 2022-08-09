@@ -1,7 +1,7 @@
 ﻿script "revCoreStackBehavior"
 ################################################################
 # Reading object properties used to the project browser and application browser
-# There are two variations. Each wants slightly different properties so for 
+# There are two variations. Each wants slightly different properties so for
 # optimisations sake we've implemented two functions
 ################################################################
 function idePropertyInspectorReadProperties pList
@@ -12,9 +12,9 @@ function idePropertyInspectorReadProperties pList
          local tCustomPropertySets, tCustomProperties
          set the custompropertyset of the target to empty
          put the customproperties of the target into tCustomProperties["default"]
-         
+
          put the custompropertysets of the target into tCustomPropertySets
-         
+
          repeat for each line tCustomPropertySet in tCustomPropertySets
             put the customproperties[tCustomPropertySet] of the target into tCustomProperties[tCustomPropertySet]
          end repeat
@@ -32,9 +32,9 @@ function idePropertyInspectorReadProperties pList
          end try
       end if
    end repeat
-   
+
    put the short name of the target into tProps["name"]
-   
+
    return tProps
 end idePropertyInspectorReadProperties
 
@@ -42,11 +42,11 @@ function ideProjectBrowserReadProperties pList
    local tProps, tScriptLines, tLabel, tTarget
    // Get the core properties
    local tLongID, tShortName, tCard
-   
+
    put the long id of the target into tLongID
    put the short name of the target into tShortName
    put ideCoreCardOfControl(tLongID) into tCard
-   
+
    repeat for each line tProp in pList
       if tProp is "type" then
          put word 1 of the name of the Target into tProps["type"]
@@ -63,13 +63,13 @@ function ideProjectBrowserReadProperties pList
             replace return with space in tLabel
          else
             put empty into tLabel
-         end if 
+         end if
          put tLabel into tProps["label"]
       else if tProp is "custom Control" then
          if the the cIDEProperties["cCustomControl"] of the Target is "true" then
             put "true" into tProps["custom Control"]
          else if the dgProp["control type"] of the target is "Data Grid" then
-            put "true" into tProps["custom Control"]            
+            put "true" into tProps["custom Control"]
          else
             put "false" into tProps["custom Control"]
          end if
@@ -90,7 +90,7 @@ function ideProjectBrowserReadProperties pList
             else
                put "object missing" into tProps["behavior_script_lines"]
             end if
-         end if  
+         end if
       else if tProp is "long id" then
          put the long id of the target into tProps["long id"]
       else if tProp is "owner" then
@@ -101,17 +101,17 @@ function ideProjectBrowserReadProperties pList
          end try
       end if
    end repeat
-   
-   put the short name of the Target into tProps["name"]   
+
+   put the short name of the Target into tProps["name"]
    return tProps
 end ideProjectBrowserReadProperties
 
 function ideProjectBrowserReadStackProperties pList
    local tProps
-   // Get the core properties   
+   // Get the core properties
    repeat for each line tProp in pList
       if tProp is "type" then
-         if the mainStack of the target is the short name of the target then      
+         if the mainStack of the target is the short name of the target then
             put "mainstack" into tProps["type"]
          else
             put "substack" into tProps["type"]
@@ -148,12 +148,12 @@ function ideProjectBrowserReadStackProperties pList
          end try
       end if
    end repeat
-   return tProps   
+   return tProps
 end ideProjectBrowserReadStackProperties
 
 function ideProjectBrowserReadCardProperties pList
    local tProps
-   // Get the core properties   
+   // Get the core properties
    repeat for each line tProp in pList
       if tProp is "name" then
          put the short name of the target into tProps["name"]
@@ -191,7 +191,7 @@ function ideProjectBrowserReadCardProperties pList
          end try
       end if
    end repeat
-   return tProps   
+   return tProps
 end ideProjectBrowserReadCardProperties
 
 ################################################################
@@ -201,10 +201,10 @@ global gRevDevelopment
 local sLog
 on ideTimingLogStart pSource
    if gRevDevelopment is true then
-      if pSource is empty then 
+      if pSource is empty then
          put ideTimingLogSourceStackNameGet() into pSource
       end if
-      
+
       put the milliseconds into sLog[pSource]["start"]
       put empty into sLog[pSource]["log"]
       put empty into sLog[pSource]["lasttime"]
@@ -218,14 +218,14 @@ end ideTimingLogClearAll
 
 on ideTimingLog pMessage, pSource
    if gRevDevelopment is true then
-      if pSource is empty then 
+      if pSource is empty then
          put ideTimingLogSourceStackNameGet() into pSource
       end if
-      
+
       if sLog[pSource]["start"] is empty then ideTimingLogStart pSource
-      
+
       put the milliseconds into sLog[pSource]["logtime"]
-      
+
       local tTime
       put sLog[pSource]["logtime"] - sLog[pSource]["start"] into tTime
       put tTime &&  " ("&tTime-sLog[pSource]["lasttime"]&") |" && pMessage & return  after sLog[pSource]["log"]
@@ -234,7 +234,7 @@ on ideTimingLog pMessage, pSource
 end ideTimingLog
 
 local sLastDisplayTime
-on ideTimingLogDisplay 
+on ideTimingLogDisplay
    if gRevDevelopment is true then
       local tDisplay
       repeat for each key tKey in sLog
@@ -243,7 +243,7 @@ on ideTimingLogDisplay
          put "TOTAL TIME - " && sLog[tKey]["logtime"] - sLog[tKey]["start"] & return after tDisplay
          put sLog[tKey]["log"] & return after tDisplay
       end repeat
-      
+
       put tDisplay into msg
    end if
 end ideTimingLogDisplay
@@ -251,13 +251,13 @@ end ideTimingLogDisplay
 function ideTimingLogSourceStackNameGet
    if gRevDevelopment is true then
       local tLongName, tExecutionContexts
-      
+
       put the long name of me into tLongName
       put the executioncontexts into tExecutionContexts
-      
+
       local tExecutionLine
       repeat with x = the number of lines of tExecutionContexts down to 1
-         put line x of tExecutionContexts into tExecutionLine 
+         put line x of tExecutionContexts into tExecutionLine
          put item 1 of tExecutionLine into tExecutionLine
          if tExecutionLine is not tLongName then
             delete the last char of tExecutionLine
@@ -267,7 +267,7 @@ function ideTimingLogSourceStackNameGet
             exit repeat
          end if
       end repeat
-      
+
       return tExecutionLine
    end if
 end ideTimingLogSourceStackNameGet
@@ -298,39 +298,39 @@ end ideCoreStackIsIDE
 ################################################################
 command ideCoreAlignObjects pPosition, pObjectList
    local tPositionValue, tInitialObject, tSetLine, tCurrentLoc
-   
+
    if pObjectList is empty then put the selectedObjects into pObjectList
-   
+
    put line 1 of pObjectList into tInitialObject
-   
+
    lock screen
    repeat with x = 1 to the number of lines in pObjectList
       get line x of pObjectList
       switch pPosition
          case "alignLeft"
-            put value("the left of me",tInitialObject) into tPositionValue   
+            put value("the left of me",tInitialObject) into tPositionValue
             set the left of it to tPositionValue
             break
          case "alignTop"
-            put value("the top of me",tInitialObject) into tPositionValue   
+            put value("the top of me",tInitialObject) into tPositionValue
             set the top of it to tPositionValue
             break
          case "alignRight"
-            put value("the right of me",tInitialObject) into tPositionValue   
+            put value("the right of me",tInitialObject) into tPositionValue
             set the right of it to tPositionValue
             break
          case "alignBottom"
-            put value("the bottom of me",tInitialObject) into tPositionValue   
+            put value("the bottom of me",tInitialObject) into tPositionValue
             set the bottom of it to tPositionValue
             break
          case "alignHorizontalCenter"
-            put value("the loc of me",tInitialObject) into tPositionValue 
+            put value("the loc of me",tInitialObject) into tPositionValue
             delete item 2 of   tPositionValue
             put the loc of it into tCurrentLoc
             set the loc of it to tPositionValue,item 2 of tCurrentLoc
             break
          case "alignVerticalCenter"
-            put value("the loc of me",tInitialObject) into tPositionValue 
+            put value("the loc of me",tInitialObject) into tPositionValue
             delete item 1 of   tPositionValue
             put the loc of it into tCurrentLoc
             set the loc of it to item 1 of tCurrentLoc,tPositionValue
@@ -344,26 +344,26 @@ end ideCoreAlignObjects
 
 command ideCoreEqualizeObjects pPosition, pObjectList
    local tPositionValue, tInitialObject, tSetLine, tCurrentLoc
-   
+
    if pObjectList is empty then put the selectedObjects into pObjectList
    put line 1 of pObjectList into tInitialObject
-   
+
    lock screen
    repeat with x = 1 to the number of lines in pObjectList
       get line x of pObjectList
       switch pPosition
          case "equalizeWidth"
-            put value("the width of me",tInitialObject) into tPositionValue   
+            put value("the width of me",tInitialObject) into tPositionValue
             set the width of it to tPositionValue
             break
          case "equalizeHeight"
-            put value("the height of me",tInitialObject) into tPositionValue   
+            put value("the height of me",tInitialObject) into tPositionValue
             set the height of it to tPositionValue
             break
          case "equalizeWidthHeight"
-            put value("the width of me",tInitialObject) into tPositionValue   
+            put value("the width of me",tInitialObject) into tPositionValue
             set the width of it to tPositionValue
-            put value("the height of me",tInitialObject) into tPositionValue   
+            put value("the height of me",tInitialObject) into tPositionValue
             set the height of it to tPositionValue
             break
       end switch
@@ -375,9 +375,9 @@ command ideCoreDistributeObjects pDirection, pDistribution, pObjectList
    local tStack, tLeft, tRight, tTop,tBottom, tTotalWidth, tTotalHeight, tSpacing
    local tAvailableWidth, tAvailableHeight
    local tOrderedObjectList
-   
+
    if pObjectList is empty then put the selectedObjects into pObjectList
-   
+
    put word -2 to -1 of line 1 of pObjectList into tStack
    put the width of tStack into tLeft
    put the height of tStack into tTop
@@ -391,10 +391,10 @@ command ideCoreDistributeObjects pDirection, pDistribution, pObjectList
       if the bottom of it > tBottom then put the bottom of it into tBottom
       add the width of it to tTotalWidth
       add the height of it to tTotalHeight
-      
+
       put it & comma & the left of it & comma & the top of it & return after tOrderedObjectList
    end repeat
-   
+
    if pDirection is "distributeHorizontal" then
       switch pDistribution
          case "First To Last selected"
@@ -417,7 +417,7 @@ command ideCoreDistributeObjects pDirection, pDistribution, pObjectList
          get item 1 of line x of pObjectList
          set the left of it to tLeft
          add the width of it + tSpacing to tLeft
-      end repeat      
+      end repeat
    else if pDirection is "distributeVertical" then
       switch pDistribution
          case "First To Last selected"
@@ -440,7 +440,7 @@ command ideCoreDistributeObjects pDirection, pDistribution, pObjectList
          get item 1 of line x of pObjectList
          set the top of it to tTop
          add the height of it + tSpacing to tTop
-      end repeat   
+      end repeat
    end if
 end ideCoreDistributeObjects
 
@@ -472,7 +472,7 @@ command ideCoreSetDisabled pControl, pValue
       set the colorOverlay["color"] of pControl to ideColorGet("state_disabled")
    else
       set the colorOverlay of pControl to empty
-   end if   
+   end if
 end ideCoreSetDisabled
 
 function ideCoreButtonDefaultStateDataGet
@@ -480,25 +480,25 @@ function ideCoreButtonDefaultStateDataGet
 end ideCoreButtonDefaultStateDataGet
 
 function ideCoreButtonForegroundStateDataGet
-   return "normal,foreground" & return & "hover,foreground" & return & "pressed,foreground" & return & "disabled,foreground" & return & "selected,foreground" & return & "booleanTrue,foreground" & return & "booleanFalse,foreground" 
+   return "normal,foreground" & return & "hover,foreground" & return & "pressed,foreground" & return & "disabled,foreground" & return & "selected,foreground" & return & "booleanTrue,foreground" & return & "booleanFalse,foreground"
 end ideCoreButtonForegroundStateDataGet
 
 // Comparison functions
 function ideCoreCompareValues pValue1, pValue2
    local tValue1Array, tValue2Array
-   
+
    if the keys of pValue1 is empty then
       put false into tValue1Array
    else
       put true into tValue1Array
    end if
-   
+
    if the keys of pValue2 is empty then
       put false into tValue2Array
    else
       put true into tValue2Array
    end if
-   
+
    if not tValue1Array and not tValue2Array then
       if pValue1 is pValue2 then
          return true
@@ -539,13 +539,13 @@ end ideTextSizeSet
 
 function ideTextSizeGet
    local tTextSize
-   
+
    put  the cIDETextSize of stack "revPreferences" into tTextSize
    if tTextSize is empty then
       return empty
    else
       return  the cIDETextSize of stack "revPreferences"
-   end if   
+   end if
 end ideTextSizeGet
 
 on ideProjectBrowserThumbnailsHeightSet pSize
@@ -559,7 +559,7 @@ end ideProjectBrowserThumbnailsHeightSet
 
 function ideProjectBrowserThumbnailsHeightGet
    local tSize
-   
+
    put  the cIDEThumbnailHeight of stack "revPreferences" into tSize
    if tSize is empty then
       return 50
@@ -579,7 +579,7 @@ end ideProjectBrowserThumbnailsWidthSet
 
 function ideProjectBrowserThumbnailsWidthGet
    local tSize
-   
+
    put  the cIDEThumbnailWidth of stack "revPreferences" into tSize
    if tSize is empty then
       return 50
@@ -599,7 +599,7 @@ end ideTextFontSet pFont
 
 function ideTextFontGet
    local tTextFont
-   
+
    put  the cIDETextFont of stack "revPreferences" into tTextFont
    if tTextFont is empty then
       return empty
@@ -616,14 +616,14 @@ function ideTextFontOptions
    return tFonts
 end ideTextFontOptions
 
-on ideCoreUpdateTextFontSize   
+on ideCoreUpdateTextFontSize
    // Temp
    lock messages
    lock screen
-   
+
    set the textFont of stack "revIDEProjectBrowser" to ideTextFontGet()
    set the textSize of stack "revIDEProjectBrowser" to ideTextSizeGet()
-   
+
    unlock messages
    unlock screen
 end ideCoreUpdateTextFontSize
@@ -712,7 +712,7 @@ function ideColorGet pTag
       case "state_muted_selected_secondary"
       case "pb_line_selected_trail"
          return "244,244,244"
-         break         
+         break
       case "border"
       case "pb_list_bottom_border"
       case "pb_edit_field_border"
@@ -722,7 +722,7 @@ function ideColorGet pTag
       case "border_muted"
       case "pb_line_border_bottom"
          return "234,234,234"
-         break        
+         break
       case "text"
          return "0,0,0"
          break
@@ -738,20 +738,20 @@ end ideColorGet
 
 ## array printer
 on revPutArray pArray
-   
+
    if (the keys of pArray) is empty then
       put "not an array"
       exit revPutArray
    end if
-   
+
    local pLevel, pCounter, pList
-   
+
    put 0 into pLevel
    put 0 into pCounter
    put empty into pList
-   
+
    put dumpArrayRecurse(pArray, pLevel, pCounter, pList) into pList
-   
+
    put pList
 end revPutArray
 
@@ -760,24 +760,24 @@ private function dumpArrayRecurse pArray, pLevel, @pCounter, @pList
    put the keys of pArray into tOrderedKeys
    sort lines of tOrderedKeys numeric
    repeat for each line tKey in tOrderedKeys
-      
+
       add 1 to pCounter
-      
+
       repeat for pLevel
          put tab after line pCounter of pList
       end repeat
       put (tKey && "= ") after line pCounter of pList
-      
+
       if (the keys of pArray[tKey]) is empty then
          put line 1 of pArray[tKey] after line pCounter of pList
       else
          put dumpArrayRecurse(pArray[tKey], (pLevel + 1), pCounter, pList) into pList
       end if
-      
+
    end repeat
-   
+
    return pList
-   
+
 end dumpArrayRecurse
 
 
@@ -787,7 +787,7 @@ function ideCoreFolderPath pFolder, pFileName
    if there is a file tPath or there is a folder tPath then
       return tPath
    end if
-   
+
    put revEnvironmentToolsetPath() & "/resources/" & pFolder & "/" & pFileName into tPath
    if there is a file tPath or there is a folder tPath then
       return tPath
@@ -799,17 +799,21 @@ function ideCoreEditionHoverColour
 end ideCoreEditionHoverColour
 
 on ideCoreShowTip pStack,pCard,pName,pRect,pMessage, pLink
+   -- example:
+   -- ideCoreShowTip "Untitled 1",1,"Hello","30,30,700,300","This is a Tip thingy","https://google.com"
    //Copy the template group
+   lock screen
    if there is a group pName of card pCard of stack pStack then
       delete group pName of card pCard of stack pStack
    end if
    copy group "tip_display_template" of card 1 of stack "revCore" to card pCard of stack pStack
-   
+
    set the name of it to pName
-   set the lockLoc of it to true   
+   set the lockLoc of it to true
    set the rect of it to pRect
    set the behavior of it to the long id of button "tip_display_behavior" of card 1 of stack "revCore"
    put pMessage into field "tip_message" of it
    set the cLink of it to pLink
    send "layoutTip" to it
+   unlock screen
 end ideCoreShowTip

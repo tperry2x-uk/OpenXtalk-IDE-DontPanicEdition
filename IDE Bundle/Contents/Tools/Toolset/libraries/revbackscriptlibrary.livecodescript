@@ -1492,7 +1492,6 @@ command revGoScriptEditor pEditor, pPosition
    if the iconic of pEditor then
       set the iconic of pEditor to false
    end if
-
    # OK-2008-06-24 : Bug 6603 - Palettes not hidden when script editor first opens
    revSEHidePalettes
 end revGoScriptEditor
@@ -1956,7 +1955,8 @@ on revUpdatePaletteStack
       repeat for each line l in gREVStacksList
          if word 1 of l is "revPropertyPalette" then
             send "revUpdateTabs" to stack l
-            send "revUpdatePalette" to this cd of stack l
+            -- send "revUpdatePaletteStack" to this cd of stack l
+          send "revUpdatePalette" to this cd of stack l
          end if
       end repeat
       unlock screen

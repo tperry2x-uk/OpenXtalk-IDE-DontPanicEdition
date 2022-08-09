@@ -36,7 +36,7 @@ on subscribeMessages
    revIDESubscribe "ideToggleChanged:selectGrouped"
 
    revIDESubscribe "idePluginsChanged"
-   revIDESubscribe "ideWindowsChanged"
+   --- revIDESubscribe "ideWindowsChanged"
 
    revIDESubscribe "ideTutorialProgressChanged"
    revIDESubscribe "ideActiveStacksChanged"
@@ -1182,7 +1182,7 @@ on revMenubarMenuButtonClicked pWhich
          if $LIVECODE_USE_CEF  is not 1 then
             if the platform is "Linux" and the processor is "x86_64" then put 1 into $LIVECODE_USE_CEF
          end if
-         
+
          revIDEDocumentationLoad "API", "Script"
          break
       case "Test"

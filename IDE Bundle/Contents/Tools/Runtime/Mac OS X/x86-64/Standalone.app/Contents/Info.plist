@@ -69,6 +69,8 @@
 	<string>1250</string>
 	<key>DTXcodeBuild</key>
 	<string>12E262</string>
+	<key>OSAScriptingDefinition</key>
+	<string>terminology.sdef</string>
 	<key>LFPrefersCarbon</key>
 	<true/>
 	<key>LSEnvironment</key>

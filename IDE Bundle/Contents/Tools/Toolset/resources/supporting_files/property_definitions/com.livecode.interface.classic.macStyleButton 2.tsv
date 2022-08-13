@@ -1,0 +1,70 @@
+Property : optional getter : optional setter	Label	Section	Editor	User Visible	Read Only	Group	Default	Options	Subsection	min	max	step
+type	button
+title	macOS Style Button
+
+-----	-----	-----	-----	-----	-----	-----	-----	-----	-----	-----	-----	-----
+name							Button
+label
+tooltip
+style							roundRect	"standard,transparent,opaque,rectangle,roundRect,shadow,checkbox,radioButton"
+visible							TRUE
+opaque							TRUE
+showName							TRUE
+autoHilite							TRUE
+sharedHilite							TRUE
+acceleratorKey
+acceleratorModifier
+acceleratorText
+traversalOn							TRUE
+showFocusBorder							TRUE
+mnemonic
+default							TRUE
+disabled							FALSE
+layerMode
+behavior
+text							empty
+icon							0
+hiliteIcon							0
+disabledIcon							0
+visitedIcon							0
+armedIcon							0
+hoverIcon							0
+iconGravity
+threeD							TRUE
+showBorder							TRUE
+hiliteBorder							TRUE
+borderWidth							1
+shadow							FALSE
+shadowOffset							4
+foregroundColor						Text fill	White
+foregroundPattern						Text fill
+backgroundColor							gray50
+backgroundPattern
+hiliteColor							gray60
+hilitePattern
+borderColor
+borderPattern
+topColor							White
+topPattern
+bottomColor							gray60
+bottomPattern
+shadowColor
+shadowPattern
+focusColor							White
+focusPattern
+customProperties
+blendLevel							0	100
+ink
+textFont
+textSize
+textStyle
+textAlign							center
+margins							4
+lockLoc							FALSE
+width::revIDESetRectProperty			com.livecode.pi.dimension				82
+height::revIDESetRectProperty			com.livecode.pi.dimension				22
+dropShadow
+innerShadow
+outerGlow
+innerGlow
+colorOverlay

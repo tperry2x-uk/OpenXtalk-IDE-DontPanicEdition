@@ -7,19 +7,19 @@ name
 title												
 mainStack												
 decorations												
-style							"Toplevel,Modeless,Modal,Palette"					
+style							Toplevel,Modeless,Modal,Palette
 windowShape												
 scaleFactor							1					
-shadow		Basic					TRUE					
-visible							TRUE					
-formatForPrinting							FALSE					
-systemWindow							FALSE					
-iconic							FALSE					
-startupIconic							FALSE					
-destroyStack							FALSE					
-destroyWindow							FALSE					
-cantDelete							FALSE					
-cantAbort							FALSE					
+shadow		Basic					true					
+visible							true					
+formatForPrinting							false					
+systemWindow							false					
+iconic							false					
+startupIconic							false					
+destroyStack							false					
+destroyWindow							false					
+cantDelete							false					
+cantAbort							false					
 stackFiles												
 externals												
 behavior												
@@ -42,15 +42,15 @@ focusPattern
 linkColor												
 linkHiliteColor												
 linkVisitedColor												
-underlineLinks							TRUE					
+underlineLinks							true					
 customProperties												
-blendLevel							0	100				
+blendLevel							0	0,100				
 ink												
 textFont												
 textSize												
 textStyle												
 textAlign							empty					
-resizable							TRUE					
+resizable							true					
 width							400					
 height							400					
 location												
@@ -58,4 +58,3 @@ minWidth							32
 minHeight							32					
 maxWidth							65535					
 maxHeight							65535					
-darkMode							FALSE					

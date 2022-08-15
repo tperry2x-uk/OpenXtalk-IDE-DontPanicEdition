@@ -8,9 +8,9 @@ end preOpenCard
 
 constant kLoadTimeout = 2
 on openCard
-   hiliteFrameItem "store"
+   hiliteFrameItem "Repo"
    if the url of widget "browser" of me is empty then
-      set the userAgent of widget "browser" of me to "LiveCode"
+      set the userAgent of widget "browser" of me to "LiveCode "-- "OpenXTalk"
       browserGoToExtensionStore
    else
       nudgeBrowser

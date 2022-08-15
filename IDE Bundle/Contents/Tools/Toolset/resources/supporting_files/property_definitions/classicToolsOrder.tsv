@@ -1,9 +1,9 @@
 com.livecode.interface.classic.Button
-com.livecode.interface.classic.Checkbox
-com.livecode.interface.classic.DefaultButton
-com.livecode.interface.classic.RadioButton
 com.livecode.interface.classic.RectangleButton
 com.livecode.interface.classic.macStyleButton
+com.livecode.interface.classic.DefaultButton
+com.livecode.interface.classic.Checkbox
+com.livecode.interface.classic.RadioButton
 com.livecode.interface.classic.TabPanel
 com.livecode.interface.classic.LabelField
 com.livecode.interface.classic.Field

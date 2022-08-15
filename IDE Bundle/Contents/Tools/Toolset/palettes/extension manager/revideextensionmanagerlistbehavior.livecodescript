@@ -64,22 +64,22 @@ end ideExtensionsChanged
 
 on setUpExtensionList
    local theStylesA
-   
+
    set the behavior of group "extensionList" of card "list" of this stack to revIDEDataViewBehavior()
    send "ResetView" to group "extensionList" of card "list" of this stack
-   
+
    put the long id of group "extensionRow" of card "templates" of this stack into theStylesA["extension"]
-   
+
    set the viewProp["row style templates"] of group "extensionList" of card "list" of this stack to theStylesA
    -- set the viewProp["hilite color"] of group "extensionList" of card "list" of this stack to ideColorGet("pb_line_selected")
-   set the viewProp["hilite color"] of group "extensionList" of card "list" of this stack to 180,170,190 -- "Gray70"
+   set the viewProp["hilite color"] of group "extensionList" of card "list" of this stack to "Gray40"
    set the viewProp["background color"] of group "extensionList" of card "list" of this stack to empty
-   
-   set the viewProp["row color"] of group "extensionList" of card "list" of this stack to "Gray80"
-   -- set the viewProp["row color"] of group "extensionList" of card "list" of this stack to revIDEColor("dataView_rowColor")
-   set the viewProp["alternate row color"] of group "extensionList" of card "list" of this stack to "Gray70"
-   -- set the viewProp["alternate row color"] of group "extensionList" of card "list" of this stack to revIDEColor("dataView_rowAlternateColor")
-   
+
+   -- set the viewProp["row color"] of group "extensionList" of card "list" of this stack to "Gray60"
+   set the viewProp["row color"] of group "extensionList" of card "list" of this stack to revIDEColor("dataView_rowColor")
+   -- set the viewProp["alternate row color"] of group "extensionList" of card "list" of this stack to "Gray70"
+   set the viewProp["alternate row color"] of group "extensionList" of card "list" of this stack to revIDEColor("dataView_rowAlternateColor")
+
    set the viewProp["fixed row height"] of group "extensionList" of card "list" of this stack to "true"
    set the viewProp["row height"] of group "extensionList" of card "list" of this stack to 41
    set the viewProp["cache"] of group "extensionList" of card "list" of this stack to "none"
@@ -192,10 +192,10 @@ end cancelExtensionInstall
 on launchExtensionSampleStack pParam
    -- changed because pExtensionId was NOT an Extension Identifier,
    -- it was recieving a filePath instead
-   if there is a file pParam then 
+   if there is a file pParam then
       go stack pParam
       -- revIDEExtensionLaunchSampleStack pParam
-   else 
+   else
       local tSourceFolder, tSourceFile
       put revIDEExtensionProperty(pParam, "install_path") into tSourceFolder
       put revIDEExtensionProperty(pParam, "source_file") into tSourceFile

@@ -12,17 +12,10 @@ on resizeStack
    updateStoredRect
    set the rect of field "Error" of group "errordisplay" of me to \
          0,0,the width of me, the height of me - 50
-         set the textColor of field "Error" of group "errordisplay" of me to \
-               empty
    set the loc of button "Ignore" of group "errordisplay" of me to "-50,437"
-   set the textColor of button "Ignore" of group "errordisplay" of me to "black"
-
    set the loc of button "Script" of group "errordisplay" of me to \
          the width of me / 2, the height of me - 25
-   set the textColor of button "Script" of group "errordisplay" of me to "black"
-
    set the loc of button "Debug" of group "errordisplay" of me to "-50,403"
-   set the textColor of button "Debug" of group "errordisplay" of me to "black"
 end resizeStack
 
 # OK-2007-07-02: Bug 5203
@@ -77,7 +70,7 @@ on preOpenStack
    set the width of the templatebutton to 82
    set the height of the templatebutton to 23
    set the style of the templatebutton to "standard"
-   set the textColor of the templatebutton to "black"
+
 
    create group "errordisplay"
    create field "Error" in group "errordisplay"
@@ -85,13 +78,12 @@ on preOpenStack
    set the vscrollbar of it to true
    set the vgrid of it to true
    set the lockText of it to true
-   set the textColor of it to empty
-
    set the dontwrap of it to true
    set the tabstops of it to "100,2000"
    set the margins of it to "8,14,8,8"
    set the bordercolor of it to "220,220,220"
    set the showfocusborder of it to false
+   set the foregroundColor of the templateButton to "black"
    create button "Ignore" in group "errordisplay"
    create button "Script" in group "errorDisplay"
    create button "Debug" in group "errordisplay"
@@ -147,7 +139,7 @@ on enterKey
 end enterKey
 
 constant kExternalHandlerError = 634
-constant kErrorTextColor = "255,0,0"
+constant kErrorTextColor = "64,64,64"
 constant kErrorYellowIconID = 202696
 constant kErrorGreyIconID = 202697
 constant kExtensionErrorCode = 863
@@ -196,9 +188,6 @@ on preOpenCard
 
    lock screen
    set the textHeight of fld "Error" of group "errorDisplay" of me to 16
-   set the backgroundColor of fld "Error" of group "errorDisplay" of me to "gray50"
-   set the textColor of fld "Error" of group "errorDisplay" of me to "black"
-
    --debug mode stuff
 
    local tFldContent
@@ -219,7 +208,7 @@ on preOpenCard
    set the default of btn "Ignore" of group "errorDisplay" of me to false
    set the left of btn "Ignore" of group "errorDisplay" of me to -100
    set the left of btn "Debug" of group "errorDisplay" of me to -100
-   disable btn "Ignore" of group "errorDisplaCy" of me
+   disable btn "Ignore" of group "errorDisplay" of me
    disable btn "Debug" of group "errorDisplay" of me
    --end if
    if tScriptError is not empty then
@@ -358,6 +347,7 @@ on preOpenCard
    else
       set the hScrollBar of tField to false
    end if
+   set the opaque of tField to false
    set the vScroll of tField to 0
    set the hScroll of tField to 0
 

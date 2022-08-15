@@ -3,7 +3,7 @@ on FillInData pDataA, pRow
    # Map pDataA values to physical controls...
    set the cRowNumber of me to pRow
    set the cLevelConnectors of me to pDataA["levels"]
-   
+
    put pDataA["title"] into field "type" of me
    set the icon of button "typeIcon" of me to the id of image pDataA["title"] of card "templates" of this stack
    if pDataA["expanded"] is true then
@@ -22,21 +22,21 @@ on FillInData pDataA, pRow
          set the cState of group "disclosure" of me to "contracted"
          set the cIcon of group "disclosure" of me to "childContracted"
       end if
-   end if 
+   end if
 end FillInData
 
 on LayoutControl pControlRect
    local tLevelConnectors, tConnectorCount, tTextSize
-   
+
    put the effective textSize of me into tTextSize
    put the cLevelConnectors of me into tLevelConnectors
    put the number of lines in the keys of tLevelConnectors into tConnectorCount
-   
-   # Resize controls/row   
+
+   # Resize controls/row
    set the rect of graphic "background" of me to pControlRect
    set the width of graphic "bottom_border" of me to (item 3 of pControlRect - item 1 of pControlRect)
    set the bottomLeft of graphic "bottom_border" of me to the bottomLeft of graphic "background" of me
-   
+
    show group "disclosure" of me
    connectorResize "disclosure"
    setConnectorIcon the long id of group "disclosure" of me, the cIcon of group "disclosure" of me
@@ -50,7 +50,7 @@ on LayoutControl pControlRect
       set the left of group "connector1" of me to item 1 of pControlRect
       set the left of group "disclosure" of me to the right of group ("connector1") of me
    end if
-   
+
    set the fixedLineHeight of field "type" of me to false
    set the height of field "type" of me to the formattedHeight of field "type" of me
    ## Set the vertical location of the name and text fields
@@ -59,10 +59,10 @@ on LayoutControl pControlRect
    else
       set the top of field "type" of me to the top of me
    end if
-   
-   set the loc of field "type" of me to the loc of me 
-   set the loc of button "typeIcon" of me to the loc of me 
-   
+
+   set the loc of field "type" of me to the loc of me
+   set the loc of button "typeIcon" of me to the loc of me
+
    set the width of field "type" of me to (item 3 of pControlRect - item 1 of pControlRect) - 20
    set the left of button "typeIcon" of me to the right of group "disclosure" of me
    set the left of field "type" of me to the right of button "typeIcon" of me
@@ -83,12 +83,14 @@ setProp dvHilite[pHiliteColor] pBoolean
    # Override basic hilite feature...
    if pBoolean then
       set the foregroundColor of field "type" of me to revIDEColor("dataView_TextHiliteColor")
-      set the colorOverlay["color"] of button "typeIcon" of me to revIDEColor("dataView_TextHiliteColor")
+      -- set the colorOverlay["color"] of button "typeIcon" of me to revIDEColor("dataView_TextHiliteColor")
+      set the colorOverlay["color"] of button "typeIcon" of me to 127,127,127
       set the foregroundColor of me to revIDEColor("dataView_disclosureIconHiliteColor")
    else
       set the foregroundColor of field "type" of me to revIDEColor("text_1")
       set the colorOverlay of button "typeIcon" of me to empty
-      set the foregroundColor of me to revIDEColor("dataView_disclosureIconColor")
+      set the foregroundColor of me to 255,128,64
+      -- set the foregroundColor of me to revIDEColor("dataView_disclosureIconColor")
    end if
 end dvHilite
 
@@ -111,15 +113,15 @@ command connectorResize pControl
    set the borderWidth of group pControl of me to 0
    set the showBorder of group pControl of me to false
    set the threeD of group pControl of me to false
-   
+
    set the lockLoc of group pControl of me to true
    set the height of group pControl of me to the height of me
    set the width of group pControl of me to 20
    set the top of group pControl of me to the top of me
-   
+
    local tTextSize, tWidgetSize
    put the effective textsize of me into tTextSize
-   switch 
+   switch
       case tTextSize >= 8 and tTextSize < 12
          put 11 into tWidgetSize
          break
@@ -135,7 +137,6 @@ command connectorResize pControl
       default
          put 13 into tWidgetSize
    end switch
-   
    set the width of widget "icon" of group pControl of me to tWidgetSize
    set the height of widget "icon" of group pControl of me to the width of widget "icon" of group pControl of me
    set the loc of widget "icon" of group pControl  of me to the loc of group pControl of me

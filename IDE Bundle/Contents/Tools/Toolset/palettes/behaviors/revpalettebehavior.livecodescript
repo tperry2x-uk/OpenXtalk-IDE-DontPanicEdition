@@ -5,7 +5,7 @@ end setAsBehavior
 
 local FOOTER_ACTION_MARGINS,HEADER_NAVIGATION_MARGINS,HEADER_ACTION_MARGINS
 
-local BAR_HEIGHT = 21
+local BAR_HEIGHT = 20
 CONSTANT BAR_MARGIN  = 5
 local ITEM_SPACING = 10
 
@@ -37,10 +37,10 @@ end showPreferenceAction
 
 on addFrameItem pName, pLocation, pItemType, pLabel, pIcon, pIconSelected, pCallbackMessage, pCallbackTarget, pParameter
    if __itemExists(pName) then return empty
-   
+
    local tNewIndex
    put the number of elements of sData + 1 into tNewIndex
-   
+
    switch pItemType
       case "preference"
          put pName into sData[tNewIndex]["name"]
@@ -74,8 +74,8 @@ on showFrameItem pName
    local tIndex
    put __frameItemNameToIndex(pName) into tIndex
    if tIndex is not a number then exit showFrameItem
-   
-   put false into sData[tIndex]["hidden"] 
+
+   put false into sData[tIndex]["hidden"]
    generateFrame
 end showFrameItem
 
@@ -83,8 +83,8 @@ on hideFrameItem pName
    local tIndex
    put __frameItemNameToIndex(pName) into tIndex
    if tIndex is not a number then exit hideFrameItem
-   
-   put true into sData[tIndex]["hidden"] 
+
+   put true into sData[tIndex]["hidden"]
    generateFrame
 end hideFrameItem
 
@@ -100,10 +100,10 @@ command setEnabledOfFrameItem pName, pValue
    local tIndex
    put __frameItemNameToIndex(pName) into tIndex
    if tIndex is not a number then exit setEnabledOfFrameItem
-   
+
    lock screen
    lock messages
-   put pValue into sData[tIndex]["enabled"] 
+   put pValue into sData[tIndex]["enabled"]
    generateFrame
    unlock messages
    unlock screen
@@ -113,7 +113,7 @@ on toggleFrameItem pName, pValue
    local tIndex
    put __frameItemNameToIndex(pName) into tIndex
    if tIndex is not a number then exit toggleFrameItem
-  
+
    put pValue into sData[tIndex]["selected"]
    generateFrame
 end toggleFrameItem
@@ -125,10 +125,10 @@ on hiliteFrameItem pName
    __unhiliteFrameNavigation
    put __frameItemNameToIndex(pName) into tIndex
    if tIndex is not a number then exit hiliteFrameItem
-   
-   put true into sData[tIndex]["selected"] 
+
+   put true into sData[tIndex]["selected"]
    set the selectedNavItem of widget "header_background" of group "background" of me to pName
-   
+
    unlock messages
    unlock screen
 end hiliteFrameItem
@@ -152,13 +152,13 @@ end clearFrameNavigationData
 
 private on appendMenuItem pNavItem, @xMenuArray
    local tMenuItemA
-   
+
    local tPreferenceValue
    put revIDEGetPreference(pNavItem["name"]) into tPreferenceValue
-   
+
    put pNavItem["label"] into tMenuItemA["label"]
    put pNavItem["name"] into tMenuItemA["name"]
-   
+
    switch pNavItem["value_type"]
       case "enum"
       case "set"
@@ -175,15 +175,15 @@ private on appendMenuItem pNavItem, @xMenuArray
                put tItem into tValue
             end if
             set the itemdel to comma
-            
+
             # Enums can't be empty so use the first value by default
-            if tPreferenceValue is empty and pNavItem["value_type"] is "enum" then 
+            if tPreferenceValue is empty and pNavItem["value_type"] is "enum" then
                put tValue into tPreferenceValue
             end if
-            
+
             put tLabel into tMenuItemA["menu"][tItemCount]["label"]
             put tValue into tMenuItemA["menu"][tItemCount]["name"]
-            
+
             local tChecked
             if pNavItem["value_type"] is "enum" then
                put tValue is tPreferenceValue into tChecked
@@ -194,7 +194,7 @@ private on appendMenuItem pNavItem, @xMenuArray
                   put tValue is among the items of tPreferenceValue into tChecked
                end if
             end if
-            
+
             if tChecked then
                put true into tMenuItemA["menu"][tItemCount]["checked"]
             else
@@ -212,7 +212,7 @@ private on appendMenuItem pNavItem, @xMenuArray
       default
          break
    end switch
-   
+
    local tCount
    put the number of elements in xMenuArray into tCount
    add 1 to tCount
@@ -233,14 +233,14 @@ end preferenceAction
 function canonicalStackName
    local tName
    put the short name of me into tName
-   
+
    # Workaround for inspector copies
    if word 1 of tName is "revPropertyInspector" then
       put "revInspector" into tName
    end if
-   
+
    replace " " with "_" in tName
-   
+
    return tName
 end canonicalStackName
 
@@ -248,7 +248,7 @@ on generateFrame
    if sHideFrame is true then
       exit generateFrame
    end if
-   
+
    if sShowPreferenceAction is not false then
       # Add the preference of header size
       addFrameItem "revPaletteFrameSize", "header", "preference", "Header // Footer Size", "enum","small,medium,large,largest", "revIDEFrameSizeChanged", the long id of me
@@ -259,10 +259,10 @@ on generateFrame
          put revIDEGetPreference(canonicalStackName() & "_displayStyle") into sNavStyle
       end if
    end if
-   
+
    lock screen
    lock messages
-   
+
    reset the templategroup
    set the defaultstack to the long ID of me
    set the backgroundbehavior of the templategroup to true
@@ -271,9 +271,9 @@ on generateFrame
       create group "background"
    end if
    reset the templategroup
-   
-   # Generate all the button fields 
-   
+
+   # Generate all the button fields
+
    local tPreferences, tNavigation, tHeaderAction
    local tHeaderActionDataA, tHeaderActionCount
    local tHeaderNavDataA, tHeaderNavCount
@@ -281,7 +281,7 @@ on generateFrame
    put false into tPreferences
    put false into tNavigation
    put false into tHeaderAction
-   
+
    local tPreferenceMenuA, tDataA, tSelected
    # Gather the data to set on the widget(s)
    repeat with x = 1 to the number of elements in sData
@@ -290,14 +290,14 @@ on generateFrame
       if tNavItem["hidden"] is true then
          next repeat
       end if
-      
+
       put empty into tDataA
       put tNavItem["name"] into tDataA["name"]
       put tNavItem["label"] into tDataA["label"]
       put tNavItem["icon"] into tDataA["icon"]
-      
+
       --put tNavItem["icon_selected"] into tDataA["icon_selected"]
-      
+
       switch tNavItem["type"]
          case "preference"
             # Add preference data to the preference menu
@@ -327,14 +327,14 @@ on generateFrame
             break
       end switch
    end repeat
-   
+
    # If we have any preferences, add that to the beginning of the header actions
    if tPreferenceMenuA is not empty then
       put preferenceAction(tPreferenceMenuA) into tHeaderActionDataA[0]
    end if
-   
+
    if tHeaderNavCount is not 0 or tHeaderActionCount is not 0 or tHeaderPreferenceCount is not 0 then
-      if there is not a widget "header_background" of group "background" of me then 
+      if there is not a widget "header_background" of group "background" of me then
          create widget "header_background" as "com.livecode.widget.paletteActions" in group "background" of me
       end if
       set the isHeader of widget "header_background" of group "background" of me to true
@@ -348,13 +348,13 @@ on generateFrame
       set the hiliteColor of widget "header_background" of group "background" of me to revIDEColor("edition_color")
       set the borderColor of widget "header_background" of group "background" of me to "178,178,178"
    else
-      if there is a widget "header_background" of group "background" of me then 
-         delete widget "header_background" of group "background" of me 
+      if there is a widget "header_background" of group "background" of me then
+         delete widget "header_background" of group "background" of me
       end if
    end if
-   
+
    if tFooterActionCount is not 0 then
-      if there is not a widget "footer_background" of group "background" of me then 
+      if there is not a widget "footer_background" of group "background" of me then
          create widget "footer_background" as "com.livecode.widget.paletteActions" in group "background" of me
       end if
       set the isHeader of widget "footer_background" of group "background" of me to false
@@ -363,13 +363,13 @@ on generateFrame
       set the hiliteColor of widget "footer_background" of group "background" of me to revIDEColor("edition_color")
       set the borderColor of widget "footer_background" of group "background" of me to "178,178,178"
    else
-      if there is a widget "footer_background" of group "background" of me then 
-         delete widget "footer_background" of group "background" of me 
+      if there is a widget "footer_background" of group "background" of me then
+         delete widget "footer_background" of group "background" of me
       end if
    end if
-   
+
    layoutFrame true
-   
+
    unlock messages
    unlock screen
 end generateFrame
@@ -378,10 +378,10 @@ function barHeight pSize
    if sHideFrame is true then
       return 0
    end if
-   
+
    switch pSize
       case "small"
-         return 21
+         return 20
       case "medium"
          return 25
       case "largest"
@@ -396,7 +396,7 @@ function barRight pSize
    if there is a widget "header_background" of group "background" of me then
       return the navBarRight of widget "header_background" of group "background" of me
    end if
-   
+
    return 0
 end barRight
 
@@ -412,14 +412,14 @@ on layoutFrame pForceRecalculate
             place group "background" of card x of me onto this card
             exit repeat
          end if
-      end repeat 
+      end repeat
    end if
-   
+
    if pForceRecalculate then
       # Setup the size everything should be
       local tIconTextSize, tTextSize, tHeaderHeight
       put  revIDEGetPreference("revPaletteFrameSize") into tHeaderHeight
-      
+
       switch tHeaderHeight
          case "small"
             put barHeight("small") into BAR_HEIGHT
@@ -475,20 +475,20 @@ on layoutFrame pForceRecalculate
             put 14 into tTextSize
             break
       end switch
-      
+
       local tHeaderWidth, tFooterWidth
       if there is a widget "header_background" of group "background" of me then
          set the height of widget "header_background" of group "background" of me to BAR_HEIGHT
          put the minWidth of widget "header_background" of group "background" of me into tHeaderWidth
       end if
-      if there is a widget "footer_background" of group "background" of me then 
+      if there is a widget "footer_background" of group "background" of me then
          set the height of widget "footer_background" of group "background" of me to BAR_HEIGHT
-         put the minWidth of widget "footer_background" of group "background" of me into tFooterWidth 
+         put the minWidth of widget "footer_background" of group "background" of me into tFooterWidth
       end if
-      
+
       local tMinWidth
       put max(tFooterWidth, tHeaderWidth) into tMinWidth
-      
+
       set the minwidth of me to tMinWidth
       if tMinWidth > the width of me then
          local tStackLeft
@@ -497,8 +497,8 @@ on layoutFrame pForceRecalculate
          set the left of me to tStackLeft
       end if
    end if
-   
-   if there is a widget "header_background" of group "background" of me then 
+
+   if there is a widget "header_background" of group "background" of me then
       set the width of widget "header_background" of group "background" of me to the width of me
       set the topleft of widget "header_background" of group "background" of me to 0,0
    end if
@@ -511,7 +511,7 @@ on layoutFrame pForceRecalculate
       dispatch "resizeStack" to this card of me with \
             the width of this card of me, the height of this card of me
    end if
-   
+
    unlock screen
 end layoutFrame
 
@@ -565,7 +565,7 @@ after preOpenStack
       put revIDEColor("edition_color") into TAB_HOVER_TEXT_COLOR
       revIDESubscribe "idePreferenceChanged:revPaletteFrameSize"
       generateFrame
-      
+
       # set the default position of the stack. revIDEPaletteRect will return either a rect or a topLeft position for the stack
       revIDEPositionPalette the short name of me
    end if
@@ -590,22 +590,22 @@ end closeStack
 # Description
 #    Sent when the script editor is moved. Saves the new size in the preferences.
 after moveStack
-   revIDESetPaletteRectPreference the short name of me
+    revIDESetPaletteRectPreference the short name of me
 end moveStack
 
 private on __doCallback pDataIndex
    local tData
    put sData[pDataIndex] into tData
-   
+
    # Get callback info
    local tMessage, tTarget, tParameter
    put tData["message"] into tMessage
    put tData["target"] into tTarget
-   put tData["parameter"] into tParameter   
-   
+   put tData["parameter"] into tParameter
+
    # Set highlight
-   switch tData["type"] 
-      case "navigation" 
+   switch tData["type"]
+      case "navigation"
          __unhiliteFrameNavigation
          dispatch tMessage to tTarget with tParameter
          put true into sData[pDataIndex]["selected"]
@@ -647,14 +647,14 @@ before menupick pItem
    local tIndex, tName
    put item 1 of pItem into tName
    put __frameItemNameToIndex(tName) into tIndex
-   
+
    # Get the callback from the data array
    local tMessage, tTarget
    put sData[tIndex]["message"] into tMessage
    put sData[tIndex]["target"] into tTarget
-   
+
    if not exists(tTarget) then exit menupick
-   
+
    local tValue
    if the number of items of pItem is 1 then
       put not revIDEGetPreference(tName) into tValue
@@ -671,12 +671,9 @@ getProp contentRect
    if sHideFrame is true then
       return 0,5,the height of me, the width of me
    end if
-   
    lock messages
    local tTop,tBottom,tBarSize
-   
    put barHeight(revIDEGetPreference("revPaletteFrameSize")) into tBarSize
-   
    put the height of me into tBottom
    repeat for each element tElement in sData
       if tElement["location"] is "footer" then
@@ -685,12 +682,11 @@ getProp contentRect
       end if
    end repeat
    unlock messages
-   
    return 0,tBarSize,the width of me,tBottom
 end contentRect
 
 getProp paletteMargin
-  return 6
+  return 3
 end paletteMargin
 
 getProp palettePadding
@@ -704,7 +700,7 @@ end headerHeight
 getProp footerHeight
    local tBarSize, tHeight
    put barHeight(revIDEGetPreference("revPaletteFrameSize")) into tBarSize
-   
+
    put 0 into tHeight
    repeat for each element tElement in sData
       if tElement["location"] is "footer" then
@@ -712,7 +708,7 @@ getProp footerHeight
          exit repeat
       end if
    end repeat
-   
+
    return tHeight
 end footerHeight
 
@@ -722,11 +718,11 @@ end hilitedTabColor
 
 setProp navigationDisplayStyle pStyle
    switch pStyle
-      case "names" 
+      case "names"
          put "names" into sNavStyle
          break
       default
-         put "icons" into sNavStyle 
+         put "icons" into sNavStyle
    end switch
 end navigationDisplayStyle
 
@@ -740,17 +736,17 @@ local sHilitedIndex
 private on __hiliteFrameItem pIndex
    if pIndex is empty then put sHilitedIndex into pIndex
    else put pIndex into sHilitedIndex
-   
+
    if sHilitedIndex is not a number then return empty
-   
+
    lock screen
    lock messages
    local tName
    put sData[pIndex]["name"] into tName
-   
+
    if sData[pIndex]["type"] is "navigation" then
       set the selectedNavItem of widget "header_background" of group "background" of me to tName
-   else if sData[pIndex]["type"] is "toggle" then 
+   else if sData[pIndex]["type"] is "toggle" then
       set the text of field sData[pIndex]["name"] to numtocodepoint("0x" & sData[pIndex]["icon_selected"])
    end if
    unlock messages
@@ -773,21 +769,21 @@ end __itemExists
 private on __listPopup pName
    lock screen
    lock messages
-   
+
    # Create the menu button
-   if there is not a button "list_popup" of group "background" of me then 
+   if there is not a button "list_popup" of group "background" of me then
       create button "list_popup" in group "background" of me
       set the style of button "list_popup" of group "background" of me to "menu"
       set the menumode of button "list_popup" of group "background" of me to "popup"
       set the visible of button "list_popup" of group "background" of me to false
       set the cTargetName of button "list_popup" of group "background" of me to pName
    end if
-   
+
    local tIndex, tData
    put __frameItemNameToIndex(pName) into tIndex
    put sData[tIndex]["label"] into tData
    set the text of button "list_popup" of group "background" of me to tData
-   
+
    unlock messages
    unlock screen
    popup button "list_popup" of group "background" of me at the loc of the target

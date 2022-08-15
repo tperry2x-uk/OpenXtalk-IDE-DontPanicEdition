@@ -33,7 +33,7 @@ on startup
          end try
         end if
 
-      revInternal__Log "Leave", "Pre-Open Stack"
+      -- revInternal__Log "Leave", "Pre-Open Stack"
    catch tError
       revInternal__Log "Error", tError
    end try
@@ -156,7 +156,7 @@ on preOpenStack
       pass preOpenStack
    end if
 
-   revInternal__Log "Enter", "Pre-Open Stack"
+   -- revInternal__Log "Enter", "Pre-Open Stack"
 
    revInternal__InitialiseDefaults -- sets up some basic IDE app behavior depending on the platform
 end preOpenStack
@@ -165,17 +165,17 @@ on openStack
    if the short name of the owner of the target is not "Home" then
       pass openStack
    end if
-   revInternal__Log "Enter", "Open Stack"
+   -- revInternal__Log "Enter", "Open Stack"
 
    //send "revInternal__openStack" to me in 0 millisecs
    revInternal__openStack -- does all of the rest of loading the IDE
 
-   revInternal__Log "Leave", "Open Stack"
+   -- revInternal__Log "Leave", "Open Stack"
 end openStack
 
 local sSplashStartTime
 on revInternal__openStack
-   revInternal__Log "Enter", "revInternal__openStack"
+   -- revInternal__Log "Enter", "revInternal__openStack"
 
    put the milliseconds into sSplashStartTime
 
@@ -365,7 +365,7 @@ on revInternal__openStack
 
       close stack "revSplash"
 
-      revInternal__Log "Leave", "revInternal__openStack"
+      -- revInternal__Log "Leave", "revInternal__openStack"
       revInternal__Log "End"
 
       -- Now the home stack has loaded, we can allow interrupts..
@@ -373,7 +373,7 @@ on revInternal__openStack
    end revInternal__openStack
 
    on revInternal__setSplashStatus pMessage
-      revInternal__Log "Message", pMessage
+      -- revInternal__Log "Message", pMessage
       set the statusMessage of stack "revSplash" to pMessage
    end revInternal__setSplashStatus
 
@@ -420,7 +420,7 @@ on revInternal__openStack
    --
 
    private command revInternal__SetupLicense
-      revInternal__Log "Enter", "License Setup"
+      -- revInternal__Log "Enter", "License Setup"
 
       -- put line 1 of the revLicenseInfo into sLicenseName
       put "OpenXTalk Community User" into sLicenseName
@@ -438,11 +438,11 @@ on revInternal__openStack
 
       put revEnvironmentPlatform() into sLicensePlatform
 
-      revInternal__Log "Leave", "License Setup"
+      -- revInternal__Log "Leave", "License Setup"
    end revInternal__SetupLicense
 
    private command revInternal__SetupPaths
-      revInternal__Log "Enter", "Path Setup"
+      -- revInternal__Log "Enter", "Path Setup"
 
       local tHomePath
       put the filename of me into tHomePath
@@ -538,18 +538,17 @@ on revInternal__openStack
          put empty into sRepositoryPath
       end if
 
-      revInternal__Log "Message", "Tools Path = " & sToolsPath
-      revInternal__Log "Message", "Old Preferences Path = " & sOldPreferencesPath
-      revInternal__Log "Message", "Preferences Path = " & sPreferencesPath
-      revInternal__Log "Message", "Cache Path = " & sCachePath
-      revInternal__Log "Message", "Crash Log Path = " & sCrashLogPath
-      revInternal__Log "Message", "Binaries Path = " & sBinariesPath
-
-      revInternal__Log "Leave", "Path Setup"
+      -- revInternal__Log "Message", "Tools Path = " & sToolsPath
+      -- revInternal__Log "Message", "Old Preferences Path = " & sOldPreferencesPath
+      -- revInternal__Log "Message", "Preferences Path = " & sPreferencesPath
+      -- revInternal__Log "Message", "Cache Path = " & sCachePath
+      -- revInternal__Log "Message", "Crash Log Path = " & sCrashLogPath
+      -- revInternal__Log "Message", "Binaries Path = " & sBinariesPath
+      -- revInternal__Log "Leave", "Path Setup"
    end revInternal__SetupPaths
 
    command revInternal__SetupCustomizationPath
-      revInternal__Log "Enter", "Customization Path Setup"
+      -- revInternal__Log "Enter", "Customization Path Setup"
       -- New OXT names - Paul McClernan 9/23/21
       # If there is a customization path set in the preferences, and it exists, then use it, otherwise
       # revert to old behavior.
@@ -574,10 +573,10 @@ on revInternal__openStack
                break
          end switch
 
-         revInternal__Log "Message", "Customization Path = " & sCustomizationPath
+         -- revInternal__Log "Message", "Customization Path = " & sCustomizationPath
       end if
 
-      revInternal__Log "Leave", "Customization Path Setup"
+      -- revInternal__Log "Leave", "Customization Path Setup"
    end revInternal__SetupCustomizationPath
 
    function revInternal__StackFiles
@@ -671,7 +670,7 @@ on revInternal__openStack
             delete stack tStackName
             put tStackName & comma & tStackFilesA[tKey]["file"] & return after tStackFiles
          catch e
-            revInternal__Log "Error", "Could not load stack:" && tStackFilesA[tKey]["file"]
+            -- revInternal__Log "Error", "Could not load stack:" && tStackFilesA[tKey]["file"]
          end try
       end repeat
       unlock messages
@@ -680,7 +679,7 @@ on revInternal__openStack
    end revInternal__StackFiles
 
    private command revInternal__SetupPreferences
-      revInternal__Log "Enter", "Preferences Setup"
+      -- revInternal__Log "Enter", "Preferences Setup"
 
       local tOldPreferencesStackFile, tOldNewPreferencesStackFile
       put sOldPreferencesPath & "/revpreferences.rev" into tOldPreferencesStackFile
@@ -751,30 +750,30 @@ on revInternal__openStack
       put return & "revPreferences", tPreferencesStackFile7 after tStackFiles
       set the stackFiles of stack "Home" to tStackFiles
 
-      revInternal__Log "Message", "Mapping Stack 'revpreferences.rev' to stackfile '" & tPreferencesStackFile7 & "'"
+      -- revInternal__Log "Message", "Mapping Stack 'revpreferences.rev' to stackfile '" & tPreferencesStackFile7 & "'"
 
-      revInternal__Log "Leave", "Preferences Setup"
+      -- revInternal__Log "Leave", "Preferences Setup"
    end revInternal__SetupPreferences
 
    private command revInternal__SetupFolders
-      revInternal__Log "Enter", "Folders Setup"
+      -- revInternal__Log "Enter", "Folders Setup"
 
       local tPath, tComponent
-      set the itemDelimiter to "/"
+      set the itemDelimiter to "/" -- why?
 
-      revInternal__Log "Message", "Setting up Preferences Path"
+      -- revInternal__Log "Message", "Setting up Preferences Path"
       revInternal__EnsureFolder sPreferencesPath
 
-      revInternal__Log "Message", "Setting up Cache Path"
+      -- revInternal__Log "Message", "Setting up Cache Path"
       revInternal__EnsureFolder sCachePath
 
-      revInternal__Log "Message", "Setting up Crash Log Path"
+      -- revInternal__Log "Message", "Setting up Crash Log Path"
       revInternal__EnsureFolder sCrashLogPath
 
-      revInternal__Log "Message", "Setting up Docs Path"
+      -- revInternal__Log "Message", "Setting up Docs Path"
       revInternal__EnsureFolder sUserDocsPath
 
-      revInternal__Log "Leave", "Folders Setup"
+      -- revInternal__Log "Leave", "Folders Setup"
    end revInternal__SetupFolders
 
    private command revInternal__SetupSplash
@@ -997,7 +996,7 @@ on revInternal__openStack
 
    command revInternal__SavePreferences
       cancel sSavePreferencesMessage
-      send "__revInternal_SavePreferences" to me in 1 second
+      send "__revInternal_SavePreferences" to me in 20 second
       put the result into sSavePreferencesMessage
    end revInternal__SavePreferences
 
@@ -1012,7 +1011,7 @@ on revInternal__openStack
    end __revInternal_SavePreferences
 
    private command revInternal__EnsureFolder pFolder
-      revInternal__Log "Enter", "Ensuring Folder '" & pFolder & "'"
+      -- revInternal__Log "Enter", "Ensuring Folder '" & pFolder & "'"
 
       local tPath
       local tComponent
@@ -1031,7 +1030,7 @@ on revInternal__openStack
          end if
       end repeat
 
-      revInternal__Log "Leave", "Ensuring Folder '" & pFolder & "'"
+      -- revInternal__Log "Leave", "Ensuring Folder '" & pFolder & "'"
    end revInternal__EnsureFolder
 
    function revInternal__CheckFileAssociations
@@ -1182,7 +1181,7 @@ on revInternal__openStack
                put "~/.OpenXtalk/logs/" & toLower(kProductName) & "_tools_log.txt" into tLogPath
                break
             case "MacOS X"
-               put specialFolderPath("cusr") & "/Library/Logs/OpenXtalk/" & kProductName & "ToolsLog.txt"  into tLogPath
+               put specialFolderPath("cusr") & "/Library/Logs/OpenXtalk/" & kProductName & "ToolLog.txt"  into tLogPath
                break
             case "Windows"
                -- Make sure we put logs in the 'Local' AppData section.
@@ -1226,7 +1225,7 @@ on revInternal__openStack
    command revInternal__InitialiseSystem
       local tSuccess
 
-      revInternal__Log "Enter", "System Initialisation"
+      -- revInternal__Log "Enter", "System Initialisation"
 
       put true into tSuccess
 
@@ -1251,13 +1250,13 @@ on revInternal__openStack
          do "set the revCrashReportSettings to tCrashSettings"
       end if
 
-      revInternal__Log "Leave", "System Initialisation"
+      -- revInternal__Log "Leave", "System Initialisation"
 
       return tSuccess
    end revInternal__InitialiseSystem
 
    command revInternal__InitialiseGlobals
-      revInternal__Log "Enter", "Globals Initialisation"
+      -- revInternal__Log "Enter", "Globals Initialisation"
 
       global gREVDevelopment
       if gREVDevelopment is empty then
@@ -1274,7 +1273,7 @@ on revInternal__openStack
       revInternal__SetAppIcon 210096
       revInternal__SetSmallAppIcon 210096
 
-      revInternal__Log "Leave", "Globals Initialisation"
+      -- revInternal__Log "Leave", "Globals Initialisation"
 
       return true
    end revInternal__InitialiseGlobals
@@ -2406,7 +2405,7 @@ on revInternal__openStack
 
 on updateMenuToolBar
    if the cREVLaunching of me is true then exit updateMenuToolBar -- cREVLaunching is true while starting up
-   send "layoutMenu" to stack "revMenuBar" in 1 millisecs
+   send "layoutMenu" to stack "revMenuBar" in 300 millisecs
 end updateMenuToolBar
 
 on IDEToLightMode

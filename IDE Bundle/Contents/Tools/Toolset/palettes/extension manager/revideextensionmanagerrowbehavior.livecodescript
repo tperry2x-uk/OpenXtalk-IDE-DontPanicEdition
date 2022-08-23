@@ -317,7 +317,7 @@ end menuPick
 
 on mouseDoubleUp
    if not the cIDE of me then
-      dispatch "browserGoToExtensionPage" to card 2 of this stack with the cTypeID of me
+      dispatch "browserGoToExtensionPage" to card "web" of this stack with the cTypeID of me
    end if
 end mouseDoubleUp
 

@@ -4141,7 +4141,7 @@ Returns the URL to a web page
 
 pKey (enum): The key for the page you wish the retrieve.
 
-returns (string): an http url to a web page
+returns (string): an http url to a wb page
 
 Example:
 local tExtensionSearchPage
@@ -4150,11 +4150,9 @@ put revIDEWebPageURL("extensionsSearch") into tExtensionSearchPage
 function revIDEWebPageURL pKey
    switch pKey
       case "extensions"
-         -- "http://www.livecode.com/products/extensions/"
-         return "https://openxtalk-org.github.io/OpenXTalk-Playground/widgets/"
+         return "http://www.livecode.com/products/extensions/"
          break
    end switch
-
 end revIDEWebPageURL
 
 function revIDEFrameBehavior

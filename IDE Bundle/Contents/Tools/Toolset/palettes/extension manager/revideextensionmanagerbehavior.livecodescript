@@ -71,17 +71,42 @@ on installExtension pExtensionURL, pTypeID, pType
    if pExtensionURL begins with "http" then
       // get from extensions store
       unlock screen
-      put cr& "insalling Remote Extension URL="& pExtensionURL & ", TypeID="& pTypeID & ", Type=" & pType after msg -- for checking
+      put cr& "insall Remote Extension URL="& pExtensionURL & ", TypeID="& pTypeID & ", Type=" & pType after msg -- for checking
       lock screen
       revIDEExtensionDownloadAndInstall pExtensionURL, pType
    else if pExtensionURL begins with "data:" then -- data:text/plain;base64,SGVsbG8gV29ybGQh
       -- do Base64 Encoded File Conversion"
+      put "Received Data URI:"&cr & pExtensionURL
    else
       // get from local .lce file
       revIDEExtensionInstall pExtensionURL, pType
    end if
    unlock screen
 end installExtension
+
+on installExtensionB64Decode pExtensionB64Encoded -- , pExtensionType
+   --lock screen
+   -- showList pType
+   --   if pExtensionURL begins with "http" and pExtensionURL ends with ".b64" then
+   --      // get from extensions store
+   --      unlock screen
+   --      put cr& "insalling Remote Extension Base64 URL="& pExtensionURL & ", Type="& pExtensionType & cr after msg -- for checking
+   --      lock screen
+   --      -- revIDEExtensionDownloadAndInstall pExtensionURL, pType
+   --   else if pExtensionURL begins with "data:" then -- data:text/plain;base64,SGVsbG8gV29ybGQh
+   --      -- do Base64 Encoded File Conversion"
+   --   else
+   put "data" & cr & pExtensionB64Encoded  -- & cr & pExtensionType
+   ask file "Save Binary as..." with "File.zip"
+   if it is not empty then
+      put it into tFile
+      open file tFile for binary write
+      write base64Decode(pExtensionB64Encoded) to file tFile
+      close file tFile
+   end if
+   --end if
+   --unlock screen
+end installExtensionB64Decode
 
 
 --on actionSelected pItemName

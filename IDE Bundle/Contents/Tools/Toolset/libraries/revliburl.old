@@ -2117,7 +2117,7 @@ function ulBuildHttpRequest pUrl
       end if
       ## fill in User-Agent
       if "rev" is in the short name of me then
-         put "OpenXTalk" into tAgent
+         put "LiveCode" into tAgent
       else
          put "OpenXTalk" into tAgent
       end if

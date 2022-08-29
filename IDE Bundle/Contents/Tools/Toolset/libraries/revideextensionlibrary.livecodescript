@@ -1229,7 +1229,8 @@ end __UseTypeToKey
 private function __extensionHasID pType
    switch pType
       case "snippet"
-         return false
+         return true
+         -- return false
       default
          return true
    end switch
@@ -1239,7 +1240,8 @@ private function __extensionNeedsLoad pType
    switch pType
       case "snippet"
       case "sample"
-         return false
+         return true
+         -- return false
       default
          return true
    end switch

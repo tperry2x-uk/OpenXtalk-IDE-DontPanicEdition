@@ -1,4 +1,4 @@
-script "com.livecode.scripteditor.behavior.editorcommon"
+﻿script "com.livecode.scripteditor.behavior.editorcommon"
 local sObjectId
 
 # The following variables store information used for the undo / redo system.
@@ -1406,43 +1406,42 @@ on selectionUpdate
 end selectionUpdate
 
 on mouseMove
-   -- if revEnvironmentEditionProperty("autocomplete") then
+   if revEnvironmentEditionProperty("autocomplete") then
       ideAutocompleteCancelFind the long id of me
-   -- end if
+   end if
    pass mouseMove
 end mouseMove
 
 on closeField
-   -- if revEnvironmentEditionProperty("autocomplete") then
+   if revEnvironmentEditionProperty("autocomplete") then
       ideAutocompleteCancelFind the long id of me
-   -- end if
+   end if
    pass closeField
 end closeField
 
 on exitField
-   -- if revEnvironmentEditionProperty("autocomplete") then
+   if revEnvironmentEditionProperty("autocomplete") then
       ideAutocompleteCancelFind the long id of me
-   -- end if
+   end if
    pass exitField
 end exitField
 
 on escapeKey
-   -- if revEnvironmentEditionProperty("autocomplete") then
+   if revEnvironmentEditionProperty("autocomplete") then
       ideAutocompleteCancelFind the long id of me
-   -- end if
+   end if
    pass escapeKey
 end escapeKey
 
 on help
-   -- if revEnvironmentEditionProperty("autocomplete") then
+   if revEnvironmentEditionProperty("autocomplete") then
       ideAutocompleteHandleHelp the long id of me, sObjectId
-   --   if the result then
+      if the result then
          pass help
-   -- end if
-
-   --else
-   --   pass help
-   -- end if
+      end if
+   else
+      pass help
+   end if
 end help
 
 -- This calculates the position of the caret based on pPosition where the caret is (hypothetically).

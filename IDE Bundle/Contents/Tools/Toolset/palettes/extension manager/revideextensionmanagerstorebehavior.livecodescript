@@ -6,17 +6,17 @@ on preOpenCard
    set the repeatcount of image "loading" of me to -1
 end preOpenCard
 
-constant kLoadTimeout = 10
+constant kLoadTimeout = 5 --
 on openCard
    --   hiliteFrameItem "repo"
    --   if the url of widget "browser" of me is empty then
+   -- set the userAgent of widget "browser" of card "web" of me to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36" -- Impersonate Browser
    --      set the userAgent of widget "browser" of card "web" of me to "OpenXTalk IDE" -- was "LiveCode"
    --            browserGoToExtensionStore
    --   else
    nudgeBrowser
    --   end if
 end openCard
-
 on nudgeBrowser
    -- Hack to get round bug 18946
    send "browserNavigateComplete" to me in kLoadTimeout seconds
@@ -58,59 +58,129 @@ on browserSetURL pURL
    unlock screen
 end browserSetURL
 
-on browserGoToExtensionPage pExtensionTypeID
+on browserGoToExtensionPage pExtensionID
    hiliteFrameItem "repo"
+   browserHide
    lock screen
-   browserSetURL "https://openxtalk-org.github.io/OpenXTalk-Playground/Widgets/index.html"
-   -- browserSetURL revIDEWebPageURL("extensions") & pExtensionTypeID & slash
-   go card "web" of this stack
+   go to card "web" of this stack
+   -- set the userAgent of widget "browser" of card "web" of this stack to "OpenXTalk IDE" -- "LiveCode"
+   --set the URL of widget "Browser" of card "web" of this stack to "https://openxtalk-org.github.io/OpenXTalk-Playground/Widgets/index.html" --  "https://openxtalk-org.github.io/OpenXTalk-Playground/"
+   if the URL of widget "Browser" of card "web" of this stack <> "https://openxtalk-org.github.io/OpenXTalk-Playground/" then
+      set the URL of widget "Browser" of card "web" of this stack to "https://openxtalk-org.github.io/OpenXTalk-Playground/" --  "https://openxtalk-org.github.io/OpenXTalk-Playground/"
+      send ("doXTscriptInWidget "& quote &"go last"&quote) to this stack in 6 seconds
+   else
+      doXTscriptInWidget "go last"
+   end if
+   nudgeBrowser
    unlock screen
+   -- browserSetURL "https://openxtalk-org.github.io/OpenXTalk-Playground/Widgets/index.html"
+   -- browserSetURL revIDEWebPageURL("extensions") & pExtensionTypeID & slashs
+   browserShow
 end browserGoToExtensionPage
 
 on browserGoToExtensionStore
    hiliteFrameItem "repo"
-   -- if the url of widget "browser" of me is empty then
-   --      set the userAgent of widget "browser" of card "web" of me to "OpenXTalk IDE" -- was "LiveCode"
-   --            browserGoToExtensionStore
-   --   else
+   browserHide
    lock screen
-   browserSetURL "https://openxtalk-org.github.io/OpenXTalk-Playground/Widgets/index.html"
+   go to card "web" of this stack
+   -- set the userAgent of widget "browser" of card "web" of this stack to "OpenXTalk IDE" -- "LiveCode"
+   --set the URL of widget "Browser" of card "web" of this stack to "https://openxtalk-org.github.io/OpenXTalk-Playground/Widgets/index.html" --  "https://openxtalk-org.github.io/OpenXTalk-Playground/"
+   if the URL of widget "Browser" of card "web" of this stack <> "https://openxtalk-org.github.io/OpenXTalk-Playground/" then
+      set the URL of widget "Browser" of card "web" of this stack to "https://openxtalk-org.github.io/OpenXTalk-Playground/" --  "https://openxtalk-org.github.io/OpenXTalk-Playground/"
+      send ("doXTscriptInWidget "& quote &"go last"&quote) to this stack  -- in 6 seconds
+   else
+      doXTscriptInWidget "go last"
+   end if
+   -- browserSetURL "https://openxtalk-org.github.io/OpenXTalk-Playground/Widgets/index.html"
+   -- browserSetURL revIDEWebPageURL("extensions") & pExtensionTypeID & slashs
+   
+   -- if the url of widget "browser" of me is empty then
+   -- impersonate Browser:
+   -- set the userAgent of widget "browser" of card "web" of me to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36" -- was "LiveCode"
    -- browserSetURL revIDEWebPageURL("extensions")
-   go card "web" of this stack
+   
+   nudgeBrowser
    unlock screen
+   browserShow
 end browserGoToExtensionStore
 
 on browserDocumentLoadBegin pUrl,pError
-   put "browserDocumentLoadBegin " & pUrl, pError & cr after msg
+   broswerHide
+   --   if pURL ends with ".b64" then 
+   --      put "Base64 Data"
+   --      --   else
+   --      --      put "browserDocumentLoadBegin " & pUrl, pError & cr after msg
+   --   end if
 end browserDocumentLoadBegin
 
 on browserDocumentLoadComplete pURL
-   put "browserDocumentLoadComplete "& pURL & cr after msg
+   -- put "browserDocumentLoadComplete "& pURL & cr after msg
+   -- put "browserNavigateComplete "& pURL & cr after msg
+   set the javaScriptHandlers of widget "browser" of me to "installExtension" & cr & "installExtensionB64Decode" &cr& "doXTscript"
+   
+   get the goSection of this stack
+   if it is not empty then
+      put the goSection of this stack into tGoSection
+      -- put tGoSection
+      if tGoSection is "Repo" then
+         send "showExtensionStore" to this stack -- in 50 millisecs
+         doXTscriptInWidget "go last"
+      else if tGoSection is "Playground" then
+         send "showExtensionStore" to this stack -- in 50 millisecs
+         doXTscriptInWidget "go first"
+      end if
+   end if
    browserShow
-   set the javaScriptHandlers of widget "browser" of me to "installExtension"
 end browserDocumentLoadComplete
 
-on browserDocumentLoadFailed pURL
-   put "browserDocumentLoadFailed " & pURL & cr after msg
+on browserDocumentLoadFailed pURL,pError
+   if pURL ends with ".lce" then
+      -- TO DO: FINISH EXTENSION INSTALL PROCESS -------------------------- <-----  NOTE!
+      put base64Decode(URL pURL) into pFileData
+      open file "~/test.zip" for binary write
+      write pFileData to file "~/test.zip"
+      close file  "~/test.zip"
+   else
+      put "browserDocumentLoadFailed " & pUrl, pError & cr after msg
+   end if
    -- browserGoToExtensionStore
 end browserDocumentLoadFailed
 
-on browserNavigateBegin pUrl
-   put "browserNavigateBegin "& pURL & cr after msg
+on browserNavigateBegin pURL
+   browserHide
+   if pURL begins with "data:application/octet-stream;base64," then
+      delete char 1 to 37 of pURL
+      put base64Decode(pURL) into pFileData
+      open file "~/test.zip" for binary write
+      write pFileData to file "~/test.zip"
+      close file  "~/test.zip"
+      exit to top
+   else
+      put "browserNavigateBegin "& pURL & cr after msg
+   end if
 end browserNavigateBegin
 
 on browserNavigateComplete pUrl
-   put "browserNavigateComplete "& pURL & cr after msg
-   set the javaScriptHandlers of widget "browser" of me to "installExtension"
-   browserShow
+   -- put "browserNavigateComplete "& pURL & cr after msg
+   set the javaScriptHandlers of widget "browser" of me to "installExtension" & cr & "installExtensionB64Decode" &cr& "doXTscript"
+   get the goSection of this stack
+   if it is not empty then
+      put the goSection of this stack into tGoSection
+      -- put tGoSection
+      if tGoSection is "Repo" then
+         send "showExtensionStore" to this stack -- in 50 millisecs
+      else if tGoSection is "Playground" then
+         send "showWebPlaygound" to this stack -- in 50 millisecs
+      end if
+   end if
 end browserNavigateComplete
 
 on browserNavigateFailed pUrl, pError
    put "browserNavigateFailed " & pUrl, pError & cr after msg
 end browserNavigateFailed
 
-on browserUnhandledLoadRequest pUrl, pError
-   put "browserUnhandledLoadRequest " & pUrl, pError & cr after msg
+on browserUnhandledLoadRequest pURL, pError
+   put "browserUnhandledLoadRequest " & pURL & cr after msg
 end browserUnhandledLoadRequest
 
 on browserProgressChanged pUrl, pProgress

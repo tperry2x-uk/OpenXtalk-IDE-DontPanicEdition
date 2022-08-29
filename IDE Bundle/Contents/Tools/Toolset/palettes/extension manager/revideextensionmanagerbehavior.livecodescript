@@ -38,20 +38,43 @@ end refreshList
 
 on showExtensionStore
    hiliteFrameItem "repo"
+   -- browserHide
    lock screen
-   set the userAgent of widget "browser" of card "web" of this stack to "OpenXTalk IDE" -- "LiveCode"
-   set the URL of widget "Browser" of card "web" of this stack to "https://openxtalk-org.github.io/OpenXTalk-Playground/Widgets/index.html" --  "https://openxtalk-org.github.io/OpenXTalk-Playground/"
-   go to card "web" of this stack
+   set the goSection of this stack to "Repo"
+   -- go to card "web" of this stack
+   -- set the userAgent of widget "browser" of card "web" of this stack to "OpenXTalk IDE" -- "LiveCode"
+   --set the URL of widget "Browser" of card "web" of this stack to "https://openxtalk-org.github.io/OpenXTalk-Playground/Widgets/index.html" --  "https://openxtalk-org.github.io/OpenXTalk-Playground/"
+   if the URL of widget "Browser" of card "web" of this stack <> "https://openxtalk-org.github.io/OpenXTalk-Playground/" then
+      set the URL of widget "Browser" of card "web" of this stack to "https://openxtalk-org.github.io/OpenXTalk-Playground/" --  "https://openxtalk-org.github.io/OpenXTalk-Playground/"
+      send ("doXTscriptInWidget "& quote &"go last"&quote) to me --  in 2 seconds
+      send ("doXTscriptInWidget "& quote &"go last"&quote) to me in 7 seconds
+   else
+      doXTscriptInWidget "go last"
+   end if
+   doXTscriptInWidget "go last"
    unlock screen
+   -- browserShow
+   go card "web" of this stack
 end showExtensionStore
 
 on showWebPlaygound
    hiliteFrameItem "playground"
+   -- browserHide
    lock screen
-   set the userAgent of widget "browser" of card "web" of this stack to "OpenXTalk IDE"
-   go to card "web" of this stack
-   set the URL of widget "Browser" of card "web" of this stack to "https://openxtalk-org.github.io/OpenXTalk-Playground/"
+   set the goSection of this stack to "Playground"
+   -- 
+   -- set the userAgent of widget "browser" of card "web" of this stack to "OpenXTalk IDE"
+   if the URL of widget "Browser" of card "web" of this stack <> "https://openxtalk-org.github.io/OpenXTalk-Playground/" then
+      set the URL of widget "Browser" of card "web" of this stack to "https://openxtalk-org.github.io/OpenXTalk-Playground/" --  "https://openxtalk-org.github.io/OpenXTalk-Playground/"
+      send ("doXTscriptInWidget "& quote &"go first"&quote) to me  -- in 1 seconds
+      send ("doXTscriptInWidget "& quote &"go first"&quote) to me in 7 seconds
+   else
+      doXTscriptInWidget "go first"
+   end if
+   doXTscriptInWidget "go first"
    unlock screen
+   go card "web" of this stack
+   -- browserShow
 end showWebPlaygound
 
 on preferenceChanged pPreference, pValue
@@ -60,29 +83,83 @@ end preferenceChanged
 
 on installNew
    answer file "Choose an extension to install:" with type "Extension Builder|lce"
-   if it is not empty then
+   if it is not empty and it ends with ".lce" then 
+      -- put it into pFileName
       installExtension it, "", "widget"
    end if
 end installNew
 
-on installExtension pExtensionURL, pTypeID, pType
+on installExtension pExtensionPathOrURL, pTypeID, pType
    lock screen
    showList pType
    if pExtensionURL begins with "http" then
       // get from extensions store
       unlock screen
-      put cr& "insalling Remote Extension URL="& pExtensionURL & ", TypeID="& pTypeID & ", Type=" & pType after msg -- for checking
+      put cr& "insall Remote Extension URL="& pExtensionURL & ", TypeID="& pTypeID & ", Type=" & pType after msg -- for checking
       lock screen
-      revIDEExtensionDownloadAndInstall pExtensionURL, pType
+      revIDEExtensionDownloadAndInstall pExtensionPathOrURL, pType
    else if pExtensionURL begins with "data:" then -- data:text/plain;base64,SGVsbG8gV29ybGQh
       -- do Base64 Encoded File Conversion"
+      put "Received Data URI:"&cr & pExtensionURL
    else
       // get from local .lce file
-      revIDEExtensionInstall pExtensionURL, pType
+      revIDEExtensionInstall pExtensionPathOrURL, pType
    end if
    unlock screen
 end installExtension
 
+--function resManagerDownloadDir
+--   return revIDECustomizationFolder
+--end resManagerDownloadDir
+
+on installExtensionB64Decode pExtensionB64Encoded, pResID, pExtensionType
+   --lock screen
+   -- showList pType
+   --   if pExtensionURL begins with "http" and pExtensionURL ends with ".b64" then
+   --      // get from extensions store
+   --      unlock screen
+   --      put cr& "insalling Remote Extension Base64 URL="& pExtensionURL & ", Type="& pExtensionType & cr after msg -- for checking
+   --      lock screen
+   --      -- revIDEExtensionDownloadAndInstall pExtensionURL, pType
+   --   else if pExtensionURL begins with "data:" then -- data:text/plain;base64,SGVsbG8gV29ybGQh
+   --      -- do Base64 Encoded File Conversion"
+   --   else
+   -- put "data" & cr & pExtensionB64Encoded  -- & cr & pExtensionType
+   if pResID is empty then
+      ask file "Save Binary as..." with "File.lce"
+      if it is not empty then 
+         put it into tFile
+      end if
+   else
+      put revIDESpecialFolderPath("downloading extensions")  &"/"& pResID &".lce" into tFile
+   end if
+   if tFile is not empty then
+      open file tFile for binary write
+      write base64Decode(pExtensionB64Encoded) to file tFile
+      close file tFile
+      installExtension tFile, pResID, "widget" -- pType
+   end if
+   --end if
+   --unlock screen
+end installExtensionB64Decode
+
+on doXTscript pXTScript
+   -- put pXTScript
+   do pXTscript
+   if the result contains "error" then 
+      throw the result
+   end if
+end doXTscript
+
+on doXTscriptInWidget pXTScript
+   put "var thisStack = document.liveCode.findStackWithName('OpenXTalk Playgrround Web Stack');" & cr &\
+         "thisStack.doXTscript('" & pXTScript & "');" & cr into tJS
+   -- put tJS -- for checking the javascripts formation
+   do tJS in widget "Browser" of card "Web" of this stack
+   if the result contains "error" then 
+      throw the result
+   end if
+end doXTscriptInWidget
 
 --on actionSelected pItemName
 --   put "actionSelected " & pItemName
@@ -99,15 +176,16 @@ end installExtension
 on navSelected pItemName
    -- put "navSelected " & pItemName & cr
    if pItemName is "Repo" then
-      put pItemName
-      send "showExtensionStore" to this stack in 50 millisecs
+      -- put pItemName
+      set the goSection of this stack to "Repo"
+      send "showExtensionStore" to this stack -- in 50 millisecs
       exit navSelected
    end if
    if pItemName is "Playground" then
-      put pItemName
-      send "showWebPlaygound" to this stack in 50 millisecs
+      set the goSection of this stack to "Playground"
+      -- put pItemName
+      send "showWebPlaygound" to this stack -- in 50 millisecs
       exit navSelected
    end if
    pass navSelected
 end navSelected
-

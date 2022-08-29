@@ -36,7 +36,7 @@ on subscribeMessages
    revIDESubscribe "ideToggleChanged:selectGrouped"
 
    revIDESubscribe "idePluginsChanged"
-   --- revIDESubscribe "ideWindowsChanged"
+   revIDESubscribe "ideWindowsChanged"
 
    revIDESubscribe "ideTutorialProgressChanged"
    revIDESubscribe "ideActiveStacksChanged"
@@ -225,8 +225,8 @@ on moveStack
       set the topLeft of this stack to item 1 to 2 of tScreenRect
    end if
    revIDESetPaletteRectPreference the short name of me
-   ideSetWindowBoundingRect
 
+   ideSetWindowBoundingRect
    pass moveStack
 end moveStack
 
@@ -286,6 +286,7 @@ end ideTutorialProgressChanged
 
 on idePreferenceChanged pPreference
    switch pPreference
+      case "cToolBarFontSize"
       case "cToolbarText"
       case "cToolbarIcons"
          lock screen
@@ -338,11 +339,12 @@ on generateMenubarUI
 
    lock messages
    # Setup the default button
-   put the cMenuToolBarFontSize of stack "revPreferences" into tTextSize
+   put the cToolBarFontSize of stack "revPreferences" into tTextSize
    if it is empty then
-      set the cMenuToolBarFontSize of stack "revPreferences" to 12
-      put 12 into tTextSize
+      set the cToolBarFontSize of stack "revPreferences" to 10
+      put 10 into tTextSize
    end if
+
    set the textSize of the templatebutton to tTextSize
    set the showname of the templatebutton to true
    set the style of the templatebutton to "transparent"
@@ -697,7 +699,7 @@ on updateMenubarPreference
    local tShowIcons, tShowText
    put revIDEGetPreference("cToolbarIcons") is not false into tShowIcons
    put revIDEGetPreference("cToolbarText") is not false into tShowText
-
+   set the textSize of this stack to revIDEGetPreference("cToolBarFontSize")
    local tTopLeft
    put the topleft of me into tTopLeft
 
@@ -1104,7 +1106,7 @@ end rectOfMacMenuItem
 function absoluteRectOfObject pObject
    local tRect
    if there is a button pObject of group "revMenuBar" of me then
-      if the platform is "macos" then
+       if the platform is "macos" then
          return rectOfMacMenuItem(pObject)
       end if
       put the rect of button pObject into tRect
@@ -1178,11 +1180,6 @@ on revMenubarMenuButtonClicked pWhich
          revIDEOpenPalette "Resource Center"
          break
       case "Dictionary"
-         global $LIVECODE_USE_CEF
-         if $LIVECODE_USE_CEF  is not 1 then
-            if the platform is "Linux" and the processor is "x86_64" then put 1 into $LIVECODE_USE_CEF
-         end if
-
          revIDEDocumentationLoad "API", "Script"
          break
       case "Test"
@@ -1438,7 +1435,7 @@ private function revMenubarFileMenu pContext
    put "-" & return after tFile
 
    put enableMenuItem("&Save/S", tCanSaveStack) & return after tFile
-   put enableMenuItem("Save &As...", tCanSaveStack) & return after tFile
+   put enableMenuItem("Save &As.../cmd option s", tCanSaveStack) & return after tFile
    put enableMenuItem("Move S&ubstack to File...", tIsUserTarget and the short name of the topStack is not the mainStack of the topStack) & return after tFile
    put enableMenuItem("&Revert to Saved...", tIsUserTarget and the effective filename of the topStack is not empty) & return after tFile
    put "-" & return after tFile
@@ -1526,7 +1523,7 @@ private function revMenubarEditMenu pContext
    put enableMenuItem("&Duplicate" && tObjectsLabel &"/D", tObjectsLabel is not empty) & return after tEdit
    put "-" & return after tEdit
    put "Select All/A" & return after tEdit
-   put "Deselect All" & return after tEdit
+   put "Deselect All/cmd shift A" & return after tEdit
    put enableMenuItem("In&vert Selection", tObjectsLabel is "Objects") & return after tEdit
    put toggleMenuItem("Select Grouped Controls", the selectGroupedControls) & return after tEdit
    put toggleMenuItem("Intersected Selections", the selectionMode is "intersect") & return after tEdit
@@ -1671,8 +1668,8 @@ private function revMenubarObjectMenu pContext
    put enableMenuItem("&Stack Inspector/K", tIsUserTarget) & return after tObject
    put "-" & return after tObject
    put enableMenuItem("Object Script/E", tIsObjectTarget) & return after tObject
-   put enableMenuItem("Card Script", tIsUserTarget) & return after tObject
-   put enableMenuItem("Stack Script", tIsUserTarget) & return after tObject
+   put enableMenuItem("Card Script/cmd shift c", tIsUserTarget) & return after tObject
+   put enableMenuItem("Stack Script/cmd shift s", tIsUserTarget) & return after tObject
    put "-" & return after tObject
 
    ### Lines 9 to 11: Group, Edit Group, Remove Group
@@ -1962,6 +1959,8 @@ private function revMenubarViewMenu pContext
    put toggleMenuItem("Palettes", gREVPalettes is empty) & return after tView
    put "-" & return after tView
    put toggleMenuItem("Rulers", the mode of stack "revRulersH" is not 0) & return after tView
+   put toggleMenuItem("Layout Guides",true) & return after tView
+   -- put toggleMenuItem("Layout Guides",the cLayoutGuides of stack "revPreferences.rev") & return after tView
    put toggleMenuItem("Grid", the grid) & return after tView
    put toggleMenuItem("Backdrop", the backdrop is not "none") & return after tView
    put toggleMenuItem("Show IDE Stacks In Lists", gREVShowStacks) & return after tView
@@ -3143,6 +3142,7 @@ on revMenubarViewMenuPick pWhich
       case "Show IDE Stacks In Lists"
       case "Show Invisible Objects"
       case "Rulers"
+      case "Layout Guides"
       case "Backdrop"
       case "Grid"
          revIDEToggle pWhich
@@ -3189,10 +3189,6 @@ on revMenubarHelpMenuPick pWhich
    put item 1 of pWhich into tPick
    switch tPick
       case "Dictionary"
-         global $LIVECODE_USE_CEF
-         if $LIVECODE_USE_CEF  is not 1 then
-            if the platform is "Linux" and the processor is "x86_64" then put 1 into $LIVECODE_USE_CEF
-         end if
          revIDEDocumentationLoad "API", "Script"
          break
       case "Start Center"

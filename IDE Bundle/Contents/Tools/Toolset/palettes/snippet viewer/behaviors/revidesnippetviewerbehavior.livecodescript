@@ -7,11 +7,11 @@ command revIDESnippetViewerColor
     dispatch "revSEColorizeField" to stack "revSEUtilities" \
           with the long id of field "Snippet" of me
 end revIDESnippetViewerColor
- 
+
 private function _GetSnippetText
     return the text of field "Snippet" of me
 end _GetSnippetText
- 
+
 command revIDESnippetViewerSetSnippet pText
     put pText into field "Snippet" of me
     revIDESnippetViewerColor
@@ -25,27 +25,27 @@ command revIDESnippetViewerResize
     put the long id of button "Copy to Script Editor" of me \
           into tCopyToSE
     put the long id of field "Snippet" of me into tSnippet
-    
+
     local tCardRect
     put the rect of card 1 of me into tCardRect
-    
+
     local tFieldWidth
     put item 3 of tCardRect - item 1 of tCardRect - 2*kMargin into tFieldWidth
-    
+
     local tButtonWidth
     put (tFieldWidth - kMargin) / 2 into tButtonWidth
-    
+
     set the width of tCopyToClipboard to tButtonWidth
     set the width of tCopyToSE to tButtonWidth
-    
+
     set the bottomleft of tCopyToClipboard to \
           item 1 of tCardRect + kMargin, \
           item 4 of tCardRect - kMargin
-    
+
     set the bottomright of tCopyToSE to \
           item 3 of tCardRect - kMargin, \
           item 4 of tCardRect - kMargin
-    
+
     set the rect of tSnippet to \
           item 1 of tCardRect + kMargin, \
           item 2 of tCardRect + kMargin, \
@@ -55,16 +55,30 @@ command revIDESnippetViewerResize
 end revIDESnippetViewerResize
 
 command revIDESnippetViewerCopyToClipboard
-    lock clipboard
-    set the rawClipboardData["text"] to _GetSnippetText()
-    unlock clipboard
+   -- rawClipboardData provides low-level access to the contents of the clipboard, clipboard must be locked to access
+   lock the clipboard
+   switch the platform
+   case "Linux"
+      set the rawClipboardData["text/plain;charset=utf-8"] to _GetSnippetText() -- textEncode("Hello, World!", "UTF-8" ) -- Linux
+         break
+   case "Win32"
+      set the rawClipboardData["CF_UNICODETEXT"] to _GetSnippetText() -- textEncode("Hello, World!", "UTF-16" ) -- Windows
+         break
+   case "MacOS"
+      set the rawClipboardData["public.utf8-plain-text"] to _GetSnippetText() --  textEncode("Hello, World!", "UTF-8" ) -- OSX
+         break
+   default
+      set the rawClipboardData["text"]
+      break
+   end switch
+   unlock clipboard
 end revIDESnippetViewerCopyToClipboard
 
 command revIDESnippetViewerCopyToScriptEditor pEditor
     local tNewScript
     dispatch function "revSEGetScript" to stack pEditor
     put the result into tNewScript
-    
+
     if tNewScript is not empty then
         if the last line of tNewScript is not empty then
             put return after tNewScript

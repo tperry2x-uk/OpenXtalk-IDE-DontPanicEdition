@@ -35,10 +35,10 @@ on resizeStack
    set the loc of field "status" of me to the loc of me
    set the loc of image "loading" of me to the loc of me
    set the bottom of image "loading" of me to the top of field "status" of me - tPadding
-   
+
    set the rect of graphic "browser_background" of me to tContentRect
    set the rect of widget "browser" of me to tContentRect
-   
+
    unlock screen
    pass resizeStack
 end resizeStack
@@ -93,12 +93,12 @@ on browserGoToExtensionStore
    end if
    -- browserSetURL "https://openxtalk-org.github.io/OpenXTalk-Playground/Widgets/index.html"
    -- browserSetURL revIDEWebPageURL("extensions") & pExtensionTypeID & slashs
-   
+
    -- if the url of widget "browser" of me is empty then
    -- impersonate Browser:
    -- set the userAgent of widget "browser" of card "web" of me to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36" -- was "LiveCode"
    -- browserSetURL revIDEWebPageURL("extensions")
-   
+
    nudgeBrowser
    unlock screen
    browserShow
@@ -106,7 +106,7 @@ end browserGoToExtensionStore
 
 on browserDocumentLoadBegin pUrl,pError
    broswerHide
-   --   if pURL ends with ".b64" then 
+   --   if pURL ends with ".b64" then
    --      put "Base64 Data"
    --      --   else
    --      --      put "browserDocumentLoadBegin " & pUrl, pError & cr after msg
@@ -117,7 +117,7 @@ on browserDocumentLoadComplete pURL
    -- put "browserDocumentLoadComplete "& pURL & cr after msg
    -- put "browserNavigateComplete "& pURL & cr after msg
    set the javaScriptHandlers of widget "browser" of me to "installExtension" & cr & "installExtensionB64Decode" &cr& "doXTscript"
-   
+
    get the goSection of this stack
    if it is not empty then
       put the goSection of this stack into tGoSection
@@ -131,6 +131,7 @@ on browserDocumentLoadComplete pURL
       end if
    end if
    browserShow
+   set the javaScriptHandlers of widget "browser" of me to "installExtension" & cr & "installExtensionB64Decode"
 end browserDocumentLoadComplete
 
 on browserDocumentLoadFailed pURL,pError

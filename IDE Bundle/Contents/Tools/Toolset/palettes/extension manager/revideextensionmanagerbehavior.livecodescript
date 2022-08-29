@@ -2,13 +2,13 @@
 on preOpenStack
    lock screen
    dispatch "setAsBehavior" to revIDEFrameBehavior() with the long id of this me
-   
+
    set the behavior of card "web" of me to the long id of stack "revIDEExtensionManagerStoreBehavior"
    set the behavior of card "list" of me to the long id of stack "revIDEExtensionManagerListBehavior"
    set the zoomBox of this stack to false
-   
+
    clearFrameData
-   
+
    # Navigation
    -- addFrameItem pName, pLocation, pItemType, pLabel, pIcon, pIconSelected, pCallbackMessage, pCallbackTarget, pParameter
    addFrameItem "widget","header", "navigation", "Widgets", "", "","showList", the long id of me,"widget"
@@ -18,7 +18,7 @@ on preOpenStack
    addFrameItem "repo","header", "navigation", "Repo", "", "","showExtensionStore", the long id of card "web" of me,"repo"
    addFrameItem "playground","header", "navigation", "Playground", "", "","showWebPlaygound", the long id of card "web" of me,"playground"
    addFrameItem "install", "header", "action", "Install extension", "plus", "","installNew", the long id of me
-   
+
    set the hilitedTabColor of me to "255,255,255"
    set the navigationDisplayStyle of me to "names"
    unlock screen
@@ -62,7 +62,7 @@ on showWebPlaygound
    -- browserHide
    lock screen
    set the goSection of this stack to "Playground"
-   -- 
+   --
    -- set the userAgent of widget "browser" of card "web" of this stack to "OpenXTalk IDE"
    if the URL of widget "Browser" of card "web" of this stack <> "https://openxtalk-org.github.io/OpenXTalk-Playground/" then
       set the URL of widget "Browser" of card "web" of this stack to "https://openxtalk-org.github.io/OpenXTalk-Playground/" --  "https://openxtalk-org.github.io/OpenXTalk-Playground/"
@@ -83,7 +83,7 @@ end preferenceChanged
 
 on installNew
    answer file "Choose an extension to install:" with type "Extension Builder|lce"
-   if it is not empty and it ends with ".lce" then 
+   if it is not empty and it ends with ".lce" then
       -- put it into pFileName
       installExtension it, "", "widget"
    end if
@@ -124,20 +124,13 @@ on installExtensionB64Decode pExtensionB64Encoded, pResID, pExtensionType
    --   else if pExtensionURL begins with "data:" then -- data:text/plain;base64,SGVsbG8gV29ybGQh
    --      -- do Base64 Encoded File Conversion"
    --   else
-   -- put "data" & cr & pExtensionB64Encoded  -- & cr & pExtensionType
-   if pResID is empty then
-      ask file "Save Binary as..." with "File.lce"
-      if it is not empty then 
-         put it into tFile
-      end if
-   else
-      put revIDESpecialFolderPath("downloading extensions")  &"/"& pResID &".lce" into tFile
-   end if
-   if tFile is not empty then
+   put "data" & cr & pExtensionB64Encoded  -- & cr & pExtensionType
+   ask file "Save Binary as..." with "File.zip"
+   if it is not empty then
+      put it into tFile
       open file tFile for binary write
       write base64Decode(pExtensionB64Encoded) to file tFile
       close file tFile
-      installExtension tFile, pResID, "widget" -- pType
    end if
    --end if
    --unlock screen
@@ -146,7 +139,7 @@ end installExtensionB64Decode
 on doXTscript pXTScript
    -- put pXTScript
    do pXTscript
-   if the result contains "error" then 
+   if the result contains "error" then
       throw the result
    end if
 end doXTscript
@@ -156,7 +149,7 @@ on doXTscriptInWidget pXTScript
          "thisStack.doXTscript('" & pXTScript & "');" & cr into tJS
    -- put tJS -- for checking the javascripts formation
    do tJS in widget "Browser" of card "Web" of this stack
-   if the result contains "error" then 
+   if the result contains "error" then
       throw the result
    end if
 end doXTscriptInWidget

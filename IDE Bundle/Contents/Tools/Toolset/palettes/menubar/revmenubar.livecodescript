@@ -1959,7 +1959,7 @@ private function revMenubarViewMenu pContext
    put toggleMenuItem("Palettes", gREVPalettes is empty) & return after tView
    put "-" & return after tView
    put toggleMenuItem("Rulers", the mode of stack "revRulersH" is not 0) & return after tView
-   put toggleMenuItem("Layout Guides",true) & return after tView
+   put toggleMenuItem("Layout Guides",the cLayoutGuides of stack "revPreferences") & return after tView
    -- put toggleMenuItem("Layout Guides",the cLayoutGuides of stack "revPreferences.rev") & return after tView
    put toggleMenuItem("Grid", the grid) & return after tView
    put toggleMenuItem("Backdrop", the backdrop is not "none") & return after tView

@@ -69,5 +69,6 @@ revIDESubscribe "ideDesktopChanged"
 
 revIDEOpenStack tFileData["filename"]
 
-  if revIDETutorialInProgress() is empty then
-      revIDEUnsubscribe "ideTutorialProgressChanged"
+if revIDETutorialInProgress() is empty then ...
+
+revIDEUnsubscribe "ideTutorialProgressChanged"

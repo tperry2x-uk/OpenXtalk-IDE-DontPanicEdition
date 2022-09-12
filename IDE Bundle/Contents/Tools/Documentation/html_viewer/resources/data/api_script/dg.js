@@ -9,7 +9,7 @@
 			],
 			"associations":["datagrid"],
 			"summary":"An object for forms or tables",
-			"description":"The Data Grid enables you to integrate powerful tables and forms into\nyour projects. Data grids combine groups and behaviors\nto provide you with a simple, yet flexible means of displaying your data\nin just about any way you want. See [the datagrid lessson](http://lessons.livecode.com/m/datagrid/l/7301-what-is-the-data-grid)\nfor full documentation, lessons, and tutorials."
+			"description":"The Data Grid enables you to integrate powerful tables and forms into\nyour LiveCode projects. Data grids combine LiveCode groups and behaviors\nto provide you with a simple, yet flexible means of displaying your data\nin just about any way you want. See [the datagrid lessson](http://lessons.livecode.com/m/datagrid/l/7301-what-is-the-data-grid)\nfor full documentation, lessons, and tutorials."
 		},{
 			"id":"Datagrid-2",
 			"name":"datagrid_general_properties",
@@ -24,7 +24,7 @@
 			],
 			"associations":["datagrid"],
 			"summary":"General properties of the datagrid are applicable whether the\n'style' property is set to 'form' or 'table'",
-			"description":"All general data grid properties are stored in the dgProps custom\nproperty set. To access a property you can use dgProps or dgProp:\n\n\tput the dgProp[ \"PROPERTY_NAME\" ] of group \"Data Grid\""
+			"description":"All general data grid properties are stored in the dgProps custom\nproperty set. To access a property you can use dgProps or dgProp: \n\n\tput the dgProp[ \"PROPERTY_NAME\" ] of group \"Data Grid\""
 		},{
 			"id":"Datagrid-3",
 			"name":"allow_editing",
@@ -324,7 +324,7 @@
 			],
 			"associations":["datagrid","datagrid general properties"],
 			"summary":"This is the group that represents a record in your data grid.",
-			"description":"This is the group that represents a record in your data grid. If the\nstyle of the data grid is form then this group will be copied into the\ndata grid. If the data grid style is table then the data grid looks in\nthis group for controls named after the columns in your table. If the\ndata grid finds a control in this group that matches a column name then\nthe control will be used to visually represent the column. Otherwise a\nfield is used. By default the IDE creates this group on a card\nin a stack whose name starts with \"Data Grid Template\". Clicking the\n\"Row Template\" button in the Property Inspector reveal the card\ncontaining this group."
+			"description":"This is the group that represents a record in your data grid. If the\nstyle of the data grid is form then this group will be copied into the\ndata grid. If the data grid style is table then the data grid looks in\nthis group for controls named after the columns in your table. If the\ndata grid finds a control in this group that matches a column name then\nthe control will be used to visually represent the column. Otherwise a\nfield is used. By default the LiveCode IDE creates this group on a card\nin a stack whose name starts with \"Data Grid Template\". Clicking the\n\"Row Template\" button in the Property Inspector reveal the card\ncontaining this group."
 		},{
 			"id":"Datagrid-23",
 			"name":"scroll_when_hscrollbar_is_hidden",
@@ -504,7 +504,7 @@
 			],
 			"associations":["datagrid"],
 			"summary":"Table properties of the datagrid are applicable when the 'style'\nproperty is set to 'table'.",
-			"description":"All data grid table properties are stored in the dgProps custom property\nset. To access a property you can use dgProps or dgProp:\n\n\tput the dgProp[ \"PROPERTY_NAME\" ] of group \"Data Grid\""
+			"description":"All data grid table properties are stored in the dgProps custom property\nset. To access a property you can use dgProps or dgProp: \n\n\tput the dgProp[ \"PROPERTY_NAME\" ] of group \"Data Grid\""
 		},{
 			"id":"Datagrid-35",
 			"name":"allow_column_resizing",
@@ -1104,7 +1104,7 @@
 			],
 			"associations":["datagrid"],
 			"summary":"Datagrid cells can be edited. These property configure that\neditor.",
-			"description":"The template field editor properties are set using the\ndgTemplateFieldEditor custom property.\n\n\tset the dgTemplateFieldEditor[\"PROPERTY_NAME\"] \\\n\t\tof group \"Data Grid\" to SOME_VALUE"
+			"description":"The template field editor properties are set using the\ndgTemplateFieldEditor custom property. \n\n\tset the dgTemplateFieldEditor[\"PROPERTY_NAME\"] \\ \n\t\tof group \"Data Grid\" to SOME_VALUE"
 		},{
 			"id":"Datagrid-75",
 			"name":"select_text",
@@ -1255,9 +1255,9 @@
 			"associations":["datagrid"],
 			"summary":"Get or set the data array that the data grid will display.",
 			"examples":[{
-				"script":"get the dgData of grp \"Data Grid\""
+				"script":"get the dgData of grp \"Data Grid\" "
 			}],
-			"description":"Get or set the data array that the data grid will display. The first\ndimension of the array uses numeric keys and the value of each is an\narray. You can store anything you would like in each numeric key's\narray. For data grid tables the keys should match the column names in\norder for the data grid to correctly map the array value to the column\ncell. The following array would represent two records in the data grid:\n\n\tput \"Hi\" into theA[1][\"message\"]\n\tput \"Bye\" into theA[2][\"message\"]\n\tset the dgData of group \"DataGrid\" to theA"
+			"description":"Get or set the data array that the data grid will display. The first\ndimension of the array uses numeric keys and the value of each is an\narray. You can store anything you would like in each numeric key's\narray. For data grid tables the keys should match the column names in\norder for the data grid to correctly map the array value to the column\ncell. The following array would represent two records in the data grid:\n\n\tput \"Hi\" into theA[1][\"message\"] \n\tput \"Bye\" into theA[2][\"message\"] \n\tset the dgData of group \"DataGrid\" to theA"
 		},{
 			"id":"Datagrid-85",
 			"name":"dgdatacontrolofindex",
@@ -1272,7 +1272,7 @@
 			],
 			"associations":["datagrid"],
 			"summary":"Returns the long id of the data control associated with an\nindex.",
-			"description":"Returns the long id of the data control associated with an index.\nIf \"cache controls\" is not turned on then this property returns empty\nif the index has no control associated with it because it is offscreen.\n\n>*Important:* The <dgDataControlOfIndex> property is available only for\nDatagrids whose <style> property is set to 'form'.",
+			"description":"Returns the long id of the data control associated with an index. \nIf \"cache controls\" is not turned on then this property returns empty \nif the index has no control associated with it because it is offscreen.\n\n>*Important:* The <dgDataControlOfIndex> property is available only for\nDatagrids whose <style> property is set to 'form'.",
 			"references":{
 				"property":["style"]
 			}
@@ -1309,7 +1309,7 @@
 			"examples":[{
 				"script":"set the dgDataOfIndex[pIndex] of group \"DataGrid\" to pDataA"
 			},{
-				"script":"put the dgDataOfIndex[1] of group \"DataGrid\" into theMessageA\nput theMessageA[\"message\"] -- puts \"hi\""
+				"script":"put the dgDataOfIndex[1] of group \"DataGrid\" into theMessageA\nput theMessageA[\"message\"] -- puts \"hi\" "
 			}],
 			"description":"Get or set the data associated with a particular index. The value is\nthe array assigned to that index.\n\n>*Note:* Setting the data of an index will cause the data grid to\nrefresh the row associated with the index if it is visible on screen."
 		},{
@@ -1328,9 +1328,9 @@
 			"examples":[{
 				"script":"set the dgDataOfLine [ pLine ] of group \"DataGrid\" to pDataA"
 			},{
-				"script":"put the dgDataOfLine[1] of group \"DataGrid\" into theMessageA\nput theMessageA[\"message\"] -- puts \"hi\""
+				"script":"put the dgDataOfLine[1] of group \"DataGrid\" into theMessageA\nput theMessageA[\"message\"] -- puts \"hi\" "
 			}],
-			"description":"Get or set the data associated with a particular line. The value is\nthe array assigned to that line.\n\n>*Note:* Setting the data of a line will cause the data grid to refresh\nthe line if it is visible on screen."
+			"description":"Get or set the data associated with a particular line. The value is\nthe array assigned to that line. \n\n>*Note:* Setting the data of a line will cause the data grid to refresh \nthe line if it is visible on screen."
 		},{
 			"id":"Datagrid-89",
 			"name":"dgfocus",
@@ -1420,7 +1420,7 @@
 			],
 			"associations":["datagrid"],
 			"summary":"The dgText property always reflects the same value as the\ndgData but in tab delimited form.",
-			"description":"The data grid works with arrays behind the scenes but in the interest of\nmaking life easier for some folks there is a dgText property. The dgText\nproperty always reflects the same value as the dgData but in tab\ndelimited form. pText is assumed to be a collection of data where each\nrow is delimited by the return character and each item is delimited by a\ntab.\n\nYou can map each item of each line in pText to a particular key in\nan array (and thus a table column) by passing in true for\npFirstLineContainsHeaders. If true then the data grid will extract the\nfirst line of pText and match the values for existing internal key/column\nnames.\n\nThe default value for pFirstLineContainsHeaders is false.\n\nIf you set the dgText of a data grid table then all data will be imported\nand assigned to the appropriate column depending on the value of\npFirstLineContainsHeaders. Normally you should set this property to true\nand provide the header that maps each item of each line to a specific\ncolumn.\n\n>*Note:* that if pFirstLineContainsHeaders is true then the columns\n>must already exist in your data grid table in order to be displayed.\n>Setting pFirstLineContainsHeaders to true does not create the headers for you.\n\nIf pFirstLineContainsHeaders is false then the columns property of the data\ngrid is used for mapping. For Example, the first item of a line of pText\nwould be assigned to the column that appears on the first line in the\ncolumns property of the data grid. If line 1 of pText contains more\nitems than there are columns in the table then new columns are added.\nAny new columns are named \"Col 1\", \"Col 2\", etc.\n\nIf you set the dgText property of a data grid form then the data will be\nimported but it is up to you to modify your Row Template Behavior to\ndisplay the imported data correctly. If pFirstLineContainsHeaders is\nfalse then each item of each line in pText will be named \"Label X\"\n(where X is the item number) in the array that is passed to FillInData.\n\nWhen retrieving the dgText property, setting the pIncludeColumnNames to true\nwill cause the column names to be included in the first line."
+			"description":"The data grid works with arrays behind the scenes but in the interest of\nmaking life easier for some folks there is a dgText property. The dgText\nproperty always reflects the same value as the dgData but in tab\ndelimited form. pText is assumed to be a collection of data where each\nrow is delimited by the return character and each item is delimited by a\ntab. \n\nYou can map each item of each line in pText to a particular key in\nan array (and thus a table column) by passing in true for\npFirstLineContainsHeaders. If true then the data grid will extract the\nfirst line of pText and match the values for existing internal key/column\nnames. \n\nThe default value for pFirstLineContainsHeaders is false. \n\nIf you set the dgText of a data grid table then all data will be imported \nand assigned to the appropriate column depending on the value of\npFirstLineContainsHeaders. Normally you should set this property to true\nand provide the header that maps each item of each line to a specific\ncolumn. \n\n>*Note:* that if pFirstLineContainsHeaders is true then the columns\n>must already exist in your data grid table in order to be displayed. \n>Setting pFirstLineContainsHeaders to true does not create the headers for you.\n\nIf pFirstLineContainsHeaders is false then the columns property of the data\ngrid is used for mapping. For Example, the first item of a line of pText\nwould be assigned to the column that appears on the first line in the\ncolumns property of the data grid. If line 1 of pText contains more\nitems than there are columns in the table then new columns are added.\nAny new columns are named \"Col 1\", \"Col 2\", etc. \n\nIf you set the dgText property of a data grid form then the data will be \nimported but it is up to you to modify your Row Template Behavior to \ndisplay the imported data correctly. If pFirstLineContainsHeaders is \nfalse then each item of each line in pText will be named \"Label X\" \n(where X is the item number) in the array that is passed to FillInData. \n\nWhen retrieving the dgText property, setting the pIncludeColumnNames to true\nwill cause the column names to be included in the first line."
 		},{
 			"id":"Datagrid-95",
 			"name":"dghilitedindexes",
@@ -1435,7 +1435,7 @@
 			],
 			"synonyms":["dghilitedindex"],
 			"associations":["datagrid"],
-			"summary":"Returns a comma delimited list of the indexes that are currently\nselected.",
+			"summary":"Returns a comma delimited list of the indexes that are currently\nselected. ",
 			"description":"Returns a comma delimited list of the indexes that are currently\nselected."
 		},{
 			"id":"Datagrid-96",
@@ -1451,7 +1451,7 @@
 			],
 			"synonyms":["dghilitedline"],
 			"associations":["datagrid"],
-			"summary":"Returns a comma delimited list of the line numbers that are currently\nselected.",
+			"summary":"Returns a comma delimited list of the line numbers that are currently\nselected. ",
 			"description":"Returns a comma delimited list of the line numbers that are currently\nselected."
 		},{
 			"id":"Datagrid-97",
@@ -1617,7 +1617,7 @@
 			],
 			"associations":["datagrid"],
 			"summary":"Datagrid commands are issued via 'dispatch' or 'send'.",
-			"description":"To issue a command to the datagrid you can use 'dispatch' or 'send'.\n'Dispatch' is preferred as it has the nice 'with' syntax for sending\nparameters. Using dispatch:\n\n\tput \"value\" into theArray[\"property\"]\n\tdispatch \"AddData\" to group \"DataGrid\" with theArray\n\nUsing send:\n\n\tput \"value\" into theArray[\"property\"]\n\tsend \"AddData theArray\" to group \"DataGrid\""
+			"description":"To issue a command to the datagrid you can use 'dispatch' or 'send'.\n'Dispatch' is preferred as it has the nice 'with' syntax for sending\nparameters. Using dispatch: \n\n\tput \"value\" into theArray[\"property\"]\n\tdispatch \"AddData\" to group \"DataGrid\" with theArray \n\nUsing send: \n\n\tput \"value\" into theArray[\"property\"] \n\tsend \"AddData theArray\" to group \"DataGrid\""
 		},{
 			"id":"Datagrid-108",
 			"name":"adddata",
@@ -1692,7 +1692,7 @@
 			],
 			"associations":["datagrid","datagrid commands"],
 			"summary":"Deletes the specified lines from the data grid.",
-			"description":"Deletes the specified line from the data grid. pLine is an\ninteger."
+			"description":"Deletes the specified line from the data grid. pLine is an \ninteger."
 		},{
 			"id":"Datagrid-113",
 			"name":"deletelines",
@@ -1752,7 +1752,7 @@
 			],
 			"associations":["datagrid","datagrid commands"],
 			"summary":"Creates an editable field for editing the contents of pField.",
-			"description":"This command will dynamically create an editable field for editing the\ncontents of pField (pass in the long id of a field for pField). Calling\nEditFieldText will trigger additional messages related to field editing.\nScenario 1: Pass in one parameter If you just pass in pField and leave\npIndex and pKey empty then the data grid behaves as follows:\n\n1. Creates field editor\n2. Assign text of pField to field editor\n3. Sends preOpenFieldEditor pFieldEditor to pField.\n\npFieldEditor is the long id of the field editor created in step 1.\nWhen editing stops (focus leaves\nfield, user presses escape key, etc.) the message DeleteFieldEditor is\nsent to the data grid. This in turn sends CloseFieldEditor pFieldEditor\nto pField if the user changed the content or ExitFieldEditor\npFieldEditor if no change was made. You can use these messages to save\nany changes the user made in pFieldEditor. Scenario 2: Pass in all three\nparameters If you pass in all three parameters (pField, pIndex, pKey)\nthen the data grid will automatically save any changes made while\nediting. The new value will be assigned to the key pKey for index pIndex\nin the dgData array of the data grid. In this scenarios CloseFieldEditor\npFieldEditor and ExitFieldEditor pFieldEditor are still sent. The\ndifference is that after CloseFieldEditor is sent to pField the contents\nof pFieldEditor are saved in the dgData. If for any reason you do not\nwant the data to be saved then you can return \"cancel\" from\nCloseFieldEditor. Note: If the user presses the tab key while editing\nand the autotab property of pField is true then the message\nOpenNextFieldEditor pDirection is sent to pField. If you don't handle\nthis message and the data grid is a table then the data grid\nautomatically opens the next cell for editing. For data grid forms you\ncan handle this message in order to open another field for editing. You\ncould call EditKeyOfIndex for Example. Note 2: The default behavior for\n\npFieldEditor is located in button \"Field Editor\" of stack\n\"revDataGridLibrary\". If you want to override this behavior then you can\nassign the behavior of pFieldEditor to another button in the\npreOpenFieldEditor message."
+			"description":"This command will dynamically create an editable field for editing the\ncontents of pField (pass in the long id of a field for pField). Calling\nEditFieldText will trigger additional messages related to field editing.\nScenario 1: Pass in one parameter If you just pass in pField and leave\npIndex and pKey empty then the data grid behaves as follows: \n\n1. Creates field editor \n2. Assign text of pField to field editor \n3. Sends preOpenFieldEditor pFieldEditor to pField. \n\npFieldEditor is the long id of the field editor created in step 1. \nWhen editing stops (focus leaves\nfield, user presses escape key, etc.) the message DeleteFieldEditor is\nsent to the data grid. This in turn sends CloseFieldEditor pFieldEditor\nto pField if the user changed the content or ExitFieldEditor\npFieldEditor if no change was made. You can use these messages to save\nany changes the user made in pFieldEditor. Scenario 2: Pass in all three\nparameters If you pass in all three parameters (pField, pIndex, pKey)\nthen the data grid will automatically save any changes made while\nediting. The new value will be assigned to the key pKey for index pIndex\nin the dgData array of the data grid. In this scenarios CloseFieldEditor\npFieldEditor and ExitFieldEditor pFieldEditor are still sent. The\ndifference is that after CloseFieldEditor is sent to pField the contents\nof pFieldEditor are saved in the dgData. If for any reason you do not\nwant the data to be saved then you can return \"cancel\" from\nCloseFieldEditor. Note: If the user presses the tab key while editing\nand the autotab property of pField is true then the message\nOpenNextFieldEditor pDirection is sent to pField. If you don't handle\nthis message and the data grid is a table then the data grid\nautomatically opens the next cell for editing. For data grid forms you\ncan handle this message in order to open another field for editing. You\ncould call EditKeyOfIndex for Example. Note 2: The default behavior for\n\npFieldEditor is located in button \"Field Editor\" of stack\n\"revDataGridLibrary\". If you want to override this behavior then you can\nassign the behavior of pFieldEditor to another button in the\npreOpenFieldEditor message."
 		},{
 			"id":"Datagrid-117",
 			"name":"editkey",
@@ -1790,14 +1790,14 @@
 			"library":"Datagrid",
 			"type":"command",
 			"syntax":[
-				"dispatch \"FindIndex\" to group \"DataGrid\" with pKey,\npSearchString"
+				"dispatch \"FindIndex\" to group \"DataGrid\" with pKey,\npSearchString "
 			],
 			"display syntax":[
 				"dispatch \"FindIndex\" to group \"DataGrid\" with pKey,"
 			],
 			"synonyms":["findline"],
 			"associations":["datagrid","datagrid commands"],
-			"summary":"Same as EditKey but uses an index rather than a line number to\nlocated the line to edit.",
+			"summary":"Same as EditKey but uses an index rather than a line number to\nlocated the line to edit. ",
 			"description":"Search for data in pKey that matches pSearchString. pKey is one of the\ncustom defined keys you defined for your data. pSearchingString is the\nvalue to look for in that key. You can pass multiple pKey=pSearchString\ncombinations to match multiple criteria. -- Find the index where\n\"message\" is \"hi\" dispatch \"FindIndex\" to group \"DataGrid\" with\n\"message\", \"hi\" put the result into theIndex Note that pKey can also be\nan array if you want to use array-valued array indexing to locate\npSearchingString. FindLine returns the found line number vs the found\nindex number."
 		},{
 			"id":"Datagrid-120",
@@ -2054,9 +2054,9 @@
 			"associations":["datagrid"],
 			"summary":"Sent whenever the user changes the selection through some sort\nof user interaction.",
 			"examples":[{
-				"script":"on selectionChanged pHilitedIndex, pPrevHilitedIndex\n\tput the dgDataOfIndex [ pHilitedIndex ] of me into theSelDataA\n\tuiViewRecordOfID theSelDataA[\"id\"]\nend selectionChanged"
+				"script":"on selectionChanged pHilitedIndex, pPrevHilitedIndex \n\tput the dgDataOfIndex [ pHilitedIndex ] of me into theSelDataA \n\tuiViewRecordOfID theSelDataA[\"id\"] \nend selectionChanged"
 			}],
-			"description":"Sent whenever the user changes the selection through some sort of user\ninteraction. Handle this message in order to update your UI when the\nuser makes a selection."
+			"description":"Sent whenever the user changes the selection through some sort of user\ninteraction. Handle this message in order to update your UI when the\nuser makes a selection. "
 		},{
 			"id":"Datagrid-137",
 			"name":"editvalue",
@@ -2102,9 +2102,9 @@
 			"associations":["datagrid","datagrid template custom properties & messages"],
 			"summary":"The EditValue message is sent to a table column control when\nEditCell or EditCellOfIndex is called.",
 			"examples":[{
-				"script":"# Datagrid row behavior\non FillInData pDataA\n  ## Assign FirstName value to the \"FirstName\" field of this row template\n  set the text of field \"FirstName\" of me to pDataA[\"FirstName\"]\nend FillInData"
+				"script":"# Datagrid row behavior\non FillInData pDataA\n  ## Assign FirstName value to the \"FirstName\" field of this row template\n  set the text of field \"FirstName\" of me to pDataA[\"FirstName\"] \nend FillInData "
 			},{
-				"script":"# Data Grid table\non FillInData pData\n  ## Assign Column value to field 1 of this column template\n  set the text of field 1 of me to pData\nend FillInData"
+				"script":"# Data Grid table \non FillInData pData\n  ## Assign Column value to field 1 of this column template\n  set the text of field 1 of me to pData \nend FillInData"
 			}],
 			"description":"The <FillInData> message is where you move data for a row or column into\nthe controls for that row or column. Normally you will just assign data\nto controls in the template. You most likely will not resize any of the\ncontrols at this point. If your data grid is of type \"form\" then pData\nwill be an array holding the row values. If your data grid is of type\n\"table\" then pData is the value for the column that is being populated."
 		},{
@@ -2122,7 +2122,7 @@
 			"associations":["datagrid","datagrid template custom properties & messages"],
 			"summary":"The EditValue message is sent to a table column control when\nEditCell or EditCellOfIndex is called.",
 			"examples":[{
-				"script":"on LayoutControl pControlRect, pWorkingRect\n\tset the rect of field \"FirstName\" to pControlRect\nend LayoutControl"
+				"script":"on LayoutControl pControlRect, pWorkingRect\n\tset the rect of field \"FirstName\" to pControlRect \nend LayoutControl"
 			}],
 			"description":"LayoutControl is sent to your custom template when it is time to\nposition all of the controls. pControlRect is the rectangle that the\ndata grid has resized your control to. This is useful for knowing the\nleft (item 1 of pControlRect), top (item 2 of pControlRect), right (item\n3 of pControlRect) and bottom (item 4 of pControlRect) bounds you can\nposition controls at. pWorkingRect is the rectangle within which you can safely\nposition your controls without overlapping with any edit mode controls. Note\nthat if you have a data grid form that does not have fixed height set to true\nthen you can ignore the bottom (item 4 of pControlRect) and make your control as\ntall as you need."
 		},{
@@ -2199,7 +2199,7 @@
 			],
 			"associations":["datagrid","datagrid template custom properties & messages"],
 			"summary":"This is a custom property defined in the behavior script for\nyour template",
-			"description":"Your template should 'return the long id of me' in this getprop handler.\nThis helps the data grid identify your row template.\n\n>*Important:* This is required for the Datagrid to work properly"
+			"description":"Your template should 'return the long id of me' in this getprop handler.\nThis helps the data grid identify your row template. \n\n>*Important:* This is required for the Datagrid to work properly"
 		},{
 			"id":"Datagrid-146",
 			"name":"dghilite",
@@ -2229,7 +2229,7 @@
 			],
 			"associations":["datagrid"],
 			"summary":"Take the data grid into or out of edit mode.",
-			"description":"Use the <dgEditMode> property to put the data grid into or take it out of edit\nmode. When in edit mode, the data grid displays an action control of the left\nhand side of each row (as defined by <edit mode action control>) and a reorder\ncontrol on the right. The appearance and behavior of these controls can be\ncustomized.\n\nOnly data grids form type data grids with <fixed row height> can be put into\nedit mode.",
+			"description":"Use the <dgEditMode> property to put the data grid into or take it out of edit\nmode. When in edit mode, the data grid displays an action control of the left\nhand side of each row (as defined by <edit mode action control>) and a reorder \ncontrol on the right. The appearance and behavior of these controls can be \ncustomized.\n\nOnly data grids form type data grids with <fixed row height> can be put into\nedit mode.",
 			"references":{
 				"property":["edit mode action control","edit mode action select control","edit mode reorder control"],
 				"command":["EditModeShowActionControlForIndex","EditModeHideActionControl"],

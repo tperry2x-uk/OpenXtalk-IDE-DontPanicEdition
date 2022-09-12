@@ -5,7 +5,7 @@ group: deployment
 
 ## Introduction
 
-With OpenXTalk, it is easy to deploy your application to anyone.
+With XTalk, it is easy to deploy your application to anyone.
 
 Using the standalone building capability you can create a native
 application for each operating system you want to support. Users

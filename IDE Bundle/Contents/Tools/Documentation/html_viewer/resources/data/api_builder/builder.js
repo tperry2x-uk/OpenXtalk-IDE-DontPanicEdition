@@ -104,6 +104,1998 @@
 			"description":"Use the <showBorder> property to control whether the field\nwidget has a border or not."
 		},{
 			"id":"builder-7",
+			"name":"onmouseup",
+			"display name":"OnMouseUp",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnMouseUp"
+			],
+			"display syntax":[
+				"OnMouseUp"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the user releases the mouse button.",
+			"examples":[{
+				"script":"public handler OnMouseUp() returns nothing\n    if the mouse position is not within my bounds then\n       return\n    end if\n\n    if the click button is 1 then\n       -- do primary button action\n    else\n       -- do secondary button action\n    end if\nend handler"
+			}],
+			"description":"The <OnMouseUp> message is sent when a mouse button is released.\n\n**Note:** A widget may receive the <OnMouseUp> message even if the\nmouse pointer isn't within the widget's bounds.",
+			"references":{
+				"expression":["TheClickButton","TheMouseLocation"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-8",
+			"name":"ondragmove",
+			"display name":"OnDragMove",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnDragMove"
+			],
+			"display syntax":[
+				"OnDragMove"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when a dragged object is moved within the widget rect.",
+			"description":"Sent when a dragged object is moved within the widget rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-9",
+			"name":"theclickbutton",
+			"display name":"TheClickButton",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the ( current ) click button"
+			],
+			"display syntax":[
+				"the ( current ) click button"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Determines the mouse button which started the mouse click.",
+			"examples":[{
+				"script":"    variable tButton as integer\n    put the click button into tButton\n\n    if tButton is 1 then\n        // do primary button action\n    else\n        // do secondary button action\n    end if"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The index of the mouse button which started the mouse click."
+			}],
+			"description":"Determines the mouse button which started the mouse click.",
+			"tags":["widget"]
+		},{
+			"id":"builder-10",
+			"name":"mypaint",
+			"display name":"MyPaint",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my ( foreground |             background |             highlight |             border |             top |             bottom |             shadow |             focus ) paint"
+			],
+			"display syntax":[
+				"my ( foreground |             background |             highlight |             border |             top |             bottom |             shadow |             focus ) paint"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns a particular paint of the widget.",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The current setting of the specified paint of the widget."
+			}],
+			"description":"Use 'my ... paint' to fetch the paint to use for the given theme\nproperty of the widget. The returned paint will either be a solid\ncolor, or a pattern depending on the effective color and pattern\nproperties of the widget's object.",
+			"tags":["widget"]
+		},{
+			"id":"builder-11",
+			"name":"onparentpropertychanged",
+			"display name":"OnParentPropertyChanged",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnParentPropertyChanged"
+			],
+			"display syntax":[
+				"OnParentPropertyChanged"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when a property of the widget parent is changed.",
+			"description":"Handle the <OnParentPropertyChanged> message when a widget property depends on the properties of a parent object.",
+			"tags":["widget"]
+		},{
+			"id":"builder-12",
+			"name":"ondoubleclick",
+			"display name":"OnDoubleClick",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnDoubleClick"
+			],
+			"display syntax":[
+				"OnDoubleClick"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget is double-clicked.",
+			"description":"Sent when the widget is double-clicked.",
+			"tags":["widget"]
+		},{
+			"id":"builder-13",
+			"name":"mydisabled",
+			"display name":"MyDisabled",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my disabled"
+			],
+			"display syntax":[
+				"my disabled"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns the disabled state of the widget.",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The disabled state of the widget."
+			}],
+			"description":"Returns the disabled state of the widget.",
+			"tags":["widget"]
+		},{
+			"id":"builder-14",
+			"name":"onmousecancelhover",
+			"display name":"OnMouseCancelHover",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnMouseCancelHover"
+			],
+			"display syntax":[
+				"OnMouseCancelHover"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the mouse pointer continues to hover outside of the widget's rect.",
+			"description":"Sent when the mouse pointer continues to hover outside of the widget's rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-15",
+			"name":"ontimer",
+			"display name":"OnTimer",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnTimer"
+			],
+			"display syntax":[
+				"OnTimer"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when a timer message has been scheduled.",
+			"examples":[{
+				"script":"// Create a timer loop\npublic handler OnTimer()\n\t...\n\tschedule timer in 1 seconds\nend handler"
+			}],
+			"description":"Handle the <OnTimer> message to perform an action at a scheduled time.\n>*Note:* OnTimer messages are only sent whilst in browse tool mode. If a timer is\ndelivered whilst in pointer tool mode it will be deferred until browser tool mode is\nre-entered.",
+			"references":{
+				"statement":["ScheduleTimerIn"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-16",
+			"name":"com.livecode.widget",
+			"display name":"com.livecode.widget",
+			"library":"builder",
+			"type":"module",
+			"display syntax":[
+				"com.livecode.widget"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"This library consists of the operations on widgets provided by LiveCode Builder.",
+			"description":"This library consists of the operations on widgets provided by LiveCode Builder."
+		},{
+			"id":"builder-17",
+			"name":"propertyofwidget",
+			"display name":"PropertyOfWidget",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"property <mName> of <mWidget>"
+			],
+			"display syntax":[
+				"property <i>mName</i> of <i>mWidget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Manipulates a property implemented by a child widget.",
+			"parameters":[{
+				"name":"mName",
+				"type":"",
+				"refparam":"false",
+				"description":"The name of a property declared by <mWidget>"
+			},{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child widget object"
+			}],
+			"examples":[{
+				"script":"variable tChild as Widget\nput a new widget \"com.livecode.widget.navbar\" into tChild\nplace tChild\n-- Initialise selected element of nav bar to 1\nset property \"selectedItem\" of tChild to 1"
+			}],
+			"description":"Use the <PropertyOfWidget> operator to get or set properties of a child widget that are not and of the built-in\nwidget properties.",
+			"tags":["widget"]
+		},{
+			"id":"builder-18",
+			"name":"onlayerchanged",
+			"display name":"OnLayerChanged",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnLayerChanged"
+			],
+			"display syntax":[
+				"OnLayerChanged"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget layer is changed.",
+			"description":"Sent when the widget layer is changed.",
+			"tags":["widget"]
+		},{
+			"id":"builder-19",
+			"name":"onkeypress",
+			"display name":"OnKeyPress",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnKeyPress <keyText>"
+			],
+			"display syntax":[
+				"OnKeyPress <i>keyText</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when a key is pressed while the widget has focus.",
+			"parameters":[{
+				"name":"keyText",
+				"type":"string",
+				"refparam":"false",
+				"description":"The key pressed"
+			}],
+			"description":"Sent when a key is pressed while the widget has focus.",
+			"tags":["widget"]
+		},{
+			"id":"builder-20",
+			"name":"mypixelscale",
+			"display name":"MyPixelScale",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my pixel scale"
+			],
+			"display syntax":[
+				"my pixel scale"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns the scaling factor of pixels for the widget",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The current scaling factor of pixels for the widget"
+			}],
+			"description":"Use the widget's pixel scale to calculate the size of an image to draw. For example,\nwhen drawing an image to `my bounds` create an image sized using\n`my width * my pixel scale, my height * my pixel scale` otherwise the image will be\nstretched to match the pixel scale. The pixel scale is a per-window/screen property\nso may change if the user moves a window to a new screen.",
+			"tags":["widget"]
+		},{
+			"id":"builder-21",
+			"name":"theclicklocation",
+			"display name":"TheClickLocation",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the ( current ) click position"
+			],
+			"display syntax":[
+				"the ( current ) click position"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Determines the location of a mouse click.",
+			"examples":[{
+				"script":"variable tClick as Point\nput the click position into tClick\n\nvariable tRect as Rectangle\nput my bounds into tRect\n\nif tClick is within tRect then\n\t// click was within widget bounds\nend if"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The location of the mouse pointer when it was clicked."
+			}],
+			"description":"Use the mouse location to obtain the location of the mouse pointer when it was last clicked. Use the 'current' form to obtain the asynchronous click position.",
+			"tags":["widget"]
+		},{
+			"id":"builder-22",
+			"name":"onpaint",
+			"display name":"OnPaint",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnPaint"
+			],
+			"display syntax":[
+				"OnPaint"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget is to be drawn.",
+			"examples":[{
+				"script":"public handler OnPaint()\n\tvariable tCirclePath as Path\n\tput circle path centered at point [the width of my bounds/2,the height of my bounds/2] with radius (the width of my bounds/2) into tFacePath\n\tset the paint of this canvas to solid paint with color [1, 0, 1]\n\tfill tFacePath on this canvas\nend handler"
+			}],
+			"description":"Handle the <OnPaint> message to draw the widget when it needs to be updated.\n>*Note:* Access to most script object operations is not allowed whilst an OnPaint\nhandler is running.",
+			"references":{
+				"statement":["RedrawAll"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-23",
+			"name":"popupwidget",
+			"display name":"PopupWidget",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"popup widget <Kind> at <Location> [ with properties <Properties> ]"
+			],
+			"display syntax":[
+				"popup widget <i>Kind</i> at <i>Location</i> [ with properties <i>Properties</i> ]"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Opens a widget within a popup window.",
+			"parameters":[{
+				"name":"Kind",
+				"type":"",
+				"refparam":"false",
+				"description":"The unique identifier of the widget to use for the popup."
+			},{
+				"name":"Location",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to a <Point> relative to the current widget. The topleft corner of the popup window will be placed here."
+			},{
+				"name":"Properties",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to an <array>. For each key of the array, the popup widget will be initialized by setting that property to the value for that key."
+			}],
+			"examples":[{
+				"script":"private variable mColor as Color\n\npublic handler OnClick()\n\tvariable tProperties as Array\n\tput the empty array into tProperties\n\tput mColor into tProperties[\"currentColor\"]\n\n\tpopup widget \"com.livecode.widget.ColorPicker\" at the mouse position with properties tProperties\n\tif the result is not nothing then\n\t\tput the result into mColor\n\t\tredraw all\n\tend if\nend handler\n\npublic handler OnPaint()\n\t...\n\tset the paint of this canvas to solid paint with color mColor\n\t...\nend handler"
+			}],
+			"value":[{
+				"name":"the result",
+				"type":"",
+				"description":"The result returned by the popup. If the popup is dismissed (by clicking outside the bounds of the popup) this value will be nothing."
+			}],
+			"description":"Use to display a widget within a popup window, for example as a tooltip or picker dialog.",
+			"references":{
+				"expression":["IsPoppedUp"],
+				"statement":["ClosePopupWithResult"],
+				"operator":["IsDefined"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-24",
+			"name":"onfocusleave",
+			"display name":"OnFocusLeave",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnFocusLeave"
+			],
+			"display syntax":[
+				"OnFocusLeave"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget loses focus.",
+			"description":"Sent when the widget loses focus.",
+			"tags":["widget"]
+		},{
+			"id":"builder-25",
+			"name":"widgetlocationproperty",
+			"display name":"WidgetLocationProperty",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the location of <mWidget>"
+			],
+			"display syntax":[
+				"the location of <i>mWidget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Manipulates the location property of a child widget",
+			"parameters":[{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child widget object"
+			}],
+			"examples":[{
+				"script":"private variable mChild as Widget\n\npublic handler OnCreate() returns nothing\n    -- place the child widget at the center of this widget\n    variable tLoc as Point\n    put point [my width / 2, my height / 2] into tLoc\n    put a new widget \"com.livecode.widget.button\" into mChild\n    place mChild\n    set the location of mChild to tLoc\nend handler"
+			}],
+			"description":"Use the location property to set the location of a child widget relative to the top left of the parent.\nThe location property is of type com.livecode.canvas.Point.",
+			"tags":["widget"]
+		},{
+			"id":"builder-26",
+			"name":"ondragenter",
+			"display name":"OnDragEnter",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnDragEnter"
+			],
+			"display syntax":[
+				"OnDragEnter"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when an object is dragged onto the widget rect.",
+			"description":"Sent when an object is dragged onto the widget rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-27",
+			"name":"mynativelayer",
+			"display name":"MyNativeLayer",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my native layer"
+			],
+			"display syntax":[
+				"my native layer"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Get the current widget's native layer pointer",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A platform-specific native layer pointer"
+			}],
+			"description":"Get the current widget's native layer pointer",
+			"references":{
+				"operator":["NativeLayerOfWidget"]
+			},
+			"tags":["widget","native layer"]
+		},{
+			"id":"builder-28",
+			"name":"thiswidget",
+			"display name":"ThisWidget",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"this widget"
+			],
+			"display syntax":[
+				"this widget"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns the current widget.",
+			"examples":[{
+				"script":"-- In a widget\nprivate variable mSelf as Widget\npublic handler OnCreate() returns nothing\n\t-- Keep a reference to this widget\n\tput this widget into mSelf\n\n\t-- defined in separate module library\n\tSetEventCallback(EventCallback)\nend handler\n\n-- may be called from another module library\nprivate handler EventCallback() returns nothing\n\t-- update internal variables\n\n\t-- notify ide of changes\n\ttrigger all in mSelf\nend handler"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A widget object."
+			}],
+			"description":"This widget evaluates to the current widget. This can be used to retain a\nreference for occasions where widget handlers may be called from another module,\nwhere the current widget may not be valid.\n\nThis is useful when LCB handlers within a widget module are used as\nasynchronous callback functions passed to foreign functions, as these may be\ncalled at a time when the widget is not the currently active widget. Using the\nreference prevents updates being seen as coming from the wrong widget.",
+			"tags":["widget"]
+		},{
+			"id":"builder-29",
+			"name":"annotationofwidget",
+			"display name":"AnnotationOfWidget",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"annotation <mName> of <mWidget>"
+			],
+			"display syntax":[
+				"annotation <i>mName</i> of <i>mWidget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Manipulates an annotation of a child widget",
+			"examples":[{
+				"script":"-- variable storing the last child widget the mouse was over\nvariable mLastChild as String\n\npublic handler OnCreate() returns nothing\n    variable tChildWidget as Widget\n    variable tCount as Number\n    repeat with tCount from 1 up to 10\n        put a new widget \"com.livecode.widget.button\" into tChildWidget\n        set annotation \"Name\" of tChildWidget to (\"Child\" && tCount formatted as string)\n    end repeat\nend handler\n\npublic handler OnMouseEnter() returns nothing\n    if the target is not nothing then\n        put annotation \"Name\" of the target into mLastChild\n    end if\nend handler"
+			}],
+			"description":"An annotation is a named value assigned to a widget. They do not affect any intrinsic properties of the widget are are intended\nto be used to disambiguate widget objects returned from operators such as <TheTarget> or <MyChildren>.",
+			"references":{
+				"operator":["TheTarget","MyChildren"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-30",
+			"name":"onsave",
+			"display name":"OnSave",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnSave"
+			],
+			"display syntax":[
+				"OnSave"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget is saved.",
+			"description":"Handler the <OnSave> message to execute code when a stack containing the widget is saved.\n>*Note:* Access to most script object operations is not allowed whilst an <OnSave>\nhandler is running.",
+			"tags":["widget"]
+		},{
+			"id":"builder-31",
+			"name":"nativelayerofwidget",
+			"display name":"NativeLayerOfWidget",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"native layer of <Widget>"
+			],
+			"display syntax":[
+				"native layer of <i>Widget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Get a widget's native layer pointer",
+			"parameters":[{
+				"name":"Widget",
+				"type":"",
+				"refparam":"false",
+				"description":"The widget to examine"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A platform-specific native layer pointer"
+			}],
+			"description":"Get a widget's native layer pointer",
+			"references":{
+				"expression":["MyNativeLayer"]
+			},
+			"tags":["widget","native layer"]
+		},{
+			"id":"builder-32",
+			"name":"widgetrectangleproperty",
+			"display name":"WidgetRectangleProperty",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the rectangle of <mWidget>"
+			],
+			"display syntax":[
+				"the rectangle of <i>mWidget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Manipulates the rectangle property of a child widget",
+			"parameters":[{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child widget object"
+			}],
+			"examples":[{
+				"script":"private variable mChild as Widget\n\npublic handler OnCreate() returns nothing\n    put a new widget \"com.livecode.widget.button\" into mChild\n    place mChild\nend handler\n\npublic handler OnGeometryChanged() returns nothing\n    -- ensure child widget rect is that of the parent\n    set the rectangle of mChild to my bounds\nend handler"
+			}],
+			"description":"Use the rectangle property to set the rectangle of a child widget.",
+			"tags":["widget"]
+		},{
+			"id":"builder-33",
+			"name":"anewwidget",
+			"display name":"ANewWidget",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"a new widget <mKind>"
+			],
+			"display syntax":[
+				"a new widget <i>mKind</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Create a widget object of the specified kind",
+			"examples":[{
+				"script":"variable tNavbar as Widget\nput a new widget \"com.livecode.widget.navbar\" into tNavbar"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A widget object."
+			}],
+			"description":"Create a new widget object of the specified kind. The widget can then be placed with the <PlaceWidget|place> statement.",
+			"references":{
+				"statement":["PlaceWidget"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-34",
+			"name":"onmousescroll",
+			"display name":"OnMouseScroll",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnMouseScroll"
+			],
+			"display syntax":[
+				"OnMouseScroll"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the mouse wheel is scrolled within the widget's rect.",
+			"description":"Sent when the mouse wheel is scrolled within the widget's rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-35",
+			"name":"widgetenabledproperty",
+			"display name":"WidgetEnabledProperty",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the enabled of <mWidget>"
+			],
+			"display syntax":[
+				"the enabled of <i>mWidget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Manipulates the enabled property of a child widget",
+			"parameters":[{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child widget object"
+			}],
+			"examples":[{
+				"script":"private variable mChild as Widget\n\npublic handler OnCreate() returns nothing\n    put a new widget \"com.livecode.widget.button\" into mChild\n    place mChild\n    -- mChild is initially disabled\n    set the enabled of mChild to false\nend handler"
+			}],
+			"description":"Use the enabled property to control the disabled/enabled state of child widgets.\nThe child widget can change its appearance and behavior based on the result of the '<MyEnabled|my enabled>' expression.",
+			"references":{
+				"expression":["MyDisabled"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-36",
+			"name":"ondestroy",
+			"display name":"OnDestroy",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnDestroy"
+			],
+			"display syntax":[
+				"OnDestroy"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget is deleted.",
+			"description":"Handle the OnDestroy message to have the widget perform an action when it is deleted.",
+			"tags":["widget"]
+		},{
+			"id":"builder-37",
+			"name":"ontouchstart",
+			"display name":"OnTouchStart",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnTouchStart"
+			],
+			"display syntax":[
+				"OnTouchStart"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget is the target for touch events and a touch is started.",
+			"description":"The widget becomes the target for touch events when the first touch is\nwithin its rect. The widget remains the target for touch events until\nall touches end or are cancelled.",
+			"tags":["widget"]
+		},{
+			"id":"builder-38",
+			"name":"onopen",
+			"display name":"OnOpen",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnOpen"
+			],
+			"display syntax":[
+				"OnOpen"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the card containing the widget becomes the current card.",
+			"examples":[{
+				"script":"public handler OnOpen()\n  \t\t-- Schedule a timer to perform an action every 5 seconds\n \t\t schedule timer in 5 seconds\nend handler"
+			}],
+			"description":"Handle the <OnOpen> message to have the widget perform an action when the card containing the widget becomes the current card, for example setting default values of instance variables.",
+			"tags":["widget"]
+		},{
+			"id":"builder-39",
+			"name":"ondragstart",
+			"display name":"OnDragStart",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnDragStart"
+			],
+			"display syntax":[
+				"OnDragStart"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget begins to be dragged",
+			"description":"Sent when the widget begins to be dragged",
+			"tags":["widget"]
+		},{
+			"id":"builder-40",
+			"name":"ontouchmove",
+			"display name":"OnTouchMove",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnTouchMove"
+			],
+			"display syntax":[
+				"OnTouchMove"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent to the target for touch events when a touch moves.",
+			"description":"Sent to the target for touch events when a touch moves.",
+			"tags":["widget"]
+		},{
+			"id":"builder-41",
+			"name":"themouselocation",
+			"display name":"TheMouseLocation",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the ( current ) mouse position"
+			],
+			"display syntax":[
+				"the ( current ) mouse position"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Determines the location of the mouse pointer relative to the widget.",
+			"examples":[{
+				"script":"variable tPosition as Point\nput the mouse position into tPosition\n\nvariable tRect as Rectangle\nput my bounds into tRect\n\nif tPosition is within tRect then\n\t// mouse position is within the widget bounds\nend if"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The location of the mouse pointer."
+			}],
+			"description":"Use the 'current' form to obtain the asynchronous mouse position.",
+			"tags":["widget"]
+		},{
+			"id":"builder-42",
+			"name":"ongeometrychanged",
+			"display name":"OnGeometryChanged",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnGeometryChanged"
+			],
+			"display syntax":[
+				"OnGeometryChanged"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget geometry changed.",
+			"examples":[{
+				"script":"private variable mLabel as String\n\npublic handler OnGeometryChanged()\n\tif my width is not my height then\n\t\tput \"Rectangle\" into mLabel\n\telse\n\t\tput \"Square\" into mLabel\n\tend if\n\tredraw all\t\nend handler"
+			}],
+			"description":"Handle the <OnGeometryChanged> message to perform specific actions that depend on the geometry of the widget, for example the locations on the canvas where parts of the widget are drawn.",
+			"tags":["widget"]
+		},{
+			"id":"builder-43",
+			"name":"myname",
+			"display name":"MyName",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my name"
+			],
+			"display syntax":[
+				"my name"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns the name of the widget's script object",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The name of the widget's script object"
+			}],
+			"description":"Returns the name of the widget's script object",
+			"tags":["widget"]
+		},{
+			"id":"builder-44",
+			"name":"onstartediting",
+			"display name":"OnStartEditing",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnStartEditing"
+			],
+			"display syntax":[
+				"OnStartEditing"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the pointer tool is selected.",
+			"description":"Handle the <OnStartEditing> message to perform an action when the edit tool is selected.",
+			"tags":["widget"]
+		},{
+			"id":"builder-45",
+			"name":"thetarget",
+			"display name":"TheTarget",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the target"
+			],
+			"display syntax":[
+				"the target"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"The child widget that started the current execution.",
+			"examples":[{
+				"script":"-- In the child widget\npublic handler OnMouseUp() returns nothing\n    -- handled in the parent\nend handler\n\n-- in the parent\npublic handler OnMouseUp() returns nothing\n    variable tComponent as optional Widget\n    put the target into tComponent\n    if tComponent is not nothing then\n        variable tName as String\n        put annotation \"Name\" of tComponent into tName\n        -- notify the parent or the script object which component was clicked\n        post \"componentClicked\" with [tName]\n    else\n        -- the mouseUp was not over a child widget\n    end if\nend handler"
+			},{
+				"script":"-- In the child widget\npublic handler OnClick() returns nothing\n    post \"componentClicked\"\nend handler\n\n-- In the parent widget\npublic handler OnComponentClicked() returns nothing\n    variable tComponent as optional Widget\n    put the target into tComponent\n    if tComponent is not nothing then\n        variable tName as String\n        put annotation \"Name\" of tComponent into tName\n        -- notify the parent or the script object which component was clicked\n        post \"componentClicked\" with [tName]\n    end if\nend handler"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A widget object."
+			}],
+			"description":"The target evaluates to either the first widget object in a chain of event handlers (eg <OnMouseUp>)\nor the widget from which a message was <Post|posted>.",
+			"tags":["widget"]
+		},{
+			"id":"builder-46",
+			"name":"thetouchids",
+			"display name":"TheTouchIDs",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the touch ids"
+			],
+			"display syntax":[
+				"the touch ids"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"The touch IDs",
+			"examples":[{
+				"script":"variable tIDs as optional List\nput the touch ids into tIDs\nif tIDs is not nothing then\n    variable tPosition as Point\n    put the position of touch tIDs[1] into tPosition\nend if"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The a list of currently active touch IDs"
+			}],
+			"description":"The touch IDs",
+			"tags":["widget"]
+		},{
+			"id":"builder-47",
+			"name":"onactionkeypress",
+			"display name":"OnActionKeyPress",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnActionKeyPress <keyText>"
+			],
+			"display syntax":[
+				"OnActionKeyPress <i>keyText</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when an action key is pressed while the widget has focus.",
+			"parameters":[{
+				"name":"keyText",
+				"type":"string",
+				"refparam":"false",
+				"description":"The key pressed"
+			}],
+			"description":"Sent when an action key is pressed while the widget has focus.",
+			"tags":["widget"]
+		},{
+			"id":"builder-48",
+			"name":"widgetfontproperty",
+			"display name":"WidgetFontProperty",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the font of <Widget>"
+			],
+			"display syntax":[
+				"the font of <i>Widget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"The font of a widget",
+			"parameters":[{
+				"name":"Widget",
+				"type":"",
+				"refparam":"false",
+				"description":"The widget to examine"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A font handle for the widget's effective font"
+			}],
+			"description":"Return a font which reflects the current (effective) settings of\n<Widget>'s LiveCode `textFont`, `textSize` and `textStyle` properties.",
+			"references":{
+				"expression":["MyFont"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-49",
+			"name":"theclickcount",
+			"display name":"TheClickCount",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the ( current ) click count"
+			],
+			"display syntax":[
+				"the ( current ) click count"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Determines the number of successive clicks within the click distance.",
+			"examples":[{
+				"script":"    variable tClickCount as integer\n    put the click count into tClickCount\n\n    if tClickCount is 1 then\n        // do single click action\n    else if tClickCount is 2 then\n        // do double click action\n    end if"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The number of clicks which have occurred since the initial click within the standard 'click distance' from the original point."
+			}],
+			"description":"Determines the number of successive clicks within the click distance.",
+			"tags":["widget"]
+		},{
+			"id":"builder-50",
+			"name":"thetouchid",
+			"display name":"TheTouchId",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the touch id"
+			],
+			"display syntax":[
+				"the touch id"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"The id of the current touch",
+			"examples":[{
+				"script":"   variable tID as Number\n   put the touch id into tID\n\n   variable tPosition as Point\n   put the position of touch tID into tPosition"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"An integer id for the current touch"
+			}],
+			"description":"The id of the current touch",
+			"tags":["widget"]
+		},{
+			"id":"builder-51",
+			"name":"closepopupwithresult",
+			"display name":"ClosePopupWithResult",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"close popup [ returning <Result> ]"
+			],
+			"display syntax":[
+				"close popup [ returning <i>Result</i> ]"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Closes the current widget popup.",
+			"parameters":[{
+				"name":"Result",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to any type. The result of popping up this widget."
+			}],
+			"examples":[{
+				"script":"variable mSelected\n\npublic handler OnClick()\n\tvariable tOption\n\tput getOptionAtPosition(the click position) into tOption\n\tif tOption is not empty then\n\t\tput tOption into mSelected\n\n\t\t// If this widget is being used as a popup then we close the popup and return a value to the caller\n\t\tif currently popped up then\n\t\t\tif mSelected is \"Cancel\" then\n\t\t\t\t// Dismiss the popup without returning a value - the result will be nothing\n\t\t\t\tclose popup\n\t\t\telse\n\t\t\t\t// Dismiss the popup - the result will be the value of mSelected\n\t\t\t\tclose popup returning mSelected\n\t\t\tend if\n\t\tend if\n\tend if\nend handler\n\nprivate handler getOptionAtPosition(in pPosition as Point) returns String\n\t// Return the name of the option at the given point\n\t...\nend handler"
+			}],
+			"description":"Use to close the current popup, and optionally set a return value for the <PopupWidget> statement that launched it.",
+			"references":{
+				"statement":["PopupWidget"],
+				"expression":["IsPoppedUp"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-52",
+			"name":"redrawall",
+			"display name":"RedrawAll",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"redraw all"
+			],
+			"display syntax":[
+				"redraw all"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Redraws the widget.",
+			"examples":[{
+				"script":"private variable mColor as Color\n\npublic handler OnClick()\n\tput color [ any number, any number, any number ] into mColor\n\tredraw all\nend handler\n\npublic handler OnPaint()\n\t...\n\tset the paint of this canvas to solid paint with color mColor\n\t...\nend handler"
+			}],
+			"description":"Use redraw all to redraw the widget, for example after setting a property which should trigger a change in appearance.",
+			"references":{
+				"message":["OnPaint"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-53",
+			"name":"placewidget",
+			"display name":"PlaceWidget",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"place <mWidget>"
+			],
+			"display syntax":[
+				"place <i>mWidget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Add a child widget to the parent.",
+			"parameters":[{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child widget object."
+			}],
+			"examples":[{
+				"script":"variable tNavbar as Widget\nput a new widget \"com.livecode.widget.navbar\" into tNavbar\nplace tNavbar"
+			}],
+			"description":"Adds a the specified child object to the widget in which the place statement is used.\n<mWidget> will reside on the layer above all previously placed widgets.",
+			"tags":["widget"]
+		},{
+			"id":"builder-54",
+			"name":"mychildren",
+			"display name":"MyChildren",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my children"
+			],
+			"display syntax":[
+				"my children"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"The currently placed child widgets of this widget.",
+			"examples":[{
+				"script":"public handler OnCreate() returns nothing\n    repeat 10 times\n        place a new widget \"com.livecode.widget.button\"\n    end repeat\nend handler\n\npublic handler OnGeometryChanged() returns nothing\n    variable tChildren as List\n    put my children into tChildren\n\n    variable tChild as Widget\n    variable tLeft as Number\n    put 0 into tLeft\n    -- arrange children from left to right\n    repeat for each element tChild in tChildren\n        set the rectangle of tChild to [tLeft, 0, tLeft + 50, my height]\n        add 50 to tLeft\n    end repeat\nend handler"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A list of the child widgets of this widget."
+			}],
+			"description":"The list of widget objects returned by <MyChildren|my children> is in placement (i.e. layer) order.",
+			"tags":["widget"]
+		},{
+			"id":"builder-55",
+			"name":"onmousemove",
+			"display name":"OnMouseMove",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnMouseMove"
+			],
+			"display syntax":[
+				"OnMouseMove"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the mouse pointer moves within the widget's rect.",
+			"description":"Sent when the mouse pointer moves within the widget's rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-56",
+			"name":"mywidth",
+			"display name":"MyWidth",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my width"
+			],
+			"display syntax":[
+				"my width"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns the width of the widget.",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The width of the widget."
+			}],
+			"description":"Returns the width of the widget.",
+			"tags":["widget"]
+		},{
+			"id":"builder-57",
+			"name":"onload",
+			"display name":"OnLoad",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnLoad"
+			],
+			"display syntax":[
+				"OnLoad"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget is loaded.",
+			"description":"Handler the <OnLoade> message to execute code when a stack containing the widget is loaded, for example setting default values of instance variables.\n>*Note:* Access to most script object operations is not allowed whilst an <OnLoad>\nhandler is running.",
+			"tags":["widget"]
+		},{
+			"id":"builder-58",
+			"name":"myheight",
+			"display name":"MyHeight",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my height"
+			],
+			"display syntax":[
+				"my height"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns the height of the widget.",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The height of the widget."
+			}],
+			"description":"Returns the height of the widget.",
+			"tags":["widget"]
+		},{
+			"id":"builder-59",
+			"name":"myscriptobject",
+			"display name":"MyScriptObject",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my script object"
+			],
+			"display syntax":[
+				"my script object"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns the widget script object.",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The widget script object.\n"
+			}],
+			"description":"Returns the widget script object.",
+			"tags":["widget"]
+		},{
+			"id":"builder-60",
+			"name":"ispoppedup",
+			"display name":"IsPoppedUp",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"currently popped up"
+			],
+			"display syntax":[
+				"currently popped up"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Tests if the current widget is in a popup window.\nResturns:True if the current widget is in a popup window, False otherwise.",
+			"examples":[{
+				"script":"variable mSelected\n\npublic handler OnClick()\n\tvariable tOption\n\tput getOptionAtPosition(the click position) into tOption\n\tif tOption is not empty then\n\t\tput tOption into mSelected\n\n\t\t// If this widget is being used as a popup then we close the popup and return a value to the caller\n\t\tif currently popped up then\n\t\t\tif mSelected is \"Cancel\" then\n\t\t\t\t// Dismiss the popup without returning a value - the result will be nothing\n\t\t\t\tclose popup\n\t\t\telse\n\t\t\t\t// Dismiss the popup - the result will be the value of mSelected\n\t\t\t\tclose popup returning mSelected\n\t\t\tend if\n\t\tend if\n\tend if\nend handler\n\nprivate handler getOptionAtPosition(in pPosition as Point) returns String\n\t// Return the name of the option at the given point\n\t...\nend handler"
+			}],
+			"description":"Use to determine if this widget is being displayed within a popup window.",
+			"references":{
+				"statement":["PopupWidget","ClosePopupWithResult"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-61",
+			"name":"widgetheightproperty",
+			"display name":"WidgetHeightProperty",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the height of <mWidget>"
+			],
+			"display syntax":[
+				"the height of <i>mWidget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Manipulates the height property of a child widget",
+			"parameters":[{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child widget object"
+			}],
+			"examples":[{
+				"script":"private variable mChild as Widget\n\npublic handler OnCreate() returns nothing\n    put a new widget \"com.livecode.widget.button\" into mChild\n    place mChild\nend handler\n\npublic handler OnGeometryChanged() returns nothing\n    -- ensure child widget remains same height as parent\n    set the height of mChild to my height\nend handler"
+			}],
+			"description":"Use the height property to set the height of a child widget.",
+			"tags":["widget"]
+		},{
+			"id":"builder-62",
+			"name":"onmousehover",
+			"display name":"OnMouseHover",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnMouseHover"
+			],
+			"display syntax":[
+				"OnMouseHover"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the mouse pointer hovers over the widget's rect.",
+			"description":"Sent when the mouse pointer hovers over the widget's rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-63",
+			"name":"onclose",
+			"display name":"OnClose",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnClose"
+			],
+			"display syntax":[
+				"OnClose"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when card containing the widget is navigated away from.",
+			"examples":[{
+				"script":"public handler OnClose()\n  \t\t-- Schedule a timer to perform an action every 5 seconds\n \t\t cancel timer\nend handler"
+			}],
+			"description":"Handle the <OnClose> message to have the widget perform an action when the card containing the widget is navigated away from.",
+			"tags":["widget"]
+		},{
+			"id":"builder-64",
+			"name":"iseditmode",
+			"display name":"IsEditMode",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"in edit mode"
+			],
+			"display syntax":[
+				"in edit mode"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Determines whether the IDE is in edit mode.",
+			"description":"Determines whether the IDE is in edit mode.",
+			"tags":["widget"]
+		},{
+			"id":"builder-65",
+			"name":"oncreate",
+			"display name":"OnCreate",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnCreate"
+			],
+			"display syntax":[
+				"OnCreate"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget is created.",
+			"examples":[{
+				"script":"private variable mPrimaryColor as Color\nprivate variable mSecondaryColor as Color\n\npublic handler OnCreate()\n\tput color [ 0.5, 0.5, 1.0 ] into mPrimaryColor\n\tput color [ 0.0, 0.0, 1.0 ] into mSecondaryColor\nend handler"
+			}],
+			"description":"Handle the <OnCreate> message to have the widget perform an action when it is created, for example setting default values of instance variables.\n>*Note:* Access to most script object operations is not allowed whilst an <OnCreate>\nhandler is running.",
+			"tags":["widget"]
+		},{
+			"id":"builder-66",
+			"name":"ondragfinish",
+			"display name":"OnDragFinish",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnDragFinish"
+			],
+			"display syntax":[
+				"OnDragFinish"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget finishes being dragged",
+			"description":"Sent when the widget finishes being dragged",
+			"tags":["widget"]
+		},{
+			"id":"builder-67",
+			"name":"placewidgetat",
+			"display name":"PlaceWidgetAt",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"place <mWidget> at ( bottom | top )"
+			],
+			"display syntax":[
+				"place <i>mWidget</i> at ( bottom | top )"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Add a child widget to the parent on the top or bottom layer",
+			"parameters":[{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child widget object."
+			}],
+			"examples":[{
+				"script":"variable tNavbar as Widget\nput a new widget \"com.livecode.widget.navbar\" into tNavbar\nplace tNavbar at top"
+			}],
+			"description":"Adds a the specified child object to the widget in which the place statement is used.\nUsing the \"top\" (resp. \"bottom\") variant will cause <mWidget> to be placed on the layer above (resp. below) all previously placed widgets.",
+			"tags":["widget"]
+		},{
+			"id":"builder-68",
+			"name":"ontouchfinish",
+			"display name":"OnTouchFinish",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnTouchFinish"
+			],
+			"display syntax":[
+				"OnTouchFinish"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent to the target for touch events when a touch event ends.",
+			"description":"Sent to the target for touch events when a touch event ends.",
+			"tags":["widget"]
+		},{
+			"id":"builder-69",
+			"name":"myfont",
+			"display name":"MyFont",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my font"
+			],
+			"display syntax":[
+				"my font"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns the font of the widget.",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The font of the widget"
+			}],
+			"description":"Use to return a font which reflects the current (effective) settings of the\nwidget's textFont, textSize and textStyle properties.",
+			"tags":["widget"]
+		},{
+			"id":"builder-70",
+			"name":"onvisibilitychanged",
+			"display name":"OnVisibilityChanged",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnVisibilityChanged <isVisible>"
+			],
+			"display syntax":[
+				"OnVisibilityChanged <i>isVisible</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget visibility changed.",
+			"parameters":[{
+				"name":"isVisible",
+				"type":"bool",
+				"refparam":"false",
+				"description":"Whether the widget is now visible or not."
+			}],
+			"examples":[{
+				"script":"private variable mAnimate as Boolean\n\npublic handler OnVisibilityChanged(in pVisible as Boolean)\n\tput pVisible into mAnimate\nend handler"
+			}],
+			"description":"Handle the <OnVisibilityChanged> message to execute code when the widget becomes visible or invisible.",
+			"tags":["widget"]
+		},{
+			"id":"builder-71",
+			"name":"canceltimer",
+			"display name":"CancelTimer",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"cancel timer"
+			],
+			"display syntax":[
+				"cancel timer"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Cancels a timer.",
+			"examples":[{
+				"script":"// Cancel the timer when the widget is no longer on the current card.\npublic handler OnClose()\n\tcancel timer\nend handler"
+			}],
+			"description":"Use to cancel a timer scheduled by the <ScheduleTimerIn|schedule> statement.",
+			"references":{
+				"statement":["ScheduleTimerIn"],
+				"message":["OnTimer"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-72",
+			"name":"onfocusenter",
+			"display name":"OnFocusEnter",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnFocusEnter"
+			],
+			"display syntax":[
+				"OnFocusEnter"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget gains focus.",
+			"description":"Sent when the widget gains focus.",
+			"tags":["widget"]
+		},{
+			"id":"builder-73",
+			"name":"unplacewidget",
+			"display name":"UnplaceWidget",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"unplace <mWidget>"
+			],
+			"display syntax":[
+				"unplace <i>mWidget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Remove a child widget from the parent.",
+			"parameters":[{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child widget object."
+			}],
+			"examples":[{
+				"script":"-- Remove any child widgets that are clicked on\npublic handler OnMouseUp() returns nothing\n    if the target is not nothing then\n        unplace the target\n    end if\nend handler"
+			}],
+			"description":"Unplaces the child widget from the widget in which the unplace statement is used.\nThe widget is no longer drawn.",
+			"tags":["widget"]
+		},{
+			"id":"builder-74",
+			"name":"onmodifierschanged",
+			"display name":"OnModifiersChanged",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnModifiersChanged"
+			],
+			"display syntax":[
+				"OnModifiersChanged"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the keyboard modifiers are changed.",
+			"description":"Sent when the keyboard modifiers are changed.",
+			"tags":["widget"]
+		},{
+			"id":"builder-75",
+			"name":"ispointnotwithinrect",
+			"display name":"IsPointNotWithinRect",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"<Point> is not within <Rect>"
+			],
+			"display syntax":[
+				"<i>Point</i> is not within <i>Rect</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Determines whether a point is within a rectangle.",
+			"parameters":[{
+				"name":"Point",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to a Point."
+			},{
+				"name":"Rect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to a Rectangle."
+			}],
+			"examples":[{
+				"script":"variable tClick as Point\nput the click position into tClick\n\nvariable tRect as Rectangle\nput my bounds into tRect\n\nif tClick is not within tRect then\n\t// click was outside of widget bounds\nend if"
+			}],
+			"description":"Determines whether a point is within a rectangle.",
+			"tags":["widget"]
+		},{
+			"id":"builder-76",
+			"name":"onmouseleave",
+			"display name":"OnMouseLeave",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnMouseLeave"
+			],
+			"display syntax":[
+				"OnMouseLeave"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the mouse pointer leaves the widget's rect.",
+			"description":"Sent when the mouse pointer leaves the widget's rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-77",
+			"name":"myrectangle",
+			"display name":"MyRectangle",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my rectangle"
+			],
+			"display syntax":[
+				"my rectangle"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns the rectangle of the widget in the parent",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The rectangle of the widget in the parent"
+			}],
+			"description":"Returns the rectangle of the widget in the parent",
+			"tags":["widget"]
+		},{
+			"id":"builder-78",
+			"name":"onmousecancel",
+			"display name":"OnMouseCancel",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnMouseCancel"
+			],
+			"display syntax":[
+				"OnMouseCancel"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when something happens which should cause the previous mouse down\naction to be considered cancelled. For example, opening a popup during OnMouseDown.",
+			"description":"Sent when something happens which should cause the previous mouse down\naction to be considered cancelled. For example, opening a popup during OnMouseDown.",
+			"tags":["widget"]
+		},{
+			"id":"builder-79",
+			"name":"ispointwithinrect",
+			"display name":"IsPointWithinRect",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"<Point> is within <Rect>"
+			],
+			"display syntax":[
+				"<i>Point</i> is within <i>Rect</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Determines whether a point is within a rectangle.",
+			"parameters":[{
+				"name":"Point",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to a Point."
+			},{
+				"name":"Rect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to a Rectangle."
+			}],
+			"examples":[{
+				"script":"variable tClick as Point\nput the click position into tClick\n\nvariable tRect as Rectangle\nput my bounds into tRect\n\nif tClick is within tRect then\n\t// click was within widget bounds\nend if"
+			}],
+			"description":"Determines whether a point is within a rectangle.",
+			"tags":["widget"]
+		},{
+			"id":"builder-80",
+			"name":"ondragdrop",
+			"display name":"OnDragDrop",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnDragDrop"
+			],
+			"display syntax":[
+				"OnDragDrop"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when a dragged object is released within the widget rect.",
+			"description":"Sent when a dragged object is released within the widget rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-81",
+			"name":"widgetdisabledproperty",
+			"display name":"WidgetDisabledProperty",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the disabled of <mWidget>"
+			],
+			"display syntax":[
+				"the disabled of <i>mWidget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Manipulates the disabled property of a child widget",
+			"parameters":[{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child widget object"
+			}],
+			"examples":[{
+				"script":"private variable mChild as Widget\n\npublic handler OnCreate() returns nothing\n    put a new widget \"com.livecode.widget.button\" into mChild\n    place mChild\n    -- mChild is initially disabled\n    set the disabled of mChild to true\nend handler"
+			}],
+			"description":"Use the disabled property to control the disabled/enabled state of child widgets.\nThe child widget can change its appearance and behavior based on the result of the '<MyDiabled|my disabled>' expression.",
+			"references":{
+				"expression":["MyDisabled"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-82",
+			"name":"onstopediting",
+			"display name":"OnStopEditing",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnStopEditing"
+			],
+			"display syntax":[
+				"OnStopEditing"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the browse tool is selected.",
+			"description":"Handle the <OnStopEditing> message to perform an action when the browse tool is selected.",
+			"tags":["widget"]
+		},{
+			"id":"builder-83",
+			"name":"onmousedown",
+			"display name":"OnMouseDown",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnMouseDown"
+			],
+			"display syntax":[
+				"OnMouseDown"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the mouse button is pushed within the widget's rect.",
+			"description":"Sent when the mouse button is pushed within the widget's rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-84",
+			"name":"onmousestillhover",
+			"display name":"OnMouseStillHover",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnMouseStillHover"
+			],
+			"display syntax":[
+				"OnMouseStillHover"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the mouse pointer continues to hover over the widget's rect.",
+			"description":"Sent when the mouse pointer continues to hover over the widget's rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-85",
+			"name":"onclick",
+			"display name":"OnClick",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnClick"
+			],
+			"display syntax":[
+				"OnClick"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget is clicked.",
+			"description":"Sent when the widget is clicked.",
+			"tags":["widget"]
+		},{
+			"id":"builder-86",
+			"name":"thetouchlocation",
+			"display name":"TheTouchLocation",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the touch position"
+			],
+			"display syntax":[
+				"the touch position"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"The location of the current touch",
+			"examples":[{
+				"script":"   variable tPosition as Point\n   put the touch position into tPosition\n\n   variable tRect as Rectangle\n   put my bounds into tRect\n\n   if tPosition is within tRect then\n      // touch position is within the widget bounds\n   end if"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The position of the current touch relative to the widget"
+			}],
+			"description":"The location of the current touch",
+			"tags":["widget"]
+		},{
+			"id":"builder-87",
+			"name":"onmouseenter",
+			"display name":"OnMouseEnter",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnMouseEnter"
+			],
+			"display syntax":[
+				"OnMouseEnter"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the mouse pointer enters the widget's rect.",
+			"description":"Sent when the mouse pointer enters the widget's rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-88",
+			"name":"onattach",
+			"display name":"OnAttach",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnAttach"
+			],
+			"display syntax":[
+				"OnAttach"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget is attached.",
+			"description":"Sent when the widget is attached.",
+			"tags":["widget"]
+		},{
+			"id":"builder-89",
+			"name":"thenumberoftouches",
+			"display name":"TheNumberOfTouches",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the number of touches"
+			],
+			"display syntax":[
+				"the number of touches"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"The number of touches",
+			"examples":[{
+				"script":"   if the number of touches is 2 then\n      // pinch gesture\n   end if"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The number of currently active touches"
+			}],
+			"description":"The number of touches",
+			"tags":["widget"]
+		},{
+			"id":"builder-90",
+			"name":"ondetach",
+			"display name":"OnDetach",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnDetach"
+			],
+			"display syntax":[
+				"OnDetach"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when the widget is detached.",
+			"description":"Sent when the widget is detached.",
+			"tags":["widget"]
+		},{
+			"id":"builder-91",
+			"name":"ontouchcancel",
+			"display name":"OnTouchCancel",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnTouchCancel"
+			],
+			"display syntax":[
+				"OnTouchCancel"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent to the target for touch events when a touch event is cancelled.",
+			"description":"Sent to the target for touch events when a touch event is cancelled.",
+			"tags":["widget"]
+		},{
+			"id":"builder-92",
+			"name":"popupmenu",
+			"display name":"PopupMenu",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"popup menu <mMenu> at <mAt>"
+			],
+			"display syntax":[
+				"popup menu <i>mMenu</i> at <i>mAt</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Displays a popup menu.\nMenu:An expression that evaluates to a string, which describes the menu items.\nLocation:An expression that evaluates to a <Point> relative to the current widget. The topleft corner of the popup window will be placed here.",
+			"examples":[{
+				"script":"private variable mFont as Font\n\npublic handler OnMouseDown()\n\tpopup menu \"Helvetica\\nTimes New Roman\\nArial\" at the mouse position\n\tif the result is not nothing then\n\t\tput font (the result) at size 20 into mFont\n\t\tredraw all\n\tend if\nend handler\n\npublic handler OnPaint()\n\t...\n\tset the font of this canvas to mFont\n\t...\nend handler"
+			}],
+			"value":[{
+				"name":"the result",
+				"type":"",
+				"description":"The selected menu item. If the menu is dismissed (by clicking outside the bounds of the menu) this value will be nothing."
+			}],
+			"description":"Use to popup a menu at the specified location.",
+			"tags":["widget"]
+		},{
+			"id":"builder-93",
+			"name":"triggerall",
+			"display name":"TriggerAll",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"trigger all [ in <mWidget> ]"
+			],
+			"display syntax":[
+				"trigger all [ in <i>mWidget</i> ]"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Causes all of a widget's property triggers to be fired.",
+			"parameters":[{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to a widget."
+			}],
+			"examples":[{
+				"script":"handler TextChangedCallback()\n        UpdateTextProperty()\n        trigger all\nend handler"
+			},{
+				"script":"private variable mSelf as Widget\nhandler TextChangedCallback()\n\tUpdateTextProperty()\n\ttrigger all in mSelf\nend handler"
+			}],
+			"description":"Use trigger all to cause all triggers for all a widget's properties to \nbe fired, for example when user action causes a native widget's \nproperties to change, to signal the property change to the IDE.",
+			"tags":["widget"]
+		},{
+			"id":"builder-94",
+			"name":"mybounds",
+			"display name":"MyBounds",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my bounds"
+			],
+			"display syntax":[
+				"my bounds"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns the bounds of the widget.",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The bounds of the widget."
+			}],
+			"description":"Returns the bounds of the widget.",
+			"tags":["widget"]
+		},{
+			"id":"builder-95",
+			"name":"ondragleave",
+			"display name":"OnDragLeave",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"OnDragLeave"
+			],
+			"display syntax":[
+				"OnDragLeave"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Sent when an object is dragged outside of the widget rect.",
+			"description":"Sent when an object is dragged outside of the widget rect.",
+			"tags":["widget"]
+		},{
+			"id":"builder-96",
+			"name":"myenabled",
+			"display name":"MyEnabled",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my enabled"
+			],
+			"display syntax":[
+				"my enabled"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Returns the enabled state of the widget.",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The enabled state of the widget."
+			}],
+			"description":"Returns the enabled state of the widget.",
+			"tags":["widget"]
+		},{
+			"id":"builder-97",
+			"name":"widgetwidthproperty",
+			"display name":"WidgetWidthProperty",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the width of <mWidget>"
+			],
+			"display syntax":[
+				"the width of <i>mWidget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Manipulates the height property of a child widget",
+			"parameters":[{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child widget object"
+			}],
+			"examples":[{
+				"script":"private variable mChild as Widget\n\npublic handler OnCreate() returns nothing\n    put a new widget \"com.livecode.widget.button\" into mChild\n    place mChild\nend handler\n\npublic handler OnGeometryChanged() returns nothing\n    -- ensure child widget remains half the width of the parent\n    set the width of mChild to my width / 2\nend handler"
+			}],
+			"description":"Use the width property to set the width of a child widget.",
+			"tags":["widget"]
+		},{
+			"id":"builder-98",
+			"name":"placewidgetrelative",
+			"display name":"PlaceWidgetRelative",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"place <mWidget> ( below | above ) <mOtherWidget>"
+			],
+			"display syntax":[
+				"place <i>mWidget</i> ( below | above ) <i>mOtherWidget</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Add a child widget to the parent on a layer relative to that of a previously placed child.",
+			"parameters":[{
+				"name":"mWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child widget object."
+			},{
+				"name":"mOtherWidget",
+				"type":"",
+				"refparam":"false",
+				"description":"The child to place <mWidget> relative to."
+			}],
+			"examples":[{
+				"script":"variable tNavbar as Widget\nput a new widget \"com.livecode.widget.navbar\" into tNavbar\nplace tNavbar\n\nvariable tTreeView as Widget\nput a new widget \"com.livecode.widget.treeView\" into tTreeView\nplace tTreeView below tNavbar"
+			}],
+			"description":"Adds a the specified child object to the widget in which the place statement is used. <mWidget> is placed either below or above\nthe layer on which <mOtherWidget> is placed, depending on which variant is used.",
+			"tags":["widget"]
+		},{
+			"id":"builder-99",
+			"name":"scheduletimerin",
+			"display name":"ScheduleTimerIn",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"schedule timer in <Time> seconds"
+			],
+			"display syntax":[
+				"schedule timer in <i>Time</i> seconds"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"Schedules a timer.",
+			"parameters":[{
+				"name":"Time",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			}],
+			"examples":[{
+				"script":"// Create a timer loop\npublic handler OnTimer()\n\t...\n\tschedule timer in 1 seconds\nend handler"
+			}],
+			"description":"Scheduling a timer causes an <OnTimer> message to be sent to the widget in <Time> seconds.",
+			"references":{
+				"message":["OnTimer"]
+			},
+			"tags":["widget"]
+		},{
+			"id":"builder-100",
+			"name":"thelocationoftouch",
+			"display name":"TheLocationOfTouch",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the position of touch <Id>"
+			],
+			"display syntax":[
+				"the position of touch <i>Id</i>"
+			],
+			"associations":["com.livecode.widget"],
+			"summary":"The location of a specific touch",
+			"examples":[{
+				"script":"   variable tID as Number\n   put the touch id into tID\n\n   variable tPosition as Point\n   put the position of touch tID into tPosition"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The positon of a specific touch id relative to the widget"
+			}],
+			"description":"The location of a specific touch",
+			"tags":["widget"]
+		},{
+			"id":"builder-101",
 			"name":"elementsofarray",
 			"display name":"ElementsOfArray",
 			"library":"builder",
@@ -136,7 +2128,7 @@
 			},
 			"tags":["arrays"]
 		},{
-			"id":"builder-8",
+			"id":"builder-102",
 			"name":"emptyarray",
 			"display name":"EmptyArray",
 			"library":"builder",
@@ -155,7 +2147,7 @@
 			"description":"Use ```the empty array``` to initialise an array variable.",
 			"tags":["arrays"]
 		},{
-			"id":"builder-9",
+			"id":"builder-103",
 			"name":"repeatforeachelementinarray",
 			"display name":"RepeatForEachElementInArray",
 			"library":"builder",
@@ -180,7 +2172,7 @@
 			"description":"Use repeat for each element to iterate over the elements of an array in no particular order. On each iteration, the <Iterand> will contain the next element of the array being iterated over.\n\n>*Note:* If <Iterand> is typed, then an error will be thrown if the array being iterated over contains any elements of a different type.",
 			"tags":["arrays"]
 		},{
-			"id":"builder-10",
+			"id":"builder-104",
 			"name":"singletonelementofarray",
 			"display name":"SingletonElementOfArray",
 			"library":"builder",
@@ -205,7 +2197,7 @@
 			"description":"Either locates the element container with the given key for use as the target container of another operation, or evaluates the element with the given key as the source of another operation.",
 			"tags":["arrays"]
 		},{
-			"id":"builder-11",
+			"id":"builder-105",
 			"name":"deleteelementofarray",
 			"display name":"DeleteElementOfArray",
 			"library":"builder",
@@ -230,7 +2222,7 @@
 			"description":"Either locates the element container with the given key for use as the target container of another operation, or evaluates the element with the given key as the source of another operation.",
 			"tags":["arrays"]
 		},{
-			"id":"builder-12",
+			"id":"builder-106",
 			"name":"amongkeysofarray",
 			"display name":"AmongKeysOfArray",
 			"library":"builder",
@@ -268,7 +2260,7 @@
 			},
 			"tags":["arrays"]
 		},{
-			"id":"builder-13",
+			"id":"builder-107",
 			"name":"keysofarray",
 			"display name":"KeysOfArray",
 			"library":"builder",
@@ -301,7 +2293,7 @@
 			},
 			"tags":["arrays"]
 		},{
-			"id":"builder-14",
+			"id":"builder-108",
 			"name":"countelementsofarray",
 			"display name":"CountElementsOfArray",
 			"library":"builder",
@@ -326,7 +2318,7 @@
 			"description":"The number of elements in tArray returns the number of key-value pairs stored in the array.",
 			"tags":["arrays"]
 		},{
-			"id":"builder-15",
+			"id":"builder-109",
 			"name":"amongelementsofarray",
 			"display name":"AmongElementsOfArray",
 			"library":"builder",
@@ -361,7 +2353,7 @@
 			"description":"Elements are compared using the default comparison for that type. Thus for a string, ```tString```, \n```tString is among the elements of tArray``` \nis a case sensitive search.",
 			"tags":["arrays"]
 		},{
-			"id":"builder-16",
+			"id":"builder-110",
 			"name":"repeatforeachkey",
 			"display name":"RepeatForEachKey",
 			"library":"builder",
@@ -386,7 +2378,7 @@
 			"description":"Use repeat for each key to iterate over the keys of an array in no particular order. On each iteration, the <Iterand> will contain the next key of the array being iterated over.",
 			"tags":["arrays","control structures"]
 		},{
-			"id":"builder-17",
+			"id":"builder-111",
 			"name":"com.livecode.array",
 			"display name":"com.livecode.array",
 			"library":"builder",
@@ -398,7 +2390,7 @@
 			"summary":"This library consists of the operations on arrays included in the standard library of LiveCode Builder.",
 			"description":"This library consists of the operations on arrays included in the standard library of LiveCode Builder."
 		},{
-			"id":"builder-18",
+			"id":"builder-112",
 			"name":"pointerfromjobject",
 			"display name":"PointerFromJObject",
 			"library":"builder",
@@ -427,7 +2419,7 @@
 			}],
 			"description":"Use <PointerFromJObject> to convert a variable of type JObject to one of\ntype Pointer, i.e. to extract the underlying jobject pointer from a JObject\n"
 		},{
-			"id":"builder-19",
+			"id":"builder-113",
 			"name":"com.livecode.java",
 			"display name":"com.livecode.java",
 			"library":"builder",
@@ -439,7 +2431,7 @@
 			"summary":"This module provides utility handlers for converting to and from Java types.",
 			"description":"> **Important:** This library is currently supported on Android, Mac and\n> Linux. Binding to java classes requires the availability of a Java \n> runtime and access to the appropriate libraries. On Mac, \n> the `JAVA_HOME` environment variable must be set to the path to your \n> Java installation (usually at \n> `/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home`). \n> On Linux, your `LD_LIBRARY_PATH` must be set to the folder containing \n> the `libjvm.so` library (usually at `${JAVA_HOME}/jre/lib/amd64/server`\n> on 64-bit Linux)."
 		},{
-			"id":"builder-20",
+			"id":"builder-114",
 			"name":"stringfromjstring",
 			"display name":"StringFromJString",
 			"library":"builder",
@@ -463,7 +2455,7 @@
 			}],
 			"description":"Use <StringFromJString> to convert an instance of the class java.lang.String\nto a variable of type String."
 		},{
-			"id":"builder-21",
+			"id":"builder-115",
 			"name":"pointertojobject",
 			"display name":"PointerToJObject",
 			"library":"builder",
@@ -492,7 +2484,7 @@
 			}],
 			"description":"Use <PointerToJObject> to convert a variable of type Pointer to one of \ntype JObject. \n\n> *Important:* Your application will likely crash if the underlying type\n> of the Pointer is not actually jobject."
 		},{
-			"id":"builder-22",
+			"id":"builder-116",
 			"name":"getjavaclassname",
 			"display name":"GetJavaClassName",
 			"library":"builder",
@@ -516,7 +2508,7 @@
 			}],
 			"description":"Use <GetJavaClassName> to find out what class a given Java object is an\ninstance of."
 		},{
-			"id":"builder-23",
+			"id":"builder-117",
 			"name":"stringtojstring",
 			"display name":"StringToJString",
 			"library":"builder",
@@ -545,7 +2537,7 @@
 			}],
 			"description":"Use <StringToJString> to convert a variable of type String to an instance\nof the class java.lang.String."
 		},{
-			"id":"builder-24",
+			"id":"builder-118",
 			"name":"com.livecode.widget.native.android.button",
 			"display name":"com.livecode.widget.native.android.button",
 			"library":"builder",
@@ -559,7 +2551,7 @@
 			"platforms":["mobile"],
 			"description":"This widget is a native button on Android."
 		},{
-			"id":"builder-25",
+			"id":"builder-119",
 			"name":"enabled",
 			"display name":"enabled",
 			"library":"builder",
@@ -576,7 +2568,7 @@
 			"platforms":["mobile"],
 			"description":"Use the <enabled> property to enable or disable the native button. When\ndisabled, the button has a greyed out appearance and does not accept \nclicks or touches."
 		},{
-			"id":"builder-26",
+			"id":"builder-120",
 			"name":"labelcolor",
 			"display name":"labelColor",
 			"library":"builder",
@@ -601,7 +2593,7 @@
 			}],
 			"description":"Use the <labeColor> property to change the color of the label text of \nthe button."
 		},{
-			"id":"builder-27",
+			"id":"builder-121",
 			"name":"label",
 			"display name":"label",
 			"library":"builder",
@@ -626,7 +2618,7 @@
 			}],
 			"description":"The <label> property is the label displayed by the button.\n"
 		},{
-			"id":"builder-28",
+			"id":"builder-122",
 			"name":"com.livecode.assert",
 			"display name":"com.livecode.assert",
 			"library":"builder",
@@ -638,7 +2630,7 @@
 			"summary":"Sometimes there are restrictions about how some LCB code can be used\ncorrectly.  It may only be possible to make it work in a sensible way\nif is passed a particular range of values, or if the system is in a\nparticular state.  These are known as \"preconditions\" for the code.\n\nMany preconditions can be expressed via the LCB type system.  For\nexample, you can declare that the parameters passed to handler must be\nparticular types of value.  For example, when you write `in pName as\nString`, you are saying that the handler can only work when the\n`pName` parameter is a character string.  This is a precondition that\ncan be checked automatically by the LCB compiler and virtual machine.\n\nSome preconditions can't yet be automatically checked by LCB.  An\nexample would be a requirement that a string contains only ASCII\ncharacters, or that an array has a particular key.\n\nThis module provides syntax to assist with explicit precondition\nchecks.",
 			"description":"Sometimes there are restrictions about how some LCB code can be used\ncorrectly.  It may only be possible to make it work in a sensible way\nif is passed a particular range of values, or if the system is in a\nparticular state.  These are known as \"preconditions\" for the code.\n\nMany preconditions can be expressed via the LCB type system.  For\nexample, you can declare that the parameters passed to handler must be\nparticular types of value.  For example, when you write `in pName as\nString`, you are saying that the handler can only work when the\n`pName` parameter is a character string.  This is a precondition that\ncan be checked automatically by the LCB compiler and virtual machine.\n\nSome preconditions can't yet be automatically checked by LCB.  An\nexample would be a requirement that a string contains only ASCII\ncharacters, or that an array has a particular key.\n\nThis module provides syntax to assist with explicit precondition\nchecks."
 		},{
-			"id":"builder-29",
+			"id":"builder-123",
 			"name":"expectpreconditionwithreason",
 			"display name":"ExpectPreconditionWithReason",
 			"library":"builder",
@@ -671,7 +2663,7 @@
 			},
 			"tags":["assertions"]
 		},{
-			"id":"builder-30",
+			"id":"builder-124",
 			"name":"expectprecondition",
 			"display name":"ExpectPrecondition",
 			"library":"builder",
@@ -693,7 +2685,7 @@
 			},
 			"tags":["assertions"]
 		},{
-			"id":"builder-31",
+			"id":"builder-125",
 			"name":"androidpermissionexists",
 			"display name":"AndroidPermissionExists",
 			"library":"builder",
@@ -720,7 +2712,7 @@
 			}],
 			"description":"Use the <AndroidPermissionExists> function to check if <pPermission> is a valid\nAndroid permission name.\n\n>*Note:* Permission names are case sensitive."
 		},{
-			"id":"builder-32",
+			"id":"builder-126",
 			"name":"androidunregisterlifecyclelistener",
 			"display name":"AndroidUnregisterLifecycleListener",
 			"library":"builder",
@@ -750,7 +2742,7 @@
 			}],
 			"description":"Use the <AndroidUnregisterLifecycleListener> handler to unregister an object\ncreated with <AndroidRegisterLifecycleListener> that is listening to application\nlifecycle events. This will have the effect that any handlers that the listener\nobject is wrapping will no longer be called."
 		},{
-			"id":"builder-33",
+			"id":"builder-127",
 			"name":"androidrequestpermission",
 			"display name":"AndroidRequestPermission",
 			"library":"builder",
@@ -777,7 +2769,7 @@
 			}],
 			"description":"Use the <AndroidRequestPermission> command to request permission for\n<pPermission> from the user.\n\n>*Note:* Permission names are case sensitive."
 		},{
-			"id":"builder-34",
+			"id":"builder-128",
 			"name":"androidregisterlifecyclelistener",
 			"display name":"AndroidRegisterLifecycleListener",
 			"library":"builder",
@@ -812,7 +2804,7 @@
 			}],
 			"description":"Use the <AndroidRegisterLifecycleListener> handler to register handlers to\napplication lifecycle events. The handler <pPauseHandler> will be called when\nthe application is paused and enters into the background. The handler\n<pResumeHandler> will be called when the application is resumed and returns from\nthe background.\n\nA listener object will be returned that wraps the registered handlers and can be\nused with <AndroidUnregisterLifecycleListener> to cancel the registration."
 		},{
-			"id":"builder-35",
+			"id":"builder-129",
 			"name":"androidhaspermission",
 			"display name":"AndroidHasPermission",
 			"library":"builder",
@@ -839,7 +2831,7 @@
 			}],
 			"description":"Use the <AndroidHasPermission> function to find out if permission\n<pPermission> has been granted by the user.\n\n>*Note:* Permission names are case sensitive."
 		},{
-			"id":"builder-36",
+			"id":"builder-130",
 			"name":"applicationcontext",
 			"display name":"ApplicationContext",
 			"library":"builder",
@@ -858,7 +2850,7 @@
 			}],
 			"description":"Use the <ApplicationContext> handler to fetch the current application's\nContext object."
 		},{
-			"id":"builder-37",
+			"id":"builder-131",
 			"name":"stringtoandroidcolor",
 			"display name":"StringToAndroidColor",
 			"library":"builder",
@@ -880,7 +2872,7 @@
 			}],
 			"description":"Use the <StringToAndroidColor> handler to convert a string representing\na color to an integer that can be used with Android color APIs.\n"
 		},{
-			"id":"builder-38",
+			"id":"builder-132",
 			"name":"com.livecode.library.androidutils",
 			"display name":"com.livecode.library.androidutils",
 			"library":"builder",
@@ -893,7 +2885,7 @@
 			"OS":["android"],
 			"description":"A library of utility handlers for functions commonly needed by Android widgets."
 		},{
-			"id":"builder-39",
+			"id":"builder-133",
 			"name":"isnotnothing",
 			"display name":"IsNotNothing",
 			"library":"builder",
@@ -922,7 +2914,7 @@
 			}],
 			"description":"Use the <IsNotNothing> operator to test if operators or handlers have returned anything."
 		},{
-			"id":"builder-40",
+			"id":"builder-134",
 			"name":"isnotempty",
 			"display name":"IsNotEmpty",
 			"library":"builder",
@@ -948,7 +2940,7 @@
 			}],
 			"description":"Determines whether <Target> is empty or not."
 		},{
-			"id":"builder-41",
+			"id":"builder-135",
 			"name":"isanumber",
 			"display name":"IsANumber",
 			"library":"builder",
@@ -974,7 +2966,7 @@
 			}],
 			"description":"Determines whether <Target> is a number or not."
 		},{
-			"id":"builder-42",
+			"id":"builder-136",
 			"name":"isastring",
 			"display name":"IsAString",
 			"library":"builder",
@@ -1000,7 +2992,7 @@
 			}],
 			"description":"Determines whether <Target> is a string or not."
 		},{
-			"id":"builder-43",
+			"id":"builder-137",
 			"name":"isempty",
 			"display name":"IsEmpty",
 			"library":"builder",
@@ -1026,7 +3018,7 @@
 			}],
 			"description":"Determines whether <Target> is empty or not."
 		},{
-			"id":"builder-44",
+			"id":"builder-138",
 			"name":"isnothing",
 			"display name":"IsNothing",
 			"library":"builder",
@@ -1052,7 +3044,7 @@
 			}],
 			"description":"Use the <IsNothing> operator to test if operators or handlers have returned anything."
 		},{
-			"id":"builder-45",
+			"id":"builder-139",
 			"name":"isalist",
 			"display name":"IsAList",
 			"library":"builder",
@@ -1078,7 +3070,7 @@
 			}],
 			"description":"Determines whether <Target> is a list or not."
 		},{
-			"id":"builder-46",
+			"id":"builder-140",
 			"name":"isaboolean",
 			"display name":"IsABoolean",
 			"library":"builder",
@@ -1104,7 +3096,7 @@
 			}],
 			"description":"Determines whether <Target> is a boolean or not."
 		},{
-			"id":"builder-47",
+			"id":"builder-141",
 			"name":"isadata",
 			"display name":"IsAData",
 			"library":"builder",
@@ -1130,7 +3122,7 @@
 			}],
 			"description":"Determines whether <Target> is data or not."
 		},{
-			"id":"builder-48",
+			"id":"builder-142",
 			"name":"isanarray",
 			"display name":"IsAnArray",
 			"library":"builder",
@@ -1156,7 +3148,7 @@
 			}],
 			"description":"Determines whether <Target> is an array or not."
 		},{
-			"id":"builder-49",
+			"id":"builder-143",
 			"name":"com.livecode.type",
 			"display name":"com.livecode.type",
 			"library":"builder",
@@ -1168,7 +3160,7 @@
 			"summary":"This library consists of the general operations on types provided by the standard library of Builder.",
 			"description":"This library consists of the general operations on types provided by the standard library of Builder."
 		},{
-			"id":"builder-50",
+			"id":"builder-144",
 			"name":"sortlistascendingbinary",
 			"display name":"SortListAscendingBinary",
 			"library":"builder",
@@ -1190,7 +3182,7 @@
 			"description":"Binary sort is performed by comparing data elements on a byte by byte basis.\n>*Note:* It is an error if <Target> contains any elements of non-data type.",
 			"tags":["sorting"]
 		},{
-			"id":"builder-51",
+			"id":"builder-145",
 			"name":"sortlistusinghandler",
 			"display name":"SortListUsingHandler",
 			"library":"builder",
@@ -1220,7 +3212,7 @@
 			"description":"<SortListUsingHandler> sorts a list by comparing the elements of a list according to the \ncomparison implemented by the <Handler> argument.\n\n>*Note:* Supplying an inconsistent comparison operator to <SortListUsingHandler> causes \nundefined behavior.",
 			"tags":["sorting"]
 		},{
-			"id":"builder-52",
+			"id":"builder-146",
 			"name":"sortlistdescendingnumeric",
 			"display name":"SortListDescendingNumeric",
 			"library":"builder",
@@ -1245,7 +3237,7 @@
 			"description":"Numeric sort is performed by comparing numeric elements by cardinality.\n>*Note:* It is an error if <Target> contains any elements of non-numeric type.",
 			"tags":["sorting"]
 		},{
-			"id":"builder-53",
+			"id":"builder-147",
 			"name":"sortlistascendingnumeric",
 			"display name":"SortListAscendingNumeric",
 			"library":"builder",
@@ -1270,7 +3262,7 @@
 			"description":"Numeric sort is performed by comparing numeric elements by cardinality.\n>*Note:* It is an error if <Target> contains any elements of non-numeric type.",
 			"tags":["sorting"]
 		},{
-			"id":"builder-54",
+			"id":"builder-148",
 			"name":"sortlistascending",
 			"display name":"SortListAscending",
 			"library":"builder",
@@ -1295,7 +3287,7 @@
 			"description":"Generic sort is performed by comparing the elements of a homogeneous list according to the default comparison function associated to the type of its elements.\n>*Note:* It is an error if <Target> is not homogeneous, i.e. if it contains any elements of differing type.",
 			"tags":["sorting"]
 		},{
-			"id":"builder-55",
+			"id":"builder-149",
 			"name":"sortlistdescendingtext",
 			"display name":"SortListDescendingText",
 			"library":"builder",
@@ -1320,7 +3312,7 @@
 			"description":"Text sort is performed by comparing string elements on a codepoint by codepoint basis.\n>*Note:* It is an error if <Target> contains any elements of non-string type.",
 			"tags":["sorting"]
 		},{
-			"id":"builder-56",
+			"id":"builder-150",
 			"name":"sortlistascendingtext",
 			"display name":"SortListAscendingText",
 			"library":"builder",
@@ -1345,7 +3337,7 @@
 			"description":"Text sort is performed by comparing string elements on a codepoint by codepoint basis.\n>*Note:* It is an error if <Target> contains any elements of non-string type.",
 			"tags":["sorting"]
 		},{
-			"id":"builder-57",
+			"id":"builder-151",
 			"name":"sortlistdescendingbinary",
 			"display name":"SortListDescendingBinary",
 			"library":"builder",
@@ -1367,7 +3359,7 @@
 			"description":"Binary sort is performed by comparing data elements on a byte by byte basis.\n>*Note:* It is an error if <Target> contains any elements of non-data type.",
 			"tags":["sorting"]
 		},{
-			"id":"builder-58",
+			"id":"builder-152",
 			"name":"sortlistdescending",
 			"display name":"SortListDescending",
 			"library":"builder",
@@ -1392,7 +3384,7 @@
 			"description":"Generic sort is performed by comparing the elements of a homogeneous list according to the default comparison function associated to the type of its elements.\n>*Note:* It is an error if <Target> is not homogeneous, i.e. if it contains any elements of differing type.",
 			"tags":["sorting"]
 		},{
-			"id":"builder-59",
+			"id":"builder-153",
 			"name":"com.livecode.sort",
 			"display name":"com.livecode.sort",
 			"library":"builder",
@@ -1404,7 +3396,4771 @@
 			"summary":"This library consists of the sorting operations provided by the standard library of LiveCode Builder.",
 			"description":"This library consists of the sorting operations provided by the standard library of LiveCode Builder."
 		},{
-			"id":"builder-60",
+			"id":"builder-154",
+			"name":"pathoperationaddpath",
+			"display name":"PathOperationAddPath",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"add <mSource> to <mDest>"
+			],
+			"display syntax":[
+				"add <i>mSource</i> to <i>mDest</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Extend a path by adding another path.",
+			"parameters":[{
+				"name":"mSource",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			},{
+				"name":"mDest",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Create a rectangle path\nvariable tPath as Path\nput rectangle path of rectangle [10,10,210,60] into tPath\n\n// Add another rectangle subpath to tPath\nadd rectangle path of rectangle [110,10,310,60] to tPath"
+			}],
+			"description":"Adds the path defined by <mSource> to <mDest>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-155",
+			"name":"imagemakewithpixels",
+			"display name":"ImageMakeWithPixels",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"image of size <mSize> with pixels <mPixels>"
+			],
+			"display syntax":[
+				"image of size <i>mSize</i> with pixels <i>mPixels</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new image using raw pixel data.",
+			"parameters":[{
+				"name":"mSize",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of integers."
+			},{
+				"name":"mPixels",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to binary data"
+			}],
+			"examples":[{
+				"script":"// Read pixel data from file\nvariable tPixelData as Data\nput the contents of file \"image_argb_320x480.bin\" into tPixelData\n\n// Create image from pixel data\nvariable tImage as Image\nput image of size [320, 480] with pixels tPixelData into tImage"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new image of the given size, using the provided ARGB pixel data."
+			}],
+			"description":"Creates a new image using raw pixel data.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-156",
+			"name":"canvasoperationmeasuretext",
+			"display name":"CanvasOperationMeasureText",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"measure <mText> on <mCanvas>"
+			],
+			"display syntax":[
+				"measure <i>mText</i> on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Measure text when drawn to a canvas.",
+			"parameters":[{
+				"name":"mText",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			},{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Measure text drawn on the canvas\nvariable tBounds as Rectangle\nmeasure \"Sample text\" on this canvas\nput the result into tBounds"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The bounding box of <mText> when drawn at point 0,0 with the current font of <mCanvas>. Returns the bounds as a rectangle in the result."
+			}],
+			"description":"Measure text when drawn to a canvas.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-157",
+			"name":"effectpropertydistance",
+			"display name":"EffectPropertyDistance",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the distance of <mEffect>"
+			],
+			"display syntax":[
+				"the distance of <i>mEffect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The distance of an effect.",
+			"parameters":[{
+				"name":"mEffect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an effect."
+			}],
+			"examples":[{
+				"script":"// Create an effect with distance 5\nvariable tProps as Array\nput the empty array into tProps\n\nput 5 into tProps[\"distance\"]\n\nvariable tEffect as Effect\nput outer shadow effect with properties tProps into tEffect\n\n// Set the effect distance\nset the distance of tEffect to 50"
+			}],
+			"description":"The distance of <mEffect> as a number. Distance applies to inner shadow, and outer shadow effect types",
+			"tags":["canvas"]
+		},{
+			"id":"builder-158",
+			"name":"rectanglepropertywidth",
+			"display name":"RectanglePropertyWidth",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the width of <mRect>"
+			],
+			"display syntax":[
+				"the width of <i>mRect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The width of a rectangle value.",
+			"parameters":[{
+				"name":"mRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			}],
+			"examples":[{
+				"script":"variable tRect\nput rectangle [50,100,150,200] into tRect\n\n// Store the width of the rectangle in a variable\nvariable tWidth\nput the width of tRect into tWidth\n\n// Increase the width of the rectangle\nset the width of tRect to (tWidth + 10)"
+			}],
+			"description":"The width of the rectangle.\n\n>*Note:* Setting the width of a rectangle will resize it without moving the left edge, expanding or contracting from the right.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-159",
+			"name":"gradientpropertytransform",
+			"display name":"GradientPropertyTransform",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the transform of <mGradient>"
+			],
+			"display syntax":[
+				"the transform of <i>mGradient</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The transform of a gradient paint.",
+			"parameters":[{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput radial gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\nvariable tRect\nput rectangle [ 20, 10, 120, 60 ] into tRect\n\n// Use the transform property to make the radial gradient spread out from the center of tRect\nvariable tTransform\nput the identity transform into tTransform\n\n// Offset transform to the center of tRect\ntranslate tTransform by [(the left of tRect + the right of tRect) / 2, (the top of tRect + the bottom of tRect) / 2]\n\n// Scale out to the right & bottom of tRect\nscale tTransform by [the width of tRect / 2, the height of tRect / 2]\n\n// Set the gradient transform\nset the transform of tGradient to tTransform"
+			}],
+			"description":"The transform of <mGradient> as a transform. This can be used to scale, position, and skew the gradient instead of setting the from, to, and via points.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-160",
+			"name":"pointpropertyx",
+			"display name":"PointPropertyX",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the x of <mPoint>"
+			],
+			"display syntax":[
+				"the x of <i>mPoint</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The x coordinate of a point value.",
+			"parameters":[{
+				"name":"mPoint",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			}],
+			"examples":[{
+				"script":"variable tPoint\nput point [50, 100] into tPoint\n\n// Store the x-coordinate of the point in a variable\nvariable tX\nput the x of tPoint into tX\n\n// Move the point 10 units to the right\nset the x of tPoint to (tX + 10)"
+			}],
+			"description":"The x coordinate of <mPoint>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-161",
+			"name":"transformpropertyinverse",
+			"display name":"TransformPropertyInverse",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the inverse of <mTransform>"
+			],
+			"display syntax":[
+				"the inverse of <i>mTransform</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The inverse of a transform.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			}],
+			"examples":[{
+				"script":"variable tTransform\nput transform with matrix [0,2,-2,0,50,100] into tTransform\n\n// Get the inverse of the current transform\nvariable tInverse\nput the inverse of tTransform into tInverse\n\n// Combine the transform with its inverse to produce the identity transform\nconcat tTransform with tInverse"
+			}],
+			"description":"The inverse of <mTransform>\n\n>*Note:* The inverse of a transform matrix is the transform that reverses the effect of the original. Combining a transform with its inverse will produce the identity transform.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-162",
+			"name":"canvasoperationfill",
+			"display name":"CanvasOperationFill",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"fill [ <mPath> on ] <mCanvas>"
+			],
+			"display syntax":[
+				"fill [ <i>mPath</i> on ] <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Fill a path on a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Fill a circle path on the canvas\nfill circle path centered at point [100,100] with radius 50 on this canvas"
+			},{
+				"script":"// Add a path to the canvas\nmove to point [50,50] on this canvas\nline to point [50,100] on this canvas\nline to point [100,100] on this canvas\n\n// Fill the current canvas path\nfill this canvas"
+			}],
+			"description":"Fills the region bound by <mPath> with the current canvas paint. If mPath is not specified then the current canvas path will be closed and filled, then emptied from the canvas.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-163",
+			"name":"imagepropertypixels",
+			"display name":"ImagePropertyPixels",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the pixels of <mImage>"
+			],
+			"display syntax":[
+				"the pixels of <i>mImage</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The pixel data of an image.",
+			"parameters":[{
+				"name":"mImage",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an image."
+			}],
+			"examples":[{
+				"script":"// Load an image from a file\nvariable tImage as Image\nput image from file \"images/logo.png\" into tImage\n\n// Get the pixels of the image\nvariable tPixelData as Data\nput the pixels of tImage into tPixelData"
+			}],
+			"description":"The raw ARGB pixel data of the image.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-164",
+			"name":"getpixelheightofcanvas",
+			"display name":"GetPixelHeightOfCanvas",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the pixel height of <Canvas>"
+			],
+			"display syntax":[
+				"the pixel height of <i>Canvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Get the height of a canvas in pixels.",
+			"parameters":[{
+				"name":"Canvas",
+				"type":"",
+				"refparam":"false",
+				"description":"The canvas to be examined."
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The height of the canvas, in pixels."
+			}],
+			"description":"Get the height of a canvas in pixels.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-165",
+			"name":"fontoperationtextimagebounds",
+			"display name":"FontOperationTextImageBounds",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the image bounds of text <mText> with <mFont>"
+			],
+			"display syntax":[
+				"the image bounds of text <i>mText</i> with <i>mFont</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Measure text precisely when drawn with a font.",
+			"parameters":[{
+				"name":"mText",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			},{
+				"name":"mFont",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a font."
+			}],
+			"examples":[{
+				"script":"// Set up tFont as size 18 Arial\nvariable tFont as Font\nput font \"Arial\" at size 18 into tFont\n\n// Measure text with tFont\nvariable tBounds as Rectangle\nput the image bounds of text \"Sample text\" with tFont into tBounds"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The bounding box of <mText> when drawn at point 0,0 with font <mFont>. Returns the bounds as a rectangle."
+			}],
+			"description":"The exact bounds of the text, which will fully enclose each character.\n\n>*Note:* This can be more time-consuming to compute than the layout bounds.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-166",
+			"name":"patternmake",
+			"display name":"PatternMake",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"pattern with <mImage>"
+			],
+			"display syntax":[
+				"pattern with <i>mImage</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new pattern paint.",
+			"parameters":[{
+				"name":"mImage",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an image."
+			}],
+			"examples":[{
+				"script":"// Load the pattern image.\nvariable tImage\nput image from file \"images/backgroundpattern.png\" into tImage\n\n// Create a new pattern based on the image\nvariable tPaint\nput pattern with tImage into tPaint"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new pattern paint based on <mImage>."
+			}],
+			"description":"Creates a new pattern paint.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-167",
+			"name":"gradientpropertyrepeat",
+			"display name":"GradientPropertyRepeat",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the repeat of <mGradient>"
+			],
+			"display syntax":[
+				"the repeat of <i>mGradient</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The repeat count of a gradient paint.",
+			"parameters":[{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\n// Store the old gradient repeat count\nvariable tRepeat\nput the repeat of tGradient into tRepeat\n\n// Make the gradient repeat 3 times\nset the repeat of tGradient to 3"
+			}],
+			"description":"The repeat count of <mGradient> as a number. This determines how many times the ramp is repeated over the length of the gradient.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-168",
+			"name":"canvaspropertyfillrule",
+			"display name":"CanvasPropertyFillRule",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the fill rule of <mCanvas>"
+			],
+			"display syntax":[
+				"the fill rule of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current fill rule of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Set canvas fill rule to non-zero.\nset the fill rule of this canvas to \"non-zero\""
+			}],
+			"description":"The rule used to determine when to fill enclosed regions of a path. Can be \"even odd\" or \"non-zero\".",
+			"tags":["canvas"]
+		},{
+			"id":"builder-169",
+			"name":"imagedensityproperty",
+			"display name":"ImageDensityProperty",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the density of <mImage>"
+			],
+			"display syntax":[
+				"the density of <i>mImage</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The density of an image.",
+			"parameters":[{
+				"name":"mImage",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an image."
+			}],
+			"examples":[{
+				"script":"// Load an image from a file\nvariable tImage as Image\nput image from file \"images/logo.png\" into tImage\n\n// scale down image based on standard DPI of 72.\nvariable tScale as Number\nput (72 / the density of tImage) into tScale\nscale this canvas by [tScale, tScale]\ndraw tImage into rectangle [0,0,the width of tImage,the height of tImage] of this canvas"
+			}],
+			"description":"The image density in DPI (dots per inch)",
+			"tags":["canvas"]
+		},{
+			"id":"builder-170",
+			"name":"transformpropertytranslation",
+			"display name":"TransformPropertyTranslation",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the translation of <mTransform>"
+			],
+			"display syntax":[
+				"the translation of <i>mTransform</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The translation component of a transform.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			}],
+			"examples":[{
+				"script":"variable tTransform\nput transform with matrix [0, 2, -2, 0, 50, 100] into tTransform\n\n// Store the old translation component\nvariable tTranslation\nput the translation of tTransform into tTranslation\n\n// Adjust the offset of the transformation\nset the translation of tTransform to [element 1 of tTranslation + 5, element 2 of tTranslation + 5]"
+			}],
+			"description":"The translation of <mTransform> as a list of 2 numbers (the x and y offset values).",
+			"tags":["canvas"]
+		},{
+			"id":"builder-171",
+			"name":"pathoperationscale",
+			"display name":"PathOperationScale",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"scale <mPath> by <mScale>"
+			],
+			"display syntax":[
+				"scale <i>mPath</i> by <i>mScale</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a scale to a path.",
+			"parameters":[{
+				"name":"mScale",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Create a rectangle path\nvariable tPath as Path\nput rectangle path of rectangle [10,10,210,60] into tPath\n\n// Scale the path\nscale tPath by [2,2]"
+			}],
+			"description":"Scales <mPath> by <mScale>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-172",
+			"name":"patternpropertyimage",
+			"display name":"PatternPropertyImage",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the image of <mPattern>"
+			],
+			"display syntax":[
+				"the image of <i>mPattern</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The image of a pattern value.",
+			"parameters":[{
+				"name":"mPattern",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a pattern."
+			}],
+			"examples":[{
+				"script":"// Create a new pattern based on an image file\nvariable tPattern\nput pattern with image from file \"images/patternframe1.png\" into tPattern\n\n// Store the old image of tPattern\nvariable tImage\nput the image of tPattern into tImage\n\n// Set the pattern to draw the next image\nset the image of tPattern to image from file \"images/patternframe2.png\""
+			}],
+			"description":"The image of <mPattern>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-173",
+			"name":"canvaspropertyopacity",
+			"display name":"CanvasPropertyOpacity",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the opacity of <mCanvas>"
+			],
+			"display syntax":[
+				"the opacity of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current opacity setting of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// make subsequent drawing operations render with half transparency\nset the opacity of this canvas to 0.5"
+			}],
+			"description":"The opacity of drawing operations on <mCanvas>, as a number between 0 and 1.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-174",
+			"name":"canvaspropertyfont",
+			"display name":"CanvasPropertyFont",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the font of <mCanvas>"
+			],
+			"display syntax":[
+				"the font of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current font of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Use 20pt Arial for text drawing on canvas\nset the font of this canvas to font \"Arial\" at size 20"
+			}],
+			"description":"The font used when drawing text on <mCanvas> as a font.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-175",
+			"name":"canvasoperationclosepath",
+			"display name":"CanvasOperationClosePath",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"close path on <mCanvas>"
+			],
+			"display syntax":[
+				"close path on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Closes the current subpath of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Begin a new subpath on the canvas\nmove to point [25, 50] on this canvas\n\n// Continue path with a curve through 25,100 to 50,100\ncurve through point [25,100] to point [50,100] on this canvas\n\n// Close the path\nclose path on this canvas\n\n// stroke the canvas path\nstroke this canvas"
+			}],
+			"description":"Adds a line from the previous point to the start of current subpath, signaling the end of the subpath.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-176",
+			"name":"getpixeldataofcanvas",
+			"display name":"GetPixelDataOfCanvas",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the pixel data of <Canvas>"
+			],
+			"display syntax":[
+				"the pixel data of <i>Canvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Get the current contents of a canvas as raw pixel data",
+			"parameters":[{
+				"name":"Canvas",
+				"type":"",
+				"refparam":"false",
+				"description":"The canvas to be examined."
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The raw pixel values as binary data."
+			}],
+			"description":"Capture the current contents of the <Canvas> as raw pixel data in RGBA\nformat with 8 bits per colour component, i.e. 32 bits or 4 bytes per\npixel.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-177",
+			"name":"canvasoperationscale",
+			"display name":"CanvasOperationScale",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"scale <mCanvas> by <mScale>"
+			],
+			"display syntax":[
+				"scale <i>mCanvas</i> by <i>mScale</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a scale to a canvas.",
+			"parameters":[{
+				"name":"mScale",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			},{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Scale the canvas\nscale this canvas by [2,2]"
+			}],
+			"description":"Scales the transform of <mCanvas> by <mScale>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-178",
+			"name":"solidpaintpropertycolor",
+			"display name":"SolidPaintPropertyColor",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the color of <mSolid>"
+			],
+			"display syntax":[
+				"the color of <i>mSolid</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The color of a solid paint value.\nmPaint:An expression which evaluates to a solid paint.",
+			"examples":[{
+				"script":"// Create a new green paint\nvariable tPaint\nput solid paint with color [0,1,0] into tPaint\n\n// Store the old color of tPaint\nvariable tColor\nput the color of tPaint into tColor\n\n// Set the color of tPaint to blue\nset the color of tPaint to color [0,0,1]"
+			}],
+			"description":"The color of <mPaint>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-179",
+			"name":"effectpropertyknockout",
+			"display name":"EffectPropertyKnockOut",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the knockout of <mEffect>"
+			],
+			"display syntax":[
+				"the knockout of <i>mEffect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The knockout of an effect.",
+			"parameters":[{
+				"name":"mEffect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an effect."
+			}],
+			"examples":[{
+				"script":"// Create an effect with knockout set to false\nvariable tProps as Array\nput the empty array into tProps\n\nput false into tProps[\"knockout\"]\n\nvariable tEffect as Effect\nput outer shadow effect with properties tProps into tEffect\n\n// Set the effect knockout to true\nset the knockout of tEffect to true"
+			}],
+			"description":"The knockout setting of <mEffect> as a boolean. Knockout applies to outer shadow effects and determines whether or not the alpha channel of the source image is applied to the blurred shadow created by the effect. Defaults to true.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-180",
+			"name":"pathmakewithroundedrectanglewithradii",
+			"display name":"PathMakeWithRoundedRectangleWithRadii",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"rounded rectangle path of <Rectangle> with radii <Radii>"
+			],
+			"display syntax":[
+				"rounded rectangle path of <i>Rectangle</i> with radii <i>Radii</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Create a new rectangle path with elliptical corner rounding",
+			"parameters":[{
+				"name":"Rectangle",
+				"type":"",
+				"refparam":"false",
+				"description":"A rectangle to create the path from"
+			},{
+				"name":"Radii",
+				"type":"",
+				"refparam":"false",
+				"description":"A list of the horizontal radius and vertical radius for rounding"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A newly-created canvas path"
+			}],
+			"description":"Create a new rounded rectangle path based on <Rectangle>.\n\nThe <Radii> is a list of two numbers.  The first specifies the\nhorizontal rounding radius and the second specifies the vertical\nrounding radius.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-181",
+			"name":"rectanglepropertybottom",
+			"display name":"RectanglePropertyBottom",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the bottom of <mRect>"
+			],
+			"display syntax":[
+				"the bottom of <i>mRect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The bottom edge of a rectangle value.",
+			"parameters":[{
+				"name":"mRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			}],
+			"examples":[{
+				"script":"variable tRect\nput rectangle [50,100,150,200] into tRect\n\n// Store the bottom edge of the rectangle in a variable\nvariable tBottom\nput the bottom of tRect into tBottom\n\n// Move the rectangle vertically to a new position.\nset the bottom of tRect to (tBottom + 10)"
+			}],
+			"description":"The location along the y-axis of the bottom edge of the rectangle.\n\n>*Note:* Setting the bottom of a rectangle will reposition it without altering the width or height.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-182",
+			"name":"fontmakewithstyleandsize",
+			"display name":"FontMakeWithStyleAndSize",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"font <mName> with ( bold  | italic  | bold italic  ) style at size <mSize>"
+			],
+			"display syntax":[
+				"font <i>mName</i> with ( bold  | italic  | bold italic  ) style at size <i>mSize</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new instance of the named font.",
+			"parameters":[{
+				"name":"mName",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			},{
+				"name":"mSize",
+				"type":"",
+				"refparam":"false",
+				"description":"An Expression which evaluates to a number."
+			}],
+			"examples":[{
+				"script":"// Create 20pt bold Arial font\nvariable tFont as Font\nput font \"Arial\" with bold style at size 20 into tFont"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new instance of the named font with style bold, italic, or bold italic, at size <mSize> points."
+			}],
+			"description":"Creates a new instance of the named font.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-183",
+			"name":"fontpropertybold",
+			"display name":"FontPropertyBold",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the bold of <mFont>"
+			],
+			"display syntax":[
+				"the bold of <i>mFont</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The bold setting of a font.",
+			"parameters":[{
+				"name":"mFont",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a font."
+			}],
+			"examples":[{
+				"script":"// Create a font\nvariable tFont as Font\nput font \"Arial\" at size 20 into tFont\n\n// Set the font to bold\nset the bold of tFont to true"
+			}],
+			"description":"The bold flag of <mFont> as a boolean. If true, then <mFont> is bold.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-184",
+			"name":"pathmake",
+			"display name":"PathMake",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"path <mInstructions>"
+			],
+			"display syntax":[
+				"path <i>mInstructions</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new path.",
+			"parameters":[{
+				"name":"mInstructions",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			}],
+			"examples":[{
+				"script":"// Create a closed path with a line and some curves\nvariable tPath as Path\nput path \"M10,10 L50,100 Q100,100 100,50 C75,50 50,25 50,10z\" into tPath"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new path created from the instructions provided. The format of the path instructions is the same as that used for SVG path data as defined here - http://www.w3.org/TR/SVG/paths.html#PathData"
+			}],
+			"description":"Creates a new path.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-185",
+			"name":"com.livecode.canvas",
+			"display name":"com.livecode.canvas",
+			"library":"builder",
+			"type":"module",
+			"display syntax":[
+				"com.livecode.canvas"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"This module specifies the syntax definitions and bindings for canvas drawing operations in modular LiveCode.",
+			"description":"This module specifies the syntax definitions and bindings for canvas drawing operations in modular LiveCode."
+		},{
+			"id":"builder-186",
+			"name":"transformmakeskew",
+			"display name":"TransformMakeSkew",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"transform with skew <mSkew>"
+			],
+			"display syntax":[
+				"transform with skew <i>mSkew</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new skewing transform value.\nmScale:An expression which evaluates to a list of 2 numbers, the x-axis skew and y-axis skew.",
+			"examples":[{
+				"script":"// Create skew transform\nvariable tTransform\nput transform with skew [1,0] into tTransform"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new skew transform."
+			}],
+			"description":"Creates a new skewing transform value.\nmScale:An expression which evaluates to a list of 2 numbers, the x-axis skew and y-axis skew.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-187",
+			"name":"pointpropertyy",
+			"display name":"PointPropertyY",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the y of <mPoint>"
+			],
+			"display syntax":[
+				"the y of <i>mPoint</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The y coordinate of a point value.",
+			"parameters":[{
+				"name":"mPoint",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			}],
+			"examples":[{
+				"script":"variable tPoint\nput point [50, 100] into tPoint\n\n// Store the y-coordinate of the point in a variable\nvariable tY\nput the y of tPoint into tY\n\n// Move the point 10 units downward.\nset the y of tPoint to (tY + 10)"
+			}],
+			"description":"The y coordinate of <mPoint>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-188",
+			"name":"thiscanvas",
+			"display name":"ThisCanvas",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"this canvas"
+			],
+			"display syntax":[
+				"this canvas"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The canvas used when drawing a widget.",
+			"examples":[{
+				"script":"// Draw the label centered on the rect of the widget\nset the paint of this canvas to solid paint with color [1,1,1]\nfill text \"Start\" at center of my rectangle on this canvas"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The target canvas for widget drawing operations."
+			}],
+			"description":"The canvas used when drawing a widget.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-189",
+			"name":"patternmakescaledby",
+			"display name":"PatternMakeScaledBy",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"pattern with <mImage> scaled by <mScale>"
+			],
+			"display syntax":[
+				"pattern with <i>mImage</i> scaled by <i>mScale</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new scaled pattern paint.",
+			"parameters":[{
+				"name":"mImage",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an image."
+			},{
+				"name":"mScale",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 1 or 2 numbers, the x-axis scale and y-axis scale, or the uniform scale when only a single value is given."
+			}],
+			"examples":[{
+				"script":"// Load the pattern image.\nvariable tImage\nput image from file \"images/backgroundpattern.png\" into tImage\n\n// Create a new pattern paint, scaling the image to half size\nvariable tPaint\nput pattern with tImage scaled by [0.5] into tPaint"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new pattern paint based on <mImage> with the specified scale applied."
+			}],
+			"description":"Creates a new scaled pattern paint.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-190",
+			"name":"canvasoperationcurvethrough",
+			"display name":"CanvasOperationCurveThrough",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"curve through <mThroughA> [ then <mThroughB> ] to <mPoint> on <mCanvas>"
+			],
+			"display syntax":[
+				"curve through <i>mThroughA</i> [ then <i>mThroughB</i> ] to <i>mPoint</i> on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Add a curve to a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mThroughA",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mThroughA",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			}],
+			"examples":[{
+				"script":"// Begin a new subpath on the canvas\nmove to point [25, 50] on this canvas\n\n// Continue path with a curve through 25,100 to 50,100\ncurve through point [25,100] to point [50,100] on this canvas\n\n// Continue path with a curve through 50,75 then 50,50 to 50,100\ncurve through point [50,75] then point [50,50] to point [25,50] on this canvas\n\n// stroke the canvas path\nstroke this canvas"
+			}],
+			"description":"Adds a curve through 1 or 2 points to <mPoint> on the current path of <mCanvas>",
+			"tags":["canvas"]
+		},{
+			"id":"builder-191",
+			"name":"transformpropertyskew",
+			"display name":"TransformPropertySkew",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the skew of <mTransform>"
+			],
+			"display syntax":[
+				"the skew of <i>mTransform</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The skew component of a transform.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			}],
+			"examples":[{
+				"script":"variable tTransform\nput transform with matrix [0, 2, -2, 0, 50, 100] into tTransform\n\n// Store the old skew component\nvariable tSkew\nput the skew of tTransform into tSkew\n\n// Remove the skew\nset the skew of tTransform to [0,0]"
+			}],
+			"description":"The skew of <mTransform> as a list of 2 numbers (the x and y skew values).",
+			"tags":["canvas"]
+		},{
+			"id":"builder-192",
+			"name":"colorpropertyalpha",
+			"display name":"ColorPropertyAlpha",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the alpha of <mColor>"
+			],
+			"display syntax":[
+				"the alpha of <i>mColor</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The alpha component of a color value.",
+			"parameters":[{
+				"name":"mColor",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a color."
+			}],
+			"examples":[{
+				"script":"variable tColor\nput color [0.75, 1.0, 0.5] into tColor\n\n// Store the old alpha value\nvariable tAlpha\nput the alpha of tColor into tAlpha\n\n// Make the color semi-transparent\nset the alpha of tColor to 0.5"
+			}],
+			"description":"The alpha component of <mColor>\n\n>*Note:* The alpha value represents the opacity of the color, expressed as a real number between 0 (fully transparent) and 1 (fully opaque).",
+			"tags":["canvas"]
+		},{
+			"id":"builder-193",
+			"name":"effectpropertytype",
+			"display name":"EffectPropertyType",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the type of <mEffect>"
+			],
+			"display syntax":[
+				"the type of <i>mEffect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The type of an effect.",
+			"parameters":[{
+				"name":"mEffect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an effect."
+			}],
+			"examples":[{
+				"script":"// Create an outer shadow effect\nvariable tEffect as Effect\nput outer shadow effect into tEffect\n\n// Get the type of the effect, in this case it will be \"outer shadow\"\nvariable tType as String\nput the type of tEffect into tType"
+			}],
+			"description":"The type of <mEffect> as a string. Can be one of \"color overlay\", \"inner shadow\", \"outer shadow\", \"inner glow\", \"outer glow\".",
+			"tags":["canvas"]
+		},{
+			"id":"builder-194",
+			"name":"gradientstopmake",
+			"display name":"GradientStopMake",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"gradient stop at <mOffset> with <mColor>"
+			],
+			"display syntax":[
+				"gradient stop at <i>mOffset</i> with <i>mColor</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new gradient stop.",
+			"parameters":[{
+				"name":"mOffset",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mColor",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a color."
+			}],
+			"examples":[{
+				"script":"// List to hold gradient stops\nvariable tRamp\nput the empty list into tRamp\n\n// First gradient stop is red at position 0\npush gradient stop at 0 with color [1,0,0] onto tRamp\n\n// Second stop is half-transparent green at position 0.5\npush gradient stop at 0.5 with color [0,1,0,0.5] onto tRamp\n\n// Third stop is blue at position 1\npush gradient stop at 1 with color [0,0,1] onto tRamp"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new gradient stop."
+			}],
+			"description":"Creates a new gradient stop.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-195",
+			"name":"gradientoperationtransform",
+			"display name":"GradientOperationTransform",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"transform <mGradient> by <mTransform>"
+			],
+			"display syntax":[
+				"transform <i>mGradient</i> by <i>mTransform</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a transform to a gradient paint.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			},{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\n// Scale the gradient with a transform\ntransform tGradient by transform with scale [2,2]"
+			}],
+			"description":"Concatenates the transform of <mGradient> with <mTransform>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-196",
+			"name":"fontoperationtextlayoutboundsoncanvas",
+			"display name":"FontOperationTextLayoutBoundsOnCanvas",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the [ layout ] bounds of text <mText> on <mCanvas>"
+			],
+			"display syntax":[
+				"the [ layout ] bounds of text <i>mText</i> on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Measure text when drawn to a canvas.",
+			"parameters":[{
+				"name":"mText",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			},{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Set the canvas font\nset the font of this canvas to font \"Arial\" at size 18\n\nvariable tBounds as Rectangle\nput the bounds of text \"Sample text\" on this canvas into tBounds"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The bounding box of <mText> when drawn at point 0,0 with the current font of <mCanvas>. Returns the bounds as a rectangle."
+			}],
+			"description":"The layout bounds of the text, constructed from the ascent and descent values of the font, and the width of the text string.\n\n>*Note:* The layout bounds is used to position blocks of text relative to each other, so the text may overlap these bounds.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-197",
+			"name":"transformmakeidentity",
+			"display name":"TransformMakeIdentity",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the identity transform"
+			],
+			"display syntax":[
+				"the identity transform"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The identity transform.",
+			"examples":[{
+				"script":"variable tTransform\nput the identity transform into tTransform"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new identity transform."
+			}],
+			"description":"The identity transform represents a coordinate transformation where the set of coordinates remain the same after it is applied. This can be useful when specifying that coordinates should not be altered, or as a starting point when combining transforms to produce a more complex one.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-198",
+			"name":"canvaspropertydashes",
+			"display name":"CanvasPropertyDashes",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the dashes of <mCanvas>"
+			],
+			"display syntax":[
+				"the dashes of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current dashes of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Draw a rectangle with short, widely spaced dashes\nset the dashes of this canvas to [10, 40]\nstroke rectangle path of rectangle [50, 50, 200, 200] on this canvas"
+			}],
+			"description":"The dashes as a list of numbers. The dashes specifies a sequence of lengths that alternately represent space and dash lengths when stroking a path.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-199",
+			"name":"effectmake",
+			"display name":"EffectMake",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"<mType> effect"
+			],
+			"display syntax":[
+				"<i>mType</i> effect"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new effect.",
+			"parameters":[{
+				"name":"mType",
+				"type":"",
+				"refparam":"false",
+				"description":"One of color overlay, inner shadow, outer shadow, inner glow, outer glow."
+			}],
+			"examples":[{
+				"script":"// Create an effect with default properties\nvariable tEffect as Effect\nput outer shadow effect into tEffect"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new effect of type <mType> with default property values."
+			}],
+			"description":"Creates a new effect.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-200",
+			"name":"imagemakefromdata",
+			"display name":"ImageMakeFromData",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"image from data <mData>"
+			],
+			"display syntax":[
+				"image from data <i>mData</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new image.",
+			"parameters":[{
+				"name":"mData",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to binary data"
+			}],
+			"examples":[{
+				"script":"// Load image from a block of data\nvariable tData\nput the contents of file \"images/logo.png\" into tData\n\nvariable tImage\nput image from data tData into tImage"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new image decoded from the data provided."
+			}],
+			"description":"Creates a new image.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-201",
+			"name":"fontmakewithsize",
+			"display name":"FontMakeWithSize",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"font <mName>  at size <mSize>"
+			],
+			"display syntax":[
+				"font <i>mName</i>  at size <i>mSize</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new instance of the named font.",
+			"parameters":[{
+				"name":"mName",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			},{
+				"name":"mSize",
+				"type":"",
+				"refparam":"false",
+				"description":"An Expression which evaluates to a number."
+			}],
+			"examples":[{
+				"script":"// Create 20pt Arial font\nvariable tFont as Font\nput font \"Arial\" at size 20 into tFont"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new instance of the named font at size <mSize> points."
+			}],
+			"description":"Creates a new instance of the named font.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-202",
+			"name":"effectpropertyspread",
+			"display name":"EffectPropertySpread",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the spread of <mEffect>"
+			],
+			"display syntax":[
+				"the spread of <i>mEffect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The spread of an effect.",
+			"parameters":[{
+				"name":"mEffect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an effect."
+			}],
+			"examples":[{
+				"script":"// Create an effect with spread 0\nvariable tProps as Array\nput the empty array into tProps\n\nput 0 into tProps[\"spread\"]\n\nvariable tEffect as Effect\nput outer shadow effect with properties tProps into tEffect\n\n// Set the effect spread\nset the spread of tEffect to 0.1"
+			}],
+			"description":"The spread of <mEffect> as a number between 0 and 1. Spread applies to inner shadow, outer shadow, inner glow, and outer glow effect types",
+			"tags":["canvas"]
+		},{
+			"id":"builder-203",
+			"name":"newcanvaswithsize",
+			"display name":"NewCanvasWithSize",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"a new canvas with size <Size>"
+			],
+			"display syntax":[
+				"a new canvas with size <i>Size</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Create a new canvas",
+			"parameters":[{
+				"name":"Size",
+				"type":"",
+				"refparam":"false",
+				"description":"A list containing the width and height of the new canvas in pixels"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A newly-created canvas"
+			}],
+			"description":"Create and return a new temporary canvas of the specified pixel width\nand height.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-204",
+			"name":"gradientpropertyto",
+			"display name":"GradientPropertyTo",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the to of <mGradient>"
+			],
+			"display syntax":[
+				"the to of <i>mGradient</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The to point of a gradient paint.",
+			"parameters":[{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\nvariable tRect\nput rectangle [ 20, 10, 120, 60 ] into tRect\n\n// Set the end point of the gradient to the right of tRect\nset the from of tGradient to point [the right of tRect, (the top of tRect + the bottom of tRect) / 2]"
+			}],
+			"description":"The to point of <mGradient> as a point. Defines the end point when drawing the gradient.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-205",
+			"name":"pathoperationarcto",
+			"display name":"PathOperationArcTo",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"arc through <mThrough> to <mTo> with radius <mRadius> on <mPath>"
+			],
+			"display syntax":[
+				"arc through <i>mThrough</i> to <i>mTo</i> with radius <i>mRadius</i> on <i>mPath</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Adds an arc to a path.",
+			"parameters":[{
+				"name":"mThrough",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mTo",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mRadius",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Construct a path tracing out a rectangle with rounded bottom corners.\nvariable tPath\nput the empty path into tPath\n\n// Begin a new subpath\nmove to point [0, 0] on tPath\n\n// Continue path with an arc to the bottom edge\narc through point [0, my height] to point [25, my height] with radius 25 on tPath\n\n// Continue path with an arc to the right edge\narc through point [my width, my height] to point [my width, 0] with radius 25 on tPath\n\n// Close the path with a line back to the starting point\nclose path on tPath"
+			}],
+			"description":"Adds an arc between the points of a circle with radius <mRadius> tangent to the lines from the current point to <mThrough>, and from <mThrough> to <mTo>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-206",
+			"name":"gradientoperationaddstop",
+			"display name":"GradientOperationAddStop",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"add <mStop> to <mGradient>"
+			],
+			"display syntax":[
+				"add <i>mStop</i> to <i>mGradient</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Add a new stop to the ramp of a gradient paint.",
+			"parameters":[{
+				"name":"mStop",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient stop"
+			},{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint with empty ramp\nvariable tGradient\nput linear gradient with ramp [] into tGradient\n\n// Add stops to the gradient\nadd gradient stop at 0 with color [0,0,0] to tGradient\nadd gradient stop at 1 with color [1,1,1] to tGradient"
+			}],
+			"description":"Appends the stop to the ramp of <mGradient>. The offset of the new gradient should not be before the offset of the last stop.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-207",
+			"name":"canvasoperationtransform",
+			"display name":"CanvasOperationTransform",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"transform <mCanvas> by <mTransform>"
+			],
+			"display syntax":[
+				"transform <i>mCanvas</i> by <i>mTransform</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a transform to a canvas.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			},{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Scale the canvas with a transform\ntransform this canvas by transform with scale [2,2]"
+			}],
+			"description":"Concatenates the transform of <mCanvas> with <mTransform>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-208",
+			"name":"canvaspropertydashphase",
+			"display name":"CanvasPropertyDashPhase",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the dash phase of <mCanvas>"
+			],
+			"display syntax":[
+				"the dash phase of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current dash phase of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Draw a rectangle with short, widely spaced dashes, offset to begin from the middle of the dash pattern\nset the dashes of this canvas to [10, 40]\nset the dash phase of this canvas to 25\nstroke rectangle path of rectangle [50, 50, 200, 200] on this canvas"
+			}],
+			"description":"The offset into the dashes at which to begin applying the dash pattern.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-209",
+			"name":"canvasoperationbeginlayer",
+			"display name":"CanvasOperationBeginLayer",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"begin layer [ with <mEffect> ] on <mCanvas>"
+			],
+			"display syntax":[
+				"begin layer [ with <i>mEffect</i> ] on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Begin a new drawing layer on a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mEffect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an effect."
+			}],
+			"examples":[{
+				"script":"// Draw two overlapping rectangles grouped with half transparency\nset the opacity of this canvas to 0.5\nbegin layer on this canvas\nfill rectangle path of rectangle path [50,50,100,100] on this canvas\nfill rectangle path of rectangle path [75,75,125,125] on this canvas\nend layer on this canvas"
+			},{
+				"script":"// Create an effect for the new layer\nvariable tEffect as Effect\nput outer shadow effect into tEffect\n\n// Draw rectangle with an effect applied\nbegin layer with tEffect on this canvas\nfill rectangle path of rectangle [50,50,100,100] on this canvas\nend layer on this canvas"
+			}],
+			"description":"Begins a new layer on <mCanvas> to group drawing operations for which the opacity, blend mode, and optional effect are to be applied to as a whole rather than individually.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-210",
+			"name":"pathmakewithline",
+			"display name":"PathMakeWithLine",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"line path from <mFrom> to <mTo>"
+			],
+			"display syntax":[
+				"line path from <i>mFrom</i> to <i>mTo</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new path.",
+			"parameters":[{
+				"name":"mFrom",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mTo",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			}],
+			"examples":[{
+				"script":"// Create a line path\nvariable tPath as Path\nput line path from point [50,100] to point [100,50] into tPath"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new line path."
+			}],
+			"description":"Creates a new path.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-211",
+			"name":"fontoperationtextlayoutbounds",
+			"display name":"FontOperationTextLayoutBounds",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the [ layout ] bounds of text <mText> with <mFont>"
+			],
+			"display syntax":[
+				"the [ layout ] bounds of text <i>mText</i> with <i>mFont</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Measure text when drawn with a font.",
+			"parameters":[{
+				"name":"mText",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			},{
+				"name":"mFont",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a font."
+			}],
+			"examples":[{
+				"script":"// Set up tFont as size 18 Arial\nvariable tFont as Font\nput font \"Arial\" at size 18 into tFont\n\n// Measure text with tFont\nvariable tBounds as Rectangle\nput the bounds of text \"Sample text\" with tFont into tBounds"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The bounding box of <mText> when drawn at point 0,0 with font <mFont>. Returns the bounds as a rectangle."
+			}],
+			"description":"The layout bounds of the text, constructed from the ascent and descent values of the font, and the width of the text string.\n\n>*Note:* The layout bounds is used to position blocks of text relative to each other, so the text may overlap these bounds.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-212",
+			"name":"imagepropertywidth",
+			"display name":"ImagePropertyWidth",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the width of <mImage>"
+			],
+			"display syntax":[
+				"the width of <i>mImage</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The width of an image.",
+			"parameters":[{
+				"name":"mImage",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an image."
+			}],
+			"examples":[{
+				"script":"// Load an image from a file\nvariable tImage as Image\nput image from file \"images/logo.png\" into tImage\n\n// Get the image width\nvariable tWidth as Integer\nput the width of tImage into tWidth"
+			}],
+			"description":"The width of the image in pixels.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-213",
+			"name":"pathmakeempty",
+			"display name":"PathMakeEmpty",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the empty path"
+			],
+			"display syntax":[
+				"the empty path"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new empty path.",
+			"examples":[{
+				"script":"// Initialize the path to empty\nvariable tPath as Path\nput the empty path into tPath\n\n// add a line to the path\nmove to point [0,50] on tPath\nline to point [100,50] on tPath"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"An empty path."
+			}],
+			"description":"Creates a new empty path.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-214",
+			"name":"gradientoperationrotate",
+			"display name":"GradientOperationRotate",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"rotate <mGradient> by <mRotation>"
+			],
+			"display syntax":[
+				"rotate <i>mGradient</i> by <i>mRotation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a rotation to a gradient paint.",
+			"parameters":[{
+				"name":"mRotation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\n// Rotate the gradient\nrotate tGradient by 45"
+			}],
+			"description":"Rotates the transform of <mGradient> by <mRotation> degrees.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-215",
+			"name":"solidpaintmake",
+			"display name":"SolidPaintMake",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"solid paint with <mColor>"
+			],
+			"display syntax":[
+				"solid paint with <i>mColor</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new solid color paint.",
+			"parameters":[{
+				"name":"mColor",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a color."
+			}],
+			"examples":[{
+				"script":"// Create a new green paint\nvariable tPaint\nput solid paint with color [0,1,0] into tPaint"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new paint using <mColor>."
+			}],
+			"description":"Creates a new solid color paint.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-216",
+			"name":"canvasoperationclippath",
+			"display name":"CanvasOperationClipPath",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"clip to <mPath> on <mCanvas>"
+			],
+			"display syntax":[
+				"clip to <i>mPath</i> on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Clip to a path on a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Set the canvas clip\nclip to circle path centered at point [100,100] with radius 50 on this canvas\n\n// Fill rectangle path on canvas. only the region of the rectangle that falls within the canvas clip will be rendered.\nfill rectangle path of rectangle [25, 25, 75, 75] on this canvas"
+			}],
+			"description":"Modifies the clip of <mCanvas> by intersecting with <mRect>. Drawing operations on <mCanvas> will be confined to the clip region.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-217",
+			"name":"colormake",
+			"display name":"ColorMake",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"color <mColor>"
+			],
+			"display syntax":[
+				"color <i>mColor</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new color value.",
+			"parameters":[{
+				"name":"mColor",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 3 or 4 numbers, the red, green, blue, and (optional) alpha components of the color."
+			}],
+			"examples":[{
+				"script":"variable tColor\n// Set tColor to opaque red\nput color [1.0, 0.0, 0.0] into tColor\n\n// Set tColor to partially transparent cyan\nput color [0.0, 1.0, 1.0, 0.75] into tColor"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new color with the given RGBA values."
+			}],
+			"description":">*Note:* The component value denotes the intensity of that component, expressed as a real number between 0 and 1. The alpha component represents the opacity of the color. If the alpha component is not specified then it is assumed to be 1 (fully opaque).",
+			"tags":["canvas"]
+		},{
+			"id":"builder-218",
+			"name":"pathmakewitharc",
+			"display name":"PathMakeWithArc",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"arc path centered at <mCenter> with [ radius <mRadius> | radii <mRadii> ] from <mStartAngle> to <mEndAngle>"
+			],
+			"display syntax":[
+				"arc path centered at <i>mCenter</i> with [ radius <i>mRadius</i> | radii <i>mRadii</i> ] from <i>mStartAngle</i> to <i>mEndAngle</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new path.",
+			"parameters":[{
+				"name":"mCenter",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mRadius",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mRadii",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			},{
+				"name":"mStartAngle",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mEndAngle",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			}],
+			"examples":[{
+				"script":"// Create an elliptical arc path\nvariable tPath as Path\nput arc path centered at point [100,100] with radii [100,75] from 0 to 270 into tPath"
+			},{
+				"script":"// Create a circular arc path\nvariable tPath as Path\nput arc path centered at point [100,100] with radius 100 from 0 to 270 into tPath"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new arc path."
+			}],
+			"description":"Creates a new path.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-219",
+			"name":"transformoperationtranslate",
+			"display name":"TransformOperationTranslate",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"translate <mTransform> by <mTranslation>"
+			],
+			"display syntax":[
+				"translate <i>mTransform</i> by <i>mTranslation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a translation to a transform.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			},{
+				"name":"mTranslation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 2 numbers, the x and y offsets of the translation."
+			}],
+			"examples":[{
+				"script":"// Create a new transform\nvariable tTransform\nput the identity transform into tTransform\n\nvariable tRect\nput rectangle [10, 20, 110, 170] into tRect\n\n// Translate the transform to the top-left of tRect\ntranslate tTransform by [the left of tRect, the top of tRect]"
+			}],
+			"description":"Apply a translation to <mTransform>. This is equivalent to concatenating <mTransform> with a new translation transform.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-220",
+			"name":"pathoperationclosepath",
+			"display name":"PathOperationClosePath",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"close path on <mPath>"
+			],
+			"display syntax":[
+				"close path on <i>mPath</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Closes the current subpath of a path.",
+			"parameters":[{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Create a new empty path\nvariable tPath as Path\nput the empty path into tPath\n\n// Begin a new subpath of tPath\nmove to point [25, 50] on tPath\n\n// Continue path with a curve through 25,100 to 50,100\ncurve through [25,100] to [50,100] on tPath\n\n// Close the path\nclose path on tPath"
+			}],
+			"description":"Adds a line from the previous point to the start of current subpath, signaling the end of the subpath.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-221",
+			"name":"canvasoperationlineto",
+			"display name":"CanvasOperationLineTo",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"line to <mPoint> on <mCanvas>"
+			],
+			"display syntax":[
+				"line to <i>mPoint</i> on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Add a line to a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mPoint",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			}],
+			"examples":[{
+				"script":"// move to a point on the canvas\nmove to point [0,50] on this canvas\n\n// add a line to the canvas path\nline to point [50,50] on this canvas\n\n// stroke the canvas path\nstroke this canvas"
+			}],
+			"description":"Adds a line to <mPoint> on the current path of <mCanvas>",
+			"tags":["canvas"]
+		},{
+			"id":"builder-222",
+			"name":"pathoperationtransform",
+			"display name":"PathOperationTransform",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"transform <mPath> by <mTransform>"
+			],
+			"display syntax":[
+				"transform <i>mPath</i> by <i>mTransform</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a transform to a path.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Create a rectangle path\nvariable tPath as Path\nput rectangle path of rectangle [10,10,210,60] into tPath\n\n// Scale the path with a transform\ntransform tPath by transform with scale [2,2]"
+			}],
+			"description":"Transforms the points of <mPath> with <mTransform>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-223",
+			"name":"gradientstoppropertyoffset",
+			"display name":"GradientStopPropertyOffset",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the offset of <mStop>"
+			],
+			"display syntax":[
+				"the offset of <i>mStop</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The offset of a gradient stop value.",
+			"parameters":[{
+				"name":"mStop",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient stop."
+			}],
+			"examples":[{
+				"script":"variable tStop\nput gradient stop at 0 with color [1,1,1] into tStop\n\n// Get the offset of a stop\nvariable tOffset\nput the offset of tStop into tOffset\n\n// Move the stop to a new offset\nset the offset of tStop to 0.75"
+			}],
+			"description":"The offset of <mStop>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-224",
+			"name":"effectpropertysource",
+			"display name":"EffectPropertySource",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the source of <mEffect>"
+			],
+			"display syntax":[
+				"the source of <i>mEffect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The source of an effect.",
+			"parameters":[{
+				"name":"mEffect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an effect."
+			}],
+			"examples":[{
+				"script":"// Create an effect with source set to \"center\"\nvariable tProps as Array\nput the empty array into tProps\n\nput \"center\" into tProps[\"source\"]\n\nvariable tEffect as Effect\nput inner glow effect with properties tProps into tEffect\n\n// Set the effect source to \"edge\"\nset the source of tEffect to \"edge\""
+			}],
+			"description":"The source of <mEffect> as a string. Can be one of \"center\" or \"edge\". Source applies to inner glow effects and determines where the glow extends from. Defaults to \"edge\".",
+			"tags":["canvas"]
+		},{
+			"id":"builder-225",
+			"name":"colorpropertyblue",
+			"display name":"ColorPropertyBlue",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the blue of <mColor>"
+			],
+			"display syntax":[
+				"the blue of <i>mColor</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The blue component of a color value.",
+			"parameters":[{
+				"name":"mColor",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a color."
+			}],
+			"examples":[{
+				"script":"variable tColor\nput color [0.75, 1.0, 0.5] into tColor\n\n// Store the old blue value\nvariable tBlue\nput the blue of tColor into tBlue\n\n// Set the blue component of the color to full intensity\nset the blue of tColor to 1"
+			}],
+			"description":"The blue component of <mColor>\n\n>*Note:* The component value denotes the intensity of that component, expressed as a real number between 0 and 1.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-226",
+			"name":"patternmakerotatedby",
+			"display name":"PatternMakeRotatedBy",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"pattern with <mImage> rotated by <mRotation>"
+			],
+			"display syntax":[
+				"pattern with <i>mImage</i> rotated by <i>mRotation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new rotated pattern paint.",
+			"parameters":[{
+				"name":"mImage",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an image."
+			},{
+				"name":"mRotation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number of degrees."
+			}],
+			"examples":[{
+				"script":"// Load the pattern image.\nvariable tImage\nput image from file \"images/backgroundpattern.png\" into tImage\n\n// Create a new pattern paint, rotating the image through 90 degrees\nvariable tPaint\nput pattern with tImage rotated by 90 into tPaint"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new pattern paint based on <mImage> with the specified rotation applied."
+			}],
+			"description":"Creates a new rotated pattern paint.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-227",
+			"name":"pathpropertyboundingbox",
+			"display name":"PathPropertyBoundingBox",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the bounding box of <mPath>"
+			],
+			"display syntax":[
+				"the bounding box of <i>mPath</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The bounding box of a path.",
+			"parameters":[{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Create a circle path\nvariable tPath as Path\nput circle path centered at point [100,100] with radius 50 into tPath\n\n// Get the bounds of the path\nvariable tBounds as Rectangle\nput the bounding box of tPath into tBounds"
+			}],
+			"description":"The smallest rectangle that competely encloses <mPath>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-228",
+			"name":"colorpropertygreen",
+			"display name":"ColorPropertyGreen",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the green of <mColor>"
+			],
+			"display syntax":[
+				"the green of <i>mColor</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The green component of a color value.",
+			"parameters":[{
+				"name":"mColor",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a color."
+			}],
+			"examples":[{
+				"script":"variable tColor\nput color [0.75, 1.0, 0.5] into tColor\n\n// Store the old green value\nvariable tGreen\nput the green of tColor into tGreen\n\n// Remove any green component from the color\nset the green of tColor to 0"
+			}],
+			"description":"The green component of <mColor>\n\n>*Note:* The component value denotes the intensity of that component, expressed as a real number between 0 and 1.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-229",
+			"name":"pathoperationmoveto",
+			"display name":"PathOperationMoveTo",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"move to <mPoint> on <mPath>"
+			],
+			"display syntax":[
+				"move to <i>mPoint</i> on <i>mPath</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Move to a new point on a path.",
+			"parameters":[{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			},{
+				"name":"mPoint",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			}],
+			"examples":[{
+				"script":"// Create a new empty path\nvariable tPath as Path\nput the empty path into tPath\n\n// Begin a new subpath of tPath\nmove to point [50, 50] on tPath\n\n// Add a line to tPath\nline to point [100, 50] on tPath\n\n// Begin a new subpath of tPath\nmove to point [50, 100] on tPath\n\n// Add a line to tPath\nline to point [100, 100] on tPath"
+			}],
+			"description":"Ends the current subpath and sets the starting point for new components of <mPath> to <mPoint>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-230",
+			"name":"pathoperationellipticarcto",
+			"display name":"PathOperationEllipticArcTo",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"arc to <mEnd> with radii <mRadii> rotated by <mAngle> on <mPath>"
+			],
+			"display syntax":[
+				"arc to <i>mEnd</i> with radii <i>mRadii</i> rotated by <i>mAngle</i> on <i>mPath</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Adds an arc to a path.",
+			"parameters":[{
+				"name":"mEnd",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mRadii",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			},{
+				"name":"mAngle",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Construct a path tracing out a rectangle with rounded bottom corners.\nvariable tPath\nput the empty path into tPath\n\n// Begin a new subpath\nmove to point [0, 0] on tPath\n\n// Trace the left edge\nline to point [0, my height - 25] on tPath\n\n// Continue path with an arc to the bottom edge\narc to point [my height, 25] with radii [25, 25] rotated by 0 on tPath\n\n// Trace the bottom edge\nline to point [my width - 25, my height] on tPath\n\n// Continue path with an arc to the right edge\narc to point [my width, my height - 25] with radii [25, 25] rotated by 0 on tPath\n\n// Trace the right edge\nline to point [my width, 0] on tPath\n\n// Close the path with a line back to the starting point\nclose path on tPath"
+			}],
+			"description":"Adds an arc from the previous point to <mEnd> on <mPath>, following a section of an ellipse with the given radii & angle.\nAs there can be two different ellipses that match the parameters, and two potential arcs for each ellipse, this variation of \"arc to ...\" will select the arc that most closely matches the direction from the last point to the current position on <mPath>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-231",
+			"name":"transformoperationrotate",
+			"display name":"TransformOperationRotate",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"rotate <mTransform> by <mRotation>"
+			],
+			"display syntax":[
+				"rotate <i>mTransform</i> by <i>mRotation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a rotation to a transform.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			},{
+				"name":"mRotation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number of degrees."
+			}],
+			"examples":[{
+				"script":"// Create a new transform\nvariable tTransform\nput the identity transform into tTransform\n\n// Rotate the transform by 90 degrees\nrotate tTransform by 90"
+			}],
+			"description":"Apply a rotation by <mRotation> degrees to <mTransform>. This is equivalent to concatenating <mTransform> with a new rotation transform.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-232",
+			"name":"gradientpropertymirror",
+			"display name":"GradientPropertyMirror",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the mirror of <mGradient>"
+			],
+			"display syntax":[
+				"the mirror of <i>mGradient</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The mirror of a gradient paint.",
+			"parameters":[{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\n// Toggle the mirroring of a gradient\nvariable tMirror\nput the mirror of tGradient into tMirror\nset the mirror of tGradient to not tMirror"
+			}],
+			"description":"The mirror of <mGradient> as a boolean. If mirror is true then the ramp will be reversed on each repeat.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-233",
+			"name":"patternpropertytransform",
+			"display name":"PatternPropertyTransform",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the transform of <mPattern>"
+			],
+			"display syntax":[
+				"the transform of <i>mPattern</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The transform of a pattern value.",
+			"parameters":[{
+				"name":"mPattern",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a pattern."
+			}],
+			"examples":[{
+				"script":"// Create a new pattern paint from a scaled-down image file\nvariable tPattern\nput pattern with image from file \"images/pattern.png\" scaled by [0.5] into tPattern\n\n// Get the current transform\nvariable tTransform\nput the transform of tPattern into tTransform\n\n// Modify the transform by rotation\nrotate tTransform by tDegrees\n\n// Set the pattern to the modified transform\nset the transform of tPattern to tTransform"
+			}],
+			"description":"The transform of <mPattern>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-234",
+			"name":"canvaspropertymiterlimit",
+			"display name":"CanvasPropertyMiterLimit",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the miter limit of <mCanvas>"
+			],
+			"display syntax":[
+				"the miter limit of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current miter limit of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Draw a right-angled triangle, setting the miter limit so only the right-angle corner is mitered.\nset the miter limit of this canvas to 1.5\nstroke polygon path with points [point [50,50], point [50,100], point [100,50]] on this canvas"
+			}],
+			"description":"The limit of miter joins as a number. Specifies how far miter joins can extend from the meeting point of two lines before a bevel join is used instead.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-235",
+			"name":"transformmaketranslation",
+			"display name":"TransformMakeTranslation",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"transform with translation <mTranslation>"
+			],
+			"display syntax":[
+				"transform with translation <i>mTranslation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new translation transform.",
+			"parameters":[{
+				"name":"mTranslation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 2 numbers, the x and y offsets of the translation."
+			}],
+			"examples":[{
+				"script":"// Create translation transform to offset coordinates by 50,100\nvariable tTransform\nput transform with translation [50,100] into tTransform"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new translation transform."
+			}],
+			"description":"Creates a new translation transform.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-236",
+			"name":"transformpropertyrotation",
+			"display name":"TransformPropertyRotation",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the rotation of <mTransform>"
+			],
+			"display syntax":[
+				"the rotation of <i>mTransform</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The rotation component of a transform.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			}],
+			"examples":[{
+				"script":"variable tTransform\nput transform with matrix [0, 2, -2, 0, 50, 100] into tTransform\n\n// Store the old rotation component\nvariable tRotation\nput the rotation of tTransform into tRotation\n\n// Double the rotation\nset the rotation of tTransform to tRotation * 2"
+			}],
+			"description":"The rotation of <mTransform> as a number of degrees.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-237",
+			"name":"canvaspropertypaint",
+			"display name":"CanvasPropertyPaint",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the paint of <mCanvas>"
+			],
+			"display syntax":[
+				"the paint of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current paint of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Set canvas to paint with solid blue\nset the paint of this canvas to solid paint with color [0,0,1]"
+			}],
+			"description":"The paint used for fill / stroke operations on <mCanvas>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-238",
+			"name":"gradientpropertywrap",
+			"display name":"GradientPropertyWrap",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the wrap of <mGradient>"
+			],
+			"display syntax":[
+				"the wrap of <i>mGradient</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The wrap of a gradient paint.",
+			"parameters":[{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\n// Toggle the wrapping of a gradient\nvariable tWrap\nput the wrap of tGradient into tWrap\nset the wrap of tGradient to not tWrap"
+			}],
+			"description":"The wrap of <mGradient> as a boolean. If wrap is true then the gradient ramp will be repeated continually outside the defined extent of the gradient.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-239",
+			"name":"pathmakewithcircle",
+			"display name":"PathMakeWithCircle",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"circle path centered at <mCenter> with radius <mRadius>"
+			],
+			"display syntax":[
+				"circle path centered at <i>mCenter</i> with radius <i>mRadius</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new path.",
+			"parameters":[{
+				"name":"mCenter",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mRadius",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			}],
+			"examples":[{
+				"script":"// Create a circle path\nvariable tPath as Path\nput circle path centered at point [100,100] with radius 50 into tPath"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new circle path."
+			}],
+			"description":"Creates a new path.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-240",
+			"name":"pathpropertyinstructions",
+			"display name":"PathPropertyInstructions",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the instructions of <mPath>"
+			],
+			"display syntax":[
+				"the instructions of <i>mPath</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The instructions of a path.",
+			"parameters":[{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Create a rounded rectangle path\nvariable tPath as Path\nput rounded rectangle path of rectangle [10,10,210,60] with radius 15 into tPath\n\n// Get the instructions of the path\nvariable tPathData as String\nput the instructions of tPath into tPathData"
+			}],
+			"description":"A string containing the series of instructions and point arguments used to construct <mPath>.\n>*Note:* The format of the path instructions is the same as that used for SVG path data as defined here - http://www.w3.org/TR/SVG/paths.html#PathData",
+			"tags":["canvas"]
+		},{
+			"id":"builder-241",
+			"name":"gradientpropertyvia",
+			"display name":"GradientPropertyVia",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the via of <mGradient>"
+			],
+			"display syntax":[
+				"the via of <i>mGradient</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The via point of a gradient paint.",
+			"parameters":[{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\nvariable tRect\nput rectangle [ 20, 10, 120, 60 ] into tRect\n\n// Set the via of the gradient to the bottom of tRect\nset the via of tGradient to point [(the left of tRect + the right of tRect) / 2, the bottom of tRect]"
+			}],
+			"description":"The via point of <mGradient> as a point. This is used to skew and scale the gradient when drawing.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-242",
+			"name":"transformmakewithmatrixaslist",
+			"display name":"TransformMakeWithMatrixAsList",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"transform with matrix <mMatrix>"
+			],
+			"display syntax":[
+				"transform with matrix <i>mMatrix</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new transform.\nmTranslation:An expression which evaluates to a list of 6 numbers, the a, b, c, d, tx and ty values of the transform matrix.",
+			"examples":[{
+				"script":"// Create combined rotate, scale, and translate transform\nvariable tTransform\nput transform with matrix [0, 2, -2, 0, 50, 100] into tTransform"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new translation transform."
+			}],
+			"description":"Creates a new transform.\nmTranslation:An expression which evaluates to a list of 6 numbers, the a, b, c, d, tx and ty values of the transform matrix.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-243",
+			"name":"patternoperationscale",
+			"display name":"PatternOperationScale",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"scale <mPattern> by <mScale>"
+			],
+			"display syntax":[
+				"scale <i>mPattern</i> by <i>mScale</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a scale to a pattern.",
+			"parameters":[{
+				"name":"mPattern",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a pattern."
+			},{
+				"name":"mScale",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 1 or 2 numbers, the x-axis scale and y-axis scale, or the uniform scale when only a single value is given."
+			}],
+			"examples":[{
+				"script":"// Create a new pattern paint from an image file\nvariable tPattern\nput pattern with image from file \"images/pattern.png\" into tPattern\n\n// Scale the pattern to twice the current width\nscale tPattern by [2,1]"
+			}],
+			"description":"Scales the transform of <mPattern> by <mScale>",
+			"tags":["canvas"]
+		},{
+			"id":"builder-244",
+			"name":"patternmaketranslatedby",
+			"display name":"PatternMakeTranslatedBy",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"pattern with <mImage> translated by <mTranslation>"
+			],
+			"display syntax":[
+				"pattern with <i>mImage</i> translated by <i>mTranslation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new translated pattern paint.",
+			"parameters":[{
+				"name":"mImage",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an image."
+			},{
+				"name":"mTranslation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 2 numbers, the x and y offsets of the translation."
+			}],
+			"examples":[{
+				"script":"// Load the pattern image.\nvariable tImage\nput image from file \"images/backgroundpattern.png\" into tImage\n\n// Create a new pattern paint, offsetting the image to the top-left of tRect\nvariable tPaint\nvariable tRect\nput rectangle [20, 50, 120, 100] into tRect\nput pattern with tImage translated by [the left of tRect, the top of tRect] into tPaint"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new pattern paint based on <mImage> with the specified translation applied."
+			}],
+			"description":"Creates a new translated pattern paint.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-245",
+			"name":"canvaspropertyimageresizequality",
+			"display name":"CanvasPropertyImageResizeQuality",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the image resize quality of <mCanvas>"
+			],
+			"display syntax":[
+				"the image resize quality of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current image resize quality of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Use low (but faster) image resize algorithm to draw scaled images\nset the image resize quality of this canvas to \"low\""
+			}],
+			"description":"The image resize quality used when drawing scaled images and patterns on <mCanvas> as a string. Can be one of \"none\", \"low\", \"medium\", \"high\".",
+			"tags":["canvas"]
+		},{
+			"id":"builder-246",
+			"name":"pathoperationcurvethrough",
+			"display name":"PathOperationCurveThrough",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"curve through <mThroughA> [ then <mThroughB> ] to <mTo> on <mPath>"
+			],
+			"display syntax":[
+				"curve through <i>mThroughA</i> [ then <i>mThroughB</i> ] to <i>mTo</i> on <i>mPath</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Adds a curve to a path.",
+			"parameters":[{
+				"name":"mThroughA",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mThroughB",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mTo",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Create a new empty path\nvariable tPath as Path\nput the empty path into tPath\n\n// Begin a new subpath of tPath\nmove to point [25, 50] on tPath\n\n// Continue path with a curve through 25,100 to 50,100\ncurve through point [25,100] to point [50,100] on tPath\n\n// Continue path with a curve through 50,75 then 50,50 to 50,100\ncurve through point [50,75] then point [50,50] to point [25,50] on tPath"
+			}],
+			"description":"Adds a curve from the previous point through one or two control points to <mTo> on <mPath>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-247",
+			"name":"gradientpropertyramp",
+			"display name":"GradientPropertyRamp",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the ramp of <mGradient>"
+			],
+			"display syntax":[
+				"the ramp of <i>mGradient</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The ramp of a gradient paint.",
+			"parameters":[{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\n// Get the gradient ramp\nvariable tRamp\nput the ramp of tGradient into tRamp\n\n// Change the color of the first stop\nset the color of element 1 of tRamp to color [1,0,0]\n\n// Set the new gradient ramp\nset the ramp of tGradient to tRamp"
+			}],
+			"description":"The ramp of <mGradient>. The ramp is a list of gradient stops that describes the color transitions along the length of the gradient",
+			"tags":["canvas"]
+		},{
+			"id":"builder-248",
+			"name":"effectpropertyblendmode",
+			"display name":"EffectPropertyBlendMode",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the blend mode of <mEffect>"
+			],
+			"display syntax":[
+				"the blend mode of <i>mEffect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The blend mode of an effect.",
+			"parameters":[{
+				"name":"mEffect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an effect."
+			}],
+			"examples":[{
+				"script":"// Create an effect with blend mode \"source over\"\nvariable tProps as Array\nput the empty array into tProps\n\nput \"source over\" into tProps[\"blend mode\"]\n\nvariable tEffect as Effect\nput outer shadow effect with properties tProps into tEffect\n\n// Use color dodge mode for effect\nset the blend mode of tEffect to \"color dodge\""
+			}],
+			"description":"The blend mode of <mEffect> as a string. Can be any one of:\n- clear\n- copy\n- source over\n- source in\n- source out\n- destination over\n- destination in\n- destination out\n- destination atop\n- xor\n- plus darker\n- plus lighter\n- multiply\n- screen\n- overlay\n- darken\n- lighten\n- color dodge\n- color burn\n- soft light\n- hard light\n- difference\n- exclusion\n- hue\n- saturation\n- color\n- luminosity",
+			"references":{
+				"operator":["CanvasPropertyBlendMode"]
+			},
+			"tags":["canvas"]
+		},{
+			"id":"builder-249",
+			"name":"transformmakerotation",
+			"display name":"TransformMakeRotation",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"transform with rotation by <mRotation>"
+			],
+			"display syntax":[
+				"transform with rotation by <i>mRotation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new rotation transform value.",
+			"parameters":[{
+				"name":"mRotation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number, the number of degrees of the rotation."
+			}],
+			"examples":[{
+				"script":"// Create 30 degree rotation transform\nvariable tTransform\nput transform with rotation by 30 into tTransform"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new rotation transform."
+			}],
+			"description":"Creates a new rotation transform value.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-250",
+			"name":"canvasoperationrestorestate",
+			"display name":"CanvasOperationRestoreState",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"restore state of <mCanvas>"
+			],
+			"display syntax":[
+				"restore state of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Restore the previously saved state of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Save the current canvas properties\nsave state of this canvas\n\n// Change various properties of the canvas\nset the paint of this canvas to solid paint with color [1,1,0,0.5]\nset the blend mode of this canvas to \"color dodge\"\nrotate this canvas by 30\nset the font of this canvas to font \"Helvetica\" with size 15\n\n// Restore the previous canvas properties\nrestore state of this canvas"
+			}],
+			"description":"Restores the properties of <mCanvas> from the top of the saved property stack.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-251",
+			"name":"rectanglepropertyleft",
+			"display name":"RectanglePropertyLeft",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the left of <mRect>"
+			],
+			"display syntax":[
+				"the left of <i>mRect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The left edge of a rectangle value.",
+			"parameters":[{
+				"name":"mRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			}],
+			"examples":[{
+				"script":"variable tRect\nput rectangle [50,100,150,200] into tRect\n\n// Store the left edge of the rectangle in a variable\nvariable tLeft\nput the left of tRect into tLeft\n\n// Move the rectangle horizontally to a new position.\nset the left of tRect to 20"
+			}],
+			"description":"The location along the x-axis of the left edge of the rectangle.\n\n>*Note:* Setting the left of a rectangle will reposition it without altering the width or height.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-252",
+			"name":"transformpropertyscale",
+			"display name":"TransformPropertyScale",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the scale of <mTransform>"
+			],
+			"display syntax":[
+				"the scale of <i>mTransform</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The scale component of a transform.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			}],
+			"examples":[{
+				"script":"variable tTransform\nput transform with matrix [0, 2, -2, 0, 50, 100] into tTransform\n\n// Store the old scale component\nvariable tScale\nput the scale of tTransform into tScale\n\n// Modify the scale by adding 1 to the x scale value\nset the scale of tTransform to [element 1 of tScale + 1, element 2 of tScale]"
+			}],
+			"description":"The scale of <mTransform> as a list of 2 numbers (the x and y scales)",
+			"tags":["canvas"]
+		},{
+			"id":"builder-253",
+			"name":"canvaspropertystrokewidth",
+			"display name":"CanvasPropertyStrokeWidth",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the stroke width of <mCanvas>"
+			],
+			"display syntax":[
+				"the stroke width of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current stroke width of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Draw paths with line width 20\nset the stroke width of this canvas to 20"
+			}],
+			"description":"The width of lines used when stroking a path on <mCanvas> as a number.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-254",
+			"name":"canvasoperationaddpath",
+			"display name":"CanvasOperationAddPath",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"add <mPath> to <mCanvas>"
+			],
+			"display syntax":[
+				"add <i>mPath</i> to <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Add a path to a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Add a path to the canvas\nadd rectangle path of rectangle [0,0,50,100] to this canvas\n\n// Fill the canvas path\nfill this canvas"
+			}],
+			"description":"Adds <mPath> to the current path of <mCanvas>",
+			"tags":["canvas"]
+		},{
+			"id":"builder-255",
+			"name":"patternoperationrotate",
+			"display name":"PatternOperationRotate",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"rotate <mPattern> by <mRotation>"
+			],
+			"display syntax":[
+				"rotate <i>mPattern</i> by <i>mRotation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a rotation to a pattern.",
+			"parameters":[{
+				"name":"mPattern",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a pattern."
+			},{
+				"name":"mRotation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number of degrees."
+			}],
+			"examples":[{
+				"script":"// Create a new pattern paint from an image file\nvariable tPattern\nput pattern with image from file \"images/pattern.png\" into tPattern\n\n// Rotate the pattern through 30 degrees\nrotate tPattern by 30"
+			}],
+			"description":"Rotates the transform of <mPattern> by <mRotation>",
+			"tags":["canvas"]
+		},{
+			"id":"builder-256",
+			"name":"fontmake",
+			"display name":"FontMake",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"font <mName>"
+			],
+			"display syntax":[
+				"font <i>mName</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new instance of the named font.",
+			"parameters":[{
+				"name":"mName",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			}],
+			"examples":[{
+				"script":"// Create Arial font\nvariable tFont as Font\nput font \"Arial\" into tFont"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new instance of the named font with the default size of 12pts."
+			}],
+			"description":"Creates a new instance of the named font.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-257",
+			"name":"canvaspropertyclippingbounds",
+			"display name":"CanvasPropertyClippingBounds",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the clipping bounds of <mCanvas>"
+			],
+			"display syntax":[
+				"the clipping bounds of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current clipping bounds of the canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Set the canvas clip\nclip to rectangle [50,50,100,100] on this canvas\n\n// Fill rectangle path on canvas, covering only the current clip region.\nvariable tBounds as Rectangle\nput the clipping bounds of this canvas into tBounds\nfill rectangle path of tBounds on this canvas"
+			}],
+			"description":"The clipping bounds of the canvas. Drawing operations on <mCanvas> will be confined to the clip region.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-258",
+			"name":"patternmaketransformed",
+			"display name":"PatternMakeTransformed",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"pattern with <mImage> transformed by <mTransform>"
+			],
+			"display syntax":[
+				"pattern with <i>mImage</i> transformed by <i>mTransform</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new transformed pattern paint.",
+			"parameters":[{
+				"name":"mImage",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an image."
+			},{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			}],
+			"examples":[{
+				"script":"// Load the pattern image.\nvariable tImage\nput image from file \"images/backgroundpattern.png\" into tImage\n\n// Set up the pattern transform\nvariable tTransform\nput transform from matrix [0,2,-2,0,0,0] into tTransform\n\n// Create a new pattern paint, applying a transform to the image\nvariable tPaint\nput pattern with tImage transformed by tTransform into tPaint"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new pattern paint based on <mImage> with the specified transform applied."
+			}],
+			"description":"Creates a new transformed pattern paint.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-259",
+			"name":"canvasoperationmoveto",
+			"display name":"CanvasOperationMoveTo",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"move to <mPoint> on <mCanvas>"
+			],
+			"display syntax":[
+				"move to <i>mPoint</i> on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Move to a point on a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mPoint",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			}],
+			"examples":[{
+				"script":"// move to a point on the canvas\nmove to point [0,50] on this canvas\n\n// add a line to the canvas path\nline to point [50,50] on this canvas\n\n// stroke the canvas path\nstroke this canvas"
+			}],
+			"description":"Moves to <mPoint> on the current path of <mCanvas>",
+			"tags":["canvas"]
+		},{
+			"id":"builder-260",
+			"name":"fontoperationtextimageboundsoncanvas",
+			"display name":"FontOperationTextImageBoundsOnCanvas",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the image bounds of text <mText> on <mCanvas>"
+			],
+			"display syntax":[
+				"the image bounds of text <i>mText</i> on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Measure text precisely when drawn to a canvas.",
+			"parameters":[{
+				"name":"mText",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			},{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Set the canvas font\nset the font of this canvas to font \"Arial\" at size 18\n\nvariable tBounds as Rectangle\nput the image bounds of text \"Sample text\" on this canvas into tBounds"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The bounding box of <mText> when drawn at point 0,0 with the current font of <mCanvas>. Returns the bounds as a rectangle."
+			}],
+			"description":"The exact bounds of the text, which will fully enclose each character.\n\n>*Note:* This can be more time-consuming to compute than the layout bounds.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-261",
+			"name":"canvasoperationdrawimage",
+			"display name":"CanvasOperationDrawImage",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"draw [ from <mSrcRect> of ] <mImage> into <mDestRect> of <mCanvas>"
+			],
+			"display syntax":[
+				"draw [ from <i>mSrcRect</i> of ] <i>mImage</i> into <i>mDestRect</i> of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Draw an image on a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mImage",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an image."
+			},{
+				"name":"mSrcRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			},{
+				"name":"mDestRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			}],
+			"examples":[{
+				"script":"// Load an image from a file\nvariable tImage as Image\nput image from file \"images/logo.png\" into tImage\n\n// Draw the image on the canvas\ndraw tImage into rectangle [0,0,the width of tImage,the height of tImage] of this canvas"
+			},{
+				"script":"// Load an image from a file\nvariable tImage as Image\nput image from file \"images/logo.png\" into tImage\n\n// Draw a section of the image\ndraw from rectangle[0,0,16,16] of tImage into rectangle [0,0,16,16] of this canvas"
+			}],
+			"description":"Renders from <mSrcRect> (or the bounds, if not specified) of <mImage> into <mDestRect> of <mCanvas>. The canvas image resize quality determines how the image is scaled if necessary.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-262",
+			"name":"getpixelwidthofcanvas",
+			"display name":"GetPixelWidthOfCanvas",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the pixel width of <Canvas>"
+			],
+			"display syntax":[
+				"the pixel width of <i>Canvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Get the width of a canvas in pixels.",
+			"parameters":[{
+				"name":"Canvas",
+				"type":"",
+				"refparam":"false",
+				"description":"The canvas to be examined."
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The width of the canvas, in pixels."
+			}],
+			"description":"Get the width of a canvas in pixels.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-263",
+			"name":"canvasoperationtranslate",
+			"display name":"CanvasOperationTranslate",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"translate <mCanvas> by <mTranslation>"
+			],
+			"display syntax":[
+				"translate <i>mCanvas</i> by <i>mTranslation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a translation to a canvas.",
+			"parameters":[{
+				"name":"mTranslation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			},{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Translate the canvas\ntranslate this canvas by [50,100]"
+			}],
+			"description":"Translates the transform of <mCanvas> by <mTranslation>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-264",
+			"name":"rectanglemake",
+			"display name":"RectangleMake",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"rectangle <mRect>"
+			],
+			"display syntax":[
+				"rectangle <i>mRect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new rectangle value.",
+			"parameters":[{
+				"name":"mRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 4 numbers, the left, top, right and bottom edges of the rectangle."
+			}],
+			"examples":[{
+				"script":"// Initialize tRect to a rectangle value with origin at point 50,50 and size 100x50\nvariable tRect\nput rectangle [50, 50, 150, 100] into tRect"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new rectange with the given edges."
+			}],
+			"description":"Creates a new rectangle value.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-265",
+			"name":"gradientstoppropertycolor",
+			"display name":"GradientStopPropertyColor",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the color of <mStop>"
+			],
+			"display syntax":[
+				"the color of <i>mStop</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The color of a gradient stop value.",
+			"parameters":[{
+				"name":"mStop",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient stop."
+			}],
+			"examples":[{
+				"script":"variable tStop\nput gradient stop at 0 with color [1,1,1] into tStop\n\n// Get the color of a stop\nvariable tColor\nput the color of tStop into tColor\n\n// Set the stop color to red\nset the color of tStop to color [1,0,0]"
+			}],
+			"description":"The color of <mStop>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-266",
+			"name":"gradientpropertyfrom",
+			"display name":"GradientPropertyFrom",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the from of <mGradient>"
+			],
+			"display syntax":[
+				"the from of <i>mGradient</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The from point of a gradient paint.",
+			"parameters":[{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\nvariable tRect\nput rectangle [ 20, 10, 120, 60 ] into tRect\n\n// Set the start point of the gradient to the center of tRect\nset the from of tGradient to point [(the left of tRect + the right of tRect) / 2, (the top of tRect + the bottom of tRect) / 2]"
+			}],
+			"description":"The from point of <mGradient> as a point. Defines the starting point from which to begin drawing the gradient.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-267",
+			"name":"transformoperationscale",
+			"display name":"TransformOperationScale",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"scale <mTransform> by <mScale>"
+			],
+			"display syntax":[
+				"scale <i>mTransform</i> by <i>mScale</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a scale to a transform.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			},{
+				"name":"mScale",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 1 or 2 numbers, the x-axis scale and y-axis scale, or the uniform scale when only a single value is given."
+			}],
+			"examples":[{
+				"script":"// Create a new transform\nvariable tTransform\nput the identity transform into tTransform\n\n// Apply a uniform scale to the transform\nscale tTransform by [0.5]\n\n// Apply a non-uniform scale to the transform\nscale tTransform by [2.2, 3]"
+			}],
+			"description":"Apply the given scale to <mTransform>. This is equivalent to concatenating <mTransform> with a new scale transform.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-268",
+			"name":"canvasoperationclip",
+			"display name":"CanvasOperationClip",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"clip to <mRect> on <mCanvas>"
+			],
+			"display syntax":[
+				"clip to <i>mRect</i> on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Clip to a rectangle on a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			}],
+			"examples":[{
+				"script":"// Set the canvas clip\nclip to rectangle [50,50,100,100] on this canvas\n\n// Fill rectangle path on canvas. only the region of the rectangle that falls within the canvas clip will be rendered.\nfill rectangle path of rectangle [25, 25, 75, 75] on this canvas"
+			}],
+			"description":"Modifies the clip of <mCanvas> by intersecting with <mRect>. Drawing operations on <mCanvas> will be confined to the clip region.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-269",
+			"name":"imagemetadataproperty",
+			"display name":"ImageMetadataProperty",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the metadata of <mImage>"
+			],
+			"display syntax":[
+				"the metadata of <i>mImage</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"the metadata associated with an image.",
+			"parameters":[{
+				"name":"mImage",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an image."
+			}],
+			"examples":[{
+				"script":"// Load an image from a file\nvariable tImage as Image\nput image from file \"images/logo.png\" into tImage\n\n// get the image metadata\nvariable tMetadata as Array\nput the metadata of tImage into tMetadata\n\n// get image density in DPI from the image metadata\nvariable tDPI as Number\nif \"density\" is among the keys of tMetadata then\n\tput tMetadata[\"density\"] into tDPI\nelse\n\tput 72 into tDPI\nend if"
+			}],
+			"description":"An array containing metadata associated with an image.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-270",
+			"name":"imagepropertyheight",
+			"display name":"ImagePropertyHeight",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the height of <mImage>"
+			],
+			"display syntax":[
+				"the height of <i>mImage</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The height of an image.",
+			"parameters":[{
+				"name":"mImage",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an image."
+			}],
+			"examples":[{
+				"script":"// Load an image from a file\nvariable tImage as Image\nput image from file \"images/logo.png\" into tImage\n\n// Get the image height\nvariable tHeight as Integer\nput the height of tImage into tHeight"
+			}],
+			"description":"The height of the image in pixels.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-271",
+			"name":"effectpropertysize",
+			"display name":"EffectPropertySize",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the size of <mEffect>"
+			],
+			"display syntax":[
+				"the size of <i>mEffect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The size of an effect.",
+			"parameters":[{
+				"name":"mEffect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an effect."
+			}],
+			"examples":[{
+				"script":"// Create an effect with size 5\nvariable tProps as Array\nput the empty array into tProps\n\nput 5 into tProps[\"size\"]\n\nvariable tEffect as Effect\nput outer shadow effect with properties tProps into tEffect\n\n// Set the effect size\nset the size of tEffect to 15"
+			}],
+			"description":"The size of <mEffect> as a number. Size applies to inner shadow, outer shadow, inner glow, and outer glow effect types",
+			"tags":["canvas"]
+		},{
+			"id":"builder-272",
+			"name":"pointmake",
+			"display name":"PointMake",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"point <mPoint>"
+			],
+			"display syntax":[
+				"point <i>mPoint</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new point value.",
+			"parameters":[{
+				"name":"mPoint",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 2 numbers, the x and y coordinates of the point."
+			}],
+			"examples":[{
+				"script":"variable tPoint\nput point [50, 100] into tPoint"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new point with the given coordinates"
+			}],
+			"description":"Creates a new point value.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-273",
+			"name":"transformoperationconcat",
+			"display name":"TransformOperationConcat",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"concat <mTransformA> with <mTransformB>"
+			],
+			"display syntax":[
+				"concat <i>mTransformA</i> with <i>mTransformB</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Concatenate transform a with transform b.",
+			"parameters":[{
+				"name":"mTransformA",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			},{
+				"name":"mTransformB",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			}],
+			"examples":[{
+				"script":"// Create a new scaling transform\nvariable tScale\nput transform with scale [5,10] into tScale\n\n// Create a new rotation transform\nvariable tRotation\nput transform with rotation by 30 into tRotation\n\nvariable tTransform\n\n// Create a transform representing a rotation followed by a scale\nput tScale into tTransform\nconcat tTransform with tRotation\n\n// Create a transform representing a scale followed by a rotation\nput tRotation into tTransform\nconcat tTransform with tScale"
+			}],
+			"description":"Concatenating transforms modifies the original transform to produce a single transform that is the equivalent of applying the new transform followed by the original. Changing the order of concatenation will result in a transform with different effects.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-274",
+			"name":"pathmakewithsector",
+			"display name":"PathMakeWithSector",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"sector path centered at <mCenter> with [ radius <mRadius> | radii <mRadii> ] from <mStartAngle> to <mEndAngle>"
+			],
+			"display syntax":[
+				"sector path centered at <i>mCenter</i> with [ radius <i>mRadius</i> | radii <i>mRadii</i> ] from <i>mStartAngle</i> to <i>mEndAngle</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new path.",
+			"parameters":[{
+				"name":"mCenter",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mRadius",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mRadii",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			},{
+				"name":"mStartAngle",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mEndAngle",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			}],
+			"examples":[{
+				"script":"// Create an elliptical sector path\nvariable tPath as Path\nput sector path centered at point [100,100] with radii [100,75] from 0 to 270 into tPath"
+			},{
+				"script":"// Create a circular sector path\nvariable tPath as Path\nput sector path centered at point [100,100] with radius 100 from 0 to 270 into tPath"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new sector path."
+			}],
+			"description":"Creates a new path.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-275",
+			"name":"effectmakewithproperties",
+			"display name":"EffectMakeWithProperties",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"<mType> effect with properties <mProperties>"
+			],
+			"display syntax":[
+				"<i>mType</i> effect with properties <i>mProperties</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new effect.",
+			"parameters":[{
+				"name":"mType",
+				"type":"",
+				"refparam":"false",
+				"description":"One of color overlay, inner shadow, outer shadow, inner glow, outer glow."
+			},{
+				"name":"mProperties",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an array."
+			}],
+			"examples":[{
+				"script":"// Create an effect from an array of properties\nvariable tProps as Array\nput the empty array into tProps\n\nput color [0,0,0] into tProps[\"color\"]\nput \"source over\" into tProps[\"blend mode\"]\nput 0 into tProps[\"spread\"]\nput 5 into tProps[\"size\"]\nput 5 into tProps[\"distance\"]\nput 60 into tProps[\"angle\"]\n\nvariable tEffect as Effect\nput outer shadow effect with properties tProps into tEffect"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new effect of type <mType> with properties read from <mProperties>."
+			}],
+			"description":"Creates a new effect.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-276",
+			"name":"effectpropertycolor",
+			"display name":"EffectPropertyColor",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the color of <mEffect>"
+			],
+			"display syntax":[
+				"the color of <i>mEffect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The color of an effect.",
+			"parameters":[{
+				"name":"mEffect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an effect."
+			}],
+			"examples":[{
+				"script":"// Create an effect with color \"black\"\nvariable tProps as Array\nput the empty array into tProps\n\nput color [0,0,0] into tProps[\"color\"]\n\nvariable tEffect as Effect\nput outer shadow effect with properties tProps into tEffect\n\n// Change effect color to green.\nset the color of tEffect to color [0,1,0]"
+			}],
+			"description":"The color of <mEffect> as a color.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-277",
+			"name":"canvaspropertyjoinstyle",
+			"display name":"CanvasPropertyJoinStyle",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the join style of <mCanvas>"
+			],
+			"display syntax":[
+				"the join style of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current join style of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Draw a square with beveled corners.\nset the join style of this canvas to \"bevel\"\nstroke rectangle path of rectangle [25, 25, 75, 75] on this canvas"
+			}],
+			"description":"Determines how to draw the join between the lines of a path when stroking. Can be one of \"bevel\", \"round\", or \"miter\".",
+			"tags":["canvas"]
+		},{
+			"id":"builder-278",
+			"name":"fontpropertyname",
+			"display name":"FontPropertyName",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the name of <mFont>"
+			],
+			"display syntax":[
+				"the name of <i>mFont</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The name of a font.",
+			"parameters":[{
+				"name":"mFont",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a font."
+			}],
+			"examples":[{
+				"script":"// Create a font\nvariable tFont as Font\nput font \"Arial\" at size 20 into tFont\n\n// Get the old font name\nvariable tFontName as String\nput the name of tFont into tName\n\n// Set the font to helvetica\nset the name of tFont to \"Helvetica\""
+			}],
+			"description":"The name of <mFont>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-279",
+			"name":"canvasoperationfilltext",
+			"display name":"CanvasOperationFillText",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"fill text <mText> at <mPoint> on <mCanvas>"
+			],
+			"display syntax":[
+				"fill text <i>mText</i> at <i>mPoint</i> on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Render filled text on a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mText",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			},{
+				"name":"mPoint",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			}],
+			"examples":[{
+				"script":"// Set the canvas font\nset the font of this canvas to font \"Helvetica\"\n\n// Draw the text\nfill text \"Widget Label\" at point [50,50] on this canvas"
+			}],
+			"description":"Renders <mText> at <mPoint> on <mCanvas> using the current font setting.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-280",
+			"name":"imagemakefromresourcefile",
+			"display name":"ImageMakeFromResourceFile",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"image from resource file <mResource>"
+			],
+			"display syntax":[
+				"image from resource file <i>mResource</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new image.",
+			"parameters":[{
+				"name":"mResource",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			}],
+			"examples":[{
+				"script":"// Load image from a bundled resource file\nvariable tImage\nput image from resource file \"images/logo.png\" into tImage"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new image decoded from the named module resource file."
+			}],
+			"description":"Creates a new image.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-281",
+			"name":"gradientpropertytype",
+			"display name":"GradientPropertyType",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the type of <mGradient>"
+			],
+			"display syntax":[
+				"the type of <i>mGradient</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The type of a gradient paint.",
+			"parameters":[{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\n// Store the old gradient type\nvariable tType\nput the type of tGradient into tType\n\n// Change the gradient type to radial\nset the type of tGradient to \"radial\""
+			}],
+			"description":"The type of <mGradient> as a string. This can be one of \"linear\", \"radial\", \"conical\", \"diamond\", \"spiral\", \"xy\", \"sqrtxy\".",
+			"tags":["canvas"]
+		},{
+			"id":"builder-282",
+			"name":"transformpropertymatrixaslist",
+			"display name":"TransformPropertyMatrixAsList",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the matrix of <mTransform>"
+			],
+			"display syntax":[
+				"the matrix of <i>mTransform</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The matrix values of a transform.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			}],
+			"examples":[{
+				"script":"variable tTransform\nput transform with translation [20,50] into tTransform\n\n// Get the current transform matrix\nvariable tMatrix\nput the matrix of tTransform into tMatrix\n\n// Directly set the components\nput 2.5 into element 1 of tMatrix\nput 0 into element 2 of tMatrix\nput 0 into element 3 of tMatrix\nput 2.5 into element 4 of tMatrix\n\n// Update the transform with the new values\nset the matrix of tTransform to tMatrix"
+			}],
+			"description":"The matrix values of <mTransform> as a list of 6 numbers.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-283",
+			"name":"canvaspropertystippled",
+			"display name":"CanvasPropertyStippled",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the stippled of <mCanvas>"
+			],
+			"display syntax":[
+				"the stippled of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current stippled setting of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Draw with stippled red paint on canvas\nset the paint of this canvas to solid paint with color [1,0,0]\nset the stippled of this canvas to true"
+			}],
+			"description":"A boolean value that determines whether or not stippling will be used when drawing with a solid color paint on <mCanvas>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-284",
+			"name":"canvasoperationstroke",
+			"display name":"CanvasOperationStroke",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"stroke [ <mPath> on ] <mCanvas>"
+			],
+			"display syntax":[
+				"stroke [ <i>mPath</i> on ] <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Stroke a path on a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Draw a circle path on the canvas\nstroke circle path centered at point [100,100] with radius 50 on this canvas"
+			},{
+				"script":"// Add a path to the canvas\nmove to point [50,50] on this canvas\nline to point [50,100] on this canvas\nline to point [100,100] on this canvas\n\n// Stroke the current canvas path\nstroke this canvas"
+			}],
+			"description":"Strokes <mPath> with the current canvas paint and stroke settings. If mPath is not specified then the current canvas path will be stroked, then emptied from the canvas.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-285",
+			"name":"transformmakescale",
+			"display name":"TransformMakeScale",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"transform with scale <mScale>"
+			],
+			"display syntax":[
+				"transform with scale <i>mScale</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new scaling transform value.",
+			"parameters":[{
+				"name":"mScale",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 1 or 2 numbers, the x-axis scale and y-axis scale, or the uniform scale when only a single value is given."
+			}],
+			"examples":[{
+				"script":"// Create x2 uniformly scaling transform\nvariable tTransform\nput transform with scale [2] into tTransform\n\n// Create transform which only scales in the direction of the x axis\nput transform with scale [ 2, 1 ] into tTransform"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new scale transform."
+			}],
+			"description":"Creates a new scaling transform value.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-286",
+			"name":"gradientoperationscale",
+			"display name":"GradientOperationScale",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"scale <mGradient> by <mScale>"
+			],
+			"display syntax":[
+				"scale <i>mGradient</i> by <i>mScale</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a scale to a gradient paint.",
+			"parameters":[{
+				"name":"mScale",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			},{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\n// Scale the gradient\nscale tGradient by [2,2]"
+			}],
+			"description":"Scales the transform of <mGradient> by <mScale>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-287",
+			"name":"pathoperationtranslate",
+			"display name":"PathOperationTranslate",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"translate <mPath> by <mTranslation>"
+			],
+			"display syntax":[
+				"translate <i>mPath</i> by <i>mTranslation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a translation to a path.",
+			"parameters":[{
+				"name":"mTranslation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Create a rectangle path\nvariable tPath as Path\nput rectangle path of rectangle [10,10,210,60] into tPath\n\n// Translate the path\ntranslate tPath by [50,100]"
+			}],
+			"description":"Translates <mPath> by <mTranslation>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-288",
+			"name":"canvasoperationsavestate",
+			"display name":"CanvasOperationSaveState",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"save state of <mCanvas>"
+			],
+			"display syntax":[
+				"save state of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Save the current state of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Save the current canvas properties\nsave state of this canvas\n\n// Change various properties of the canvas\nset the paint of this canvas to solid paint with color [1,1,0,0.5]\nset the blend mode of this canvas to \"color dodge\"\nrotate this canvas by 30\nset the font of this canvas to font \"Helvetica\" with size 15\n\n// Restore the previous canvas properties\nrestore state of this canvas"
+			}],
+			"description":"Saves the current properties of <mCanvas> to the top of a stack so that they can be restored later.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-289",
+			"name":"pathpropertysubpath",
+			"display name":"PathPropertySubpath",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"subpath <mStart> [ to <mEnd> ] of <mPath>"
+			],
+			"display syntax":[
+				"subpath <i>mStart</i> [ to <i>mEnd</i> ] of <i>mPath</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The subpaths of a path.",
+			"parameters":[{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			},{
+				"name":"mStart",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mEnd",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			}],
+			"examples":[{
+				"script":"// Create a path with multiple subpaths\nvariable tPath as Path\nput path \"M50,50 L100,50 M100,100 L150,100 M150,150 L200,150\"\n\n// Split out the first subpath of a path\nvariable tSubPath as Path\nput subpath 1 of tPath into tSubPath\n\n// Store the remaining subpaths in the original path\nput subpath 2 to -1 of tPath into tPath"
+			}],
+			"description":"The subpaths of <mPath> in the range <mStart> to <mEnd>. Each subpath or range of subpaths is itself a path.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-290",
+			"name":"pathmakewithellipse",
+			"display name":"PathMakeWithEllipse",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"ellipse path centered at <mPoint> with radii <mRadii>"
+			],
+			"display syntax":[
+				"ellipse path centered at <i>mPoint</i> with radii <i>mRadii</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new path.\nmCenter:An expression which evaluates to a point.",
+			"parameters":[{
+				"name":"mRadii",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			}],
+			"examples":[{
+				"script":"// Create an ellipse path\nvariable tPath as Path\nput ellipse path centered at point [100,100] with radii [100,75] into tPath"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new ellipse path."
+			}],
+			"description":"Creates a new path.\nmCenter:An expression which evaluates to a point.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-291",
+			"name":"pathmakewithpoints",
+			"display name":"PathMakeWithPoints",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"( polygon | polyline ) path with points <mPoints>"
+			],
+			"display syntax":[
+				"( polygon | polyline ) path with points <i>mPoints</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new path.",
+			"parameters":[{
+				"name":"mPoints",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of points."
+			}],
+			"examples":[{
+				"script":"// Create a polyline path\nvariable tPath as Path\nput polyline path with points [point [0,0], point [25,50], point [75,50], point [50,0]] into tPath"
+			},{
+				"script":"// Create a closed polygon path (rhombus)\nvariable tPath as Path\nput polygon path with points [point [0,0], point [25,50], point [75,50], point [50,0]] into tPath"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new polyline or polygon path. A polygon path will be closed with an additional line from the last point to the first."
+			}],
+			"description":"Creates a new path.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-292",
+			"name":"rectanglepropertytop",
+			"display name":"RectanglePropertyTop",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the top of <mRect>"
+			],
+			"display syntax":[
+				"the top of <i>mRect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The top edge of a rectangle value.",
+			"parameters":[{
+				"name":"mRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			}],
+			"examples":[{
+				"script":"variable tRect\nput rectangle [50,100,150,200] into tRect\n\n// Store the top edge of the rectangle in a variable\nvariable tTop\nput the top of tRect into tTop\n\n// Move the rectangle vertically to a new position.\nset the top of tRect to 120"
+			}],
+			"description":"The location along the y-axis of the top edge of the rectangle.\n\n>*Note:* Setting the top of a rectangle will reposition it without altering the width or height.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-293",
+			"name":"colorpropertyred",
+			"display name":"ColorPropertyRed",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the red of <mColor>"
+			],
+			"display syntax":[
+				"the red of <i>mColor</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The red component of a color value.",
+			"parameters":[{
+				"name":"mColor",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a color."
+			}],
+			"examples":[{
+				"script":"variable tColor\nput color [0.75, 1.0, 0.5] into tColor\n\n// Store the old red value\nvariable tRed\nput the red of tColor into tRed\n\n// Invert the intensity of the red color component\nset the red of tColor to 1.0 - tRed"
+			}],
+			"description":"The red component of <mColor>\n\n>*Note:* The component value denotes the intensity of that component, expressed as a real number between 0 and 1.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-294",
+			"name":"pathmakewithrectangle",
+			"display name":"PathMakeWithRectangle",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"rectangle path of <mRect>"
+			],
+			"display syntax":[
+				"rectangle path of <i>mRect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new path.",
+			"parameters":[{
+				"name":"mRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			}],
+			"examples":[{
+				"script":"// Create a rectangle path\nvariable tPath as Path\nput rectangle path of rectangle [10,10,210,60] into tPath"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new rectangle path."
+			}],
+			"description":"Creates a new path.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-295",
+			"name":"imagemakefromfile",
+			"display name":"ImageMakeFromFile",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"image from file <mPath>"
+			],
+			"display syntax":[
+				"image from file <i>mPath</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new image.",
+			"parameters":[{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			}],
+			"examples":[{
+				"script":"// Load image from a file path\nvariable tImage\nput image from file \"images/logo.png\" into tImage"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new image loaded from the file path provided."
+			}],
+			"description":"If the file path is relative it will be resolved relative to\n`this card of the defaultStack` in a library handler or the current\nwidget instance script object if in a widget handler.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-296",
+			"name":"canvaspropertyblendmode",
+			"display name":"CanvasPropertyBlendMode",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the blend mode of <mCanvas>"
+			],
+			"display syntax":[
+				"the blend mode of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current blend mode of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Use color dodge mode to draw on canvas\nset the blend mode of this canvas to \"color dodge\""
+			}],
+			"description":"The blend mode used for drawing operations on <mCanvas> as a string. Can be any one of:\n- clear\n- copy\n- source over\n- source in\n- source out\n- destination over\n- destination in\n- destination out\n- destination atop\n- xor\n- plus darker\n- plus lighter\n- multiply\n- screen\n- overlay\n- darken\n- lighten\n- color edge\n- color burn\n- soft light\n- hard light\n- difference\n- exclusion\n- hue\n- saturation\n- color\n- luminosity",
+			"tags":["canvas"]
+		},{
+			"id":"builder-297",
+			"name":"effectpropertyangle",
+			"display name":"EffectPropertyAngle",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the angle of <mEffect>"
+			],
+			"display syntax":[
+				"the angle of <i>mEffect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The angle of an effect.",
+			"parameters":[{
+				"name":"mEffect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to an effect."
+			}],
+			"examples":[{
+				"script":"// Create an effect with angle 60\nvariable tProps as Array\nput the empty array into tProps\n\nput 60 into tProps[\"angle\"]\n\nvariable tEffect as Effect\nput outer shadow effect with properties tProps into tEffect\n\n// Set the effect angle\nset the angle of tEffect to 30"
+			}],
+			"description":"The angle of <mEffect> as a number of degrees. Angle applies to inner shadow, and outer shadow effect types",
+			"tags":["canvas"]
+		},{
+			"id":"builder-298",
+			"name":"fontmakewithstyle",
+			"display name":"FontMakeWithStyle",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"font <mName> with ( bold  | italic  | bold italic  ) style"
+			],
+			"display syntax":[
+				"font <i>mName</i> with ( bold  | italic  | bold italic  ) style"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new instance of the named font.",
+			"parameters":[{
+				"name":"mName",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			}],
+			"examples":[{
+				"script":"// Create italic Arial font\nvariable tFont as Font\nput font \"Arial\" with italic style into tFont"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new instance of the named font with style bold, italic, or bold italic, and the default size of 12pts."
+			}],
+			"description":"Creates a new instance of the named font.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-299",
+			"name":"canvasoperationfilltextaligned",
+			"display name":"CanvasOperationFillTextAligned",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"fill text <mText> at <mAlignment> of <mRect> on <mCanvas>"
+			],
+			"display syntax":[
+				"fill text <i>mText</i> at <i>mAlignment</i> of <i>mRect</i> on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Render filled text on a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			},{
+				"name":"mText",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a string."
+			},{
+				"name":"mRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			}],
+			"examples":[{
+				"script":"// Set the canvas font\nset the font of this canvas to font \"Helvetica\"\n\n// Draw the text in the top-left corner of the target rectangle\nfill text \"Widget Label\" at top left of rectangle [50, 100, 250, 200] on this canvas"
+			}],
+			"description":"Renders <mText> aligned to the specified sides of <mRect> on <mCanvas> using the current font setting.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-300",
+			"name":"canvasoperationendlayer",
+			"display name":"CanvasOperationEndLayer",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"end layer on <mCanvas>"
+			],
+			"display syntax":[
+				"end layer on <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"End the current drawing layer on a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Draw two overlapping rectangles grouped with half transparency\nset the opacity of this canvas to 0.5\nbegin layer on this canvas\nfill rectangle path of rectangle path [50,50,100,100] on this canvas\nfill rectangle path of rectangle path [75,75,125,125] on this canvas\nend layer on this canvas"
+			},{
+				"script":"// Create an effect for the new layer\nvariable tEffect as Effect\nput outer shadow effect into tEffect\n\n// Draw rectangle with an effect applied\nbegin layer with tEffect on this canvas\nfill rectangle path of rectangle [50,50,100,100] on this canvas\nend layer on this canvas"
+			}],
+			"description":"Ends the layer on <mCanvas>, rendering to the previous layer with the opacity, blend mode, and effect properties set when the layer began.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-301",
+			"name":"pathoperationrotate",
+			"display name":"PathOperationRotate",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"rotate <mPath> by <mRotation>"
+			],
+			"display syntax":[
+				"rotate <i>mPath</i> by <i>mRotation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a rotation to a path.",
+			"parameters":[{
+				"name":"mRotation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"// Create a rectangle path\nvariable tPath as Path\nput rectangle path of rectangle [10,10,210,60] into tPath\n\n// Rotate the path\nrotate tPath by 45"
+			}],
+			"description":"Rotates <mPath> by <mRotation> degrees.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-302",
+			"name":"gradientmakewithramp",
+			"display name":"GradientMakeWithRamp",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"<mType> gradient with ramp <mRamp>"
+			],
+			"display syntax":[
+				"<i>mType</i> gradient with ramp <i>mRamp</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new gradient paint.",
+			"parameters":[{
+				"name":"mRamp",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of gradient stops."
+			}],
+			"examples":[{
+				"script":"// List to hold gradient stops\nvariable tRamp\nput the empty list into tRamp\n\n// Set up gradient stops\npush gradient stop at 0 with color [1,0,0] onto tRamp\npush gradient stop at 0.5 with color [0,1,0,0.5] onto tRamp\npush gradient stop at 1 with color [0,0,1] onto tRamp\n\n// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp tRamp into tGradient"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new gradient paint."
+			}],
+			"description":"Creates a new gradient paint.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-303",
+			"name":"canvaspropertycapstyle",
+			"display name":"CanvasPropertyCapStyle",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the cap style of <mCanvas>"
+			],
+			"display syntax":[
+				"the cap style of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current cap style of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Draw a line with rounded ends.\nset the cap style of this canvas to \"round\"\nstroke line path from point [50,100] to point [100,50] on this canvas"
+			}],
+			"description":"Determines how to draw the end points of a path when stroking. Can be one of \"butt\", \"square\", or \"round\".",
+			"tags":["canvas"]
+		},{
+			"id":"builder-304",
+			"name":"pathmakewithroundedrectanglewithradius",
+			"display name":"PathMakeWithRoundedRectangleWithRadius",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"rounded rectangle path of <mRect> with radius <mRadius>"
+			],
+			"display syntax":[
+				"rounded rectangle path of <i>mRect</i> with radius <i>mRadius</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new path.\nmRadii:An expression which evaluates to a list of numbers.",
+			"parameters":[{
+				"name":"mRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			},{
+				"name":"mRadius",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			}],
+			"examples":[{
+				"script":"// Create a rounded rectangle path\nvariable tPath as Path\nput rounded rectangle path of rectangle [10,10,210,60] with radius 15 into tPath"
+			},{
+				"script":"// Create a rounded rectangle path with different horizontal & vertical radii\nvariable tPath as Path\nput rounded rectangle path of rectangle [10,10,210,60] with radii [10,5] into tPath"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new rounded rectangle path."
+			}],
+			"description":"Creates a new path.\nmRadii:An expression which evaluates to a list of numbers.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-305",
+			"name":"gradientoperationtranslate",
+			"display name":"GradientOperationTranslate",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"translate <mGradient> by <mTranslation>"
+			],
+			"display syntax":[
+				"translate <i>mGradient</i> by <i>mTranslation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a translation to a gradient paint.",
+			"parameters":[{
+				"name":"mTranslation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			},{
+				"name":"mGradient",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a gradient."
+			}],
+			"examples":[{
+				"script":"// Create new gradient paint\nvariable tGradient\nput linear gradient with ramp [gradient stop at 0 with color [0,0,0], gradient stop at 1 with color [1,1,1]] into tGradient\n\n// Translate the gradient\ntranslate tGradient by [50,100]"
+			}],
+			"description":"Translates the transform of <mGradient> by <mTranslation>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-306",
+			"name":"transformoperationskew",
+			"display name":"TransformOperationSkew",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"skew <mTransform> by <mSkew>"
+			],
+			"display syntax":[
+				"skew <i>mTransform</i> by <i>mSkew</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a skew to a transform.",
+			"parameters":[{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			},{
+				"name":"mSkew",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 2 numbers, the x-axis skew and y-axis skew."
+			}],
+			"examples":[{
+				"script":"variable tTransform\n// Create a new transform\nput the identity transform into tTransform\n// Apply a skew to the transform\nskew tTransform by [1, 0]"
+			}],
+			"description":"Apply the given skew to <mTransform>",
+			"tags":["canvas"]
+		},{
+			"id":"builder-307",
+			"name":"pathmakewithsegment",
+			"display name":"PathMakeWithSegment",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"segment path centered at <mCenter> with [ radius <mRadius> | radii <mRadii> ] from <mStartAngle> to <mEndAngle>"
+			],
+			"display syntax":[
+				"segment path centered at <i>mCenter</i> with [ radius <i>mRadius</i> | radii <i>mRadii</i> ] from <i>mStartAngle</i> to <i>mEndAngle</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Creates a new path.",
+			"parameters":[{
+				"name":"mCenter",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mRadius",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mRadii",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			},{
+				"name":"mStartAngle",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mEndAngle",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			}],
+			"examples":[{
+				"script":"// Create an elliptical segment path\nvariable tPath as Path\nput segment path centered at point [100,100] with radii [100,75] from 0 to 270 into tPath"
+			},{
+				"script":"// Create a circular segment path\nvariable tPath as Path\nput segment path centered at point [100,100] with radius 100 from 0 to 270 into tPath"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A new segment path."
+			}],
+			"description":"Creates a new path.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-308",
+			"name":"patternoperationtransform",
+			"display name":"PatternOperationTransform",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"transform <mPattern> by <mTransform>"
+			],
+			"display syntax":[
+				"transform <i>mPattern</i> by <i>mTransform</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a transform to a pattern.",
+			"parameters":[{
+				"name":"mPattern",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a pattern."
+			},{
+				"name":"mTransform",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			}],
+			"examples":[{
+				"script":"// Create a new pattern paint from an image file\nvariable tPattern\nput pattern with image from file \"images/pattern.png\" into tPattern\n\n// Apply transform to the pattern.\ntransform tPattern by transform with matrix [0,2,-2,0,5,10]"
+			}],
+			"description":"Modifies the transform of <mPattern> by concatentation with <mTransform>",
+			"tags":["canvas"]
+		},{
+			"id":"builder-309",
+			"name":"canvaspropertyantialias",
+			"display name":"CanvasPropertyAntialias",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the antialias of <mCanvas>"
+			],
+			"display syntax":[
+				"the antialias of <i>mCanvas</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The current antialias setting of a canvas.",
+			"parameters":[{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Disable antialiasing on the canvas\nset the antialias of this canvas to false"
+			}],
+			"description":"A boolean value which determines whether or not antialiasing will be used when rendering paths on <mCanvas>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-310",
+			"name":"rectanglepropertyheight",
+			"display name":"RectanglePropertyHeight",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the height of <mRect>"
+			],
+			"display syntax":[
+				"the height of <i>mRect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The height of a rectangle value.",
+			"parameters":[{
+				"name":"mRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			}],
+			"examples":[{
+				"script":"variable tRect\nput rectangle [50,100,150,200] into tRect\n\n// Store the height of the rectangle in a variable\nvariable tHeight\nput the height of tRect into tHeight\n\n// Increase the height of the rectangle\nset the height of tRect to (tHeight + 10)"
+			}],
+			"description":"The height of the rectangle.\n\n>*Note:* Setting the height of a rectangle will resize it without moving the top edge, expanding or contracting from the bottom.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-311",
+			"name":"canvasoperationrotate",
+			"display name":"CanvasOperationRotate",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"rotate <mCanvas> by <mRotation>"
+			],
+			"display syntax":[
+				"rotate <i>mCanvas</i> by <i>mRotation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a rotation to a canvas.",
+			"parameters":[{
+				"name":"mRotation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mCanvas",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a canvas."
+			}],
+			"examples":[{
+				"script":"// Rotate the canvas\nrotate this canvas by 45"
+			}],
+			"description":"Rotates the transform of <mCanvas> by <mRotation> degrees.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-312",
+			"name":"fontpropertysize",
+			"display name":"FontPropertySize",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the size of <mFont>"
+			],
+			"display syntax":[
+				"the size of <i>mFont</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The size of a font.",
+			"parameters":[{
+				"name":"mFont",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a font."
+			}],
+			"examples":[{
+				"script":"// Create a font\nvariable tFont as Font\nput font \"Arial\" at size 20 into tFont\n\n// Set the font size to 30pt\nset the size of tFont to 30"
+			}],
+			"description":"The size of <mFont> as a number of points.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-313",
+			"name":"rectanglepropertyright",
+			"display name":"RectanglePropertyRight",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the right of <mRect>"
+			],
+			"display syntax":[
+				"the right of <i>mRect</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The right edge of a rectangle value.",
+			"parameters":[{
+				"name":"mRect",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a rectangle."
+			}],
+			"examples":[{
+				"script":"variable tRect\nput rectangle [50,100,150,200] into tRect\n\n// Store the right edge of the rectangle in a variable\nvariable tRight\nput the right of tRect into tRight\n\n// Move the rectangle horizontally to a new position.\nset the right of tRect to (tRight + 10)"
+			}],
+			"description":"The location along the x-axis of the right edge of the rectangle.\n\n>*Note:* Setting the right of a rectangle will reposition it without altering the width or height.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-314",
+			"name":"patternoperationtranslate",
+			"display name":"PatternOperationTranslate",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"translate <mPattern> by <mTranslation>"
+			],
+			"display syntax":[
+				"translate <i>mPattern</i> by <i>mTranslation</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Apply a translation to a pattern.",
+			"parameters":[{
+				"name":"mPattern",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a pattern."
+			},{
+				"name":"mTranslation",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of 2 numbers, the x and y offsets of the translation."
+			}],
+			"examples":[{
+				"script":"// Create a new pattern paint from an image file\nvariable tPattern\nput pattern with image from file \"images/pattern.png\" into tPattern\n\n// Translate the pattern 20 units to the left.\ntranslate tPattern by [-20,0]"
+			}],
+			"description":"translates the transform of <mPattern> by <mTranslation>",
+			"tags":["canvas"]
+		},{
+			"id":"builder-315",
+			"name":"fontpropertyitalic",
+			"display name":"FontPropertyItalic",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the italic of <mFont>"
+			],
+			"display syntax":[
+				"the italic of <i>mFont</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"The italic setting of a font.",
+			"parameters":[{
+				"name":"mFont",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a font."
+			}],
+			"examples":[{
+				"script":"// Create a font\nvariable tFont as Font\nput font \"Arial\" at size 20 into tFont\n\n// Set the font to italic\nset the italic of tFont to true"
+			}],
+			"description":"The italic flag of <mFont> as a boolean. If true, then <mFont> is italic.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-316",
+			"name":"pathoperationellipticarctowithflags",
+			"display name":"PathOperationEllipticArcToWithFlags",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"arc to <mEnd> with radii <mRadii> rotated by <mAngle> taking ( largest | smallest ) ( clockwise | anticlockwise ) route on <mPath>"
+			],
+			"display syntax":[
+				"arc to <i>mEnd</i> with radii <i>mRadii</i> rotated by <i>mAngle</i> taking ( largest | smallest ) ( clockwise | anticlockwise ) route on <i>mPath</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Adds an arc to a path.",
+			"parameters":[{
+				"name":"mEnd",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			},{
+				"name":"mRadii",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a list of numbers."
+			},{
+				"name":"mAngle",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a number."
+			},{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			}],
+			"examples":[{
+				"script":"variable tPath\nput the empty path into tPath\n\n// Begin a new subpath\nmove to point [25, 50] on tPath\n\n// Continue path with an arc to 50,25\narc to point [50, 25] with radii [25, 25] rotated by 0 taking smallest clockwise route on tPath\n\n// Begin a new subpath\nmove to point [75, 50] on tPath\n// Continue path with a large arc to 50,75\narc to point [50, 75] with radii [25, 25] rotated by 0 taking largest clockwise route on tPath"
+			}],
+			"description":"Adds an arc from the previous point to <mEnd> on <mPath>, following a section of an ellipse with the given radii & angle.\n  As there can be two different ellipses that match the parameters, and two potential arcs for each ellipse, the *largest*, *smallest*, *clockwise*, and *anticlockwise* options allow one arc to specified from the four potential arcs.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-317",
+			"name":"pathoperationlineto",
+			"display name":"PathOperationLineTo",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"line to <mPoint> on <mPath>"
+			],
+			"display syntax":[
+				"line to <i>mPoint</i> on <i>mPath</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Adds a line to a path.",
+			"parameters":[{
+				"name":"mPath",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a path."
+			},{
+				"name":"mPoint",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a point."
+			}],
+			"examples":[{
+				"script":"// Create a new empty path\nvariable tPath as Path\nput the empty path into tPath\n\n// Begin a new subpath of tPath\nmove to point [25, 50] on tPath\n\n// Continue path with a line to 50,100\nline to [50,100] on tPath"
+			}],
+			"description":"Adds a line from the previous point to <mPoint> on <mPath>.",
+			"tags":["canvas"]
+		},{
+			"id":"builder-318",
+			"name":"transformoperationmultiply",
+			"display name":"TransformOperationMultiply",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"<Left> * <Right>"
+			],
+			"display syntax":[
+				"<i>Left</i> * <i>Right</i>"
+			],
+			"associations":["com.livecode.canvas"],
+			"summary":"Multiply two transforms together.",
+			"parameters":[{
+				"name":"Left",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			},{
+				"name":"Right",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression which evaluates to a transform."
+			}],
+			"examples":[{
+				"script":"// Create a rotation transform\nvariable tRotate\nput transform with rotation by 45 into tRotate\n\n// Create a scale transform\nvariable tScale\nput transform with scale [2,3] into tScale\n\n// Create a translation transform\nvariable tTranslate\nput transform with translation [50,100] into tTranslate\n\n// Combine transforms by multiplying them together\nvariable tTransform\nput tTranslate * tRotate * tScale into tTransform"
+			}],
+			"description":"Returns the transform created by concatentating <Left> with <Right>\nNote:The order of the arguments is important when multiplying transforms. <Left> * <Right> can result in a different transform from <Right> * <Left> (in mathematical terms, transform multiplication is non-commutative).",
+			"tags":["canvas"]
+		},{
+			"id":"builder-319",
 			"name":"putbytesafter",
 			"display name":"PutBytesAfter",
 			"library":"builder",
@@ -1431,7 +8187,7 @@
 			"description":"Use to insert bytes into data without replacement. Can be used either with a chunk expression to insert at a specified location, or without to append to the target data.",
 			"tags":["binary"]
 		},{
-			"id":"builder-61",
+			"id":"builder-320",
 			"name":"putbytesbefore",
 			"display name":"PutBytesBefore",
 			"library":"builder",
@@ -1458,7 +8214,7 @@
 			"description":"Use to insert bytes into data without replacement. Can be used either with a chunk expression to insert at a specified location, or without to prepend to the target data.",
 			"tags":["binary"]
 		},{
-			"id":"builder-62",
+			"id":"builder-321",
 			"name":"emptydata",
 			"display name":"EmptyData",
 			"library":"builder",
@@ -1477,7 +8233,7 @@
 			"description":"Use ```the empty data``` to initialise a data variable.",
 			"tags":["binary"]
 		},{
-			"id":"builder-63",
+			"id":"builder-322",
 			"name":"dataislessthandata",
 			"display name":"DataIsLessThanData",
 			"library":"builder",
@@ -1509,7 +8265,7 @@
 			"description":"<Left> is less than <Right> if they are not equal, and the first byte in <Right> that is not equal to the corresponding byte in <Left> is of greater value.",
 			"tags":["binary"]
 		},{
-			"id":"builder-64",
+			"id":"builder-323",
 			"name":"concatenatebytes",
 			"display name":"ConcatenateBytes",
 			"library":"builder",
@@ -1541,7 +8297,7 @@
 			"description":"The result consists of the bytes of <Left> followed by those of <Right>.",
 			"tags":["binary"]
 		},{
-			"id":"builder-65",
+			"id":"builder-324",
 			"name":"dataisnotdata",
 			"display name":"DataIsNotData",
 			"library":"builder",
@@ -1573,7 +8329,7 @@
 			"description":"Performs a byte by byte comparison of <Left> and <Right>, returning true if there is any difference.",
 			"tags":["binary"]
 		},{
-			"id":"builder-66",
+			"id":"builder-325",
 			"name":"dataisdata",
 			"display name":"DataIsData",
 			"library":"builder",
@@ -1605,7 +8361,7 @@
 			"description":"Performs a byte by byte comparison of <Left> and <Right>, returning false if there is any difference.",
 			"tags":["binary"]
 		},{
-			"id":"builder-67",
+			"id":"builder-326",
 			"name":"dataisgreaterthandata",
 			"display name":"DataIsGreaterThanData",
 			"library":"builder",
@@ -1637,7 +8393,7 @@
 			"description":"<Left> is greater than <Right> if they are not equal, and the first byte in <Left> that is not equal to the corresponding byte in <Right> is of greater value.",
 			"tags":["binary"]
 		},{
-			"id":"builder-68",
+			"id":"builder-327",
 			"name":"com.livecode.binary",
 			"display name":"com.livecode.binary",
 			"library":"builder",
@@ -1649,7 +8405,7 @@
 			"summary":"This library consists of the operations on binary strings provided by the standard library of LiveCode Builder.",
 			"description":"This library consists of the operations on binary strings provided by the standard library of LiveCode Builder."
 		},{
-			"id":"builder-69",
+			"id":"builder-328",
 			"name":"byteisindata",
 			"display name":"ByteIsInData",
 			"library":"builder",
@@ -1681,7 +8437,7 @@
 			"description":">*Note:* It is an error if <Needle> evaluates to data consisting of more than one byte.",
 			"tags":["binary"]
 		},{
-			"id":"builder-70",
+			"id":"builder-329",
 			"name":"byteoffset",
 			"display name":"ByteOffset",
 			"library":"builder",
@@ -1713,7 +8469,7 @@
 			"description":"The first (respectively last) offset of <Needle> in <Target> is number of bytes between the first byte of <Target> and the first (respectively last) occurrence of <Needle>. If neither first or last is specified, then the first offset is found. If <Needle> does not occur in <Target>, then the output is 0.",
 			"tags":["binary"]
 		},{
-			"id":"builder-71",
+			"id":"builder-330",
 			"name":"deletefirstbyteof",
 			"display name":"DeleteFirstByteOf",
 			"library":"builder",
@@ -1735,7 +8491,7 @@
 			"description":"Replaces the first byte in <Target> with the empty data.\n\n>*Note:* It is an error if <Target> is the empty data.",
 			"tags":["binary"]
 		},{
-			"id":"builder-72",
+			"id":"builder-331",
 			"name":"singletonbyteof",
 			"display name":"SingletonByteOf",
 			"library":"builder",
@@ -1762,7 +8518,7 @@
 			"description":"Either locates the byte at the given index for use as the target container of another operation, or evaluates the byte at the given index as the source of another operation.\n\n>*Note:* It is an error if <Index> is out of range.",
 			"tags":["binary"]
 		},{
-			"id":"builder-73",
+			"id":"builder-332",
 			"name":"deletesingletonbyteof",
 			"display name":"DeleteSingletonByteOf",
 			"library":"builder",
@@ -1789,7 +8545,7 @@
 			"description":"Replaces the byte at the given index with the empty data.\n\n>*Note:* It is an error if <Index> is out of range.",
 			"tags":["binary"]
 		},{
-			"id":"builder-74",
+			"id":"builder-333",
 			"name":"randombytes",
 			"display name":"RandomBytes",
 			"library":"builder",
@@ -1811,7 +8567,7 @@
 			"description":"Generates the requested number of bytes of cryptographic-quality\nrandom data.",
 			"tags":["binary","random"]
 		},{
-			"id":"builder-75",
+			"id":"builder-334",
 			"name":"repeatforeachbyte",
 			"display name":"RepeatForEachByte",
 			"library":"builder",
@@ -1833,7 +8589,7 @@
 			"description":"Use repeat for each to perform an operation on each byte of some data. On each iteration, the <Iterand> will contain the next char of the string being iterated over.",
 			"tags":["binary","control structures"]
 		},{
-			"id":"builder-76",
+			"id":"builder-335",
 			"name":"deleterangebyteof",
 			"display name":"DeleteRangeByteOf",
 			"library":"builder",
@@ -1865,7 +8621,7 @@
 			"description":"Replaces the bytes between the given indices with the empty data.\n\n>*Note:* It is an error if either <Start> or <Finish> are out of range.",
 			"tags":["binary"]
 		},{
-			"id":"builder-77",
+			"id":"builder-336",
 			"name":"bytewithcode",
 			"display name":"ByteWithCode",
 			"library":"builder",
@@ -1887,7 +8643,7 @@
 			"description":"Returns a byte of binary data, created using the given value.  The\n<Value> must be between 0 and 255 (inclusive).",
 			"tags":["binary"]
 		},{
-			"id":"builder-78",
+			"id":"builder-337",
 			"name":"countbytesof",
 			"display name":"CountBytesOf",
 			"library":"builder",
@@ -1914,7 +8670,7 @@
 			"description":"Counts the number of bytes in <Target>.",
 			"tags":["binary"]
 		},{
-			"id":"builder-79",
+			"id":"builder-338",
 			"name":"byteoffsetafter",
 			"display name":"ByteOffsetAfter",
 			"library":"builder",
@@ -1951,7 +8707,7 @@
 			"description":"The first (respectively last) offset of <Needle> in <Target> is number of bytes between byte <After> of <Target> and the first (respectively last) occurrence of <Needle> after <After>. If neither first or last is specified, then the first offset is found. If <Needle> does not occur after <After> in <Target>, then the output is 0.",
 			"tags":["binary"]
 		},{
-			"id":"builder-80",
+			"id":"builder-339",
 			"name":"com.livecode.byte",
 			"display name":"com.livecode.byte",
 			"library":"builder",
@@ -1963,7 +8719,7 @@
 			"summary":"This library consists of the operations on bytes included in the standard library of LiveCode Builder.",
 			"description":"This library consists of the operations on bytes included in the standard library of LiveCode Builder."
 		},{
-			"id":"builder-81",
+			"id":"builder-340",
 			"name":"beginswithbytes",
 			"display name":"BeginsWithBytes",
 			"library":"builder",
@@ -1995,7 +8751,7 @@
 			"description":">*Note:* Since the empty data is an initial subsequence of every sequence of bytes, every sequence of bytes begins with the empty data.",
 			"tags":["binary"]
 		},{
-			"id":"builder-82",
+			"id":"builder-341",
 			"name":"endswithbytes",
 			"display name":"EndsWithBytes",
 			"library":"builder",
@@ -2027,7 +8783,7 @@
 			"description":">*Note:* Since the empty data is a final subsequence of every sequence of bytes, every sequence of bytes ends with the empty data.",
 			"tags":["binary"]
 		},{
-			"id":"builder-83",
+			"id":"builder-342",
 			"name":"containsbytes",
 			"display name":"ContainsBytes",
 			"library":"builder",
@@ -2059,7 +8815,7 @@
 			"description":">*Note:* Since the empty data is a subsequence of every sequence of bytes, every sequence of bytes contains the empty data.",
 			"tags":["binary"]
 		},{
-			"id":"builder-84",
+			"id":"builder-343",
 			"name":"lastbyteof",
 			"display name":"LastByteOf",
 			"library":"builder",
@@ -2081,7 +8837,7 @@
 			"description":"Either locates the first byte for use as the target container of another operation, or evaluates the first byte as the source of another operation.\n\n>*Note:* It is an error if <Target> is empty.",
 			"tags":["binary"]
 		},{
-			"id":"builder-85",
+			"id":"builder-344",
 			"name":"deletelastbyteof",
 			"display name":"DeleteLastByteOf",
 			"library":"builder",
@@ -2103,7 +8859,7 @@
 			"description":"Replaces the last byte in <Target> with the empty data.\n\n>*Note:* It is an error if <Target> is the empty data.",
 			"tags":["binary"]
 		},{
-			"id":"builder-86",
+			"id":"builder-345",
 			"name":"byteoffsetbefore",
 			"display name":"ByteOffsetBefore",
 			"library":"builder",
@@ -2140,7 +8896,7 @@
 			"description":"The first (respectively last) offset of <Needle> in <Target> is number of bytes between the first byte of <Target> and the first (respectively last) occurrence of <Needle> before <Before>. If neither first or last is specified, then the last offset is found. If <Needle> does not occur before <Before> in <Target>, then the output is 0.",
 			"tags":["binary"]
 		},{
-			"id":"builder-87",
+			"id":"builder-346",
 			"name":"firstbyteof",
 			"display name":"FirstByteOf",
 			"library":"builder",
@@ -2162,7 +8918,7 @@
 			"description":"Either locates the first byte for use as the target container of another operation, or evaluates the first byte as the source of another operation.\n\n>*Note:* It is an error if <Target> is empty.",
 			"tags":["binary"]
 		},{
-			"id":"builder-88",
+			"id":"builder-347",
 			"name":"codeofbyte",
 			"display name":"CodeOfByte",
 			"library":"builder",
@@ -2184,7 +8940,7 @@
 			"description":"Returns the numeric representation of a single byte of binary data.",
 			"tags":["binary"]
 		},{
-			"id":"builder-89",
+			"id":"builder-348",
 			"name":"rangebyteof",
 			"display name":"RangeByteOf",
 			"library":"builder",
@@ -2216,7 +8972,7 @@
 			"description":"Either locates the bytes between the given indices for use as the target container of another operation, or evaluates the bytes at the given indices as the source of another operation.\n\n>*Note:* It is an error if either <Start> or <Finish> are out of range.",
 			"tags":["binary"]
 		},{
-			"id":"builder-90",
+			"id":"builder-349",
 			"name":"reversebytesof",
 			"display name":"ReverseBytesOf",
 			"library":"builder",
@@ -2241,7 +8997,7 @@
 			"description":"Reverses the order of bytes in the <Target>.",
 			"tags":["binary"]
 		},{
-			"id":"builder-91",
+			"id":"builder-350",
 			"name":"androidrecordergetmaxamplitude",
 			"display name":"androidRecorderGetMaxAmplitude",
 			"library":"builder",
@@ -2260,7 +9016,7 @@
 			}],
 			"description":"Use the <androidRecorderGetMaxAmplitude> handler to retrieve the maximum\namplitude value reached during recording from the selected input source\nsince the amplitude was last retrieved.\n\n<androidRecorderGetMaxAmplitude> returns 0 if no recording is currently\nhappening.\n"
 		},{
-			"id":"builder-92",
+			"id":"builder-351",
 			"name":"androidrecordersetrecordcompressiontype",
 			"display name":"androidRecorderSetRecordCompressionType",
 			"library":"builder",
@@ -2285,7 +9041,7 @@
 			}],
 			"description":"Use the <androidRecorderSetRecordCompressionType> handler to control the \naudio encoding used by the audio recorder."
 		},{
-			"id":"builder-93",
+			"id":"builder-352",
 			"name":"androidrecordersetrecordformat",
 			"display name":"androidRecorderSetRecordFormat",
 			"library":"builder",
@@ -2310,7 +9066,7 @@
 			}],
 			"description":"Use the <androidRecorderSetRecordFormat> handler to set the format of \nthe output file."
 		},{
-			"id":"builder-94",
+			"id":"builder-353",
 			"name":"androidrecorderstoprecording",
 			"display name":"androidRecorderStopRecording",
 			"library":"builder",
@@ -2329,7 +9085,7 @@
 			}],
 			"description":"Use the <androidRecorderStopRecording> handler to stop the current \nrecording. If no recording is currently happening, this handler will\nthrow an error."
 		},{
-			"id":"builder-95",
+			"id":"builder-354",
 			"name":"androidrecorderstartrecording",
 			"display name":"androidRecorderStartRecording",
 			"library":"builder",
@@ -2357,7 +9113,7 @@
 				"handler":["androidRecorderSetRecordInput","androidRecorderSetRecordCompressionType","androidRecorderSetRecordFormat"]
 			}
 		},{
-			"id":"builder-96",
+			"id":"builder-355",
 			"name":"androidrecordersetrecordinput",
 			"display name":"androidRecorderSetRecordInput",
 			"library":"builder",
@@ -2382,7 +9138,7 @@
 			}],
 			"description":"Use the <androidRecorderSetRecordInput> handler to control the source \nand tuning of the record input."
 		},{
-			"id":"builder-97",
+			"id":"builder-356",
 			"name":"com.livecode.library.androidaudiorecorder",
 			"display name":"com.livecode.library.androidaudiorecorder",
 			"library":"builder",
@@ -2395,7 +9151,7 @@
 			"OS":["android"],
 			"description":"Use this library to record audio on Android. \n\n>*Note:* This library requires RECORD_AUDIO, WRITE_EXTERNAL_STORAGE and\n> CAPTURE_AUDIO_OUTPUT permissions. These will be automatically added to \n> the application manifest when an application including this library is \n> built."
 		},{
-			"id":"builder-98",
+			"id":"builder-357",
 			"name":"nighthourhandcolor",
 			"display name":"nightHourHandColor",
 			"library":"builder",
@@ -2411,7 +9167,7 @@
 			"summary":"Determines the color of the hour hand on the clock during the night",
 			"description":"Use the <nightHourHandColor> property to get or set the color of the hour\nhand of the clock during the night. To determine if the clock is\ndisplaying its daytime or night-time colors, use the read-only property\n<isDay>."
 		},{
-			"id":"builder-99",
+			"id":"builder-358",
 			"name":"timezone",
 			"display name":"timeZone",
 			"library":"builder",
@@ -2427,7 +9183,7 @@
 			"summary":"The time zone offset from UTC, in seconds, or the empty string",
 			"description":"The <timeZone> is used to allow the clock widget to display a time other than\nthe local time.  If the <timeZone> is empty, then the clock displays the local\ntime.  Otherwise, the <timeZone> should be the number of seconds different from\nUTC that the clock should display.\n"
 		},{
-			"id":"builder-100",
+			"id":"builder-359",
 			"name":"nightfacecolor",
 			"display name":"nightFaceColor",
 			"library":"builder",
@@ -2443,7 +9199,7 @@
 			"summary":"Determines the color of the face of the clock during the night",
 			"description":"Use the <nightFaceColor> property to get or set the color of the face\nof the clock during the night. To determine if the clock is\ndisplaying its daytime or night-time colors, use the read-only property\n<isDay>."
 		},{
-			"id":"builder-101",
+			"id":"builder-360",
 			"name":"nightsecondhandcolor",
 			"display name":"nightSecondHandColor",
 			"library":"builder",
@@ -2459,7 +9215,7 @@
 			"summary":"Determines the color of the second hand on the clock during the night",
 			"description":"Use the <nightSecondHandColor> property to get or set the color of the second\nhand of the clock during the night. To determine if the clock is\ndisplaying its daytime or night-time colors, use the read-only property\n<isDay>."
 		},{
-			"id":"builder-102",
+			"id":"builder-361",
 			"name":"daynumbercolor",
 			"display name":"dayNumberColor",
 			"library":"builder",
@@ -2475,7 +9231,7 @@
 			"summary":"Determines the color of the numbers on the clock during the day",
 			"description":"Use the <dayNumberColor> property to get or set the text color of the numbers\non the face of the clock during the day. To determine if the clock is\ndisplaying its daytime or night-time colors use the read-only property\n<isDay>."
 		},{
-			"id":"builder-103",
+			"id":"builder-362",
 			"name":"dayfacecolor",
 			"display name":"dayFaceColor",
 			"library":"builder",
@@ -2491,7 +9247,7 @@
 			"summary":"Determines the color of the face of the clock during the day",
 			"description":"Use the <dayFaceColor> property to get or set the color of the face\nof the clock during the day. To determine if the clock is\ndisplaying its daytime or night-time colors, use the read-only property\n<isDay>."
 		},{
-			"id":"builder-104",
+			"id":"builder-363",
 			"name":"nightnumbercolor",
 			"display name":"nightNumberColor",
 			"library":"builder",
@@ -2507,7 +9263,7 @@
 			"summary":"Determines the color of the numbers on the clock during the night",
 			"description":"Use the <nightNumberColor> property to get or set the text color of the numbers\non the face of the clock during the night. To determine if the clock is\ndisplaying its daytime or night-time colors use the read-only property\n<isDay>."
 		},{
-			"id":"builder-105",
+			"id":"builder-364",
 			"name":"nightminutehandcolor",
 			"display name":"nightMinuteHandColor",
 			"library":"builder",
@@ -2523,7 +9279,7 @@
 			"summary":"Determines the color of the minute hand on the clock during the night",
 			"description":"Use the <nightMinuteHandColor> property to get or set the color of the minute\nhand of the clock during the night. To determine if the clock is\ndisplaying its daytime or night-time colors, use the read-only property\n<isDay>."
 		},{
-			"id":"builder-106",
+			"id":"builder-365",
 			"name":"dayminutehandcolor",
 			"display name":"dayMinuteHandColor",
 			"library":"builder",
@@ -2539,7 +9295,7 @@
 			"summary":"Determines the color of the minute hand on the clock during the day",
 			"description":"Use the <dayMinuteHandColor> property to get or set the color of the minute\nhand of the clock during the day. To determine if the clock is\ndisplaying its daytime or night-time colors, use the read-only property\n<isDay>."
 		},{
-			"id":"builder-107",
+			"id":"builder-366",
 			"name":"daysecondhandcolor",
 			"display name":"daySecondHandColor",
 			"library":"builder",
@@ -2555,7 +9311,7 @@
 			"summary":"Determines the color of the second hand on the clock during the day",
 			"description":"Use the <daySecondHandColor> property to get or set the color of the second\nhand of the clock during the day. To determine if the clock is\ndisplaying its daytime or night-time colors, use the read-only property\n<isDay>."
 		},{
-			"id":"builder-108",
+			"id":"builder-367",
 			"name":"com.livecode.widget.clock",
 			"display name":"com.livecode.widget.clock",
 			"library":"builder",
@@ -2567,7 +9323,7 @@
 			"summary":"This widget consists of an analogue clock. The clock has day and night style displays which\nare used depending on the time. The period interpreted as day by the clock is controlled by\na pair of constants kStartDay and kEndDay, currently set at 6 and 20 respectively. Thus the\nclock will display in night style between the hours of 8pm and 6am. The style of the clock,\ncan be controlled by setting the appropriate colors of the different components. For daytime\nthis is through the dayNumberColor, dayHourHandColor, dayMinuteHandColor, daySecondHandColor\nand dayFaceColor properties. There are equivalent properties for the night style. The time\ndisplayed by the clock can differ from the current system local time by setting the timeZone\nproperty, an integer which adjusts the time displayed relative to universal time (UTC).",
 			"description":"This widget consists of an analogue clock. The clock has day and night style displays which\nare used depending on the time. The period interpreted as day by the clock is controlled by\na pair of constants kStartDay and kEndDay, currently set at 6 and 20 respectively. Thus the\nclock will display in night style between the hours of 8pm and 6am. The style of the clock,\ncan be controlled by setting the appropriate colors of the different components. For daytime\nthis is through the dayNumberColor, dayHourHandColor, dayMinuteHandColor, daySecondHandColor\nand dayFaceColor properties. There are equivalent properties for the night style. The time\ndisplayed by the clock can differ from the current system local time by setting the timeZone\nproperty, an integer which adjusts the time displayed relative to universal time (UTC)."
 		},{
-			"id":"builder-109",
+			"id":"builder-368",
 			"name":"isday",
 			"display name":"isDay",
 			"library":"builder",
@@ -2587,7 +9343,7 @@
 			}],
 			"description":"The <isDay> property indicates whether the clock widget is using its\n\"day\" mode or \"night\" mode.  Its value depends on the current time,\nand is read-only."
 		},{
-			"id":"builder-110",
+			"id":"builder-369",
 			"name":"dayhourhandcolor",
 			"display name":"dayHourHandColor",
 			"library":"builder",
@@ -2603,7 +9359,7 @@
 			"summary":"Determines the color of the hour hand on the clock during the day",
 			"description":"Use the <dayHourHandColor> property to get or set the color of the hour\nhand of the clock during the day. To determine if the clock is\ndisplaying its daytime or night-time colors, use the read-only property\n<isDay>."
 		},{
-			"id":"builder-111",
+			"id":"builder-370",
 			"name":"formattedheight",
 			"display name":"formattedHeight",
 			"library":"builder",
@@ -2618,7 +9374,7 @@
 			"summary":"Height of the data displayed by the widget",
 			"description":"Use the <formattedHeight> property to get the height of the data displayed\nby the widget in the current fold state."
 		},{
-			"id":"builder-112",
+			"id":"builder-371",
 			"name":"autofoldstatereset",
 			"display name":"autoFoldStateReset",
 			"library":"builder",
@@ -2637,7 +9393,7 @@
 				"property":["arrayData"]
 			}
 		},{
-			"id":"builder-113",
+			"id":"builder-372",
 			"name":"showhover",
 			"display name":"showHover",
 			"library":"builder",
@@ -2653,7 +9409,7 @@
 			"summary":"Whether the widget has a hover row displayed or not.",
 			"description":"Use the <showHover> property to show or hide the hover row of the widget \nobject."
 		},{
-			"id":"builder-114",
+			"id":"builder-373",
 			"name":"charstotrimfromkey",
 			"display name":"charsToTrimFromKey",
 			"library":"builder",
@@ -2678,7 +9434,7 @@
 				"property":["arrayData"]
 			}
 		},{
-			"id":"builder-115",
+			"id":"builder-374",
 			"name":"hilitechanged",
 			"display name":"hiliteChanged",
 			"library":"builder",
@@ -2696,7 +9452,7 @@
 				"property":["hilitedElement"]
 			}
 		},{
-			"id":"builder-116",
+			"id":"builder-375",
 			"name":"arraystyle",
 			"display name":"arrayStyle",
 			"library":"builder",
@@ -2715,7 +9471,7 @@
 				"property":["arrayData"]
 			}
 		},{
-			"id":"builder-117",
+			"id":"builder-376",
 			"name":"actioninspect",
 			"display name":"actionInspect",
 			"library":"builder",
@@ -2736,7 +9492,7 @@
 			}],
 			"description":"The actionInspect message is sent to the widget's script object when the inspect icon is clicked on.\nThe inspect icon appears when the value string of a particular array element contains a newline character,\nor if it is too large to fit in the space provided. The <pPath> parameter contains the path to the \nelement whose icon was clicked."
 		},{
-			"id":"builder-118",
+			"id":"builder-377",
 			"name":"datachanged",
 			"display name":"dataChanged",
 			"library":"builder",
@@ -2754,7 +9510,7 @@
 				"property":["arrayData"]
 			}
 		},{
-			"id":"builder-119",
+			"id":"builder-378",
 			"name":"arraydata",
 			"display name":"arrayData",
 			"library":"builder",
@@ -2776,7 +9532,7 @@
 			}],
 			"description":"The arrayData is the data currently being displayed by the tree view widget."
 		},{
-			"id":"builder-120",
+			"id":"builder-379",
 			"name":"hilitenewelement",
 			"display name":"hiliteNewElement",
 			"library":"builder",
@@ -2795,7 +9551,7 @@
 				"property":["readOnly"]
 			}
 		},{
-			"id":"builder-121",
+			"id":"builder-380",
 			"name":"separatorratio",
 			"display name":"separatorRatio",
 			"library":"builder",
@@ -2814,7 +9570,7 @@
 				"property":["showSeparator"]
 			}
 		},{
-			"id":"builder-122",
+			"id":"builder-381",
 			"name":"hilitedelement",
 			"display name":"hilitedElement",
 			"library":"builder",
@@ -2836,7 +9592,7 @@
 			}],
 			"description":"<pPath> is a list of the keys which determine the row to be selected. For example, if tArray is the arrayData\nof the widget, to select a row corresponding to tArray[\"key1\"][\"subkey2\"][\"subsubkey5\"], simply execute\n\n``` set the hilitedElement of widget \"Array Viewer\" to \"key1,subkey2,subsubkey5\" ```\n\nSetting to an invalid path or to `empty` will unselect the currently selected row."
 		},{
-			"id":"builder-123",
+			"id":"builder-382",
 			"name":"scrollhilitedelementintoview",
 			"display name":"scrollHilitedElementIntoView",
 			"library":"builder",
@@ -2855,7 +9611,7 @@
 				"property":["hilitedElement"]
 			}
 		},{
-			"id":"builder-124",
+			"id":"builder-383",
 			"name":"formattedheightchanged",
 			"display name":"formattedHeightChanged",
 			"library":"builder",
@@ -2870,7 +9626,7 @@
 			"summary":"Sent when the formatted height of the displayed data changes.",
 			"description":"The formattedHeightChanged message is sent to the widget's script object when\nthe formatted height of the displayed data changes.  This is useful when\nusing a mobileScroller to control the widget view."
 		},{
-			"id":"builder-125",
+			"id":"builder-384",
 			"name":"pathdelimiter",
 			"display name":"pathDelimiter",
 			"library":"builder",
@@ -2886,7 +9642,7 @@
 			"summary":"Manipulates the separator between the elements of the array viewer",
 			"description":"Use the <pathDelimiter> property as the separator between the elements describing\na path in the tree view widget."
 		},{
-			"id":"builder-126",
+			"id":"builder-385",
 			"name":"textheight",
 			"display name":"textHeight",
 			"library":"builder",
@@ -2908,7 +9664,7 @@
 			}],
 			"description":"Use the <textHeight> property to set a custom text (row) height for\nthe widget.  The default value is 0 which will use the calculated height\nbased on the currently selected font and size.\n"
 		},{
-			"id":"builder-127",
+			"id":"builder-386",
 			"name":"alternaterowbackgrounds",
 			"display name":"alternateRowBackgrounds",
 			"library":"builder",
@@ -2924,7 +9680,7 @@
 			"summary":"Whether the alternate rows of the widget have different backgrounds or not.",
 			"description":"Use the alternateRowBackgrounds property if you want to more clearly distinguish the rows displayed by the widget."
 		},{
-			"id":"builder-128",
+			"id":"builder-387",
 			"name":"vscrollbar",
 			"display name":"vScrollbar",
 			"library":"builder",
@@ -2944,7 +9700,7 @@
 			}],
 			"description":"Use the <vScrollbar> property to control the visibility of the widget's\nvertical scrollbar"
 		},{
-			"id":"builder-129",
+			"id":"builder-388",
 			"name":"sortorder",
 			"display name":"sortOrder",
 			"library":"builder",
@@ -2969,7 +9725,7 @@
 				"property":["arrayData","sortType"]
 			}
 		},{
-			"id":"builder-130",
+			"id":"builder-389",
 			"name":"hilitedelementisfolded",
 			"display name":"hilitedElementIsFolded",
 			"library":"builder",
@@ -2985,7 +9741,7 @@
 			"summary":"Determine if the selected element is folded",
 			"description":"Value is true if the selected element is folded.  False is returned in\nall other cases including when nothing is selected and when a leaf node is\nselected.  When setting the fold state, attempts to set the value for a leaf \nnode will have no effect.  Setting the fold state when no element is selected \nhas no effect."
 		},{
-			"id":"builder-131",
+			"id":"builder-390",
 			"name":"com.livecode.widget.treeview",
 			"display name":"com.livecode.widget.treeview",
 			"library":"builder",
@@ -2997,7 +9753,7 @@
 			"summary":"A widget to display array data in a tree view",
 			"description":"A widget to display array data in a tree view"
 		},{
-			"id":"builder-132",
+			"id":"builder-391",
 			"name":"iconheight",
 			"display name":"iconHeight",
 			"library":"builder",
@@ -3019,7 +9775,7 @@
 			}],
 			"description":"Use the <iconHeight> property to set a custom icon size for\nthe widget.  The default value is 10."
 		},{
-			"id":"builder-133",
+			"id":"builder-392",
 			"name":"foldstate",
 			"display name":"foldState",
 			"library":"builder",
@@ -3041,7 +9797,7 @@
 			}],
 			"description":"The foldState is the fold state currently being displayed by the tree view widget.\n\nThe fold state array only contains elements of the data array where the\nvalue is a subarray.  The value for each `folded` key must be a boolean.\nOnly the unfolded keys need to be specified.\n\n```\n\t[key1]\n\t\t[\"folded\"]\n\t\t[\"array\"]\n\t\t\t[subkey1]\n\t\t\t\t[\"folded\"]\n\t[key2]\n\t\t[\"folded\"]\n```\n\nSetting the foldState to empty will fold all keys."
 		},{
-			"id":"builder-134",
+			"id":"builder-393",
 			"name":"readonly",
 			"display name":"readOnly",
 			"library":"builder",
@@ -3057,7 +9813,7 @@
 			"summary":"Whether the options to modify elements of the underlying array are present or not.",
 			"description":"The <readOnly> property controls whether the widget presents the option to add elements to arrays or not.\nIf false, the first row of the widget is always \"Add new element\", and when rows are hovered over, icons\nappear at the right to enable the removal of that element, or the addition of a new subelement."
 		},{
-			"id":"builder-135",
+			"id":"builder-394",
 			"name":"showborder",
 			"display name":"showBorder",
 			"library":"builder",
@@ -3073,7 +9829,7 @@
 			"summary":"Whether the widget has a border or not.",
 			"description":"Use the <showBorder> property to show or hide the bounds of the widget \nobject."
 		},{
-			"id":"builder-136",
+			"id":"builder-395",
 			"name":"showseparator",
 			"display name":"showSeparator",
 			"library":"builder",
@@ -3092,7 +9848,7 @@
 				"property":["separatorRatio"]
 			}
 		},{
-			"id":"builder-137",
+			"id":"builder-396",
 			"name":"hilitedelementfoldstate",
 			"display name":"hilitedElementFoldState",
 			"library":"builder",
@@ -3114,7 +9870,7 @@
 			}],
 			"description":"<pFoldState> is the fold state of the selected element.  When setting\nthe fold state, attempts to set the value for a leaf node will have no\neffect.  Setting the fold state when no element is selected has no effect."
 		},{
-			"id":"builder-138",
+			"id":"builder-397",
 			"name":"showvalues",
 			"display name":"showValues",
 			"library":"builder",
@@ -3133,7 +9889,7 @@
 				"property":["showSeparator"]
 			}
 		},{
-			"id":"builder-139",
+			"id":"builder-398",
 			"name":"actiondoubleclick",
 			"display name":"actionDoubleClick",
 			"library":"builder",
@@ -3154,7 +9910,7 @@
 			}],
 			"description":"The actionDoubleClick message is sent to the widget's script object when a row of the widget\nis double-clicked. The <pPath> parameter contains the path to the element whose row was clicked."
 		},{
-			"id":"builder-140",
+			"id":"builder-399",
 			"name":"sorttype",
 			"display name":"sortType",
 			"library":"builder",
@@ -3179,7 +9935,7 @@
 				"property":["sortOrder"]
 			}
 		},{
-			"id":"builder-141",
+			"id":"builder-400",
 			"name":"scroll",
 			"display name":"scroll",
 			"library":"builder",
@@ -3202,7 +9958,7 @@
 			}],
 			"description":"Use the <scroll> property to get or set the scroll position of\nthe widget."
 		},{
-			"id":"builder-142",
+			"id":"builder-401",
 			"name":"com.livecode.typeconvert",
 			"display name":"com.livecode.typeconvert",
 			"library":"builder",
@@ -3214,7 +9970,7 @@
 			"summary":"This library consists of the operations for performing complex type conversion in LiveCode Builder.",
 			"description":"This library consists of the operations for performing complex type conversion in LiveCode Builder."
 		},{
-			"id":"builder-143",
+			"id":"builder-402",
 			"name":"stringsplitby",
 			"display name":"StringSplitBy",
 			"library":"builder",
@@ -3249,7 +10005,7 @@
 			"description":"Use the split command to convert a string representation of a list into a genuine (ordered) list.",
 			"tags":["type conversion"]
 		},{
-			"id":"builder-144",
+			"id":"builder-403",
 			"name":"combinelistwith",
 			"display name":"CombineListWith",
 			"library":"builder",
@@ -3284,7 +10040,7 @@
 			"description":"Use the combine command to convert a list into a string representation of the list.\n\n>*Note:* The list *must* consist entirely of string elements, otherwise the combine command will throw an error.",
 			"tags":["type conversion"]
 		},{
-			"id":"builder-145",
+			"id":"builder-404",
 			"name":"highlight",
 			"display name":"highlight",
 			"library":"builder",
@@ -3305,7 +10061,7 @@
 			}],
 			"description":"Use this property to determine whether the switch button displays as on."
 		},{
-			"id":"builder-146",
+			"id":"builder-405",
 			"name":"backcolor",
 			"display name":"backColor",
 			"library":"builder",
@@ -3321,7 +10077,7 @@
 			"summary":"Controls the background color of the switch button",
 			"description":"Use the <backColor> property to control the off-position fill color of the\nswitch button."
 		},{
-			"id":"builder-147",
+			"id":"builder-406",
 			"name":"hilitecolor",
 			"display name":"hiliteColor",
 			"library":"builder",
@@ -3337,7 +10093,7 @@
 			"summary":"Controls the color of the switch button when it is in the on position",
 			"description":"Use the <hiliteColor> property to control the on-position fill color of the\nswitch button."
 		},{
-			"id":"builder-148",
+			"id":"builder-407",
 			"name":"theme",
 			"display name":"theme",
 			"library":"builder",
@@ -3358,7 +10114,7 @@
 			}],
 			"description":"Use the <theme> property to control the general appearance of the switch\nbutton.  The currently-supported values are \"native\", \"iOS\" and \"Android\".\n\n**Note**: The value of the <theme> property is not saved by the switch button.\nSet the <theme> property to preview the way the switch button will appear when\nused on an Android or iOS device."
 		},{
-			"id":"builder-149",
+			"id":"builder-408",
 			"name":"hilitechanged",
 			"display name":"hiliteChanged",
 			"library":"builder",
@@ -3376,7 +10132,7 @@
 			}],
 			"description":"Handle the hiliteChanged message in the widget's object script to respond to\nthe user switching the button on or off."
 		},{
-			"id":"builder-150",
+			"id":"builder-409",
 			"name":"bordercolor",
 			"display name":"borderColor",
 			"library":"builder",
@@ -3392,7 +10148,7 @@
 			"summary":"Controls the color of the switch button when it is in the on position",
 			"description":"Use the <borderColor> property to control the on-position fill color of the\nswitch button."
 		},{
-			"id":"builder-151",
+			"id":"builder-410",
 			"name":"showborder",
 			"display name":"showBorder",
 			"library":"builder",
@@ -3408,7 +10164,7 @@
 			"summary":"Whether the widget has a border or not.",
 			"description":"Use the <showBorder> property to control whether the switch button has a border\naround it or not\n"
 		},{
-			"id":"builder-152",
+			"id":"builder-411",
 			"name":"com.livecode.widget.switchbutton",
 			"display name":"com.livecode.widget.switchbutton",
 			"library":"builder",
@@ -3420,7 +10176,7 @@
 			"summary":"This widget is a switch button, consisting of two mutually exclusive choices or states.",
 			"description":"This widget is a switch button, consisting of two mutually exclusive choices or states."
 		},{
-			"id":"builder-153",
+			"id":"builder-412",
 			"name":"browserframedocumentloadfailed",
 			"display name":"browserFrameDocumentLoadFailed",
 			"library":"builder",
@@ -3446,7 +10202,7 @@
 			}],
 			"description":"The <browserFrameDocumentLoadFailed> message is sent to the widget's \nscript object when a new document has failed to load in a frame of the \nbrowser. The <pUrl> parameter contains the URL of the document, and the \n<pError> parameter gives the reason for the failure."
 		},{
-			"id":"builder-154",
+			"id":"builder-413",
 			"name":"browsernavigatebegin",
 			"display name":"browserNavigateBegin",
 			"library":"builder",
@@ -3467,7 +10223,7 @@
 			}],
 			"description":"The <browserNavigateBegin> message is sent to the widget's script object \nwhen the browser begins navigation to a new page. This can be triggered \nby launching a URL in the browser, or clicking a link within the \nbrowser. The <pUrl> parameter contains the URL of the new page."
 		},{
-			"id":"builder-155",
+			"id":"builder-414",
 			"name":"browserframedocumentloadbegin",
 			"display name":"browserFrameDocumentLoadBegin",
 			"library":"builder",
@@ -3488,7 +10244,7 @@
 			}],
 			"description":"The <browserFrameDocumentLoadBegin> message is sent to the widget's \nscript object when a new document begins to load in a frame of the \nbrowser. This will happen whenever the browser navigates to a new page \nwith multiple frames. The <pUrl> parameter contains the URL of the \nloading document."
 		},{
-			"id":"builder-156",
+			"id":"builder-415",
 			"name":"allowuserinteraction",
 			"display name":"allowUserInteraction",
 			"library":"builder",
@@ -3508,7 +10264,7 @@
 			}],
 			"description":"Use the <allowUserInteraction> property to control if the browser should respond\nto user interaction."
 		},{
-			"id":"builder-157",
+			"id":"builder-416",
 			"name":"browserdocumentloadbegin",
 			"display name":"browserDocumentLoadBegin",
 			"library":"builder",
@@ -3529,7 +10285,7 @@
 			}],
 			"description":"The <browserDocumentLoadBegin> message is sent to the widget's script \nobject when a new document begins to load in the browser. This will \nhappen whenever the browser navigates to a new page. The <pUrl> \nparameter contains the URL of the loading document."
 		},{
-			"id":"builder-158",
+			"id":"builder-417",
 			"name":"com.livecode.widget.browser",
 			"display name":"com.livecode.widget.browser",
 			"library":"builder",
@@ -3541,7 +10297,7 @@
 			"summary":"This widget displays web content within a native web browser view.\n\nThe browser widget can display HTML content generated in LiveCode, or\nfetch content over the Internet.  It supports JavaScript and allows\nfor interaction between LiveCode scripts and JavaScript code.\n\nThe [browser SVG icon](https://www.iconfinder.com/icons/309064/browser_globe_international_internet_web_world_icon)\nis copyright ¬© Ivan Boyko, and is licensed under the terms of the\n[Creative Commons Attribution 3.0 Unported License](https://creativecommons.org/licenses/by/3.0/).",
 			"description":"This widget displays web content within a native web browser view.\n\nThe browser widget can display HTML content generated in LiveCode, or\nfetch content over the Internet.  It supports JavaScript and allows\nfor interaction between LiveCode scripts and JavaScript code.\n\nThe [browser SVG icon](https://www.iconfinder.com/icons/309064/browser_globe_international_internet_web_world_icon)\nis copyright ¬© Ivan Boyko, and is licensed under the terms of the\n[Creative Commons Attribution 3.0 Unported License](https://creativecommons.org/licenses/by/3.0/)."
 		},{
-			"id":"builder-159",
+			"id":"builder-418",
 			"name":"browserdocumentloadfailed",
 			"display name":"browserDocumentLoadFailed",
 			"library":"builder",
@@ -3567,7 +10323,7 @@
 			}],
 			"description":"The <browserDocumentLoadFailed> message is sent to the widget's script \nobject when a new document has failed to load in the browser. The <pUrl> \nparameter contains the URL of the document, and the <pError> parameter \ngives the reason for the failure."
 		},{
-			"id":"builder-160",
+			"id":"builder-419",
 			"name":"browserdocumentloadcomplete",
 			"display name":"browserDocumentLoadComplete",
 			"library":"builder",
@@ -3588,7 +10344,7 @@
 			}],
 			"description":"The <browserDocumentLoadComplete> message is sent to the widget's script \nobject when a new document has completed loading in the browser. The \n<pUrl> parameter contains the URL of the loaded document."
 		},{
-			"id":"builder-161",
+			"id":"builder-420",
 			"name":"hscrollbar",
 			"display name":"hScrollbar",
 			"library":"builder",
@@ -3611,7 +10367,7 @@
 				"property":["vScrollbar"]
 			}
 		},{
-			"id":"builder-162",
+			"id":"builder-421",
 			"name":"issecure",
 			"display name":"isSecure",
 			"library":"builder",
@@ -3631,7 +10387,7 @@
 			}],
 			"description":"Use the <isSecure> property to determine if all resources in the current\ndocument have been loaded through securely encrypted connections. If the current\ndocument is still loading, this will return false\n"
 		},{
-			"id":"builder-163",
+			"id":"builder-422",
 			"name":"browsernavigatefailed",
 			"display name":"browserNavigateFailed",
 			"library":"builder",
@@ -3657,7 +10413,7 @@
 			}],
 			"description":"The <browserNavigateFailed> message is sent to the widget's script \nobject when the browser has failed to navigate to a new page. The <pUrl> \nparameter contains the URL of the new page, and the <pError> parameter \ngives the reason for the failure."
 		},{
-			"id":"builder-164",
+			"id":"builder-423",
 			"name":"browsernavigatecomplete",
 			"display name":"browserNavigateComplete",
 			"library":"builder",
@@ -3678,7 +10434,7 @@
 			}],
 			"description":"The <browserNavigateComplete> message is sent to the widget's script \nobject when the browser successfully navigates to a new page. The <pUrl> \nparameter contains the URL of the new page."
 		},{
-			"id":"builder-165",
+			"id":"builder-424",
 			"name":"useragent",
 			"display name":"userAgent",
 			"library":"builder",
@@ -3702,7 +10458,7 @@
 			}],
 			"description":"The <userAgent> is the identifier sent by the browser when fetching\ncontent from remote HTTP servers.\n\nThe <userAgent> must conform to the requirements for the `User-Agent`\nheader described in the HTTP specification.  See [RFC 2616, section\n14.43](https://tools.ietf.org/html/rfc2616#section-14.43)."
 		},{
-			"id":"builder-166",
+			"id":"builder-425",
 			"name":"javascripthandlers",
 			"display name":"javascriptHandlers",
 			"library":"builder",
@@ -3725,7 +10481,7 @@
 			}],
 			"description":"The <javascriptHandlers> is a list of LiveCode handlers that are made\navailable to JavaScript calls within the browser. The handlers will\nappear as methods attached to a global `liveCode` object. You can call\nthese methods as you would any other JavaScript function and pass\nwhatever parameters you require.\n\n>*Warning:* Setting the <javascriptHandlers> property gives JavaScript\nrunning within the Web browser permission to execute parts of your\napplication through the handlers you choose to expose. If using this\nfeature, make sure that you have complete control over the webpages\nwhich you load into the browser widget, and consider using HTTPS to\nensure that third-parties cannot inject malicious code into them."
 		},{
-			"id":"builder-167",
+			"id":"builder-426",
 			"name":"vscrollbar",
 			"display name":"vScrollbar",
 			"library":"builder",
@@ -3748,7 +10504,7 @@
 				"property":["hScrollbar"]
 			}
 		},{
-			"id":"builder-168",
+			"id":"builder-427",
 			"name":"url",
 			"display name":"URL",
 			"library":"builder",
@@ -3775,7 +10531,7 @@
 				"property":["htmlText"]
 			}
 		},{
-			"id":"builder-169",
+			"id":"builder-428",
 			"name":"browserframedocumentloadcomplete",
 			"display name":"browserFrameDocumentLoadComplete",
 			"library":"builder",
@@ -3796,7 +10552,7 @@
 			}],
 			"description":"The <browserFrameDocumentLoadComplete> message is sent to the widget's \nscript object when a new document has completed loading in a frame of \nthe browser. The <pUrl> parameter contains the URL of the loaded \ndocument."
 		},{
-			"id":"builder-170",
+			"id":"builder-429",
 			"name":"browserprogresschanged",
 			"display name":"browserProgressChanged",
 			"library":"builder",
@@ -3822,7 +10578,7 @@
 			}],
 			"description":"The <browserProgressChanged> message is sent to the widget's script\nobject when a the loading progress of the current document changes. The <pUrl>\nparameter contains the URL of the loading document. The <pProgress> parameter\ncontains the percentage (between 0 and 100) of the document loaded."
 		},{
-			"id":"builder-171",
+			"id":"builder-430",
 			"name":"htmltext",
 			"display name":"htmlText",
 			"library":"builder",
@@ -3849,7 +10605,7 @@
 				"property":["URL"]
 			}
 		},{
-			"id":"builder-172",
+			"id":"builder-431",
 			"name":"browserunhandledloadrequest",
 			"display name":"browserUnhandledLoadRequest",
 			"library":"builder",
@@ -3870,7 +10626,7 @@
 			}],
 			"description":"The <browserUnhandledLoadRequest> message is sent to the widget's script \nobject when the browser is unable to load a URL, typically due to an \nunrecognised URL scheme. The <pUrl> parameter contains the URL of the \nunhandled request."
 		},{
-			"id":"builder-173",
+			"id":"builder-432",
 			"name":"androidpauseaudioplayinginbackground",
 			"display name":"androidPauseAudioPlayingInBackground",
 			"library":"builder",
@@ -3889,7 +10645,7 @@
 				"handler":["androidStartAudioPlayingInBackground","androidResumeAudioPlayingInBackground"]
 			}
 		},{
-			"id":"builder-174",
+			"id":"builder-433",
 			"name":"com.livecode.library.androidbgaudio",
 			"display name":"com.livecode.library.androidbgaudio",
 			"library":"builder",
@@ -3902,7 +10658,7 @@
 			"OS":["android"],
 			"description":"Use this library to start and control a background audio service that\nwill continue playing when the current application is suspended."
 		},{
-			"id":"builder-175",
+			"id":"builder-434",
 			"name":"androidresumeaudioplayinginbackground",
 			"display name":"androidResumeAudioPlayingInBackground",
 			"library":"builder",
@@ -3921,7 +10677,7 @@
 				"handler":["androidPauseAudioPlayingInBackground"]
 			}
 		},{
-			"id":"builder-176",
+			"id":"builder-435",
 			"name":"androidisaudioplayinginbackground",
 			"display name":"androidIsAudioPlayingInBackground",
 			"library":"builder",
@@ -3940,7 +10696,7 @@
 			}],
 			"description":"Use the <androidIsAudioPlayingInBackground> to find out if there is any\naudio playback currently occurring in the background."
 		},{
-			"id":"builder-177",
+			"id":"builder-436",
 			"name":"androidstopaudioplayinginbackground",
 			"display name":"androidStopAudioPlayingInBackground",
 			"library":"builder",
@@ -3959,7 +10715,7 @@
 				"handler":["androidStartAudioPlayingInBackground"]
 			}
 		},{
-			"id":"builder-178",
+			"id":"builder-437",
 			"name":"androidstartaudioplayinginbackground",
 			"display name":"androidStartAudioPlayingInBackground",
 			"library":"builder",
@@ -3984,7 +10740,7 @@
 				"handler":["androidStopAudioPlayingInBackground","androidPauseAudioPlayingInBackground"]
 			}
 		},{
-			"id":"builder-179",
+			"id":"builder-438",
 			"name":"com.livecode.widget.native.ios.button",
 			"display name":"com.livecode.widget.native.ios.button",
 			"library":"builder",
@@ -3997,7 +10753,7 @@
 			"OS":["ios"],
 			"description":"This widget is a native push button on iOS."
 		},{
-			"id":"builder-180",
+			"id":"builder-439",
 			"name":"enabled",
 			"display name":"enabled",
 			"library":"builder",
@@ -4013,7 +10769,7 @@
 			"OS":["ios"],
 			"description":"Use the <enabled> property to enable or disable the native button. When\ndisabled, the button has a greyed out appearance and does not accept \nclicks or touches."
 		},{
-			"id":"builder-181",
+			"id":"builder-440",
 			"name":"label",
 			"display name":"label",
 			"library":"builder",
@@ -4037,7 +10793,7 @@
 			}],
 			"description":"The <label> property is the label displayed by the button.\n"
 		},{
-			"id":"builder-182",
+			"id":"builder-441",
 			"name":"itemlabels",
 			"display name":"itemLabels",
 			"library":"builder",
@@ -4061,7 +10817,7 @@
 				"property":["itemCount","itemStyle","foreColor"]
 			}
 		},{
-			"id":"builder-183",
+			"id":"builder-442",
 			"name":"hiliteditems",
 			"display name":"hilitedItems",
 			"library":"builder",
@@ -4086,7 +10842,7 @@
 				"message":["hiliteChanged"]
 			}
 		},{
-			"id":"builder-184",
+			"id":"builder-443",
 			"name":"hilitecolor",
 			"display name":"hiliteColor",
 			"library":"builder",
@@ -4105,7 +10861,7 @@
 				"property":["hilitedItems","hilitedItemNames","backColor"]
 			}
 		},{
-			"id":"builder-185",
+			"id":"builder-444",
 			"name":"hiliteditemicons",
 			"display name":"hilitedItemIcons",
 			"library":"builder",
@@ -4129,7 +10885,7 @@
 				"property":["itemCount","itemStyle","itemIcons","foreColor","hilitedItems"]
 			}
 		},{
-			"id":"builder-186",
+			"id":"builder-445",
 			"name":"hilitechanged",
 			"display name":"hiliteChanged",
 			"library":"builder",
@@ -4144,7 +10900,7 @@
 			"summary":"Sent when the hilite of the segmented control widget changes",
 			"description":"Handle the <hiliteChanged> message in order to respond to a change in the hilited items\nof the segmented control."
 		},{
-			"id":"builder-187",
+			"id":"builder-446",
 			"name":"com.livecode.widget.segmented",
 			"display name":"com.livecode.widget.segmented",
 			"library":"builder",
@@ -4159,7 +10915,7 @@
 				"property":["itemLabels","itemIcons","hilitedItems","multipleHilites"]
 			}
 		},{
-			"id":"builder-188",
+			"id":"builder-447",
 			"name":"backcolor",
 			"display name":"backColor",
 			"library":"builder",
@@ -4178,7 +10934,7 @@
 				"property":["hiliteColor"]
 			}
 		},{
-			"id":"builder-189",
+			"id":"builder-448",
 			"name":"forecolor",
 			"display name":"foreColor",
 			"library":"builder",
@@ -4197,7 +10953,7 @@
 				"property":["hilitedTextColor"]
 			}
 		},{
-			"id":"builder-190",
+			"id":"builder-449",
 			"name":"cornerradius",
 			"display name":"cornerRadius",
 			"library":"builder",
@@ -4213,7 +10969,7 @@
 			"summary":"The corner radius of the widget",
 			"description":"The cornerRadius is the radius (in pixels) of the corner curve of the <widget>. The default value is usually suitable for horizantal orientations, however with a vertical orientation, depending on the size of the labels, you may wish to adjust."
 		},{
-			"id":"builder-191",
+			"id":"builder-450",
 			"name":"hilitedtextcolor",
 			"display name":"hilitedTextColor",
 			"library":"builder",
@@ -4232,7 +10988,7 @@
 				"property":["foreColor"]
 			}
 		},{
-			"id":"builder-192",
+			"id":"builder-451",
 			"name":"itemcount",
 			"display name":"itemCount",
 			"library":"builder",
@@ -4252,7 +11008,7 @@
 				"message":["hiliteChanged"]
 			}
 		},{
-			"id":"builder-193",
+			"id":"builder-452",
 			"name":"showborder",
 			"display name":"showBorder",
 			"library":"builder",
@@ -4271,7 +11027,7 @@
 				"property":["borderColor"]
 			}
 		},{
-			"id":"builder-194",
+			"id":"builder-453",
 			"name":"multiplehilites",
 			"display name":"multipleHilites",
 			"library":"builder",
@@ -4291,7 +11047,7 @@
 				"message":["hiliteChanged"]
 			}
 		},{
-			"id":"builder-195",
+			"id":"builder-454",
 			"name":"itemstyle",
 			"display name":"itemStyle",
 			"library":"builder",
@@ -4315,7 +11071,7 @@
 				"property":["itemIcons","hilitedItemIcons","itemLabels"]
 			}
 		},{
-			"id":"builder-196",
+			"id":"builder-455",
 			"name":"itemnames",
 			"display name":"itemNames",
 			"library":"builder",
@@ -4339,7 +11095,7 @@
 				"property":["itemLabels","hilitedItemNames"]
 			}
 		},{
-			"id":"builder-197",
+			"id":"builder-456",
 			"name":"togglehilites",
 			"display name":"toggleHilites",
 			"library":"builder",
@@ -4355,7 +11111,7 @@
 			"summary":"Whether a segment can be unhighlighted by clicking",
 			"description":"The <toggleHilites> property controls whether a click on\na highlighted segment causes it to be unhighlighted or not."
 		},{
-			"id":"builder-198",
+			"id":"builder-457",
 			"name":"horizontal",
 			"display name":"horizontal",
 			"library":"builder",
@@ -4371,7 +11127,7 @@
 			"summary":"Whether the segmented widget is horizontal or not",
 			"description":"Use the <horizontal> property to control whether the segmented widget\nis laid out horizontally or vertically."
 		},{
-			"id":"builder-199",
+			"id":"builder-458",
 			"name":"bordercolor",
 			"display name":"borderColor",
 			"library":"builder",
@@ -4390,7 +11146,7 @@
 				"property":["showBorder"]
 			}
 		},{
-			"id":"builder-200",
+			"id":"builder-459",
 			"name":"itemminextents",
 			"display name":"itemMinExtents",
 			"library":"builder",
@@ -4414,7 +11170,7 @@
 				"property":["itemCount"]
 			}
 		},{
-			"id":"builder-201",
+			"id":"builder-460",
 			"name":"itemicons",
 			"display name":"itemIcons",
 			"library":"builder",
@@ -4438,7 +11194,7 @@
 				"property":["itemCount","itemStyle","itemHilitedIcons","foreColor","hilitedItems"]
 			}
 		},{
-			"id":"builder-202",
+			"id":"builder-461",
 			"name":"hiliteditemnames",
 			"display name":"hilitedItemNames",
 			"library":"builder",
@@ -4463,7 +11219,175 @@
 				"message":["hiliteChanged"]
 			}
 		},{
-			"id":"builder-203",
+			"id":"builder-462",
+			"name":"canvassetcolor",
+			"display name":"canvasSetColor",
+			"library":"builder",
+			"type":"handler",
+			"syntax":[
+				"canvasSetColor(<pRed>,<pGreen>,<pBlue>,<pAlpha>)"
+			],
+			"display syntax":[
+				"canvasSetColor(<i>pRed</i>,<i>pGreen</i>,<i>pBlue</i>,<i>pAlpha</i>)"
+			],
+			"associations":["com.livecode.library.canvas"],
+			"summary":"Sets the current color of the canvas to the given RGBA value.",
+			"parameters":[{
+				"name":"pRed",
+				"type":"",
+				"refparam":"false",
+				"description":"The red component of the color to set."
+			},{
+				"name":"pGreen",
+				"type":"",
+				"refparam":"false",
+				"description":"The green component of the color to set."
+			},{
+				"name":"pBlue",
+				"type":"",
+				"refparam":"false",
+				"description":"The blue component of the color to set."
+			},{
+				"name":"pAlpha",
+				"type":"",
+				"refparam":"false",
+				"description":"The alpha value of the color to set."
+			}],
+			"description":"Sets the current color of the canvas to the given RGBA value.\n",
+			"tags":["canvas library"]
+		},{
+			"id":"builder-463",
+			"name":"canvasapplytoimage",
+			"display name":"canvasApplyToImage",
+			"library":"builder",
+			"type":"handler",
+			"syntax":[
+				"canvasApplyToImage(<pObjectId>)"
+			],
+			"display syntax":[
+				"canvasApplyToImage(<i>pObjectId</i>)"
+			],
+			"associations":["com.livecode.library.canvas"],
+			"summary":"Copies the current contents of the canvas to the specified image object.",
+			"parameters":[{
+				"name":"pObjectId",
+				"type":"",
+				"refparam":"false",
+				"description":"A string which is an object chunk referring to an image."
+			}],
+			"description":"This handler copies the current contents of the canvas to the specified image object.",
+			"tags":["canvas library"]
+		},{
+			"id":"builder-464",
+			"name":"canvascomputeboundingboxofpath",
+			"display name":"canvasComputeBoundingBoxOfPath",
+			"library":"builder",
+			"type":"handler",
+			"syntax":[
+				"canvasComputeBoundingBoxOfPath(<pPathString>)"
+			],
+			"display syntax":[
+				"canvasComputeBoundingBoxOfPath(<i>pPathString</i>)"
+			],
+			"associations":["com.livecode.library.canvas"],
+			"summary":"Returns the bounding box of an SVG path.",
+			"parameters":[{
+				"name":"pPathString",
+				"type":"",
+				"refparam":"false",
+				"description":"The SVG Path string to process"
+			}],
+			"description":"Parses the SVG path string and computes the tight bounding box.",
+			"tags":["canvas library"]
+		},{
+			"id":"builder-465",
+			"name":"canvasdestroy",
+			"display name":"canvasDestroy",
+			"library":"builder",
+			"type":"handler",
+			"syntax":[
+				"canvasDestroy()"
+			],
+			"display syntax":[
+				"canvasDestroy()"
+			],
+			"associations":["com.livecode.library.canvas"],
+			"summary":"Destroys the canvas",
+			"description":"Destroys the canvas by simply assigning nothing to the canvas variable.",
+			"tags":["canvas library"]
+		},{
+			"id":"builder-466",
+			"name":"canvasfillcircle",
+			"display name":"canvasFillCircle",
+			"library":"builder",
+			"type":"handler",
+			"syntax":[
+				"canvasFillCircle(<pX>,<pY>,<pRadius>)"
+			],
+			"display syntax":[
+				"canvasFillCircle(<i>pX</i>,<i>pY</i>,<i>pRadius</i>)"
+			],
+			"associations":["com.livecode.library.canvas"],
+			"summary":"Draws a filled circle.",
+			"parameters":[{
+				"name":"pX",
+				"type":"",
+				"refparam":"false",
+				"description":"The x-coordinate of the centre of the circle."
+			},{
+				"name":"pY",
+				"type":"",
+				"refparam":"false",
+				"description":"The y-coordinate of the centre of the circle."
+			},{
+				"name":"pRadius",
+				"type":"",
+				"refparam":"false",
+				"description":"The radius of the circle."
+			}],
+			"description":"Fills a circle of the given radius at the given position in the canvas.",
+			"tags":["canvas library"]
+		},{
+			"id":"builder-467",
+			"name":"canvascreate",
+			"display name":"canvasCreate",
+			"library":"builder",
+			"type":"handler",
+			"syntax":[
+				"canvasCreate(<pWidth>,<pHeight>)"
+			],
+			"display syntax":[
+				"canvasCreate(<i>pWidth</i>,<i>pHeight</i>)"
+			],
+			"associations":["com.livecode.library.canvas"],
+			"summary":"Creates a canvas of the given size for the other handlers to use.",
+			"parameters":[{
+				"name":"pWidth",
+				"type":"",
+				"refparam":"false",
+				"description":"The width of the created canvas."
+			},{
+				"name":"pHeight",
+				"type":"",
+				"refparam":"false",
+				"description":"The height of the created canvas."
+			}],
+			"description":"Creates a canvas of the given size for the other handlers to use.",
+			"tags":["canvas library"]
+		},{
+			"id":"builder-468",
+			"name":"com.livecode.library.canvas",
+			"display name":"com.livecode.library.canvas",
+			"library":"builder",
+			"type":"library",
+			"display syntax":[
+				"com.livecode.library.canvas"
+			],
+			"associations":["com.livecode.library.canvas"],
+			"summary":"Gives access to the LiveCode Builder canvas syntax from LiveCode Script",
+			"description":"This library wraps a few simple handlers of the LiveCode Builder Canvas\nmodule to provide access to the syntax for creating and manipulating\ncanvas objects.\n\nFor example:\n\n    canvasCreate 100, 100\n\tcanvasSetColor 1, 0, 0, 1\n\tcanvasFillCircle 50, 50, 25\n\tcanvasApplyToImage \"image 1\"\n    canvasDestroy\n\nThis creates a canvas of size 100x100, fills a circle of radius 25 at\nthe centre, then copies the contents of the canvas to 'image 1' (which\nmust already exist)."
+		},{
+			"id":"builder-469",
 			"name":"com.livecode.widget.colorswatch",
 			"display name":"com.livecode.widget.colorswatch",
 			"library":"builder",
@@ -4475,7 +11399,7 @@
 			"summary":"This widget displays a color with optional alpha channel.",
 			"description":"This widget displays a color with optional alpha channel."
 		},{
-			"id":"builder-204",
+			"id":"builder-470",
 			"name":"mouseup",
 			"display name":"mouseUp",
 			"library":"builder",
@@ -4490,7 +11414,7 @@
 			"summary":"Sent when the color swatch is clicked",
 			"description":"Sent when the color swatch is clicked"
 		},{
-			"id":"builder-205",
+			"id":"builder-471",
 			"name":"swatchcolor",
 			"display name":"swatchColor",
 			"library":"builder",
@@ -4516,7 +11440,7 @@
 			}],
 			"description":"Use the iconColor property to set the color of the widget icon. The color is\nin the form of a 3 or 4 item string, the 4th optional item being the alpha value,\nall between 0 and 255.\n\n>*Note:* The color returned by the <swatchColor> property, if not empty,\nalways includes an alpha value which is 255 by default.\n"
 		},{
-			"id":"builder-206",
+			"id":"builder-472",
 			"name":"roundtonearest",
 			"display name":"RoundToNearest",
 			"library":"builder",
@@ -4541,7 +11465,7 @@
 			"description":"Replaces <Target> with the greatest integer less than or equal to <Target>, or the least integer greater than or equal to <Target> depending on which is closest. If <Target> is exactly halfway between two integers, rounds to the one with greatest absolute value, i.e. away from 0.",
 			"tags":["math"]
 		},{
-			"id":"builder-207",
+			"id":"builder-473",
 			"name":"com.livecode.mathfoundation",
 			"display name":"com.livecode.mathfoundation",
 			"library":"builder",
@@ -4553,7 +11477,7 @@
 			"summary":"This library consists of the foundational mathematical operations included in the standard library of LiveCode Builder.",
 			"description":"This library consists of the foundational mathematical operations included in the standard library of LiveCode Builder."
 		},{
-			"id":"builder-208",
+			"id":"builder-474",
 			"name":"ceiloperator",
 			"display name":"CeilOperator",
 			"library":"builder",
@@ -4583,7 +11507,7 @@
 			"description":"The ceiling of <Target> is the least integer greater than or equal to <Target>.",
 			"tags":["math"]
 		},{
-			"id":"builder-209",
+			"id":"builder-475",
 			"name":"flooroperator",
 			"display name":"FloorOperator",
 			"library":"builder",
@@ -4613,7 +11537,7 @@
 			"description":"The floor of <Target> is the greatest integer less than or equal to <Target>.",
 			"tags":["math"]
 		},{
-			"id":"builder-210",
+			"id":"builder-476",
 			"name":"roundedtonearest",
 			"display name":"RoundedToNearest",
 			"library":"builder",
@@ -4643,7 +11567,7 @@
 			"description":"Return the greatest integer less than or equal to <Target>, or the least integer greater than or equal to <Target> depending on which is closest. If <Target> is exactly halfway between two integers, returns the one with greatest absolute value, i.e. away from 0.",
 			"tags":["math"]
 		},{
-			"id":"builder-211",
+			"id":"builder-477",
 			"name":"piconstant",
 			"display name":"PiConstant",
 			"library":"builder",
@@ -4662,7 +11586,7 @@
 			"description":"The ratio of a circle's circumference to its diameter.",
 			"tags":["math"]
 		},{
-			"id":"builder-212",
+			"id":"builder-478",
 			"name":"reversecharsof",
 			"display name":"ReverseCharsOf",
 			"library":"builder",
@@ -4687,7 +11611,7 @@
 			"description":"Reverses the order of characters in the <Target>.",
 			"tags":["strings"]
 		},{
-			"id":"builder-213",
+			"id":"builder-479",
 			"name":"deletesingletoncharof",
 			"display name":"DeleteSingletonCharOf",
 			"library":"builder",
@@ -4717,7 +11641,7 @@
 			"description":"Replaces the char at the given index with the empty string.\n\n>*Note:* It is an error if <Index> is out of range.",
 			"tags":["strings"]
 		},{
-			"id":"builder-214",
+			"id":"builder-480",
 			"name":"repeatforeachchar",
 			"display name":"RepeatForEachChar",
 			"library":"builder",
@@ -4742,7 +11666,7 @@
 			"description":"Use repeat for each to perform an operation on each char of a string. On each iteration, the <Iterand> will contain the next char of the string being iterated over.",
 			"tags":["strings","control structures"]
 		},{
-			"id":"builder-215",
+			"id":"builder-481",
 			"name":"deletelastcharof",
 			"display name":"DeleteLastCharOf",
 			"library":"builder",
@@ -4767,7 +11691,7 @@
 			"description":"Replaces the last char in <Target> with the empty string.\n\n>*Note:* It is an error if <Target> is the empty string.",
 			"tags":["strings"]
 		},{
-			"id":"builder-216",
+			"id":"builder-482",
 			"name":"charoffset",
 			"display name":"CharOffset",
 			"library":"builder",
@@ -4804,7 +11728,7 @@
 			"description":"The first (respectively last) offset of <Needle> in <Target> is number of chars between the first char of <Target> and the first (respectively last) occurrence of <Needle>. If neither first or last is specified, then the first offset is found. If <Needle> does not occur in <Target>, then the output is 0.",
 			"tags":["strings"]
 		},{
-			"id":"builder-217",
+			"id":"builder-483",
 			"name":"stringbeginswithstring",
 			"display name":"StringBeginsWithString",
 			"library":"builder",
@@ -4839,7 +11763,7 @@
 			"description":"<Source> begins with <Prefix> if and only if the chars of <Prefix> occur as an initial subsequence of the chars of <Source>.\n\n>*Note:* Since \"\" is an initial substring of every string, every string begins with the empty string.",
 			"tags":["strings"]
 		},{
-			"id":"builder-218",
+			"id":"builder-484",
 			"name":"newlinecharacter",
 			"display name":"NewLineCharacter",
 			"library":"builder",
@@ -4858,7 +11782,7 @@
 			"description":"Use the <newline> constant to add new lines to a string variable.",
 			"tags":["strings"]
 		},{
-			"id":"builder-219",
+			"id":"builder-485",
 			"name":"deleterangecharof",
 			"display name":"DeleteRangeCharOf",
 			"library":"builder",
@@ -4893,7 +11817,7 @@
 			"description":"Replaces the chars between the given indices with the empty string.\n\n>*Note:* It is an error if either <Start> or <Finish> are out of range.",
 			"tags":["strings"]
 		},{
-			"id":"builder-220",
+			"id":"builder-486",
 			"name":"charisinstring",
 			"display name":"CharIsInString",
 			"library":"builder",
@@ -4920,7 +11844,7 @@
 			"description":">*Note:* It is an error if <Needle> evaluates to a string consisting of more than one char.",
 			"tags":["strings"]
 		},{
-			"id":"builder-221",
+			"id":"builder-487",
 			"name":"countcharsof",
 			"display name":"CountCharsOf",
 			"library":"builder",
@@ -4950,7 +11874,7 @@
 			"description":">*Note:* The number of chars returns the number of codeunits of the target string. It does not perform any grapheme boundary analysis.",
 			"tags":["strings"]
 		},{
-			"id":"builder-222",
+			"id":"builder-488",
 			"name":"rangecharof",
 			"display name":"RangeCharOf",
 			"library":"builder",
@@ -4987,7 +11911,7 @@
 			"description":"Either locates the chars between the given indices for use as the target container of another operation, or evaluates the chars at the given indices as the source of another operation.\n\n>*Note:* It is an error if either <Start> or <Finish> are out of range.",
 			"tags":["strings"]
 		},{
-			"id":"builder-223",
+			"id":"builder-489",
 			"name":"com.livecode.char",
 			"display name":"com.livecode.char",
 			"library":"builder",
@@ -4999,7 +11923,7 @@
 			"summary":"This library consists of the operations on chars included in the standard library of LiveCode Builder.",
 			"description":"This library consists of the operations on chars included in the standard library of LiveCode Builder."
 		},{
-			"id":"builder-224",
+			"id":"builder-490",
 			"name":"lastcharof",
 			"display name":"LastCharOf",
 			"library":"builder",
@@ -5024,7 +11948,7 @@
 			"description":"Either locates the last char for use as the target container of another operation, or evaluates the last char as the source of another operation.\n\n>*Note:* It is an error if <Target> is empty.",
 			"tags":["strings"]
 		},{
-			"id":"builder-225",
+			"id":"builder-491",
 			"name":"firstcharof",
 			"display name":"FirstCharOf",
 			"library":"builder",
@@ -5049,7 +11973,7 @@
 			"description":"Either locates the first char for use as the target container of another operation, or evaluates the first char as the source of another operation.\n\n>*Note:* It is an error if <Target> is empty.",
 			"tags":["strings"]
 		},{
-			"id":"builder-226",
+			"id":"builder-492",
 			"name":"charoffsetafter",
 			"display name":"CharOffsetAfter",
 			"library":"builder",
@@ -5089,7 +12013,7 @@
 			"description":"The first (respectively last) offset of <Needle> in <Target> is number of chars between the first char of the substring of <Target> beginning at char <After> + 1, and the first (respectively last) occurrence of <Needle> in the substring. If neither first or last is specified, then the first offset is found. If <Needle> does not occur in the given substring of <Target>, then the output is 0.",
 			"tags":["strings"]
 		},{
-			"id":"builder-227",
+			"id":"builder-493",
 			"name":"charoffsetbefore",
 			"display name":"CharOffsetBefore",
 			"library":"builder",
@@ -5129,7 +12053,7 @@
 			"description":"The first (respectively last) offset of <Needle> in <Target> is number of chars between the first char of <Target>, and the first (respectively last) occurrence of <Needle> in the substring of <Target> ending at char <Before> - 1. If neither first or last is specified, then the last offset is found. If <Needle> does not occur in the given substring of <Target>, then the output is 0.",
 			"tags":["strings"]
 		},{
-			"id":"builder-228",
+			"id":"builder-494",
 			"name":"stringendswithstring",
 			"display name":"StringEndsWithString",
 			"library":"builder",
@@ -5164,7 +12088,7 @@
 			"description":"<Source> ends with <Suffix> if and only if the chars of <Suffix> occur as a final subsequence of the chars of <Source>.\n\n>*Note:* Since \"\" is a final substring of every string, every string ends with the empty string.",
 			"tags":["strings"]
 		},{
-			"id":"builder-229",
+			"id":"builder-495",
 			"name":"codeofchar",
 			"display name":"CodeOfChar",
 			"library":"builder",
@@ -5186,7 +12110,7 @@
 			"description":"Returns the Unicode codepoint index of a single character.",
 			"tags":["strings"]
 		},{
-			"id":"builder-230",
+			"id":"builder-496",
 			"name":"singletoncharof",
 			"display name":"SingletonCharOf",
 			"library":"builder",
@@ -5218,7 +12142,7 @@
 			"description":"Either locates the char at the given index for use as the target container of another operation, or evaluates the char at the given index as the source of another operation.\n\n>*Note:* It is an error if <Index> is out of range.",
 			"tags":["strings"]
 		},{
-			"id":"builder-231",
+			"id":"builder-497",
 			"name":"containschars",
 			"display name":"ContainsChars",
 			"library":"builder",
@@ -5250,7 +12174,7 @@
 			"description":"<Source> contains <Needle> if and only if the chars of <Needle> occur as a subsequence of the chars of <Source>.\n\n>*Note:* Since \"\" is a substring of every string, every string contains the empty string.",
 			"tags":["strings"]
 		},{
-			"id":"builder-232",
+			"id":"builder-498",
 			"name":"deletefirstcharof",
 			"display name":"DeleteFirstCharOf",
 			"library":"builder",
@@ -5275,7 +12199,7 @@
 			"description":"Replaces the first char in <Target> with the empty string.\n\n>*Note:* It is an error if <Target> is the empty string.",
 			"tags":["strings"]
 		},{
-			"id":"builder-233",
+			"id":"builder-499",
 			"name":"charwithcode",
 			"display name":"CharWithCode",
 			"library":"builder",
@@ -5297,7 +12221,7 @@
 			"description":"Returns a string containing one Unicode character created using the\ngiven value.",
 			"tags":["strings"]
 		},{
-			"id":"builder-234",
+			"id":"builder-500",
 			"name":"bordercolor",
 			"display name":"borderColor",
 			"library":"builder",
@@ -5316,7 +12240,7 @@
 				"property":["showBorder"]
 			}
 		},{
-			"id":"builder-235",
+			"id":"builder-501",
 			"name":"mouseup",
 			"display name":"mouseUp",
 			"library":"builder",
@@ -5337,7 +12261,7 @@
 				"property":["mouseAction"]
 			}
 		},{
-			"id":"builder-236",
+			"id":"builder-502",
 			"name":"hiliteditemicons",
 			"display name":"hilitedItemIcons",
 			"library":"builder",
@@ -5361,7 +12285,7 @@
 				"property":["itemArray","itemIcons"]
 			}
 		},{
-			"id":"builder-237",
+			"id":"builder-503",
 			"name":"itemnames",
 			"display name":"itemNames",
 			"library":"builder",
@@ -5385,7 +12309,7 @@
 				"property":["itemArray","itemLabels"]
 			}
 		},{
-			"id":"builder-238",
+			"id":"builder-504",
 			"name":"itemicons",
 			"display name":"itemIcons",
 			"library":"builder",
@@ -5409,7 +12333,7 @@
 				"property":["itemArray","hilitedItemIcons"]
 			}
 		},{
-			"id":"builder-239",
+			"id":"builder-505",
 			"name":"showlabel",
 			"display name":"showLabel",
 			"library":"builder",
@@ -5428,7 +12352,7 @@
 				"property":["label"]
 			}
 		},{
-			"id":"builder-240",
+			"id":"builder-506",
 			"name":"firstitemleft",
 			"display name":"firstItemLeft",
 			"library":"builder",
@@ -5447,7 +12371,7 @@
 				"property":["itemArray","theme","itemLabels"]
 			}
 		},{
-			"id":"builder-241",
+			"id":"builder-507",
 			"name":"itemstyle",
 			"display name":"itemStyle",
 			"library":"builder",
@@ -5471,7 +12395,7 @@
 				"property":["firstItemLeft"]
 			}
 		},{
-			"id":"builder-242",
+			"id":"builder-508",
 			"name":"itemarray",
 			"display name":"itemArray",
 			"library":"builder",
@@ -5495,7 +12419,7 @@
 				"property":["itemIcons","hilitedItemIcons","itemLabels","itemNames"]
 			}
 		},{
-			"id":"builder-243",
+			"id":"builder-509",
 			"name":"theme",
 			"display name":"theme",
 			"library":"builder",
@@ -5516,7 +12440,7 @@
 			}],
 			"description":"The <theme> controls the general appearance of the header bar.  The\nheader widget currently supports \"native\", \"iOS\" and \"Android\".  If\nthe <theme> is set to \"native\", then the header widget will use either\nthe \"iOS\" or \"Android\" theme depending on the platform that LiveCode\nis running on.\n\n>*Note*: The value of the <theme> property is not saved by the header\nbar. Set the <theme> property to preview the way the header bar will\nappear when used on an Android or iOS device.\n\n>*Warning*: The meaning and behaviour of the <theme> property is\nexperimental and is subject to change in a future release."
 		},{
-			"id":"builder-244",
+			"id":"builder-510",
 			"name":"forecolor",
 			"display name":"foreColor",
 			"library":"builder",
@@ -5535,7 +12459,7 @@
 				"property":["label"]
 			}
 		},{
-			"id":"builder-245",
+			"id":"builder-511",
 			"name":"showborder",
 			"display name":"showBorder",
 			"library":"builder",
@@ -5554,7 +12478,7 @@
 				"property":["borderColor"]
 			}
 		},{
-			"id":"builder-246",
+			"id":"builder-512",
 			"name":"mouseaction",
 			"display name":"mouseAction",
 			"library":"builder",
@@ -5581,7 +12505,7 @@
 				"message":["mouseUp"]
 			}
 		},{
-			"id":"builder-247",
+			"id":"builder-513",
 			"name":"backcolor",
 			"display name":"backColor",
 			"library":"builder",
@@ -5600,7 +12524,7 @@
 				"property":["opaque"]
 			}
 		},{
-			"id":"builder-248",
+			"id":"builder-514",
 			"name":"opaque",
 			"display name":"opaque",
 			"library":"builder",
@@ -5619,7 +12543,7 @@
 				"property":["backColor"]
 			}
 		},{
-			"id":"builder-249",
+			"id":"builder-515",
 			"name":"itemlabels",
 			"display name":"itemLabels",
 			"library":"builder",
@@ -5643,7 +12567,7 @@
 				"property":["itemArray","itemStyle"]
 			}
 		},{
-			"id":"builder-250",
+			"id":"builder-516",
 			"name":"com.livecode.widget.headerbar",
 			"display name":"com.livecode.widget.headerbar",
 			"library":"builder",
@@ -5658,7 +12582,7 @@
 				"property":["firstItemLeft","itemIcons","itemLabels","itemNames","itemStyle","label","theme"]
 			}
 		},{
-			"id":"builder-251",
+			"id":"builder-517",
 			"name":"hilitecolor",
 			"display name":"hiliteColor",
 			"library":"builder",
@@ -5677,7 +12601,7 @@
 				"property":["itemIcons","hilitedItemIcons","itemLabels","itemStyle"]
 			}
 		},{
-			"id":"builder-252",
+			"id":"builder-518",
 			"name":"label",
 			"display name":"label",
 			"library":"builder",
@@ -5701,7 +12625,7 @@
 				"property":["showLabel"]
 			}
 		},{
-			"id":"builder-253",
+			"id":"builder-519",
 			"name":"com.livecode.library.scriptitems",
 			"display name":"com.livecode.library.scriptitems",
 			"library":"builder",
@@ -5713,7 +12637,7 @@
 			"summary":"Utility functions for LiveCode Script-compatible item lists.\n\nMany LiveCode Builder widget and library extensions expose APIs to\nLiveCode Script that use item lists.  This library provides a set of\nfunctions for converting `List` values to-and-from comma-delimited\nitem strings.",
 			"description":"Utility functions for LiveCode Script-compatible item lists.\n\nMany LiveCode Builder widget and library extensions expose APIs to\nLiveCode Script that use item lists.  This library provides a set of\nfunctions for converting `List` values to-and-from comma-delimited\nitem strings."
 		},{
-			"id":"builder-254",
+			"id":"builder-520",
 			"name":"parseitemsasnumberlist",
 			"display name":"parseItemsAsNumberList",
 			"library":"builder",
@@ -5752,7 +12676,7 @@
 				"handler":["parseItemsAsStringList","formatNumberListAsItems"]
 			}
 		},{
-			"id":"builder-255",
+			"id":"builder-521",
 			"name":"parseitemsasstringlist",
 			"display name":"parseItemsAsStringList",
 			"library":"builder",
@@ -5791,7 +12715,7 @@
 				"handler":["parseItemsAsNumberList","formatStringListAsItems"]
 			}
 		},{
-			"id":"builder-256",
+			"id":"builder-522",
 			"name":"formatstringlistasitems",
 			"display name":"formatStringListAsItems",
 			"library":"builder",
@@ -5820,7 +12744,7 @@
 				"handler":["parseItemsAsStringList","formatNumberListAsItems"]
 			}
 		},{
-			"id":"builder-257",
+			"id":"builder-523",
 			"name":"formatnumberlistasitems",
 			"display name":"formatNumberListAsItems",
 			"library":"builder",
@@ -5849,7 +12773,7 @@
 				"handler":["formatStringListAsItems","parseItemsAsNumberList"]
 			}
 		},{
-			"id":"builder-258",
+			"id":"builder-524",
 			"name":"com.livecode.date",
 			"display name":"com.livecode.date",
 			"library":"builder",
@@ -5861,7 +12785,7 @@
 			"summary":"This library provides low-level system functionality for modular\nLiveCode programs.",
 			"description":"This library provides low-level system functionality for modular\nLiveCode programs."
 		},{
-			"id":"builder-259",
+			"id":"builder-525",
 			"name":"universaltime",
 			"display name":"UniversalTime",
 			"library":"builder",
@@ -5880,7 +12804,7 @@
 			"description":"Returns the current universal time relative to the start of the UNIX epoch - 1st\nJanuary 1970 in seconds.",
 			"tags":["date and time"]
 		},{
-			"id":"builder-260",
+			"id":"builder-526",
 			"name":"localdate",
 			"display name":"LocalDate",
 			"library":"builder",
@@ -5902,7 +12826,7 @@
 			},
 			"tags":["date and time"]
 		},{
-			"id":"builder-261",
+			"id":"builder-527",
 			"name":"universaldate",
 			"display name":"UniversalDate",
 			"library":"builder",
@@ -5924,7 +12848,7 @@
 			},
 			"tags":["date and time"]
 		},{
-			"id":"builder-262",
+			"id":"builder-528",
 			"name":"editable",
 			"display name":"editable",
 			"library":"builder",
@@ -5940,7 +12864,7 @@
 			"OS":["android"],
 			"description":"Use the <editable> property to allow or disallow the user to enter text in the\nfield."
 		},{
-			"id":"builder-263",
+			"id":"builder-529",
 			"name":"exitfield",
 			"display name":"exitField",
 			"library":"builder",
@@ -5959,7 +12883,7 @@
 			}],
 			"description":"Handle the <exitField> message if you want to do something when the user leaves\na field that hasn't been changed."
 		},{
-			"id":"builder-264",
+			"id":"builder-530",
 			"name":"selectedrange",
 			"display name":"selectedRange",
 			"library":"builder",
@@ -5983,7 +12907,7 @@
 			}],
 			"description":"Use the <selectedRange> property to determine the start index and the length of\nthe text that is to appear as selected."
 		},{
-			"id":"builder-265",
+			"id":"builder-531",
 			"name":"autocapitalizationtype",
 			"display name":"autoCapitalizationType",
 			"library":"builder",
@@ -6007,7 +12931,7 @@
 			}],
 			"description":"Use the <autoCapitalizationType> property to determine when the shift-key is\nautomatically enabled when typing."
 		},{
-			"id":"builder-266",
+			"id":"builder-532",
 			"name":"enabled",
 			"display name":"enabled",
 			"library":"builder",
@@ -6023,7 +12947,7 @@
 			"OS":["android"],
 			"description":"Use the <enabled> property to enable or disable the native field. When disabled,\nthe field has a greyed out appearance."
 		},{
-			"id":"builder-267",
+			"id":"builder-533",
 			"name":"datadetectortypes",
 			"display name":"dataDetectorTypes",
 			"library":"builder",
@@ -6049,7 +12973,7 @@
 			}],
 			"description":"Use the <dataDetectorTypes> property to determine what kind of data should be\ndetected and automatically converted to clikckable URLs.\n"
 		},{
-			"id":"builder-268",
+			"id":"builder-534",
 			"name":"closefield",
 			"display name":"closeField",
 			"library":"builder",
@@ -6068,7 +12992,7 @@
 			}],
 			"description":"Handle the <closeField> message if you want to make sure a field's content is\ncorrect after it has been changed."
 		},{
-			"id":"builder-269",
+			"id":"builder-535",
 			"name":"openfield",
 			"display name":"openField",
 			"library":"builder",
@@ -6087,7 +13011,7 @@
 			}],
 			"description":"Handle the <openField> message if you want to do something when the user enters\na field widget. The message is not sent if the field is locked."
 		},{
-			"id":"builder-270",
+			"id":"builder-536",
 			"name":"scrollingenabled",
 			"display name":"scrollingEnabled",
 			"library":"builder",
@@ -6103,7 +13027,7 @@
 			"OS":["android"],
 			"description":"Use the <scrollingEnabled> property to allow or disallow the user to scroll the\nfield."
 		},{
-			"id":"builder-271",
+			"id":"builder-537",
 			"name":"focused",
 			"display name":"focused",
 			"library":"builder",
@@ -6119,7 +13043,7 @@
 			"OS":["android"],
 			"description":"Use the <focused> property to request focus for the native field, or remove it."
 		},{
-			"id":"builder-272",
+			"id":"builder-538",
 			"name":"passreturnkey",
 			"display name":"passReturnKey",
 			"library":"builder",
@@ -6138,7 +13062,7 @@
 			}],
 			"description":"Use the <passReturnKey> property to control whether the\nnative keyboard return key adds a new line to the field or\nnot."
 		},{
-			"id":"builder-273",
+			"id":"builder-539",
 			"name":"com.livecode.widget.native.android.field",
 			"display name":"com.livecode.widget.native.android.field",
 			"library":"builder",
@@ -6151,7 +13075,7 @@
 			"OS":["android"],
 			"description":"This widget is a native field on Android."
 		},{
-			"id":"builder-274",
+			"id":"builder-540",
 			"name":"multiline",
 			"display name":"multiline",
 			"library":"builder",
@@ -6167,7 +13091,7 @@
 			"OS":["android"],
 			"description":"Use the <multiline> property to allow or disallow the user to enter multiple\nlines of text in the field."
 		},{
-			"id":"builder-275",
+			"id":"builder-541",
 			"name":"text",
 			"display name":"text",
 			"library":"builder",
@@ -6191,7 +13115,7 @@
 			}],
 			"description":"Use the <text> property to change the text of the field widget."
 		},{
-			"id":"builder-276",
+			"id":"builder-542",
 			"name":"contenttype",
 			"display name":"contentType",
 			"library":"builder",
@@ -6215,7 +13139,7 @@
 			}],
 			"description":"Use the <contentType> property to determine what kind of content the control\ncontains."
 		},{
-			"id":"builder-277",
+			"id":"builder-543",
 			"name":"verticaltextalign",
 			"display name":"verticalTextAlign",
 			"library":"builder",
@@ -6239,7 +13163,7 @@
 			}],
 			"description":"Use the <textAlign> property to change the vertical text alignment of the\nfield widget."
 		},{
-			"id":"builder-278",
+			"id":"builder-544",
 			"name":"returnkeytype",
 			"display name":"returnKeyType",
 			"library":"builder",
@@ -6263,7 +13187,7 @@
 			}],
 			"description":"Use the <returnKeyType> property to determine what kind of action should be\nperformed when the return key on the keyboard associated with this field widget\nis pressed."
 		},{
-			"id":"builder-279",
+			"id":"builder-545",
 			"name":"fieldtextcolor",
 			"display name":"fieldTextColor",
 			"library":"builder",
@@ -6287,7 +13211,7 @@
 			}],
 			"description":"Use the <fieldTextColor> property to change the color of the text of the field\nwidget."
 		},{
-			"id":"builder-280",
+			"id":"builder-546",
 			"name":"textchanged",
 			"display name":"textChanged",
 			"library":"builder",
@@ -6306,7 +13230,7 @@
 			}],
 			"description":"Handle the <textChanged> message if you want to do something when the text of\nthe field is changed through typing."
 		},{
-			"id":"builder-281",
+			"id":"builder-547",
 			"name":"autocorrectiontype",
 			"display name":"autoCorrectionType",
 			"library":"builder",
@@ -6330,7 +13254,7 @@
 			}],
 			"description":"Use the <autoCorrectionType> property to determine whether auto-correct behavior\nshould be enabled."
 		},{
-			"id":"builder-282",
+			"id":"builder-548",
 			"name":"textalign",
 			"display name":"textAlign",
 			"library":"builder",
@@ -6354,7 +13278,7 @@
 			}],
 			"description":"Use the <textAlign> property to change the horizontal text alignment of the\nfield widget."
 		},{
-			"id":"builder-283",
+			"id":"builder-549",
 			"name":"keyboardtype",
 			"display name":"keyboardType",
 			"library":"builder",
@@ -6378,7 +13302,7 @@
 			}],
 			"description":"Use the <keyboardType> property to determine what kind of keyboard should be\ndisplayed when this field widget is focused."
 		},{
-			"id":"builder-284",
+			"id":"builder-550",
 			"name":"absoperator",
 			"display name":"AbsOperator",
 			"library":"builder",
@@ -6408,7 +13332,7 @@
 			"description":"The absolute value of <Operand> is the value of <Operand> if it is greater than or equal to 0, or the negation of the value of <Operand> if it is less than zero.",
 			"tags":["math"]
 		},{
-			"id":"builder-285",
+			"id":"builder-551",
 			"name":"baseelogoperator",
 			"display name":"BaseELogOperator",
 			"library":"builder",
@@ -6433,7 +13357,7 @@
 			"description":"Natural log operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-286",
+			"id":"builder-552",
 			"name":"maxlistoperator",
 			"display name":"MaxListOperator",
 			"library":"builder",
@@ -6454,7 +13378,7 @@
 			"description":">*Note:* It is an error if any element of <List> is non-numeric.",
 			"tags":["math"]
 		},{
-			"id":"builder-287",
+			"id":"builder-553",
 			"name":"baseconvert",
 			"display name":"BaseConvert",
 			"library":"builder",
@@ -6491,7 +13415,7 @@
 			"description":"Interprets a string in the desired source base and converts it to the desired target base, and returns a string representation.\n\n>*Note:* The source and destination bases must be integers between 2 and 32.",
 			"tags":["math"]
 		},{
-			"id":"builder-288",
+			"id":"builder-554",
 			"name":"minlistoperator",
 			"display name":"MinListOperator",
 			"library":"builder",
@@ -6512,7 +13436,7 @@
 			"description":">*Note:* It is an error if any element of <List> is non-numeric.",
 			"tags":["math"]
 		},{
-			"id":"builder-289",
+			"id":"builder-555",
 			"name":"expoperator",
 			"display name":"ExpOperator",
 			"library":"builder",
@@ -6542,7 +13466,7 @@
 			"description":"Exponentiation operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-290",
+			"id":"builder-556",
 			"name":"baseconvertto",
 			"display name":"BaseConvertTo",
 			"library":"builder",
@@ -6574,7 +13498,7 @@
 			"description":"Converts a decimal into the desired base, and returns a string representation.\n\n>*Note:* The destination base must be an integer between 2 and 32.",
 			"tags":["math"]
 		},{
-			"id":"builder-291",
+			"id":"builder-557",
 			"name":"base10logoperator",
 			"display name":"Base10LogOperator",
 			"library":"builder",
@@ -6599,7 +13523,7 @@
 			"description":"Base 10 log operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-292",
+			"id":"builder-558",
 			"name":"squarerootoperator",
 			"display name":"SquareRootOperator",
 			"library":"builder",
@@ -6626,7 +13550,7 @@
 			"description":"The square root of a number is the number which must be\nsquared to obtain number : sqrt(number)^2 is equal to number.",
 			"tags":["math"]
 		},{
-			"id":"builder-293",
+			"id":"builder-559",
 			"name":"binaryarctanoperator",
 			"display name":"BinaryArctanOperator",
 			"library":"builder",
@@ -6658,7 +13582,7 @@
 			"description":"The binary arctan operator returns the angle in radians between the x-axis and the line from the origin to the point (xCoord, yCoord).\nThe angle returned has absolute value less than pi: ‚àíœÄ < arctan2(y, x) ‚â§ œÄ.",
 			"tags":["math"]
 		},{
-			"id":"builder-294",
+			"id":"builder-560",
 			"name":"arcsinoperator",
 			"display name":"ArcsinOperator",
 			"library":"builder",
@@ -6685,7 +13609,7 @@
 			"description":"The inverse of the sin operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-295",
+			"id":"builder-561",
 			"name":"truncoperator",
 			"display name":"TruncOperator",
 			"library":"builder",
@@ -6715,7 +13639,7 @@
 			"description":"The trunc of <Operand> is the integer part of the decimal representation of <Operand>.",
 			"tags":["math"]
 		},{
-			"id":"builder-296",
+			"id":"builder-562",
 			"name":"com.livecode.math",
 			"display name":"com.livecode.math",
 			"library":"builder",
@@ -6727,7 +13651,7 @@
 			"summary":"This library consists of the mathematical operations included in the standard library of LiveCode Builder.",
 			"description":"This library consists of the mathematical operations included in the standard library of LiveCode Builder."
 		},{
-			"id":"builder-297",
+			"id":"builder-563",
 			"name":"sinoperator",
 			"display name":"SinOperator",
 			"library":"builder",
@@ -6754,7 +13678,7 @@
 			"description":"Sin operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-298",
+			"id":"builder-564",
 			"name":"arctanoperator",
 			"display name":"ArctanOperator",
 			"library":"builder",
@@ -6781,7 +13705,7 @@
 			"description":"The inverse of the tan operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-299",
+			"id":"builder-565",
 			"name":"cosoperator",
 			"display name":"CosOperator",
 			"library":"builder",
@@ -6806,7 +13730,7 @@
 			"description":"Cos operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-300",
+			"id":"builder-566",
 			"name":"maxoperator",
 			"display name":"MaxOperator",
 			"library":"builder",
@@ -6838,7 +13762,7 @@
 			"description":"Max operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-301",
+			"id":"builder-567",
 			"name":"arccosoperator",
 			"display name":"ArccosOperator",
 			"library":"builder",
@@ -6865,7 +13789,7 @@
 			"description":"The inverse of the cos operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-302",
+			"id":"builder-568",
 			"name":"minoperator",
 			"display name":"MinOperator",
 			"library":"builder",
@@ -6897,7 +13821,7 @@
 			"description":"Min operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-303",
+			"id":"builder-569",
 			"name":"randomnumber",
 			"display name":"RandomNumber",
 			"library":"builder",
@@ -6921,7 +13845,7 @@
 			"description":"Generates a pseudo-random number.",
 			"tags":["math"]
 		},{
-			"id":"builder-304",
+			"id":"builder-570",
 			"name":"baseconvertfrom",
 			"display name":"BaseConvertFrom",
 			"library":"builder",
@@ -6953,7 +13877,7 @@
 			"description":"Interprets a string in the desired base and converts it to decimal.\n\n>*Note:* The source base must be an integer between 2 and 32.",
 			"tags":["math"]
 		},{
-			"id":"builder-305",
+			"id":"builder-571",
 			"name":"powoperator",
 			"display name":"PowOperator",
 			"library":"builder",
@@ -6988,7 +13912,7 @@
 			"description":"Binary exponentiation operation.",
 			"tags":["math"]
 		},{
-			"id":"builder-306",
+			"id":"builder-572",
 			"name":"tanoperator",
 			"display name":"TanOperator",
 			"library":"builder",
@@ -7015,7 +13939,7 @@
 			"description":"Tan operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-307",
+			"id":"builder-573",
 			"name":"hilitedcoordinatescolor",
 			"display name":"hilitedCoordinatesColor",
 			"library":"builder",
@@ -7038,7 +13962,7 @@
 				"property":["hilitedCoordinates"]
 			}
 		},{
-			"id":"builder-308",
+			"id":"builder-574",
 			"name":"graphylines",
 			"display name":"graphYLines",
 			"library":"builder",
@@ -7061,7 +13985,7 @@
 				"property":["graphXLines"]
 			}
 		},{
-			"id":"builder-309",
+			"id":"builder-575",
 			"name":"markerstyles",
 			"display name":"markerStyles",
 			"library":"builder",
@@ -7084,7 +14008,7 @@
 				"property":["showLines","markerScale"]
 			}
 		},{
-			"id":"builder-310",
+			"id":"builder-576",
 			"name":"graphcolors",
 			"display name":"graphColors",
 			"library":"builder",
@@ -7107,7 +14031,7 @@
 			}],
 			"description":"The <graphColors> are the colors of each line in the graph widget.\n\nEach line of the <graphColors> should be a comma delimited list with\nfour items.  The items are the red, green, blue, and alpha (opacity)\ncomponents of the line color."
 		},{
-			"id":"builder-311",
+			"id":"builder-577",
 			"name":"markerscale",
 			"display name":"markerScale",
 			"library":"builder",
@@ -7130,7 +14054,7 @@
 				"property":["markerStyles","showLines"]
 			}
 		},{
-			"id":"builder-312",
+			"id":"builder-578",
 			"name":"hilitedcoordinates",
 			"display name":"hilitedCoordinates",
 			"library":"builder",
@@ -7153,7 +14077,7 @@
 				"property":["hilitedCoordinatesColor"]
 			}
 		},{
-			"id":"builder-313",
+			"id":"builder-579",
 			"name":"showlines",
 			"display name":"showLines",
 			"library":"builder",
@@ -7176,7 +14100,7 @@
 				"property":["markerStyles","markerScale"]
 			}
 		},{
-			"id":"builder-314",
+			"id":"builder-580",
 			"name":"graphxlines",
 			"display name":"graphXLines",
 			"library":"builder",
@@ -7199,7 +14123,7 @@
 				"property":["graphYLines"]
 			}
 		},{
-			"id":"builder-315",
+			"id":"builder-581",
 			"name":"graphdata",
 			"display name":"graphData",
 			"library":"builder",
@@ -7222,7 +14146,7 @@
 			}],
 			"description":"The <graphData> is the data to be displayed by the graph widget.\n\nEach line of the <graphData> should be a a comma delimited list.  The\nfirst item of each line is the label for that point on the x-axis.\nThe second and following items are the values for each series of data\nto plot."
 		},{
-			"id":"builder-316",
+			"id":"builder-582",
 			"name":"com.livecode.widget.linegraph",
 			"display name":"com.livecode.widget.linegraph",
 			"library":"builder",
@@ -7237,7 +14161,595 @@
 				"property":["graphData","graphColors","hilitedCoordinates"]
 			}
 		},{
-			"id":"builder-317",
+			"id":"builder-583",
+			"name":"thecolumndelimiter",
+			"display name":"TheColumnDelimiter",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the column delimiter"
+			],
+			"display syntax":[
+				"the column delimiter"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Fetches the `columnDelimiter` property from script context",
+			"examples":[{
+				"script":"   -- Split a string into a list using the column delimiter\n   variable tItems\n   put \"alice\\tbob\\teve\" into tItems\n   split tItems by the column delimiter\n   -- tItems is now a list: [\"alice\", \"bob\", \"eve\"]"
+			}],
+			"description":"Fetches the calling (script) handler's `columnDelimiter` property, or horizontal\ntab (U+0009) if no script context is available.",
+			"references":{
+				"expression":["TheRowDelimiter","TheItemDelimiter","TheLineDelimiter"]
+			},
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-584",
+			"name":"propertyofscriptobject",
+			"display name":"PropertyOfScriptObject",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"property <Property> of <Object>"
+			],
+			"display syntax":[
+				"property <i>Property</i> of <i>Object</i>"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"The property of a script object.",
+			"parameters":[{
+				"name":"Property",
+				"type":"",
+				"refparam":"false",
+				"description":"The name of the property to manipulate"
+			},{
+				"name":"Object",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to a <ScriptObject>."
+			}],
+			"examples":[{
+				"script":"public handler OnMouseUp() returns nothing\n\tset property \"name\" of my script object to \"Clicked Widget\"\nend handler"
+			},{
+				"script":"resolve script object \"this stack\"\nset property \"invisible\" of the result to true\n    get property \"script\" of my script object"
+			}],
+			"description":"Use to manipulate properties of a script object.\n\n>*Note:* An error is thrown if the script object does not exist.\n\n>*Note:* An error is thrown if this syntax is used in a context where access\nto script objects is not allowed.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-585",
+			"name":"resolvefilepath",
+			"display name":"ResolveFilePath",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"resolve file <FilePath> [ relative to <Object> ]"
+			],
+			"display syntax":[
+				"resolve file <i>FilePath</i> [ relative to <i>Object</i> ]"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Resolves a file path relative to a script object.",
+			"parameters":[{
+				"name":"FilePath",
+				"type":"",
+				"refparam":"false",
+				"description":"A string relative or full file path."
+			},{
+				"name":"Object",
+				"type":"",
+				"refparam":"false",
+				"description":"The string describing the script object."
+			}],
+			"examples":[{
+				"script":"variable tObject as ScriptObject\nresolve script object \"this stack\"\nput the result into tObject\nvariable tIconPath as String\nif tObject exists then\n    resolve file \"images/icon.png\" relative to tObject\n    put the result into tIconPath\nend if"
+			}],
+			"value":[{
+				"name":"the result",
+				"type":"",
+				"description":"The resolved file path string."
+			}],
+			"description":"Use the <ResolveFilePath|resolve file path> statement to resolve a relative file\npath in LCB using the same file path resolution semantics used by LCS.\nIf no object is specified the file path will be resolved relative to either\n`the defaultStack` or if in a widget handler the stack the current widget is on.\n\n>*Note:* An error is thrown if this syntax is used in a context where access\nto script objects is not allowed.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-586",
+			"name":"resolvescriptobject",
+			"display name":"ResolveScriptObject",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"resolve script object <Object>"
+			],
+			"display syntax":[
+				"resolve script object <i>Object</i>"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Resolves a string to a script object.",
+			"parameters":[{
+				"name":"Object",
+				"type":"",
+				"refparam":"false",
+				"description":"The string describing the script object."
+			}],
+			"examples":[{
+				"script":"variable tObject as ScriptObject\nresolve script object \"button 1 of card 1 of this stack\"\nput the result into tObject\nif tObject exists then\n\tget property \"name\" of tObject\n\tlog the result\nelse\n\tlog \"No such button\"\nend if"
+			}],
+			"value":[{
+				"name":"the result",
+				"type":"",
+				"description":"The resolved script object."
+			}],
+			"description":"Use the <ResolveScriptObject|resolve script object> statement to obtain a <ScriptObject> in LiveCode Builder, in order to interact with it.\n\n>*Note:* An error is thrown if this syntax is used in a context where access\nto script objects is not allowed.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-587",
+			"name":"scriptobject",
+			"display name":"ScriptObject",
+			"library":"builder",
+			"type":"type",
+			"syntax":[
+				"ScriptObject"
+			],
+			"display syntax":[
+				"ScriptObject"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"An opaque type corresponding to a LiveCode script object.",
+			"description":"Use the <ResolveScriptObject|resolve script object>, or <MyScriptObject|my script object> to obtain an object of type <ScriptObject>",
+			"references":{
+				"statement":["ResolveScriptObject"],
+				"expression":["MyScriptObject"]
+			},
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-588",
+			"name":"log",
+			"display name":"Log",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"log <Value> [ with <Arguments> ]"
+			],
+			"display syntax":[
+				"log <i>Value</i> [ with <i>Arguments</i> ]"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Logs a value.",
+			"parameters":[{
+				"name":"Value",
+				"type":"",
+				"refparam":"false",
+				"description":"The value to log."
+			},{
+				"name":"Arguments",
+				"type":"",
+				"refparam":"false",
+				"description":"A list of arguments."
+			}],
+			"examples":[{
+				"script":"variable tList as List\nget property \"name\" of my script object\npush the result onto tList\n\nget property \"id\" of my script object\npush the result onto tList\n\nlog \"Widget %@ has id %@\" with tList"
+			},{
+				"script":"variable tList as List\nput [1,2,3,4] into tList\nlog tList"
+			}],
+			"description":"The log command triggers a logChanged message with the \naccumulated log messages since the logChanged message \nwas last handled.\nThis can be handled in LiveCode Script, for example:\n\n    on logChanged pLog\n        write pLog to stdout\n    end logChanged\n\nIf using the 'with arguments' form, the <Value> must be a String.\nEach occurrence of %@ in the String is replaced by a string\nrepresentation of subsequent values in the <Arguments> List.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-589",
+			"name":"sendtoscriptobject",
+			"display name":"SendToScriptObject",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"send ( function | command ) <Message> [ to <Object> ] [ with <Arguments> ]"
+			],
+			"display syntax":[
+				"send ( function | command ) <i>Message</i> [ to <i>Object</i> ] [ with <i>Arguments</i> ]"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Send a message to a script object.",
+			"parameters":[{
+				"name":"Message",
+				"type":"",
+				"refparam":"false",
+				"description":"The message to dispatch."
+			},{
+				"name":"Object",
+				"type":"",
+				"refparam":"false",
+				"description":"The script object to dispatch the message to."
+			},{
+				"name":"Arguments",
+				"type":"",
+				"refparam":"false",
+				"description":"A list of arguments for the message."
+			}],
+			"examples":[{
+				"script":"public handler OnMouseUp() returns nothing\n\t// Send a message to the script so it can handle it.\n\tsend \"buttonClicked\" to my script object\nend handler"
+			},{
+				"script":"// myScriptFunction takes three arguments and performs some kind of calculation\n\nvariable tObject as ScriptObject\nresolve script object \"this stack\"\nput the result into tObject\nsend function \"myScriptFunction\" to tObject with [ 2, 3, 4 ]\n\n// the result contains the return value of 'myScriptFunction'"
+			}],
+			"value":[{
+				"name":"the result",
+				"type":"",
+				"description":"The result of the message dispatch"
+			}],
+			"description":"Sends a message to the given script object and waits for it to finish so that it\ncan return a value.\n\nIf no target object is specified, the message is sent to the widget's\nscript object (if used in a root widget module), or to the default stack\notherwise.\n\nAfter a send, 'the message was handled' predicate can be used to determine if the\nmessage passed through the message path untouched.\n\n>*Note:* An error is thrown if this syntax is used in a context where access\nto script objects is not allowed.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-590",
+			"name":"scriptobjectdoesnotexist",
+			"display name":"ScriptObjectDoesNotExist",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"<Object> does not exist"
+			],
+			"display syntax":[
+				"<i>Object</i> does not exist"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Tests the existence of a script object.",
+			"parameters":[{
+				"name":"Object",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to a <ScriptObject>."
+			}],
+			"examples":[{
+				"script":"variable tObject as ScriptObject\nresolve script object \"card 5 of this stack\"\nput the result into tObject\nif tObject does not exist then\n\tlog \"No such card\"\nend if"
+			}],
+			"value":[{
+				"name":"the result",
+				"type":"",
+				"description":"True if the object <Object> exists, and false otherwise."
+			}],
+			"description":"Use to test the non-existence or otherwise of a script object, for example after attempting to resolve the object from a string using <ResolveScriptObject|resolve script object>",
+			"references":{
+				"statement":["ResolveScriptObject"]
+			},
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-591",
+			"name":"myresourcesfolder",
+			"display name":"MyResourcesFolder",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"my resources folder"
+			],
+			"display syntax":[
+				"my resources folder"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Returns the resources folder for the current module",
+			"examples":[{
+				"script":"    -- Work out the filename of a file in the module's\n    -- resources folder.\n    variable tResourceFile as String\n    put my resources folder & \"/foobar.txt\" into tResourceFile"
+			}],
+			"description":"Returns the full path to the resources folder for the calling\nmodule. If there is no resources folder attached to the calling\nmodule, nothing is returned.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-592",
+			"name":"posttoscriptobject",
+			"display name":"PostToScriptObject",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"post <Message> [ to <Object> ] [ with <Arguments> ]"
+			],
+			"display syntax":[
+				"post <i>Message</i> [ to <i>Object</i> ] [ with <i>Arguments</i> ]"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Post a message to a script object.",
+			"parameters":[{
+				"name":"Message",
+				"type":"",
+				"refparam":"false",
+				"description":"The message to dispatch."
+			},{
+				"name":"Object",
+				"type":"",
+				"refparam":"false",
+				"description":"The script object to dispatch the message to."
+			},{
+				"name":"Arguments",
+				"type":"",
+				"refparam":"false",
+				"description":"A list of arguments for the message."
+			}],
+			"examples":[{
+				"script":"public handler OnMouseUp() returns nothing\n\t// Send a message to the script so it can handle it.\n\tpost \"buttonClicked\" to my script object\nend handler"
+			}],
+			"description":"Post a message to the given script object and returns immediately. Posting a message\nwill cause the message to be sent at the next wait point (usually when the current\nevent has finished being handled).\n\nIf no target object is specified, the message is posted to the widget's\nscript object (if used in a root widget module), or to the widget's\nparent (if used in a non-root widget module), or to the default stack\notherwise.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-593",
+			"name":"executescript",
+			"display name":"ExecuteScript",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"execute script <Script> [ in <Object> ] [ with <Arguments> ]"
+			],
+			"display syntax":[
+				"execute script <i>Script</i> [ in <i>Object</i> ] [ with <i>Arguments</i> ]"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Executes some LiveCode script.",
+			"parameters":[{
+				"name":"Script",
+				"type":"",
+				"refparam":"false",
+				"description":"The script to execute."
+			},{
+				"name":"Object",
+				"type":"",
+				"refparam":"false",
+				"description":"The object to execute the script in."
+			},{
+				"name":"Arguments",
+				"type":"",
+				"refparam":"false",
+				"description":"A list of arguments for the script."
+			}],
+			"examples":[{
+				"script":"public handler SnapshotMe() returns nothing\n\tvariable tVar as String\n\tget property \"number\" of my script object\n\tput the result formatted as string into tVar\n\n\t// Create a snapshot from the rect of the widget\n\texecute script \"import snapshot from rect (the rect of widget \" & tVar & \") of widget \" & tVar\nend handler"
+			},{
+				"script":"   public handler SnapshotMeAtSize(in pWidth as Integer, in pHeight as Integer) returns nothing\n\t\tvariable tVar as String\n\t\tget property \"number\" of my script object\n\t\tput the result formatted as string into tVar\n\n\t\t// Create a snapshot from the rect of the widget\n\t\texecute script \"import snapshot from me at size at size param(1),param(2)\" \\\n            with [ pWidth, pHeight ]\n\tend handler"
+			}],
+			"description":"Executes the given fragment of LiveCode script in the context of the target\nscript object. If no object is specified then execution occurs in the context of\n`this card of the defaultStack` in a library handler or the current widget\ninstance script object if in a widget handler.\n\nThe list of arguments is accessible from the script fragment using the\n`paramCount()` and `param()` functions.\n\n>*Note:* An error is thrown if this syntax is used in a context where access\nto script objects is not allowed.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-594",
+			"name":"com.livecode.engine",
+			"display name":"com.livecode.engine",
+			"library":"builder",
+			"type":"module",
+			"display syntax":[
+				"com.livecode.engine"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"This library provides operations for interacting with LiveCode Script from LiveCode Builder.",
+			"description":"This library provides operations for interacting with LiveCode Script from LiveCode Builder."
+		},{
+			"id":"builder-595",
+			"name":"messagewashandled",
+			"display name":"MessageWasHandled",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the message was handled"
+			],
+			"display syntax":[
+				"the message was handled"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Determines whether a message was handled",
+			"examples":[{
+				"script":"public handler OnMouseUp() returns nothing\n\tsend \"buttonClicked\" to my script object\n\tif the message was handled then\n\t\treturn\n\tend if\n\tlog \"The message was not handled\"\nend handler"
+			}],
+			"description":"Determines if a dispatched message was handled by any script objects in the message path.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-596",
+			"name":"keyisdown",
+			"display name":"KeyIsDown",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the ( shift |             command |             control |             alt |             option |             caps lock ) key is ( currently ) down"
+			],
+			"display syntax":[
+				"the ( shift |             command |             control |             alt |             option |             caps lock ) key is ( currently ) down"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Returns true if the key is down",
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"The state of the key"
+			}],
+			"description":"Use 'the ... key is down' to determine if the key was down at the start of the\ncurrent event. Use 'the ... key is currently down' to determine if the key is\ndown at the time it is being checked.\n\nAs in script, command and control keys return the state of the same key on non-macOS\nsystems while on macOS they are separate keys. Additionally alt and option are\ndifferent names for the same key.",
+			"tags":["engine"]
+		},{
+			"id":"builder-597",
+			"name":"caller",
+			"display name":"Caller",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the caller"
+			],
+			"display syntax":[
+				"the caller"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"The caller's script object",
+			"examples":[{
+				"script":"public handler NotifyMe() returns nothing\n\tpost \"notify\" to the caller\nend handler"
+			}],
+			"description":"Returns the script object which called the handler at the beginning\nof the current chain of LiveCode Builder handler execution.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-598",
+			"name":"scriptobjectexists",
+			"display name":"ScriptObjectExists",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"<Object> exists"
+			],
+			"display syntax":[
+				"<i>Object</i> exists"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Tests the existence of a script object.",
+			"parameters":[{
+				"name":"Object",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to a <ScriptObject>."
+			}],
+			"examples":[{
+				"script":"variable tObject as ScriptObject\nresolve script object \"card 5 of this stack\"\nput the result into tObject\nif tObject exists then\n\tset property \"name\" of tObject to \"Card5\"\nelse\n\tlog \"No such card\"\nend if"
+			}],
+			"value":[{
+				"name":"the result",
+				"type":"",
+				"description":"True if the object <Object> exists, and false otherwise."
+			}],
+			"description":"Use to test the existence or otherwise of a script object, for example after attempting to resolve the object from a string using <ResolveScriptObject | resolve script object>",
+			"references":{
+				"statement":["ResolveScriptObject"]
+			},
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-599",
+			"name":"messagewasnothandled",
+			"display name":"MessageWasNotHandled",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the message was not handled"
+			],
+			"display syntax":[
+				"the message was not handled"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Determines whether a message was handled",
+			"examples":[{
+				"script":"public handler OnMouseUp() returns nothing\n\tsend \"buttonClicked\" to my script object\n\tif the message was not handled then\n\t\tlog \"The message was not handled\"\n\tend if\nend handler"
+			}],
+			"description":"Determines if a dispatched message was handled by any script objects in the message path.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-600",
+			"name":"therowdelimiter",
+			"display name":"TheRowDelimiter",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the row delimiter"
+			],
+			"display syntax":[
+				"the row delimiter"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Fetches the `rowDelimiter` property from script context",
+			"examples":[{
+				"script":"  -- Split a string into a list using the row delimiter\n   variable tItems\n   put \"alice\\nbob\\neve\" into tItems\n   split tItems by the row delimiter\n   -- tItems is now a list: [\"alice\", \"bob\", \"eve\"]"
+			}],
+			"description":"Fetches the calling (script) handler's `rowDelimiter` property, or linefeed\n(U+000A) if no script context is available.",
+			"references":{
+				"expression":["TheColumnDelimiter","TheItemDelimiter","TheLineDelimiter"]
+			},
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-601",
+			"name":"theitemdelimiter",
+			"display name":"TheItemDelimiter",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the item delimiter"
+			],
+			"display syntax":[
+				"the item delimiter"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Fetches the `itemDelimiter` property from script context",
+			"examples":[{
+				"script":"  -- Split a string into a list using the item delimiter\n   variable tItems\n   put \"alice,bob,eve\" into tItems\n   split tItems by the item delimiter\n   -- tItems is now a list: [\"alice\", \"bob\", \"eve\"]"
+			}],
+			"description":"Fetches the calling (script) handler's `itemDelimiter` property, or the comma\nchar if no script context is available.",
+			"references":{
+				"expression":["TheColumnDelimiter","TheLineDelimiter","TheRowDelimiter"]
+			},
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-602",
+			"name":"childrenofscriptobject",
+			"display name":"ChildrenOfScriptObject",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the children of <Object>"
+			],
+			"display syntax":[
+				"the children of <i>Object</i>"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Get the child objects of a script object.",
+			"parameters":[{
+				"name":"Object",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to a <ScriptObject>"
+			}],
+			"examples":[{
+				"script":"public handler GetSiblings(in pObject as ScriptObject) returns List\n\t// Return the sibling objects of an object\n\treturn the children of the owner of pObject\nend handler"
+			},{
+				"script":"// Unset the highlight of all the controls in a group\nresolve script object \"group \\qcheckboxes\\q of this card\"\nvariable tObject\nrepeat for each element tObject in the children of the result\n\tset property \"hilite\" of tObject to false\nend repeat"
+			}],
+			"value":[{
+				"name":"the result",
+				"type":"",
+				"description":"A list of <ScriptObject>s that are contained within <Object>."
+			}],
+			"description":"Use to get the script objects contained within a script object.\n\n>*Note:* An error is thrown if the script object does not exist.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-603",
+			"name":"thelinedelimiter",
+			"display name":"TheLineDelimiter",
+			"library":"builder",
+			"type":"expression",
+			"syntax":[
+				"the line delimiter"
+			],
+			"display syntax":[
+				"the line delimiter"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Fetches the `lineDelimiter` property from script context",
+			"examples":[{
+				"script":"  -- Split a string into a list using the line delimiter\n   variable tItems\n   put \"alice\\nbob\\neve\" into tItems\n   split tItems by the line delimiter\n   -- tItems is now a list: [\"alice\", \"bob\", \"eve\"]"
+			}],
+			"description":"Fetches the calling (script) handler's `lineDelimiter` property, or linefeed\n(U+000A) if no script context is available.",
+			"references":{
+				"expression":["TheColumnDelimiter","TheItemDelimiter","TheRowDelimiter"]
+			},
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-604",
+			"name":"ownerofscriptobject",
+			"display name":"OwnerOfScriptObject",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"the owner of <Object>"
+			],
+			"display syntax":[
+				"the owner of <i>Object</i>"
+			],
+			"associations":["com.livecode.engine"],
+			"summary":"Get the parent object of a script object.",
+			"parameters":[{
+				"name":"Object",
+				"type":"",
+				"refparam":"false",
+				"description":"An expression that evaluates to a <ScriptObject>."
+			}],
+			"examples":[{
+				"script":"public handler MyName() returns String\n\tget property \"short name\" of my script object\n\treturn the result\nend handler\n\npublic handler OnMouseUp() returns nothing\n\t// Send a message to the widget's parent so it can handle the click\n\tsend \"widgetClicked\" to the owner of my script object with [ MyName() ]\nend handler"
+			}],
+			"value":[{
+				"name":"the result",
+				"type":"",
+				"description":"The <ScriptObject> that is the owner of <Object>."
+			}],
+			"description":"Use to get the script object that contains a script object.\n\n>*Note:* An error is thrown if the script object does not exist.",
+			"tags":["engine","script engine"]
+		},{
+			"id":"builder-605",
 			"name":"fghovercolor",
 			"display name":"fgHoverColor",
 			"library":"builder",
@@ -7257,7 +14769,7 @@
 			}],
 			"description":"The foreground hover color of the tile"
 		},{
-			"id":"builder-318",
+			"id":"builder-606",
 			"name":"hoverstate",
 			"display name":"hoverState",
 			"library":"builder",
@@ -7272,7 +14784,7 @@
 			"summary":"The hover state of the tile\n",
 			"description":"The hover state of the tile\n"
 		},{
-			"id":"builder-319",
+			"id":"builder-607",
 			"name":"hovericonname",
 			"display name":"hoverIconName",
 			"library":"builder",
@@ -7292,7 +14804,7 @@
 			}],
 			"description":"The name of the icon to display when hovering over the tile"
 		},{
-			"id":"builder-320",
+			"id":"builder-608",
 			"name":"bgcolor",
 			"display name":"bgColor",
 			"library":"builder",
@@ -7312,7 +14824,7 @@
 			}],
 			"description":"The background color of the tile"
 		},{
-			"id":"builder-321",
+			"id":"builder-609",
 			"name":"fgcolor",
 			"display name":"fgColor",
 			"library":"builder",
@@ -7332,7 +14844,7 @@
 			}],
 			"description":"The foreground color of the tile"
 		},{
-			"id":"builder-322",
+			"id":"builder-610",
 			"name":"mouseenter",
 			"display name":"mouseEnter",
 			"library":"builder",
@@ -7347,7 +14859,7 @@
 			"summary":"Sent when the mouse enters the tile",
 			"description":"Sent when the mouse enters the tile"
 		},{
-			"id":"builder-323",
+			"id":"builder-611",
 			"name":"bghovercolor",
 			"display name":"bgHoverColor",
 			"library":"builder",
@@ -7367,7 +14879,7 @@
 			}],
 			"description":"The background hover color of the tile"
 		},{
-			"id":"builder-324",
+			"id":"builder-612",
 			"name":"mouseleave",
 			"display name":"mouseLeave",
 			"library":"builder",
@@ -7382,7 +14894,7 @@
 			"summary":"Sent when the mouse leaves the tile",
 			"description":"Sent when the mouse leaves the tile"
 		},{
-			"id":"builder-325",
+			"id":"builder-613",
 			"name":"iconname",
 			"display name":"iconName",
 			"library":"builder",
@@ -7402,7 +14914,7 @@
 			}],
 			"description":"The name of the icon to display"
 		},{
-			"id":"builder-326",
+			"id":"builder-614",
 			"name":"com.livecode.widget.tile",
 			"display name":"com.livecode.widget.tile",
 			"library":"builder",
@@ -7414,7 +14926,7 @@
 			"summary":"A tile widget with icon and label",
 			"description":"A tile widget with icon and label"
 		},{
-			"id":"builder-327",
+			"id":"builder-615",
 			"name":"tilelabel",
 			"display name":"tileLabel",
 			"library":"builder",
@@ -7434,7 +14946,7 @@
 			}],
 			"description":"The label to display"
 		},{
-			"id":"builder-328",
+			"id":"builder-616",
 			"name":"mouseup",
 			"display name":"mouseUp",
 			"library":"builder",
@@ -7449,7 +14961,7 @@
 			"summary":"Sent when the tile is clicked",
 			"description":"Sent when the tile is clicked"
 		},{
-			"id":"builder-329",
+			"id":"builder-617",
 			"name":"com.livecode.widget.spinner",
 			"display name":"com.livecode.widget.spinner",
 			"library":"builder",
@@ -7461,7 +14973,7 @@
 			"summary":"This widget is a spinner or activity indicator. Spinners provide visual\nfeedback to users use when performing an activity for an unknown\nduration such as processing a large amount of data or presenting a\ncomplex user interface.",
 			"description":"This widget is a spinner or activity indicator. Spinners provide visual\nfeedback to users use when performing an activity for an unknown\nduration such as processing a large amount of data or presenting a\ncomplex user interface."
 		},{
-			"id":"builder-330",
+			"id":"builder-618",
 			"name":"markercount",
 			"display name":"markerCount",
 			"library":"builder",
@@ -7481,7 +14993,7 @@
 			}],
 			"description":"The markerCount is an integer greater than 4. The default value is 8."
 		},{
-			"id":"builder-331",
+			"id":"builder-619",
 			"name":"scalemarkers",
 			"display name":"scaleMarkers",
 			"library":"builder",
@@ -7501,7 +15013,7 @@
 			}],
 			"description":"If true, the markers will be scaled as in addition to changing\ntransparency. The default value is true.\n"
 		},{
-			"id":"builder-332",
+			"id":"builder-620",
 			"name":"iconlist",
 			"display name":"iconList",
 			"library":"builder",
@@ -7524,7 +15036,7 @@
 				"handler":["iconSVGPathFromName","iconCodepointFromName","iconFamilies","iconListForFamily","iconNames","iconNamesForFamily"]
 			}
 		},{
-			"id":"builder-333",
+			"id":"builder-621",
 			"name":"setcurrenticonfamily",
 			"display name":"setCurrentIconFamily",
 			"library":"builder",
@@ -7548,7 +15060,7 @@
 				"handler":["addIconFamily","iconData","iconFamilies","iconList","iconNames"]
 			}
 		},{
-			"id":"builder-334",
+			"id":"builder-622",
 			"name":"icondata",
 			"display name":"iconData",
 			"library":"builder",
@@ -7571,7 +15083,7 @@
 				"handler":["iconList","iconNames"]
 			}
 		},{
-			"id":"builder-335",
+			"id":"builder-623",
 			"name":"getcurrenticonfamily",
 			"display name":"getCurrentIconFamily",
 			"library":"builder",
@@ -7594,7 +15106,7 @@
 				"handler":["addIconFamily","iconData","iconFamilies","iconList","iconNames"]
 			}
 		},{
-			"id":"builder-336",
+			"id":"builder-624",
 			"name":"iconnamesforfamily",
 			"display name":"iconNamesForFamily",
 			"library":"builder",
@@ -7623,7 +15135,7 @@
 				"handler":["iconSVGPathFromName","iconCodepointFromName","iconFamilies","iconList","iconListForFamily"]
 			}
 		},{
-			"id":"builder-337",
+			"id":"builder-625",
 			"name":"iconarraymatchinginallfamilies",
 			"display name":"iconArrayMatchingInAllFamilies",
 			"library":"builder",
@@ -7652,7 +15164,7 @@
 				"handler":["iconSVGPathFromName","iconCodepointFromName","iconList","iconListForFamily"]
 			}
 		},{
-			"id":"builder-338",
+			"id":"builder-626",
 			"name":"icondataforfamily",
 			"display name":"iconDataForFamily",
 			"library":"builder",
@@ -7681,7 +15193,7 @@
 				"handler":["addIconFamily","deleteIconFamily","iconFamilies","iconListForFamily","iconNamesForFamily"]
 			}
 		},{
-			"id":"builder-339",
+			"id":"builder-627",
 			"name":"addiconfamily",
 			"display name":"addIconFamily",
 			"library":"builder",
@@ -7710,7 +15222,7 @@
 				"handler":["addIcon","deleteIconFamily","iconFamilies","iconList","iconListForFamily","iconNames","iconNamesForFamily"]
 			}
 		},{
-			"id":"builder-340",
+			"id":"builder-628",
 			"name":"deleteiconfamily",
 			"display name":"deleteIconFamily",
 			"library":"builder",
@@ -7734,7 +15246,7 @@
 				"handler":["addIconFamily","iconFamilies","iconListForFamily","iconNamesForFamily"]
 			}
 		},{
-			"id":"builder-341",
+			"id":"builder-629",
 			"name":"iconcodepointfromname",
 			"display name":"iconCodepointFromName",
 			"library":"builder",
@@ -7763,7 +15275,7 @@
 				"handler":["iconNames","iconNamesForFamily"]
 			}
 		},{
-			"id":"builder-342",
+			"id":"builder-630",
 			"name":"iconnames",
 			"display name":"iconNames",
 			"library":"builder",
@@ -7786,7 +15298,7 @@
 				"handler":["iconSVGPathFromName","iconCodepointFromName","iconFamilies","iconList","iconListForFamily","iconNamesForFamily"]
 			}
 		},{
-			"id":"builder-343",
+			"id":"builder-631",
 			"name":"iconlistforfamily",
 			"display name":"iconListForFamily",
 			"library":"builder",
@@ -7815,7 +15327,7 @@
 				"handler":["iconSVGPathFromName","iconCodepointFromName","iconFamilies","iconNames","iconNamesForFamily"]
 			}
 		},{
-			"id":"builder-344",
+			"id":"builder-632",
 			"name":"iconlistmatching",
 			"display name":"iconListMatching",
 			"library":"builder",
@@ -7844,7 +15356,7 @@
 				"handler":["iconSVGPathFromName","iconCodepointFromName","iconList","iconListForFamily"]
 			}
 		},{
-			"id":"builder-345",
+			"id":"builder-633",
 			"name":"iconsvgpathfromname",
 			"display name":"iconSVGPathFromName",
 			"library":"builder",
@@ -7873,7 +15385,7 @@
 				"handler":["iconNames","iconNamesForFamily"]
 			}
 		},{
-			"id":"builder-346",
+			"id":"builder-634",
 			"name":"com.livecode.library.iconsvg",
 			"display name":"com.livecode.library.iconsvg",
 			"library":"builder",
@@ -7885,7 +15397,7 @@
 			"summary":"This is an SVG icon path library.",
 			"description":"This is an SVG icon path library."
 		},{
-			"id":"builder-347",
+			"id":"builder-635",
 			"name":"addicon",
 			"display name":"addIcon",
 			"library":"builder",
@@ -7919,7 +15431,7 @@
 				"handler":["addIconFamily","iconFamilies","iconList","iconListForFamily","iconNames","iconNamesForFamily"]
 			}
 		},{
-			"id":"builder-348",
+			"id":"builder-636",
 			"name":"iconfamilies",
 			"display name":"iconFamilies",
 			"library":"builder",
@@ -7942,7 +15454,7 @@
 				"handler":["iconSVGPathFromName","iconCodepointFromName","iconList","iconListForFamily","iconNames","iconNamesForFamily"]
 			}
 		},{
-			"id":"builder-349",
+			"id":"builder-637",
 			"name":"bordercolor",
 			"display name":"borderColor",
 			"library":"builder",
@@ -7961,7 +15473,7 @@
 				"property":["showBorder"]
 			}
 		},{
-			"id":"builder-350",
+			"id":"builder-638",
 			"name":"hilitechanged",
 			"display name":"hiliteChanged",
 			"library":"builder",
@@ -7982,7 +15494,7 @@
 				"property":["hilitedItem","hilitedItemName"]
 			}
 		},{
-			"id":"builder-351",
+			"id":"builder-639",
 			"name":"itemnames",
 			"display name":"itemNames",
 			"library":"builder",
@@ -8006,7 +15518,7 @@
 				"property":["itemLabels"]
 			}
 		},{
-			"id":"builder-352",
+			"id":"builder-640",
 			"name":"hiliteditemicons",
 			"display name":"hilitedItemIcons",
 			"library":"builder",
@@ -8031,7 +15543,7 @@
 				"library":["com.livecode.library.iconsvg"]
 			}
 		},{
-			"id":"builder-353",
+			"id":"builder-641",
 			"name":"opaque",
 			"display name":"opaque",
 			"library":"builder",
@@ -8050,7 +15562,7 @@
 				"property":["backColor"]
 			}
 		},{
-			"id":"builder-354",
+			"id":"builder-642",
 			"name":"editmode",
 			"display name":"editMode",
 			"library":"builder",
@@ -8066,7 +15578,7 @@
 			"summary":"Whether the widget is in edit mode",
 			"description":"**Note:** This feature is currently **experimental** and may change or\nbe removed in future versions.\n\nWhen the <editMode> is enabled, the navigation items' icons can be\nchanged by clicking on the outlined regions, and new items can be added\nwith the add button."
 		},{
-			"id":"builder-355",
+			"id":"builder-643",
 			"name":"itemstyle",
 			"display name":"itemStyle",
 			"library":"builder",
@@ -8090,7 +15602,7 @@
 				"property":["hilitedItemIcons","itemIcons","itemLabels"]
 			}
 		},{
-			"id":"builder-356",
+			"id":"builder-644",
 			"name":"itemicons",
 			"display name":"itemIcons",
 			"library":"builder",
@@ -8115,7 +15627,7 @@
 				"library":["com.livecode.library.iconsvg"]
 			}
 		},{
-			"id":"builder-357",
+			"id":"builder-645",
 			"name":"hiliteditem",
 			"display name":"hilitedItem",
 			"library":"builder",
@@ -8139,7 +15651,7 @@
 				"property":["itemArray"]
 			}
 		},{
-			"id":"builder-358",
+			"id":"builder-646",
 			"name":"itemlabels",
 			"display name":"itemLabels",
 			"library":"builder",
@@ -8163,7 +15675,7 @@
 				"property":["hilitedItemIcons","itemIcons","itemNames"]
 			}
 		},{
-			"id":"builder-359",
+			"id":"builder-647",
 			"name":"hilitecolor",
 			"display name":"hiliteColor",
 			"library":"builder",
@@ -8182,7 +15694,7 @@
 				"property":["hilitedItemName"]
 			}
 		},{
-			"id":"builder-360",
+			"id":"builder-648",
 			"name":"showborder",
 			"display name":"showBorder",
 			"library":"builder",
@@ -8201,7 +15713,7 @@
 				"property":["borderColor"]
 			}
 		},{
-			"id":"builder-361",
+			"id":"builder-649",
 			"name":"itemarray",
 			"display name":"itemArray",
 			"library":"builder",
@@ -8225,7 +15737,7 @@
 				"property":["hilitedItemIcons","itemIcons","itemLabels","itemNames"]
 			}
 		},{
-			"id":"builder-362",
+			"id":"builder-650",
 			"name":"forecolor",
 			"display name":"foreColor",
 			"library":"builder",
@@ -8244,7 +15756,7 @@
 				"property":["hilitedItemName"]
 			}
 		},{
-			"id":"builder-363",
+			"id":"builder-651",
 			"name":"hiliteditemname",
 			"display name":"hilitedItemName",
 			"library":"builder",
@@ -8268,7 +15780,7 @@
 				"property":["hilitedItem"]
 			}
 		},{
-			"id":"builder-364",
+			"id":"builder-652",
 			"name":"com.livecode.widget.navbar",
 			"display name":"com.livecode.widget.navbar",
 			"library":"builder",
@@ -8284,7 +15796,7 @@
 				"message":["hiliteChanged"]
 			}
 		},{
-			"id":"builder-365",
+			"id":"builder-653",
 			"name":"backcolor",
 			"display name":"backColor",
 			"library":"builder",
@@ -8303,7 +15815,7 @@
 				"property":["opaque"]
 			}
 		},{
-			"id":"builder-366",
+			"id":"builder-654",
 			"name":"desiredheight",
 			"display name":"desiredHeight",
 			"library":"builder",
@@ -8321,7 +15833,7 @@
 			}],
 			"description":"**Note:** This feature is currently **experimental** and may change or\nbe removed in future versions.\n\nReturns the preferred height for widget, calculated from its current\nstate."
 		},{
-			"id":"builder-367",
+			"id":"builder-655",
 			"name":"com.livecode.widget.native.mac.button",
 			"display name":"com.livecode.widget.native.mac.button",
 			"library":"builder",
@@ -8334,7 +15846,7 @@
 			"OS":["mac"],
 			"description":"This widget is a native push button on Mac."
 		},{
-			"id":"builder-368",
+			"id":"builder-656",
 			"name":"enabled",
 			"display name":"enabled",
 			"library":"builder",
@@ -8350,7 +15862,7 @@
 			"OS":["mac"],
 			"description":"Use the <enabled> property to enable or disable the native button. When\ndisabled, the button has a greyed out appearance and does not accept \nclicks or touches."
 		},{
-			"id":"builder-369",
+			"id":"builder-657",
 			"name":"label",
 			"display name":"label",
 			"library":"builder",
@@ -8374,7 +15886,7 @@
 			}],
 			"description":"The <label> property is the label displayed by the button.\n"
 		},{
-			"id":"builder-370",
+			"id":"builder-658",
 			"name":"repeatwhile",
 			"display name":"RepeatWhile",
 			"library":"builder",
@@ -8400,7 +15912,7 @@
 			}],
 			"description":"Use the repeat while <Condition> structure to execute a set of statements repeatedly, while the <Condition> continues to evaluate to true."
 		},{
-			"id":"builder-371",
+			"id":"builder-659",
 			"name":"if",
 			"display name":"If",
 			"library":"builder",
@@ -8441,7 +15953,7 @@
 			}],
 			"description":"Use the if control structure to execute a statement (or list of statements) only under certain circumstances. If <IfCondition> evaluates to true, the statements in <IfStatementList> are executed. For each condition <ElseCondition> such that none of the previous conditions evaluates to true, the condition is evaluated and the corresponding statements in <ElseIfStatementList> are executed. If none of the conditions evaluate to true, the statements in <ElseStatementList> are executed."
 		},{
-			"id":"builder-372",
+			"id":"builder-660",
 			"name":"putinto",
 			"display name":"PutInto",
 			"library":"builder",
@@ -8467,7 +15979,7 @@
 			}],
 			"description":"Assigns the result of evaluating <sourceValue> to <targetContainer>.\n>*Note:* It is a checked runtime error for the source value's type to not be compatible with the target expression's type."
 		},{
-			"id":"builder-373",
+			"id":"builder-661",
 			"name":"throwerror",
 			"display name":"ThrowError",
 			"library":"builder",
@@ -8491,7 +16003,7 @@
 			}],
 			"description":"The throw statement causes an error to be raised. This causes execution to terminate, and the error is passed back to environment.\n\nThe Error expression must be an expression that evaluates to a string.\nNote:There is currently no try / catch mechanism in LiveCode Builder, so throwing an error will cause the error to be raised in LiveCode Script in the appropriate context."
 		},{
-			"id":"builder-374",
+			"id":"builder-662",
 			"name":"nextrepeat",
 			"display name":"NextRepeat",
 			"library":"builder",
@@ -8509,7 +16021,7 @@
 			}],
 			"description":"Use <NextRepeat|next repeat> to skip to the next iteration of a repeat loop. This is particularly useful when operations are only to be performed on iterands which satisfy certain criteria."
 		},{
-			"id":"builder-375",
+			"id":"builder-663",
 			"name":"theresult",
 			"display name":"TheResult",
 			"library":"builder",
@@ -8529,7 +16041,7 @@
 			}],
 			"description":"Use <TheResult|the result> to obtain the return value of the previous (executed) non-control structure statement.\n>*Note:* Result expressions are not assignable.\n"
 		},{
-			"id":"builder-376",
+			"id":"builder-664",
 			"name":"return",
 			"display name":"Return",
 			"library":"builder",
@@ -8550,7 +16062,7 @@
 			}],
 			"description":"Use the return control structure to halt execution of the current handler, to return control to the caller, and optionally to return a value.\nNote:It is a checked runtime error for a value returned from a handler to not match the return type of the handler it is in."
 		},{
-			"id":"builder-377",
+			"id":"builder-665",
 			"name":"exitrepeat",
 			"display name":"ExitRepeat",
 			"library":"builder",
@@ -8568,7 +16080,7 @@
 			}],
 			"description":"Use <ExitRepeat|exit repeat> to exit a repeat loop, for example when a certain condition is met."
 		},{
-			"id":"builder-378",
+			"id":"builder-666",
 			"name":"get",
 			"display name":"Get",
 			"library":"builder",
@@ -8592,7 +16104,7 @@
 				"expression":["TheResult"]
 			}
 		},{
-			"id":"builder-379",
+			"id":"builder-667",
 			"name":"repeatforeach",
 			"display name":"RepeatForEach",
 			"library":"builder",
@@ -8629,7 +16141,7 @@
 				"iterator":["RepeatForEachChar","RepeatForEachByte","RepeatForEachKey","RepeatForEachElementInList","RepeatForEachElementInArray"]
 			}
 		},{
-			"id":"builder-380",
+			"id":"builder-668",
 			"name":"repeatuntil",
 			"display name":"RepeatUntil",
 			"library":"builder",
@@ -8655,7 +16167,7 @@
 			}],
 			"description":"Use the repeat until <Condition> structure to execute a set of statements repeatedly, until the <Condition> evaluates to true."
 		},{
-			"id":"builder-381",
+			"id":"builder-669",
 			"name":"repeatforever",
 			"display name":"RepeatForever",
 			"library":"builder",
@@ -8679,7 +16191,7 @@
 			}],
 			"description":"Use the repeat forever structure to execute a set of statements until either an error is thrown, or exit repeat is executed."
 		},{
-			"id":"builder-382",
+			"id":"builder-670",
 			"name":"repeatwith",
 			"display name":"RepeatWith",
 			"library":"builder",
@@ -8723,7 +16235,7 @@
 			}],
 			"description":"Use the repeat with <Counter> structure to execute a set of statements until the value of <Counter> reaches or crosses (depending on iteration direction) the value of <Finish>. The counter is increased (or decreased) by <Step> on each iteration of the loop."
 		},{
-			"id":"builder-383",
+			"id":"builder-671",
 			"name":"com.livecode.language",
 			"display name":"com.livecode.language",
 			"library":"builder",
@@ -8733,7 +16245,7 @@
 			],
 			"associations":["com.livecode.language"]
 		},{
-			"id":"builder-384",
+			"id":"builder-672",
 			"name":"repeattimes",
 			"display name":"RepeatTimes",
 			"library":"builder",
@@ -8762,7 +16274,7 @@
 			}],
 			"description":"Use the repeat <Count> times structure to execute a set of statements a given number of times, when the statements executed do not rely on knowing which iteration the repeat loop is on."
 		},{
-			"id":"builder-385",
+			"id":"builder-673",
 			"name":"setto",
 			"display name":"SetTo",
 			"library":"builder",
@@ -8788,7 +16300,80 @@
 			}],
 			"description":"Assigns the result of evaluating <sourceValue> to <targetContainer>.\n>*Note:* It is a checked runtime error for the source value's type to not be compatible with the target expression's type."
 		},{
-			"id":"builder-386",
+			"id":"builder-674",
+			"name":"com.livecode.commercial.license",
+			"display name":"com.livecode.commercial.license",
+			"library":"builder",
+			"type":"module",
+			"display syntax":[
+				"com.livecode.commercial.license"
+			],
+			"associations":["com.livecode.commercial.license"],
+			"summary":"This library provides license entitlement related operations for LiveCode Builder (commercial only).",
+			"description":"This library provides license entitlement related operations for LiveCode Builder (commercial only)."
+		},{
+			"id":"builder-675",
+			"name":"ensurelicense",
+			"display name":"EnsureLicense",
+			"library":"builder",
+			"type":"statement",
+			"syntax":[
+				"ensure license for [ feature <Feature> of ] extension <Extension> [ or edition <Edition> ]"
+			],
+			"display syntax":[
+				"ensure license for [ feature <i>Feature</i> of ] extension <i>Extension</i> [ or edition <i>Edition</i> ]"
+			],
+			"associations":["com.livecode.commercial.license"],
+			"summary":"Throws if license is not satisfied",
+			"examples":[{
+				"script":"ensure license for edition \"indy\""
+			},{
+				"script":"ensure license for extension \"com.foo.bar\" or edition \"indy\""
+			},{
+				"script":"ensure license for feature \"baz\" of extension \"com.foo.bar\" or edition \"indy\""
+			}],
+			"description":"Causes an error to be thrown if the license requirement is not satisfied. All\nfurther calls to the module will then also cause an error to be thrown.",
+			"tags":["license","license"]
+		},{
+			"id":"builder-676",
+			"name":"licensededition",
+			"display name":"LicensedEdition",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"licensed for edition <Edition>"
+			],
+			"display syntax":[
+				"licensed for edition <i>Edition</i>"
+			],
+			"associations":["com.livecode.commercial.license"],
+			"summary":"Returns true if licensed",
+			"examples":[{
+				"script":"variable tLicensed as Boolean\nput licensed for edition \"business\" into tLicensed"
+			}],
+			"description":"Returns true if the license is for the named editon or greater.",
+			"tags":["license","license"]
+		},{
+			"id":"builder-677",
+			"name":"licensedextension",
+			"display name":"LicensedExtension",
+			"library":"builder",
+			"type":"operator",
+			"syntax":[
+				"licensed for [ feature <Feature> of ] extension <Extension>"
+			],
+			"display syntax":[
+				"licensed for [ feature <i>Feature</i> of ] extension <i>Extension</i>"
+			],
+			"associations":["com.livecode.commercial.license"],
+			"summary":"Returns true if licensed",
+			"examples":[{
+				"script":"variable tLicensed as Boolean\nput licensed for extension \"com.foo.bar\" into tLicensed\nput licensed for feature \"baz\" of extension \"com.foo.bar\" into tLicensed"
+			}],
+			"description":"Returns true if the license includes the named extension or extension\nand feature.",
+			"tags":["license","license"]
+		},{
+			"id":"builder-678",
 			"name":"booleanisequaltoboolean",
 			"display name":"BooleanIsEqualToBoolean",
 			"library":"builder",
@@ -8823,7 +16408,7 @@
 			"description":"Determines whether <Left> and <Right> are equal or not.",
 			"tags":["logic"]
 		},{
-			"id":"builder-387",
+			"id":"builder-679",
 			"name":"booleanformattedasstring",
 			"display name":"BooleanFormattedAsString",
 			"library":"builder",
@@ -8852,7 +16437,7 @@
 			}],
 			"description":"Use <BooleanFormattedAsString> when you want to manipulate a boolean value as text."
 		},{
-			"id":"builder-388",
+			"id":"builder-680",
 			"name":"logicnot",
 			"display name":"LogicNot",
 			"library":"builder",
@@ -8882,7 +16467,7 @@
 			"description":"Returns the boolean-logical value of the expression 'not <Operand>'",
 			"tags":["logic"]
 		},{
-			"id":"builder-389",
+			"id":"builder-681",
 			"name":"booleanisnotequaltoboolean",
 			"display name":"BooleanIsNotEqualToBoolean",
 			"library":"builder",
@@ -8917,7 +16502,7 @@
 			"description":"Determines whether <Left> and <Right> are equal or not.",
 			"tags":["logic"]
 		},{
-			"id":"builder-390",
+			"id":"builder-682",
 			"name":"formatbooleanasstring",
 			"display name":"FormatBooleanAsString",
 			"library":"builder",
@@ -8946,7 +16531,7 @@
 			}],
 			"description":"Use <FormatBooleanAsString> when you want to manipulate a boolean value as text."
 		},{
-			"id":"builder-391",
+			"id":"builder-683",
 			"name":"stringparsedasboolean",
 			"display name":"StringParsedAsBoolean",
 			"library":"builder",
@@ -8977,7 +16562,7 @@
 			}],
 			"description":"Use <StringParsedAsBoolean> when you want to determine if a string contains \"true\" or \"false\"\n\n>*Note:* Only the strings \"true\" and \"false\" will parse to give a boolean value. Any other input will cause an error to be thrown."
 		},{
-			"id":"builder-392",
+			"id":"builder-684",
 			"name":"parsestringasboolean",
 			"display name":"ParseStringAsBoolean",
 			"library":"builder",
@@ -9008,7 +16593,7 @@
 			}],
 			"description":"Use <StringParsedAsBoolean> when you want to determine if a string contains \"true\" or \"false\"\n\n>*Note:* Only the strings \"true\" and \"false\" will parse to give a boolean value. Any other input will cause an error to be thrown.\n"
 		},{
-			"id":"builder-393",
+			"id":"builder-685",
 			"name":"com.livecode.logic",
 			"display name":"com.livecode.logic",
 			"library":"builder",
@@ -9020,7 +16605,7 @@
 			"summary":"This library consists of the logical operations included in the standard library of LiveCode Builder.",
 			"description":"This library consists of the logical operations included in the standard library of LiveCode Builder."
 		},{
-			"id":"builder-394",
+			"id":"builder-686",
 			"name":"firstelementof",
 			"display name":"FirstElementOf",
 			"library":"builder",
@@ -9042,7 +16627,7 @@
 			"description":"Either locates the first element for use as the target container of another operation, or evaluates the first element as the source of another operation.\n\n>*Note:* It is an error if <Target> is empty.",
 			"tags":["lists"]
 		},{
-			"id":"builder-395",
+			"id":"builder-687",
 			"name":"com.livecode.list",
 			"display name":"com.livecode.list",
 			"library":"builder",
@@ -9054,7 +16639,7 @@
 			"summary":"This library consists of the operations on lists included in the standard library of LiveCode Builder.",
 			"description":"This library consists of the operations on lists included in the standard library of LiveCode Builder."
 		},{
-			"id":"builder-396",
+			"id":"builder-688",
 			"name":"repeatforeachelementinlist",
 			"display name":"RepeatForEachElementInList",
 			"library":"builder",
@@ -9079,7 +16664,7 @@
 			"description":"Use repeat for each to perform an operation on each element of a list. On each iteration, the Iterand will contain the next element of the list being iterated over.\n>*Note:* If <Iterand> is typed, then an error will be thrown if the list being iterated over contains any elements of a different type.",
 			"tags":["lists","control structures"]
 		},{
-			"id":"builder-397",
+			"id":"builder-689",
 			"name":"splicebeforeelementoflist",
 			"display name":"SpliceBeforeElementOfList",
 			"library":"builder",
@@ -9114,7 +16699,7 @@
 			"description":"Use the splice syntax to insert the elements of one list into another list. \n\n>*Note:* ```put tList before element 2 of tList2``` results in the insertion of tList **as an element**, i.e. tList2 becomes the list [element 1 of tList2,tList,element 2 of tList2, element 3 of tList2 ...]\n\n>*Note:* It is an error if <Index> is out of range.",
 			"tags":["lists"]
 		},{
-			"id":"builder-398",
+			"id":"builder-690",
 			"name":"listoffset",
 			"display name":"ListOffset",
 			"library":"builder",
@@ -9144,7 +16729,7 @@
 			"description":"Use `the offset of` to find where a particular sub-list occurs within\na list.  <Haystack> is scanned for a sequence of elements that are\nequal to the elements of <Needle>, and the position of the start of\nthe sequence found is returned.  If neither the \"first offset\" nor\n\"last offset\" are specified, the index of the first matching sub-list\nfound is returned.  If no sub-list of <Haystack> is equal to <Needle>,\nthe return value is 0.",
 			"tags":["lists"]
 		},{
-			"id":"builder-399",
+			"id":"builder-691",
 			"name":"pushontolist",
 			"display name":"PushOntoList",
 			"library":"builder",
@@ -9174,7 +16759,7 @@
 			"description":"When <Value> is pushed onto <Target>, <Value> (by default) becomes the tail of the list, with an index one greater than the previous tail.\nUse the 'front of' variant to push onto the front of a list instead.",
 			"tags":["lists"]
 		},{
-			"id":"builder-400",
+			"id":"builder-692",
 			"name":"listindexafter",
 			"display name":"ListIndexAfter",
 			"library":"builder",
@@ -9209,7 +16794,7 @@
 			"description":"Use `the index of‚Ä¶ after` to find where particular elements occur\nwithin a list.  Starting from but not including the position <After>,\n<Haystack> is scanned for an element that is equal to <Needle>, and\nthe position of the element found is returned.  If no element of\n<Haystack> is equal to <Needle>, the return value is 0.",
 			"tags":["lists"]
 		},{
-			"id":"builder-401",
+			"id":"builder-693",
 			"name":"concatenatelists",
 			"display name":"ConcatenateLists",
 			"library":"builder",
@@ -9233,7 +16818,7 @@
 			"description":"Returns a newly-created list consisting of the elements of <LeftList>\nfollowed by the elements of <RightList>.",
 			"tags":["lists"]
 		},{
-			"id":"builder-402",
+			"id":"builder-694",
 			"name":"reverseelementsoflist",
 			"display name":"ReverseElementsOfList",
 			"library":"builder",
@@ -9258,7 +16843,7 @@
 			"description":"Reverses the order of elements in the <Target>.",
 			"tags":["lists"]
 		},{
-			"id":"builder-403",
+			"id":"builder-695",
 			"name":"deletesingletonelementof",
 			"display name":"DeleteSingletonElementOf",
 			"library":"builder",
@@ -9285,7 +16870,7 @@
 			"description":"Removes the element at the given index from the list.\n\n>*Note:* It is an error if either <Index> is out of range.",
 			"tags":["lists"]
 		},{
-			"id":"builder-404",
+			"id":"builder-696",
 			"name":"singletonelementoflist",
 			"display name":"SingletonElementOfList",
 			"library":"builder",
@@ -9315,7 +16900,7 @@
 			"description":"Either locates the element container at the given index for use as the target container of another operation, or evaluates the element at the given index as the source of another operation.\n\n>*Note:* It is an error if <Index> is out of range.",
 			"tags":["lists"]
 		},{
-			"id":"builder-405",
+			"id":"builder-697",
 			"name":"listendswithlist",
 			"display name":"ListEndsWithList",
 			"library":"builder",
@@ -9345,7 +16930,7 @@
 			"description":"<Source> ends with <Suffix> if and only if the elements of <Suffix> occur as a final subsequence of the elements of <Source>.\n\n>*Note:* Since the empty list is a final subsequence of every list, every list ends with the empty list.",
 			"tags":["lists"]
 		},{
-			"id":"builder-406",
+			"id":"builder-698",
 			"name":"listindexbefore",
 			"display name":"ListIndexBefore",
 			"library":"builder",
@@ -9380,7 +16965,7 @@
 			"description":"Use `the index of‚Ä¶ before` to find where particular elements occur\nwithin a list.  <Haystack> is scanned for an element that is equal to\n<Needle>, stopping before the position <Before>, and the position of\nthe element found is returned.  If no element of <Haystack> is equal\nto <Needle>, the return value is 0.  If neither \"first\" nor \"last\" is\nspecified, the last matching element is found.",
 			"tags":["lists"]
 		},{
-			"id":"builder-407",
+			"id":"builder-699",
 			"name":"spliceintorangeoflist",
 			"display name":"SpliceIntoRangeOfList",
 			"library":"builder",
@@ -9420,7 +17005,7 @@
 			"description":"Use the splice syntax to insert the elements of one list into another list. \n\n>*Note:* ```put tList into element 1 to 3 of tList2``` results in the removal of elements 1 to 3 of tList2 and the insertion of tList **as an element**, i.e. tList2 becomes the list [tList,element 4 of tList2, element 5 of tList2 ...]\n\n>*Note:* It is an error if either <Start> or <Finish> is out of range.",
 			"tags":["lists"]
 		},{
-			"id":"builder-408",
+			"id":"builder-700",
 			"name":"poplist",
 			"display name":"PopList",
 			"library":"builder",
@@ -9447,7 +17032,7 @@
 			"description":"When <Source> is popped into <Target>, the last element of the list <Source> is removed and put into the container <Target>.\nUse the 'front of' variant to pop from the front of a list instead.",
 			"tags":["lists"]
 		},{
-			"id":"builder-409",
+			"id":"builder-701",
 			"name":"headoflist",
 			"display name":"HeadOfList",
 			"library":"builder",
@@ -9480,7 +17065,7 @@
 			},
 			"tags":["lists"]
 		},{
-			"id":"builder-410",
+			"id":"builder-702",
 			"name":"spliceintoelementoflist",
 			"display name":"SpliceIntoElementOfList",
 			"library":"builder",
@@ -9515,7 +17100,7 @@
 			"description":"Use the splice syntax to insert the elements of one list into another list. \n\n>*Note:* ```put tList into element 1 of tList2``` results in the removal of element 1 of tList2 and the insertion of tList **as an element**, i.e. tList2 becomes the list [tList,element 2 of tList2, element 3 of tList2 ...]\n\n>*Note:* It is an error if <Index> is out of range.",
 			"tags":["lists"]
 		},{
-			"id":"builder-411",
+			"id":"builder-703",
 			"name":"listcontainselements",
 			"display name":"ListContainsElements",
 			"library":"builder",
@@ -9550,7 +17135,7 @@
 			"description":"<Target> contains <Needle> if and only if the elements of <Needle> occur as a subsequence of the elements of <Target>.\n\n>*Note:* Since \"\" is a subsequence of elements of every list, every list contains the empty list.",
 			"tags":["lists"]
 		},{
-			"id":"builder-412",
+			"id":"builder-704",
 			"name":"emptylist",
 			"display name":"EmptyList",
 			"library":"builder",
@@ -9569,7 +17154,7 @@
 			"description":"Use ```the empty list``` to initialise a list variable.",
 			"tags":["lists"]
 		},{
-			"id":"builder-413",
+			"id":"builder-705",
 			"name":"countelementsoflist",
 			"display name":"CountElementsOfList",
 			"library":"builder",
@@ -9599,7 +17184,7 @@
 			"description":"Returns the number of elements in the list.",
 			"tags":["lists"]
 		},{
-			"id":"builder-414",
+			"id":"builder-706",
 			"name":"deleterangeelementof",
 			"display name":"DeleteRangeElementOf",
 			"library":"builder",
@@ -9631,7 +17216,7 @@
 			"description":"Removes the elements between the given indices from the list.\n\n>*Note:* It is an error if either <Start> or <Finish> are out of range.",
 			"tags":["lists"]
 		},{
-			"id":"builder-415",
+			"id":"builder-707",
 			"name":"indexedelementoflist",
 			"display name":"IndexedElementOfList",
 			"library":"builder",
@@ -9661,7 +17246,7 @@
 			"description":"Either locates the element container at the given index for use as the target container of another operation, or evaluates the element at the given index as the source of another operation.\n\n>*Note:* It is an error if <Index> is out of range.",
 			"tags":["lists"]
 		},{
-			"id":"builder-416",
+			"id":"builder-708",
 			"name":"tailoflist",
 			"display name":"TailOfList",
 			"library":"builder",
@@ -9694,7 +17279,7 @@
 			},
 			"tags":["lists"]
 		},{
-			"id":"builder-417",
+			"id":"builder-709",
 			"name":"listislist",
 			"display name":"ListIsList",
 			"library":"builder",
@@ -9729,7 +17314,7 @@
 			"description":"Two lists are equal if each corresponding element is of comparable type, and if the default equality of that type holds between the elements.\nIn particular, this means that comparison between string elements is case sensitive.",
 			"tags":["lists"]
 		},{
-			"id":"builder-418",
+			"id":"builder-710",
 			"name":"listoffsetafter",
 			"display name":"ListOffsetAfter",
 			"library":"builder",
@@ -9764,7 +17349,7 @@
 			"description":"Use `the offset of‚Ä¶ after` to find where a particular sub-list occurs\nwithin a list.  Starting from but not including the position <After>,\n<Haystack> is scanned for an sequence of elements that are equal to\nthe elements of <Needle>, and the position of the start of the\nsequence found is returned.  If neither the \"first offset\" nor \"last\noffset\" are specified, the position of the first matching sub-list\nfound is returned.  If no sub-list of <Haystack> starting after the\nposition <After> is equal to <Needle>, the return value is 0.",
 			"tags":["lists"]
 		},{
-			"id":"builder-419",
+			"id":"builder-711",
 			"name":"listindex",
 			"display name":"ListIndex",
 			"library":"builder",
@@ -9794,7 +17379,7 @@
 			"description":"Use `the index of` to find where particular elements occur within a\nlist.  <Haystack> is scanned for an element that is equal to <Needle>,\nand the position of the element found is returned.  If neither the\n\"first index\" nor \"last index\" are specified, the index of the first\nelement found is returned.  If no element of <Haystack> is equal to\n<Needle>, the return value is 0.",
 			"tags":["lists"]
 		},{
-			"id":"builder-420",
+			"id":"builder-712",
 			"name":"listoffsetbefore",
 			"display name":"ListOffsetBefore",
 			"library":"builder",
@@ -9829,7 +17414,7 @@
 			"description":"Use `the offset of‚Ä¶ before` to find where a particular sub-list occurs\nwithin a list.  <Haystack> is scanned for a sequence of elements that\nare equal to the elements of <Needle>, stopping before the position\n<Before>, and the position of the start of the sequence found is\nreturned.  If no sub-list of <Haystack> before the position <Before>\nis equal to <Needle>, the return value is 0.  If neither \"first\" nor\n\"last\" is specified, the last matching subsequence is found.",
 			"tags":["lists"]
 		},{
-			"id":"builder-421",
+			"id":"builder-713",
 			"name":"deletefirstelementof",
 			"display name":"DeleteFirstElementOf",
 			"library":"builder",
@@ -9851,7 +17436,7 @@
 			"description":"Removes the first element of <Target>.\n\n>*Note:* It is an error if <Target> is the empty list.",
 			"tags":["lists"]
 		},{
-			"id":"builder-422",
+			"id":"builder-714",
 			"name":"spliceafterelementoflist",
 			"display name":"SpliceAfterElementOfList",
 			"library":"builder",
@@ -9886,7 +17471,7 @@
 			"description":"Use the splice syntax to insert the elements of one list into another list. \n\n>*Note:* ```put tList after element 1 of tList2``` results in the insertion of tList **as an element**, i.e. tList2 becomes the list [element 1 of tList2,tList,element 2 of tList2, element 3 of tList2 ...]\n\n>*Note:* It is an error if <Index> is out of range.",
 			"tags":["lists"]
 		},{
-			"id":"builder-423",
+			"id":"builder-715",
 			"name":"listbeginswithlist",
 			"display name":"ListBeginsWithList",
 			"library":"builder",
@@ -9921,7 +17506,7 @@
 			"description":"<Source> begins with <Prefix> if and only if the elements of <Prefix> occur as an initial subsequence of the elements of <Source>.\n\n>*Note:* Since the empty list is an initial subsequence of every list, every list begins with the empty list.",
 			"tags":["lists"]
 		},{
-			"id":"builder-424",
+			"id":"builder-716",
 			"name":"rangeelementsoflist",
 			"display name":"RangeElementsOfList",
 			"library":"builder",
@@ -9956,7 +17541,7 @@
 			"description":"Either locates the element containers between the given indices for use as a list container for the target of another operation, or evaluates the elements between the given indices as a list.\n\n>*Note:* It is an error if either <Start> or <Finish> are out of range.\n\n>*Note:* If a list is the source of ``put tList into element 1 to 3 of tOtherList```, then tList is *not* inserted element-wise. The entire list is inserted as an element, so that element 1 of tOtherList is tList.",
 			"tags":["lists"]
 		},{
-			"id":"builder-425",
+			"id":"builder-717",
 			"name":"elementisinlist",
 			"display name":"ElementIsInList",
 			"library":"builder",
@@ -9991,7 +17576,7 @@
 			"description":"<Needle> must be an element of <Target> rather than a sublist, or contained within a list element of <Target>.",
 			"tags":["lists"]
 		},{
-			"id":"builder-426",
+			"id":"builder-718",
 			"name":"lastelementof",
 			"display name":"LastElementOf",
 			"library":"builder",
@@ -10013,7 +17598,7 @@
 			"description":"Either locates the first element for use as the target container of another operation, or evaluates the first element as the source of another operation.\n\n>*Note:* It is an error if <Target> is empty.",
 			"tags":["lists"]
 		},{
-			"id":"builder-427",
+			"id":"builder-719",
 			"name":"deletelastelementof",
 			"display name":"DeleteLastElementOf",
 			"library":"builder",
@@ -10035,7 +17620,7 @@
 			"description":"Removes the last element of <Target>.\n\n>*Note:* It is an error if <Target> is the empty list.",
 			"tags":["lists"]
 		},{
-			"id":"builder-428",
+			"id":"builder-720",
 			"name":"listisnotlist",
 			"display name":"ListIsNotList",
 			"library":"builder",
@@ -10070,7 +17655,7 @@
 			"description":"Two lists are not equal if any corresponding elements are of non-comparable types, or if the default equality of that type does not holds between the elements.\nIn particular, this means that comparison between string elements is case sensitive.",
 			"tags":["lists"]
 		},{
-			"id":"builder-429",
+			"id":"builder-721",
 			"name":"paintplaceholderimage",
 			"display name":"paintPlaceholderImage",
 			"library":"builder",
@@ -10116,7 +17701,7 @@
 			}],
 			"description":"Use the <paintPlaceHolder> image handler to draw a placeholder on the\ngiven canvas when, for example, the widget shouldn't be displayed as\nactive in browse mode, or is not available on the current platform.\n"
 		},{
-			"id":"builder-430",
+			"id":"builder-722",
 			"name":"constrainpathtorect",
 			"display name":"constrainPathToRect",
 			"library":"builder",
@@ -10145,7 +17730,7 @@
 			}],
 			"description":"Scales and transforms <xPath> so that it fits within <pTargetRect> whilst maintaining its\naspect ratio."
 		},{
-			"id":"builder-431",
+			"id":"builder-723",
 			"name":"stringtocolor",
 			"display name":"stringToColor",
 			"library":"builder",
@@ -10169,7 +17754,7 @@
 			}],
 			"description":"Use the <stringToColor> handler when receiving colors from a script\nvia a property setter, or from the widget's stored properties array when loading."
 		},{
-			"id":"builder-432",
+			"id":"builder-724",
 			"name":"inttostring",
 			"display name":"intToString",
 			"library":"builder",
@@ -10193,7 +17778,7 @@
 			}],
 			"description":"<intToString> formats an integer as a string, removing the decimal place and any zeros\nthereafter."
 		},{
-			"id":"builder-433",
+			"id":"builder-725",
 			"name":"stripzeros",
 			"display name":"stripZeros",
 			"library":"builder",
@@ -10217,7 +17802,7 @@
 			}],
 			"description":"Use <stripZeros> to remove any superfluous zeros and decimal places from <pString>\nwhich have been added by the\n\n`tNumber formatted as string`\n\nsyntax."
 		},{
-			"id":"builder-434",
+			"id":"builder-726",
 			"name":"colortostring",
 			"display name":"colorToString",
 			"library":"builder",
@@ -10248,7 +17833,7 @@
 			}],
 			"description":"Use the <colorToString> handler when logging colors, returning them to a script\nvia a property getter, or serialising them in the widget's stored properties array for saving."
 		},{
-			"id":"builder-435",
+			"id":"builder-727",
 			"name":"placeholdericon",
 			"display name":"placeholderIcon",
 			"library":"builder",
@@ -10269,7 +17854,7 @@
 			}],
 			"description":"Use <placeholderIcon> to fetch an SVG icon that can be\nused as the placeholder image for a widget that is native to, and\ntherefore only available on, a given operating system."
 		},{
-			"id":"builder-436",
+			"id":"builder-728",
 			"name":"getnativethemename",
 			"display name":"getNativeThemeName",
 			"library":"builder",
@@ -10287,7 +17872,7 @@
 			}],
 			"description":"Returns the name of the current theme that should be used when the theme is\n\"native\".\n\nCurrently, this will return either \"iOS\" or \"Android\"."
 		},{
-			"id":"builder-437",
+			"id":"builder-729",
 			"name":"com.livecode.library.widgetutils",
 			"display name":"com.livecode.library.widgetutils",
 			"library":"builder",
@@ -10299,7 +17884,164 @@
 			"summary":"A library of utility handlers for functions commonly needed by widgets.",
 			"description":"A library of utility handlers for functions commonly needed by widgets."
 		},{
-			"id":"builder-438",
+			"id":"builder-730",
+			"name":"evaljavascript",
+			"display name":"EvalJavaScript",
+			"library":"builder",
+			"type":"handler",
+			"syntax":[
+				"EvalJavaScript(<pScript>)"
+			],
+			"display syntax":[
+				"EvalJavaScript(<i>pScript</i>)"
+			],
+			"associations":["com.livecode.emscripten"],
+			"summary":"Evaluate JavaScript code within the browser",
+			"parameters":[{
+				"name":"pScript",
+				"type":"",
+				"refparam":"false",
+				"description":"The script to evaluate"
+			}],
+			"examples":[{
+				"script":"public handler GetInputText() returns String\n\treturn EvalJavaScript(\"document.getElementById('myText').value\")\nend handler"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A value of any type"
+			}],
+			"description":"Use <EvalJavaScript> to get the result of running a block of JavaScript code\n"
+		},{
+			"id":"builder-731",
+			"name":"com.livecode.emscripten",
+			"display name":"com.livecode.emscripten",
+			"library":"builder",
+			"type":"module",
+			"display syntax":[
+				"com.livecode.emscripten"
+			],
+			"associations":["com.livecode.emscripten"],
+			"summary":"This module provides utility handlers for converting to and from Emscripten types.",
+			"description":"This module provides utility handlers for converting to and from Emscripten types."
+		},{
+			"id":"builder-732",
+			"name":"evaljavascriptwitharguments",
+			"display name":"EvalJavaScriptWithArguments",
+			"library":"builder",
+			"type":"handler",
+			"syntax":[
+				"EvalJavaScriptWithArguments(<pScript>,<pArgs>)"
+			],
+			"display syntax":[
+				"EvalJavaScriptWithArguments(<i>pScript</i>,<i>pArgs</i>)"
+			],
+			"associations":["com.livecode.emscripten"],
+			"summary":"Evaluate JavaScript code within the browser with arguments",
+			"parameters":[{
+				"name":"pScript",
+				"type":"",
+				"refparam":"false",
+				"description":"The script to evaluate"
+			},{
+				"name":"pArgs",
+				"type":"",
+				"refparam":"false",
+				"description":"The list of arguments to pass to the script"
+			}],
+			"examples":[{
+				"script":"variable mButton as JSObject\n\npublic handler SetButtonText(in pText as String)\n\tEvalJavaScriptWithArguments(\"arguments[0].innerHTML = arguments[1]\", [mButton, pText])\nend handler"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A value of any type"
+			}],
+			"description":"Use <EvalJavaScriptWithArguments> to get the result of running a block of JavaScript code, where you need to pass values to the script."
+		},{
+			"id":"builder-733",
+			"name":"handlerasjsfunction",
+			"display name":"HandlerAsJSFunction",
+			"library":"builder",
+			"type":"handler",
+			"syntax":[
+				"HandlerAsJSFunction(<pHandler>)"
+			],
+			"display syntax":[
+				"HandlerAsJSFunction(<i>pHandler</i>)"
+			],
+			"associations":["com.livecode.emscripten"],
+			"summary":"Wrap a LiveCode Builder handler within a JavaScript function, suitable for passing as an event handler.",
+			"parameters":[{
+				"name":"pHandler",
+				"type":"",
+				"refparam":"false",
+				"description":"The handler to wrap"
+			}],
+			"examples":[{
+				"script":"variable mButton as JSObject\nvariable mOnClickHandler as JSObject\n\nprivate handler OnJSClick(pEvent as JSObject) returns nothing\n\tSetLabel(\"Clicked!\")\nend handler\n\nprivate handler SetJSEventHandler(in pElement as JSObject, in pEvent as String, in pHandler as JSObject)\n\tEvalJavaScriptWithArguments(\"arguments[0].addEventListener(arguments[1], arguments[2]);\", [pElement, pEvent, pHandler])\nend handler\n\nprivate handler SetupEventHandler()\n\tput HandlerAsJSFunction(OnJSClick) into mOnClickHandler\n\tSetJSEventHandler(mButton, \"click\", mOnClickHandler)\nend handler"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"A JavaScript function object, wrapping the handler"
+			}],
+			"description":"Use <HandlerAsJSFunction> to convert a handler reference to a JavaScript function object reference."
+		},{
+			"id":"builder-734",
+			"name":"pointerfromjsobject",
+			"display name":"PointerFromJSObject",
+			"library":"builder",
+			"type":"handler",
+			"syntax":[
+				"PointerFromJSObject(<pObj>)"
+			],
+			"display syntax":[
+				"PointerFromJSObject(<i>pObj</i>)"
+			],
+			"associations":["com.livecode.emscripten"],
+			"summary":"Convert a JavaScript object value to a pointer",
+			"parameters":[{
+				"name":"pObj",
+				"type":"",
+				"refparam":"false",
+				"description":"The object to convert"
+			}],
+			"examples":[{
+				"script":"public handler InitNativeButton()\n\tvariable tButton as JSObject\n\tput EvalJavaScript(\"document.createElement('button')\") into tButton\n\n\tvariable tPointer as Pointer\n\tput PointerFromJSObject(tButton) into tPointer\n\n\tset my native layer to tPointer\nend handler"
+			}],
+			"description":"Use <PointerFromJSObject> to convert a JavaScript object to a variable of type Pointer."
+		},{
+			"id":"builder-735",
+			"name":"pointertojsobject",
+			"display name":"PointerToJSObject",
+			"library":"builder",
+			"type":"handler",
+			"syntax":[
+				"PointerToJSObject(<pPointer>)"
+			],
+			"display syntax":[
+				"PointerToJSObject(<i>pPointer</i>)"
+			],
+			"associations":["com.livecode.emscripten"],
+			"summary":"Convert a Pointer into a JavaScript object",
+			"parameters":[{
+				"name":"pPointer",
+				"type":"",
+				"refparam":"false",
+				"description":"The Pointer to convert"
+			}],
+			"examples":[{
+				"script":"variable mButtonPointer as Pointer\n\npublic handler SetButtonText(in pText as String)\n\tvariable tJSButton as JSObject\n\tput PointerToJSObject(mButtonPointer) into tJSButton\n\n\tEvalJavaScriptWithArguments(\"arguments[0].innerHTML = arguments[1]\", [tJSButton, pText])\nend handler"
+			}],
+			"value":[{
+				"name":"return",
+				"type":"",
+				"description":"An value of type JSObject"
+			}],
+			"description":"Use <PointerToJSObject> to convert a variable of type Pointer to a JavaScript object."
+		},{
+			"id":"builder-736",
 			"name":"numbertonsnumber",
 			"display name":"NumberToNSNumber",
 			"library":"builder",
@@ -10325,7 +18067,7 @@
 			}],
 			"description":"Convert a Number into an Objective-C number"
 		},{
-			"id":"builder-439",
+			"id":"builder-737",
 			"name":"listfromnsarray",
 			"display name":"ListFromNSArray",
 			"library":"builder",
@@ -10351,7 +18093,7 @@
 			}],
 			"description":"Convert a Objective-C array into a List"
 		},{
-			"id":"builder-440",
+			"id":"builder-738",
 			"name":"createobjcinformaldelegatewithcontext",
 			"display name":"CreateObjcInformalDelegateWithContext",
 			"library":"builder",
@@ -10388,7 +18130,7 @@
 				"handler":["CreateObjcDelegate","CreateObjcDelegateWithContext","CreateObjcInformalDelegate"]
 			}
 		},{
-			"id":"builder-441",
+			"id":"builder-739",
 			"name":"createobjcdelegate",
 			"display name":"CreateObjcDelegate",
 			"library":"builder",
@@ -10425,7 +18167,7 @@
 				"handler":["CreateObjcDelegateWithContext","CreateObjcInformalDelegate","CreateObjcInformalDelegateWithContext"]
 			}
 		},{
-			"id":"builder-442",
+			"id":"builder-740",
 			"name":"arrayfromnsdictionary",
 			"display name":"ArrayFromNSDictionary",
 			"library":"builder",
@@ -10451,7 +18193,7 @@
 			}],
 			"description":"Convert a Objective-C dictionary into a Array"
 		},{
-			"id":"builder-443",
+			"id":"builder-741",
 			"name":"stringfromnsstring",
 			"display name":"StringFromNSString",
 			"library":"builder",
@@ -10477,7 +18219,7 @@
 			}],
 			"description":"Convert a Objective-C string into a String"
 		},{
-			"id":"builder-444",
+			"id":"builder-742",
 			"name":"createobjcblockpointerfromhandler",
 			"display name":"CreateObjcBlockPointerFromHandler",
 			"library":"builder",
@@ -10514,7 +18256,7 @@
 				"handler":["DeleteObjcBlockPointer"]
 			}
 		},{
-			"id":"builder-445",
+			"id":"builder-743",
 			"name":"createobjcdelegatewithcontext",
 			"display name":"CreateObjcDelegateWithContext",
 			"library":"builder",
@@ -10556,7 +18298,7 @@
 				"handler":["CreateObjcDelegate","CreateObjcInformalDelegate","CreateObjcInformalDelegateWithContext"]
 			}
 		},{
-			"id":"builder-446",
+			"id":"builder-744",
 			"name":"datatonsdata",
 			"display name":"DataToNSData",
 			"library":"builder",
@@ -10582,7 +18324,7 @@
 			}],
 			"description":"Convert a Data into an Objective-C data"
 		},{
-			"id":"builder-447",
+			"id":"builder-745",
 			"name":"stringtonsstring",
 			"display name":"StringToNSString",
 			"library":"builder",
@@ -10608,7 +18350,7 @@
 			}],
 			"description":"Convert a String into an Objective-C string"
 		},{
-			"id":"builder-448",
+			"id":"builder-746",
 			"name":"listtonsarray",
 			"display name":"ListToNSArray",
 			"library":"builder",
@@ -10634,7 +18376,7 @@
 			}],
 			"description":"Convert a List into an Objective-C array"
 		},{
-			"id":"builder-449",
+			"id":"builder-747",
 			"name":"pointerfromobjcobject",
 			"display name":"PointerFromObjcObject",
 			"library":"builder",
@@ -10660,7 +18402,7 @@
 			}],
 			"description":"Use <PointerFromObjcObject> to convert a variable of type ObjcObject to one of\ntype Pointer."
 		},{
-			"id":"builder-450",
+			"id":"builder-748",
 			"name":"pointertoobjcobject",
 			"display name":"PointerToObjcObject",
 			"library":"builder",
@@ -10686,7 +18428,7 @@
 			}],
 			"description":"Use <PointerToObjcObject> to convert a variable of type Pointer to one of type\nObjcObject."
 		},{
-			"id":"builder-451",
+			"id":"builder-749",
 			"name":"arraytonsdictionary",
 			"display name":"ArrayToNSDictionary",
 			"library":"builder",
@@ -10712,7 +18454,7 @@
 			}],
 			"description":"Convert an Array into an Objective-C dictionary"
 		},{
-			"id":"builder-452",
+			"id":"builder-750",
 			"name":"createobjcinformaldelegate",
 			"display name":"CreateObjcInformalDelegate",
 			"library":"builder",
@@ -10749,7 +18491,7 @@
 				"handler":["CreateObjcDelegate","CreateObjcDelegateWithContext","CreateObjcInformalDelegateWithContext"]
 			}
 		},{
-			"id":"builder-453",
+			"id":"builder-751",
 			"name":"datafromnsdata",
 			"display name":"DataFromNSData",
 			"library":"builder",
@@ -10775,7 +18517,7 @@
 			}],
 			"description":"Convert a Objective-C data into a Data"
 		},{
-			"id":"builder-454",
+			"id":"builder-752",
 			"name":"com.livecode.objc",
 			"display name":"com.livecode.objc",
 			"library":"builder",
@@ -10787,7 +18529,7 @@
 			"summary":"This module provides utility handlers for converting to and from Obj-C types.",
 			"description":"This module provides utility handlers for converting to and from Obj-C types."
 		},{
-			"id":"builder-455",
+			"id":"builder-753",
 			"name":"numberfromnsnumber",
 			"display name":"NumberFromNSNumber",
 			"library":"builder",
@@ -10813,7 +18555,7 @@
 			}],
 			"description":"Convert a Objective-C number into a Number"
 		},{
-			"id":"builder-456",
+			"id":"builder-754",
 			"name":"deleteobjcblockpointer",
 			"display name":"DeleteObjcBlockPointer",
 			"library":"builder",
@@ -10840,7 +18582,7 @@
 				"handler":["CreateObjcBlockPointerFromHandler"]
 			}
 		},{
-			"id":"builder-457",
+			"id":"builder-755",
 			"name":"flipped",
 			"display name":"flipped",
 			"library":"builder",
@@ -10855,7 +18597,7 @@
 			"summary":"`true` if the SVG path is flipped top-to-bottom; `false` otherwise",
 			"description":"When <flipped> is set to `true`, the SVG path is drawn upside down."
 		},{
-			"id":"builder-458",
+			"id":"builder-756",
 			"name":"iconpresetname",
 			"display name":"iconPresetName",
 			"library":"builder",
@@ -10879,7 +18621,7 @@
 			}],
 			"description":"Use the <iconPresetName> property to set the icon of the widget to one of the\npredefined graphics provided by the \"IconSVG\" library.\n\nYou can get a list of available predefined path names by running\n`put iconNames()` in the Message Box."
 		},{
-			"id":"builder-459",
+			"id":"builder-757",
 			"name":"iconname",
 			"display name":"iconName",
 			"library":"builder",
@@ -10897,7 +18639,7 @@
 			}],
 			"description":"use the <IconName> to get the name of the currently chosen icon.\n\nYou can get a list of available predefined path names by running\n`put iconNames()` in the Message Box."
 		},{
-			"id":"builder-460",
+			"id":"builder-758",
 			"name":"iconpath",
 			"display name":"iconPath",
 			"library":"builder",
@@ -10921,7 +18663,7 @@
 			}],
 			"description":"The SVG path string to be displayed by the SVG path widget.\n\nSee https://www.w3.org/TR/SVG/paths.html#PathData for the SVG path data\nspecification."
 		},{
-			"id":"builder-461",
+			"id":"builder-759",
 			"name":"scaledwidth",
 			"display name":"scaledWidth",
 			"library":"builder",
@@ -10939,7 +18681,7 @@
 				"property":["scaledHeight","maintainAspectRatio"]
 			}
 		},{
-			"id":"builder-462",
+			"id":"builder-760",
 			"name":"angle",
 			"display name":"angle",
 			"library":"builder",
@@ -10954,7 +18696,7 @@
 			"summary":"The angle of rotation of the SVG path, in degrees clockwise.",
 			"description":"The <angle> property controls the angle of rotation of for the SVG path\naround the centre of the path's bounding box.  The rotation is in clockwise\ndegrees."
 		},{
-			"id":"builder-463",
+			"id":"builder-761",
 			"name":"highlight",
 			"display name":"highlight",
 			"library":"builder",
@@ -10969,7 +18711,7 @@
 			"summary":"`true` if the SVG path is highlighted; `false` otherwise",
 			"description":"Use the `highlight` property to test or control whether the SVG path is\ndisplayed as highlighted or not."
 		},{
-			"id":"builder-464",
+			"id":"builder-762",
 			"name":"scaledheight",
 			"display name":"scaledHeight",
 			"library":"builder",
@@ -10987,7 +18729,7 @@
 				"property":["scaledWidth","maintainAspectRatio"]
 			}
 		},{
-			"id":"builder-465",
+			"id":"builder-763",
 			"name":"maintainaspectratio",
 			"display name":"maintainAspectRatio",
 			"library":"builder",
@@ -11002,7 +18744,7 @@
 			"summary":"Whether the SVG path maintains its aspect ratio when resized.",
 			"description":"If the <maintainAspectRatio> of the SVG path is `true`, the icon will be its\nmaximum size within its bounds while maintaining the original ratio of width\nto height. If `false`, it will stretch to fit the extent of its bounds."
 		},{
-			"id":"builder-466",
+			"id":"builder-764",
 			"name":"fillrule",
 			"display name":"fillRule",
 			"library":"builder",
@@ -11023,7 +18765,7 @@
 			}],
 			"description":"Use the <fillRule> property to set the fill rule to be used for the widget.\nYou may need to adjust it to ensure that paths that cross themselves, and paths\nthat are made up of overlapping subpaths, are filled correctly.\n\nThe areas enclosed by the path are each filled or not filled depending on the\nfill rule used and the number of times the path loops around them.  When the\npath goes around a region clockwise, it adds 1 to number of encirclements.\nWhen it goes around a region anticlockwise, it subtracs 1 from the number of\nencirclements.\n\nSee https://www.w3.org/TR/SVG/painting.html#FillRuleProperty for examples of\nthe \"non-zero\" and \"even odd\" fill rules.\n"
 		},{
-			"id":"builder-467",
+			"id":"builder-765",
 			"name":"com.livecode.widget.svgpath",
 			"display name":"com.livecode.widget.svgpath",
 			"library":"builder",
@@ -11035,7 +18777,7 @@
 			"summary":"This widget displays an SVG path as an icon.  It has a default state and a\n\"highlighted\" state.",
 			"description":"This widget displays an SVG path as an icon.  It has a default state and a\n\"highlighted\" state."
 		},{
-			"id":"builder-468",
+			"id":"builder-766",
 			"name":"com.livecode.library.timezone",
 			"display name":"com.livecode.library.timezone",
 			"library":"builder",
@@ -11047,7 +18789,7 @@
 			"summary":"This library provides access to the tz timezone database",
 			"description":"This library provides access to the tz timezone database"
 		},{
-			"id":"builder-469",
+			"id":"builder-767",
 			"name":"fromuniversaltime",
 			"display name":"FromUniversalTime",
 			"library":"builder",
@@ -11085,7 +18827,7 @@
 			},
 			"tags":["datetime","library"]
 		},{
-			"id":"builder-470",
+			"id":"builder-768",
 			"name":"touniversaltime",
 			"display name":"ToUniversalTime",
 			"library":"builder",
@@ -11123,7 +18865,7 @@
 			},
 			"tags":["datetime","library"]
 		},{
-			"id":"builder-471",
+			"id":"builder-769",
 			"name":"timezones",
 			"display name":"TimeZones",
 			"library":"builder",
@@ -11150,7 +18892,7 @@
 			},
 			"tags":["datetime","library"]
 		},{
-			"id":"builder-472",
+			"id":"builder-770",
 			"name":"showselectedelement",
 			"display name":"showSelectedElement",
 			"library":"builder",
@@ -11165,7 +18907,7 @@
 			"summary":"Controls whether a title bar is drawn displaying the currently selected icon",
 			"description":"Controls whether a title bar is drawn displaying the currently selected icon"
 		},{
-			"id":"builder-473",
+			"id":"builder-771",
 			"name":"selectedicon",
 			"display name":"selectedIcon",
 			"library":"builder",
@@ -11185,7 +18927,7 @@
 			}],
 			"description":"The selected icon name"
 		},{
-			"id":"builder-474",
+			"id":"builder-772",
 			"name":"filterstring",
 			"display name":"filterString",
 			"library":"builder",
@@ -11200,7 +18942,7 @@
 			"summary":"Filters the list of icons to display according to a string",
 			"description":"Filters the list of icons to display according to a string"
 		},{
-			"id":"builder-475",
+			"id":"builder-773",
 			"name":"showframeborder",
 			"display name":"showFrameBorder",
 			"library":"builder",
@@ -11215,7 +18957,7 @@
 			"summary":"Whether the icon picker has a border or not",
 			"description":"Whether the icon picker has a border or not"
 		},{
-			"id":"builder-476",
+			"id":"builder-774",
 			"name":"iconsize",
 			"display name":"iconSize",
 			"library":"builder",
@@ -11235,7 +18977,7 @@
 			}],
 			"description":"The width and height of the rectangles in which the icons are rendered"
 		},{
-			"id":"builder-477",
+			"id":"builder-775",
 			"name":"preferredsize",
 			"display name":"preferredSize",
 			"library":"builder",
@@ -11255,7 +18997,7 @@
 			}],
 			"description":"The <preferredSize> property is used when the icon widget is popped up\nusing the 'popup widget' syntax"
 		},{
-			"id":"builder-478",
+			"id":"builder-776",
 			"name":"shownames",
 			"display name":"showNames",
 			"library":"builder",
@@ -11270,7 +19012,7 @@
 			"summary":"Whether to display the names of the icons or not\n",
 			"description":"Whether to display the names of the icons or not\n"
 		},{
-			"id":"builder-479",
+			"id":"builder-777",
 			"name":"com.livecode.widget.iconpicker",
 			"display name":"com.livecode.widget.iconpicker",
 			"library":"builder",
@@ -11282,7 +19024,7 @@
 			"summary":"This widget is an icon picker, using icons from the iconSVG library.",
 			"description":"This widget is an icon picker, using icons from the iconSVG library."
 		},{
-			"id":"builder-480",
+			"id":"builder-778",
 			"name":"lowercasestring",
 			"display name":"LowercaseString",
 			"library":"builder",
@@ -11309,7 +19051,7 @@
 			"description":"Uppercase letters, including special characters with diacritical marks, are converted to the lowercase equivalents. All other characters, including lowercase letters, numbers, punctuation, and special characters with no upper or lower case, are left unchanged.",
 			"tags":["strings"]
 		},{
-			"id":"builder-481",
+			"id":"builder-779",
 			"name":"putstringbefore",
 			"display name":"PutStringBefore",
 			"library":"builder",
@@ -11339,7 +19081,7 @@
 			"description":"Use to insert a string without replacement. Can be used either with a chunk expression to insert at a specified location, or without to prepend to the target string.",
 			"tags":["strings"]
 		},{
-			"id":"builder-482",
+			"id":"builder-780",
 			"name":"stringisstring",
 			"display name":"StringIsString",
 			"library":"builder",
@@ -11371,7 +19113,7 @@
 			"description":"The ```is``` operator is case sensitive.",
 			"tags":["strings"]
 		},{
-			"id":"builder-483",
+			"id":"builder-781",
 			"name":"emptystring",
 			"display name":"EmptyString",
 			"library":"builder",
@@ -11390,7 +19132,7 @@
 			"description":"Use ```the empty string``` to initialise a string variable. The empty string is synonymous with the string literal \"\"",
 			"tags":["strings"]
 		},{
-			"id":"builder-484",
+			"id":"builder-782",
 			"name":"stringisgreaterthanstring",
 			"display name":"StringIsGreaterThanString",
 			"library":"builder",
@@ -11422,7 +19164,7 @@
 			"description":"<Left> is greater than <Right> if and only if <Left> and <Right> are not equal, and the unicode codepoint of the first char in <Left> that is not equal to the corresponding char in <Right> is of greater value.",
 			"tags":["strings"]
 		},{
-			"id":"builder-485",
+			"id":"builder-783",
 			"name":"uppercasestring",
 			"display name":"UppercaseString",
 			"library":"builder",
@@ -11449,7 +19191,7 @@
 			"description":"Lowercase letters, including special characters with diacritical marks, are converted to the uppercase equivalents. All other characters, including uppercase letters, numbers, punctuation, and special characters with no upper or lower case, are left unchanged.",
 			"tags":["strings"]
 		},{
-			"id":"builder-486",
+			"id":"builder-784",
 			"name":"putstringafter",
 			"display name":"PutStringAfter",
 			"library":"builder",
@@ -11479,7 +19221,7 @@
 			"description":"Use to insert a string without replacement. Can be used either with a chunk expression to insert at a specified location, or without to append to the target string.",
 			"tags":["strings"]
 		},{
-			"id":"builder-487",
+			"id":"builder-785",
 			"name":"stringislessthanstring",
 			"display name":"StringIsLessThanString",
 			"library":"builder",
@@ -11511,7 +19253,7 @@
 			"description":"<Left> is greater than <Right> if and only if <Left> and <Right> are not equal, and the unicode codepoint of the first char in <Left> that is not equal to the corresponding char in <Right> is of greater value.",
 			"tags":["strings"]
 		},{
-			"id":"builder-488",
+			"id":"builder-786",
 			"name":"replacestring",
 			"display name":"ReplaceString",
 			"library":"builder",
@@ -11541,7 +19283,7 @@
 			"description":"Replaces each occurrence of the string <Pattern> in <Target> with <Replacement>.",
 			"tags":["strings"]
 		},{
-			"id":"builder-489",
+			"id":"builder-787",
 			"name":"stringisnotstring",
 			"display name":"StringIsNotString",
 			"library":"builder",
@@ -11573,7 +19315,7 @@
 			"description":"The ```is not``` operator is case sensitive.",
 			"tags":["strings"]
 		},{
-			"id":"builder-490",
+			"id":"builder-788",
 			"name":"com.livecode.string",
 			"display name":"com.livecode.string",
 			"library":"builder",
@@ -11585,7 +19327,7 @@
 			"summary":"This library consists of the operations on strings included in the standard library of LiveCode Builder.",
 			"description":"This library consists of the operations on strings included in the standard library of LiveCode Builder."
 		},{
-			"id":"builder-491",
+			"id":"builder-789",
 			"name":"concatenatestringswithspace",
 			"display name":"ConcatenateStringsWithSpace",
 			"library":"builder",
@@ -11620,7 +19362,7 @@
 			"description":"The result consists of the chars of <Left> followed by a space, and then the chars of <Right>.",
 			"tags":["strings"]
 		},{
-			"id":"builder-492",
+			"id":"builder-790",
 			"name":"concatenatestrings",
 			"display name":"ConcatenateStrings",
 			"library":"builder",
@@ -11655,7 +19397,7 @@
 			"description":"The result consists of the chars of <Left> followed by those of <Right>.",
 			"tags":["strings"]
 		},{
-			"id":"builder-493",
+			"id":"builder-791",
 			"name":"countcodeunitsof",
 			"display name":"CountCodeunitsOf",
 			"library":"builder",
@@ -11685,7 +19427,7 @@
 			"description":">*Note:* The number of codeunits returns the number of codeunits of the target string. It does not perform any grapheme boundary analysis.",
 			"tags":["strings"]
 		},{
-			"id":"builder-494",
+			"id":"builder-792",
 			"name":"deletelastcodeunitof",
 			"display name":"DeleteLastCodeunitOf",
 			"library":"builder",
@@ -11710,7 +19452,7 @@
 			"description":"Replaces the last codeunit in <Target> with the empty string.\n\n>*Note:* It is an error if <Target> is the empty string.",
 			"tags":["strings"]
 		},{
-			"id":"builder-495",
+			"id":"builder-793",
 			"name":"repeatforeachcodeunit",
 			"display name":"RepeatForEachCodeunit",
 			"library":"builder",
@@ -11735,7 +19477,7 @@
 			"description":"Use repeat for each to perform an operation on each codeunit of a string. On each iteration, the <Iterand> will contain the next codeunit of the string being iterated over.",
 			"tags":["strings","control structures"]
 		},{
-			"id":"builder-496",
+			"id":"builder-794",
 			"name":"deletesingletoncodeunitof",
 			"display name":"DeleteSingletonCodeunitOf",
 			"library":"builder",
@@ -11765,7 +19507,7 @@
 			"description":"Replaces the codeunit at the given index with the empty string.\n\n>*Note:* It is an error if <Index> is out of range.",
 			"tags":["strings"]
 		},{
-			"id":"builder-497",
+			"id":"builder-795",
 			"name":"codeunitoffset",
 			"display name":"CodeunitOffset",
 			"library":"builder",
@@ -11802,7 +19544,7 @@
 			"description":"The first (respectively last) offset of <Needle> in <Target> is number of codeunits between the first codeunit of <Target> and the first (respectively last) occurrence of <Needle>. If neither first or last is specified, then the first offset is found. If <Needle> does not occur in <Target>, then the output is 0.",
 			"tags":["strings"]
 		},{
-			"id":"builder-498",
+			"id":"builder-796",
 			"name":"singletoncodeunitof",
 			"display name":"SingletonCodeunitOf",
 			"library":"builder",
@@ -11834,7 +19576,7 @@
 			"description":"Either locates the codeunit at the given index for use as the target container of another operation, or evaluates the codeunit at the given index as the source of another operation.\n\n>*Note:* It is an error if <Index> is out of range.",
 			"tags":["strings"]
 		},{
-			"id":"builder-499",
+			"id":"builder-797",
 			"name":"codeunitoffsetafter",
 			"display name":"CodeunitOffsetAfter",
 			"library":"builder",
@@ -11874,7 +19616,7 @@
 			"description":"The first (respectively last) offset of <Needle> in <Target> is number of codeunits between the first codeunit of the substring of <Target> beginning at codeunit <After> + 1, and the first (respectively last) occurrence of <Needle> in the substring. If neither first or last is specified, then the first offset is found. If <Needle> does not occur in the given substring of <Target>, then the output is 0.",
 			"tags":["strings"]
 		},{
-			"id":"builder-500",
+			"id":"builder-798",
 			"name":"lastcodeunitof",
 			"display name":"LastCodeunitOf",
 			"library":"builder",
@@ -11899,7 +19641,7 @@
 			"description":"Either locates the last codeunit for use as the target container of another operation, or evaluates the last codeunit as the source of another operation.\n\n>*Note:* It is an error if <Target> is empty.",
 			"tags":["strings"]
 		},{
-			"id":"builder-501",
+			"id":"builder-799",
 			"name":"deletefirstcodeunitof",
 			"display name":"DeleteFirstCodeunitOf",
 			"library":"builder",
@@ -11924,7 +19666,7 @@
 			"description":"Replaces the first codeunit in <Target> with the empty string.\n\n>*Note:* It is an error if <Target> is the empty string.",
 			"tags":["strings"]
 		},{
-			"id":"builder-502",
+			"id":"builder-800",
 			"name":"codeunitoffsetbefore",
 			"display name":"CodeunitOffsetBefore",
 			"library":"builder",
@@ -11964,7 +19706,7 @@
 			"description":"The first (respectively last) offset of <Needle> in <Target> is number of codeunits between the first codeunit of <Target>, and the first (respectively last) occurrence of <Needle> in the substring of <Target> ending at codeunit <Before> - 1. If neither first or last is specified, then the last offset is found. If <Needle> does not occur in the given substring of <Target>, then the output is 0.",
 			"tags":["strings"]
 		},{
-			"id":"builder-503",
+			"id":"builder-801",
 			"name":"rangecodeunitof",
 			"display name":"RangeCodeunitOf",
 			"library":"builder",
@@ -12001,7 +19743,7 @@
 			"description":"Either locates the codeunits between the given indices for use as the target container of another operation, or evaluates the codeunits at the given indices as the source of another operation.\n\n>*Note:* It is an error if either <Start> or <Finish> are out of range.",
 			"tags":["strings"]
 		},{
-			"id":"builder-504",
+			"id":"builder-802",
 			"name":"com.livecode.codeunit",
 			"display name":"com.livecode.codeunit",
 			"library":"builder",
@@ -12013,7 +19755,7 @@
 			"summary":"This library consists of the operations on codeunits included in the standard library of LiveCode Builder.",
 			"description":"This library consists of the operations on codeunits included in the standard library of LiveCode Builder."
 		},{
-			"id":"builder-505",
+			"id":"builder-803",
 			"name":"deleterangecodeunitof",
 			"display name":"DeleteRangeCodeunitOf",
 			"library":"builder",
@@ -12048,7 +19790,7 @@
 			"description":"Replaces the codeunits between the given indices with the empty string.\n\n>*Note:* It is an error if either <Start> or <Finish> are out of range.",
 			"tags":["strings"]
 		},{
-			"id":"builder-506",
+			"id":"builder-804",
 			"name":"firstcodeunitof",
 			"display name":"FirstCodeunitOf",
 			"library":"builder",
@@ -12073,7 +19815,7 @@
 			"description":"Either locates the first codeunit for use as the target container of another operation, or evaluates the first codeunit as the source of another operation.\n\n>*Note:* It is an error if <Target> is empty.",
 			"tags":["strings"]
 		},{
-			"id":"builder-507",
+			"id":"builder-805",
 			"name":"com.livecode.library.json",
 			"display name":"com.livecode.library.json",
 			"library":"builder",
@@ -12085,7 +19827,7 @@
 			"summary":"This library provides support for generating and parsing JavaScript\nObject Notation (JSON) data.  See also <http://json.org> and\n<https://tools.ietf.org/html/rfc7159>.",
 			"description":"This library provides support for generating and parsing JavaScript\nObject Notation (JSON) data.  See also <http://json.org> and\n<https://tools.ietf.org/html/rfc7159>."
 		},{
-			"id":"builder-508",
+			"id":"builder-806",
 			"name":"jsonimport",
 			"display name":"JsonImport",
 			"library":"builder",
@@ -12112,7 +19854,7 @@
 			"description":"<JsonImport> is used to convert data encoded in JSON format into a LiveCode\nvalue.  It parses <pJson> and returns the first top-level value found.  If any\nsyntax errors are found in <pJson>, an error is thrown.\n\nThe return value may be any of the following types, depending on the content\nof the file:\n\n* Array (for a JSON object)\n* List  (for a JSON array)\n* String (for a JSON string)\n* Number (for any JSON number)\n* Boolean (for JSON `true` or `false`)\n* nothing (for JSON `null`)",
 			"tags":["json","library","json"]
 		},{
-			"id":"builder-509",
+			"id":"builder-807",
 			"name":"jsonexport",
 			"display name":"JsonExport",
 			"library":"builder",
@@ -12139,175 +19881,372 @@
 			"description":"<JsonExport> is used to convert a LiveCode value into data encoded in JSON\nformat.  If <pValue> is of a type that cannot be converted to JSON, an error is\nthrown.",
 			"tags":["json","library","json"]
 		},{
-			"id":"builder-510",
-			"name":"canvassetcolor",
-			"display name":"canvasSetColor",
+			"id":"builder-808",
+			"name":"selectednavitem",
+			"display name":"selectedNavItem",
 			"library":"builder",
-			"type":"handler",
+			"type":"property",
 			"syntax":[
-				"canvasSetColor(<pRed>,<pGreen>,<pBlue>,<pAlpha>)"
+				"set the selectedNavItem of <widget> to <pItemName>\nget the selectedNavItem of <widget>"
 			],
 			"display syntax":[
-				"canvasSetColor(<i>pRed</i>,<i>pGreen</i>,<i>pBlue</i>,<i>pAlpha</i>)"
+				"set the selectedNavItem of <i>widget</i> to <i>pItemName</i>"
 			],
-			"associations":["com.livecode.library.canvas"],
-			"summary":"Sets the current color of the canvas to the given RGBA value.",
-			"parameters":[{
-				"name":"pRed",
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The name of the currently selected nav item",
+			"value":[{
+				"name":"value",
 				"type":"",
-				"refparam":"false",
-				"description":"The red component of the color to set."
-			},{
-				"name":"pGreen",
-				"type":"",
-				"refparam":"false",
-				"description":"The green component of the color to set."
-			},{
-				"name":"pBlue",
-				"type":"",
-				"refparam":"false",
-				"description":"The blue component of the color to set."
-			},{
-				"name":"pAlpha",
-				"type":"",
-				"refparam":"false",
-				"description":"The alpha value of the color to set."
+				"description":"The item in the <navNames> corresponding to the selected nav item"
 			}],
-			"description":"Sets the current color of the canvas to the given RGBA value.\n",
-			"tags":["canvas library"]
+			"description":"The name of the currently selected nav item"
 		},{
-			"id":"builder-511",
-			"name":"canvasapplytoimage",
-			"display name":"canvasApplyToImage",
+			"id":"builder-809",
+			"name":"selectednavcolor",
+			"display name":"selectedNavColor",
 			"library":"builder",
-			"type":"handler",
+			"type":"property",
 			"syntax":[
-				"canvasApplyToImage(<pObjectId>)"
+				"set the selectedNavColor of <widget> to <pColor>\nget the selectedNavColor of <widget>"
 			],
 			"display syntax":[
-				"canvasApplyToImage(<i>pObjectId</i>)"
+				"set the selectedNavColor of <i>widget</i> to <i>pColor</i>"
 			],
-			"associations":["com.livecode.library.canvas"],
-			"summary":"Copies the current contents of the canvas to the specified image object.",
-			"parameters":[{
-				"name":"pObjectId",
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The color to use for the selected nav item",
+			"value":[{
+				"name":"value",
 				"type":"",
-				"refparam":"false",
-				"description":"A string which is an object chunk referring to an image."
+				"description":"The color of the selected nav item, in RGB form"
 			}],
-			"description":"This handler copies the current contents of the canvas to the specified image object.",
-			"tags":["canvas library"]
+			"description":"The color to use for the selected nav item"
 		},{
-			"id":"builder-512",
-			"name":"canvascomputeboundingboxofpath",
-			"display name":"canvasComputeBoundingBoxOfPath",
+			"id":"builder-810",
+			"name":"navchanged",
+			"display name":"navChanged",
 			"library":"builder",
-			"type":"handler",
+			"type":"message",
 			"syntax":[
-				"canvasComputeBoundingBoxOfPath(<pPathString>)"
+				"navChanged"
 			],
 			"display syntax":[
-				"canvasComputeBoundingBoxOfPath(<i>pPathString</i>)"
+				"navChanged"
 			],
-			"associations":["com.livecode.library.canvas"],
-			"summary":"Returns the bounding box of an SVG path.",
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"Sent when the nav items property is changed",
+			"description":"Sent when the nav items property is changed"
+		},{
+			"id":"builder-811",
+			"name":"showactionicons",
+			"display name":"showActionIcons",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"set the showActionIcons of <widget> to { true | false }\nget the showActionIcons of <widget>"
+			],
+			"display syntax":[
+				"set the showActionIcons of <i>widget</i> to { true | false }"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"Whether to show the action icons or not",
+			"description":"Whether to show the action icons or not"
+		},{
+			"id":"builder-812",
+			"name":"menupick",
+			"display name":"menuPick",
+			"library":"builder",
+			"type":"message",
+			"syntax":[
+				"menuPick <pPick>"
+			],
+			"display syntax":[
+				"menuPick <i>pPick</i>"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"Sent when a menu item is chosen",
 			"parameters":[{
-				"name":"pPathString",
+				"name":"pPick",
 				"type":"",
 				"refparam":"false",
-				"description":"The SVG Path string to process"
+				"description":"The item picked"
 			}],
-			"description":"Parses the SVG path string and computes the tight bounding box.",
-			"tags":["canvas library"]
+			"description":"Sent when a menu item is chosen"
 		},{
-			"id":"builder-513",
-			"name":"canvasdestroy",
-			"display name":"canvasDestroy",
+			"id":"builder-813",
+			"name":"com.livecode.widget.paletteactions",
+			"display name":"com.livecode.widget.paletteactions",
 			"library":"builder",
-			"type":"handler",
+			"type":"widget",
+			"display syntax":[
+				"com.livecode.widget.paletteactions"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"Palette header bar widget.",
+			"description":"Palette header bar widget."
+		},{
+			"id":"builder-814",
+			"name":"navselected",
+			"display name":"navSelected",
+			"library":"builder",
+			"type":"message",
 			"syntax":[
-				"canvasDestroy()"
+				"navSelected <pItemName>"
 			],
 			"display syntax":[
-				"canvasDestroy()"
+				"navSelected <i>pItemName</i>"
 			],
-			"associations":["com.livecode.library.canvas"],
-			"summary":"Destroys the canvas",
-			"description":"Destroys the canvas by simply assigning nothing to the canvas variable.",
-			"tags":["canvas library"]
-		},{
-			"id":"builder-514",
-			"name":"canvasfillcircle",
-			"display name":"canvasFillCircle",
-			"library":"builder",
-			"type":"handler",
-			"syntax":[
-				"canvasFillCircle(<pX>,<pY>,<pRadius>)"
-			],
-			"display syntax":[
-				"canvasFillCircle(<i>pX</i>,<i>pY</i>,<i>pRadius</i>)"
-			],
-			"associations":["com.livecode.library.canvas"],
-			"summary":"Draws a filled circle.",
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"Sent when a nav item is selected",
 			"parameters":[{
-				"name":"pX",
+				"name":"pItemName",
 				"type":"",
 				"refparam":"false",
-				"description":"The x-coordinate of the centre of the circle."
-			},{
-				"name":"pY",
-				"type":"",
-				"refparam":"false",
-				"description":"The y-coordinate of the centre of the circle."
-			},{
-				"name":"pRadius",
-				"type":"",
-				"refparam":"false",
-				"description":"The radius of the circle."
+				"description":"The name of the selected nav item"
 			}],
-			"description":"Fills a circle of the given radius at the given position in the canvas.",
-			"tags":["canvas library"]
+			"description":"Sent when a nav item is selected"
 		},{
-			"id":"builder-515",
-			"name":"canvascreate",
-			"display name":"canvasCreate",
+			"id":"builder-815",
+			"name":"actionselected",
+			"display name":"actionSelected",
 			"library":"builder",
-			"type":"handler",
+			"type":"message",
 			"syntax":[
-				"canvasCreate(<pWidth>,<pHeight>)"
+				"actionSelected <pItemName>"
 			],
 			"display syntax":[
-				"canvasCreate(<i>pWidth</i>,<i>pHeight</i>)"
+				"actionSelected <i>pItemName</i>"
 			],
-			"associations":["com.livecode.library.canvas"],
-			"summary":"Creates a canvas of the given size for the other handlers to use.",
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"Sent when an action item is clicked",
 			"parameters":[{
-				"name":"pWidth",
+				"name":"pItemName",
 				"type":"",
 				"refparam":"false",
-				"description":"The width of the created canvas."
-			},{
-				"name":"pHeight",
-				"type":"",
-				"refparam":"false",
-				"description":"The height of the created canvas."
+				"description":"The name of the clicked action item"
 			}],
-			"description":"Creates a canvas of the given size for the other handlers to use.",
-			"tags":["canvas library"]
+			"description":"Sent when an action item is clicked"
 		},{
-			"id":"builder-516",
-			"name":"com.livecode.library.canvas",
-			"display name":"com.livecode.library.canvas",
+			"id":"builder-816",
+			"name":"actionlabels",
+			"display name":"actionLabels",
 			"library":"builder",
-			"type":"library",
-			"display syntax":[
-				"com.livecode.library.canvas"
+			"type":"property",
+			"syntax":[
+				"set the actionLabels of <widget> to <pLabelList>\nget the actionLabels of <widget>"
 			],
-			"associations":["com.livecode.library.canvas"],
-			"summary":"Gives access to the LiveCode Builder canvas syntax from LiveCode Script",
-			"description":"This library wraps a few simple handlers of the LiveCode Builder Canvas\nmodule to provide access to the syntax for creating and manipulating\ncanvas objects.\n\nFor example:\n\n    canvasCreate 100, 100\n\tcanvasSetColor 1, 0, 0, 1\n\tcanvasFillCircle 50, 50, 25\n\tcanvasApplyToImage \"image 1\"\n    canvasDestroy\n\nThis creates a canvas of size 100x100, fills a circle of radius 25 at\nthe centre, then copies the contents of the canvas to 'image 1' (which\nmust already exist)."
+			"display syntax":[
+				"set the actionLabels of <i>widget</i> to <i>pLabelList</i>"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The labels of the action items",
+			"value":[{
+				"name":"value",
+				"type":"",
+				"description":"A list of labels of the action items"
+			}],
+			"description":"The labels of the action items"
 		},{
-			"id":"builder-518",
+			"id":"builder-817",
+			"name":"actiondata",
+			"display name":"actionData",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"set the actionData of <widget> to <pActionArray>\nget the actionData of <widget>"
+			],
+			"display syntax":[
+				"set the actionData of <i>widget</i> to <i>pActionArray</i>"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The array of action data",
+			"value":[{
+				"name":"value",
+				"type":"",
+				"description":"An array describing the <actionNames>, <actionIcons> and <actionLabels> of the widget."
+			}],
+			"description":"The array of action data"
+		},{
+			"id":"builder-818",
+			"name":"navbarright",
+			"display name":"navBarRight",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"get the navBarRight of <widget>"
+			],
+			"display syntax":[
+				"get the navBarRight of <i>widget</i>"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The horizontal extent of the rendered navigation items",
+			"description":"The horizontal extent of the rendered navigation items"
+		},{
+			"id":"builder-819",
+			"name":"navicons",
+			"display name":"navIcons",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"set the navIcons of <widget> to <pIconList>\nget the navIcons of <widget>"
+			],
+			"display syntax":[
+				"set the navIcons of <i>widget</i> to <i>pIconList</i>"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The icons of the nav items",
+			"value":[{
+				"name":"value",
+				"type":"",
+				"description":"A list of icons of the nav items"
+			}],
+			"description":"The icons of the nav items"
+		},{
+			"id":"builder-820",
+			"name":"isheader",
+			"display name":"isHeader",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"set the isHeader of <widget> to { true | false }\nget the isHeader of <widget>"
+			],
+			"display syntax":[
+				"set the isHeader of <i>widget</i> to { true | false }"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"Whether the widget is a header or footer",
+			"description":"Whether the widget is a header or footer"
+		},{
+			"id":"builder-821",
+			"name":"shownavicons",
+			"display name":"showNavIcons",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"set the showNavIcons of <widget> to { true | false }\nget the showNavIcons of <widget>"
+			],
+			"display syntax":[
+				"set the showNavIcons of <i>widget</i> to { true | false }"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"Whether to show the nav icons or not",
+			"description":"Whether to show the nav icons or not"
+		},{
+			"id":"builder-822",
+			"name":"actionicons",
+			"display name":"actionIcons",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"set the actionIcons of <widget> to <pIconList>\nget the actionIcons of <widget>"
+			],
+			"display syntax":[
+				"set the actionIcons of <i>widget</i> to <i>pIconList</i>"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The icons of the action items",
+			"value":[{
+				"name":"value",
+				"type":"",
+				"description":"A list of icons of the action items"
+			}],
+			"description":"The icons of the action items"
+		},{
+			"id":"builder-823",
+			"name":"navlabels",
+			"display name":"navLabels",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"set the navLabels of <widget> to <pLabelList>\nget the navLabels of <widget>"
+			],
+			"display syntax":[
+				"set the navLabels of <i>widget</i> to <i>pLabelList</i>"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The labels of the nav items",
+			"value":[{
+				"name":"value",
+				"type":"",
+				"description":"A list of labels of the nav items"
+			}],
+			"description":"The labels of the nav items"
+		},{
+			"id":"builder-824",
+			"name":"minwidth",
+			"display name":"minWidth",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"get the minWidth of <widget>"
+			],
+			"display syntax":[
+				"get the minWidth of <i>widget</i>"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The minimum width needed to display nav items and action items",
+			"description":"The minimum width needed to display nav items and action items"
+		},{
+			"id":"builder-825",
+			"name":"actionnames",
+			"display name":"actionNames",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"set the actionNames of <widget> to <pNameList>\nget the actionNames of <widget>"
+			],
+			"display syntax":[
+				"set the actionNames of <i>widget</i> to <i>pNameList</i>"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The names of the action items",
+			"value":[{
+				"name":"value",
+				"type":"",
+				"description":"A list of names of the action items"
+			}],
+			"description":"The names of the action items"
+		},{
+			"id":"builder-826",
+			"name":"navnames",
+			"display name":"navNames",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"set the navNames of <widget> to <pNameList>\nget the navNames of <widget>"
+			],
+			"display syntax":[
+				"set the navNames of <i>widget</i> to <i>pNameList</i>"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The names of the nav items",
+			"value":[{
+				"name":"value",
+				"type":"",
+				"description":"A list of names of the nav items"
+			}],
+			"description":"The names of the nav items"
+		},{
+			"id":"builder-827",
+			"name":"navdata",
+			"display name":"navData",
+			"library":"builder",
+			"type":"property",
+			"syntax":[
+				"set the navData of <widget> to <pNavArray>\nget the navData of <widget>"
+			],
+			"display syntax":[
+				"set the navData of <i>widget</i> to <i>pNavArray</i>"
+			],
+			"associations":["com.livecode.widget.paletteactions"],
+			"summary":"The array of navigation data",
+			"value":[{
+				"name":"value",
+				"type":"",
+				"description":"An array describing the <navNames>, <navIcons> and <navLabels> of the widget."
+			}],
+			"description":"The array of navigation data"
+		},{
+			"id":"builder-829",
 			"name":"listofstringparsedaslistofnumber",
 			"display name":"ListOfStringParsedAsListOfNumber",
 			"library":"builder",
@@ -12338,7 +20277,7 @@
 			}],
 			"description":"Use <ListOfStringParsedAsListOfNumber> when you want to interpret pieces of text numerically. If the input list contains elements which cannot be parsed as numbers, the corresponding element will be nothing.\n\n*Note:* It is an error if any element of <Operand> is not a string.\n"
 		},{
-			"id":"builder-519",
+			"id":"builder-830",
 			"name":"plusunaryoperator",
 			"display name":"PlusUnaryOperator",
 			"library":"builder",
@@ -12368,7 +20307,7 @@
 			"description":"The unary plus operator is a no-op on the predefined numeric types.",
 			"tags":["math"]
 		},{
-			"id":"builder-520",
+			"id":"builder-831",
 			"name":"numberformattedasstring",
 			"display name":"NumberFormattedAsString",
 			"library":"builder",
@@ -12397,7 +20336,7 @@
 			}],
 			"description":"Use <NumberFormattedAsString> when you want to manipulate a numeric value as text."
 		},{
-			"id":"builder-521",
+			"id":"builder-832",
 			"name":"plusoperator",
 			"display name":"PlusOperator",
 			"library":"builder",
@@ -12432,7 +20371,7 @@
 			"description":"Binary plus operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-522",
+			"id":"builder-833",
 			"name":"minusunaryoperator",
 			"display name":"MinusUnaryOperator",
 			"library":"builder",
@@ -12462,7 +20401,7 @@
 			"description":"Unary minus operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-523",
+			"id":"builder-834",
 			"name":"numberisgreaterthanorequaltonumber",
 			"display name":"NumberIsGreaterThanOrEqualToNumber",
 			"library":"builder",
@@ -12493,7 +20432,7 @@
 			}],
 			"description":"Greater than or equal to relation."
 		},{
-			"id":"builder-524",
+			"id":"builder-835",
 			"name":"addnumberto",
 			"display name":"AddNumberTo",
 			"library":"builder",
@@ -12523,7 +20462,7 @@
 			"description":"Adds the number <Value> to <Target>.\n\n>*Note:* It is a syntax error if <Target> does not evaluate to a variable.",
 			"tags":["math"]
 		},{
-			"id":"builder-525",
+			"id":"builder-836",
 			"name":"subtractnumberfrom",
 			"display name":"SubtractNumberFrom",
 			"library":"builder",
@@ -12553,7 +20492,7 @@
 			"description":"Subtracts the number <Value> from <Target>.\n\n>*Note:* It is a syntax error if <Target> does not evaluate to a variable.",
 			"tags":["math"]
 		},{
-			"id":"builder-526",
+			"id":"builder-837",
 			"name":"numberislessthannumber",
 			"display name":"NumberIsLessThanNumber",
 			"library":"builder",
@@ -12585,7 +20524,7 @@
 			"description":"Less than relation.",
 			"tags":["math"]
 		},{
-			"id":"builder-527",
+			"id":"builder-838",
 			"name":"numberisequaltonumber",
 			"display name":"NumberIsEqualToNumber",
 			"library":"builder",
@@ -12617,7 +20556,7 @@
 			"description":"Equal to relation.",
 			"tags":["math"]
 		},{
-			"id":"builder-528",
+			"id":"builder-839",
 			"name":"dividenumberby",
 			"display name":"DivideNumberBy",
 			"library":"builder",
@@ -12647,7 +20586,7 @@
 			"description":"Divides the number <Target> by <Value>.\n\n>*Note:* It is a syntax error if <Target> does not evaluate to a variable.",
 			"tags":["math"]
 		},{
-			"id":"builder-529",
+			"id":"builder-840",
 			"name":"numberislessthanorequaltonumber",
 			"display name":"NumberIsLessThanOrEqualToNumber",
 			"library":"builder",
@@ -12679,7 +20618,7 @@
 			"description":"Less than or equal to relation.",
 			"tags":["math"]
 		},{
-			"id":"builder-530",
+			"id":"builder-841",
 			"name":"overoperator",
 			"display name":"OverOperator",
 			"library":"builder",
@@ -12714,7 +20653,7 @@
 			"description":"Binary division operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-531",
+			"id":"builder-842",
 			"name":"numberisnotnumber",
 			"display name":"NumberIsNotNumber",
 			"library":"builder",
@@ -12749,7 +20688,7 @@
 			},
 			"tags":["math"]
 		},{
-			"id":"builder-532",
+			"id":"builder-843",
 			"name":"modoperator",
 			"display name":"ModOperator",
 			"library":"builder",
@@ -12783,7 +20722,7 @@
 			}],
 			"description":"Returns the remainder on dividing <Left> by <Right>"
 		},{
-			"id":"builder-533",
+			"id":"builder-844",
 			"name":"com.livecode.arithmetic",
 			"display name":"com.livecode.arithmetic",
 			"library":"builder",
@@ -12795,7 +20734,7 @@
 			"summary":"This library consists of the basic arithmetic operations of standard library of LiveCode Builder.",
 			"description":"This library consists of the basic arithmetic operations of standard library of LiveCode Builder."
 		},{
-			"id":"builder-534",
+			"id":"builder-845",
 			"name":"parsestringasnumber",
 			"display name":"ParseStringAsNumber",
 			"library":"builder",
@@ -12826,7 +20765,7 @@
 			}],
 			"description":"Use <ParseStringAsNumber> when you want to interpret text numerically. The result is nothing if parsing was not possible."
 		},{
-			"id":"builder-535",
+			"id":"builder-846",
 			"name":"parselistofstringaslistofnumber",
 			"display name":"ParseListOfStringAsListOfNumber",
 			"library":"builder",
@@ -12855,7 +20794,7 @@
 			}],
 			"description":"Use <ParseListOfStringAsListOfNumber> when you want to interpret pieces of text numerically. If the input list contains elements which cannot be parsed as numbers, the corresponding element will be nothing.\n\n*Note:* It is an error if any element of <Operand> is not a string."
 		},{
-			"id":"builder-536",
+			"id":"builder-847",
 			"name":"minusoperator",
 			"display name":"MinusOperator",
 			"library":"builder",
@@ -12890,7 +20829,7 @@
 			"description":"Binary minus operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-537",
+			"id":"builder-848",
 			"name":"wrapoperator",
 			"display name":"WrapOperator",
 			"library":"builder",
@@ -12926,7 +20865,7 @@
 			}],
 			"description":"Use wrap to ensure the value of a variable stays within a specified range. For x,y > 0, \nsuccessive values of x wrap y cycle through the sequence 1, 2, ..., y."
 		},{
-			"id":"builder-538",
+			"id":"builder-849",
 			"name":"numberisnumber",
 			"display name":"NumberIsNumber",
 			"library":"builder",
@@ -12961,7 +20900,7 @@
 			},
 			"tags":["math"]
 		},{
-			"id":"builder-539",
+			"id":"builder-850",
 			"name":"formatnumberasstring",
 			"display name":"FormatNumberAsString",
 			"library":"builder",
@@ -12990,7 +20929,7 @@
 			}],
 			"description":"Use <FormatNumberAsString> when you want to manipulate a numeric value as text."
 		},{
-			"id":"builder-540",
+			"id":"builder-851",
 			"name":"timesoperator",
 			"display name":"TimesOperator",
 			"library":"builder",
@@ -13025,7 +20964,7 @@
 			"description":"Binary multiplication operator.",
 			"tags":["math"]
 		},{
-			"id":"builder-541",
+			"id":"builder-852",
 			"name":"stringparsedasnumber",
 			"display name":"StringParsedAsNumber",
 			"library":"builder",
@@ -13056,7 +20995,7 @@
 			}],
 			"description":"Use <StringParsedAsNumber> when you want to interpret text numerically. nothing is returned if parsing was not possible."
 		},{
-			"id":"builder-542",
+			"id":"builder-853",
 			"name":"numberisgreaterthannumber",
 			"display name":"NumberIsGreaterThanNumber",
 			"library":"builder",
@@ -13087,7 +21026,7 @@
 			}],
 			"description":"Greater than relation."
 		},{
-			"id":"builder-543",
+			"id":"builder-854",
 			"name":"multiplynumberby",
 			"display name":"MultiplyNumberBy",
 			"library":"builder",
@@ -13117,7 +21056,7 @@
 			"description":"Multiplies the number <Target> by <Value>.\n\n>*Note:* It is a syntax error if <Target> does not evaluate to a variable.",
 			"tags":["math"]
 		},{
-			"id":"builder-544",
+			"id":"builder-855",
 			"name":"com.livecode.library.objectrepository",
 			"display name":"com.livecode.library.objectrepository",
 			"library":"builder",
@@ -13129,7 +21068,7 @@
 			"summary":"This library provides support persistent object references within a session",
 			"description":"This library provides support persistent object references within a session"
 		},{
-			"id":"builder-545",
+			"id":"builder-856",
 			"name":"objectrepositorystore",
 			"display name":"objectRepositoryStore",
 			"library":"builder",
@@ -13155,7 +21094,7 @@
 			}],
 			"description":"As long ID of an object may mutate during a session the IDE needs an\nobject reference that can handle that mutation."
 		},{
-			"id":"builder-546",
+			"id":"builder-857",
 			"name":"objectrepositoryflush",
 			"display name":"objectRepositoryFlush",
 			"library":"builder",
@@ -13170,7 +21109,7 @@
 			"summary":"Flush deleted objects from the repository",
 			"description":"As long ID of an object may mutate during a session the IDE needs an\nobject reference that can handle that mutation."
 		},{
-			"id":"builder-547",
+			"id":"builder-858",
 			"name":"objectrepositoryretrieve",
 			"display name":"objectRepositoryRetrieve",
 			"library":"builder",
@@ -13196,7 +21135,7 @@
 			}],
 			"description":"As long ID of an object may mutate during a session the IDE needs an\nobject reference that can handle that mutation."
 		},{
-			"id":"builder-548",
+			"id":"builder-859",
 			"name":"objectrepositoryremove",
 			"display name":"objectRepositoryRemove",
 			"library":"builder",
@@ -13217,7 +21156,7 @@
 			}],
 			"description":"As long ID of an object may mutate during a session the IDE needs an\nobject reference that can handle that mutation."
 		},{
-			"id":"builder-549",
+			"id":"builder-860",
 			"name":"com.livecode.stream",
 			"display name":"com.livecode.stream",
 			"library":"builder",
@@ -13229,7 +21168,7 @@
 			"summary":"This module specifies the syntax definitions and bindings for\nstream input and output operations in modular LiveCode.",
 			"description":"This module specifies the syntax definitions and bindings for\nstream input and output operations in modular LiveCode."
 		},{
-			"id":"builder-550",
+			"id":"builder-861",
 			"name":"writetostream",
 			"display name":"WriteToStream",
 			"library":"builder",
@@ -13251,7 +21190,7 @@
 			"description":"Write some data to a stream.  If not all of the data can be written,\nfails with an error.\n\n>*Warning:* If the stream is able to accept only part of the data,\n>some streams will write that part of the data and discard the rest.\n>This may cause loss of data.",
 			"tags":["io"]
 		},{
-			"id":"builder-551",
+			"id":"builder-862",
 			"name":"defaulterrorstream",
 			"display name":"DefaultErrorStream",
 			"library":"builder",
@@ -13272,7 +21211,7 @@
 			"description":"The default error stream for diagnostic information.\n\nIn command-line programs, this is usually used to display error\nmessages.  In server programs, data output through this stream may be\nstored in the system log, depending on the server configuration.",
 			"tags":["io"]
 		},{
-			"id":"builder-552",
+			"id":"builder-863",
 			"name":"defaultoutputstream",
 			"display name":"DefaultOutputStream",
 			"library":"builder",
@@ -13293,372 +21232,7 @@
 			"description":"The default output stream for output from the program.\n\nIn command-line programs, this is usually used to output the results\nof running the program.  In CGI programs running on servers, this is\nusually used to output the data to be sent to the client.",
 			"tags":["io"]
 		},{
-			"id":"builder-553",
-			"name":"selectednavitem",
-			"display name":"selectedNavItem",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the selectedNavItem of <widget> to <pItemName>\nget the selectedNavItem of <widget>"
-			],
-			"display syntax":[
-				"set the selectedNavItem of <i>widget</i> to <i>pItemName</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The name of the currently selected nav item",
-			"value":[{
-				"name":"value",
-				"type":"",
-				"description":"The item in the <navNames> corresponding to the selected nav item"
-			}],
-			"description":"The name of the currently selected nav item"
-		},{
-			"id":"builder-554",
-			"name":"selectednavcolor",
-			"display name":"selectedNavColor",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the selectedNavColor of <widget> to <pColor>\nget the selectedNavColor of <widget>"
-			],
-			"display syntax":[
-				"set the selectedNavColor of <i>widget</i> to <i>pColor</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The color to use for the selected nav item",
-			"value":[{
-				"name":"value",
-				"type":"",
-				"description":"The color of the selected nav item, in RGB form"
-			}],
-			"description":"The color to use for the selected nav item"
-		},{
-			"id":"builder-555",
-			"name":"navchanged",
-			"display name":"navChanged",
-			"library":"builder",
-			"type":"message",
-			"syntax":[
-				"navChanged"
-			],
-			"display syntax":[
-				"navChanged"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"Sent when the nav items property is changed",
-			"description":"Sent when the nav items property is changed"
-		},{
-			"id":"builder-556",
-			"name":"showactionicons",
-			"display name":"showActionIcons",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the showActionIcons of <widget> to { true | false }\nget the showActionIcons of <widget>"
-			],
-			"display syntax":[
-				"set the showActionIcons of <i>widget</i> to { true | false }"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"Whether to show the action icons or not",
-			"description":"Whether to show the action icons or not"
-		},{
-			"id":"builder-557",
-			"name":"menupick",
-			"display name":"menuPick",
-			"library":"builder",
-			"type":"message",
-			"syntax":[
-				"menuPick <pPick>"
-			],
-			"display syntax":[
-				"menuPick <i>pPick</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"Sent when a menu item is chosen",
-			"parameters":[{
-				"name":"pPick",
-				"type":"",
-				"refparam":"false",
-				"description":"The item picked"
-			}],
-			"description":"Sent when a menu item is chosen"
-		},{
-			"id":"builder-558",
-			"name":"com.livecode.widget.paletteactions",
-			"display name":"com.livecode.widget.paletteactions",
-			"library":"builder",
-			"type":"widget",
-			"display syntax":[
-				"com.livecode.widget.paletteactions"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"Palette header bar widget.",
-			"description":"Palette header bar widget."
-		},{
-			"id":"builder-559",
-			"name":"navselected",
-			"display name":"navSelected",
-			"library":"builder",
-			"type":"message",
-			"syntax":[
-				"navSelected <pItemName>"
-			],
-			"display syntax":[
-				"navSelected <i>pItemName</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"Sent when a nav item is selected",
-			"parameters":[{
-				"name":"pItemName",
-				"type":"",
-				"refparam":"false",
-				"description":"The name of the selected nav item"
-			}],
-			"description":"Sent when a nav item is selected"
-		},{
-			"id":"builder-560",
-			"name":"actionselected",
-			"display name":"actionSelected",
-			"library":"builder",
-			"type":"message",
-			"syntax":[
-				"actionSelected <pItemName>"
-			],
-			"display syntax":[
-				"actionSelected <i>pItemName</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"Sent when an action item is clicked",
-			"parameters":[{
-				"name":"pItemName",
-				"type":"",
-				"refparam":"false",
-				"description":"The name of the clicked action item"
-			}],
-			"description":"Sent when an action item is clicked"
-		},{
-			"id":"builder-561",
-			"name":"actionlabels",
-			"display name":"actionLabels",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the actionLabels of <widget> to <pLabelList>\nget the actionLabels of <widget>"
-			],
-			"display syntax":[
-				"set the actionLabels of <i>widget</i> to <i>pLabelList</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The labels of the action items",
-			"value":[{
-				"name":"value",
-				"type":"",
-				"description":"A list of labels of the action items"
-			}],
-			"description":"The labels of the action items"
-		},{
-			"id":"builder-562",
-			"name":"actiondata",
-			"display name":"actionData",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the actionData of <widget> to <pActionArray>\nget the actionData of <widget>"
-			],
-			"display syntax":[
-				"set the actionData of <i>widget</i> to <i>pActionArray</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The array of action data",
-			"value":[{
-				"name":"value",
-				"type":"",
-				"description":"An array describing the <actionNames>, <actionIcons> and <actionLabels> of the widget."
-			}],
-			"description":"The array of action data"
-		},{
-			"id":"builder-563",
-			"name":"navbarright",
-			"display name":"navBarRight",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"get the navBarRight of <widget>"
-			],
-			"display syntax":[
-				"get the navBarRight of <i>widget</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The horizontal extent of the rendered navigation items",
-			"description":"The horizontal extent of the rendered navigation items"
-		},{
-			"id":"builder-564",
-			"name":"navicons",
-			"display name":"navIcons",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the navIcons of <widget> to <pIconList>\nget the navIcons of <widget>"
-			],
-			"display syntax":[
-				"set the navIcons of <i>widget</i> to <i>pIconList</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The icons of the nav items",
-			"value":[{
-				"name":"value",
-				"type":"",
-				"description":"A list of icons of the nav items"
-			}],
-			"description":"The icons of the nav items"
-		},{
-			"id":"builder-565",
-			"name":"isheader",
-			"display name":"isHeader",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the isHeader of <widget> to { true | false }\nget the isHeader of <widget>"
-			],
-			"display syntax":[
-				"set the isHeader of <i>widget</i> to { true | false }"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"Whether the widget is a header or footer",
-			"description":"Whether the widget is a header or footer"
-		},{
-			"id":"builder-566",
-			"name":"shownavicons",
-			"display name":"showNavIcons",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the showNavIcons of <widget> to { true | false }\nget the showNavIcons of <widget>"
-			],
-			"display syntax":[
-				"set the showNavIcons of <i>widget</i> to { true | false }"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"Whether to show the nav icons or not",
-			"description":"Whether to show the nav icons or not"
-		},{
-			"id":"builder-567",
-			"name":"actionicons",
-			"display name":"actionIcons",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the actionIcons of <widget> to <pIconList>\nget the actionIcons of <widget>"
-			],
-			"display syntax":[
-				"set the actionIcons of <i>widget</i> to <i>pIconList</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The icons of the action items",
-			"value":[{
-				"name":"value",
-				"type":"",
-				"description":"A list of icons of the action items"
-			}],
-			"description":"The icons of the action items"
-		},{
-			"id":"builder-568",
-			"name":"navlabels",
-			"display name":"navLabels",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the navLabels of <widget> to <pLabelList>\nget the navLabels of <widget>"
-			],
-			"display syntax":[
-				"set the navLabels of <i>widget</i> to <i>pLabelList</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The labels of the nav items",
-			"value":[{
-				"name":"value",
-				"type":"",
-				"description":"A list of labels of the nav items"
-			}],
-			"description":"The labels of the nav items"
-		},{
-			"id":"builder-569",
-			"name":"minwidth",
-			"display name":"minWidth",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"get the minWidth of <widget>"
-			],
-			"display syntax":[
-				"get the minWidth of <i>widget</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The minimum width needed to display nav items and action items",
-			"description":"The minimum width needed to display nav items and action items"
-		},{
-			"id":"builder-570",
-			"name":"actionnames",
-			"display name":"actionNames",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the actionNames of <widget> to <pNameList>\nget the actionNames of <widget>"
-			],
-			"display syntax":[
-				"set the actionNames of <i>widget</i> to <i>pNameList</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The names of the action items",
-			"value":[{
-				"name":"value",
-				"type":"",
-				"description":"A list of names of the action items"
-			}],
-			"description":"The names of the action items"
-		},{
-			"id":"builder-571",
-			"name":"navnames",
-			"display name":"navNames",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the navNames of <widget> to <pNameList>\nget the navNames of <widget>"
-			],
-			"display syntax":[
-				"set the navNames of <i>widget</i> to <i>pNameList</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The names of the nav items",
-			"value":[{
-				"name":"value",
-				"type":"",
-				"description":"A list of names of the nav items"
-			}],
-			"description":"The names of the nav items"
-		},{
-			"id":"builder-572",
-			"name":"navdata",
-			"display name":"navData",
-			"library":"builder",
-			"type":"property",
-			"syntax":[
-				"set the navData of <widget> to <pNavArray>\nget the navData of <widget>"
-			],
-			"display syntax":[
-				"set the navData of <i>widget</i> to <i>pNavArray</i>"
-			],
-			"associations":["com.livecode.widget.paletteactions"],
-			"summary":"The array of navigation data",
-			"value":[{
-				"name":"value",
-				"type":"",
-				"description":"An array describing the <navNames>, <navIcons> and <navLabels> of the widget."
-			}],
-			"description":"The array of navigation data"
-		},{
-			"id":"builder-573",
+			"id":"builder-864",
 			"name":"unitplan",
 			"display name":"UnitPlan",
 			"library":"builder",
@@ -13677,7 +21251,7 @@
 			"description":"Log the number of unit test assertions which are expected to occur in the\ncurrent unit test.  This may be used by the test framework to flag an error if\ntoo few test results appear in the test result.  For example, this allows the\ntest framework to detect whether a unit test failed silently.\n\nUsing `plan _ tests` is optional, and a unit test is valid even if its omitted.",
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-574",
+			"id":"builder-865",
 			"name":"unittestfailsdescription",
 			"display name":"UnitTestFailsDescription",
 			"library":"builder",
@@ -13702,7 +21276,7 @@
 			"description":"Make a unit test assertion, in the expectation that it will fail. The test is\nconsidered to have passed if <Condition> is true.  The <Description> string is\na short message that summarises what the test is checking.\n\nIf the test fails, it will not cause a test suite failure; instead, an\n\"expected failure\" will be recorded.  If the test passes, an \"unexpected pass\"\nwill be recorded instead of a normal test pass.",
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-575",
+			"id":"builder-866",
 			"name":"unittestfailsdescriptionandreason",
 			"display name":"UnitTestFailsDescriptionAndReason",
 			"library":"builder",
@@ -13732,7 +21306,7 @@
 			"description":"Make a unit test assertion, in the expectation that it will fail. The test is\nconsidered to have passed if <Condition> is true.  The <Description> is a\nmessage that summarises the broken test, and the <Reason> explains why the test\nis broken (usually referencing a bug report).\n\nIf the test fails, it will not cause a test suite failure; instead, an\n\"expected failure\" will be recorded.  If the test passes, an \"unexpected pass\"\nwill be recorded instead of a normal test pass.",
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-576",
+			"id":"builder-867",
 			"name":"unittestfailsreason",
 			"display name":"UnitTestFailsReason",
 			"library":"builder",
@@ -13762,7 +21336,7 @@
 			"description":"Make a unit test assertion, in the expectation that it will fail. The test is\nconsidered to have passed if <Condition> is true.  The <Reason> is a shor\nmessage that describes why the test is broken (usually referencing a bug\nreport).\n\nIf the test fails, it will not cause a test suite failure; instead, an\n\"expected failure\" will be recorded.  If the test passes, an \"unexpected pass\"\nwill be recorded instead of a normal test pass.",
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-577",
+			"id":"builder-868",
 			"name":"unittestfails",
 			"display name":"UnitTestFails",
 			"library":"builder",
@@ -13784,7 +21358,7 @@
 			},
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-578",
+			"id":"builder-869",
 			"name":"unittestskipdescriptionandreason",
 			"display name":"UnitTestSkipDescriptionAndReason",
 			"library":"builder",
@@ -13809,7 +21383,7 @@
 			"description":"Record that a test was skipped.  The <Description> is a message that summarises\nthe test that was skipped, and the <Reason> explains why the test couldn't be\ndone.  For example, the feature being tested isn't supported by the platform\nthat the test is running on.",
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-579",
+			"id":"builder-870",
 			"name":"unittestskip",
 			"display name":"UnitTestSkip",
 			"library":"builder",
@@ -13828,7 +21402,7 @@
 			},
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-580",
+			"id":"builder-871",
 			"name":"unittestskipreason",
 			"display name":"UnitTestSkipReason",
 			"library":"builder",
@@ -13847,7 +21421,7 @@
 			"description":"Record that a test was skipped, including a reason for skipping the test.  The\n<Reason> is a short message that describes why the test has to be skipped.",
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-581",
+			"id":"builder-872",
 			"name":"unitdiagnostic",
 			"display name":"UnitDiagnostic",
 			"library":"builder",
@@ -13866,7 +21440,7 @@
 			"description":"Log a message as a test diagnostic.  The <Message> may have multiple lines.\nYou may wish to log diagnostic messages to help make the test log easier to\nread by adding info about what's being tested, or add information when a test\nfails to help understand why the failure occurred.",
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-582",
+			"id":"builder-873",
 			"name":"unittestskipdescription",
 			"display name":"UnitTestSkipDescription",
 			"library":"builder",
@@ -13885,7 +21459,7 @@
 			"description":"Record that a test was skipped.  The <Description> string is a short message\nthat summarises the test that was skipped.",
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-583",
+			"id":"builder-874",
 			"name":"com.livecode.unittest",
 			"display name":"com.livecode.unittest",
 			"library":"builder",
@@ -13900,7 +21474,7 @@
 			}],
 			"description":"This library provides syntax for unit testing Builder\nprograms.  It is used by the LiveCode Builder standard library's\ntestsuite.\n\nTo use this library, write your tests in a Builder source code file.\nEach group of tests should be a public handler with a name beginning\nwith `Test`.  If possible, use one test per handler.  Otherwise, add a\n`plan N tests` statement at the start of the handler."
 		},{
-			"id":"builder-584",
+			"id":"builder-875",
 			"name":"unittest",
 			"display name":"UnitTest",
 			"library":"builder",
@@ -13922,7 +21496,7 @@
 			},
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-585",
+			"id":"builder-876",
 			"name":"unittestdescription",
 			"display name":"UnitTestDescription",
 			"library":"builder",
@@ -13947,7 +21521,7 @@
 			"description":"Make a unit test assertion.  The test is considered to have passed if\n<Condition> is true.  The <Description> string is a short message that\nsummarises what the test is checking.",
 			"tags":["unit tests","unit tests"]
 		},{
-			"id":"builder-586",
+			"id":"builder-877",
 			"name":"label",
 			"display name":"label",
 			"library":"builder",
@@ -13971,7 +21545,7 @@
 			}],
 			"description":"The <label> property is the label displayed by the button.\n"
 		},{
-			"id":"builder-587",
+			"id":"builder-878",
 			"name":"com.livecode.widget.native.emscripten.button",
 			"display name":"com.livecode.widget.native.emscripten.button",
 			"library":"builder",
@@ -13984,7 +21558,7 @@
 			"OS":["html5"],
 			"description":"This widget is a native button in HTML5."
 		},{
-			"id":"builder-588",
+			"id":"builder-879",
 			"name":"deletedirectory",
 			"display name":"DeleteDirectory",
 			"library":"builder",
@@ -14006,7 +21580,7 @@
 			"description":"Deletes a directory.  The directory must be empty.",
 			"tags":["io","filesystem"]
 		},{
-			"id":"builder-589",
+			"id":"builder-880",
 			"name":"com.livecode.file",
 			"display name":"com.livecode.file",
 			"library":"builder",
@@ -14018,7 +21592,7 @@
 			"summary":"This module specifies the syntax definitions and bindings for\nfilesystem operations in LiveCode Builder.\n\n>*Note:* This module is currently experimental and unstable.  The\n>syntax is likely to change in future versions of LiveCode.",
 			"description":"This module specifies the syntax definitions and bindings for\nfilesystem operations in LiveCode Builder.\n\n>*Note:* This module is currently experimental and unstable.  The\n>syntax is likely to change in future versions of LiveCode."
 		},{
-			"id":"builder-590",
+			"id":"builder-881",
 			"name":"getdirectoryentries",
 			"display name":"GetDirectoryEntries",
 			"library":"builder",
@@ -14040,7 +21614,7 @@
 			"description":"Returns a List containing the directory entries of a directory.  The\ndirectory must exist.",
 			"tags":["io","filesystem"]
 		},{
-			"id":"builder-591",
+			"id":"builder-882",
 			"name":"deletefile",
 			"display name":"DeleteFile",
 			"library":"builder",
@@ -14062,7 +21636,7 @@
 			"description":"Deletes the specified file.  The file must exist.",
 			"tags":["io","filesystem"]
 		},{
-			"id":"builder-592",
+			"id":"builder-883",
 			"name":"createdirectory",
 			"display name":"CreateDirectory",
 			"library":"builder",
@@ -14084,7 +21658,7 @@
 			"description":"Creates a new, empty directory.  The directory must not already exist.",
 			"tags":["io","filesystem"]
 		},{
-			"id":"builder-593",
+			"id":"builder-884",
 			"name":"filecontents",
 			"display name":"FileContents",
 			"library":"builder",
@@ -14106,7 +21680,7 @@
 			"description":"The raw data stored in a file.\n\n>*Note:* Setting the contents of a file will replace the file with a\n>newly-created file with the new contents.",
 			"tags":["io","filesystem"]
 		},{
-			"id":"builder-594",
+			"id":"builder-885",
 			"name":"macstatusmenusetcustomicon",
 			"display name":"macStatusMenuSetCustomIcon",
 			"library":"builder",
@@ -14137,7 +21711,7 @@
 			}],
 			"description":"When creating the menu items the icon to use for the item is identified by `!`\nfollowed by a character. The builtin icons are `c` (checkmark), `n` (no checkmark)\nand `m` (mixed state). Use <macStatusMenuSetCustomIcon> to add another custom icon\nto use.\n"
 		},{
-			"id":"builder-595",
+			"id":"builder-886",
 			"name":"macstatusmenucreate",
 			"display name":"macStatusMenuCreate",
 			"library":"builder",
@@ -14163,7 +21737,7 @@
 			}],
 			"description":"Use <pName> to refer to the status menu when setting properties and deleting\nthe status menu."
 		},{
-			"id":"builder-596",
+			"id":"builder-887",
 			"name":"macstatusmenunames",
 			"display name":"macStatusMenuNames",
 			"library":"builder",
@@ -14188,7 +21762,7 @@
 			}],
 			"description":"Use macStatusMenuNames to ensure that a menu has been created before calling a\nhandler that may throw an error if called with a menu that does not exist."
 		},{
-			"id":"builder-597",
+			"id":"builder-888",
 			"name":"macstatusmenudelete",
 			"display name":"macStatusMenuDelete",
 			"library":"builder",
@@ -14214,7 +21788,7 @@
 			}],
 			"description":"Deleting the status menu removes it from the staus menubar"
 		},{
-			"id":"builder-598",
+			"id":"builder-889",
 			"name":"macstatusmenupick",
 			"display name":"macStatusMenuPick",
 			"library":"builder",
@@ -14245,7 +21819,7 @@
 				"handler":["macStatusMenuCreate"]
 			}
 		},{
-			"id":"builder-599",
+			"id":"builder-890",
 			"name":"macstatusmenuset",
 			"display name":"macStatusMenuSet",
 			"library":"builder",
@@ -14284,7 +21858,7 @@
 				"handler":["macStatusMenuSetCustomIcon"]
 			}
 		},{
-			"id":"builder-600",
+			"id":"builder-891",
 			"name":"com.livecode.library.native.mac.statusmenu",
 			"display name":"com.livecode.library.native.mac.statusmenu",
 			"library":"builder",
@@ -14296,7 +21870,7 @@
 			"summary":"Manage mac status menus",
 			"description":"This library allows the creation and management of mac status menus"
 		},{
-			"id":"builder-601",
+			"id":"builder-892",
 			"name":"com.livecode.library.toast",
 			"display name":"com.livecode.library.toast",
 			"library":"builder",
@@ -14309,7 +21883,7 @@
 			"OS":["android"],
 			"description":"A toast is a non-modal temporary notification displayed to the user."
 		},{
-			"id":"builder-602",
+			"id":"builder-893",
 			"name":"mobiletoastcancel",
 			"display name":"mobileToastCancel",
 			"library":"builder",
@@ -14325,7 +21899,7 @@
 			"OS":["android"],
 			"description":"Use <mobileToastCancel> to cancel the currently displayed toast."
 		},{
-			"id":"builder-603",
+			"id":"builder-894",
 			"name":"mobiletoast",
 			"display name":"mobileToast",
 			"library":"builder",
@@ -14355,7 +21929,7 @@
 			}],
 			"description":"Use the <mobileToast> handler to display a temporary non-modal \nnotification with a specified message, for the given duration.\n"
 		},{
-			"id":"builder-604",
+			"id":"builder-895",
 			"name":"bitwiseshiftleft",
 			"display name":"BitwiseShiftLeft",
 			"library":"builder",
@@ -14390,7 +21964,7 @@
 			"description":"Shifts the bits of <Operand> left. Shifting the bits of <Operand> left\nby x is equivalent to multiplying by 2^x.",
 			"tags":["bitwise operations"]
 		},{
-			"id":"builder-605",
+			"id":"builder-896",
 			"name":"bitwiseor",
 			"display name":"BitwiseOr",
 			"library":"builder",
@@ -14425,7 +21999,7 @@
 			"description":"Each bit of <Left> bitwise or <Right> is 0 if and only if both the corresponding bit of the binary representation of <Left> and that of <Right> is 0. Otherwise it is 1.",
 			"tags":["bitwise operations"]
 		},{
-			"id":"builder-606",
+			"id":"builder-897",
 			"name":"bitwisexor",
 			"display name":"BitwiseXor",
 			"library":"builder",
@@ -14460,7 +22034,7 @@
 			"description":"Each bit of <Left> bitwise xor <Right> is 1 if and only if exactly one of the corresponding bits of the binary representation of <Left> and that of <Right> is 1. Otherwise it is 0.",
 			"tags":["bitwise operations"]
 		},{
-			"id":"builder-607",
+			"id":"builder-898",
 			"name":"bitwisenot",
 			"display name":"BitwiseNot",
 			"library":"builder",
@@ -14490,7 +22064,7 @@
 			"description":"Bitwise not returns the complement of <Operand> as a signed two's\ncomplement integer, i.e. equivalent to -(x + 1).",
 			"tags":["bitwise operations"]
 		},{
-			"id":"builder-608",
+			"id":"builder-899",
 			"name":"bitwiseshiftright",
 			"display name":"BitwiseShiftRight",
 			"library":"builder",
@@ -14525,7 +22099,7 @@
 			"description":"Shifts the bits of <Operand> right. Shifting the bits of <Operand>\nright by x is equivalent to dividing by 2^x (rounding down)",
 			"tags":["bitwise operations"]
 		},{
-			"id":"builder-609",
+			"id":"builder-900",
 			"name":"bitwiseand",
 			"display name":"BitwiseAnd",
 			"library":"builder",
@@ -14560,7 +22134,7 @@
 			"description":"Each bit of <Left> bitwise and <Right> is 1 if and only if both the corresponding bit of the binary representation of <Left> and that of <Right> is 1. Otherwise it is 0.",
 			"tags":["bitwise operations"]
 		},{
-			"id":"builder-610",
+			"id":"builder-901",
 			"name":"com.livecode.bitwise",
 			"display name":"com.livecode.bitwise",
 			"library":"builder",
@@ -14572,7 +22146,7 @@
 			"summary":"This module specifies the bitwise operations on integers included in the standard library of LiveCode Builder.",
 			"description":"This module specifies the bitwise operations on integers included in the standard library of LiveCode Builder."
 		},{
-			"id":"builder-611",
+			"id":"builder-902",
 			"name":"commandname",
 			"display name":"CommandName",
 			"library":"builder",
@@ -14590,7 +22164,7 @@
 			}],
 			"description":"Evaluates to the name that was used to execute the program, possibly\nincluding path information.\n"
 		},{
-			"id":"builder-612",
+			"id":"builder-903",
 			"name":"systemerrorcode",
 			"display name":"SystemErrorCode",
 			"library":"builder",
@@ -14606,7 +22180,7 @@
 			"description":"Evaluates to the current platform-dependent system error code.\n\n- On Windows, returns the result of `GetLastError()`.\n\n- On other platforms, returns the current value of `errno`.\n\n> **Note:** The system error code may be modified or cleared by any\n> syntax that interacts with the operating system (e.g. by performing\n> input or output).  You should check the system error code as soon as\n> possible after any platform operation that might fail.",
 			"tags":["system"]
 		},{
-			"id":"builder-613",
+			"id":"builder-904",
 			"name":"operatingsystem",
 			"display name":"OperatingSystem",
 			"library":"builder",
@@ -14625,7 +22199,7 @@
 			"description":"Returns a string describing the operating system that LiveCode is\nrunning on.  The possible values are:\n\n* \"windows\" - 32-bit and 64-bit Windows\n* \"mac\" - Desktop OS X\n* \"ios\" - iOS (iPhone and iPad)\n* \"android\" - Android Linux devices\n* \"linux\" - All other Linux platforms",
 			"tags":["system"]
 		},{
-			"id":"builder-614",
+			"id":"builder-905",
 			"name":"resetsystemerror",
 			"display name":"ResetSystemError",
 			"library":"builder",
@@ -14641,7 +22215,7 @@
 			"description":"Reset the system error code to its platform-dependent default (\"no\nerror\") value.",
 			"tags":["system"]
 		},{
-			"id":"builder-615",
+			"id":"builder-906",
 			"name":"commandarguments",
 			"display name":"CommandArguments",
 			"library":"builder",
@@ -14659,7 +22233,7 @@
 			}],
 			"description":"Evaluates to a list of command-line arguments passed to the program.\nSome arguments may not be passed in if they are \"used up\" by the\nLiveCode run-time environment (for example, the LiveCode IDE will\ndetect and \"use\" the `-mmap` argument).\n\n> **Note:** No filename conversion is performed on command line\n> arguments, so some processing may be required before using a command\n> line argument with any of the file handling syntax provided by the\n> `com.livecode.file` module."
 		},{
-			"id":"builder-616",
+			"id":"builder-907",
 			"name":"quitwithstatus",
 			"display name":"QuitWithStatus",
 			"library":"builder",
@@ -14678,7 +22252,7 @@
 			"description":"Exit the program immediately and unconditionally, returning a status\nnumber to the operating system.  If no status is provided, the default\nvalue of 0 is used.",
 			"tags":["system"]
 		},{
-			"id":"builder-617",
+			"id":"builder-908",
 			"name":"architecture",
 			"display name":"Architecture",
 			"library":"builder",
@@ -14697,7 +22271,7 @@
 			"description":"Returns a string describing the instruction set architecture\nthat is being used by the machine LiveCode is running on.\nThe possible values are:\n\n* \"x86\" - 32-bit x86 builds\n* \"x86_64\" - 64-bit x86 builds\n* \"arm\" - 32-bit arm builds\n* \"arm64\" - 64-bit arm builds\n* \"js\" - Emscripten",
 			"tags":["system"]
 		},{
-			"id":"builder-618",
+			"id":"builder-909",
 			"name":"systemerrordescription",
 			"display name":"SystemErrorDescription",
 			"library":"builder",
@@ -14713,7 +22287,7 @@
 			"description":"Evaluates to a string describing the current platform-dependent system\nerror code.\n\n> **Note:** The system error code may be modified or cleared by any\n> syntax that interacts with the operating system (e.g. by performing\n> input or output).  You should check the system error code as soon as\n> possible after any platform operation that might fail.",
 			"tags":["system"]
 		},{
-			"id":"builder-619",
+			"id":"builder-910",
 			"name":"com.livecode.system",
 			"display name":"com.livecode.system",
 			"library":"builder",
@@ -14725,7 +22299,7 @@
 			"summary":"This library provides low-level system functionality for modular\nLiveCode programs.",
 			"description":"This library provides low-level system functionality for modular\nLiveCode programs."
 		},{
-			"id":"builder-620",
+			"id":"builder-911",
 			"name":"com.livecode.widget.gradientrampeditor",
 			"display name":"com.livecode.widget.gradientrampeditor",
 			"library":"builder",
@@ -14737,7 +22311,7 @@
 			"summary":"This widget is displays a gradient according to the value of its *gradientStops* property.",
 			"description":"This widget is displays a gradient according to the value of its *gradientStops* property."
 		},{
-			"id":"builder-621",
+			"id":"builder-912",
 			"name":"gradientstopschanged",
 			"display name":"gradientStopsChanged",
 			"library":"builder",
@@ -14755,7 +22329,7 @@
 			}],
 			"description":"Handle the <gradientStopsChanged> message to perform an operation when \nthe gradientStops property of a gradient ramp editor widget changes."
 		},{
-			"id":"builder-622",
+			"id":"builder-913",
 			"name":"selectedstopchanged",
 			"display name":"selectedStopChanged",
 			"library":"builder",
@@ -14779,7 +22353,7 @@
 			}],
 			"description":"Handle the <selectedStopChanged> message to perform an operation when \nthe selectedStop property of a gradient ramp editor widget changes."
 		},{
-			"id":"builder-623",
+			"id":"builder-914",
 			"name":"selectedstop",
 			"display name":"selectedStop",
 			"library":"builder",
@@ -14804,7 +22378,7 @@
 			}],
 			"description":"If any gradient stop is selected, its index is returned by the <selectedStop>\nproperty. Otherwise the property returns 0. Setting the <selectedStop> property\nto 0 causes the currently selected gradient stop to be deselected."
 		},{
-			"id":"builder-624",
+			"id":"builder-915",
 			"name":"gradientstops",
 			"display name":"gradientStops",
 			"library":"builder",

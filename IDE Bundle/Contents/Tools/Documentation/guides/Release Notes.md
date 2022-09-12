@@ -3,13 +3,13 @@
 [TOC]
 # Overview
 
-LiveCode 9.0 enables access to libraries and platform APIs written in
+OpenXTalk 1.963.1 enables access to libraries and platform APIs written in
 many other languages thanks to the community-funded 'Infinite
 LiveCode' project.
 
-This includes a greatly improved LiveCode Builder virtual machine.
+This includes a greatly improved Builder virtual machine.
 
-LiveCode 9.0 contains many additional improvements to support LiveCode
+OpenXTalk 1.963.1 contains many additional improvements to support
 app developers, including:
 
 * A new "spinner" widget
@@ -103,7 +103,7 @@ The engine supports a variety of operating systems and versions. This section de
 
 ## Windows
 
-LiveCode supports the following versions of Windows:
+OpenxTalk shoud run on the following versions of Windows:
 
 * Windows 7 (both 32-bit and 64-bit)
 * Windows Server 2008
@@ -114,7 +114,7 @@ LiveCode supports the following versions of Windows:
 
 ## Linux
 
-LiveCode supports the following Linux distributions, on 32-bit or
+OpenxTalk shoud run on the following Linux distributions, on 32-bit or
 64-bit Intel/AMD or compatible processors:
 
 * Ubuntu 14.04 and 16.04
@@ -122,7 +122,7 @@ LiveCode supports the following Linux distributions, on 32-bit or
 * Debian 7 (Wheezy) and 8 (Jessie) [server]
 * CentOS 7 [server]
 
-LiveCode may also run on Linux installations which meet the following
+OpenxTalk shoud run on Linux installations which meet the following
 requirements:
 
 * Required dependencies for core functionality:
@@ -137,11 +137,11 @@ requirements:
   * lcms (optional, required for color profile support in images)
   * gksu (optional, required for privilege elevation support)
 
-**Note:** If the optional requirements are not present then LiveCode will still run but the specified features will be disabled.
+**Note:** If the optional requirements are not present then OpenXTalk will still run but the specified features will be disabled.
 
-**Note:** The requirements for GUI functionality are also required by Firefox and Chrome, so if your Linux distribution runs one of those, it will run LiveCode.
+**Note:** The requirements for GUI functionality are also required by Firefox and Chrome, so if your Linux distribution runs one of those, it will run OpenXTalk.
 
-**Note:** It may be possible to compile and run LiveCode Community for Linux on other architectures but this is not officially supported.
+**Note:** It may be possible to compile and run OpenXTalk Community for Linux on other architectures but this is not officially supported.
 
 ## Mac
 The Mac engine supports:
@@ -156,13 +156,13 @@ The Mac engine supports:
 * 11.x (Big Sur)
 
 ## iOS
-iOS deployment is possible when running LiveCode IDE on a Mac, and provided Xcode is installed and has been set in LiveCode *Preferences* (in the *Mobile Support* pane).
+iOS deployment is possible when running OpenXTalk IDE on a Mac, and provided Xcode is installed and has been set in the IDE *Preferences* (in the *Mobile Support* pane).
 
 Currently, the supported versions of Xcode are:
 * Xcode 9.2 on MacOS 10.12 (Note: You need to upgrade to 10.12.6)
 * Xcode 10.1 on MacOS 10.13 (Note: You need to upgrade to 10.13.4)
-* Xcode 11.3 on MacOS 10.14 (Note: You need to upgrade to 10.14.4) 
-* Xcode 12.4 on MacOS 10.15 and above (Note: You need to upgrade to 10.15.4) 
+* Xcode 11.3 on MacOS 10.14 (Note: You need to upgrade to 10.14.4)
+* Xcode 12.4 on MacOS 10.15 and above (Note: You need to upgrade to 10.15.4)
 * Xcode 12.5 on MacOS 11.0 and above
 
 
@@ -182,7 +182,7 @@ We currently support building against the following versions of the iOS SDK:
 ## Android
 
 
-LiveCode allows you to save your stack as an Android application, and
+OpenxTalk allows you to save your stack as an Android application, and
 also to deploy it on an Android device or simulator from the IDE.
 
 Android deployment is possible from Windows, Linux and Mac OSX.
@@ -206,11 +206,11 @@ then use the 'Android SDK Manager' to install:
 * the latest "Android SDK Platform Tools"
 
 You also need to install the Java Development Kit (JDK).  On Linux,
-this usually packaged as "openjdk".  LiveCode requires JDK version 1.6
+this usually packaged as "openjdk".  OpenxTalk requires JDK version 1.6
 or later.
 
 Once you have set the path of your Android SDK in the "Mobile Support"
-section of the LiveCode IDE's preferences, you can deploy your stack
+section of the IDE's preferences, you can deploy your stack
 to Android devices.
 
 Some users have reported successful Android Watch deployment, but it
@@ -218,22 +218,22 @@ is not officially supported.
 
 ## HTML5
 
-LiveCode applications can be deployed to run in a web browser, by running the LiveCode engine in JavaScript and using modern HTML5 JavaScript APIs.
+OpenXTalk applications can be deployed to run in a web browser, by running the LiveCode engine in JavaScript and using modern HTML5 JavaScript APIs.
 
 HTML5 deployment does not require any additional development tools to be installed.
 
-LiveCode HTML5 standalone applications are currently supported for running in recent versions of [Mozilla Firefox](https://www.mozilla.org/firefox/new/), [Google Chrome](https://www.google.com/chrome/) or [Safari](https://support.apple.com/HT204416).  For more information, please see the "HTML5 Deployment" guide in the LiveCode IDE.
+OXT HTML5 standalone applications are currently supported for running in recent versions of [Mozilla Firefox](https://www.mozilla.org/firefox/new/), [Google Chrome](https://www.google.com/chrome/) or [Safari](https://support.apple.com/HT204416).  For more information, please see the "HTML5 Deployment" guide in the IDE.
 
 # Setup
 ## Installation
 
-Each version of LiveCode installs can be installed to its own,
-separate folder.  This allow multiple versions of LiveCode to be
+Each version of OXT installs can be installed to its own,
+separate folder.  This allow multiple versions of OXT to be
 installed side-by-side.  On Windows (and Linux), each version of
-LiveCode has its own Start Menu (or application menu) entry. On Mac OS
+OpenXTalk has its own Start Menu (or application menu) entry. On Mac OS
 X, each version has its own app bundle.
 
-On Mac OS X, install LiveCode by mounting the `.dmg` file and dragging
+On Mac OS X, install OXT by mounting the `.dmg` file and dragging
 the app bundle to the `Applications` folder (or any other suitable
 location).
 
@@ -242,17 +242,17 @@ installing for "All Users" are:
 
 | Platform | Path |
 | -------- | ---- |
-| Windows  | `<x86 program files folder>/RunRev/LiveCode <version>` |
-| Linux    | `/opt/livecode/livecode-<version>` |
+| Windows  | `<x86 program files folder>/OpenXTalk/OpenXTalk <version>` |
+| Linux    | `/opt/openxtalk/OpenXTalk-<version>` |
 
 The installations when installing for "This User" are:
 
 | Platform | Path |
 | -------- | ---- |
-| Windows  | `<user roaming app data folder>/RunRev/Components/LiveCode <version>` |
-| Linux    | `~/.runrev/components/livecode-<version>` |
+| Windows  | `<user roaming app data folder>/OpenXTalk/Components/OpenXTalk <version>` |
+| Linux    | `~/.runrev/components/OpenXTalk-<version>` |
 
-**Note:** If installing for "All Users" on Linux, either the **gksu** tool must be available, or you must manually run the LiveCode installer executable as root (e.g. using **sudo** or **su**).
+**Note:** If installing for "All Users" on Linux, either the **gksu** tool must be available, or you must manually run the OXT installer executable as root (e.g. using **sudo** or **su**).
 
 ## Uninstallation
 
@@ -260,11 +260,9 @@ On Windows, the installer hooks into the standard Windows uninstall mechanism. T
 
 On Mac OS X, drag the app bundle to the Trash.
 
-On Linux, LiveCode can be removed using the `setup.x86` or `setup.x86_64` program located in LiveCode's installation directory.
+On Linux, OXT can be removed using the `setup.x86` or `setup.x86_64` program located in the IDE's installation directory.
 
 ## Reporting installer issues
-
-If you find that the installer fails to work for you then please report it using the [LiveCode Quality Control Centre](http://quality.livecode.com) or by emailing support@livecode.com.
 
 Please include the following information in your report:
 
@@ -278,14 +276,8 @@ The installer log file can be located as follows:
 | Platform        | Path  |
 | --------------- | ----- |
 | Windows 2000/XP | `<documents and settings folder>/<user>/Local Settings/` |
-| Windows Vista/7 | `<users folder>/<user>/AppData/Local/RunRev/Logs` |
-| Linux           | `<home>/.runrev/logs` |
-
-## Activating LiveCode Indy or Business edition
-
-The licensing system ties your product licenses to a customer account system, meaning that you no longer have to worry about finding a license key after installing a new copy of LiveCode. Instead, you simply have to enter your email address and password that has been registered with our customer account system and your license key will be retrieved automatically.
-
-Alternatively it is possible to activate the product via the use of a specially encrypted license file. These will be available for download from the customer center after logging into your account. This method will allow the product to be installed on machines that do not have access to the internet.
+| Windows Vista/7 | `<users folder>/<user>/AppData/Local/OpenXTalk/Logs` |
+| Linux           | `<home>/.openxtalk/logs` |
 
 ## Command-line installation
 
@@ -301,7 +293,7 @@ The installer understands any of the following `OPTION`s:
 
 | Option  | Description  |
 | ------- | ------------ |
-|`-allusers`          | Install the IDE for "All Users". If not specified, LiveCode will be installed for the current user only. |
+|`-allusers`          | Install the IDE for "All Users". If not specified, OXT will be installed for the current user only. |
 |`-desktopshortcut`   | Place a shortcut on the Desktop (Windows-only) |
 |`-startmenu`         | Place shortcuts in the Start Menu (Windows-only) |
 |`-location LOCATION` | The folder to install into. If not specified, the `LOCATION` defaults to those described in the "Installation" section above. |
@@ -317,19 +309,19 @@ On Windows, the command is:
 
 ## Command-line uninstallation
 
-It is possible to uninstall LiveCode from the command-line on Windows and Linux.  When doing command-line uninstallation, no GUI will be displayed.
+It is possible to uninstall OXT from the command-line on Windows and Linux.  When doing command-line uninstallation, no GUI will be displayed.
 
 Run the uninstaller using a command of the form:
 
 	<uninstaller> uninstall -ui
 
-Where <exe> is *.setup.exe* on Windows, and *.setup.x86* on Linux. This executable, for both of the platforms, is located in the folder where LiveCode is installed.
+Where <exe> is *.setup.exe* on Windows, and *.setup.x86* on Linux. This executable, for both of the platforms, is located in the folder where OXT is installed.
 
 The result of the uninstallation operation will be written to the console.
 
-**Note:** the command-line uninstaller does not do any authentication.  When removing a version of LiveCode installed for "All Users", you will need to run the uninstaller command as an administrator.
+**Note:** the command-line uninstaller does not do any authentication.  When removing a version of OXT installed for "All Users", you will need to run the uninstaller command as an administrator.
 
-## Command-line activation for LiveCode Indy or Business edition
+## Command-line activation
 
 It is possible to activate an installation of LiveCode for all users by using the command-line.  When performing command-line activation, no GUI is displayed.  Activation is controlled by passing command-line arguments to LiveCode.
 
@@ -345,7 +337,7 @@ It is also possible to deactivate LiveCode with:
 
 	<livecode> deactivate
 
-Since LiveCode is actually a GUI application, it needs to be run slightly differently from other command-line programs.
+Since OXT is actually a GUI application, it needs to be run slightly differently from other command-line programs.
 
 On Windows, the command is:
 
@@ -359,13 +351,13 @@ On Mac OS X, you need to do:
 
 
 
-# LiveCode Community engine changes
+# OXT Community engine changes
 
 ## Support for App Tracking Transparency
 
 The Standalone Builder now includes a checkbox that adds support for App Tracking Transparency.
 This is a requirement if your app collects user data that is shared among apps or websites.
-Moreover, a text field is added, where you can provide the usage description string, i.e. the dialog 
+Moreover, a text field is added, where you can provide the usage description string, i.e. the dialog
 text that will be presented to the user letting them know that their data will be shared.
 
 ## Allow background location updates
@@ -373,7 +365,7 @@ text that will be presented to the user letting them know that their data will b
 A new command `iphoneAllowBackgroundLocationUpdates` has been added, which can be used to
 allow/disallow location updates when the app is suspended. This command has an effect only
 if "Location Update" is checked in the "Background Execution" section in the iOS standalone
-settings. 
+settings.
 
 ## Specific engine bug fixes (9.6.3-rc-2)
 <table class="bugs">
@@ -425,7 +417,7 @@ settings.
 <tr><td><a href="http://quality.livecode.com/show_bug.cgi?id=23240">23240</a></td><td>Fix IDE lockup when an execution error occurs in a modal stack</td></tr>
 <tr><td><a href="http://quality.livecode.com/show_bug.cgi?id=23247">23247</a></td><td>Removed all references to HTML5 from the post entry.</td></tr>
 </table>
-# LiveCode Community IDE changes
+# Community IDE changes
 
 ## Specific IDE bug fixes (9.6.3)
 <table class="currentbugs">
@@ -440,7 +432,7 @@ settings.
 <tr><td><a href="http://quality.livecode.com/show_bug.cgi?id=23219">23219</a></td><td>Extensionbuilder: enable display of defaultScript and userguide</td></tr>
 <tr><td><a href="http://quality.livecode.com/show_bug.cgi?id=23221">23221</a></td><td>Enable show names in svgIconPicker when used in Properties Inspector</td></tr>
 </table>
-# LiveCode Community extension changes
+# Community extension changes
 
 ## Specific extension bug fixes (9.6.3-rc-1)
 <table class="bugs">
@@ -449,26 +441,7 @@ settings.
 <tr><td><a href="http://quality.livecode.com/show_bug.cgi?id=23061">23061</a></td><td>Show name of chosen icon when opening the icon picker</td></tr>
 <tr><td><a href="http://quality.livecode.com/show_bug.cgi?id=23223">23223</a></td><td>Add name of SVG Icon to Properties Inspector</td></tr>
 </table>
-# LiveCode Indy engine changes
 
-## Specific engine bug fixes (9.6.3-rc-1)
-<table class="bugs">
-<tr><td><a href="http://quality.livecode.com/show_bug.cgi?id=22714">22714</a></td><td>Include dual and triple camera capture devices when listing `videoDevices` on iOS</td></tr>
-</table>
-# LiveCode Indy extension changes
-
-## Specific extension bug fixes (9.6.3-rc-1)
-<table class="bugs">
-<tr><td><a href="http://quality.livecode.com/show_bug.cgi?id=22749">22749</a></td><td>Ensure the correct supported platforms are listed for the Map widget in the Inclusions pane</td></tr>
-</table>
-# LiveCode Business extension changes
-
-## Specific extension bug fixes (9.6.3-rc-1)
-<table class="bugs">
-<tr><td><a href="http://quality.livecode.com/show_bug.cgi?id=22941">22941</a></td><td>Fix error when clicking on a PDF widget with empty fileName or fileData</td></tr>
-<tr><td><a href="http://quality.livecode.com/show_bug.cgi?id=23069">23069</a></td><td>Fix Android PDFium library build issue causing widget not to function</td></tr>
-<tr><td><a href="http://quality.livecode.com/show_bug.cgi?id=23070">23070</a></td><td>Fix crash on iOS initializing the PDF widget</td></tr>
-</table>
 # Dictionary additions
 * **iphoneAllowBackgroundLocationUpdates** (*command*) has been added to the dictionary.
 * **iphoneDeviceModel** (*function*) has been added to the dictionary.

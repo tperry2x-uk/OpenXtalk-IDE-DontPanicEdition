@@ -34,7 +34,7 @@ name starting with a digit.  For example, a module derived from the
 `999.example.org` domain could be `org.example._999`.
 
 You must only use module names corresponding to domain names that you control
-or are allowed to use.  This restriction is enforced by the 
+or are allowed to use.  This restriction is enforced by the
 extension store.
 
 If you don't have a domain name of your own, you may use module names
@@ -133,7 +133,7 @@ top-level documentation block for the widget.  For example:
     -- ..
     end widget
 
-Please refer to the [Extending LiveCode](Extending LiveCode.md) guide for full
+Please refer to the [Extending](Extending.md) guide for full
 details of the syntax of in-line documentation comments, including examples.
 
 ## Named constants

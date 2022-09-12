@@ -1,47 +1,47 @@
 ---
 group: introduction
 ---
-# xTalk Script
+# XTalk Script
 
 ## Introduction
 
-Before getting started with LiveCode, there are a number of things you
-may want to know. This guide introduces LiveCode, tells you where to
-begin, how to install, register and how to use the documentation.
+Before getting started, there are a number of things you
+may want to know. This guide introduces xTalk concepts, tells you where to
+begin, how to install, and how to use the documentation.
 
 ## Welcome
 
-xTalk makes it easy to turn your concepts, ideas or designs into
+XTalk languages make it easy to turn your concepts, ideas or designs into
 powerful applications. You can create desktop, Internet, database and
-network applications. LiveCode includes a complete graphical user
-interface builder, as well as the tools you need to produce faceless or
+network applications. The Development environment includes a complete graphical user
+interface builder toolkit, as well as the tools you need to produce faceless or
 background applications.
 
-xTalk is easy to learn. If you are a complete beginner to the world
+XTalk languages are easy to learn. If you are a complete beginner to the world
 of programming, you will find you can become productive quickly. If you
 are an experienced programmer, you will find the environment extremely
 powerful and one of the most productive you have used.
 
-xTalk programming languages are object-based. This makes it easy to
+XTalk programming languages are object-based. This makes it easy to
 write modules of code that are attached directly to individual objects.
-Unlike other languages, xTalks lets you both run and edit an
-application live. Traditionally the run, edit, compile and debug cycle
-in programming takes up a lot of time. In xTalks all of these
+Unlike other languages, xTalk development environments lets you both run and
+edit an application live. Traditionally the run, edit, compile and debug cycle
+in programming takes up a lot of time. In xTalk environments all of these
 activities can take place together.
 
 If you’re coming from another language, you’ll appreciate that the
-xTalk language is typeless, with data automatically stored in the
+language is typeless, with data automatically stored in the
 most efficient format and converted, so you don’t have to learn how to
 deal with different types of data. Memory management is fully automatic.
-xTalk applications are not interpreted in the traditional sense, so
-they provide excellent performance. A LiveCode graphical application
+Applications are not interpreted in the traditional sense, so
+they provide excellent performance. A graphical application
 will often feel more responsive to use than a Java application, and take
 less time to write.
 
-A xTalk application is completely cross-platform. That means you can
+Applications are completely cross-platform. That means you can
 run any application you create on all major modern operating systems,
 including Windows, Linux, Unix and Mac OS. Unlike most other
-cross-platform frameworks, a LiveCode application will always look and
+cross-platform frameworks, an application should always look and
 feel native on each platform that you deliver it on. You can take
 advantage of many platform specific features on each platform.
 
@@ -51,10 +51,9 @@ time and effort of learning thousands of platform-specific interface
 calls.
 
 The goal of this manual is to provide the most accessible, comprehensive
-and useful guide to xTalk possible. We aim to provide a level of
+and useful guide as possible. We aim to provide a level of
 depth that covers the advanced feature set, while remaining accessible
-to beginners. We hope you find this material useful and enjoy using
-LiveCode.
+to beginners. We hope you find this material useful.
 
 ## Where to Begin
 
@@ -66,13 +65,13 @@ for performing common tasks.
 ## System Requirements
 
 Memory and disk requirements below are for the *development
-environment*, not for applications created by LiveCode. Applications
-created with LiveCode will require sufficient free system resources to
-load, display, process and interact with the content of the application.
-Because this will vary considerably depending on the application
-created, it is not possible to publish a list of requirements for
-applications built with LiveCode. You will need to test your application
-to determine the minimum requirements. Many LiveCode applications will
+environment*, not for applications created by it. Applications
+created with the Standalone Builder will require sufficient free system
+resources to load, display, process and interact with the content of
+the application. Because this will vary considerably depending on the
+application created, it is not possible to publish a list of requirements for
+applications you build with it. You will need to test your application
+to determine the minimum requirements. Many applications will
 run on a moderately powerful computer and require substantially fewer
 resources than those listed for the development environment, others will
 require more.
@@ -91,7 +90,7 @@ To use the IDE you will need:
 
 ### Requirements for Windows Systems
 
-The IDE supports the following versions of Windows:
+The following versions of Windows are supported:
 
 -   Windows 2000 SP4
 
@@ -126,7 +125,7 @@ PNGs)
 - esd (optional - required for audio playback)
 
 Although impossible to test every existing Linux distribution, we are
-aiming to ensure that  runs on as wide a variety of systems as
+aiming to ensure that the IDE runs on as wide a variety of systems as
 possible. To achieve this, the engine has been implemented to have
 minimal direct dependencies on system software, and will gracefully
 degrade in feature set if it cannot find the libraries it needs.
@@ -138,15 +137,13 @@ turned on).
 
 ### Requirements for Mac OS X Systems
 
-Support for the following versions of Mac OS X:
+The following versions of Mac OS X:
 
-- 10.6.x (Snow Leopard)
-- 10.7.x (Lion)
-- 10.8.x (Mountain Lion)
-- 10.9.x (Mavericks)
-- 10.10.x (Yosemite)
-- 10.11.x (El Capitan)
+- 10.9.x (Mavericks) through 11.x (Big Sur)
 
+- On Apple Silicon (M1, M2Pro, etc.) only Reossetta 2 Intel translation
+mode is currently supported. If you need native Apple Silcon support we recommend
+purchasing [LiveCode](livecode.com)
 ## Using the Documentation
 
 ### Documentation Conventions
@@ -196,7 +193,7 @@ Figure 2– Cross-platform Keyboard Shortcuts
 #### Screen Snapshots
 
 Screenshots are used extensively throughout the documentation. Please
-remember that the IDE is cross-platform. While many of
+remember that this is a cross-platform application. While many of
 the snapshots are taken on the Windows platform, most of the feature set
 will work on Linux, Unix and Mac OS. Snapshots of these platforms are
 used from time to time and are also used to illustrate platform specific
@@ -222,21 +219,20 @@ features.
 The documentation is spread across four areas; the Start
 Center, the Dictionary (API), the Guides and other resources.
 
-The Start Center is aimed at introducing you to xTalk, and should be
-your first port of call if you have not used xTalk before. The
-dictionary, or API, is a reference resource which you can refer to while
-implementing your projects. Guides are online resources at livecode.com.
+The Start Center is aimed at introducing you to the environment, and should be
+your first port of call if you are a new user. The dictionary, or API,
+is a reference resource which you can refer to while
+implementing your projects.
 Other resources include Sample Stacks, a free, online repository of
 user-contributed stacks, User forums, and the resources page at
 livecode.com/resources/.
 
 You can access the documentation from within the IDE from the **Help**
-menu. Additional resources are available at
-[www.livecode.com](http://www.livecode.com).
+menu.
 
 ### Start Center
 
-The purpose of the Start Center is to introduce you to the IDE and
+The purpose of the Start Center is to introduce you to xTalk and
 provide you with enough knowledge to start implementing your own
 projects. It can be accessed by choosing **Help -\> Start Center**.
 
@@ -249,7 +245,7 @@ Welcome button in the Start Center.
 ![](images/startCenter_firstrun.png)
 
 The Start Center itself is split across three sections&mdash;quick links
-to the LiveCode pages on various social media sites; a collection
+to the pages on various social media sites; a collection
 of quick link buttons, which take you to various helps and guides; and
 a list of your most recently opened stacks.
 
@@ -257,9 +253,9 @@ a list of your most recently opened stacks.
 
 #### Social Media Links
 
-The are related pages on popular social media sites, such as Facebook,
+Mintains pages on popular social media sites, such as Facebook,
 YouTube, LinkedIn and Stack Overflow. These can help you keep up to date
-on xTalk announcements, professional networking, and help and
+on product announcements, professional networking, and help and
 training resources.
 
 #### Recent Stacks
@@ -270,7 +266,7 @@ stack to open it and close the Start Center window.
 #### Quick Links
 
 The quick link buttons let you quickly access tutorials, sample projects,
-guides, LiveCode blog posts, and online user forums. Here is an overview
+guides, blog posts, and online user forums. Here is an overview
 of these links:
 
 ##### Interactive Welcome
@@ -287,7 +283,7 @@ or type the new stack will be created and the Start Center menu will close.
 ##### Sample Projects
 
 The Sample Projects button opens an online repository of sample stacks
-submitted by xTalk developers. The repository contains dozens of
+submitted by developers. The repository contains dozens of
 stacks that you can download for free and use as you wish.
 
 ##### Tutorials
@@ -306,39 +302,33 @@ guides, which describe in detail how to develop and deploy apps.
 
 ##### Forums
 
-xTalks have a very active and friendly user community. We encourage all
+xTalk has always had a very active and friendly user community. We encourage all
 new users to sign up to our mailing list and user forums as they are a
 great way to get technical help, meet new people and keep up-to-date
-with what is going on in the world of LiveCode. The “User Forums”
+with what is going on in the world of xTalk. The “User Forums”
 section provides a link to our forum registration page as well as a list
 of links to the most recent posts which have been made.
 
 ##### Blog
 
-This button takes you to LiveCode's online blog, where LiveCode engineers
+This button takes you to LiveCode's online blog, where engineers
 and developers regularly post updates about what's new,
-how-to tutorials, and announcements of interest to the xTalk
+how-to tutorials, and announcements of interest to the
 developer community.
-
-##### Account
-
-Click this button to log in to your LiveCode online store account.
-There you can see your purchases, as well as look for useful add-ons
-to make the IDE an even more powerful development tool.
 
 ### Dictionary
 
-The Dictionary contains detailed reference materials for developing applications. It is divided into two main sections&mdash;the API reference and the Guides. It can be accessed by choosing **Dictionary (API)** from the **Help** menu, or by clicking the Dictionary icon on the IDE Toolbar.
+The Dictionary contains detailed reference materials for developing applications. It is divided into two main sections&mdash;the API reference and the Guides. It can be accessed by choosing **Dictionary (API)** from the **Help** menu, or by clicking the Dictionary icon on the Toolbar.
 
 ![](images/toolbar-dict.png)
 
 #### APIs
 
-The Application Programming Interface, or API, reference contains the complete syntax for all components, including Script, Builder, and all installed widgets and libraries. If you are new you will likely spend most of your time in xTalk Script, the scripting language used in developing xTalk applications. The examples that follow will be taken from the Script API, but the API documentation for all components uses the same format and layout.
+The Application Programming Interface, or API, reference contains the complete syntax for all components, including xTalk Script, the Builder language, and all installed widgets and libraries. If you are new you will likely spend most of your time in Script section, the main language used in developing applications. The examples that follow will be taken from the Script API, but the API documentation for all components uses the same format and layout.
 
 ![](images/image4.png)
 
-To search one of the API lists, click on the API tab at top left, then choose the API you want to search from the option list. For example, to search for a xTalk Script term, choose Script.
+To search one of the API lists, click on the API tab at top left, then choose the API you want to search from the option list. For example, to search for a Script term, choose Script.
 
 **Searching.** If you know what term you want to look up, or if you have a good idea of what it might be, just start typing it into the search box, and a list of terms that match your search term will appear in the entries list.
 
@@ -356,7 +346,7 @@ Note that the entries list displays only the entry name, token type, and syntax 
 
 #### User Guides
 
-The User Guides are a complete reference. They detail what the dialogs and windows within the development environment do, and explain the xTalk language in depth. To open a guide, click on the Guide tab in the Dictionary and choose the desired guide from the list.
+The User Guides are a complete reference. They detail what the dialogs and windows within the development environment do, and explain the xTalk Script language in depth. To open a guide, click on the Guide tab in the Dictionary and choose the desired guide from the list.
 
 ![](images/guides.png)
 
@@ -374,7 +364,7 @@ categories to aid you in finding the kind of content you wish to
 download. You will find three main types of content in RevOnline, stacks
 (programs), externals and code snippets. Externals are
 libraries that can extend the functionality of the xTalk language
-using a lower level language. A code snippet is a portion of
+using a lower level language. A code snippet is a portion of xTalk
 script that you can paste into and incorporate into your own projects.
 
 The results of searching or browsing through the RevOnline content are
@@ -540,7 +530,7 @@ When uploading a code snippet or external RevOnline will place the code
 or file into an installer stack. The installer stacks give you the
 option to “install” or “try” an external file or “copy to clipboard” a
 code snippet. When using the try option with an external the file will
-be removed from your installation when you next exit the IDE.
+be removed from your installation when you next exit.
 
 Once you have pressed ok you will be presented with the edit mode view
 for the file you are uploading. Here you can enter a name description
@@ -614,32 +604,24 @@ answer questions and help their fellow developers. You'll find example
 code, information on planned enhancements, and the latest updates.
 Visit:
 
-http://www.livecode.com
+https://forums.openxtalk.org
 
 ### Developer Community
 
 There are a number of ways to engage with the xTalk community:
 
-* The [forums](http://forums.openxtalk.org/) (section 1.6.3 above), are
+* The [forums](https://forums.openxtalk.org/) (section 1.6.3 above), are
 available for getting help from other developers, for discussing feature
-requests and future directions, and for receiving announcements from
-LiveCode.
+requests and future directions, and for receiving announcements.
 
 * Ask a question on
-[stackoverflow](http://stackoverflow.com/questions/tagged/livecode).
+[stackoverflow](http://stackoverflow.com/questions/tagged/xtalk).
 
-* Talk about OpenXTalk on [the OpenXTalk
+* Talk about xTalk on [the OpenXTalk
 subreddit](https://www.reddit.com/r/openxtalk).
 
-* Talk about LiveCode on [the LiveCode
-subreddit](https://www.reddit.com/r/livecode).
+* Join the [OpenXTalk user group](https://nb-no.facebook.com/groups/23141438067/) on Facebook.
 
-* Join the [OpenXTalk user
-group](https://www.facebook.com/groups/livecodeusers) on Facebook.
-
-* Use the [LiveCode mailing
-list](http://lists.runrev.com/mailman/listinfo/use-livecode) is also
-available.
 
 > **Tip:** Tip: You can use the Google search engine to search the list
 > archives, using [this
@@ -647,24 +629,13 @@ link](http://www.google.com/advanced_search?q=site:lists.runrev.com)
 
 ### Technical Support
 
-LiveCode offers *up and running* technical support to all users to
-assist you in getting the development environment working on your
-system.
-
-Many editions include additional technical support for more *advanced*
-problems and questions. Where support is not included, a separate
-technical support contract for advanced support can be purchased.
-
-Contact us [here](https://livecode.com/about/contact/) or at
-<support@livecode.com>.
-
 ## Getting Started
 
-Creating a simple *graphical application* in LiveCode can take just
+Creating a simple *graphical application* in can take just
 minutes. First you create a user interface, including any windows,
 palettes, dialogs you require. Then you populate the user interface with
 controls, like push buttons, check boxes, text fields or menus. Finally,
-you use LiveCode’s English-like programming language to tell your
+you use xTalk’s English-like programming language to tell your
 application how to behave.
 
 ### Prerequisites
@@ -674,19 +645,19 @@ computer. You should also be familiar with common applications such as a
 web browser, word processor and email client. If you are using Linux or
 Unix, you should be familiar with basic use of the command line. If you
 are not familiar with using a computer, we recommend you spend some time
-getting acquainted before trying to learn LiveCode.
+getting acquainted before trying to learn xTalk.
 
 ### Event Driven Programming
 
-A LiveCode application is driven by user actions. LiveCode constantly
+A xTalk applications are driven by user actions. The Engine constantly
 watches the computer for common actions, such as clicking on a button,
 typing into a field, sending data across a network, or quitting an
 application.
 
-Whenever an event occurs, LiveCode sends a message. When writing your
+Whenever an event occurs, the Engine sends a message. When writing your
 program, you decide what messages you want your program to respond to.
-LiveCode automatically sends each message to the most relevant object.
-For example, if a user clicks on a button, LiveCode sends a message to
+xTalk automatically sends each message to the most relevant object.
+For example, if a user clicks on a button, The Engine sends a message to
 the button. You place code within the button that tells it how to
 respond to being clicked on.
 
@@ -707,21 +678,21 @@ are not processed by an object are described in the section *The Message
 Hierarchy*.
 
 We’ll return to Event Driven Programming in more detail in the section
-*Coding in LiveCode*.
+*Coding*.
 
 ### Object-Based Programming
 
-Any *graphical application* you build using LiveCode will be based on
-objects. With LiveCode you typically create the objects of your
+Any *graphical application* you build will be based on objects.
+With xTalks you typically create the objects of your
 application before writing any code. You can start by drawing the
 buttons, text fields, and other controls that make up your application.
-LiveCode operates like other layout, drawing or application development
+OpenXTalk try's to operate like other layout, drawing or application development
 environment. You can select controls by clicking them, move them by
 dragging them around, resize them, and change their ‘layer’ to move them
 closer or further from the ‘top’ of the interface.
 
 Once you have the objects in place, you can proceed to attach code to
-each object to respond to the events you want. LiveCode includes a
+each object to respond to the events you want. The IDE includes a
 complete graphical development environment that makes it easy to create
 and edit any kind of user interface. It includes objects for all the
 basic operating system elements, including buttons, checkboxes, text
@@ -732,7 +703,7 @@ If you are writing a non-graphical application, you can choose to create
 objects to assist in organizing your code into sections and load these
 objects off screen, or you can simply write your code in a text file and
 run the text file directly. This method is commonly used to communicate
-with Apache and other web browsers when using LiveCode to build
+with Apache and other web browsers when using OXT to build
 server-side or network applications.
 
 Object-Based programming is covered in more detail in the section
@@ -747,11 +718,11 @@ more detail in the section *Building a Web Application*.
 In order to **edit**, choose the pointer tool from the *top right* of
 the tools palette.
 
-Unlike most other development systems, a LiveCode application can be
+Unlike most other development systems, an application can be
 created, edited, debugged and run live.
 
-When in run mode, objects receive all the normal messages that drive a
-LiveCode application. For example, clicking on a button in run mode will
+When in run mode, objects receive all the normal messages that drive an
+application. For example, clicking on a button in run mode will
 cause a **mouseUp** message to be sent to it, causing the button's
 script to run if you've designed it to respond to the **mouseUp**
 message.
@@ -768,7 +739,7 @@ edit properties and code in either mode. Your application does not stop
 running while you make changes to it. Only mouse interaction with
 objects is suspended in edit mode to allow you to edit them more easily.
 
-Because LiveCode is constantly live, you can easily make simple changes
+Because xTalk is constantly live, you can easily make simple changes
 and watch each change take effect as you make it. This allows you to
 design and experiment using an iterative process, resulting in a more
 productive and satisfying development experience.
@@ -777,15 +748,15 @@ productive and satisfying development experience.
 
 ### Cards, Stacks & Files
 
-The first step in creating a LiveCode application is creating a window,
-which in LiveCode is called a stack. Each window you see in LiveCode is
+The first step in creating an application is creating a window,
+which in xTalk is called a stack. Each window you see is
 a stack. Palettes, dialog boxes, and standard windows are all stacks.
 
 Each stack contains one or more sets of information called cards. Each
 card can have a different appearance or all the cards in a stack can
 look the same. By going from card to card in a stack, you change what's
-being displayed in that stack's window. You can think of a LiveCode
-stack as a stack of playing cards (hence the name), where you can flip
+being displayed in that stack's window. You can think of stack as a
+stack of playing cards (hence the name), where you can flip
 through the cards, but only one card at a time is visible. A stack can
 have a single card or many cards. See Figure 3 – Stack file Structure,
 below.
@@ -806,7 +777,7 @@ stack and will be loaded automatically when your application is run.
 
 ### The Structure of a Stack File
 
-Each LiveCode file contains one or more stacks: either a single main
+Each stack file contains one or more stacks: either a single main
 stack, or a main stack and one or more substacks. Since each stack is a
 window (including editable windows, modeless and modal dialog boxes, and
 palettes), a single stack file can contain multiple windows.
@@ -825,7 +796,7 @@ Figure 3 – Stack File Structure
 When you open a stack file, either by using the "Open Stack" menu item
 in the File menu or by using one of the navigation commands (see **open,
 go**, **modal**, **modeless**, **palette**, or **topLevel** in the
-*LiveCode Dictionary*), the stack file's main stack opens automatically
+*Dictionary*), the stack file's main stack opens automatically
 to its first card.
 
 > **Important:** A stack file is saved as a whole. If you save a stack,
@@ -847,7 +818,7 @@ properties and shared behaviors), the mainstack *contains* its
 substacks. Events that are not handled by a substack are passed on to
 the mainstack's script, color and font properties are inherited from the
 mainstack by its substacks. For more details on the object hierarchy and
-inheritance in LiveCode in general, see the section on *The Message
+inheritance in xTalk in general, see the section on *The Message
 Path*.
 
 Dialog boxes and palettes are commonly stored as substacks of the main
@@ -885,14 +856,14 @@ closed but not unloaded when its window is closed.
 
 > **Tip:** To manipulate a stack window in an external, use the
 > **windowID** property. For more information, see the
-*LiveCode Dictionary*.
+*Dictionary*.
 
 ### Media & Resources
 
 When planning a project, it is important to consider what types of media
 you will need to access and how to structure access to that media.
 
-LiveCode supports a wide range of media formats. Media can be accessed
+xTalk supports a wide range of media formats. Media can be accessed
 using the built-in media support, through QuickTime on older Mac OS X
 systems or via an external library. The advantage of using the built-in
 support is that you can consistently display or play back the media on
@@ -988,11 +959,11 @@ Moreover, stacks must be loaded into memory to be searched, and
 therefore the whole collection of data must fit into local memory.
 
 Finally, if you use an external database, you can put the heavy-duty
-processing on a server designed for the purpose, while using LiveCode's
+processing on a server designed for the purpose, while using xTalk's
 flexibility to give the user options for selecting data, then presenting
 it in a usable form.
 
-With LiveCode’s built in *Database Library*, your application can
+With the IDE’s built in *Database Library*, your application can
 communicate with external SQL databases. You can get data from
 single-user and multi-user databases, update data in them, get
 information about the database structure, and display data from the
@@ -1001,18 +972,18 @@ database in your stack.
 For more details on working with databases, see the
 *Working with Databases* guide.
 
-### LiveCode Memory Limits
+### Memory Limits
 
-The following table details the memory limits for different types of
-LiveCode components. Please note that these limits refer to the maximums
+The following table details the memory limits for different types of components.
+Please note that these limits refer to the maximums
 that may be in use at any one time. You can store additional information
 on disk or in a database and load it when it is required.
 
 #### A note about entries designated as "Unlimited":
 
-Since each open stack file resides completely in memory, LiveCode stacks
+Since each open stack file resides completely in memory, stacks
 (and all structures within a stack) are effectively limited by available
-memory and by LiveCode's total address space of 4G (4,294,967,296 bytes)
+memory and by the total address space of 4G (4,294,967,296 bytes)
 on 32-bit systems
 
 | &nbsp;| &nbsp;|
@@ -1039,8 +1010,8 @@ on 32-bit systems
 The user interface for your application is often one of its most
 important features. Building a clear, logical and aesthetically pleasing
 user interface will make all the difference to the success of your
-application. This chapter discusses how to build a user interface using
-LiveCode. It tells you how to create and lay out controls, which objects
+application. This chapter discusses how to build a user interface.
+It tells you how to create and lay out controls, which objects
 to use and even how to build your own custom objects. We then touch
 briefly on some tips for good user interface design.
 
@@ -1057,11 +1028,11 @@ Figure 13 - The Main Tools Palette
 
 | &nbsp;| &nbsp;|
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Run mode**          | Click to enter run mode. When in run mode, objects receive all the normal messages that drive a LiveCode application. For example, clicking on a button in run mode will cause a **mouseUp** message to be sent to it and the script will run.                                                                                                                                                                                                                             |
+| **Run mode**          | Click to enter run mode. When in run mode, objects receive all the normal messages that drive an application. For example, clicking on a button in run mode will cause a **mouseUp** message to be sent to it and the script will run.                                                                                                                                                                                                                             |
 | **Edit mode**         | Click to enter edit mode. When in edit mode, objects do not receive messages when you click on them, and you can move, resize or edit the properties for objects. For more details about the run and Edit mode, see the section *The ‘Edit’ and ‘Run’ Mode*.                                                                                                                                                                                                               |                                                                                       
 | **Widget objects**<br>**Button objects**<br>**Field objects**<br>**Scrollbar objects**<br>**Image & Player**<br>    | Drag any object within these areas onto an editable stack to create a new object. Double-click an object to create a object of that type in the center of the front most editable stack. For more details on all of these objects, see the section about each object type later in this chapter.																		     |
 | **Vector Graphics**   | Press the grey triangle at the bottom right of the Image & Player area to hide and show this section. Click to choose the type of new graphic you want to create. Use the fill bucket to choose the fill color, the fill pencil to choose the line color, the line thickness menu to choose the line thickness, and the optional shape menu to choose preferences specific to the type of graphic selected. Click and drag in an editable stack to create the new graphic. |
-| **Bitmap graphics** | The paint tools allow you to edit bitmap graphics that have been imported into LiveCode or create your own. To use them, create an image object and paint within that area, or modify an existing image. You cannot use the paint tools to edit an image that has its filename property set, as that image data is stored outside LiveCode. For more details on working with images, see the section on *Images* later in this chapter and the chapter on *Working with Media*. |
+| **Bitmap graphics** | The paint tools allow you to edit bitmap graphics that have been imported or create your own. To use them, create an image object and paint within that area, or modify an existing image. You cannot use the paint tools to edit an image that has its filename property set, as that image data is stored outside of the IDE. For more details on working with images, see the section on *Images* later in this chapter and the chapter on *Working with Media*. |
 
 > **Tip:** You can also create objects using the **New Control**
 > sub-menu in the Object menu, or by typing **create [object type]** in
@@ -1081,9 +1052,9 @@ Figure 14 – Size & Position Inspector
 
 | &nbsp;| &nbsp;|
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Lock size and position**    | Locks the object so that its size and position cannot be adjusted interactively with the mouse when in edit mode. This also prevents images, groups and players from automatically resizing to display their entire content whenever the card that they are on is reopened. For more details see the entry for *lockLocation* in the LiveCode Dictionary.                                                                                                                                                                                                                                                                |
-| **Width & Height**            | Allows you to set the width and height of the object(s) currently being operated on by the Property Inspector. Objects are resized from their center. For more details, see the *width* and *height* properties in the LiveCode Dictionary.                                                                                                                                                                                                                                                                                                                                                                              |
-| **Fit Content**               | Automatically sizes the object large enough to display its content. In the case of buttons, the content is the text and any icon. For images, this is the native width and height of the original image before any scaling. For more details, see the entry for *formattedWidth* and *formattedHeight* in the LiveCode Dictionary.                                                                                                                                                                                                                                                                                       |
+| **Lock size and position**    | Locks the object so that its size and position cannot be adjusted interactively with the mouse when in edit mode. This also prevents images, groups and players from automatically resizing to display their entire content whenever the card that they are on is reopened. For more details see the entry for *lockLocation* in the Dictionary.                                                                                                                                                                                                                                                                |
+| **Width & Height**            | Allows you to set the width and height of the object(s) currently being operated on by the Property Inspector. Objects are resized from their center. For more details, see the *width* and *height* properties in the Dictionary.                                                                                                                                                                                                                                                                                                                                                                              |
+| **Fit Content**               | Automatically sizes the object large enough to display its content. In the case of buttons, the content is the text and any icon. For images, this is the native width and height of the original image before any scaling. For more details, see the entry for *formattedWidth* and *formattedHeight* in the  Dictionary.                                                                                                                                                                                                                                                                                       |
 | **Location**                  | Sets the objects position (the center of the object) relative to the top left of the card.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | **Left, Top, Right & Bottom** | Sets the position of one of the object’s edges.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | **Layer**                     | Sets the layer of the object. The buttons with arrows allow you to send an object to the back, move an object back one layer, bring an object forward one layer and bring an object to the front. Layer determines which objects are displayed in front or behind others, as well as the object’s number and tabbing order. Note that you cannot relayer objects that are grouped unless you are in edit background mode, or have the *relayerGroupedControls* set to true. For more details, see the section on *Group & Backgrounds*. For more details on tabbing order see the section on *The Keyboard Focus* below. |
@@ -1124,7 +1095,7 @@ objects on Windows and Linux, and many objects on Mac OS.
 
 The order in which the user moves through controls that can receive the
 keyboard focus is determined by the object’s layer. When a card is
-opened, LiveCode automatically focuses the first object on the card that
+opened, the engine automatically focuses the first object on the card that
 is capable of receiving the keyboard focus.
 
 You can turn on the ability of an object to get the keyboard focus by
@@ -1140,7 +1111,7 @@ Inspector, or setting its *showFocusBorder* property by script.
 
 #### Stacks – for displaying windows, palettes and dialog boxes
 
-In LiveCode, each window is a stack. This includes editable windows,
+In xTalk ach window is a stack. This includes editable windows,
 modeless and modal dialog boxes, and palettes, as well as sub-windows
 available on some operating systems, such as sheets and drawers.
 
@@ -1148,14 +1119,14 @@ available on some operating systems, such as sheets and drawers.
 > position automatically when you resize the stack, see the section on
 > the *Geometry Manager*.
 
-This topic discusses the way windows are implemented in LiveCode
-applications; how to change window appearance; and how to control the
+This topic discusses the way windows are implemented in applications;
+how to change window appearance; and how to control the
 behavior of the various window types. This topic does not cover the
 organization of stacks within a stack file, which is covered in detail
 in the section *Structuring Your Application*.
 
 > **Caution:** Do not start your stack name with "rev". Stacks with
-> names starting with "rev" are reserved by the LiveCode development
+> names starting with "rev" are reserved by the development
 > environment.
 
 You create a new stack – which can then be displayed in any number of
@@ -1177,7 +1148,7 @@ property to determine the type of window it is displayed in.
 
 #### The Standard Window Types
 
-LiveCode windows are usually one of four types: editable or **topLevel**
+xTalk windows are usually one of four types: editable or **topLevel**
 windows, **modal** or **modeless** dialog boxes, or **palette** windows.
 
 > **Important:** You will normally create a new stack and edit it while
@@ -1190,11 +1161,10 @@ windows, **modal** or **modeless** dialog boxes, or **palette** windows.
 You can test out these commands as you work on your window layout and
 scripts, using the *Message Box* (see section of the same name), or
 using the *window context menu* (see *Modal Dialog Boxes*, below). For
-more details on wr`it`ing scripts in general, see the section on *Coding
-in LiveCode*.
+more details on wr`it`ing scripts in general, see the section on *Coding*.
 
 Most windows are editable or **topLevel** windows, and this is the
-default mode for LiveCode stacks. If you open a stack using the **go**
+default mode for stacks. If you open a stack using the **go**
 command (without specifying a mode), or using the Open Stack menu item,
 then the stack is displayed as an editable window unless its **style**
 property specifies another window type.
@@ -1203,7 +1173,7 @@ property specifies another window type.
 
 An editable window has the appearance and behavior of a standard
 document window. It can be interleaved with other windows, and you can
-use any of LiveCode's tools to create, select, move, or delete objects
+use any of the IDE's tools to create, select, move, or delete objects
 in the stack.
 
 | &nbsp;| &nbsp;| &nbsp;|
@@ -1357,14 +1327,14 @@ information | error warning.
 
 To change the miniature application icon shown in the Mac OS X platform
 picture above, see the entry for gREVAppIcon in the
-*LiveCode Dictionary*.
+*Dictionary*.
 
 The result is returned in the *special variable* it.
 
 	if it is "Joe" then doSomeThing
 
 For complete details on the syntax, see the ask command in the
-*LiveCode Dictionary*.
+*Dictionary*.
 
 ![](images/image62.png)
 
@@ -1405,11 +1375,11 @@ The result is returned in the *special variable* it.
 	end if
 
 For complete details on the syntax, see the answer command in the
-*LiveCode Dictionary.*
+*Dictionary.*
 
 The answer dialog is implemented internally as a stack attached to the
-LiveCode IDE. For details on customizing the IDE, see the section on
-*Editing the LiveCode User Interface*.
+IDE. For details on customizing the IDE, see the section on
+*Editing the User Interface*.
 
 > **Tip:** If you're not sure what a stack's name is, you can use the
 > **mouseStack** function to find out. Enter the following in the
@@ -1447,7 +1417,7 @@ variable **it** will be empty and "cancel" will be returned by
 *the result* function.
 
 For complete details on the syntax, see the **answer file with type**
-command in the *LiveCode Dictionary.*
+command in the *Dictionary.*
 
 ![](images/image65.png)
 
@@ -1462,7 +1432,7 @@ variable **it**. If the user cancelled the dialog, the it variable will
 be empty and cancel will be returned by *the result* function.
 
 For complete details on the syntax, see the ask file with type in the
-*LiveCode Dictionary.*
+*Dictionary.*
 
 ![](images/image66.png)
 
@@ -1478,7 +1448,7 @@ variable will be empty and "cancel" information will be returned by
 *the result* function.
 
 For complete details on the syntax, see answer folder in the
-*LiveCode Dictionary*.
+*Dictionary*.
 
 #### Color Chooser Dialog
 
@@ -1496,7 +1466,7 @@ user cancelled the dialog, it will be empty and "cancel" will be
 returned by *the result* function.
 
 For complete details on the syntax, see answer color in the
-*LiveCode Dictionary.*
+*Dictionary.*
 
 #### Printer Dialogs
 
@@ -1546,7 +1516,7 @@ Figure 30 – System Window floating above other applications
 
 To display a stack in a system palette, you turn on the check box in the
 Stack Inspector "Float Above Everything". For more details on this
-feature, see the entry for systemWindow in the *LiveCode Dictionary*.
+feature, see the entry for systemWindow in the *Dictionary*.
 
 Using this feature overrides the stack's **style** or **mode**.
 
@@ -1554,7 +1524,7 @@ The system palette style is currently not supported on Linux & Unix.
 
 #### Stack menus – for displaying non-standard menus
 
-> **Note:** Usually a menu in a LiveCode application is implemented as a
+> **Note:** Usually a menu in an application is implemented as a
 > button. We recommend that menus are implemented using buttons, as
 > these will automatically be drawn with the native theme on each
 > platform. For more details, see the section on Menus below
@@ -1592,7 +1562,7 @@ Figure 31 – Window Decorations on Windows and Mac OS X
 > property to false to create a window with no shadow.
 
 The properties above can also be set by script, for more details see the
-**decorations** property in the *LiveCode Dictionary*.
+**decorations** property in the *Dictionary*.
 
 While the stack's mode is separate from its **decorations**, the mode
 may affect whether these properties have an effect. If the
@@ -1619,7 +1589,7 @@ choices. Radio buttons are used when only one option for a set of
 options may be selected at any time. Check boxes are used where some
 options may be turned on and others may be off.
 
-> **Note:** LiveCode will automatically enforce the rule of highlighting
+> **Note:** The IDE will automatically enforce the rule of highlighting
 > one radio button at a time if you place the radio buttons together in
 > a group. For more details on groups, see the section on
 > *Groups and Backgrounds*.
@@ -1632,7 +1602,7 @@ options may be turned on and others may be off.
 
 Figure 33 – Check Boxes and Radio Buttons on Multiple Platforms
 
-All button objects in LiveCode are highly flexible and customizable.
+All button objects in xTalk are highly flexible and customizable.
 Common settings include the ability to show and hide the border or fill,
 and to display an icon.
 
@@ -1649,7 +1619,7 @@ Figure 34 – Custom Buttons for Multimedia
 
 > **Important:** Button icons are not limited in width or height. They
 > can be animated by using an animated GIF. In fact, an icon can
-> reference **any** image contained within your LiveCode stack file.
+> reference **any** image contained within your stack file.
 > Referencing an image in this way saves disk space and allows you to
 > update all icons in your stack by updating a single image. See the
 > chapter *Working with Media* for more information.
@@ -1698,7 +1668,7 @@ Figure 37 – Table Field
 
 Data Grids allow you to display data in both grid and form modes. You
 can customize a data grid to include custom layouts that include any
-other LiveCode object. Data grids can provide a view into a data source,
+other object. Data grids can provide a view into a data source,
 allowing you to display large data sets. For full documentation on using
 data grids, see the [online
 documentation](http://lessons.runrev.com/spaces/lessons/manuals/datagrid)
@@ -1720,7 +1690,7 @@ contain any shared groups from the previous card.
 
 #### Groups & Backgrounds – for organizing, and sharing controls
 
-Groups, LiveCode's most versatile object type, are used for several
+Groups, are xTalk's most versatile object type, are used for several
 purposes: radio button clusters; menu bars; for creating scrollable
 object areas within cards; and as backgrounds for displaying sets of
 objects that are shared between cards. Groups can also be used for
@@ -1797,7 +1767,7 @@ card on which the group named "Navigation" is placed:
 
 ##### Nested Groups
 
-LiveCode supports nested groups (one group containing another). Since a
+xTalk supports nested groups (one group containing another). Since a
 group is itself a control, it can be contained in another group.
 
 Creating a nested group is just like creating a group: select the
@@ -1885,7 +1855,7 @@ the section on *Groups, Backgrounds & The Message Path*, below.
 
 #### Graphics, Images, Players, Audio & Video Clip Objects – for multimedia
 
-LiveCode supports a wide range of media formats, allowing you to produce
+xTalk supports a wide range of media formats, allowing you to produce
 rich media applications. The image object allows you to import or
 reference images, manipulate images by script or interactively with the
 paint tools, and save them out in different formats with variable
@@ -1913,7 +1883,7 @@ to use the paint tools.
 Figure 40 – Image, Graphic and Player objects
 
 Vector graphics can also be created and manipulated with the graphic
-tools and by script. LiveCode supports paths with variable fills,
+tools and by script. xTalk supports paths with variable fills,
 gradients, blended and antialiased graphics. At time of this writing
 there is also a 3<sup>rd</sup> party library that allows the import and
 export of SVG format graphics. Use graphic objects to create interactive
@@ -1921,7 +1891,7 @@ interfaces, graphs, charts or games.
 
 Use the player object to display and interact with any media formats
 supported by AVFoundation on Mac OS X and DirectShow on Windows.
-LiveCode allows you to turn on and off tracks within a movie and set
+xTalk allows you to turn on and off tracks within a movie and set
 callback messages that trigger scripts at specific points in the movie,
 and stream movies from a server. At time of this writing there is also a
 3<sup>rd</sup> party library that allows you to edit and save movies by
@@ -1947,9 +1917,9 @@ within the main menu bar, see the section on the *Menu Builder* below.
 Menu contents can be defined using a list of item names and special
 characters to indicate where shortcuts and checkmarks should be placed.
 This is the most common type of menu and is known as a *contents menu*.
-LiveCode will automatically draw menus defined as *contents* menus using
+xTalk will automatically draw menus defined as *contents* menus using
 the native system look on each platform. When you choose an item from a
-contents menu, LiveCode will send a **menuPick** message along with the
+contents menu, xTalk will send a **menuPick** message along with the
 name of the item chosen.
 
 Alternatively, menus may be constructed from a *stack panel*, giving you
@@ -1982,7 +1952,7 @@ content menus without using this object.
 
 Figure 42 – Tab Menu on Windows
 
-The tabbed panel is a type of menu in LiveCode. You can specify a list
+The tabbed panel is a type of menu in xTalk. You can specify a list
 of tabs to be displayed and receive a `menuPick`message when the user
 clicks on a tab in the same way as other menus. There are two common
 techniques for implementing a tabbed interface: group the objects for
@@ -2024,7 +1994,7 @@ Figure 44 – Menu Builder
 
 | &nbsp;| &nbsp;|
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Preview** | This option allows you to preview your menu bar in the main menu bar. It only applies on Mac OS systems where the option Set as Menu Bar on Mac OS has been turned on.<br><br> > **Important:** To bring back the LiveCode development menu bar when working with a stack that has this option turned on, click on a LiveCode IDE window such as the Tool bar. |
+| **Preview** | This option allows you to preview your menu bar in the main menu bar. It only applies on Mac OS systems where the option Set as Menu Bar on Mac OS has been turned on.<br><br> > **Important:** To bring back the development menu bar when working with a stack that has this option turned on, click on an IDE window such as the Tool bar. |
 | **Menu bar settings** | This area specifies the main settings for your menu bar. Use the *New* button to create a new menu bar in the current top most editable stack. Enter the name for your menu bar in the text area. *Delete* will permanently delete your menu bar. Use the *Edit* button to load an existing menu bar from the top most editable stack to edit in the area below.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | **Menu edit area**    | Select a menu to work on from the scrolling list. At a minimum your application should have a File, Edit and Help menu. These menus are created for you automatically when you create a new menu bar. To create a new menu, move the orange *divider bar* to the position in the menu bar you want to create the new menu, and press *New Menu*. Disable the currently selected menu by checking *Disabled*. Choose the keyboard shortcut (the portion of the name that is underlined), using the *Mnemonic* popup menu (Windows, Linux & Unix only). To move a menu in the list, select it then press the *up or down arrows* (to the right of the name area).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | **Menu content area** | Select a menu item to work on from the scrolling list. To create a new menu item, move the orange *divider bar* to the position in the menu bar you want to create the new menu, and press *New Item*. Disable the currently selected item checking *Disabled*. Choose the keyboard shortcut (the portion of the name that is underlined, for use when the menu is open), using the *Mnemonic* popup menu (Windows, Linux & Unix only). To move a menu item up or down the list, select it then click the *up or down arrows* (to the right of the name area). To move items into a *submenu*, click the *Right* arrow, or click the *Left* arrow to move a submenu item back into the main menu bar. To insert a *divider*, position the orange divider bar where you want the divider, the click the blue divider button (top right). To make the menu item a *Checkbox* or *Diamond* option, choose the appropriate option from the *Mark* popup menu. To create a control key *shortcut* for the item, click the Shortcut check box and enter the letter you want to use for the shortcut. To understand the *symbols* that are created next to the menu items, see the section on *Menu Bars* within the chapter on *Programming a User Interface*. |
@@ -2122,7 +2092,7 @@ designed custom skin.
 
 - HCI guidelines for the three main platforms
 
-Each of the platforms that LiveCode supports has its own set of User
+Each of the platforms that IDE supports has its own set of User
 Interface Guidelines. We recommend you take time to familiarize yourself
 with them.
 
@@ -2143,19 +2113,19 @@ KDE Human Interface Guidelines:
 
 <http://wiki.openusability.org/guidelines/index.php/Main_Page>
 
-## Coding in LiveCode
+## Coding
 
 Writing code is how you give your application functionality. Writing the
 right code means your application will do what you want it to do.
-Fortunately, LiveCode’s built in high level language, makes this task
+Fortunately, xTalk's’s high level language makes this task
 easy. The English-like syntax is easy to read and write. This chapter
-walks you through writing LiveCode.
+walks you through writing xTalk.
 
 ### The Structure of a Script
 
 ### What is a Script
 
-Every object in LiveCode can contain a script, which tells it what to
+Every object in xTalk can contain a script, which tells it what to
 do. You edit the script of an object using the Code Editor (see *The
 Code Editor*). A script is organized into a set of individual *message
 handlers*, each one of which can respond to a different event (see
@@ -2218,7 +2188,7 @@ the name of the property. **getProp** handlers look like this:
 	end myCustomProperty
 
 A **getProp** handler is executed whenever the value of the
-corresponding custom property is requested by a LiveCode statement. You
+corresponding custom property is requested by a xTalk statement. You
 can write a `getProp`handler for any custom property of the object or
 another object lower in the message hierarchy. For more information, see
 the section on *Custom Properties*.
@@ -2301,8 +2271,8 @@ property.
 
 ### Summary
 
-Each object has a script, which can be empty or can contain one or more
-LiveCode handlers. You change a script using the Code Editor, or by
+Each object has a script, which can be empty or can contain one or more handlers.
+You change a script using the Code Editor, or by
 setting the object's **script** property.
 
 A script can contain four kinds of handlers: commands, function
@@ -2316,14 +2286,14 @@ until the error is fixed.
 
 ## Events
 
-LiveCode is based upon events. Every action a script takes is triggered
+xTalk is based upon events. Every action a script takes is triggered
 by an event, which is sent in the form of a message.
 
 ### What Causes Messages to be Sent
 
 Messages are sent by *events*. Events include user actions (such as
 typing a key or clicking the mouse button) and program actions (such as
-completing a file download or quitting the application). LiveCode
+completing a file download or quitting the application). xTalk
 watches for events and sends a message to the appropriate object when an
 event occurs.
 
@@ -2335,12 +2305,12 @@ event occurs.
 
 These messages are referred to as built-in messages, and include
 **mouseDown**, **mouseUp**, **keyDown**, **openCard**, and all the other
-messages described in the LiveCode Dictionary.
+messages described in the Syntax Dictionary.
 
-LiveCode also sends a message whenever a handler executes a *custom*
+xTalk also sends a message whenever a handler executes a *custom*
 command (see *Sending Messages*). However, *built-in* commands are
 executed directly by the engine and don't result in sending a message.
-Similarly, LiveCode sends a function call whenever a handler calls a
+Similarly, the engine sends a function call whenever a handler calls a
 *custom* function, a **setProp** trigger whenever a handler sets a
 *custom* property, and a **getProp** call whenever a handler gets the
 value of a custom property.
@@ -2365,7 +2335,7 @@ path is based on the *object hierarchy*.
 
 ### The Object Hierarchy
 
-Each LiveCode object is part of another object, of a different object
+Each xTalk object is part of another object, of a different object
 type. For example, each card is part of a stack, each grouped control is
 part of a group, and so on. This *object hierarchy* defines the
 ownership and inheritance relationship between objects.
@@ -2397,7 +2367,7 @@ The Message Path is detailed in the figure below.
 Figure 48 – The Message Path
 
 For example, suppose the user clicks a button in a main stack, causing
-LiveCode to send a **mouseUp** message to the button. If the button's
+the engine to send a **mouseUp** message to the button. If the button's
 script does not contain a handler for the **mouseUp** message, the
 message is passed along to the card the button is on. If the card's
 script contains a **mouseUp** handler, the handler is executed. But if
@@ -2443,7 +2413,7 @@ doesn't handle the **mouseUp** message, it's passed to the card, and if
 the card has a **mouseUp** handler, it is executed in response to the
 message. In this case, the card's script is executing, but the
 **target** is not the card--it's the button that was originally clicked,
-because LiveCode sent the **mouseUp**message to the button.
+because the engine sent the **mouseUp**message to the button.
 
 ### Handlers with the Same Name
 
@@ -2491,7 +2461,7 @@ You can block system messages – for example those sent when you navigate
 to another card – from being sent while a handler is executing by
 setting the **lockMessages** property to true.
 
-For example, if the handler opens another stack, LiveCode normally sends
+For example, if the handler opens another stack, the engine normally sends
 **openCard** and **openStack** messages to the stack. If the stack
 contains handlers for these messages that would cause unwanted behavior
 during this operation, you can use the **lockmessages** command before
@@ -2576,13 +2546,13 @@ pressed.
 
 ### Using Built-in Commands and functions
 
-LiveCode has over one hundred and fifty built-in commands, and over two
-hundred built-in functions, all of which are documented in the LiveCode
+xTalk has over one hundred and fifty built-in commands, and over two
+hundred built-in functions, all of which are documented in the syntax
 Dictionary.
 
 #### Commands
 
-A command is an instruction to LiveCode to do something. A command is
+A command is an instruction to do something. A command is
 placed at the start of a statement (either the start of a line or after
 a control structure such as "then"). The command is followed by any
 parameters that specify the details of what the command is to do.
@@ -2595,12 +2565,12 @@ Here are some examples of how built-in commands are used in statements:
 
 #### Functions
 
-A function call is a request to LiveCode for information. A function is
+A function call is a request for information. A function is
 stated using the name of the function, followed by opening and closing
 brackets that may contain any parameters that specify the details of
 what the function is to act on.
 
-When you use a function in a statement, LiveCode calls the function to
+When you use a function in a statement, xTalk calls the function to
 compute the specified information, then substitutes that information in
 the script as if the script had originally written that information in
 place of the function call. The information returned can therefore be
@@ -2611,7 +2581,7 @@ Here's an example of how a function is used:
 
 	put round(22.3) into field "Number"
 
-When this statement is executed, LiveCode calls the **round** function.
+When this statement is executed, the engine calls the **round** function.
 When you round off 22.3, the resulting number is 22, so the statement
 puts the number 22 into the field.
 
@@ -2644,7 +2614,7 @@ If the function has no parameters, this form is written as the
 
 The "the" form works the same way as the "()" form shown above, and you
 can use the two forms interchangeably for *built-in functions* with
-fewer than two parameters. The LiveCode Dictionary entry for each
+fewer than two parameters. The syntax Dictionary entry for each
 built-in function shows how to write both forms.
 
 You can use the "the" form for built-in functions, but not for custom
@@ -2675,8 +2645,8 @@ If you don't specify an object, the message is sent to the object whose
 script is being executed, and then passes up the message hierarchy as
 normal.
 
-Like a built-in command, a custom command is an instruction to LiveCode
-to do something. You can include parameters with a custom command by
+Like a built-in command, a custom command is an instruction to do something.
+You can include parameters with a custom command by
 passing them after the name:
 
 	checkForConnection "ftp://ftp.example.org"
@@ -3062,7 +3032,7 @@ variable is automatically created as a local variable:
 
 	put true into myNewVar -- creates variable named "myNewVar"
 
-> **Tip:** While you can use almost any word that isn’t a LiveCode
+> **Tip:** While you can use almost any word that isn’t a xTalk
 > language word – also known as a *reserved word* – for a variable name,
 > it will help you greatly if you get into the habit of naming variables
 > logically and consistently. For details of what names are allowed for
@@ -3075,7 +3045,7 @@ it using the **local** command inside a handler:
 
 > **Important:** If you use a local variable in one handler, and that
 > handler calls another handler, you can't use the local variable in the
-> second handler. If you use a variable with the same name, LiveCode
+> second handler. If you use a variable with the same name, xTalk
 > creates a second variable that is local to the second handler. But the
 > two local variables don't affect each other, because they're in
 > different handlers.
@@ -3085,8 +3055,8 @@ it using the **local** command inside a handler:
 
 One common source of bugs involves misspelling a local variable name.
 Normally, doing so doesn't produce an execution error, because if you
-use a variable that doesn't exist, LiveCode creates it automatically.
-This means that if you misspell a variable name, LiveCode creates a new
+use a variable that doesn't exist, xTalk creates it automatically.
+This means that if you misspell a variable name, xTalk creates a new
 variable with the mispelled name. Such a bug may be difficult to track
 down because it can result in a variable having the wrong value without
 causing an error message.
@@ -3209,7 +3179,7 @@ a global variable.
 The names of variables must consist of a single word and may contain any
 combination of letters, digits, and underscores (\_). The first
 character must be either a letter or an underscore. You cannot use any
-LiveCode language word as a name of a variable.
+xTalk language word as a name of a variable.
 
 Here are some examples of **legal** variable names:
 
@@ -3225,12 +3195,12 @@ Here are some names that **cannot** be used as variable names:
 	My Variable –- illegal as it is more than one word
 
 Avoid giving a variable the same name as a custom property. If you refer
-to a custom property, and there is a variable by the same name, LiveCode
+to a custom property, and there is a variable by the same name, xTalk
 uses the contents of the variable as the name of the custom property.
 Generally this will produce unexpected results.
 
 Global variables whose names begin with "gRev" are reserved by the
-LiveCode development environment.
+xTalk development environment.
 
 See the section on *Tips for Writing Good Code* below for advice on
 choosing variable names.
@@ -3241,7 +3211,7 @@ Most of the time, you use variables that you create yourself, using the
 **local** or **global** commands, or simply by putting a value into a
 new variable in order to create it.
 
-LiveCode also creates certain types of variables automatically:
+xTalk also creates certain types of variables automatically:
 *parameter* variables, *command-line* variables, *environment*
 variables, and the special variable **it**.
 
@@ -3273,7 +3243,7 @@ handler is executing.
 
 #### Environment variables
 
-Most operating systems that LiveCode supports provide information about
+Most operating systems that xTalks support provide information about
 the operating environment in *environment* variables.
 
 You can access environment variables by prepending the **$** character
@@ -3319,13 +3289,13 @@ $1 contains "-h", and `$2`contains "name".
 
 #### The special variable "it"
 
-The **it** variable is a special local variable used by LiveCode to
+The **it** variable is a special local variable used by xTalk to
 store certain results.
 
 Certain commands--such as **get**, **convert**, **read from file**,
 **ask**, and **answer**--put their results in this special variable. For
 a complete list of commands that use the **it** variable, see the entry
-for **it** in the LiveCode Dictionary. The following example shows how
+for **it** in the syntax Dictionary. The following example shows how
 the **answer** command uses the **it** variable:
 
 	on mouseUp
@@ -3432,7 +3402,7 @@ Will result in the following:
 | B   | bottle |
 | C   | cradle |
 
-For more details, see the **split** command in the LiveCode Dictionary.
+For more details, see the **split** command in the syntax Dictionary.
 
 #### Combining the Elements of an Array into a List
 
@@ -3447,7 +3417,7 @@ For example:
 Will combine the contents of the each element of the original *array* so
 that they appear on a separate line.
 
-For more information, see the **combine** command in the LiveCode
+For more information, see the **combine** command in the syntax
 Dictionary.
 
 #### Nesting an Array
@@ -3470,7 +3440,7 @@ For more information about using array variables, see the guide on
 A constant is a value that has a name. Like a variable, a constant is
 set in your script. Unlike variables, constants cannot be changed.
 
-When you use a constant, LiveCode substitutes the value of the constant
+When you use a constant, xTalk substitutes the value of the constant
 for its name. The following example uses a constant named "slash":
 
 	put slash after field "Expressions" *-- displays "/"*
@@ -3481,12 +3451,12 @@ You cannot put anything into a constant once it's been created.
 
 #### Built-in constants
 
-The LiveCode language defines several constants, such as **return**,
+The xTalk languages define several constants, such as **return**,
 **space**, and **comma**, for characters that have special meaning in
 scripts and therefore can't be entered literally into an expression.
 
 > **Tip:** To see a list of all built-in constants, open the
-> Documentation window, click LiveCode Dictionary, and choose
+> Documentation window, click syntax Dictionary, and choose
 > "Constants" from the menu at the top of the window.
 
 #### User-defined constants
@@ -3510,10 +3480,10 @@ handler, the constant can be used in any handler in the script.
 ### What is a Container?
 
 Containers are sources of information that can be edited using chunk
-expressions. In addition to variables, LiveCode has six other container
+expressions. In addition to variables, xTalk has six other container
 types: fields, buttons, images, URLs, the selection, and the message box.
 
-Fields, buttons, and imported images are all LiveCode objects. All
+Fields, buttons, and imported images are all objects. All
 display their content on the screen, in different ways, and the contents
 of all three are saved when you save the stack they are in. URLs refer
 to external resources (either files on the system, or items on an
@@ -3552,7 +3522,7 @@ string is a number, the value is that number.
 
 ### Using Literal Strings
 
-When you use a literal string in an expression, LiveCode simply
+When you use a literal string in an expression, xTalk simply
 substitutes the string for itself:
 
 	put "Hello World!" into field 1
@@ -3562,7 +3532,7 @@ substitutes the string for itself:
 #### Quoting strings
 
 Literal strings that consist of more than one word or are reserved words
-in the LiveCode language must be enclosed in double quotes:
+in xTalk languages must be enclosed in double quotes:
 
 	put "This is a test" into myVar -- works
 	put This is a test into myVar -- **DOESN'T WORK - not quoted**
@@ -3573,7 +3543,7 @@ In some contexts, you can use an unquoted one-word literal string
 without causing a script error. However, you should make a practice of
 always quoting literal strings (other than numbers), because it ensures
 that the statement will continue to work properly even if the string
-becomes a reserved LiveCode word in the future.
+becomes a reserved word in the future.
 
 If the **Script -\> Variable Checking** option is set to true, compiling
 a script that contains an unquoted literal string causes a script error.
@@ -3591,7 +3561,7 @@ Numeric operators produce a number as their result. Numeric operators
 include the arithmetic operators (**+**, **-**, **\***, **/**, **mod**,
 **div**, and **^**) and the bitwise operators (**bitAnd**, **bitOr**,
 **bitXOr**, and **bitNot**). For individual usage instructions, look up
-the operator you wish to use in the LiveCode Dictionary.
+the operator you wish to use in the syntax Dictionary.
 
 For example:
 
@@ -3631,7 +3601,7 @@ binary operators.
 
 ### Conversion of Values
 
-LiveCode converts values in expressions to whatever type of data is
+xTalk converts values in expressions to whatever type of data is
 needed for the operation. This conversion happens automatically, so you
 don't need to know what type of data you are dealing with in advance
 (something that in other languages is called "type casting").
@@ -3642,21 +3612,21 @@ For example, suppose you have the following statement:
 
 Character 2 of the literal string "123" is the single-character string
 "2", and character 3 of the literal string "456" is the single-character
-string "6". When LiveCode uses the **+** operator, it automatically
+string "6". When xTalk uses the **+** operator, it automatically
 converts these strings to numbers so that they can be added together.
 Then it converts the resulting number back to a string so that it can be
 placed in a field as text.
 
 ### Operator Precedence
 
-When you combine sources of value using operators, LiveCode evaluates
+When you combine sources of value using operators, xTalk evaluates
 each source of value in the expression. Next, it applies any operators
-to arrive at a final value for the expression. LiveCode does not
+to arrive at a final value for the expression. xTalk does not
 necessarily apply all the operators in right-to-left order.
 
 Instead, it uses the operator precedence order to determine how to
 compute expressions that include more than one operator. Precedence
-determines the order in which LiveCode carries out calculations in
+determines the order in which xTalk carries out calculations in
 expressions. If an expression contains more than one operator, the
 operators with higher precedence are calculated before operators with
 lower precedence.
@@ -3834,10 +3804,9 @@ both.
 	else elseStatement
 
 The *condition* is any expression that evaluates to true or false. The
-*statementList* or *elseStatementList* consists of one or more LiveCode
-statements, and can also include if, switch, try, or repeat control
-structures. The *statement* or *elseStatement* consists of a single
-LiveCode statement.
+*statementList* or *elseStatementList* consists of one or more statements,
+and can also include if, switch, try, or repeat control
+structures. The *statement* or *elseStatement* consists of a single statement.
 
 If the *condition* evaluates to true, the *statement* or *statementList*
 is executed; if the *condition* evaluates to false, the *statement* or
@@ -3873,7 +3842,7 @@ followed by one or more case sections. Each case section begins with the
 case keyword, followed by either a *caseValue* (if a *switchExpression*
 was included on the **switch** line) or a *caseCondition* (if no
 *switchExpression* was included). If the *caseValue* is equal to the
-*switchExpression*, or the *caseCondition* evaluates to true, LiveCode
+*switchExpression*, or the *caseCondition* evaluates to true, the engine
 begins executing the following statements.
 
 The **case** sections may be followed by an optional default section. If
@@ -3886,13 +3855,12 @@ expression. If the *caseValue* evaluates to the same value as the
 *switchExpression*, the condition is matched for that case section. The
 *caseCondition* is any expression that evaluates to true or false. (If
 the *caseCondition* evaluates to true, the condition is matched for that
-case section. Each *statementList* consists of one or more LiveCode
+case section. Each *statementList* consists of one or more xTalk
 statements, and can also include if, switch, try, or repeat control
-structures. The *defaultStatementList* consists of one or more LiveCode
-statements.
+structures. The *defaultStatementList* consists of one or more statements.
 
 Flow of control in a **switch** structure is less complicated than it
-looks. In general, when LiveCode enters a **switch** control structure,
+looks. In general, when xTalk enters a **switch** control structure,
 it looks for the first case section whose *caseValue* is equal to the
 *switchExpression*, or whose *caseCondition* is true. When a matching
 condition is found, all statements following it are executed--even
@@ -3926,7 +3894,7 @@ either the last or first card, and goes to the next card otherwise:
 
 There is no limit to the number of **case** sections you can include in
 a **switch** control structure, although the more case sections there
-are, the more expressions LiveCode must evaluate and the more slowly the
+are, the more expressions the engine must evaluate and the more slowly the
 **switch** structure executes.
 
 ## Extending the Message Path
@@ -3961,8 +3929,7 @@ utility, i.e. without having to reinstall the entire application.
 
 ### Using backScripts
 
-To make the script of an object available to any other handler in
-LiveCode:
+To make the script of an object available to any other handler:
 
 	insert script of card "Library" into back
 
@@ -3995,7 +3962,7 @@ a frontscript, it receives all the corresponding messages before any
 other object can handle them.
 
 Use a frontscript when you want to be able to handle a message even if
-the target object has a handler for it. For example, the LiveCode
+the target object has a handler for it. For example, the
 development environment displays a contextual menu when you
 **Control-Shift-right-click** an object. It does this with a
 **mouseDown** handler in a frontscript. Whenever you click an object,
@@ -4108,7 +4075,7 @@ chunks, playing animations, displaying status bars, or anywhere where
 you need to schedule events. Messages can be scheduled with millisecond
 precision and fire many times a second to create an animation, or can be
 scheduled to arrive hours later. When you schedule an event to be
-delivered in the future, LiveCode continues to respond to user events as
+delivered in the future, xTalk continues to respond to user events as
 normal. This makes timer based messaging ideal where you want your user
 interface to remain responsive while doing data processing or updating
 the display.
@@ -4237,7 +4204,7 @@ property of the object that the message will be sent to
 details, see the section on the *Message Box*.
 
 For more details, see the pendingMessages entry in the
-*LiveCode Dictionary*.
+*Dictionary*.
 
 > **Tip:** To cancel all currently pending messages indiscriminately,
 > use the following repeat loop:
@@ -4266,7 +4233,7 @@ tips
 Use consistent variable names to make your code easier to understand. It
 may not seem important now, but when you have forgotten how it works 6
 months later it will help to make it readable. It also makes it easier
-to exchange you code with other members of the LiveCode community, when
+to exchange your code with other members of the xTalk community, when
 you need to get help with something.
 
 | Character | Example | Usage                   |
@@ -4307,7 +4274,7 @@ you later want to change how that aspect of the code works.
 
 If you're working on a larger code base you may want to turn on the
 Variable Checking option in the Script menu of the Code Editor. This
-makes LiveCode require that you declare all variables (even script
+makes the IDE require that you declare all variables (even script
 locals) before you can compile your script. It also requires you to
 place all literal strings in quotes. This method of coding can help you
 to quickly track down errors as you go by making you think a little

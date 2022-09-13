@@ -1,7 +1,6 @@
 ---
 group: intermediate
 ---
-
 # Working With Databases
 
 ## Introduction

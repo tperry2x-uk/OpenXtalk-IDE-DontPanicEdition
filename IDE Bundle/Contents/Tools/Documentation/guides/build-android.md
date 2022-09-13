@@ -1,3 +1,6 @@
+---
+group: advanced
+---
 # Compiling for Android
 
 Copyright © 2015-2017 LiveCode Ltd., Edinburgh, UK

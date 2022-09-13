@@ -1,3 +1,7 @@
+---
+group: reference
+---
+
 # Documentation Style Guide A-Z
 
 ## A

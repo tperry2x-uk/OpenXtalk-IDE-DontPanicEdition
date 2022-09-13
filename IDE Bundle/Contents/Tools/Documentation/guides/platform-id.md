@@ -1,3 +1,7 @@
+---
+group: reference
+---
+
 # Platform Identification Triples
 
 The project is built for and supports multiple different platforms with a variety of

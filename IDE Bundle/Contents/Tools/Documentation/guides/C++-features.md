@@ -1,3 +1,7 @@
+---
+group: reference
+---
+
 # C++ Feature Guidelines
 
 This file documents the usage of C++ language and library features within the
@@ -1204,7 +1208,7 @@ servers are currently:
 - OSX: Clang (version is kept up-to-date with latest non-Beta Xcode release)
 - Android: Clang 3.5
 
-Generally speaking, newer versions of compilers can be used to build 
+Generally speaking, newer versions of compilers can be used to build
 but older versions cannot (as they do not implement the set of required C++
 features used by the engine).
 

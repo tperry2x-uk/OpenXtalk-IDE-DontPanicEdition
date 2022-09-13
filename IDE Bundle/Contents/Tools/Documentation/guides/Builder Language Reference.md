@@ -1,7 +1,6 @@
 ---
 group: reference
 ---
-
 # Builder Language Reference
 
 ## Introduction

@@ -1,3 +1,6 @@
+---
+group: reference
+---
 # Contributing to Documentation
 
 *Note this document is specifically about contributing to the

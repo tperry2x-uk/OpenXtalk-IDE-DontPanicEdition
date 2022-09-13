@@ -1,3 +1,6 @@
+---
+group: reference
+---
 # Release Branching Policy
 
 The term *develop* applies to any develop branch - be it *develop-6.7*, *develop-7.0*, *develop* or any other development branch that might appear in the future.

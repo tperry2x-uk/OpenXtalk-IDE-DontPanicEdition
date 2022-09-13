@@ -1,4 +1,4 @@
-<h1 class="title">LiveCode 9.6.3 Release Notes</h1>
+<h1 class="title">OpenXTalk 1.963.1 Release Notes</h1>
 
 [TOC]
 # Overview

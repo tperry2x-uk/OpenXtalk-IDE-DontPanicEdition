@@ -1,6 +1,7 @@
+---
+group: advanced
+---
 # Compiling to JavaScript for HTML5
-
-![Community Logo](logo.png)
 
 Copyright © 2015 LiveCode Ltd., Edinburgh, UK
 

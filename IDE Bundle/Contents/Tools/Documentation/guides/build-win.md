@@ -1,6 +1,7 @@
+---
+group: advanced
+---
 # Compiling for Windows
-
-![Community Logo](logo.png)
 
 Copyright © 2015-2019 LiveCode Ltd., Edinburgh, UK
 

@@ -1,3 +1,7 @@
+---
+group: reference
+---
+
 # C++ Coding Guidelines
 
 This file describes some key C++ coding style guidelines for

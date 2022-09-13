@@ -1,7 +1,6 @@
 ---
 group: intermediate
 ---
-
 # Printing
 
 ## Introduction

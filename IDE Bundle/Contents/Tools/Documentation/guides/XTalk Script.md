@@ -1,6 +1,7 @@
 ---
 group: introduction
 ---
+
 # XTalk Script
 
 ## Introduction
@@ -11,7 +12,7 @@ begin, how to install, and how to use the documentation.
 
 ## Welcome
 
-XTalk languages make it easy to turn your concepts, ideas or designs into
+xTalk languages make it easy to turn your concepts, ideas or designs into
 powerful applications. You can create desktop, Internet, database and
 network applications. The Development environment includes a complete graphical user
 interface builder toolkit, as well as the tools you need to produce faceless or

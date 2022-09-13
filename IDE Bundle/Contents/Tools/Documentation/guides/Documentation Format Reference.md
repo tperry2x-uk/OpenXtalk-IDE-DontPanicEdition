@@ -1,7 +1,6 @@
 ---
 group: reference
 ---
-
 # Documentation Format Reference
 
 ## Introduction

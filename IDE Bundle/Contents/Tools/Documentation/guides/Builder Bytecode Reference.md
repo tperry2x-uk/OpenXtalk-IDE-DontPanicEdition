@@ -1,7 +1,6 @@
 ---
 group: reference
 ---
-
 # Builder Bytecode Reference
 
 ## Introduction

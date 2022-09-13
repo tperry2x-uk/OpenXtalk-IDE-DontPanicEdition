@@ -1,3 +1,6 @@
+---
+group: reference
+---
 # How to test
 
 Tests are small programs that check that a particular, specific function works correctly.  They are run automatically to check whether it works properly.  

@@ -1,6 +1,7 @@
+---
+group: advanced
+---
 # Compiling for Linux
-
-![Community Logo](http://livecode.com/wp-content/uploads/2015/02/livecode-logo.png)
 
 Copyright © 2015 LiveCode Ltd., Edinburgh, UK
 

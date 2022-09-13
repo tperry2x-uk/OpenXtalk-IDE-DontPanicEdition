@@ -851,8 +851,7 @@ on revInternal__openStack
       put "false" into tPropsArray["revstack"]
       put "100" into tPropsArray["cMacOSProgressScrollbarWidth"]
       put "false" into tPropsArray["cREVUIScriptShortcut"]
-      put "0,28" into tPropsArray["cREVMenuBarTopLeft"]
-      -- put "60,27" into tPropsArray["cREVMenuBarTopLeft"]
+      put "60,27" into tPropsArray["cREVMenuBarTopLeft"]
       put "322" into tPropsArray["cREVFieldFirstTabHeight"]
       put "500" into tPropsArray["cTraceDelay"]
       put "0" into tPropsArray["cREVRotatePrev1"]
@@ -1322,13 +1321,13 @@ on revInternal__openStack
       put return & "revTableLibrary" after tLoadList
       put return & "revhtml5urllibrary" after tLoadList
 
-      --if revEnvironmentEditionProperty("autocomplete_pro") then
-      --   put return & "autocomplete-pro" after tLoadList
-      -- end if
+      if revEnvironmentEditionProperty("autocomplete_pro") then
+         put return & "autocomplete-pro" after tLoadList
+      end if
 
-      -- if revEnvironmentEditionProperty("autocomplete") then
+      if revEnvironmentEditionProperty("autocomplete") then
          put return & "autocomplete" after tLoadList
-      -- end if
+      end if
 
       local tBackList
       put "revidedeveloperextensionlibrary" into tBackList
@@ -1499,9 +1498,9 @@ on revInternal__openStack
 
       local tStackFile
       set the itemDelimiter to comma
-      -- repeat for each line tStackFile in the stackFiles of stack "Home"
-      --   revInternal__Log "Message", "Mapping Stack '" & item 1 of tStackFile & "' to stackfile '" & item 2 of tStackFile & "'"
-      -- end repeat
+      repeat for each line tStackFile in the stackFiles of stack "Home"
+         revInternal__Log "Message", "Mapping Stack '" & item 1 of tStackFile & "' to stackfile '" & item 2 of tStackFile & "'"
+      end repeat
 
       revInternal__Log "Leave", "Stack Files Setup"
    end revInternal__SetupStackFiles
@@ -2019,41 +2018,69 @@ on revInternal__openStack
                   return 0,0,0
                -- case "start_center_tile_color_step"
                --    return - 9 -- This affects the tints in the blocks of the original startcenter
-               case "password_protection" -- not sure if FOSS needs this at all
-                  return false
+               case "password_protection"
+                  return true
                case "open_source_required"
                   return true
                case "splash_strap"
                   return "<b>DON'T PANIC</b>" -- return empty
                case "upgrade_mini_url"
-                  -- return ""
-                  -- return "https://openxtalk.org"
                   return "OpenXTalk" -- https://livecode.com/products/community-plus-ide-2/
                case "upgrade_url"
-                   -- return ""
-                  -- return "https://openxtalk.org"
                   return "OpenXTalk" -- https://livecode.com/products/community-plus-ide/
                case "upgrade_edition"
-                 -- return  "OpemXTalk"
                   return "Community" -- "communityplus"
                case "edition_external_url"
-                  -- return ""
-                  return "OpenXTalk"
-                  -- return "https://openxtalk.org" -- https://livecode.com/products/community-edition/
+                  return "" -- https://livecode.com/products/community-edition/
                case "autocomplete"     ---      <--------------------------------------------  Insert New Autocomplete Script Here !!!
-                  return false
-                  --  return true
+                   return false
                case "autocomplete_pro" --- <------------------------------------------  Personaly I found LC's autocomplete to be annoying -- PM
                   return false
                case "script_profiler"
                   return false
-               default
-                  break
             end switch
-         default
-            throw "Unknown edition property"
+            break
+         case "communityplus"
+            switch pProp
+               case "name"
+                  return "Community Plus"
+               case "color"
+                  return 49,163,102
+               case "pb_line_selected_color"
+                  return 226,238,185
+               case "revonline_hilite_color"
+                  return 49,163,102
+               case "revabout_hilite_color"
+                  return 49,163,102
+               case "revsplash_text_color"
+                  return 0,0,0
+               case "start_center_tile_color_step"
+                  return -9
+               case "password_protection"
+                  return false
+               case "open_source_required"
+                  return true
+               case "splash_strap"
+                  return empty
+               case "upgrade_mini_url"
+                  return empty
+               case "upgrade_url"
+                  return empty
+               case "upgrade_edition"
+                  return "commercial"
+               case "edition_external_url"
+                  return "OpenXTalk"-- "https://livecode.com/products/community-plus-edition/"
+               case "autocomplete"
+                  return true
+               case "autocomplete_pro"
+                  return false
+               case "script_profiler"
+                  return false
+            end switch
             break
       end switch
+
+      throw "Unknown edition property"
    end revEnvironmentEditionProperty
 
    function revEnvironmentPluginsPath
@@ -2383,188 +2410,161 @@ end updateMenuToolBar
 
 on IDEToLightMode
     lock screen
-     --- it might be better to have a generic script that swaps foreground and background colors on objects
-      if the platform is "MacOS" then put true into isMac
-      --- for macOS --- NOTE: This uses the OpenXTalk.org macOS Native Library if available - Paul McClernan - 1/16/22
+   try
+      --- for macOS ---
+      setAppToLightMode
+      -- setWindowToLightMode
+   end try
+      -- unlock screen with visual effect "dissolve" very fast to white
+      -- lock screen -- for visual effect
 
-      -- put false into isMac -- for testing other OS styling on macOS IDE
-      try
-                  --- Tools Palette ---
-         -- set the opaque of group "background" of stack "revTools" to true
-         -- set the backgroundColor of group "background" of stack "revTools" to 59,63,63
-         -- set the opaque of group "contents" of stack "revTools" to true
-         -- set the backgroundColor of group "contents" of stack "revTools" to "Gray25"
-         -- set the foreGroundColor of group "contents" of stack "revTools" to "White"
-         -- set the opaque of group "runedit" of stack "revTools" to false
-         -- set the backgroundColor of group "runedit" of stack "revTools" to "Gray25"
-         -- set the foreGroundColor of group "runedit" of stack "revTools" to empty -- "White"
-         -- set the backgroundColor of graphic "tool_hilite" of stack "revTools" to 120,63,170
-         -- set the backgroundColor of graphic "tool_hover" of stack "revTools" to 80,23,150
-         if isMac is true then
-            --- for macOS ---
-            setAppToLightMode
-            -- setWindowToLightMode
-            set the backGroundColor of stack "revTools" to empty -- "Gray30"
-            set the foreGroundColor of stack "revTools" to empty -- "White"
-            -- set the opaque of group "widget" of stack "revTools" to false
-            set the foreGroundColor of group "widget" of stack "revTools" to  "Black"
-            set the backgroundColor of group "widget" of stack "revTools" to empty -- "Gray50"
-            set the foreGroundColor of group "background" of stack "revTools" to "White"
+      --- for All OS ---
+      --- Tools Palette ---
+      set the backGroundColor of stack "revTools" to empty -- "White"
+      set the foreGroundColor of stack "revTools" to empty -- "Black"
 
-            -- set the opaque of group "classic" of stack "revTools" to true
-            -- set the foreGroundColor of group "classic" of stack "revTools" to "White"
-            set the backgroundColor of group "classic" of stack "revTools" to empty -- "Gray60"
+      set the opaque of group "background" of stack "revTools" to false
+      set the backgroundColor of group "background" of stack "revTools" to empty -- "White"
+      set the foreGroundColor of group "background" of stack "revTools" to empty -- "Black"
 
-            -- set the opaque of group "graphictoolscontrols" of stack "revTools" to true
-            -- set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "Gray25"
-            -- set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
+      -- set the opaque of group "runedit" of stack "revTools" to false
+      -- set the backgroundColor of group "runedit" of stack "revTools" to "White"
+      -- set the foreGroundColor of group "runedit" of stack "revTools" to "Black"
+      --set the backgroundColor of graphic "tool_hilite" of stack "revTools" to "Gray70"
+      -- set the backgroundColor of graphic "tool_hover" of stack "revTools" to "Gray50"
 
-            -- set the opaque of group "graphictools" of stack "revTools" to true
-            -- set the backgroundColor of group "graphictools" of stack "revTools" to "Gray25"
-            -- set the foreGroundColor of group "graphictools" of stack "revTools" to "White"
+      set the opaque of group "contents" of stack "revTools" to false
+      -- set the backgroundColor of group "contents" of stack "revTools" to "White"
+      -- set the foreGroundColor of group "contents" of stack "revTools" to "Black"
 
-            -- set the opaque of stack "Message Box" to false
-            set the foreGroundColor of stack "Message Box" to "Black" -- empty
-            set the backGroundColor of stack "Message Box" to "White"-- "Black"
+      set the opaque of group "widget" of stack "revTools" to false
+      -- set the backgroundColor of group "widget" of stack "revTools" to "White"
+      set the foreGroundColor of group "widget" of stack "revTools" to "Black"
 
-            -- set the opaque of stack "revPreferencesGUI" to false
-            set the backgroundColor of stack "revPreferencesGUI" to "White"
-            set the foreGroundColor of stack "revPreferencesGUI" to "Black"
-         else
-            set the foreGroundColor of stack "revTools" to "Black"
-            set the backGroundColor of stack "revTools" to "White"
-            set the foreGroundColor of group "widget" of stack "revTools" to "Black"
-            set the backgroundColor of group "widget" of stack "revTools" to "White"
-            set the foreGroundColor of group "background" of stack "revTools" to "Black"
-            set the backgroundColor of group "classic" of stack "revTools" to "White"
+      -- set the opaque of group "classic" of stack "revTools" to false
+      -- set the backgroundColor of group "classic" of stack "revTools" to "White"
+      -- set the foreGroundColor of group "classic" of stack "revTools" to "Black"
 
-            if the systemVersion is "NT 10.0" then set the textColor of group "revMenuBar" of stack "revMenuBar" to "Black"
-            -- set the opaque of stack "revMenuBar" to false
-            set the foreGroundColor of stack "revMenuBar" to "Black" -- empty
-            set the backGroundColor of stack "revMenuBar" to "White"-- "Gray25"
+      -- set the opaque of group "graphictoolscontrols" of stack "revTools" to false
+      -- set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
+      -- set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "Black"
 
-            -- set the opaque of stack "Message Box" to false
-            set the foreGroundColor of stack "Message Box" to "Black" -- empty
-            set the backGroundColor of stack "Message Box" to "White"-- "Gray25"
+      -- set the opaque of group "graphictools" of stack "revTools" to false
+      -- set the backgroundColor of group "graphictools" of stack "revTools" to "White"
+      -- set the foreGroundColor of group "graphictools" of stack "revTools" to "Black"
 
-            --- revMenuBar Toolbar palette ---
-            -- set the opaque of group "toolbar" of stack "revMenuBar" to false
-            -- set the backgroundColor of group "toolbar" of stack "revMenuBar" to "Gray25"
-            -- set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "White"
+      --- revMenuBar Palette ---
+      -- set the backGroundColor of stack "revMenuBar" to empty -- "White"
+      -- set the foreGroundColor of stack "revMenuBar" to empty --  "Black"
 
-            set the backgroundColor of stack "revPreferencesGUI" to "White"
-            set the foreGroundColor of stack "revPreferencesGUI" to "Black"
-
-            set the backgroundColor of stack "revIDEProjectBrowser" to "White"
-            set the foreGroundColor of stack "revIDEProjectBrowser" to "Black"
-
-            set the foregroundColor of stack "revOnline" to "Black"
-            set the backgroundColor of stack "revOnline" to "White"
-
-            set the foreColor of stack "revIDEExtensionManager" to "Black"
-            set the backColor of stack "revIDEExtensionManager" to "White"
-
-            set the backColor of stack "revExtensionBuilder" to "White"
-            set the foreColor of stack "revExtensionBuilder" to "Black"
-
-            set the foreColor of stack "revDictionary" to "Black"
-            set the backColor of stack "revDictionary" to "White"
-         end if
+      -- set the opaque of group "toolbar" of stack "revMenuBar" to false
+      -- set the backgroundColor of group "toolbar" of stack "revMenuBar" to "White"
+      -- set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "Black"
 
       set the cDarkMode of stack "revPreferences" to false
       unlock screen
-    end try
+   -- end try
 end IDEToLightMode
 
 on IDEToDarkMode
     lock screen
-    --- it might be better to have a generic script that swaps foreground and background colors on objects
-   if the platform is "MacOS" then put true into isMac
+   -- TO DO: the dissolve effect as seen in other mac apps when switching to/from darkMode
+   -- NOTE: To do that effect each window would have to be iterated though and have darkMode
+   -- individually applied to that window and to the stack it contains with the visual effect individually,
+   -- otherwise an image of the topStack is cached by the engine and applied to EVERY window during the effect
+   -- which only works in the topStack's window.
+   -- For mose users most of the time this would be the IDE's revToolBar, revTools, an iterations or two
+   -- of the property inspector, and perhaps the dictionary,so this should be doable in a visually smooth way.
+   -- it would also allow the use of all sorts of CoreImage Transitions to be applied by the OS,
+   -- which is likely similar to Apple's own implimemntations of this in apps like Safari.
+   --
+   -- set the compositorTileSize to 256
+   -- set the rect of templateStack to the screenRect
+   -- create stack --------------------------------- <--- NOTE: 'create' is only available in the IDE, not in standalones!
+   -- set the rect of templateGraphic to -50,-50,the width of defaultStack + 50,the height of defaultStack + 50
+   -- set the backgroundColor of the templateGraphic to black
+   -- set the foreColor of the templateGraphic to black
+   -- set the opaque of the templateGraphic to true
+   -- create graphic "test"
+   -- lock screen
+   --   try
+   --      create graphic "test"
+   --      set the backgroundColor of graphic "test" to black
+   --   end try
+   -- lock screen -- for visual effect in rect (rect of graphic "test") -- screenRect() -- in rect top,left,bottom,right
+   -- lock screen for visual effect -- in rect screenRect() -- in rect top,left,bottom,right
+   -- unlock screen with visual effect "dissolve" very fast to white
+   -- lock screen for visual effect
    --- for macOS --- NOTE: This uses the OpenXTalk.org macOS Native Library if available - Paul McClernan - 1/16/22
-
-    -- put false into isMac -- for testing other OS styling on macOS IDE
    try
+      setAppToDarkMode
+      -- setWindowToDarkMode
+
+      --- for All OS ---
+      -- unlock screen with visual effect "dissolve" very fast to white
+      -- lock screen  -- for visual effect
+
       --- Tools Palette ---
+      -- lock screen for visual effect in rect (rect of stack "revTools")
+      set the backGroundColor of stack "revTools" to empty -- "Gray30"
+      set the foreGroundColor of stack "revTools" to empty -- "White"
+
+      -- set the opaque of group "background" of stack "revTools" to true
+      -- set the backgroundColor of group "background" of stack "revTools" to 59,63,63
+      set the foreGroundColor of group "background" of stack "revTools" to "White"
+
+      -- set the opaque of group "contents" of stack "revTools" to true
       -- set the backgroundColor of group "contents" of stack "revTools" to "Gray25"
       -- set the foreGroundColor of group "contents" of stack "revTools" to "White"
+
       -- set the opaque of group "runedit" of stack "revTools" to false
       -- set the backgroundColor of group "runedit" of stack "revTools" to "Gray25"
       -- set the foreGroundColor of group "runedit" of stack "revTools" to empty -- "White"
       -- set the backgroundColor of graphic "tool_hilite" of stack "revTools" to 120,63,170
       -- set the backgroundColor of graphic "tool_hover" of stack "revTools" to 80,23,150
-      if isMac is true then
-         setAppToDarkMode
-         -- setWindowToDarkMode
-         set the backGroundColor of stack "revTools" to empty -- "Gray30"
-         set the foreGroundColor of stack "revTools" to empty -- "White"
-         -- set the opaque of group "widget" of stack "revTools" to false
-         set the foreGroundColor of group "widget" of stack "revTools" to  "White"
-         set the backgroundColor of group "widget" of stack "revTools" to empty -- "Gray50"
-         set the foreGroundColor of group "background" of stack "revTools" to "White"
 
-         -- set the opaque of group "classic" of stack "revTools" to true
-         -- set the foreGroundColor of group "classic" of stack "revTools" to "White"
-         set the backgroundColor of group "classic" of stack "revTools" to empty -- "Gray60"
+      -- set the opaque of group "widget" of stack "revTools" to false
+       set the backgroundColor of group "widget" of stack "revTools" to empty -- "Gray50"
+      set the foreGroundColor of group "widget" of stack "revTools" to  "White"
 
-         -- set the opaque of group "graphictoolscontrols" of stack "revTools" to true
-         -- set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "Gray25"
-         -- set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
+      -- set the opaque of group "classic" of stack "revTools" to true
+      set the backgroundColor of group "classic" of stack "revTools" to empty -- "Gray60"
+      -- set the foreGroundColor of group "classic" of stack "revTools" to "White"
 
-         -- set the opaque of group "graphictools" of stack "revTools" to true
-         -- set the backgroundColor of group "graphictools" of stack "revTools" to "Gray25"
-         -- set the foreGroundColor of group "graphictools" of stack "revTools" to "White"
+      -- set the opaque of group "graphictoolscontrols" of stack "revTools" to true
+      -- set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "Gray25"
+      -- set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
 
-         -- set the opaque of stack "Message Box" to false
-         set the foreGroundColor of stack "Message Box" to "White" -- empty
-         set the backGroundColor of stack "Message Box" to "Gray35"-- "Black"
+      -- set the opaque of group "graphictools" of stack "revTools" to true
+      -- set the backgroundColor of group "graphictools" of stack "revTools" to "Gray25"
+      -- set the foreGroundColor of group "graphictools" of stack "revTools" to "White"
+      -- visual effect dissolve fast
+      -- unlock screen
+      --- revMenuBar Palette ---
+      -- set the opaque of stack "revMenuBar" to false
+      -- set the backGroundColor of stack "revMenuBar" to empty -- "Gray25"
+      -- set the foreGroundColor of stack "revMenuBar" to empty -- "White"
 
-         -- set the opaque of stack "revPreferencesGUI" to false
-         set the backgroundColor of stack "revPreferencesGUI" to "Gray20"
-         set the foreGroundColor of stack "revPreferencesGUI" to "White"
+      -- set the opaque of group "toolbar" of stack "revMenuBar" to false
+      -- set the backgroundColor of group "toolbar" of stack "revMenuBar" to "Gray25"
+      -- set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "White"
 
-      else
-         set the foreGroundColor of stack "revTools" to "White"
-         set the backGroundColor of stack "revTools" to "Gray20"
-         set the foreGroundColor of group "widget" of stack "revTools" to  "White"
-         set the backgroundColor of group "widget" of stack "revTools" to "Gray20"
-         set the foreGroundColor of group "background" of stack "revTools" to "White"
-         set the backgroundColor of group "classic" of stack "revTools" to "Gray20"
+      if the systemVersion is "NT 10.0" then set the textColor of group "revMenuBar" of stack "revMenuBar" to "Black"
 
-         if the systemVersion is "NT 10.0" then set the textColor of group "revMenuBar" of stack "revMenuBar" to "Black"
-         -- set the opaque of stack "revMenuBar" to false
-         set the foreGroundColor of stack "revMenuBar" to "White" -- empty
-         set the backGroundColor of stack "revMenuBar" to "Gray30" -- empty -- "Gray25"
+      -- The visual effect command affects only navigation within a window.
+      -- If you want to create a transition effect when moving between stacks, use the go...in window form of the go command
+      -- visual effect "CIPageCurlTransition" very slow with Angle 1.0 and Radius 70 -- and Extent "0,0,500,500" -- macOS CoreImage effect
+      -- visual effect "CIDissolveTransition" -- slow with Angle 90 and Radius 100 --  and Extent "0,0,1024,1024" -- macOS CoreImage effect
 
-         --- revMenuBar Toolbar palette ---
-         -- set the opaque of group "toolbar" of stack "revMenuBar" to false
-         -- set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "White"
-         -- set the backgroundColor of group "toolbar" of stack "revMenuBar" to "Gray30"
-
-         -- set the opaque of stack "Message Box" to false
-         set the foreGroundColor of stack "Message Box" to "White" -- empty
-         set the backGroundColor of stack "Message Box" to "Gray30"-- "Black"
-
-         -- set the opaque of group "background" of stack "revPreferencesUI" to true
-         set the backgroundColor of stack "revPreferencesGUI" to "Gray20"
-         set the foreGroundColor of stack "revPreferencesGUI" to "White"
-
-         set the backgroundColor of stack "revIDEProjectBrowser" to "Black"
-         set the foreGroundColor of stack "revIDEProjectBrowser" to "White"
-
-         set the foregroundColor of stack "revOnline" to "White"
-         set the backgroundColor of stack "revOnline" to "Gray25"
-
-         set the foreColor of stack "revIDEExtensionManager" to "White"
-         set the backColor of stack "revIDEExtensionManager" to "Gray20"
-
-         set the foreColor of stack "revExtensionBuilder" to "White"
-         set the backColor of stack "revExtensionBuilder" to "Gray25"
-
-         set the foreColor of stack "revDictionary" to "White"
-         set the backColor of stack "revDictionary" to "Gray30"
-
-      end if
-
+      -- unlock screen with visual effect "CIModTransition" with Angle -1 and Radius 70
+      -- visual effect "dissolve" -- to black
+      -- unlock screen with visual effect "CIModTransition" with Angle -1 and Radius 70
+      -- unlock screen
+      -- wait 1 millisec
+      -- lock screen for visual effect
+      -- delete graphic "test"
+      -- visual effect "dissolve" -- slow -- to black
+     -- unlock screen -- with visual effect "dissolve" very fast to black
    end try
    set the cDarkMode of stack "revPreferences" to true
     unlock screen

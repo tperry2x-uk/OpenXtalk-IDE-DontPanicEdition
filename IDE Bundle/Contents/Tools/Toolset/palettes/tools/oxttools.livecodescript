@@ -58,8 +58,6 @@ on preOpenStack
    # Ensure paint defaults are set
    reset paint
    set the filled to true
-   
-   if the platform is "Linux" then topLevel me
 end preOpenStack
 
 on openStack
@@ -195,7 +193,9 @@ on generatePalette
 
    # Get the appropriate platform theme folder
    local tThemePath
-   put revIDEThemePath() into tThemePath -- this is where it pulls the .PNG image files from
+   -- put revIDEThemePath() into tThemePath -- this is where the IDE pulls the .PNG image files from
+   put revIDESpecialFolderPath("themes") & slash & "org.openxtalk.theme" into tThemePath
+
 
    # Get the data used for generating the palette
    local tViews, sViewsData

@@ -2411,51 +2411,57 @@ function revIDENewIconID
 end revIDENewIconID
 
 function revIDEThemePath
+   -- a 'theme' is just the icon sets for tools palette and project browser,
+   -- I've decided I'm not going to bother with platform specific icons (most are not anyway)
+   -- and instead stick with a more cartoonish, gretscale representation of controls which must
+   -- be instantly recognizable in both dark and light mode viewing -- Paul McClernan Sept. 2022
+   return revIDESpecialFolderPath("themes") & slash & "org.openxtalk.theme"
+
    # Get the platform and system version
-   local tPlatformName, tSystemVersion
-   put revIDEPlatform() into tPlatformName
-   put revIDEPlatformVersion() into tSystemVersion
+   --local tPlatformName, tSystemVersion
+   --put revIDEPlatform() into tPlatformName
+   --put revIDEPlatformVersion() into tSystemVersion
 
    # Find nearest theme version for the given platform
-   revIDEPushDefaultFolder revIDESpecialFolderPath("themes")
+   --revIDEPushDefaultFolder revIDESpecialFolderPath("themes")
 
-   local tClosestThemeNumber, tHighestThemeNumber
-   repeat for each line tThemeFolder in the folders
-      if char 1 of tThemeFolder is "." then next repeat
+   --local tClosestThemeNumber, tHighestThemeNumber
+   --repeat for each line tThemeFolder in the folders
+   --   if char 1 of tThemeFolder is "." then next repeat
 
-      local tThemeFolderStart
-      put "com.livecode.theme." & tPlatformName into tThemeFolderStart
+   --   local tThemeFolderStart
+   --   put "com.livecode.theme." & tPlatformName into tThemeFolderStart
 
-      if tThemeFolder begins with tThemeFolderStart then
-         delete char 1 to the number of chars of tThemeFolderStart + 1 of tThemeFolder
+   --   if tThemeFolder begins with tThemeFolderStart then
+   --      delete char 1 to the number of chars of tThemeFolderStart + 1 of tThemeFolder
 
-         if highestVersionNumber(tSystemVersion,tThemeFolder) < 2 and highestVersionNumber(tClosestThemeNumber,tThemeFolder) is 2 then
-            --if tThemeFolder <= tSystemVersion and tThemeFolder > tClosestThemeNumber then
-            put tThemeFolder into tClosestThemeNumber
-         end if
+   --      if highestVersionNumber(tSystemVersion,tThemeFolder) < 2 and highestVersionNumber(tClosestThemeNumber,tThemeFolder) is 2 then
+   --         --if tThemeFolder <= tSystemVersion and tThemeFolder > tClosestThemeNumber then
+   --         put tThemeFolder into tClosestThemeNumber
+   --      end if
 
          # keep track of the highest number
-         if highestVersionNumber(tHighestThemeNumber,tThemeFolder) is 2 then
-            put tThemeFolder into tHighestThemeNumber
-         end if
-      end if
-   end repeat
+   --      if highestVersionNumber(tHighestThemeNumber,tThemeFolder) is 2 then
+   --         put tThemeFolder into tHighestThemeNumber
+   --      end if
+   --   end if
+   -- end repeat
 
    # Build the path to the theme
-   local tThemeName
-   if tClosestThemeNumber is empty then
-      if tHighestThemeNumber is not empty then
-         put "com.livecode.theme." & tPlatformName & "." & tHighestThemeNumber into tThemeName
-      else
-         put "com.livecode.theme." & tPlatformName into tThemeName
-      end if
-   else
-      put "com.livecode.theme." & tPlatformName & "." & tClosestThemeNumber into tThemeName
-   end if
+   -- local tThemeName
+   -- if tClosestThemeNumber is empty then
+   --   if tHighestThemeNumber is not empty then
+   --      put "com.livecode.theme." & tPlatformName & "." & tHighestThemeNumber into tThemeName
+   --   else
+   --      put "com.livecode.theme." & tPlatformName into tThemeName
+   --   end if
+   -- else
+   --   put "com.livecode.theme." & tPlatformName & "." & tClosestThemeNumber into tThemeName
+   -- end if
 
-   revIDEPopDefaultFolder
+   -- revIDEPopDefaultFolder
 
-   return revIDESpecialFolderPath("themes") & slash & tThemeName
+   -- return revIDESpecialFolderPath("themes") & slash & tThemeName
 end revIDEThemePath
 
 function highestVersionNumber pVersionNumber1, pVersionNumber2
@@ -8814,6 +8820,30 @@ on revIDEToggle pProperty
             unlock messages
          end if
          break
+      case "Layout Guides"
+         if the cLayoutGuides of stack "revPreferences" is true then
+            -- the guides are on so turn them off
+            lock screen
+            send "extensionFinalize" to stack "community.ferruslogic.plugin.devguides" in 50 millisecs
+               revInternal__UnloadLibrary "community.ferruslogic.plugin.devguides"
+               -- lock messages
+                close stack "community.ferruslogic.plugin.devguides"
+                revIDESetPreference "cLayoutGuides", false
+               -- unlock messages
+               unlock screen
+         else -- the guides are off so turn them on
+            lock screen
+            send "extensionInitialize" to stack "community.ferruslogic.plugin.devguides" in 50 millisecs
+            revInternal__LoadLibrary "community.ferruslogic.plugin.devguides"
+            -- lock messages
+             open stack "community.ferruslogic.plugin.devguides"
+             revIDESetPreference "cLayoutGuides", true
+            -- unlock messages
+            unlock screen
+         end if
+         # No need to send toggle message as idePreferenceChanged will be sent
+         exit revIDEToggle
+         break
       case "Backdrop"
          if the backDrop is "none" then
             set the backDrop to revIDEGetPreference("cBackDropColor")
@@ -8824,6 +8854,7 @@ on revIDEToggle pProperty
          end if
          # No need to send toggle message as idePreferenceChanged will be sent
          exit revIDEToggle
+         break
       case "Grid"
          if the grid is false then
             set the grid to true
@@ -8834,6 +8865,7 @@ on revIDEToggle pProperty
          end if
          # No need to send toggle message as idePreferenceChanged will be sent
          exit revIDEToggle
+         break
    end switch
    # Invisible objects
    # Ruler
@@ -12279,7 +12311,7 @@ command ideShowUpgradeOptions
    -- else if ideShouldShowUpgradeOptions() then
    --   local tUpgradeEdition
    --   put revEnvironmentEditionProperty("upgrade_edition") into tUpgradeEdition
-   --   launch url revEnvironmentEditionProperty("edition_external_url", tUpgradeEdition)
+   -- launch url revEnvironmentEditionProperty("edition_external_url", tUpgradeEdition)
    -- end if
 end ideShowUpgradeOptions
 

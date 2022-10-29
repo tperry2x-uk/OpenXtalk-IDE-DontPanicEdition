@@ -1297,6 +1297,8 @@ private command __revIDELCSExtensionLoad pFullPath, pFolder, pVersion, pStatus, 
    __extensionPropertySet tCacheIndex, "svgicon", pAdditionalInfoA["svgicon"]
    __extensionPropertySet tCacheIndex, "version", pAdditionalInfoA["version"]
 
+   __extensionPropertySet tCacheIndex, "samples", __extensionSampleStacks(tId,pFolder)
+
    repeat for each key tKey in pAdditionalInfoA["uses"]
       local tSettingString
       put empty into tSettingString

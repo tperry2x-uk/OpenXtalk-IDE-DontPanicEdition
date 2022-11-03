@@ -659,8 +659,7 @@ For a list of the canonical property names which are valid inputs to this functi
 to this function, see the <ideObjectTypes> function.
 
 References: idePropertyNames (function), ideObjectTypes (function)
-
-**/
+*/
 function revIDEObjectPropertyInfo pObjectType, pPropName
    if sClassicObjectPropertiesInfo is empty then
       __objectPropertiesRead
@@ -706,7 +705,7 @@ put ideObjectTypeFromObject(it)  -- outputs com.livecode.interface.classic.ListF
 Description:
 >*Note:* The type returned by <ideObjectTypeFromObject> can depend
 on the values of the object's properties.
-   **/
+   */
 function ideObjectTypeFromObject pObjectID
    switch word 1 of the name of pObjectID
       case "stack"
@@ -4004,7 +4003,7 @@ end revIDENudgeControls
 #############
 # Utility
 #############
-/*
+/**
 Similar in functionality to specialFolderPath, it returns paths the folders with the IDE structure.
 
 pKey (enum): The key for the folder you wish the retrieve.
@@ -4101,7 +4100,7 @@ function revIDESpecialFolderPath pKey, pParam
          return tPath
          break
       case "examples"
-         put  item 1 to -3 of the filename of stack "home" & "/Examples" into tPath
+         put  item 1 to -3 of the filename of stack "home" & "/Resources/Examples" into tPath
          return tPath
          break
       case "tutorial"
@@ -4142,7 +4141,7 @@ on revIDEEnsurePath pPath
    end repeat
 end revIDEEnsurePath
 
-/*
+/**
 Returns the URL to a web page
 
 pKey (enum): The key for the page you wish the retrieve.
@@ -4220,7 +4219,7 @@ on revIDEResetCursor
    unlock cursor
 end revIDEResetCursor
 
-/*
+/**
 Use to tell the IDE that an action being performed is running slowly. The IDE will change the cursor and display the message as appropriate.
 pMessage (String): A optional message that will be displayed when slow tasks are running
 tag:affordances
@@ -4230,7 +4229,7 @@ on revIDEShowLoading pMessage
    set the cursor to watch
 end revIDEShowLoading
 
-/*
+/**
 Use along with [revIDEShowLoading] to instruct the IDE when a task is running slowly. Once the task is complete, call revIDEHideLoading to reset the IDE to its normal mode
 tag:affordances
 */
@@ -4310,7 +4309,7 @@ on revIDEPopDefaultFolder
    return tError
 end revIDEPopDefaultFolder
 
-/*
+/**
 summary: Outputs a flat version of an array to the messagebox.
 pArray (Array): The array you which to convert
 returns (String): A text representation of the array with indented with the tab character for readability
@@ -4323,7 +4322,7 @@ on revPutArray pArray
    put revFormatArrayForDisplay(pArray)
 end revPutArray
 
-/*
+/**
 summary: Converts an array into a human readable format that can be output to the message box when debugging.
 pArray (Array): The array you which to convert
 returns (String): A text representation of the array with indented with the tab character for readability
@@ -4365,7 +4364,7 @@ on revIDEResizeImageInBounds tImageID, tDesiredWidth,tDesiredHeight
    unlock screen
 end revIDEResizeImageInBounds
 
-/*
+/**
 Returns a list of all the display names of stacks recognised by the IDE as a palette.
 */
 function revIDEAvailablePalettes
@@ -4450,7 +4449,7 @@ on revIDEEnsureOnscreen pStackName
    revIDESetPaletteRectPreference pStackName
 end revIDEEnsureOnscreen
 
-/*
+/**
 Positions the palette.
 
 If the user has set a previous moved a palette, the palette is returned to that position.
@@ -4609,7 +4608,7 @@ function revIDEBrowserWidgetUnavailable
    return (the platform is "Linux") and ($LIVECODE_USE_CEF is 0)
 end revIDEBrowserWidgetUnavailable
 
-/*
+/**
 Opens an IDE stack as a palette. In the future this should be changed so that
 palettes can decide what mode they ought to be opened in, i.e. this logic should
 be removed from the IDE library and be specific to the stack rather than the
@@ -4702,7 +4701,7 @@ on revIDEOpenInspectorForObjects pObjects
    unlock screen
 end revIDEOpenInspectorForObjects
 
-/*
+/**
 Returns a list of all the open Property Inspectors
 */
 function revIDEOpenPalettes pType
@@ -4899,7 +4898,7 @@ private function __escapeStringAndConvertLineEndings pString
    return (quote & pString & quote)
 end __escapeStringAndConvertLineEndings
 
-/*
+/**
 Install the given extension's user guide
 */
 on revIDEInstallUserGuide pGuideFolder, pExtensionName, pAuthor
@@ -4925,7 +4924,7 @@ on revIDEInstallUserGuide pGuideFolder, pExtensionName, pAuthor
    revIDERegenerateBuiltGuides
 end revIDEInstallUserGuide
 
-/*
+/**
 Install the given extension's API
 */
 on revIDEInstallAPI pAPIFolder, pExtensionName, pAuthor
@@ -6660,7 +6659,7 @@ end revIDELocalise
 # Standard IDE Library actions
 ########################
 
-/*
+/**
 Creates a new mainstack in the default location
 
 Associations: stack
@@ -6732,7 +6731,7 @@ on revIDENewMainstack pWidth, pHeight
    return it
 end revIDENewMainstack
 
-/*
+/**
 Summary: Get the screenLoc for a stack based on the screen the stack is on
 
 Parameters:
@@ -6754,7 +6753,7 @@ function revIDEStackScreenLoc pStackName, pWorking
    return item 1 of tScreenRect + (tScreenWidth div 2),item 2 of tScreenRect + (tScreenHeight div 2)
 end revIDEStackScreenLoc
 
-/*
+/**
 Summary: Get the screenRect for a stack based on the screen the stack is on
 
 Parameters:
@@ -6830,7 +6829,7 @@ on revIDEDeleteCard pLongID
   revIDESetEdited the short name of ideStackOfObject(pLongID)
 end revIDEDeleteCard
 
-/*
+/**
 Creates a new script only stack in memory.
 
 Associations: stack
@@ -6851,7 +6850,7 @@ on revIDENewScriptOnlyStack pName
    end if
 end revIDENewScriptOnlyStack
 
-/*
+/**
 Creates a new script only stack in memory with a given script.
 
 Associations: stack
@@ -6906,7 +6905,7 @@ on revIDENewSubstack
    revIDENewSubstackOfStack tCurrentStack
 end revIDENewSubstack
 
-/*
+/**
 Creates a new substack.
 
 Associations: stack
@@ -6954,7 +6953,7 @@ on revIDEActionOpenStack
    end repeat
 end revIDEActionOpenStack
 
-/*
+/**
 Closes an stack.
 
 Associations: stack
@@ -7070,7 +7069,7 @@ on revIDEDeleteSubstack pSubstackID
    end if
 end revIDEDeleteSubstack
 
-/*
+/**
 Returns a list control types that can be imported by LiveCode.
 
 Associations: controls
@@ -7282,7 +7281,7 @@ on revIDEImportSnapshot pScope, pObjectID
    end switch
 end revIDEImportSnapshot
 
-/*
+/**
 Launches the standard ask dialog and returns the users selection.
 
 pType (String): The type of file the be selected. If pType is not empty and not among the options below, it is assumed to be a custom filter in the form required by the ask command.
@@ -7317,7 +7316,7 @@ function revIDEAsk pType, pBasePath, pInstructions
    # return response
 end revIDEAsk
 
-/*
+/**
 Launches the standard ask dialog and returns the users selection.
 
 pType (String): The type of file the be selected. If pType is not empty and not among the options below, it is assumed to be a custom filter in the form required by the ask command.
@@ -7352,7 +7351,7 @@ on revIDEAskFile pType, pInstructions, pBasePath
    # return response
 end revIDEAskFile
 
-/*
+/**
 A version of revIDEAnswerFile with a higher level notion of 'type'.
 
 pTypes: a comma delimited list of types, which can be any of the following:
@@ -9334,7 +9333,7 @@ on revIDEActionEditScriptOfStack
    revIDEEditScriptOfObject the topStack
 end revIDEActionEditScriptOfStack
 
-/*
+/**
 Returns an array with keys the object types and values the corresponding 'kinds'
 */
 function revIDEAvailableControls
@@ -9913,7 +9912,7 @@ function revIDEScriptEditorPrefix
    return "revNewScriptEditor "
 end revIDEScriptEditorPrefix
 
-/*
+/**
 User stacks, script editors, the dictionary and resource center are considered windows
 from the point of view of the menubar
 */
@@ -9963,7 +9962,7 @@ function revIDEWindowList
    return sWindowList
 end revIDEWindowList
 
-/*
+/**
 Sends the current top window to the back
 */
 on revIDESendCurrentWindowToBack
@@ -9999,7 +9998,7 @@ on revIDESendCurrentWindowToBack
    unlock messages
 end revIDESendCurrentWindowToBack
 
-/*
+/**
 Brings the specified window to the front
 */
 on revIDESendWindowToFront pStackID
@@ -10007,7 +10006,7 @@ on revIDESendWindowToFront pStackID
    show pStackID
 end revIDESendWindowToFront
 
-/*
+/**
 Returns an array describing the recently opened stacks.
 
 Returns: A numerically keyed array of recent stack labels and filename
@@ -10060,7 +10059,7 @@ function revIDERecentStacks
    return tRecentPathData
 end revIDERecentStacks
 
-/*
+/**
 Adds an entry to the recent file paths
 */
 on revIDEAddRecentStack pFilePath
@@ -10091,7 +10090,7 @@ on revIDEAddRecentStack pFilePath
    ideMessageSend "ideRecentFilesChanged"
 end revIDEAddRecentStack
 
-/*
+/**
 Trims the recent files to the user's preferred number
 */
 private command __trimRecentStacks @xStackFiles
@@ -10105,8 +10104,7 @@ private command __trimRecentStacks @xStackFiles
 
    delete line tNumRecent+1 to -1 of xStackFiles
 end __trimRecentStacks
-
-/*
+/**
 Given a list of filenames and a filename from the list, a unique minimal lable is returned. For example:
 
 /Desktop/test1/ben.livecode
@@ -10153,7 +10151,7 @@ private function revIDEFilepathUniqueLabel pFilepaths, pFilepath
    return tLabel
 end revIDEFilepathUniqueLabel
 
-/*
+/**
 Cleans the list of recent file paths. Removes broken links (Stacks that have been subsequently removed),
 removed duplicates and resolves the label when two stack have the same name but stored in different paths.
 */
@@ -10180,7 +10178,7 @@ end revIDECleanRecentStackList
 // Keep track of the current transient text field
 local sTransientTextField
 
-/*
+/**
 Adds a text field (usually to the property inspector) at a specified rect pRect, which, when its text is changed, dispatches
 a callback pCallback to the specified target and deletes the text field. pCallbackParams is sent to the callback target as a parameter
 */
@@ -10232,7 +10230,7 @@ on revIDECreateTransientTextField pRect, pCallback, pCallbackParams, pCurrentTex
    unlock screen
 end revIDECreateTransientTextField
 
-/*
+/**
 Deletes the transient text field
 */
 on revIDERemoveTransientTextField pTarget
@@ -10246,7 +10244,7 @@ on revIDERemoveTransientTextField pTarget
    unlock screen
 end revIDERemoveTransientTextField
 
-/*
+/**
 Sends the callback with params as specified by prior call to revIDEAddTransientTextField
 Called by transient text fields on closeField, returnInField or exitField
 */
@@ -10267,7 +10265,7 @@ on revIDETransientTextChanged
    unlock screen
 end revIDETransientTextChanged
 
-/*
+/**
 Simply delete the transient text field without sending the text changed callback.
 */
 on revIDEDismissTransient
@@ -10533,7 +10531,7 @@ on revIDETutorialLoad pCourse, pTutorial, pLesson
    dispatch "revTutorialResume" to stack "revTutorial" with tStackList, tTags, tLessonDataA["step"]
 end revIDETutorialLoad
 
-/*
+/**
 Returns the preference name corresponding to the given course
 */
 function revIDETutorialCoursePreferenceName pName
@@ -10541,21 +10539,21 @@ function revIDETutorialCoursePreferenceName pName
    return "c" & pName & "Info"
 end revIDETutorialCoursePreferenceName
 
-/*
+/**
 Returns the course progress data stored in the preferences for the given course
 */
 function revIDETutorialSavedCourseProgress pName
    return revIDEGetPreference(revIDETutorialCoursePreferenceName(pName))
 end revIDETutorialSavedCourseProgress
 
-/*
+/**
 Stores the course progress data for the given course in the preferences
 */
 on revIDETutorialSaveCourseProgress pCourse, pData
    revIDESetPreference revIDETutorialCoursePreferenceName(pCourse), pData
 end revIDETutorialSaveCourseProgress
 
-/*
+/**
 Returns the percentage of the currently open tutorial lesson that is finished
 */
 function revIDETutorialDonePercentage
@@ -10567,21 +10565,21 @@ function revIDETutorialDonePercentage
    return the result
 end revIDETutorialDonePercentage
 
-/*
+/**
 Lists the courses in the IDE tutorial folder
 */
 function revIDETutorialListCourses
    return revIDEFolderListing(revIDESpecialFolderPath("tutorial") & "/courses", false)
 end revIDETutorialListCourses
 
-/*
+/**
 Returns the path to the folder containing the given course
 */
 function revIDETutorialCoursePath pCourse, pLocation
    return pLocation & "/courses/" & pCourse
 end revIDETutorialCoursePath
 
-/*
+/**
 Returns the description of the given course
 */
 function revIDETutorialCourseDescription pCourse, pLocation
@@ -10589,7 +10587,7 @@ function revIDETutorialCourseDescription pCourse, pLocation
          & slash & "description.txt")
 end revIDETutorialCourseDescription
 
-/*
+/**
 Lists the tutorials in the folder for the given course
 */
 function revIDETutorialListTutorials pCourse
@@ -10597,14 +10595,14 @@ function revIDETutorialListTutorials pCourse
          revIDESpecialFolderPath("tutorial")) & slash & "tutorials", false)
 end revIDETutorialListTutorials
 
-/*
+/**
 Returns the path to the folder containing the given tutorial
 */
 function revIDETutorialPath pCourse, pTutorial, pLocation
    return revIDETutorialCoursePath(pCourse, pLocation) & "/tutorials/" & pTutorial
 end revIDETutorialPath
 
-/*
+/**
 Returns the description of the given tutorial
 */
 function revIDETutorialDescription pCourse, pTutorial, pLocation
@@ -10612,7 +10610,7 @@ function revIDETutorialDescription pCourse, pTutorial, pLocation
          & slash & "description.txt")
 end revIDETutorialDescription
 
-/*
+/**
 Lists the lessons in the folder for the given tutorial of the given course
 */
 function revIDETutorialListLessons pCourse, pTutorial, pLocation
@@ -10623,7 +10621,7 @@ function revIDETutorialListLessons pCourse, pTutorial, pLocation
    return tFiles
 end revIDETutorialListLessons
 
-/*
+/**
 Returns the path to the specified lesson
 */
 function revIDETutorialLessonPath pCourse, pTutorial, pLesson, pLocation
@@ -10631,21 +10629,21 @@ function revIDETutorialLessonPath pCourse, pTutorial, pLesson, pLocation
          & slash &"lessons" & slash & pLesson & ".txt"
 end revIDETutorialLessonPath
 
-/*
+/**
 Returns the content of the specified lesson
 */
 function revIDETutorialLessonContent pCourse, pTutorial, pLesson, pLocation
    return revIDEUTF8FileContents(revIDETutorialLessonPath(pCourse, pTutorial, pLesson, pLocation))
 end revIDETutorialLessonContent
 
-/*
+/**
 Lists the courses that are always present in the order they should display
 */
 function revIDETutorialFixedCourses
    return "Welcome,Getting Started,General Tutorials"
 end revIDETutorialFixedCourses
 
-/*
+/**
 Returns a structured array representing the info of all of the currently available courses
 */
 function revIDETutorialCourseInfo
@@ -10682,7 +10680,7 @@ function revIDETutorialCourseInfo
    return tCourseDataA
 end revIDETutorialCourseInfo
 
-/*
+/**
 Returns a structured array representing the info of all of the currently available tutorials in the given course
 */
 function revIDETutorialInfo pCourse
@@ -10711,7 +10709,7 @@ function revIDETutorialInfo pCourse
    return tTutorialDataA
 end revIDETutorialInfo
 
-/*
+/**
 Returns a structured array representing the info of all of the currently available lessons in the given tutorial of the given course
 */
 function revIDETutorialLessonInfo pCourse, pTutorial
@@ -10731,7 +10729,7 @@ function revIDETutorialLessonInfo pCourse, pTutorial
    return tLessonDataA
 end revIDETutorialLessonInfo
 
-/*
+/**
 Called when the tutorial starts a new step
 */
 on revIDETutorialProgressChanged
@@ -11371,6 +11369,9 @@ private on __fetchColorsToNames
 	end repeat
 end __fetchColorsToNames
 
+/**
+Returns an Red,Blue,Green triplet corresponding to a given IDE named colors
+*/
 function revIDENamedColorToRGB pName
    if sNamesToColorsA is empty then
       __fetchNamesToColors
@@ -11866,6 +11867,10 @@ function revIDEObjectSelectionMenu pTargetObjects, pTypeFilter
 end revIDEObjectSelectionMenu
 
 # OK-2007-07-06 : Reworked recent paths system
+
+/**
+Update the IDE Recent Files List
+*/
 command revUpdateRecentFiles pStack
    if there is no stack pStack then
       exit revUpdateRecentFiles
@@ -11882,7 +11887,7 @@ command revUpdateRecentFiles pStack
    revIDEAddRecentStack the effective filename of stack pStack
 end revUpdateRecentFiles
 
-/*
+/**
 Share the stack to revOnline/LiveCode Share
 */
 command revIDEShareStack pStackID
@@ -11910,7 +11915,7 @@ command revIDEShareStack pStackID
    break
 end revIDEShareStack
 
-/*
+/**
 Returns the number of lines in the script of an object
 If  the object is on a password protected stack "pwd" is returned
 */
@@ -11924,7 +11929,7 @@ function revIDEObjectScriptLines pObject
    return tScriptLines
 end revIDEObjectScriptLines
 
-/*
+/**
 Returns true if the object is currently open, i.e. determines
 - if the object is a stack, whether the mode is not 0
 - if the object is a card, whether it is the current card of an open stack
@@ -12249,7 +12254,6 @@ have the same owner.
 Returns: True if the objects can be selected
 
 */
-
 function revIDEObjectsAreSelectable pObjects
    local tOwner, tObject
    split pObjects by return
@@ -12336,11 +12340,8 @@ on ideDesktopChanged
 end ideDesktopChanged
 
 /**
-
 Update the window bounding rect for the current IDE palette layout
-
 */
-
 command ideSetWindowBoundingRect
    local tMenuBar
    put revIDEPaletteToStackName("menubar") into tMenuBar

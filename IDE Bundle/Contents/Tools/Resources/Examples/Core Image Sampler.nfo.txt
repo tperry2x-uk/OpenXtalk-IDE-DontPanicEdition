@@ -1,0 +1,1 @@
+Core Image Sampler demonstrates the syntax for using Apples Core Image API's transitions with xTalk images.

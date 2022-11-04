@@ -1,0 +1,2 @@
+Video Capture Demo
+This stack is a demonstration of the revVideoCapture API which is no longer supported but may still work on older operating systems. Requires Apple's now defunct (32-bit) QuickTime for functionality on macOS.

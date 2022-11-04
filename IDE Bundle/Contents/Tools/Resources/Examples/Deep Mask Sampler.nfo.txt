@@ -1,0 +1,1 @@
+Deep Mask Sample is a demonstration on using windowShape syntax for creating arbitrary-shaped stack windows.

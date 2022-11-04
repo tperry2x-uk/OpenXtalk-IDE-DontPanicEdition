@@ -1,0 +1,2 @@
+SQLite Sampler
+Is a demo and informational stack on using SQLite database files from your scripts.

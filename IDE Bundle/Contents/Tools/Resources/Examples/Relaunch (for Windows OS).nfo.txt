@@ -1,0 +1,1 @@
+Relaunch stack demonstrates the syntax creating single-instance applications on Microsoft Windows OS.

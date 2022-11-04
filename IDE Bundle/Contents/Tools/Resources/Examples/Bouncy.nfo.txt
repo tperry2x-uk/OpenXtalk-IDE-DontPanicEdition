@@ -1,0 +1,1 @@
+Bouncy demonstrates moving a stack window around a main screen using script. The stack also uses an image mask, and demonstrates the 'grab' command, as well as shows how to script physics behavior.

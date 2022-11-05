@@ -580,6 +580,7 @@ on mouseDown pButton
             default
                break
          end switch
+         -- need to add check for at least 1 image on topStack and create an image if none is found, as a workaround for new image not being saved
          break
       case "option"
          revToolsOptionClicked pButton, the long id of the target

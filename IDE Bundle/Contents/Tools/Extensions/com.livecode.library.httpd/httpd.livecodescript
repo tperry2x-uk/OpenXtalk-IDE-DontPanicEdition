@@ -20,9 +20,9 @@ on extensionInitialize
    if the target is not me then
       pass extensionInitialize
    end if
-   
+
    insert the script of me into back
-   
+
    if the environment contains "development" then
       set the _ideoverride of me to true
    end if
@@ -32,7 +32,7 @@ on extensionFinalize
    if the target is not me then
       pass extensionFinalize
    end if
-   
+
    remove the script of me from back
 end extensionFinalize
 
@@ -106,12 +106,12 @@ command httpdStart pCallback, pPort, pServerName
    if pServerName is empty then
       put "LiveCode" into pServerName
    end if
-   
+
    local tPort
    if pPort is empty then
       put kDefaultPort into tPort
       accept connections on port tPort with message "__NewRequest"
-      
+
       if the result is not empty then
          accept connections on port "0" with message "__NewRequest"
          if the result is not empty then
@@ -125,13 +125,13 @@ command httpdStart pCallback, pPort, pServerName
          return the result for error
       end if
    end if
-   
+
    put it into tPort
-   
+
    put __GetCaller() into sServers[tPort]["target"]
    put pCallback into sServers[tPort]["callback"]
    put pServerName into sServers[tPort]["servername"]
-   
+
    return tPort for value
 end httpdStart
 
@@ -155,7 +155,7 @@ command httpdStop pPorts
       -- stop all
       put the keys of sServers into pPorts
    end if
-   
+
    repeat for each line tPort in pPorts
       close socket tPort
       delete variable sServers[tPort]
@@ -176,9 +176,9 @@ on NewRequest pSocketID, pRequest
    local tPath
    put the effective filename of me into tPath
    set the itemDelimiter to slash
-   
+
    put "files/" & pRequest["resource"] into the last item of tPath
-   
+
    if there is a file tPath then
       local tData
       put url ("binfile:" & tPath) into tData
@@ -188,7 +188,7 @@ on NewRequest pSocketID, pRequest
       httpdResponse pSocketID, 404
    end if
 end NewRequest
-   
+
 Description:
 Handle the callback set when starting the server and respond to the request according to your requirements.
 
@@ -207,24 +207,24 @@ pHeaders (optional string):
 Any additional headers to send with the response. Content-Length, Server, Date and Connection are set by default.
 
 */
-   
+
 command httpdResponse pSocketID, pResponseCode, pContent, pHeaders
    local tPort
    put sRequests[pSocketID]["port"] into tPort
-   
+
    if tPort is empty then
       return "invalid socket id" for error
    end if
-   
+
    replace return with crlf in pHeaders
    if pHeaders is not empty and not (pHeaders ends with crlf) then
       put crlf after pHeaders
    end if
-   
+
    if pResponseCode is empty then
       put 200 into pResponseCode
    end if
-   
+
    local tResponse
    put "HTTP/1.1" && pResponseCode && __ResponseCodeString(pResponseCode) & crlf & \
          "Date:" && the internet date & crlf & \
@@ -232,7 +232,7 @@ command httpdResponse pSocketID, pResponseCode, pContent, pHeaders
          "Connection: close" & crlf & \
          pHeaders & \
          "Content-Length: " & the length of pContent & crlf & crlf before pContent
-   
+
    write pContent & crlf to socket pSocketID with message "__ResponseWritten"
 end httpdResponse
 
@@ -246,7 +246,7 @@ end __GetCaller
 
 on __NewRequest pSocketID, pLocalPort
    put pLocalPort into sRequests[pSocketID]["port"]
-   
+
    read from socket pSocketID with message "__ReadRequest"
 end __NewRequest
 
@@ -256,7 +256,7 @@ end __ExpectContinueWritten
 
 private function __ParamsToArray pParams
    split pParams by "&" and "="
-   
+
    local tParams
    repeat for each key tKey in pParams
       put urlDecode(pParams[tKey]) into tParams[urlDecode(tKey)]
@@ -267,36 +267,36 @@ end __ParamsToArray
 on __ReadRequest pSocketID, pData
    local tPort
    put sRequests[pSocketID]["port"] into tPort
-   
+
    if tPort is empty then
       -- can not repsond so just hang up
       close socket pSocketID
       exit __ReadRequest
    end if
-   
+
    if there is not a sServers[tPort]["target"] then
       -- respond as server error
       httpdResponse pSocketID, 500, "Target" && sServers[tPort]["target"] && "does not exist!"
       exit __ReadRequest
    end if
-   
+
    put word 1 of pData into  sRequests[pSocketID]["method"]
-   
+
    put word 2 of pData into sRequests[pSocketID]["resource"]
-   
+
    set the itemDelimiter to "?"
    put __ParamsToArray(item 2 to -1 of sRequests[pSocketID]["resource"]) into sRequests[pSocketID]["parameters"]
    put item 1 of sRequests[pSocketID]["resource"] into sRequests[pSocketID]["resource"]
    set the itemDelimiter to comma
    delete line 1 of pData
-   
+
    __ParseHeaders pData, sRequests[pSocketID]["headers"]
-   
+
    if sRequests[pSocketID]["headers"]["Expect"] is "100-continue" then
       write "100 Continue" to socket pSocketID with message "__ExpectContinueWritten"
       exit __ReadRequest
    end if
-   
+
    __ReadContinuedRequest pSocketID, pData
 end __ReadRequest
 
@@ -313,33 +313,33 @@ on __ReadContinuedRequest pSocketID, pData
             put pData into sRequests[pSocketID]["content"]
       end switch
    end if
-   
+
    local tPort
    put sRequests[pSocketID]["port"] into tPort
-   
+
    try
       dispatch sServers[tPort]["callback"] to sServers[tPort]["target"] with pSocketID, sRequests[pSocketID]
    catch tError
       httpResponse pSocketID, 500, tError
-      
+
       --!TODO pass error in development mode
    end try
 end __ReadContinuedRequest
 
 private command __ParseHeaders @xData, @rHeaders
    local tHeaders
-   
+
    local tOffset
    put byteOffset(crlf&crlf, xData) into tOffset
    if tOffset is not 0 then
       add 3 to tOffset
-      
+
       local tHeaderData
       put char 1 to tOffset of xData into tHeaderData
       delete char 1 to tOffset of xData
       replace crlf with return in tHeaderData
       split tHeaderData by return
-      
+
       local tLastHeader
       set the itemDelimiter to ":"
       repeat with tIndex = 1 to the number of elements in tHeaderData
@@ -349,13 +349,13 @@ private command __ParseHeaders @xData, @rHeaders
          else
             put item 1 of tHeaderData[tIndex] into tLastHeader
             if tLastHeader is empty then next repeat
-            
+
             delete item 1 of tHeaderData[tIndex]
             put word 1 to -1 of tHeaderData[tIndex] into tHeaders[tLastHeader]
          end if
       end repeat
    end if
-   
+
    put tHeaders into rHeaders
 end __ParseHeaders
 
@@ -374,9 +374,9 @@ end socketError
 
 private function __ResponseCodeString pCode
    switch pCode
-      case 100 
+      case 100
          return "Continue"
-      case 101 
+      case 101
          return "Switching Protocols"
       case 102
          return "Processing"
@@ -465,7 +465,7 @@ private function __ResponseCodeString pCode
       case 424
          return "Failed Dependency"
       case 426
-         return "Upgrade Required"
+         return "Not Available in Community"
       case 428
          return "Precondition Required"
       case 429

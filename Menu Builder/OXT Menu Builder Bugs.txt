@@ -1,0 +1,107 @@
+Menu Builder Bugs
+Terry Little
+
+While working with Menu Builder I came across some bugs and problems. After a forum search, I made some changes.
+- There is an LC enhancement request to remove the orange horizontal lines and triangles, which are dodgy, unnecessary, but work. My opinion is they are deeply embedded in multiple scripts and would be difficult to remove. The jerky movement of the orange line is not a bug. 
+- LCC9 has mnemonic-keys filtered out. They can be applied in Menu Builder but don't appear in the final menubar by design, not a bug.
+- MenuItem special characters must be added in top-down order: disable, mneumonic, mark, shortcut. Not a bug, just the way it was coded.
+- To work with rev IDE stacks on Windows: right-click LCC shortcut on desktop > open as administrator.
+- To work in Menu Builder, in msg box: set the style of stack "revMenuManager" to toplevel.
+- Menu Builder = revMenuManager.  
+----
+
+From LC Forum, search "Menu Builder"
+Q. As regards Menu Builder, the Shortcut checkbox options -- Ctrl Cmd Shift Alt -- and their description in the Manual just seem a bit cryptic. So I really knew not what to expect until I built the Mac and Windows standones to see how the respective menus were displayed.
+For example, the "Cmd" checkbox yields the expected "cloverleaf" Command icon in a Mac menu, yet substitutes "Ctrl+" in Windows -- despite the fact that there is a separate "Ctrl" checkbox. The "Ctrl" checkbox does *also* insert "Ctrl+" into a Windows menu -- which seems redundant -- while inserting the Control symbol into a Mac menu. The only unambiguous checkbox option is "Shift". I assume that the LC folks had some rationale for this checkbox design, so perhaps I am the only one to have found this confusing.
+
+A. Actually it was implemented in MetaCard originally so it's been that way for, what, 20 years? The Command key on Mac and Control key on Windows are functionally the same, so Cmd maps to Control on Windows. Windows doesn't have a parallel key for Mac's Control key exactly so those two map the same. Option (Mac) and Alt (Windows) are mapped to each other. This provides cross-platform compatibility without needing to branch code by platform.
+
+There's a note in the dictionary in the "menu" entry: As Windows and Linux do not have the 'Command' modifier, on those platforms 'Command' is an synonym for 'Control'. To ensure cross-platform uniformity it is important that you use 'Command' in preference to 'Control' since 'Control' on Mac OS X is a less frequently used modifier. This setup has been the same forever, but a while back an addition was made to add a tag to the menu item string. This allows you to display a menu item in a different language while still receiving the same parameter in a menupick handler.
+----
+
+Menu Builder Changes
+1) Into line 61 of the script of fld "MenuItems", add:
+   if "&" is in tMenuName then replace "&" with "" in tMenuName  --TL 11/2022, fix special chars added to fld "Item Name".
+   if "(" is in tMenuName then replace "(" with "" in tMenuName
+   if "!c" is in tMenuName then replace "!c" with "" in tMenuName
+   if "!n" is in tMenuName then replace "!n" with "" in tMenuName
+
+2) Showing Ctrl, Cmd, Shift, and Option_Alt checkboxes are confusing. They should be platform specific.
+Mac should show Ctrl (control btn with label ctrl), Cmd (cmd btn with label cmd), Shift, and Opt (option-alt btn with label Opt).
+Win/Linux should show Ctrl (cmd btn with label ctrl), Shift, and Alt (option_alt btn with label Alt).
+
+At line 32 of the script of cd 1 of stack "Menu Builder", in the preOpenStack handler add:
+  --TL 11/2022, fix confusion on platform specific shortcuts
+   if platform() = "MacOS" then
+      show btn "Control"
+      set the label of btn "Command" to "Cmd"
+      set the label of btn "Option_Alt" to "Opt"
+   else  --win/linux
+      hide btn "Control"
+      set the label of btn "Command" to "Ctrl"
+      set the label of btn "Option_Alt" to "Alt"
+   end if
+   --
+
+3) Changed tooltip of btn "Auto Script" to emphasize "menuPick"
+from: Insert a framework script to handle menu items in the selected menu
+    to: Insert a framework menuPick handler for menuItems in the selected menu
+
+4) Changed loc of btns "Auto Script" and "Edit Script" to emphasize using Auto Script first.
+Auto Script loc from: 145,391  to: 125,375  (above)
+Edit Script loc from: 55,391   to: 125,395  (below)
+
+5) Changed left of the Menu's orange line, grp "Menu Insert", from 21 to 17, as it was 4 px too far right.
+Changed the left of the left triangle from 17 to 13 and the right of the right triangle from 175 to 171, as it was covering the fld's scrollbar.
+This change required change at line 78 of the script of cd 1 of stack "revMenuManager" to:
+   if the lookAndFeel = "Motif" then  --TL 11/2022, fix for arrow too far right
+      set the right of btn "Menu Insertion Arrow" to 167  --(-4px)
+   else set the right of btn "Menu Insertion Arrow" to 171
+
+6) Added btn "Auto Menu Bar Script" above existing btn "Edit Menu Bar Script". Inserts a framework mouseDown handler in the menu bar group's script, stored in the btn's custom prop: the cMouseDown. Follows the pattern established by btn "Auto Script". A mouseDown handler in the menu bar group's script is used to manage enable/disable menuItems.
+Changed the label of btn "Set As Stack Menu Bar" from one line to two and decreased width to make room for new btn "Auto Menu Bar Script"
+Updated the answer dialogs of btn "Auto Script" to match the answer dialogs of btn "Auto Menu Bar Script".
+At line 313 of cd 1 of stack "RevMenuManager", in preOpenStack, add:
+enable btn "Auto Menu Bar Script"  --TL 11/2022, enable to match btn "Edit Menu Bar Script"
+
+7) Re-aligned some checkboxes a few pixels.
+
+8) At line 60 of script of fld "Menu Buttons", removed comment mark to allow the menuItems of btn "Preview" to update after a menu selection. This was previously commented out and not reactivated.
+put the text of gREVActiveMenuButton into btn "Preview"  --TL 11/22, fix btn Preview not updating by removing "--" comment mark
+
+9) At line 12 of the script of fld "Menu Buttons", added mouseUp to reposition orange line smoothly, commented out 2 unnecessary lines.
+on mouseDown
+  if the text of me is empty or the mouseLine is empty then exit mouseDown
+  --put the hilitedLine of me into tHilitedLine
+  put word 2 of the mouseLine into tMouseLine
+  set the cBroughtUpAnswerDialog of fld "Menu Name" to false
+  revCheckNameChanged
+  lock screen
+  set the hilitedLine of me to tMouseLine
+  --if the cBroughtUpAnswerDialog of fld "Menu Name" then mouseUp
+  mouseUp  --TL 11/22, fix to reposition orange line smoothly
+  unlock screen
+end mouseDown
+
+10) At line 104 of script of fld "Menu Buttons", added code to select first line of fld "Menu Items" and reposition orange line smoothly.
+select line 1 of fld "Menu Items"  --TL 11/22, fix for no selection
+send "mouseUp" to fld "Menu Items"  --TL 11/22, fix to reposition orange line smoothly
+
+11) At line 9 of the script of fld "Menu Items", added mouseUp to reposition orange line smoothly, commented out 1 unnecessary line
+on mouseDown
+   if the text of me is empty or the mouseLine is empty then exit mouseDown
+   put revMenuItemHilitedLines() into tHilitedLines
+   set the cBroughtUpAnswerDialog of fld "Item Name" to false
+   revCheckNameChanged
+   lock screen
+   set the hilitedLines of me to tHilitedLines
+   --if the cBroughtUpAnswerDialog of fld "Item Name" then mouseUp
+   mouseUp  --TL 11/22, fix to reposition orange line smoothly
+   unlock screen
+end mouseDown
+
+----
+X) Bug: fld "Menu Items" has a separate scrollbar "Menu Items" over the top of it. The separate scrollbar doesn't show a border even though the showBorder is true and the borderWidth = 2. Its script tries to reposition the orange line and triangles, but doesn't. Don't know how to fix.
+X) 9x Bug?: in msg box: toplevel stack the mouseStack  --changes style from palette to topstack, but doesn't allow edit mode.
+Workaround is in msg box: set the style of stack "revMenuManager" to toplevel  --works, edit mode allowed.
+----

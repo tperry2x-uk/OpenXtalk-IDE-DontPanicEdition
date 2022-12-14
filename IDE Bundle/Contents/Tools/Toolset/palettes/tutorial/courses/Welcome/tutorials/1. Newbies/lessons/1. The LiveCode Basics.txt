@@ -2,7 +2,7 @@ tutorial "Hello World"
 
 prologue
 	The first thing you learn to do in an programming language is how to say "Hello World."
-	
+
 	In this tutorial we'll do just that.
 end prologue
 
@@ -29,7 +29,7 @@ action
     go to step "Set Hello Button Area"
 end step
 
-step "Set Hello Button Area"  
+step "Set Hello Button Area"
     Resize and position the button field at the bottom of the stack as shown.
 action
     add guide "Area" with rect "142,180,224,203" to stack "Mainstack"
@@ -56,14 +56,14 @@ end step
 
 step "Hello Button Script"
 	The mouseUp message is sent to a button when the user clicks on it. We are going to make a dialog
-	box pop up when the user clicks on the 'Hello' button, by using LiveCode's 'answer' command in response 
+	box pop up when the user clicks on the 'Hello' button, by using the xTalk 'answer' command in response 
 	to the mouseUp message.
 action
-	go to step "Set Hello Button Script"	
+	go to step "Set Hello Button Script"
 end step
 
 step "Set Hello Button Script"
-    Right click on the button and select 'Edit Script' from the menu to open the script 
+    Right click on the button and select 'Edit Script' from the menu to open the script
     editor.
 action
     highlight button "Hello Button"
@@ -83,9 +83,9 @@ action
 end step
 
 step "Set Tool To Run"
-    Now test the code you have written. First, switch to run mode by clicking on the run 
+    Now test the code you have written. First, switch to run mode by clicking on the run
     mode tool in the Tools palette.
-action 
+action
     highlight tool "Run Mode"
 	  wait until the tool is run
 		go to step "Click Hello Button"

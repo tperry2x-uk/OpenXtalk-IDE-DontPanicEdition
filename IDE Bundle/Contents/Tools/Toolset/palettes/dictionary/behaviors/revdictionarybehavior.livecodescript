@@ -87,8 +87,7 @@ on showUpgradeOptions pEdition, pDisplayName
    put urlEncode(pDisplayName) into pDisplayName
    replace "+" with "%20" in pDisplayName
 
-   launch url revEnvironmentEditionProperty("edition_external_url", pEdition) & \
-         "?utm_source=ide&utm_medium=docs&utm_campaign="&pDisplayName
+   launch url revEnvironmentEditionProperty("edition_external_url", pEdition) &"?"&pDisplayName
 end showUpgradeOptions
 
 # bug 17819 enable cmd+c in dictionary

@@ -3,13 +3,13 @@ tutorial "My First App"
 prologue
 	The first step in creating an App is the User Interface. You can design an
 	app just like you would draw a picture.
-	
+
 	Each part of your app is going to be an object you drag out from the
 	tools palette.
 end prologue
 
 step "Tutorials Intro"
-	You can keep track of how much of the tutorial you have completed with this progress bar, and 
+	You can keep track of how much of the tutorial you have completed with this progress bar, and
 	exit the tutorial at any time by clicking on the x button.
 action
 	highlight toolbar "tutorial"
@@ -34,7 +34,7 @@ end step
 step "Set Mainstack Rect"
     Start by resizing your stack. You can drag the edges to change the width
     and height.
-    
+
     Make this stack approximately the shape of a mobile device, as shown by the dotted line.
 action
     -- Add a guide to the previously captured stack. Guides are local to a step, and can't be
@@ -75,18 +75,18 @@ end step
 
 step "Property Inspector Interlude"
 	The Property Inspector is a window that allows you to control the appearance, location and behavior of the objects in your app.
-	Properties of objects are grouped into sections. You can hover over the icons at the top of the 
+	Properties of objects are grouped into sections. You can hover over the icons at the top of the
 	inspector to see what each section is called.
 action
 	interlude
     go to step "Set Header Graphic Line Size"
-end step	
+end step
 
 step "Set Header Graphic Line Size"
     Remove the outline of the graphic by setting the line thickness to 0.
 action
     -- Navigates to the specified section of the property inspector, and highlights the specified
-    -- property editor 
+    -- property editor
     highlight property "Line thickness" of section "Basic"
     wait until the lineSize of graphic "Header Graphic" is 0
     go to step "Select Header Graphic"
@@ -97,12 +97,12 @@ step "Select Header Graphic"
 action
 	highlight graphic "Header Graphic"
     wait until graphic "Header Graphic" is selected
-    go to step "Duplicate Header Graphic"	
+    go to step "Duplicate Header Graphic"
 end step
 
 step "Duplicate Header Graphic"
     Click on the Edit menu, and duplicate the graphic.
-action 
+action
     highlight menu item "Duplicate" of menu edit
     capture the next new graphic of stack "Mainstack" as "Footer Graphic"
     wait until there is a graphic "Footer Graphic"
@@ -137,7 +137,7 @@ action
 end step
 
 step "Create Send Button"
-    Drag out a button from the Tools palette onto your stack. We will use this to trigger 
+    Drag out a button from the Tools palette onto your stack. We will use this to trigger
     the message send action.
 action
     highlight tool "Create Button"
@@ -164,9 +164,9 @@ action
 end step
 
 step "Set Send Button Label"
-    We're going to set the properties of the button to make it similar to the equivalent 
+    We're going to set the properties of the button to make it similar to the equivalent
     button in the messages app.
-    
+
     First set the label of the button to "Send"
 action
     highlight property "Label" of section "Basic"
@@ -175,7 +175,7 @@ action
 end step
 
 step "Set Send Button Style"
-    Set the button style to transparent by selecting "transparent" from the style 
+    Set the button style to transparent by selecting "transparent" from the style
     dropdown menu. This will clear everything except the text from the button.
 action
     highlight property "Style" of section "Basic"
@@ -193,7 +193,7 @@ end step
 
 step "Open Send Button Script"
     Now that we have the User Interface set up, it's time to add some code.
-    
+
     Right click on the button and select 'Edit Script' from the menu to open the script editor.
 action
     highlight button "Send Button"
@@ -202,12 +202,12 @@ action
 end step
 
 step "Script Editor Interlude"
-	The Script Editor is a window that allows you to make parts of you app responsive to user actions. 
-	This is achieved by adding blocks of script which tell LiveCode what to do when a given user action has occurred.
+	The Script Editor is a window that allows you to make parts of you app responsive to user actions.
+	This is achieved by adding blocks of script which tell an xTalk engine what to do when a given user action has occurred.
 action
 	interlude
-	go to step "Apply Button Interlude"	
-end step	
+	go to step "Apply Button Interlude"
+end step
 
 step "Apply Button Interlude"
 	The script entered into the script editor does not become live until you click on the Apply button.
@@ -215,16 +215,16 @@ step "Apply Button Interlude"
 action
 	highlight "Apply" of script editor for button "Send Button"
 	interlude
-	go to step "Send Button Script"	
+	go to step "Send Button Script"
 end step
 
 step "Send Button Script"
 	The mouseUp message is sent to a button when the user clicks on it. We are going to make a dialog
-	box pop up when the user clicks on the 'Send' button, by using LiveCode's 'answer' command in response 
+	box pop up when the user clicks on the 'Send' button, by using the xTalk 'answer' command in response
 	to the mouseUp message.
 action
 	interlude
-	go to step "Set Send Button Script"	
+	go to step "Set Send Button Script"
 end step
 
 step "Set Send Button Script"
@@ -239,9 +239,9 @@ action
 end step
 
 step "Set Tool To Run"
-    Now test the code you have written. First, switch to run mode by clicking on the run 
+    Now test the code you have written. First, switch to run mode by clicking on the run
     mode tool in the Tools palette.
-action 
+action
     highlight tool "Run Mode"
     wait until the tool is run
 	go to step "Run Mode Interlude"
@@ -265,7 +265,7 @@ end step
 
 step "Set Tool To Edit"
     Now switch back to Edit Mode to make some more changes to the app.
-action 
+action
     highlight tool "Edit Mode"
     wait until the tool is edit
     go to step "Set Message Field Properties"
@@ -280,7 +280,7 @@ action
 end step
 
 step "Set Message Field Name"
-    We're going to set the name of the text field so its contents can be referenced by 
+    We're going to set the name of the text field so its contents can be referenced by
     the button script.
     Change the name of the field to "newMessage"
 action
@@ -290,7 +290,7 @@ action
 end step
 
 step "Open Send Button Script 2"
-    Right click on the button and select 'Edit Script' from the menu to open the script 
+    Right click on the button and select 'Edit Script' from the menu to open the script
     editor again.
 action
     highlight button "Send Button"
@@ -299,8 +299,8 @@ action
 end step
 
 step "Set Send Button Script 2"
-    Code allows your app to be flexible and interactive. 
-    
+    Code allows your app to be flexible and interactive.
+
     Change the second line of the button script so that it reads as follows, and click "Apply":
 script
     on mouseUp
@@ -312,9 +312,9 @@ action
 end step
 
 step "Set Tool To Run 2"
-    Now test this new code. First, switch to Run Mode by clicking on the Run Mode tool in 
+    Now test this new code. First, switch to Run Mode by clicking on the Run Mode tool in
     the Tools palette.
-action 
+action
     highlight tool "Run Mode"
     wait until the tool is run
     go to step "Enter Message Field"
@@ -322,7 +322,7 @@ end step
 
 step "Enter Message Field"
     Click on the field to enter text into it.
-    Notice that in Edit Mode, clicking on the field selects it and allows you to drag it 
+    Notice that in Edit Mode, clicking on the field selects it and allows you to drag it
     around and change the size, whereas in Run Mode you can enter text.
 action
     highlight field "Message Field"
@@ -340,13 +340,13 @@ end step
 
 step "Understanding What Happened"
     Understanding what happened:
-    
-    When you clicked the mouse, LiveCode sent the mouseUp message when you lifted your finger.
-    
-    The command 'answer' tells LiveCode to pop up a message dialog.
-    
+
+    When you clicked the mouse, the xTalk engine sent the mouseUp message when you lifted your finger.
+
+    The command 'answer' tells the xTalk interpreter to pop up a message dialog.
+
     First it showed the text "Hello World".
-    
+
     You changed it to show whatever text is in the field named "newMessage".
 action
     interlude
@@ -355,13 +355,13 @@ end step
 
 step "Set Tool To Edit 2"
     The iPhone app puts the message you send in a bubble. It's easier than you would think.
-    
-    We just need to add a couple more controls to the stack. Switch back to Edit Mode to 
+
+    We just need to add a couple more controls to the stack. Switch back to Edit Mode to
     make some more changes to the app.
 action
     highlight tool "Edit Mode"
     wait until the tool is edit
-    go to step "Create Bubble Image"	
+    go to step "Create Bubble Image"
 end step
 
 step "Create Bubble Image"
@@ -445,7 +445,7 @@ end step
 
 step "Open Send Button Script 3"
     Now we'll connect the label field with the message via the send button script.
-    
+
     Right click on the button and select "Edit Script" from the menu to open the script editor again.
 action
     highlight button "Send Button"
@@ -466,7 +466,7 @@ end step
 
 step "Set Tool To Run 3"
     Switch to Run Mode again to test your code.
-action 
+action
     highlight tool "Run Mode"
     wait until the tool is run
     go to step "Enter A Message 2"
@@ -474,7 +474,7 @@ end step
 
 step "Enter A Message 2"
     Type a message into the field, and click the "Send" button.
-action 
+action
     highlight button "Send Button"
     wait until button "Send Button" is clicked
 end step

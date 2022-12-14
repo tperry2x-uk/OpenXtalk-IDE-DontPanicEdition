@@ -1,7 +1,7 @@
 tutorial "Hello World"
 
 prologue
-	Welcome to LiveCode, to help you get started this Interactive Tutorial will
+	Welcome to OpenXTalk, to help you get started this Interactive Tutorial will
 	show you how to create a simple 'Hello World' app.
 end prologue
 

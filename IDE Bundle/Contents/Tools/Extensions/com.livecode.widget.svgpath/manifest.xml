@@ -2,7 +2,7 @@
   <name>com.livecode.widget.svgpath</name>
   <title>SVG Icon</title>
   <author>LiveCode</author>
-  <version>2.1.1</version>
+  <version>2.1.2</version>
   <license>community</license>
   <type>widget</type>
   <requires name="com.livecode.library.iconsvg"/>
@@ -59,7 +59,6 @@
   <handler name="OnCreate" parameters="" return="any"/>
   <handler name="OnSave" parameters="out array" return="any"/>
   <handler name="OnLoad" parameters="in array" return="any"/>
-  <handler name="OnGeometryChanged" parameters="" return="any"/>
   <handler name="OnMouseUp" parameters="" return="any"/>
   <handler name="OnMouseDown" parameters="" return="any"/>
   <handler name="OnMouseEnter" parameters="" return="any"/>
@@ -72,4 +71,5 @@
   <handler name="setAngle" parameters="in number" return="nothing"/>
   <handler name="setFillRule" parameters="in string" return="nothing"/>
   <handler name="OnPaint" parameters="" return="any"/>
+  <handler name="OnGeometryChanged" parameters="" return="any"/>
 </package>

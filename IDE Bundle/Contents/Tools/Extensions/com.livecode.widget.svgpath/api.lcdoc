@@ -1,15 +1,47 @@
-Library: com.livecode.widget.svgpath
+Name: mouseUp
 
-Type: widget
+Type: message
 
-Summary:
-This widget displays an SVG path as an icon.  It has a default state and a
-"highlighted" state.
+Syntax: mouseUp
+
+Summary: Sent when the SVG icon is released
 
 author: LiveCode
 
-version: 2.1.1
+version: 2.1.2
 
+Name: mouseDoubleUp
+
+Type: message
+
+Syntax: mouseUp
+
+Summary: Sent when the SVG icon is double-clicked
+
+Name: mouseDown
+
+Type: message
+
+Syntax: mouseDown
+
+Summary: Sent when SVG icon is clicked
+
+Name: mouseEnter
+
+Type: message
+
+Syntax: mouseEnter
+
+Summary: Sent when the mouse enters the SVG icon
+
+Name: mouseLeave
+
+Type: message
+
+
+Syntax: mouseLeave
+
+Summary: Sent when the mouse leaves the SVG icon
 
 Name: highlight
 

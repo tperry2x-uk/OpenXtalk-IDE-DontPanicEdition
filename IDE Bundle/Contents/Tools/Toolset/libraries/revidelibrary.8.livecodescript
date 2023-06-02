@@ -7886,11 +7886,11 @@ on revIDEActionSaveStackAs pStackID, pSubstackOnly
 
    local tStackFilter, tStack24Filter, tStack27Filter, tStack55Filter, tStack70Filter, tStack80Filter
    put (revIDELocalise("Stack") & "|oxtstack,stk|STAK") into tStackFilter
-   put (revIDELocalise("Legacy LiveCode Stack (2.4)") & "|livecode,rev|STAK") into tStack24Filter
-   put (revIDELocalise("Legacy LiveCode Stack (2.7)") & "|livecode,rev|STAK") into tStack27Filter
-   put (revIDELocalise("Legacy LiveCode Stack (5.5)") & "|livecode,rev|STAK") into tStack55Filter
-   put (revIDELocalise("Legacy LiveCode Stack (7.0)") & "|livecode,rev|STAK") into tStack70Filter
-   put (revIDELocalise("Legacy LiveCode Stack (8.0)") & "|livecode,rev|STAK") into tStack80Filter
+   put (revIDELocalise("Legacy Stack (2.4)") & "|livecode,rev|STAK") into tStack24Filter
+   put (revIDELocalise("Legacy Stack (2.7)") & "|livecode,rev|STAK") into tStack27Filter
+   put (revIDELocalise("Legacy Stack (5.5)") & "|livecode,rev|STAK") into tStack55Filter
+   put (revIDELocalise("Legacy Stack (7.0)") & "|livecode,rev|STAK") into tStack70Filter
+   put (revIDELocalise("Legacy Stack (8.0)") & "|livecode,rev|STAK") into tStack80Filter
    local tVersion
 
    replace "livecode" with "oxtstack" in tStackName
@@ -9563,7 +9563,7 @@ on revIDEFlipImages pImages, pOrientation
    unlock screen
 end revIDEFlipImages
 
-on revIDEActionRotateImageBy
+on revIDEActionRotateImageBy -- handles arbitrary rotate values for images via dialog box
    modal "revRotate"
    if the cRotateImage of stack "revRotate" is empty then exit revIDEActionRotateImageBy
 
@@ -9574,26 +9574,64 @@ on revIDEActionRotateImageBy
 end revIDEActionRotateImageBy
 
 on revIDEActionRotateImage pAngle
-   revIDERotateImages the selobj, pAngle
+   -- unlock screen
+   -- try
+    put the selobjs into tSelected
+   repeat with x = 1 to the number of lines in tSelected
+      -- set the angle of image tImageLongID to 90
+      -- put the resizeQuality of tSelObj into tPreviousImageQualitySetting
+      -- set the resizeQuality of tSelObj to "best"
+      -- set the angle of tSelObj to (the angle of tSelObj + pAngle) -- A quick fix
+      -- set the resizeQuality of the tSelObj to tPreviousImageQualitySetting
+      try
+         put line x of tSelected into tTargetObj
+         put the resizeQuality of tTargetObj into tPreviousImageQualitySetting
+         set the resizeQuality of tTargetObj to "best"
+         set the angle of tTargetObj to (the angle of tTargetObj + pAngle) -- A quick fix
+         set the resizeQuality of tTargetObj to tPreviousImageQualitySetting
+      end try
+   end repeat
+   -- end try
+    -- rotate image does not seem to work from this rexecution context for some reason?
+   --  Error description: rotate: object is not an editable image  Hint: (none given)
+   # Arbitrary chunk expressions do not work with rotate command
+   -- rotate image (the long id of the selectedObject) by pAngle
+   -- revIDERotateImages the selobj, pAngle
 end revIDEActionRotateImage
 
-private command rotateImageByLongID pLongID, pAngle
+--------------------------------------------------------------------------------------------------------- Completely Broken for some reason ----
+command rotateImageByLongID pLongID, pAngle
+   -- lock screen
    # Force the image reference to begin with the explicit token 'image'
    local tStack
    put revIDEStackOfObject(pLongID) into tStack
 
    local tImageID
    put the id of pLongID into tImageID
-   rotate image id tImageID of stack tStack by pAngle
+   -- unlock screen
+   -- try
+      put the resizeQuality of image id tImageID of stack tStack into tPreviousImageQualitySetting
+      set the resizeQuality of image id tImageID of stack tStack to "best"
+      set the angle of image id tImageID of stack tStack to (the angle of image id tImageID of stack tStack + pAngle) -- A quick fix
+
+      -- rotate image pLongID by pAngle -- doesn't do it for some reason?????
+      -- put pLongID & cr & tImageID & cr & tStack & cr & pAngle & the result
+
+      -- set the angle of image tImageLongID to 90
+      set the resizeQuality of image id tImageID of stack tStack to tPreviousImageQualitySetting
+   -- end try
+
+   -- dispatch  "rotate by " & pAngle to pLongID --  in 60 millisecs
+   -- put cr & the result after msg
 end rotateImageByLongID
 
+-------- THIS SEEMS LIKE POSSIBLY AN ISSUE WITH THIS HANDLER
 on revIDERotateImages pImages, pAngle
    # Make sure targets are all images
-   if not revIDEEnsureControlsOfType(pImages, "image") then
-      exit revIDERotateImages
-   end if
-
-   lock screen
+   -- if not revIDEEnsureControlsOfType(pImages, "image") then
+   --   exit revIDERotateImages
+    -- end if
+   -- lock screen
    local tPreviousImageQualitySetting
    repeat for each line tImage in pImages
       local tImageLongID
@@ -9601,14 +9639,18 @@ on revIDERotateImages pImages, pAngle
       put the resizeQuality of tImageLongID into tPreviousImageQualitySetting
       set the resizeQuality of tImageLongID to "best"
       # Arbitrary chunk expressions do not work with rotate command
-      rotateImageByLongID tImageLongID, pAngle
+      -- rotateImageByLongID tImageLongID, pAngle
+     -- unlock screen
+     set the angle of tImageLongID to (the angle of tImageLongID + pAngle) -- A quick fix?
+     log tImageLongID &cr& tImageLongID &cr& pAngle
+    --  set the angle of image tImageLongID to pAngle
       set the resizeQuality of tImageLongID to tPreviousImageQualitySetting
    end repeat
    revIDESetTool "pointer"
    unlock screen
 end revIDERotateImages
 
-on revIDEActionRotateGraphicBy
+on revIDEActionRotateGraphicBy -- handles arbitrary rotate values for Graphics via dialog box
    modal "revRotate"
    if the cRotateGraphic of stack "revRotate" is empty then exit revIDEActionRotateGraphicBy
 
@@ -9822,7 +9864,6 @@ command revIDERestoreDevelopmentTools
       # OK-2008-08-25 : Bug 7022 - If plugins throw errors when opened, this wil fail, so we catch
       # the errors with a try here, and disregard them.
       try
-
          # OK-2008-05-23 : If tMode is empty, it means that the stack's mode matched its style at the time of closing
          # and this means that no mode change is required.
          lock messages
@@ -9842,7 +9883,6 @@ command revIDERestoreDevelopmentTools
             default
                go stack tStackName
          end switch
-
       end try
    end repeat
    close stack "revRestore"
@@ -11387,6 +11427,54 @@ function revIDERGBToNamedColor pColor
 
    return sColorsToNamesA[pColor]
 end revIDERGBToNamedColor
+
+on revOXTIDEGraphicPointsToSVGPath pObjs
+     Answer "Copy as SVG Paths" & cr & pObjs
+
+   put the selectedObjects into tTargetObjList
+   filter lines of tTargetObjList with "graphic id*"
+   repeat with x = 1 to the number of lines in tTargetObjList
+      put the top of (line x of tTargetObjList) & cr after tTops
+      put the left of (line x of tTargetObjList) & cr after tLefts
+   end repeat
+   filter lines of tTops without empty
+   filter lines of tLefts without empty
+   sort tTops; sort tLefts
+   put line 1 of tTops into tTop
+   put line 1 of tLefts into tLeft
+   repeat with x = 1 to the number of lines in tTargetObjList
+      put graphicsToSVGPathString( (line x of tTargetObjList), tTop, tLeft)  & cr after tSVGStrings
+   end repeat
+   filter lines of tSVGStrings without empty
+   put tSVGStrings
+end revOXTIDEGraphicPointsToSVGPath
+function graphicsToSVGPathString pTargetObj pTopOrigin pLeftpTopOrigin
+   try
+      if pTopOrigin is empty then
+         put the top of pTargetObj into tTop
+      else
+         put pTopOrigin into tTop
+      end if
+
+      if pLeftpTopOrigin is empty then
+         put the left of pTargetObj into tLeft
+      else
+         put pLeftpTopOrigin  into tLeft
+      end if
+      put the effective points of pTargetObj into tLinePoints
+      repeat with x = 1 to (the number of lines in tLinePoints)
+         subtract tLeft from item 1 of line x of tLinePoints
+         subtract tTop from item 2 of line x of tLinePoints
+      end repeat
+      put "M " before line 1 of tLinePoints
+      repeat with x = 2 to (the number of lines in tLinePoints)
+         put "L " before line x of tLinePoints
+      end repeat
+      put cr & "Z" after tLinePoints
+   end try
+   replace cr with " " in tLinePoints
+   if tLinePoints is not empty then return tLinePoints
+end graphicsToSVGPathString
 
 on ideCorePropertyInspectorRefreshPropertyLabels
    revIDESetPreference "idePropertyInspector_labels", the cLanguageNames of cd 1 of stack "revPreferences"

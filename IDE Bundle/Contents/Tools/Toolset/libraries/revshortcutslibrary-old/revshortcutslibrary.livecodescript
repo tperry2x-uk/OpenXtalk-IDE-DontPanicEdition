@@ -186,20 +186,15 @@ on commandKeyDown pWhich
                put the selectedObjects into tObjects
                repeat for each line tObj in tObjects
                   try
-                     put the textSize of tObj into tSize
-                     if tSize is empty then put 13 into tSize
-                     set the textSize of tObj to tSize + 1
+                     get the the textSize of tObj
+                     if it is empty then get 13
+                     set the textSize of tObj to it + 1
                   end try
                end repeat
-            else
-               if the selectedChunk is not empty then
-                  try
-                     put the textSize of the selectedChunk into tSize
-                     if tSize is empty then put 13 into tSize
-                     set the textSize of the selectedChunk to tSize + 1
-                  end try
-               end if
+            else if the selectedChunk is not empty then
+               put selectedChunk
             end if
+
             break
          case "_"
          case "-"
@@ -207,19 +202,11 @@ on commandKeyDown pWhich
                put the selectedObjects into tObjects
                repeat for each line tObj in tObjects
                   try
-                     put the textSize of tObj into tSize
-                     if tSize is empty then put 13 into tSize
-                     set the textSize of tObj to tSize - 1
+                     get the the textSize of tObj
+                     if it is empty then get 13
+                     set the textSize of tObj to it +- 1
                   end try
                end repeat
-            else
-               if the selectedChunk is not empty then
-                  try
-                     put the textSize of the selectedChunk into tSize
-                     if tSize is empty then put 13 into tSize
-                     set the textSize of the selectedChunk to tSize - 1
-                  end try
-               end if
             end if
             break
          case "|"
@@ -232,41 +219,19 @@ on commandKeyDown pWhich
             end if
             break
          case "S"
-         case "L"
-         case "R"
          case "C"
-            --- Change to Command+Shift+ OPTION KEY + C or S --  Command+Shift+ C or S will now be 'Center' or 'Save As..." respectively  -- Paul McCLernan
-            if the optionKey is "down" then
-               // AL-2014-09-16: [[ Bug 13362 ]] Don't open script editor for IDE stacks unless gREVShowStacks is true
-               local tTopStack
-               put the topStack into tTopStack
-               if revIDEStackIsIDEStack(tTopStack) and (not gREVShowStacks) then
-                  exit commandKeyDown
-               end if
-
-               if pWhich is "S" then --- This should probably be changed to a "Save As..." command instead of edit script of card/stack
-                  edit script of tTopStack
-               else
-                  edit script of this card of tTopStack
-               end if
-            else
-               if pWhich is "C" then put "center" into tAlign
-               if pWhich is "L" then put "left" into tAlign
-               if pWhich is "R" then put "right" into tAlign
-               if the selectedObjects is not empty then
-                  put the selectedObjects into tObjects
-                  repeat for each line tObj in tObjects
-                     try
-                        set the textAlign of tObj to tAlign
-                     end try
-                  end repeat
-               else if the selectedChunk is not empty then
-                     try
-                        set the textAlign of the selectedChunk to tAlign
-                     end try
-               end if
+            // AL-2014-09-16: [[ Bug 13362 ]] Don't open script editor for IDE stacks unless gREVShowStacks is true
+            local tTopStack
+            put the topStack into tTopStack
+            if revIDEStackIsIDEStack(tTopStack) and (not gREVShowStacks) then
+               exit commandKeyDown
             end if
 
+            if pWhich is "S" then --- This should probably be changed to a "Save As..." command instead of edit script of card/stack
+               edit script of tTopStack
+            else
+               edit script of this card of tTopStack
+            end if
 
             # OK-2008-07-07: Bug 6710 - The exit to top is preventing the script editor from finishing its initialization,
             # I'm not 100% certain how safe this fix is but it seems to be working ok.

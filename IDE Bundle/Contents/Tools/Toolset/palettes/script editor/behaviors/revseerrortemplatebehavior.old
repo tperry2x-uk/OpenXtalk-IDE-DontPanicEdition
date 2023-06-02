@@ -96,7 +96,7 @@ command itemHilite
    end if
 
    if seGetPlatform() is not "MacOS" then
-      set the textColor of field 1 of me to "210,210,210"
+      set the textColor of field 1 of me to "255,255,255"
    end if
    set the backgroundColor of field 1 of me to tHiliteColor
 end itemHilite

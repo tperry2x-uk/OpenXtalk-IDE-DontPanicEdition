@@ -1668,8 +1668,8 @@ private function revMenubarObjectMenu pContext
    put enableMenuItem("&Stack Inspector/K", tIsUserTarget) & return after tObject
    put "-" & return after tObject
    put enableMenuItem("Object Script/E", tIsObjectTarget) & return after tObject
-   put enableMenuItem("Card Script/cmd shift c", tIsUserTarget) & return after tObject
-   put enableMenuItem("Stack Script/cmd shift s", tIsUserTarget) & return after tObject
+   put enableMenuItem("Card Script/cmd option shift c", tIsUserTarget) & return after tObject
+   put enableMenuItem("Stack Script/cmd option shift s", tIsUserTarget) & return after tObject
    put "-" & return after tObject
 
    ### Lines 9 to 11: Group, Edit Group, Remove Group

@@ -8,7 +8,7 @@ constant kDictionaryMinWidth = 992
 constant kScrollbarFudge = 18
 
 -- The background colour for the dictionary stack
-constant kBackColor = "Gray70"
+constant kBackColor = "Gray75"
 
 local sTab, sEntry
 on setAsBehavior pTarget
@@ -26,7 +26,7 @@ on openStack
    set the width of me to tMinWidth
    set the minWidth of me to tMinWidth
    set the title of me to "Dictionary"
-   set the backColor of me to kBackColor
+   -- set the backColor of me to kBackColor
    if sTab is empty then
       put "api" into sTab
    end if
@@ -54,6 +54,7 @@ on showTab pTab
    put pTab into sTab
    revIDEEnsureDictionaryUrl pTab
    local tUrl
+   -- launch document revIDEGetDictionaryUrl(guide)
    put "file://" & revIDEGetDictionaryUrl(pTab) into tUrl
    replace " " with "%20" in tUrl
    set the url of widget "Dictionary" of me to tUrl
@@ -87,7 +88,8 @@ on showUpgradeOptions pEdition, pDisplayName
    put urlEncode(pDisplayName) into pDisplayName
    replace "+" with "%20" in pDisplayName
 
-   launch url revEnvironmentEditionProperty("edition_external_url", pEdition) &"?"&pDisplayName
+   launch url revEnvironmentEditionProperty("edition_external_url", pEdition) & \
+         "?utm_source=ide&utm_medium=docs&utm_campaign="&pDisplayName
 end showUpgradeOptions
 
 # bug 17819 enable cmd+c in dictionary

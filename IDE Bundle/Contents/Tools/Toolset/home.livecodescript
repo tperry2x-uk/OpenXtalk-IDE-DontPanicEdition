@@ -22,8 +22,18 @@ on startup
       revInternal__SetupPreferences -- checks and loads the prefs file and tacks additional line on to Home's stack files
       revInternal__SetupCustomizationPath -- sets up IDE user's customization directory for add ons and such
       revInternal__SetupExternals -- loads Externals from IDE path /Tools/Ext/ and user's directory (see above) /Externals
-      revInternal__Log "Leave", "Pre-Open Stack"
 
+       if the systemAppearance is "dark" then
+          try
+           setAppToDarkMode
+         end try
+        else
+           try
+           setAppToLightMode
+         end try
+        end if
+
+      -- revInternal__Log "Leave", "Pre-Open Stack"
    catch tError
       revInternal__Log "Error", tError
    end try
@@ -36,7 +46,7 @@ on relaunch
    if gREVDevelopment then
       pass relaunch
    end if
-   -- relaunch is used for installer and updater binariers
+   -- relaunch is used for installer and updater binaries on Windows
    -- Pass the relaunch request through a hook
    answer "relaunch?"
    local tParameters
@@ -97,6 +107,10 @@ on appleEvent theClass,theID
       else
          pass appleEvent
       end if
+      -- put "appleEvent:" & theClass,theID
+      -- pass appleEvent
+   else
+      -- put "appleEvent:" & theClass,theID
    end if
 end appleEvent
 
@@ -106,8 +120,26 @@ on handleOpenHyperCardSTAKs pHCStackList
    else if there is a folder "~/Applications/HyperCardPreview.app" then
       put "~/Applications/HyperCardPreview.app"  into tHCPrv
    end if
+   put line 1 of pHCStackList into tStakFile
+   set the itemdelimiter to "."
+   if the last item of tStakFile is not "stak" then
+      --rename file with .stak filename extention
+      --	rename [{file | folder | directory}] filePath to newPath
+      try
+         -- put GetHFSCreatorTypeCodesOfFile(tStakFile) into tCreatorAndType
+         -- if line 1 of tCreatorAndType <> "WILD" then
+         --   get SetHFSCreatorCodeOfFile(tStakFile,"WILD")
+         -- end if
+         -- if line 2 of tCreatorAndType <> "STAK" then
+         --   get SetHFSTypeCodeOfFile(tStakFile,"STAK")
+          -- end if
+         rename file tStakFile to tStakFile & ".stak"
+      end try
+      if there is a file (tStakFile & ".stak") then put (tStakFile & ".stak") into tStakFile
+   end if
+   set the itemdelimiter to ","
    if tHCPrv is not empty then
-      launch (line 1 of pHCStackList) with tHCPrv
+      launch tStakFile with tHCPrv
    else
       put "HyperCard STAKs:" & cr & pHCStackList
    end if
@@ -124,7 +156,7 @@ on preOpenStack
       pass preOpenStack
    end if
 
-   revInternal__Log "Enter", "Pre-Open Stack"
+   -- revInternal__Log "Enter", "Pre-Open Stack"
 
    revInternal__InitialiseDefaults -- sets up some basic IDE app behavior depending on the platform
 end preOpenStack
@@ -133,17 +165,17 @@ on openStack
    if the short name of the owner of the target is not "Home" then
       pass openStack
    end if
-   revInternal__Log "Enter", "Open Stack"
+   -- revInternal__Log "Enter", "Open Stack"
 
    //send "revInternal__openStack" to me in 0 millisecs
    revInternal__openStack -- does all of the rest of loading the IDE
 
-   revInternal__Log "Leave", "Open Stack"
+   -- revInternal__Log "Leave", "Open Stack"
 end openStack
 
 local sSplashStartTime
 on revInternal__openStack
-   revInternal__Log "Enter", "revInternal__openStack"
+   -- revInternal__Log "Enter", "revInternal__openStack"
 
    put the milliseconds into sSplashStartTime
 
@@ -282,11 +314,11 @@ on revInternal__openStack
    end if
 
    --AL-2015-07-10: Temporarily disable welcome screen
-   /*
-   if revIDEGetPreference("welcomeScreenShown") is not "true" then
-      revIDEOpenPalette "Welcome"
-   else if revIDEPrefGet("StartPageShow") is not "false" then
-      */
+
+   -- if revIDEGetPreference("welcomeScreenShown") is not "false" then
+   --    revIDEOpenPalette "Welcome" <--------------------------- The "Welcome" stack is an obsoleted part of the IDE that could be used for something else
+   --    else if revIDEPrefGet("StartPageShow") is not "false" then
+
       if revIDEGetPreference("cStartPageShow") is not "false" then  --  <---------------------------- TO DO: Customize Start Stack Here!!! Paul McClernan 9/22/21
          if there is a file (revEnvironmentCustomizationPath() & "/Start Center.oxtstack") then
             -- put revInternal__StackFiles() into tTempStackFiles
@@ -333,7 +365,7 @@ on revInternal__openStack
 
       close stack "revSplash"
 
-      revInternal__Log "Leave", "revInternal__openStack"
+      -- revInternal__Log "Leave", "revInternal__openStack"
       revInternal__Log "End"
 
       -- Now the home stack has loaded, we can allow interrupts..
@@ -341,7 +373,7 @@ on revInternal__openStack
    end revInternal__openStack
 
    on revInternal__setSplashStatus pMessage
-      revInternal__Log "Message", pMessage
+      -- revInternal__Log "Message", pMessage
       set the statusMessage of stack "revSplash" to pMessage
    end revInternal__setSplashStatus
 
@@ -388,7 +420,7 @@ on revInternal__openStack
    --
 
    private command revInternal__SetupLicense
-      revInternal__Log "Enter", "License Setup"
+      -- revInternal__Log "Enter", "License Setup"
 
       -- put line 1 of the revLicenseInfo into sLicenseName
       put "OpenXTalk Community User" into sLicenseName
@@ -406,11 +438,11 @@ on revInternal__openStack
 
       put revEnvironmentPlatform() into sLicensePlatform
 
-      revInternal__Log "Leave", "License Setup"
+      -- revInternal__Log "Leave", "License Setup"
    end revInternal__SetupLicense
 
    private command revInternal__SetupPaths
-      revInternal__Log "Enter", "Path Setup"
+      -- revInternal__Log "Enter", "Path Setup"
 
       local tHomePath
       put the filename of me into tHomePath
@@ -506,18 +538,17 @@ on revInternal__openStack
          put empty into sRepositoryPath
       end if
 
-      revInternal__Log "Message", "Tools Path = " & sToolsPath
-      revInternal__Log "Message", "Old Preferences Path = " & sOldPreferencesPath
-      revInternal__Log "Message", "Preferences Path = " & sPreferencesPath
-      revInternal__Log "Message", "Cache Path = " & sCachePath
-      revInternal__Log "Message", "Crash Log Path = " & sCrashLogPath
-      revInternal__Log "Message", "Binaries Path = " & sBinariesPath
-
-      revInternal__Log "Leave", "Path Setup"
+      -- revInternal__Log "Message", "Tools Path = " & sToolsPath
+      -- revInternal__Log "Message", "Old Preferences Path = " & sOldPreferencesPath
+      -- revInternal__Log "Message", "Preferences Path = " & sPreferencesPath
+      -- revInternal__Log "Message", "Cache Path = " & sCachePath
+      -- revInternal__Log "Message", "Crash Log Path = " & sCrashLogPath
+      -- revInternal__Log "Message", "Binaries Path = " & sBinariesPath
+      -- revInternal__Log "Leave", "Path Setup"
    end revInternal__SetupPaths
 
    command revInternal__SetupCustomizationPath
-      revInternal__Log "Enter", "Customization Path Setup"
+      -- revInternal__Log "Enter", "Customization Path Setup"
       -- New OXT names - Paul McClernan 9/23/21
       # If there is a customization path set in the preferences, and it exists, then use it, otherwise
       # revert to old behavior.
@@ -542,10 +573,10 @@ on revInternal__openStack
                break
          end switch
 
-         revInternal__Log "Message", "Customization Path = " & sCustomizationPath
+         -- revInternal__Log "Message", "Customization Path = " & sCustomizationPath
       end if
 
-      revInternal__Log "Leave", "Customization Path Setup"
+      -- revInternal__Log "Leave", "Customization Path Setup"
    end revInternal__SetupCustomizationPath
 
    function revInternal__StackFiles
@@ -622,6 +653,7 @@ on revInternal__openStack
             if tStackName is "revpreferences" then next repeat
 
             // AL-2015-02-18: [[ Named Stack Versions ]] Choose a versioned stack file name over an unversioned one, and a later version over an earlier one.
+            --- AHA! Soooo... this is for those  *.8.rev on some IDE stacks overrides earlier versions that may also be mixed within the IDE files!
             local tExistingVersion
             put tStackFilesA[tStackName]["version"] into tExistingVersion
             if tExistingVersion is empty or tVersion > tExistingVersion then
@@ -638,7 +670,7 @@ on revInternal__openStack
             delete stack tStackName
             put tStackName & comma & tStackFilesA[tKey]["file"] & return after tStackFiles
          catch e
-            revInternal__Log "Error", "Could not load stack:" && tStackFilesA[tKey]["file"]
+            -- revInternal__Log "Error", "Could not load stack:" && tStackFilesA[tKey]["file"]
          end try
       end repeat
       unlock messages
@@ -647,7 +679,7 @@ on revInternal__openStack
    end revInternal__StackFiles
 
    private command revInternal__SetupPreferences
-      revInternal__Log "Enter", "Preferences Setup"
+      -- revInternal__Log "Enter", "Preferences Setup"
 
       local tOldPreferencesStackFile, tOldNewPreferencesStackFile
       put sOldPreferencesPath & "/revpreferences.rev" into tOldPreferencesStackFile
@@ -718,239 +750,244 @@ on revInternal__openStack
       put return & "revPreferences", tPreferencesStackFile7 after tStackFiles
       set the stackFiles of stack "Home" to tStackFiles
 
-      revInternal__Log "Message", "Mapping Stack 'revpreferences.rev' to stackfile '" & tPreferencesStackFile7 & "'"
+      -- revInternal__Log "Message", "Mapping Stack 'revpreferences.rev' to stackfile '" & tPreferencesStackFile7 & "'"
 
-      revInternal__Log "Leave", "Preferences Setup"
+      -- revInternal__Log "Leave", "Preferences Setup"
    end revInternal__SetupPreferences
 
    private command revInternal__SetupFolders
-      revInternal__Log "Enter", "Folders Setup"
+      -- revInternal__Log "Enter", "Folders Setup"
 
       local tPath, tComponent
-      set the itemDelimiter to "/"
+      set the itemDelimiter to "/" -- why?
 
-      revInternal__Log "Message", "Setting up Preferences Path"
+      -- revInternal__Log "Message", "Setting up Preferences Path"
       revInternal__EnsureFolder sPreferencesPath
 
-      revInternal__Log "Message", "Setting up Cache Path"
+      -- revInternal__Log "Message", "Setting up Cache Path"
       revInternal__EnsureFolder sCachePath
 
-      revInternal__Log "Message", "Setting up Crash Log Path"
+      -- revInternal__Log "Message", "Setting up Crash Log Path"
       revInternal__EnsureFolder sCrashLogPath
 
-      revInternal__Log "Message", "Setting up Docs Path"
+      -- revInternal__Log "Message", "Setting up Docs Path"
       revInternal__EnsureFolder sUserDocsPath
 
-      revInternal__Log "Leave", "Folders Setup"
+      -- revInternal__Log "Leave", "Folders Setup"
    end revInternal__SetupFolders
 
    private command revInternal__SetupSplash
       palette stack "revSplash"
    end revInternal__SetupSplash
 
-command revInternal__ResetPreferences
-   -- clear the preferences stack
-   set the customKeys of stack "revPreferences" to empty
-   set the customPropertySets of stack "revPreferences" to empty
+   command revInternal__ResetPreferences
+      -- clear the preferences stack
+      set the customKeys of stack "revPreferences" to empty
+      set the customPropertySets of stack "revPreferences" to empty
 
-   local tPropsArray
-   -- default custom property set
-   put "true" into tPropsArray["cREVToolsPaintToolsVisible"]
-   put "false" into tPropsArray["cDestroyStack"]
-   put "false" into tPropsArray["cRevPopups"]
-   put "417,113" into tPropsArray["cREVMsgTabRectGlobalProperties"]
-   put "155" into tPropsArray["cREVPlayerWidth"]
-   put "23" into tPropsArray["cButtonHeight"]
-   put "true" into tPropsArray["cShowProfileEditor"]
-   put "200" into tPropsArray["cScrollbarwidth"]
-   put "false" into tPropsArray["cREVMsgShowUIMessages"]
-   put "false" into tPropsArray["cSEHidePalettes"]
-   put "120" into tPropsArray["cREVImageWidth"]
-   put "500" into tPropsArray["tooltip delay"]
-   put "417,72" into tPropsArray["cREVMsgTabRectSingle Line"]
-   put "false" into tPropsArray["cREVMsgShowUIBackScripts"]
-   put "539,432" into tPropsArray["cREVGeoTopLeft"]
-   put "70378" into tPropsArray["cREVDBCode"]
-   put "276" into tPropsArray["cREVScriptHeight"]
-   put "2" into tPropsArray["cGridSize"]
-   put "483,214,1015,476" into tPropsArray["cVariableWatcherRect"]
-   put "false" into tPropsArray["cShowrevProps"]
-   put "Pixels" into tPropsArray["cREVRulerMeasurement"]
-   put "100" into tPropsArray["cMacOSScrollbarWidth"]
-   put "1,2,3,4,5,7" into tPropsArray["cControlTabs"]
-   put "500" into tPropsArray["cREVToolTipDelay"]
-   put "250" into tPropsArray["cTabButtonwidth"]
-   put "true" into tPropsArray["cGoAlign"]
-   put "0" into tPropsArray["cREVRotatePrev2"]
-   put "993,712" into tPropsArray["cREVPropertyPaletteTopLeft"]
-   put "true" into tPropsArray["cLiveColor"]
-   put "modification date" into tPropsArray["cRecentSort"]
-   put "true" into tPropsArray["cDocsFirstRun"]
-   put "86400" into tPropsArray["cUpdate,MaxAutoPopupFrequency"]
-   put "false" into tPropsArray["cDarkMode"] -- Added Dark Mode Setting 11/8/2021 - Paul McClernan
-   put "true" into tPropsArray["cREVExtension"]
-   put "102" into tPropsArray["cMenuWidth"]
-   put "417,72" into tPropsArray["cREVMsgTabRectcard id 1147"]
-   put "468,131" into tPropsArray["cAppearanceTopLeft"]
-   put "false" into tPropsArray["cREVDefaultMenubar"]
-   put "417,113" into tPropsArray["cREVMsgTabRectbackScripts"]
-   put "true" into tPropsArray["cGrid"]
-   put "30" into tPropsArray["cNumRecent"]
-   put "false" into tPropsArray["cShowAsHandlers"]
-   put "false" into tPropsArray["revDocsAlreadySeen"]
-   put "120" into tPropsArray["cREVImageHeight"]
-   put "82" into tPropsArray["cButtonWidth"]
-   put "true" into tPropsArray["cREVProfileReadOnlyWarning"]
-   put "6,7,9" into tPropsArray["cCardTabs"]
-   put "16" into tPropsArray["cMacOSScrollbarHeight"]
-   put "true" into tPropsArray["cFirstRun"]
-   put "14" into tPropsArray["cMacOSProgressScrollbarHeight"]
-   put "mouseMove" into tPropsArray["suppressedMessages"]
-   put "true" into tPropsArray["cAutoFormat"]
-   put "true" into tPropsArray["cREVScriptShortcut"]
-   put "false" into tPropsArray["cShowRevolutionStacks"]
-   put "22" into tPropsArray["cMenuHeight"]
-   put "1067,251,1882,827" into tPropsArray["cRevDocsRect"]
-   put "Gray88" into tPropsArray["cBackDropColor"]
-   put "Gray88" into tPropsArray["cBackdrop"]
-   put "false" into tPropsArray["cREVMsgShowUIFrontScripts"]
-   put "false" into tPropsArray["revstack"]
-   put "100" into tPropsArray["cMacOSProgressScrollbarWidth"]
-   put "false" into tPropsArray["cREVUIScriptShortcut"]
-   put "60,27" into tPropsArray["cREVMenuBarTopLeft"]
-   put "322" into tPropsArray["cREVFieldFirstTabHeight"]
-   put "500" into tPropsArray["cTraceDelay"]
-   put "0" into tPropsArray["cREVRotatePrev1"]
-   put "250" into tPropsArray["cFieldWidth"]
-   put "16" into tPropsArray["cScrollbarHeight"]
-   put "true" into tPropsArray["cToolbarIcons"]
-   put "true" into tPropsArray["cShowAudioclipsclips"]
-   put "1,2,3,4,5" into tPropsArray["cAudioclipTabs"]
-   put "620,235" into tPropsArray["cREVMsgTabRectSingleLine"]
-   put "Sections List" into tPropsArray["revHelpDefaultSection"]
-   put "false" into tPropsArray["cCaseSensitive"]
-   put "auto" into tPropsArray["cLargeFonts"]
-   put "Yellow" into tPropsArray["yellow"]
-   put "417,113" into tPropsArray["cREVMsgTabRectGlobalVariables"]
-   put "417,113" into tPropsArray["cREVMsgTabRectpendingMessages"]
-   put "Property Inspector" into tPropsArray["cABCommandDoubleClick"]
-   put "1" into tPropsArray["cREVTipNumber"]
-   put "417,113" into tPropsArray["cREVMsgTabRectstacksInUse"]
-   put format("blue\nbrown\ndarkorange\nred") into tPropsArray["cBuiltInColors"]
-   put "don't remove" into tPropsArray["cASKDestroy"]
-   put "Gray50" into tPropsArray["cSelectionHandle"]
-   put "128,103" into tPropsArray["cREVMaximizedScriptEditorTopLeft"]
-   put "true" into tPropsArray["suppressIDE"]
-   put "Property Inspector" into tPropsArray["cABOptionDoubleClick"]
-   put "45" into tPropsArray["cREVRotatePrev5"]
-   put "170,131" into tPropsArray["cPaletteTopLeft"]
-   put "false" into tPropsArray["cNOPICTWarning"]
-   put "470,460" into tPropsArray["cREVMsgTopLeft"]
-   put format("cButtonWidth,100\ncButtonHeight,20\ncTabButtonwidth,250\ncTabButtonHeight,160\ncMenuWidth,130\ncMenuHeight,20\ncFieldWidth,250\ncFieldHeight,160\ncLabelFieldWidth,100\ncLabelFieldHeight,20\ncMacOSScrollbarHeight,16\ncMacOSProgressScrollbarHeight,14\ncScrollbarWidth,200\ncScrollbarHeight,20\ncREVGraphicWidth,120\ncREVGraphicHeight,120\ncREVImageWidth,120\ncREVImageHeight,120\ncREVPlayerWidth,320\ncREVPlayerHeight,256") into tPropsArray["New Field 2"]
-   put "120" into tPropsArray["cREVGraphicHeight"]
-   put "Dictionary" into tPropsArray["cRevDocsCurrentCard"]
-   put "385" into tPropsArray["cREVScriptWidth"]
-   put "487" into tPropsArray["cREVUnmaximizedScriptWidth"]
-   put "false" into tPropsArray["cREVDontMaximizeScriptEditor"]
-   put "true" into tPropsArray["cDontWrap"]
-   put "false" into tPropsArray["cVariableChecking"]
-   put "302" into tPropsArray["cAppBrowserWidgetLeft"]
-   put "true" into tPropsArray["cUngroupWarning"]
-   put "false" into tPropsArray["resizeable"]
-   put "false" into tPropsArray["cNavigationArrows"]
-   put "457,430,853,680" into tPropsArray["cMessageWatcherRect"]
-   put "287,261" into tPropsArray["cREVMsgTabRectrevbasic"]
-   put "true" into tPropsArray["cSort"]
-   put "false" into tPropsArray["cREVMsgAutoRefresh"]
-   put "true" into tPropsArray["cVariablePreservation"]
-   put "100" into tPropsArray["cLabelFieldWidth"]
-   put "false" into tPropsArray["cREVMsgShowUIVariables"]
-   put "false" into tPropsArray["cHandlerList"]
-   put "red" into tPropsArray["red"]
-   put "selectedObject" into tPropsArray["cREVMsgIntelligenceObject"]
-   put "false" into tPropsArray["cSEHideErrors"]
-   put "56" into tPropsArray["cFieldHeight"]
-   put "300" into tPropsArray["cREVUnmaximizedScriptHeight"]
-   put "13,125" into tPropsArray["cToolsTopLeft"]
-   put "--" into tPropsArray["cCommentCharacter"]
-   put "97,92,657,440" into tPropsArray["cScriptEditorRect"]
-   put "11" into tPropsArray["cREVRotatePrev4"]
-   put "530,564" into tPropsArray["cREVMsgTabRectrevscript"]
-   put "146,123,800,408" into tPropsArray["cAppBrowserRect"]
-   put "true" into tPropsArray["cREVAutoCreateProfilesWarning"]
-   put "false" into tPropsArray["cREVSaveStacksAfterMoving"]
-   put "false" into tPropsArray["cREVAutoCreateProfiles"]
-   put "417,113" into tPropsArray["cREVMsgTabRectGlobal Variables"]
-   put "118" into tPropsArray["cREVPlayerHeight"]
-   put "true" into tPropsArray["cShowVideoclips"]
-   put "false" into tPropsArray["cWholeMatches"]
-   put "false" into tPropsArray["cVerboseDebug"]
-   put "417,99" into tPropsArray["cREVMsgTabRectMultipleLines"]
-   put "true" into tPropsArray["cBreakPoints"]
-   put "false" into tPropsArray["cREVGeoOpen"]
-   put "462,120" into tPropsArray["cREVAOTopLeft"]
-   put "blackgreen" into tPropsArray["cCustomColorsList"]
-   put "Penguin" into tPropsArray["revHelpUnixReligion"]
-   put format("cButtonWidth,82\ncButtonHeight,23\ncTabButtonwidth,250\ncTabButtonHeight,160\ncMenuWidth,102\ncMenuHeight,22\ncFieldWidth,250\ncFieldHeight,56\ncLabelFieldWidth,100\ncLabelFieldHeight,21\ncMacOSScrollbarHeight,16\ncMacOSProgressScrollbarHeight,14\ncScrollbarWidth,200\ncScrollbarHeight,16\ncREVGraphicWidth,120\ncREVGraphicHeight,120\ncREVImageWidth,120\ncREVImageHeight,120\ncREVPlayerWidth,155\ncREVPlayerHeight,118") into tPropsArray["cDefaultSizes"]
-   put "false" into tPropsArray["cSelectGrouped"]
-   put "false" into tPropsArray["cSEHideMessageBox"]
-   put "1,2,3,4,5" into tPropsArray["cVideoclipTabs"]
-   put "true" into tPropsArray["cREVMacOSMenubar"]
-   put "false" into tPropsArray["cREVProfileReadOnly"]
-   put "Yellow" into tPropsArray["revHelpHiliteColor"]
-   put "true" into tPropsArray["cToolbarText"]
-   put "true" into tPropsArray["cREVScriptDebugMode"]
-   put "21" into tPropsArray["cLabelFieldHeight"]
-   put "120" into tPropsArray["cREVGraphicWidth"]
-   put "417,99" into tPropsArray["cREVMsgTabRectMultiple Lines"]
-   put "30" into tPropsArray["Num Recent Files"]
-   put "568,259" into tPropsArray["cREVProfileEditorTopLeft"]
-   put "417,113" into tPropsArray["cREVMsgTabRectfrontScripts"]
-   put "11" into tPropsArray["cREVRotatePrev3"]
-   put "338" into tPropsArray["cREVButtonSecondTabHeight"]
-   put "true" into tPropsArray["cREVHelpText"]
-   put "160" into tPropsArray["cTabButtonHeight"]
-   put "287,261" into tPropsArray["cREVMsgTabRectrevstack"]
-   put "417,113" into tPropsArray["cREVMsgTabRectGlobal Properties"]
-   put "true" into tPropsArray["cShowAudioclipclips"]
-   put "revolutionli" into tPropsArray["cREVDBName"]
-   put "true" into tPropsArray["cDocsQuickLinksVisible"]
-   put "true" into tPropsArray["cStartPageShow"]
-   put "278" into tPropsArray["cREVErrorsPaletteExpandedHeight"]
-   put "true" into tPropsArray["cShowAudioclips"]
-   put "filtering" into tPropsArray["revHelpListMethod"]
-   set the customProperties[""] of stack "revPreferences" to tPropsArray
-   delete variable tPropsArray
+      local tPropsArray
+      -- default custom property set
+      put "true" into tPropsArray["cREVToolsPaintToolsVisible"]
+      put "false" into tPropsArray["cDestroyStack"]
+      put "false" into tPropsArray["cRevPopups"]
+      put "417,113" into tPropsArray["cREVMsgTabRectGlobalProperties"]
+      put "155" into tPropsArray["cREVPlayerWidth"]
+      put "23" into tPropsArray["cButtonHeight"]
+      put "true" into tPropsArray["cShowProfileEditor"]
+      put "200" into tPropsArray["cScrollbarwidth"]
+      put "false" into tPropsArray["cREVMsgShowUIMessages"]
+      put "false" into tPropsArray["cSEHidePalettes"]
+      put "120" into tPropsArray["cREVImageWidth"]
+      put "500" into tPropsArray["tooltip delay"]
+      put "417,72" into tPropsArray["cREVMsgTabRectSingle Line"]
+      put "false" into tPropsArray["cREVMsgShowUIBackScripts"]
+      put "539,432" into tPropsArray["cREVGeoTopLeft"]
+      put "70378" into tPropsArray["cREVDBCode"]
+      put "276" into tPropsArray["cREVScriptHeight"]
+      put "2" into tPropsArray["cGridSize"]
+      put "483,214,1015,476" into tPropsArray["cVariableWatcherRect"]
+      put "false" into tPropsArray["cShowrevProps"]
+      put "Pixels" into tPropsArray["cREVRulerMeasurement"]
+      put "100" into tPropsArray["cMacOSScrollbarWidth"]
+      put "1,2,3,4,5,7" into tPropsArray["cControlTabs"]
+      put "500" into tPropsArray["cREVToolTipDelay"]
+      put "250" into tPropsArray["cTabButtonwidth"]
+      put "true" into tPropsArray["cGoAlign"]
+      put "0" into tPropsArray["cREVRotatePrev2"]
+      put "993,712" into tPropsArray["cREVPropertyPaletteTopLeft"]
+      put "true" into tPropsArray["cLiveColor"]
+      put "modification date" into tPropsArray["cRecentSort"]
+      put "true" into tPropsArray["cDocsFirstRun"]
+      put "86400" into tPropsArray["cUpdate,MaxAutoPopupFrequency"]
+      put "true" into tPropsArray["cDarkMode"] -- Added Dark Mode Setting 11/8/2021 - Paul McClernan
+      put "true" into tPropsArray["cREVExtension"]
+      put "102" into tPropsArray["cMenuWidth"]
+      put "417,72" into tPropsArray["cREVMsgTabRectcard id 1147"]
+      put "468,131" into tPropsArray["cAppearanceTopLeft"]
+      put "false" into tPropsArray["cREVDefaultMenubar"]
+      put "417,113" into tPropsArray["cREVMsgTabRectbackScripts"]
+      put "true" into tPropsArray["cGrid"]
+      put "30" into tPropsArray["cNumRecent"]
+      put "false" into tPropsArray["cShowAsHandlers"]
+      put "false" into tPropsArray["revDocsAlreadySeen"]
+      put "120" into tPropsArray["cREVImageHeight"]
+      put "82" into tPropsArray["cButtonWidth"]
+      put "true" into tPropsArray["cREVProfileReadOnlyWarning"]
+      put "6,7,9" into tPropsArray["cCardTabs"]
+      put "16" into tPropsArray["cMacOSScrollbarHeight"]
+      put "true" into tPropsArray["cFirstRun"]
+      put "14" into tPropsArray["cMacOSProgressScrollbarHeight"]
+      put "mouseMove" into tPropsArray["suppressedMessages"]
+      put "true" into tPropsArray["cAutoFormat"]
+      put "true" into tPropsArray["cREVScriptShortcut"]
+      put "false" into tPropsArray["cShowRevolutionStacks"]
+      put "22" into tPropsArray["cMenuHeight"]
+      put "1067,251,1882,827" into tPropsArray["cRevDocsRect"]
+      put "Black" into tPropsArray["cBackDropColor"]
+      put "Black" into tPropsArray["cBackdrop"]
+      set the backDrop to "none"
 
-   -- cABDoubleClick
-   put "Play" into tPropsArray["videoclips"]
-   put "Toplevel" into tPropsArray["stacks"]
-   put "Property Inspector" into tPropsArray["controls"]
-   put "Play" into tPropsArray["audioclips"]
-   put "Go" into tPropsArray["cards"]
-   set the customProperties["cABDoubleClick"] of stack "revPreferences" to tPropsArray
-   delete variable tPropsArray
+      put "false" into tPropsArray["cREVMsgShowUIFrontScripts"]
+      put "false" into tPropsArray["revstack"]
+      put "100" into tPropsArray["cMacOSProgressScrollbarWidth"]
+      put "false" into tPropsArray["cREVUIScriptShortcut"]
+      put "0,28" into tPropsArray["cREVMenuBarTopLeft"]
+      -- put "60,27" into tPropsArray["cREVMenuBarTopLeft"]
+      put "322" into tPropsArray["cREVFieldFirstTabHeight"]
+      put "500" into tPropsArray["cTraceDelay"]
+      put "0" into tPropsArray["cREVRotatePrev1"]
+      put "250" into tPropsArray["cFieldWidth"]
+      put "16" into tPropsArray["cScrollbarHeight"]
+      put "true" into tPropsArray["cToolbarIcons"]
+      put "10" into tPropsArray["cToolBarFontSize"]
 
-   -- cABCommandDoubleClick
-   put "Edit Script" into tPropsArray["videoclips"]
-   put "Edit Script" into tPropsArray["stacks"]
-   put "Edit Script" into tPropsArray["controls"]
-   put "Edit Script" into tPropsArray["audioclips"]
-   put "Edit Script" into tPropsArray["cards"]
-   set the customProperties["cABCommandDoubleClick"] of stack "revPreferences" to tPropsArray
-   delete variable tPropsArray
+      put "true" into tPropsArray["cShowAudioclipsclips"]
+      put "1,2,3,4,5" into tPropsArray["cAudioclipTabs"]
+      put "620,235" into tPropsArray["cREVMsgTabRectSingleLine"]
+      put "Sections List" into tPropsArray["revHelpDefaultSection"]
+      put "false" into tPropsArray["cCaseSensitive"]
+      put "auto" into tPropsArray["cLargeFonts"]
+      put "Yellow" into tPropsArray["yellow"]
+      put "417,113" into tPropsArray["cREVMsgTabRectGlobalVariables"]
+      put "417,113" into tPropsArray["cREVMsgTabRectpendingMessages"]
+      put "Property Inspector" into tPropsArray["cABCommandDoubleClick"]
+      put "1" into tPropsArray["cREVTipNumber"]
+      put "417,113" into tPropsArray["cREVMsgTabRectstacksInUse"]
+      put format("blue\nbrown\ndarkorange\nred") into tPropsArray["cBuiltInColors"]
+      put "don't remove" into tPropsArray["cASKDestroy"]
+      put "Gray50" into tPropsArray["cSelectionHandle"]
+      put "128,103" into tPropsArray["cREVMaximizedScriptEditorTopLeft"]
+      put "true" into tPropsArray["suppressIDE"]
+      put "Property Inspector" into tPropsArray["cABOptionDoubleClick"]
+      put "45" into tPropsArray["cREVRotatePrev5"]
+      put "170,131" into tPropsArray["cPaletteTopLeft"]
+      put "false" into tPropsArray["cNOPICTWarning"]
+      put "470,460" into tPropsArray["cREVMsgTopLeft"]
+      put format("cButtonWidth,100\ncButtonHeight,20\ncTabButtonwidth,250\ncTabButtonHeight,160\ncMenuWidth,130\ncMenuHeight,20\ncFieldWidth,250\ncFieldHeight,160\ncLabelFieldWidth,100\ncLabelFieldHeight,20\ncMacOSScrollbarHeight,16\ncMacOSProgressScrollbarHeight,14\ncScrollbarWidth,200\ncScrollbarHeight,20\ncREVGraphicWidth,120\ncREVGraphicHeight,120\ncREVImageWidth,120\ncREVImageHeight,120\ncREVPlayerWidth,320\ncREVPlayerHeight,256") into tPropsArray["New Field 2"]
+      put "120" into tPropsArray["cREVGraphicHeight"]
+      put "Dictionary" into tPropsArray["cRevDocsCurrentCard"]
+      put "385" into tPropsArray["cREVScriptWidth"]
+      put "487" into tPropsArray["cREVUnmaximizedScriptWidth"]
+      put "false" into tPropsArray["cREVDontMaximizeScriptEditor"]
+      put "true" into tPropsArray["cDontWrap"]
+      put "false" into tPropsArray["cVariableChecking"]
+      put "302" into tPropsArray["cAppBrowserWidgetLeft"]
+      put "true" into tPropsArray["cUngroupWarning"]
+      put "false" into tPropsArray["resizeable"]
+      put "false" into tPropsArray["cNavigationArrows"]
+      put "457,430,853,680" into tPropsArray["cMessageWatcherRect"]
+      put "287,261" into tPropsArray["cREVMsgTabRectrevbasic"]
+      put "true" into tPropsArray["cSort"]
+      put "false" into tPropsArray["cREVMsgAutoRefresh"]
+      put "true" into tPropsArray["cVariablePreservation"]
+      put "100" into tPropsArray["cLabelFieldWidth"]
+      put "false" into tPropsArray["cREVMsgShowUIVariables"]
+      put "false" into tPropsArray["cHandlerList"]
+      put "red" into tPropsArray["red"]
+      put "selectedObject" into tPropsArray["cREVMsgIntelligenceObject"]
+      put "false" into tPropsArray["cSEHideErrors"]
+      put "56" into tPropsArray["cFieldHeight"]
+      put "300" into tPropsArray["cREVUnmaximizedScriptHeight"]
+      put "13,125" into tPropsArray["cToolsTopLeft"]
+      put "--" into tPropsArray["cCommentCharacter"]
+      put "97,92,657,440" into tPropsArray["cScriptEditorRect"]
+      put "11" into tPropsArray["cREVRotatePrev4"]
+      put "530,564" into tPropsArray["cREVMsgTabRectrevscript"]
+      put "146,123,800,408" into tPropsArray["cAppBrowserRect"]
+      put "true" into tPropsArray["cREVAutoCreateProfilesWarning"]
+      put "false" into tPropsArray["cREVSaveStacksAfterMoving"]
+      put "false" into tPropsArray["cREVAutoCreateProfiles"]
+      put "417,113" into tPropsArray["cREVMsgTabRectGlobal Variables"]
+      put "118" into tPropsArray["cREVPlayerHeight"]
+      put "true" into tPropsArray["cShowVideoclips"]
+      put "false" into tPropsArray["cWholeMatches"]
+      put "false" into tPropsArray["cVerboseDebug"]
+      put "417,99" into tPropsArray["cREVMsgTabRectMultipleLines"]
+      put "true" into tPropsArray["cBreakPoints"]
+      put "false" into tPropsArray["cREVGeoOpen"]
+      put "462,120" into tPropsArray["cREVAOTopLeft"]
+      put "blackgreen" into tPropsArray["cCustomColorsList"]
+      put "Penguin" into tPropsArray["revHelpUnixReligion"]
+      put format("cButtonWidth,82\ncButtonHeight,23\ncTabButtonwidth,250\ncTabButtonHeight,160\ncMenuWidth,102\ncMenuHeight,22\ncFieldWidth,250\ncFieldHeight,56\ncLabelFieldWidth,100\ncLabelFieldHeight,21\ncMacOSScrollbarHeight,16\ncMacOSProgressScrollbarHeight,14\ncScrollbarWidth,200\ncScrollbarHeight,16\ncREVGraphicWidth,120\ncREVGraphicHeight,120\ncREVImageWidth,120\ncREVImageHeight,120\ncREVPlayerWidth,155\ncREVPlayerHeight,118") into tPropsArray["cDefaultSizes"]
+      put "false" into tPropsArray["cSelectGrouped"]
+      put "false" into tPropsArray["cSEHideMessageBox"]
+      put "1,2,3,4,5" into tPropsArray["cVideoclipTabs"]
+      put "true" into tPropsArray["cREVMacOSMenubar"]
+      put "false" into tPropsArray["cREVProfileReadOnly"]
+      put "Yellow" into tPropsArray["revHelpHiliteColor"]
+      put "true" into tPropsArray["cToolbarText"]
+      put "true" into tPropsArray["cREVScriptDebugMode"]
+      put "21" into tPropsArray["cLabelFieldHeight"]
+      put "120" into tPropsArray["cREVGraphicWidth"]
+      put "417,99" into tPropsArray["cREVMsgTabRectMultiple Lines"]
+      put "30" into tPropsArray["Num Recent Files"]
+      put "568,259" into tPropsArray["cREVProfileEditorTopLeft"]
+      put "417,113" into tPropsArray["cREVMsgTabRectfrontScripts"]
+      put "11" into tPropsArray["cREVRotatePrev3"]
+      put "338" into tPropsArray["cREVButtonSecondTabHeight"]
+      put "true" into tPropsArray["cREVHelpText"]
+      put "160" into tPropsArray["cTabButtonHeight"]
+      put "287,261" into tPropsArray["cREVMsgTabRectrevstack"]
+      put "417,113" into tPropsArray["cREVMsgTabRectGlobal Properties"]
+      put "true" into tPropsArray["cShowAudioclipclips"]
+      put "revolutionli" into tPropsArray["cREVDBName"]
+      put "true" into tPropsArray["cDocsQuickLinksVisible"]
+      put "true" into tPropsArray["cStartPageShow"]
+      put "278" into tPropsArray["cREVErrorsPaletteExpandedHeight"]
+      put "true" into tPropsArray["cShowAudioclips"]
+      put "filtering" into tPropsArray["revHelpListMethod"]
+      set the customProperties[""] of stack "revPreferences" to tPropsArray
+      delete variable tPropsArray
 
-   -- cABOptionDoubleClick
-   put "Property Inspector" into tPropsArray["videoclips"]
-   put "Property Inspector" into tPropsArray["stacks"]
-   put "Property Inspector" into tPropsArray["controls"]
-   put "Property Inspector" into tPropsArray["audioclips"]
-   put "Property Inspector" into tPropsArray["cards"]
-   set the customProperties["cABOptionDoubleClick"] of stack "revPreferences" to tPropsArray
-   delete variable tPropsArray
+      -- cABDoubleClick
+      put "Play" into tPropsArray["videoclips"]
+      put "Toplevel" into tPropsArray["stacks"]
+      put "Property Inspector" into tPropsArray["controls"]
+      put "Play" into tPropsArray["audioclips"]
+      put "Go" into tPropsArray["cards"]
+      set the customProperties["cABDoubleClick"] of stack "revPreferences" to tPropsArray
+      delete variable tPropsArray
 
-   revInternal__SavePreferences
-end revInternal__ResetPreferences
+      -- cABCommandDoubleClick
+      put "Edit Script" into tPropsArray["videoclips"]
+      put "Edit Script" into tPropsArray["stacks"]
+      put "Edit Script" into tPropsArray["controls"]
+      put "Edit Script" into tPropsArray["audioclips"]
+      put "Edit Script" into tPropsArray["cards"]
+      set the customProperties["cABCommandDoubleClick"] of stack "revPreferences" to tPropsArray
+      delete variable tPropsArray
+
+      -- cABOptionDoubleClick
+      put "Property Inspector" into tPropsArray["videoclips"]
+      put "Property Inspector" into tPropsArray["stacks"]
+      put "Property Inspector" into tPropsArray["controls"]
+      put "Property Inspector" into tPropsArray["audioclips"]
+      put "Property Inspector" into tPropsArray["cards"]
+      set the customProperties["cABOptionDoubleClick"] of stack "revPreferences" to tPropsArray
+      delete variable tPropsArray
+
+      revInternal__SavePreferences
+   end revInternal__ResetPreferences
 
    --------------------------------------------------------------------------------
    -- Internal Utility Functions
@@ -960,7 +997,7 @@ end revInternal__ResetPreferences
 
    command revInternal__SavePreferences
       cancel sSavePreferencesMessage
-      send "__revInternal_SavePreferences" to me in 30 seconds
+      send "__revInternal_SavePreferences" to me in 6 seconds
       put the result into sSavePreferencesMessage
    end revInternal__SavePreferences
 
@@ -975,7 +1012,7 @@ end revInternal__ResetPreferences
    end __revInternal_SavePreferences
 
    private command revInternal__EnsureFolder pFolder
-      revInternal__Log "Enter", "Ensuring Folder '" & pFolder & "'"
+      -- revInternal__Log "Enter", "Ensuring Folder '" & pFolder & "'"
 
       local tPath
       local tComponent
@@ -994,7 +1031,7 @@ end revInternal__ResetPreferences
          end if
       end repeat
 
-      revInternal__Log "Leave", "Ensuring Folder '" & pFolder & "'"
+      -- revInternal__Log "Leave", "Ensuring Folder '" & pFolder & "'"
    end revInternal__EnsureFolder
 
    function revInternal__CheckFileAssociations
@@ -1130,10 +1167,9 @@ end revInternal__ResetPreferences
 
    -- For test mode
    function revEnvironmentGetStartupLog pType
-      if sTestEnvironment is not true then
-         return empty
-      end if
-
+      -- if sTestEnvironment is not true then --- <--  What's this test environment?
+      --   return empty
+      -- end if
       return sLog[pType]
    end revEnvironmentGetStartupLog
 
@@ -1146,7 +1182,7 @@ end revInternal__ResetPreferences
                put "~/.OpenXtalk/logs/" & toLower(kProductName) & "_tools_log.txt" into tLogPath
                break
             case "MacOS X"
-               put specialFolderPath("cusr") & "/Library/Logs/OpenXtalk/" & kProductName & "ToolsLog.txt"  into tLogPath
+               put specialFolderPath("cusr") & "/Library/Logs/OpenXtalk/" & kProductName & "ToolLog.txt"  into tLogPath
                break
             case "Windows"
                -- Make sure we put logs in the 'Local' AppData section.
@@ -1190,7 +1226,7 @@ end revInternal__ResetPreferences
    command revInternal__InitialiseSystem
       local tSuccess
 
-      revInternal__Log "Enter", "System Initialisation"
+      -- revInternal__Log "Enter", "System Initialisation"
 
       put true into tSuccess
 
@@ -1215,13 +1251,13 @@ end revInternal__ResetPreferences
          do "set the revCrashReportSettings to tCrashSettings"
       end if
 
-      revInternal__Log "Leave", "System Initialisation"
+      -- revInternal__Log "Leave", "System Initialisation"
 
       return tSuccess
    end revInternal__InitialiseSystem
 
    command revInternal__InitialiseGlobals
-      revInternal__Log "Enter", "Globals Initialisation"
+      -- revInternal__Log "Enter", "Globals Initialisation"
 
       global gREVDevelopment
       if gREVDevelopment is empty then
@@ -1238,7 +1274,7 @@ end revInternal__ResetPreferences
       revInternal__SetAppIcon 210096
       revInternal__SetSmallAppIcon 210096
 
-      revInternal__Log "Leave", "Globals Initialisation"
+      -- revInternal__Log "Leave", "Globals Initialisation"
 
       return true
    end revInternal__InitialiseGlobals
@@ -1286,13 +1322,13 @@ end revInternal__ResetPreferences
       put return & "revTableLibrary" after tLoadList
       put return & "revhtml5urllibrary" after tLoadList
 
-      if revEnvironmentEditionProperty("autocomplete_pro") then
-         put return & "autocomplete-pro" after tLoadList
-      end if
+      --if revEnvironmentEditionProperty("autocomplete_pro") then
+      --   put return & "autocomplete-pro" after tLoadList
+      -- end if
 
-      if revEnvironmentEditionProperty("autocomplete") then
+      -- if revEnvironmentEditionProperty("autocomplete") then
          put return & "autocomplete" after tLoadList
-      end if
+      -- end if
 
       local tBackList
       put "revidedeveloperextensionlibrary" into tBackList
@@ -1463,9 +1499,9 @@ end revInternal__ResetPreferences
 
       local tStackFile
       set the itemDelimiter to comma
-      repeat for each line tStackFile in the stackFiles of stack "Home"
-         revInternal__Log "Message", "Mapping Stack '" & item 1 of tStackFile & "' to stackfile '" & item 2 of tStackFile & "'"
-      end repeat
+      -- repeat for each line tStackFile in the stackFiles of stack "Home"
+      --   revInternal__Log "Message", "Mapping Stack '" & item 1 of tStackFile & "' to stackfile '" & item 2 of tStackFile & "'"
+      -- end repeat
 
       revInternal__Log "Leave", "Stack Files Setup"
    end revInternal__SetupStackFiles
@@ -1510,88 +1546,81 @@ end revInternal__ResetPreferences
       return true
    end revInternal__InitialiseDefaults
 
-command revInternal__InitialiseOptions
-   revInternal__Log "Enter", "Options Initialisation"
+   command revInternal__InitialiseOptions
+      revInternal__Log "Enter", "Options Initialisation"
+         if the cDarkMode of stack "revPreferences" is true then
+            IDEToDarkMode
+            -- send "IDEToDarkMode" to me in 0 millisecs
+         else
+            IDEToLightMode
+         end if
 
-   set the selectGroupedControls to the cSelectGrouped of stack "revPreferences"
-   set the tooltipDelay to the cREVToolTipDelay of stack "revPreferences"
-   set the grid to the cGrid of stack "revPreferences"
-   set the scriptTextFont to the cREVScriptFont of stack "revPreferences"
-   set the scriptTextSize to the cREVScriptSize of stack "revPreferences"
+      set the selectGroupedControls to the cSelectGrouped of stack "revPreferences"
+      set the tooltipDelay to the cREVToolTipDelay of stack "revPreferences"
+      set the grid to the cGrid of stack "revPreferences"
+      set the scriptTextFont to the cREVScriptFont of stack "revPreferences"
+      set the scriptTextSize to the cREVScriptSize of stack "revPreferences"
 
-   if the cHttpProxy of stack "revPreferences" is not empty then
-      set the httpProxy to the cHttpProxy of stack "revPreferences"
-   end if
+      if the cHttpProxy of stack "revPreferences" is not empty then
+         set the httpProxy to the cHttpProxy of stack "revPreferences"
+      end if
 
-   set the gridSize to the cGridSize of stack "revPreferences"
+      set the gridSize to the cGridSize of stack "revPreferences"
 
-   if the cSelectionHandleColor of stack "revPreferences" is empty then
-      set the selectionHandleColor to "Gray50"
-   else
-      set the selectionHandleColor to the cSelectionHandleColor of stack "revPreferences"
-   end if
+      if the cSelectionHandleColor of stack "revPreferences" is empty then
+         set the selectionHandleColor to "Gray50"
+      else
+         set the selectionHandleColor to the cSelectionHandleColor of stack "revPreferences"
+      end if
 
-   set the navigationArrows to the cNavigationArrows of stack "revPreferences"
+      set the navigationArrows to the cNavigationArrows of stack "revPreferences"
 
-   global gREVShowStacks, gREVDevelopment
-   if gREVDevelopment then
-      put true into gREVShowStacks
-   else if the cShowRevolutionStacks of stack "revPreferences" is empty then
-      put false into gREVShowStacks
-   else
-      put the cShowRevolutionStacks of stack "revPreferences" into gREVShowStacks
-   end if
+      global gREVShowStacks, gREVDevelopment
+      if gREVDevelopment then
+         put true into gREVShowStacks
+      else if the cShowRevolutionStacks of stack "revPreferences" is empty then
+         put false into gREVShowStacks
+      else
+         put the cShowRevolutionStacks of stack "revPreferences" into gREVShowStacks
+      end if
 
-   global gREVLanguageNames
-   put the cLanguageNames of card 1 of stack "revPreferences" into gREVLanguageNames
+      global gREVLanguageNames
+      put the cLanguageNames of card 1 of stack "revPreferences" into gREVLanguageNames
 
-   revInternal__Log "Message", "Obtained preference languageNames = " & gREVLanguageNames
+      revInternal__Log "Message", "Obtained preference languageNames = " & gREVLanguageNames
 
-   global gREVPopups
-   put the cRevPopups of stack "revPreferences" into gREVPopups
+      global gREVPopups
+      put the cRevPopups of stack "revPreferences" into gREVPopups
 
-   global gREVAutoFormat
-   put the cAutoFormat of stack "revPreferences" into gREVAutoFormat
+      global gREVAutoFormat
+      put the cAutoFormat of stack "revPreferences" into gREVAutoFormat
 
-   global gREVUIScriptShortcut
-   put the cREVUIScriptShortcut of stack "revPreferences" into gREVUIScriptShortcut
+      global gREVUIScriptShortcut
+      put the cREVUIScriptShortcut of stack "revPreferences" into gREVUIScriptShortcut
 
-   global gREVScriptShortcut
-   put the cREVScriptShortcut of stack "revPreferences" into gREVScriptShortcut
+      global gREVScriptShortcut
+      put the cREVScriptShortcut of stack "revPreferences" into gREVScriptShortcut
 
-   global gREVCommentCharacter
-   if the cCommentCharacter of stack "revPreferences" is not empty then
-      put the cCommentCharacter of stack "revPreferences" into gREVCommentCharacter
-   else
-      put "--" into gREVCommentCharacter
-   end if
+      global gREVCommentCharacter
+      if the cCommentCharacter of stack "revPreferences" is not empty then
+         put the cCommentCharacter of stack "revPreferences" into gREVCommentCharacter
+      else
+         put "--" into gREVCommentCharacter
+      end if
 
-   global gREVTemplateMasterName
-   put the cREVTemplateMasterName of stack "revPreferences" into gREVTemplateMasterName
+      global gREVTemplateMasterName
+      put the cREVTemplateMasterName of stack "revPreferences" into gREVTemplateMasterName
 
-   global gREVAutoCreateProfiles
-   put the cREVAutoCreateProfiles of stack "revPreferences" into gREVAutoCreateProfiles
+      global gREVAutoCreateProfiles
+      put the cREVAutoCreateProfiles of stack "revPreferences" into gREVAutoCreateProfiles
 
-   global gREVProfileReadOnly
-   put the cREVProfileReadOnly of stack "revPreferences" into gREVProfileReadOnly
+      global gREVProfileReadOnly
+      put the cREVProfileReadOnly of stack "revPreferences" into gREVProfileReadOnly
 
-   get the cDarkMode of stack "revPreferences"
-   if it is true then
-      try
-         setAllToDarkMode
-      end try
-      send "IDEToDarkMode" to me in 0 millisecs
-   else
-      try
-         setAllToLightMode
-      end try
-      send "IDEToLightMode" to me in 0 millisecs
-   end if
+      revInternal__Log "Leave", "Options Initialisation"
 
-   revInternal__Log "Leave", "Options Initialisation"
-
-   return true
-end revInternal__InitialiseOptions
+      return true
+   end revInternal__InitialiseOptions
 
    command revInternal__InitialiseUserLibraries
       local tEnvironmentIcons, tUserIcons, tList
@@ -1695,14 +1724,14 @@ end revInternal__InitialiseOptions
 
       if the platform is "MacOS" then
          lock messages
-         modeless stack tMenuBar
+         modeless stack tMenuBar -- PM
          unlock messages
       else
          toplevel stack tMenuBar
       end if
       set the defaultMenuBar to the long id of group "revMenuBar" of stack tMenuBar
 
-      revInternal__ConstrainStack tMenuBar
+       revInternal__ConstrainStack tMenuBar
 
       local tToolsRight
       put the right of stack revIDEPaletteToStackName("tools") into tToolsRight
@@ -1820,7 +1849,7 @@ end revInternal__InitialiseOptions
 
       if the cStartupRevOnline of stack "revPreferences" then
          revInternal__Log "Message", "Launching revOnline"
-         send "revGoOnline" to stack "revOnline"
+         send "revGoOnline" to stack "revOnline" in 1 millisecs
       end if
 
       revInternal__Log "Message", "Initialising revFrontScript"
@@ -1867,8 +1896,9 @@ end revInternal__InitialiseOptions
          put 0 into tTitleBarHeight
          put 0 into tBorderWidth
       else
-         -- We assume this is about 30 pixels
-         put 30 into tTitleBarHeight
+      -- We assume this is about 30 pixels -- MAYBE DON"T ASS-U-ME
+      -- put 30 into tTitleBarHeight -- for palettes on macOS 11 this is more like 19 pixels
+       put 30 into tTitleBarHeight
          if the platform is "macos" then
             put 0 into tBorderWidth
          else
@@ -1987,150 +2017,43 @@ end revInternal__InitialiseOptions
                   return 156,199,45
                case "revsplash_text_color"
                   return 0,0,0
-               case "start_center_tile_color_step"
-                  return 0 -- -9
-               case "password_protection"
+               -- case "start_center_tile_color_step"
+               --    return - 9 -- This affects the tints in the blocks of the original startcenter
+               case "password_protection" -- not sure if FOSS needs this at all
                   return false
                case "open_source_required"
                   return true
                case "splash_strap"
-                  return "<p>DON'T PANIC</p>" -- return empty
+                  return "<b>DON'T PANIC</b>" -- return empty
                case "upgrade_mini_url"
+                  -- return ""
+                  -- return "https://openxtalk.org"
                   return "OpenXTalk" -- https://livecode.com/products/community-plus-ide-2/
                case "upgrade_url"
-                  return "OpenXTalk" -- https://livecode.com/products/community-plus-ide/
+                   -- return ""
+                  -- return "https://openxtalk.org"
+                  return "OpenXTalk"
                case "upgrade_edition"
+                 -- return  "OpemXTalk"
                   return "Community" -- "communityplus"
                case "edition_external_url"
-                  return "" -- https://livecode.com/products/community-edition/
+                  -- return ""
+                  return "OpenXTalk"
+                  -- return "https://openxtalk.org"
                case "autocomplete"     ---      <--------------------------------------------  Insert New Autocomplete Script Here !!!
+                  return false
+                  --  return true
                case "autocomplete_pro" --- <------------------------------------------  Personaly I found LC's autocomplete to be annoying -- PM
                   return false
                case "script_profiler"
                   return false
+               default
+                  break
             end switch
-            break
-         case "communityplus"
-            switch pProp
-               case "name"
-                  return "Community Plus"
-               case "color"
-                  return 49,163,102
-               case "pb_line_selected_color"
-                  return 226,238,185
-               case "revonline_hilite_color"
-                  return 49,163,102
-               case "revabout_hilite_color"
-                  return 49,163,102
-               case "revsplash_text_color"
-                  return 0,0,0
-               case "start_center_tile_color_step"
-                  return -9
-               case "password_protection"
-                  return false
-               case "open_source_required"
-                  return true
-               case "splash_strap"
-                  return empty
-               case "upgrade_mini_url"
-                  return empty
-               case "upgrade_url"
-                  return empty
-               case "upgrade_edition"
-                  return "commercial"
-               case "edition_external_url"
-                  return "OpenXTalk"-- "https://livecode.com/products/community-plus-edition/"
-               case "autocomplete"
-                  return true
-               case "autocomplete_pro"
-                  return false
-               case "script_profiler"
-                  return false
-            end switch
-            break
-         case "indy"
-         case "commercial"
-            switch pProp
-               case "name"
-                  return "Indy"
-               case "color"
-                  return 28,154,206
-               case "pb_line_selected_color"
-                  return 222,243,255
-               case "revonline_hilite_color"
-                  return 124,193,222
-               case "revabout_hilite_color"
-                  return 44,113,170
-               case "revsplash_text_color"
-                  return 0,0,0
-               case "start_center_tile_color_step"
-                  return 0
-               case "password_protection"
-                  return true
-               case "open_source_required"
-                  return false
-               case "splash_strap"
-                  if revLicenseInfo["com.livecode.norevenuelimit"] is not empty then
-                     return empty
-                  else
-                     return "<p>This Indy license is only valid for organizations with annual revenues of $500,000 USD or less</p>"
-                  end if
-               case "upgrade_mini_url"
-                  return empty
-               case "upgrade_url"
-                  return empty
-               case "upgrade_edition"
-                  return "professional"
-               case "edition_external_url"
-                  return "https://livecode.com/products/indy-edition/"
-               case "autocomplete"
-               case "autocomplete_pro"
-                  return true
-               case "script_profiler"
-                  return false
-            end switch
-            break
-         case "business"
-         case "professional"
-            switch pProp
-               case "name"
-                  return "Business"
-               case "color"
-                  return 82,82,82
-               case "pb_line_selected_color"
-                  return 222,243,255
-               case "revonline_hilite_color"
-                  return 124,193,222
-               case "revabout_hilite_color"
-                  return 44,113,170
-               case "revsplash_text_color"
-                  return 255,255,255
-               case "start_center_tile_color_step"
-                  return 0
-               case "password_protection"
-                  return true
-               case "open_source_required"
-                  return false
-               case "splash_strap"
-                  return empty
-               case "upgrade_mini_url"
-                  return empty
-               case "upgrade_url"
-                  return empty
-               case "upgrade_edition"
-                  return empty
-               case "edition_external_url"
-                  return "https://livecode.com/products/business-edition/"
-               case "autocomplete"
-               case "autocomplete_pro"
-                  return true
-               case "script_profiler"
-                  return true
-            end switch
+         default
+            throw "Unknown edition property"
             break
       end switch
-
-      throw "Unknown edition property"
    end revEnvironmentEditionProperty
 
    function revEnvironmentPluginsPath
@@ -2194,7 +2117,7 @@ end revInternal__InitialiseOptions
    function revTestEnvironment
       return sTestEnvironment
    end revTestEnvironment
- //
+   //
 
    function revEnvironmentCustomizationPath
       return sCustomizationPath
@@ -2454,116 +2377,228 @@ end revInternal__InitialiseOptions
    end revEnvironmentPlatform
 
 on updateMenuToolBar
-   send "layoutMenu" to stack "revMenuBar" in 0 millisecs
+   if the cREVLaunching of me is true then exit updateMenuToolBar -- cREVLaunching is true while starting up
+   send "layoutMenu" to stack "revMenuBar" in 300 millisecs
 end updateMenuToolBar
 
 on IDEToLightMode
-  --- for macOS ---
-  try
-    setAllToLightMode
-    -- setWindowToLightMode
-  end try
-  lock screen
-  ---
-  --- for All OS ---
-  --- Tools Palette ---
-  set the backGroundColor of stack "revTools" to "White"
-  set the foreGroundColor of stack "revTools" to "Black"
-  
-  set the opaque of group "background" of stack "revTools" to false
-  set the backgroundColor of group "background" of stack "revTools" to "White"
-  set the foreGroundColor of group "background" of stack "revTools" to "Black"
-  
-  set the opaque of group "runedit" of stack "revTools" to false
-  set the backgroundColor of group "runedit" of stack "revTools" to "White"
-  set the foreGroundColor of group "runedit" of stack "revTools" to "Black"
-  set the backgroundColor of graphic "tool_hilite" of stack "revTools" to "Gray70"
-  set the backgroundColor of graphic "tool_hover" of stack "revTools" to "Gray50"
-  
-  set the opaque of group "contents" of stack "revTools" to false
-  set the backgroundColor of group "contents" of stack "revTools" to "White"
-  set the foreGroundColor of group "contents" of stack "revTools" to "Black"
-  
-  set the opaque of group "widget" of stack "revTools" to false
-  set the backgroundColor of group "widget" of stack "revTools" to "White"
-  set the foreGroundColor of group "widget" of stack "revTools" to "Black"
-  
-  set the opaque of group "classic" of stack "revTools" to false
-  set the backgroundColor of group "classic" of stack "revTools" to "White"
-  set the foreGroundColor of group "classic" of stack "revTools" to "Black"
-  
-  set the opaque of group "graphictoolscontrols" of stack "revTools" to false
-  set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
-  set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "Black"
-  
-  set the opaque of group "graphictools" of stack "revTools" to false
-  set the backgroundColor of group "graphictools" of stack "revTools" to "White"
-  set the foreGroundColor of group "graphictools" of stack "revTools" to "Black"
-  
-  --- revMenuBar Palette ---
-  set the backGroundColor of stack "revMenuBar" to "White"
-  set the foreGroundColor of stack "revMenuBar" to "Black"
-  
-  set the opaque of group "toolbar" of stack "revMenuBar" to true
-  set the backgroundColor of group "toolbar" of stack "revMenuBar" to "White"
-  set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "Black"
-  
-  unlock screen
+    lock screen
+     --- it might be better to have a generic script that swaps foreground and background colors on objects
+      if the platform is "MacOS" then put true into isMac
+      --- for macOS --- NOTE: This uses the OpenXTalk.org macOS Native Library if available - Paul McClernan - 1/16/22
+
+      -- put false into isMac -- for testing other OS styling on macOS IDE
+      try
+                  --- Tools Palette ---
+         -- set the opaque of group "background" of stack "revTools" to true
+         -- set the backgroundColor of group "background" of stack "revTools" to 59,63,63
+         -- set the opaque of group "contents" of stack "revTools" to true
+         -- set the backgroundColor of group "contents" of stack "revTools" to "Gray25"
+         -- set the foreGroundColor of group "contents" of stack "revTools" to "White"
+         -- set the opaque of group "runedit" of stack "revTools" to false
+         -- set the backgroundColor of group "runedit" of stack "revTools" to "Gray25"
+         -- set the foreGroundColor of group "runedit" of stack "revTools" to empty -- "White"
+         -- set the backgroundColor of graphic "tool_hilite" of stack "revTools" to 120,63,170
+         -- set the backgroundColor of graphic "tool_hover" of stack "revTools" to 80,23,150
+         if isMac is true then
+            --- for macOS ---
+            setAppToLightMode
+            -- setWindowToLightMode
+            set the backGroundColor of stack "revTools" to empty -- "Gray30"
+            set the foreGroundColor of stack "revTools" to empty -- "White"
+            -- set the opaque of group "widget" of stack "revTools" to false
+            set the foreGroundColor of group "widget" of stack "revTools" to  "Black"
+            set the backgroundColor of group "widget" of stack "revTools" to empty -- "Gray50"
+            set the foreGroundColor of group "background" of stack "revTools" to "White"
+
+            -- set the opaque of group "classic" of stack "revTools" to true
+            -- set the foreGroundColor of group "classic" of stack "revTools" to "White"
+            set the backgroundColor of group "classic" of stack "revTools" to empty -- "Gray60"
+
+            -- set the opaque of group "graphictoolscontrols" of stack "revTools" to true
+            -- set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "Gray25"
+            -- set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
+
+            -- set the opaque of group "graphictools" of stack "revTools" to true
+            -- set the backgroundColor of group "graphictools" of stack "revTools" to "Gray25"
+            -- set the foreGroundColor of group "graphictools" of stack "revTools" to "White"
+
+            -- set the opaque of stack "Message Box" to false
+            set the foreGroundColor of stack "Message Box" to "Black" -- empty
+            set the backGroundColor of stack "Message Box" to "White"-- "Black"
+
+            -- set the opaque of stack "revPreferencesGUI" to false
+            set the backgroundColor of stack "revPreferencesGUI" to "White"
+            set the foreGroundColor of stack "revPreferencesGUI" to "Black"
+         else
+            set the foreGroundColor of stack "revTools" to "Black"
+            set the backGroundColor of stack "revTools" to "White"
+            set the foreGroundColor of group "widget" of stack "revTools" to "Black"
+            set the backgroundColor of group "widget" of stack "revTools" to "White"
+            set the foreGroundColor of group "background" of stack "revTools" to "Black"
+            set the backgroundColor of group "classic" of stack "revTools" to "White"
+
+            if the systemVersion is "NT 10.0" then set the textColor of group "revMenuBar" of stack "revMenuBar" to "Black"
+            -- set the opaque of stack "revMenuBar" to false
+            set the foreGroundColor of stack "revMenuBar" to "Black" -- empty
+            set the backGroundColor of stack "revMenuBar" to "White"-- "Gray25"
+
+            -- set the opaque of stack "Message Box" to false
+            set the foreGroundColor of stack "Message Box" to "Black" -- empty
+            set the backGroundColor of stack "Message Box" to "White"-- "Gray25"
+
+            --- revMenuBar Toolbar palette ---
+            -- set the opaque of group "toolbar" of stack "revMenuBar" to false
+            -- set the backgroundColor of group "toolbar" of stack "revMenuBar" to "Gray25"
+            -- set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "White"
+
+            set the backgroundColor of stack "revPreferencesGUI" to "White"
+            set the foreGroundColor of stack "revPreferencesGUI" to "Black"
+
+            set the backgroundColor of stack "revIDEProjectBrowser" to "White"
+            set the foreGroundColor of stack "revIDEProjectBrowser" to "Black"
+
+            set the foregroundColor of stack "revOnline" to "Black"
+            set the backgroundColor of stack "revOnline" to "White"
+
+            set the foreColor of stack "revIDEExtensionManager" to "Black"
+            set the backColor of stack "revIDEExtensionManager" to "White"
+
+            set the backColor of stack "revExtensionBuilder" to "White"
+            set the foreColor of stack "revExtensionBuilder" to "Black"
+
+            set the foreColor of stack "revDictionary" to "Black"
+            set the backColor of stack "revDictionary" to "White"
+         end if
+
+      set the cDarkMode of stack "revPreferences" to false
+      unlock screen
+    end try
 end IDEToLightMode
 
 on IDEToDarkMode
-   --- for macOS ---
+    lock screen
+    --- it might be better to have a generic script that swaps foreground and background colors on objects
+   if the platform is "MacOS" then put true into isMac
+   --- for macOS --- NOTE: This uses the OpenXTalk.org macOS Native Library if available - Paul McClernan - 1/16/22
+
+    -- put false into isMac -- for testing other OS styling on macOS IDE
    try
-      setAllToDarkMode
-      -- setWindowToDarkMode
+      --- Tools Palette ---
+      -- set the backgroundColor of group "contents" of stack "revTools" to "Gray25"
+      -- set the foreGroundColor of group "contents" of stack "revTools" to "White"
+      -- set the opaque of group "runedit" of stack "revTools" to false
+      -- set the backgroundColor of group "runedit" of stack "revTools" to "Gray25"
+      -- set the foreGroundColor of group "runedit" of stack "revTools" to empty -- "White"
+      -- set the backgroundColor of graphic "tool_hilite" of stack "revTools" to 120,63,170
+      -- set the backgroundColor of graphic "tool_hover" of stack "revTools" to 80,23,150
+      if isMac is true then
+         setAppToDarkMode
+         -- setWindowToDarkMode
+         set the backGroundColor of stack "revTools" to empty -- "Gray30"
+         set the foreGroundColor of stack "revTools" to empty -- "White"
+         -- set the opaque of group "widget" of stack "revTools" to false
+         set the foreGroundColor of group "widget" of stack "revTools" to  "White"
+         set the backgroundColor of group "widget" of stack "revTools" to empty -- "Gray50"
+         set the foreGroundColor of group "background" of stack "revTools" to "White"
+
+         -- set the opaque of group "classic" of stack "revTools" to true
+         -- set the foreGroundColor of group "classic" of stack "revTools" to "White"
+         set the backgroundColor of group "classic" of stack "revTools" to empty -- "Gray60"
+
+         -- set the opaque of group "graphictoolscontrols" of stack "revTools" to true
+         -- set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "Gray25"
+         -- set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
+
+         -- set the opaque of group "graphictools" of stack "revTools" to true
+         -- set the backgroundColor of group "graphictools" of stack "revTools" to "Gray25"
+         -- set the foreGroundColor of group "graphictools" of stack "revTools" to "White"
+
+         -- set the opaque of stack "Message Box" to false
+         set the foreGroundColor of stack "Message Box" to "White" -- empty
+         set the backGroundColor of stack "Message Box" to "Gray35"-- "Black"
+
+         -- set the opaque of stack "revPreferencesGUI" to false
+         set the backgroundColor of stack "revPreferencesGUI" to "Gray20"
+         set the foreGroundColor of stack "revPreferencesGUI" to "White"
+
+      else
+         set the foreGroundColor of stack "revTools" to "White"
+         set the backGroundColor of stack "revTools" to "Gray20"
+         set the foreGroundColor of group "widget" of stack "revTools" to  "White"
+         set the backgroundColor of group "widget" of stack "revTools" to "Gray20"
+         set the foreGroundColor of group "background" of stack "revTools" to "White"
+         set the backgroundColor of group "classic" of stack "revTools" to "Gray20"
+
+         if the systemVersion is "NT 10.0" then set the textColor of group "revMenuBar" of stack "revMenuBar" to "Black"
+         -- set the opaque of stack "revMenuBar" to false
+         set the foreGroundColor of stack "revMenuBar" to "White" -- empty
+         set the backGroundColor of stack "revMenuBar" to "Gray30" -- empty -- "Gray25"
+
+         --- revMenuBar Toolbar palette ---
+         -- set the opaque of group "toolbar" of stack "revMenuBar" to false
+         -- set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "White"
+         -- set the backgroundColor of group "toolbar" of stack "revMenuBar" to "Gray30"
+
+         -- set the opaque of stack "Message Box" to false
+         set the foreGroundColor of stack "Message Box" to "White" -- empty
+         set the backGroundColor of stack "Message Box" to "Gray30"-- "Black"
+
+         -- set the opaque of group "background" of stack "revPreferencesUI" to true
+         set the backgroundColor of stack "revPreferencesGUI" to "Gray20"
+         set the foreGroundColor of stack "revPreferencesGUI" to "White"
+
+         set the backgroundColor of stack "revIDEProjectBrowser" to "Black"
+         set the foreGroundColor of stack "revIDEProjectBrowser" to "White"
+
+         set the foregroundColor of stack "revOnline" to "White"
+         set the backgroundColor of stack "revOnline" to "Gray25"
+
+         set the foreColor of stack "revIDEExtensionManager" to "White"
+         set the backColor of stack "revIDEExtensionManager" to "Gray20"
+
+         set the foreColor of stack "revExtensionBuilder" to "White"
+         set the backColor of stack "revExtensionBuilder" to "Gray25"
+
+         set the foreColor of stack "revDictionary" to "White"
+         set the backColor of stack "revDictionary" to "Gray30"
+
+      end if
+
    end try
-   lock screen
-   ---
-   --- for All OS ---
-   --- Tools Palette ---
-   set the backGroundColor of stack "revTools" to "Gray33"
-   set the foreGroundColor of stack "revTools" to "White"
-   
-   set the opaque of group "background" of stack "revTools" to true
-   set the backgroundColor of group "background" of stack "revTools" to 59,63,63
-   set the foreGroundColor of group "background" of stack "revTools" to "White"
-   
-   set the opaque of group "contents" of stack "revTools" to true
-   set the backgroundColor of group "contents" of stack "revTools" to "Gray33"
-   set the foreGroundColor of group "contents" of stack "revTools" to "White"
-   
-   set the opaque of group "runedit" of stack "revTools" to false
-   set the backgroundColor of group "runedit" of stack "revTools" to "Gray30"
-   set the foreGroundColor of group "runedit" of stack "revTools" to "White"
-   set the backgroundColor of graphic "tool_hilite" of stack "revTools" to 120,63,170
-   set the backgroundColor of graphic "tool_hover" of stack "revTools" to 80,23,150
-   
-   set the opaque of group "widget" of stack "revTools" to true
-   set the backgroundColor of group "widget" of stack "revTools" to "Gray67"
-   set the foreGroundColor of group "widget" of stack "revTools" to "White"
-   
-   set the opaque of group "classic" of stack "revTools" to true
-   set the backgroundColor of group "classic" of stack "revTools" to "Gray67"
-   set the foreGroundColor of group "classic" of stack "revTools" to "White"
-   
-   set the opaque of group "graphictoolscontrols" of stack "revTools" to true
-   set the backgroundColor of group "graphictoolscontrols" of stack "revTools" to "Gray33"
-   set the foreGroundColor of group "graphictoolscontrols" of stack "revTools" to "White"
-   
-   set the opaque of group "graphictools" of stack "revTools" to true
-   set the backgroundColor of group "graphictools" of stack "revTools" to "Gray33"
-   set the foreGroundColor of group "graphictools" of stack "revTools" to "White"
-   
-   
-   --- revMenuBar Palette ---
-   set the backGroundColor of stack "revMenuBar" to "Gray33"
-   set the foreGroundColor of stack "revMenuBar" to "White"
-   
-   set the opaque of group "toolbar" of stack "revMenuBar" to true
-   set the backgroundColor of group "toolbar" of stack "revMenuBar" to "Gray33"
-   set the foreGroundColor of group "toolbar" of stack "revMenuBar" to "White"
-   
-   if the systemVersion is "NT 10.0" then set the textColor of group "revMenuBar" of stack "revMenuBar" to "Black"
-   
-   unlock screen
+   set the cDarkMode of stack "revPreferences" to true
+    unlock screen
 end IDEToDarkMode
+
+   -- on iconMenuOpening
+   --   -- lock screen
+   --   if the cREVLaunching of me is true then exit iconMenuOpening
+   --   set the iconMenu to (tab & "Utilities" & cr & tab & tab & "Gather Windows")
+   --   -- set the icon of this stack to image id
+   --   -- set the statusIconMenu to iconMenuSpec
+   --   -- set the statusIconToolTip to "app toolTip here"
+
+   --   -- put "Home Stack Message Recieved:" &cr& "IconMenuOpening" & cr after msg
+   --   -- pass iconMenuOpening
+   --   -- unlock screen
+   ---- end iconMenuOpening
+
+   ---- on iconMenuPick pParamMaybe
+   --   if the cREVLaunching of me is true then exit iconMenuPick
+   --   put "Home Stack Message Recieved:" &cr& "iconMenuPick" & cr after msg
+   --   if pParamMaybe is not empty then
+   --      put pParamMaybe after msg
+   --   end if
+   --   -- pass iconMenuPick
+   -- end iconMenuPick
+
+on systemAppearanceChanged
+   put the systemAppearance into tAppearance
+   put "Home Stack Message Recieved:" &cr& "systemAppearanceChanged" && tAppearance & cr after msg
+   if tAppearance is "dark" then
+      send "IDEToDarkMode" to stack "home" in 1 milliseconds
+   else
+      send "IDEToLightMode" to me in 1 milliseconds
+   end if
+   -- pass systemAppearanceChanged
+end systemAppearanceChanged

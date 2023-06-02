@@ -80,7 +80,7 @@ private command applyValue
    put the text of field "Value" of me into tValue
    send "visualizationObjectSetValue tObject, tValue" to the cManager of me
    disable button "Apply" of me
-   
+
    # This is sent in time in order to allow the execution contexts of this stack to be removed
    # from the call stack, otherwise they appear in the debugger, and the update shows the wrong vars.
    send "update" to the cManager of me in 0 milliseconds

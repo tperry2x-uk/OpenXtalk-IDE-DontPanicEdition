@@ -2142,7 +2142,7 @@ end actionQuit
 
 command actionAutocompleteSnippetManager
    -- modeless "org.openxtalk.palette.autocomplete"
-   modeless "com.livecode.palette.autocomplete-pro"
+   modeless "com.livecode.palette.autocomplete"
 end actionAutocompleteSnippetManager
 
 command actionLaunchMessageBox

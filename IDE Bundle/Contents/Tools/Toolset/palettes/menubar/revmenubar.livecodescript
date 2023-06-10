@@ -141,8 +141,8 @@ private on setupTextMenu
    put tDisabledText into sTextMenuDisabledText
 end setupTextMenu
 
-# OK-2010-02-19: Bug 8157 - Escape special characters from stack names in menus, more may
-# need to be added here.
+# OK-2010-02-19: Bug 8157 - Escape special characters from stack names in menus,
+-- more may need to be added here.
 private function revMenubarEscapeStackNameForMenu pName
    replace "!" with "\!" in pName
    replace "&" with "\&" in pName
@@ -856,14 +856,13 @@ on updateButtonState
 
    local tSelObj
    put revIDESelectedObjects() into tSelObj
-
+   -- determine if is selection is control object(s) and store that info in a variable tControlSelected
    local tControlSelected
-   put tSelObj is not empty and word 1 of tSelObj \
-         is not among the items of "card,stack" into tControlSelected
-
+   put tSelObj is not empty and word 1 of tSelObj is not among the items of "card,stack" into tControlSelected
+   -- ensure this is a user editable stack or not and store that info in the variable tUserStack
    local tUserStack
    put not revIDEStackIsIDEStack(the topstack) into tUserStack
-
+   -- determine if the selection is a single group and store that info in the vafriable tGroupHilite
    local tGroupHilite
    put word 1 of tSelObj is "group" and the number of lines in tSelobj is 1 into tGroupHilite
    updateButtonHilite "Group", tGroupHilite
@@ -871,14 +870,14 @@ on updateButtonState
    -- Group button should be disabled if no controls are selected
    setToolbarButtonState "Group", tControlSelected
 
+   -- toggle the Edit Group item based on if the EditBackground property is enabled for the stack
    local tEditGroupHilite
    put the editBg of the topStack and word 1 of tSelObj is not "group" into tEditGroupHilite
    updateButtonHilite "Edit Group", tEditGroupHilite
 
    -- If a group is selected, the Edit Group button should be enabled
    -- It should also be enabled (with label 'Stop Editing') if we're currently editing a group
-   setToolbarButtonState "Edit Group", \
-         tGroupHilite or the editBg of the topstack
+   setToolbarButtonState "Edit Group", tGroupHilite or the editBg of the topstack
 
    # Click buttons don't stay hilited
    updateButtonHilite "Message Box", false
@@ -905,8 +904,7 @@ on updateButtonState
    setToolbarButtonState "Inspector", tCanInspect
 
    # Deal with enabled/disabled of test
-   setToolbarButtonState "Test", \
-         revIDEGetPreference("cDeployPlatforms") is not empty
+   setToolbarButtonState "Test", revIDEGetPreference("cDeployPlatforms") is not empty
 
    if revIDETutorialInProgress() is not empty then
       disableToolbar
@@ -918,7 +916,7 @@ on updateButtonState
    unlock messages
    unlock screen
 end updateButtonState
-
+--- Toggles for the 'Toolbar' text/icon style
 on revTextbar
    revIDESetPreference "cToolbarText", true
    revIDESetPreference "cToolbarIcons", false
@@ -934,6 +932,7 @@ on revFullBar
    revIDESetPreference "cToolbarIcons", true
 end revFullBar
 
+--- pull in graphics for the ToolBar buttons
 function revMenubarButtonNameToIconPath pName, pStyle
    local tPath, tIcon
    put revIDEPaletteResourcePath("images/") into tPath
@@ -1006,21 +1005,35 @@ end setButtonDepressed
 private on setButtonReleased pTarget
    updateButtonState
 end setButtonReleased
-
+-- chack if clicked in the IDE Menus or clicked is in 'toolBar'
 on mouseDown
    if the short name of the owner of the target is "revMenuBar" then
       revMenubarBuildMenus
    else if the short name of the owner of the target is "toolbar" and the target begins with "button" then
       setButtonDepressed the long id of the target
-   end if
+      -- else
+      --   pass mouseDown
+      end if
 end mouseDown
 
+-- chack if released click is in 'toolBar'
 on mouseRelease
    if the short name of the owner of the target is "toolbar" and the target begins with "button" then
       setButtonReleased the long id of the target
+         -- else
+         --   pass mouseRelease
    end if
 end mouseRelease
-
+--- if mouseUp is in a widget
+--- and that widget is the Tutorial player control 'stop'
+-- then a tutorial is being asked to stop running
+--
+-- if not then if the item is the 'upgrade' group (now the 'OpenXTalk' button)
+-- then launch the 'StartCenter',
+-- 'ideShowUpgradeOptions' has been modified to launch the 'StartCenter'
+-- which should look for a custom user modifiable StartCenter first.
+--
+-- and lastly if mouseUp is in a toolBar button then do the toolBar button stuff
 on mouseUp
    lock screen
    if the target begins with "widget" then
@@ -1047,18 +1060,24 @@ on mouseUp
    else if the short name of the owner of the target is "toolbar" and the target begins with "button" then
       revMenubarMenuButtonClicked the short name of the target
       setButtonReleased the long id of the target
-   end if
+      --  else
+      --    pass mouseUp
+      end if
    unlock screen
 end mouseUp
 
 /*
 There is no way to get the real screen rects of the mac menu buttons,
 so this function has the current values hard-coded. The easiest way
-to find these values is to use 'the left of stack "Message Box" whilst aligning
-visually.
-
+to find these values is to use 'the left of stack "Message Box" whilst
+aligning visually.
 At some point we will need to sort out the conflict between this function
 and potential user locale settings.
+
+-- What this means is that these numbers are basically guess-timates
+and may not be accurate depending on the current macOS System MenuFont that
+is actually being used, which that font has changed a few times over the years,
+and is likely different size some non-English language systems. -- Paul McClernan
 */
 private function rectOfMacMenuItem pItem
    local tLeft, tRight
@@ -1102,7 +1121,8 @@ private function rectOfMacMenuItem pItem
    end switch
    return tLeft, 0, tRight, 15
 end rectOfMacMenuItem
-
+-- this appears to be used for drawing a line around the
+-- IDE menu names or toolBar buttons, for use with guided tutorial system
 function absoluteRectOfObject pObject
    local tRect
    if there is a button pObject of group "revMenuBar" of me then
@@ -1134,6 +1154,7 @@ on highlightObject pObject
    updateButtonState
 end highlightObject
 
+--- toolBar button actions and toggles
 on revMenubarMenuButtonClicked pWhich
    switch pWhich
       case "Inspector"
@@ -1193,6 +1214,7 @@ on revRestoreHilite
    set the hilite of me to true
 end revRestoreHilite
 */
+-- main IDE menus list
 function revMenubarMenus
    return "File,Edit,Tools,Object,Text,Development,View,Window,Help"
 end revMenubarMenus
@@ -1220,7 +1242,7 @@ end highlightMenuItem
 command revMenubarBuildMenus
    local tContext
    put buildMenuContext() into tContext
-
+   -- put ArrayToJSON(tContext,true,true) -- for debugging
    lock screen
    lock messages
    lock menus
@@ -1328,7 +1350,7 @@ function buildMenuContext
    --Flip/Rotate/Reshape enabling
    local tSelectedObject
    put the selobj into tSelectedObject
-
+   -- init menu enablers to true
    local tEnableFlipandRotate
    put true into tEnableFlipandRotate
 
@@ -1337,23 +1359,28 @@ function buildMenuContext
 
    local tAllImages
    put true into tAllImages
+   -- Scan the selected objects to see if the objects are all graphics, all images, or something else
    repeat for each line l in tSelectedObject
       switch word 1 of l
-         case "graphic"
-            if the style of l is among the items of "line,curve,polygon"
-            then put false into tAllImages
-            else put false into tEnableFlipandRotate
-            break
+      case "graphic"
+         if the style of l is among the items of "rectangle,roundrect,line,oval,regular,line,curve,polygon" then
+            put false into tAllImages
+         else
+            put false into tEnableFlipandRotate
+         end if
+         break
          case "image"
             put false into tAllGraphics
             break
          default
+            -- put false into tAllGraphics
+            put false into tAllImages
             put false into tEnableFlipandRotate
             exit repeat
             break
       end switch
    end repeat
-
+   -- builds the context array used to build appropriate menus for the current selection(s)
    put tEnableFlipandRotate into tContext["enableFlipAndRotate"]
    put tSelectedObject into tContext["selectedObject"]
    put tAllGraphics into tContext["allGraphics"]
@@ -1740,7 +1767,6 @@ private function revMenubarObjectMenu pContext
          put "(Copy Graphics as SVG Paths" into tCopySVGPathText
       end if
    end if
-
 
    ### Flip, with a submenu. Rotate, with a submenu. And Reshape graphic
    put tFlipText & return after tObject
@@ -2602,18 +2628,17 @@ on revMenubarContextMenuPickTarget pWhich, pTarget
          revIDEShowInProjectBrowser pTarget
          break
          ######## GRAPHIC SPECIFIC #########
+      case "Reshape Graphic"
       case "Reshape Polygon"
          if the editMode of pTarget is "polygon" then
-            set the editMode of pTarget to "none"
+            set the editMode of pTarget to "none" -- or empty?
          else
             set the editMode of pTarget to "polygon"
          end if
          break
-
-      case "Copy Graphics as SVG Paths"
-         revOXTIDEGraphicPointsToSVGPath the selobjs
+      case "Copy as SVG Path"
+         revOXTIDEGraphicPointsToSVGPath pTarget
          break
-
          ######## GROUP SPECIFIC #########
       case "Edit Group"
          revIDEEditGroup pTarget
@@ -2941,6 +2966,9 @@ end revMenubarToolsMenuPick
 on revMenubarObjectMenuPick pWhich
    set the itemdelimiter to "|"
    switch item 1 of pWhich
+   case "Copy Graphics as SVG Paths"
+      revOXTIDEGraphicPointsToSVGPath the selobjs
+      break
       case "Reshape Graphic"
          revIDEToggleReshapeGraphic
          break

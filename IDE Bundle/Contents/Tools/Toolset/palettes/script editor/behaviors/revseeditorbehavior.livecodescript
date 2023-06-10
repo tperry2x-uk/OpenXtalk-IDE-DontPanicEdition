@@ -125,7 +125,7 @@ command initialize
    # At the same time as fixing this issue, I've made the hilite color a preference in case we decide
    # to allow users to configure it in the future.
    set the hiliteColor of field "Script" of me to sePrefGet("editor,hilitecolor")
-
+   if the hiliteColor of field "Script" of me is empty then set the hiliteColor of field "Script" of me to "Gray75"
    # OK-2008-07-07 : Bug 6748 - Interactive find not remembering last search
    if sePrefGet("editor,findvisible") then
       call "openControl" to group "Interactive Find" of me

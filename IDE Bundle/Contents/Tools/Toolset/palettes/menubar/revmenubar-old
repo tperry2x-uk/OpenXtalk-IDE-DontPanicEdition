@@ -1715,32 +1715,25 @@ private function revMenubarObjectMenu pContext
       put "(Flip" into tFlipText
       put "(Rotate" into tRotateText
       put "(Reshape Graphic" into tReshapeText
-      put "(Copy Graphics as SVG Paths" into tCopySVGPathText
-      -- revoxtIDEGraphicPointsToSVGPath
    else
       if pContext["allImages"] then
          put "Flip Image" into tFlipText
          put "Rotate Image" into tRotateText
          put "(Reshape Graphic" into tReshapeText
-         put "(Copy Graphics as SVG Paths" into tCopySVGPathText
       else if pContext["allGraphics"] then
          put "Flip Graphic" into tFlipText
          put "Rotate Graphic" into tRotateText
          if "revReshapeLibrary" is in revInternal__ListLoadedLibraries() then
             put "!cReshape Graphic" into tReshapeText
-            put "Copy Graphics as SVG Paths" into tCopySVGPathText
          else
             put "Reshape Graphic" into tReshapeText
-            put "Copy Graphics as SVG Paths" into tCopySVGPathText
          end if
       else
-         put "(Flip Selected" into tFlipText
-         put "(Rotate Selected" into tRotateText
+         put "Flip Selected" into tFlipText
+         put "Rotate Selected" into tRotateText
          put "(Reshape Graphic" into tReshapeText
-         put "(Copy Graphics as SVG Paths" into tCopySVGPathText
       end if
    end if
-
 
    ### Flip, with a submenu. Rotate, with a submenu. And Reshape graphic
    put tFlipText & return after tObject
@@ -1750,8 +1743,6 @@ private function revMenubarObjectMenu pContext
    put buildRotateSubmenu() & return after tObject
 
    put tReshapeText & return after tObject
-
-   put tCopySVGPathText & return after tObject -- Adding for copy as SVG Path functionality
 
    put "-" & return after tObject
 
@@ -1863,9 +1854,9 @@ end buildFlipSubmenu
 private function buildRotateSubmenu
    return \
          tab & "By.../|By" & return & \
-         tab & "90° Right/|270" & return & \
-         tab & "90° Left/|90" & return & \
-         tab & "180°/|180"
+         tab & "90¬∞ Right/|270" & return & \
+         tab & "90¬∞ Left/|90" & return & \
+         tab & "180¬∞/|180"
 end buildRotateSubmenu
 
 private function buildDistributeSubmenu
@@ -1990,7 +1981,6 @@ private function revMenubarDevelopmentMenu pContext
    local tDevelopment
    put "Object Library" & return after tDevelopment
    put "Image Library" & return after tDevelopment
-   put "SVG Glyph Browser" & return after tDevelopment
    put "Plugins" & return after tDevelopment
    if sPluginMenuText is not empty then
       put sPluginMenuText & return after tDevelopment
@@ -2609,11 +2599,6 @@ on revMenubarContextMenuPickTarget pWhich, pTarget
             set the editMode of pTarget to "polygon"
          end if
          break
-
-      case "Copy Graphics as SVG Paths"
-         revOXTIDEGraphicPointsToSVGPath the selobjs
-         break
-
          ######## GROUP SPECIFIC #########
       case "Edit Group"
          revIDEEditGroup pTarget
@@ -3127,12 +3112,6 @@ on revMenubarDevelopmentMenuPick pWhich
          go cd 2 of stack "revImageLibrary" as modeless
          lock messages
          set the menuHistory of btn "tabs" of stack "RevImageLibrary" to 2
-         unlock messages
-         break
-      case "SVG Glyph Browser"
-         open stack "revSVGGlyphsBrowser" as palette -- modeless
-         -- go cd 1 of stack "revSVGGlyphBrowser" as palette -- modeless
-         lock messages
          unlock messages
          break
       case "Plugins"

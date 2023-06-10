@@ -46,18 +46,18 @@ end mouseDown
 #   are etc.
 private function buildMenusGetContext
   local tContext
-  
+
   # Is there any text selected?
   local tTextSelected
   put false into tTextSelected
   get the selectedChunk
-  
+
   # OK-2009-01-17 : Bug 7597 - Text is considered selected if there is any selectedChunk, it doesn't depend on which control may contain it.
   if (word 2 of it < word 4 of it) then
     put true into tTextSelected
   end if
   put tTextSelected into tContext["textSelected"]
-  
+
   # Is there any pastable data on the clipboard?
   local tClipboardText
   put false into tClipboardText
@@ -65,20 +65,20 @@ private function buildMenusGetContext
     put true into tClipboardText
   end if
   put tClipboardText into tContext["clipboardText"]
-   
+
   # What mode is the script editor in?
   local tMode
   revSEGetMode
   put the result into tMode
   put tMode into tContext["mode"]
-   
+
   return tContext
 end buildMenusGetContext
 
 private command buildMenus
    local tContext
    put buildMenusGetContext() into tContext
-   
+
    lock menus
    buildFileMenu tContext
    buildEditMenu tContext
@@ -98,7 +98,7 @@ private command buildFileMenu pContext
    "Print/P"  & return & \
    "-"  & return & \
    "Quit" & return into tFile
-   
+
    set the text of button "File" of me to modifyMenu("File", tFile)
 end buildFileMenu
 
@@ -109,13 +109,13 @@ private command buildEditMenu pContext
    else
       put "(Undo/Z" & return into tEdit
    end if
-   
+
    if seRedoAvailable() then
       put "Redo/^@Z" & return after tEdit
    else
       put "(Redo/^@Z" & return after tEdit
    end if
-   
+
    if pContext["textSelected"] then
       put "Cut/X" & return & \
              "Copy/C" & return after tEdit
@@ -123,7 +123,7 @@ private command buildEditMenu pContext
       put "(Cut/X" & return & \
              "(Copy/C" & return after tEdit
    end if
-   
+
    put "Paste/V" & return & \
          "Select All/A" & return & \
          "Revert" & return & \
@@ -135,26 +135,26 @@ private command buildEditMenu pContext
          "Find and Replace.../^@F" & return & \
          "Find Selection/^#F" & return & \
          "Go.../L" & return after tEdit
-   
-   if revEnvironmentEditionProperty("autocomplete_pro") then
+
+   -- if revEnvironmentEditionProperty("autocomplete_pro") then
       put "Autocomplete Snippets..." & return after tEdit
-   end if
-   
+   -- end if
+
    put "Options" & return after tEdit
    put toggleMenuItem(tab & "Variable Checking", sePrefGet("explicitVariables")) & return after tEdit
    put toggleMenuItem(tab & "Live Errors", sePrefGet("editor,liveerrors")) & return after tEdit
    put toggleMenuItem(tab & "Bracket Completion", sePrefGet("editor,bracketcompletion")) & return after tEdit
    put toggleMenuItem(tab & "Bracket Highlighting", sePrefGet("editor,brackethighlighting")) & return after tEdit
    put toggleMenuItem(tab & "Control Structure Completion", sePrefGet("editor,autocomplete")) & return after tEdit
-   
+
    if revEnvironmentEditionProperty("autocomplete") then
       put toggleMenuItem(tab & "Autocomplete", sePrefGet("editor,providercompletion")) & return after tEdit
    end if
    put toggleMenuItem(tab & "Autoformat", sePrefGet("editor,autoformat")) & return after tEdit
-   
+
    put "-" & return & \
           "Preferences" after tEdit
-   
+
    set the text of button "Edit" of me to modifyMenu("Edit", tEdit)
 end buildEditMenu
 
@@ -177,7 +177,7 @@ private command buildDebugMenu pContext
       put "/F5" into tRunShortcut
       put "/F9" into tBreakpointShortcut
    end if
-   
+
    local tDebug
    if pContext["mode"] is "debug" then
       put "Show next" & return & \
@@ -213,21 +213,21 @@ private command buildDebugMenu pContext
              "Entry Point..." & return & \
              "-" & return into tDebug
    end if
-   
+
    if revDebuggerEnabled() then
       put "!cScript Debug Mode" after tDebug
    else
       put "!nScript Debug Mode" after tDebug
    end if
-   
+
    set the text of button "Debug" of me to modifyMenu("Debug", tDebug)
 end buildDebugMenu
 
-# OK-2010-02-19: Bug 8157 - Escape special characters from stack names in menus, more may 
+# OK-2010-02-19: Bug 8157 - Escape special characters from stack names in menus, more may
 # need to be added here.
 private function revMenubarEscapeStackNameForMenu pName
    replace "!" with "\!" in pName
-   if the platform is "MacOS" then 
+   if the platform is "MacOS" then
       replace "/" with "\/" in pName
       replace "(" with "\(" in pName
    else
@@ -240,10 +240,10 @@ private command buildWindowMenu pContext
    #   Set sWindowMenuText to a list of open Windows in suitable format for putting into a menu button.
    #   This will be any script editors or the dictionary or resource center if they are open, and any user stacks.
    revIDEUpdateWindowList
-   
+
    local tWindows
    put revIDEWindowList() into tWindows
-   
+
    // PM-2016-05-14: [[ Bug 18166 ]] Show users stacks by name
    local tMenu, tMenuLine, tStackName
    repeat for each line tStack in tWindows
@@ -252,7 +252,7 @@ private command buildWindowMenu pContext
       if revIDEStackNameIsIDEStack(tStackName) then
          put the title of tStack into tStackName
       end if
-      
+
       put "!n" & revMenubarEscapeStackNameForMenu(tStackName) & "/|" & tStack into tMenuLine
       if tMenu is empty then
          put tMenuLine into tMenu
@@ -260,7 +260,7 @@ private command buildWindowMenu pContext
          put return & tMenuLine after tMenu
       end if
    end repeat
-   
+
    if tMenu is empty then
       put "(No Windows Open" into tMenu
    else
@@ -268,7 +268,7 @@ private command buildWindowMenu pContext
       put "!c" into char 1 to 2 of line 1 of tMenu
       put return & "-" & return & "Send Window to Back/`" after tMenu
    end if
-   
+
    set the text of button "Window" of me to modifyMenu("Window", tMenu)
 end buildWindowMenu
 
@@ -282,7 +282,7 @@ private command buildHelpMenu pContext
           "Start Center" & return & \
           "User Guide" & return & \
           "About LiveCode" into tText
-   
+
    set the text of button "Help" of me to modifyMenu("Help", tText)
 end buildHelpMenu
 
@@ -290,26 +290,26 @@ private command buildHandlerMenu pContext
    local tHandlers
    revSEGetHandlerList
    put the result into tHandlers
-   
+
    local tFormattedHandlers
    repeat for each line tHandler in tHandlers
       put tab & word 2 of tHandler & return after tFormattedHandlers
    end repeat
    delete the last char of tFormattedHandlers
-   
+
    local tDefaultHandlers
    put revSEDefaultHandlers() into tDefaultHandlers
-   
+
    local tFormattedDefaultHandlers
    repeat for each line tHandler in tDefaultHandlers
       put tab & tHandler & return after tFormattedDefaultHandlers
    end repeat
    delete the last char of tFormattedDefaultHandlers
-   
+
    local tShowDefaultHandlers
    dispatch function "sePrefGet" to me with "editor,showDefaultHandlers"
    put the result into tShowDefaultHandlers
-   
+
    local tMenu
    if tHandlers is not empty then
       put enableMenuItem("Go to handler...", true) into tMenu
@@ -324,9 +324,9 @@ private command buildHandlerMenu pContext
       put return & enableMenuItem("Add default handler...", false) after tMenu
    end if
    put return & toggleMenuItem("Show default handlers", tShowDefaultHandlers) after tMenu
-   
+
    set the cHandlers of me to tHandlers
-   
+
    set the text of button "Handler" of me to modifyMenu("Handler", tMenu)
 end buildHandlerMenu
 
@@ -334,7 +334,7 @@ on menuPick pItemName
    if sKeyboardShortcut then
       pass menuPick
    end if
-   
+
    switch the short name of the target
       case "File"
          handleFileMenuPick pItemName
@@ -361,7 +361,7 @@ private command handleHandlerMenuPick pItemName
    if dispatchMenuPick("Handler", pItemName) then
       exit handleHandlerMenuPick
    end if
-   
+
    set the itemdelimiter to "|"
    switch item 1 of pItemName
       case "Go to handler..."
@@ -386,7 +386,7 @@ private command handleHandlerMenuPick pItemName
          dispatch "sePrefSet" to me with "editor,showDefaultHandlers", not tShowDefaultHandlers
          break
    end switch
-   
+
    seUpdateLeftBar
    seUpdateToolbar
 end handleHandlerMenuPick
@@ -395,7 +395,7 @@ private command handleFileMenuPick pItemName
    if dispatchMenuPick("File", pItemName) then
       exit handleFileMenuPick
    end if
-   
+
    switch pItemName
       case "Compile"
          actionCompile
@@ -419,7 +419,7 @@ private command handleEditMenuPick pItemName
    if dispatchMenuPick("Edit", pItemName) then
       exit handleEditMenuPick
    end if
-   
+
    switch pItemName
       case "Undo"
          actionUndo
@@ -494,7 +494,7 @@ private command handleDebugMenuPick pItemName
    if dispatchMenuPick("Debug", pItemName) then
       exit handleDebugMenuPick
    end if
-   
+
    switch pItemName
       case "Show next"
          actionDebugShowNext
@@ -516,7 +516,7 @@ private command handleDebugMenuPick pItemName
          break
       case "Clear all Breakpoints"
          answer warning "Really clear all breakpoints from all open stacks?  This operation cannot be undone." with "Don't Clear" or "Clear"
-         if it is "Clear" then 
+         if it is "Clear" then
             revDebuggerClearAllBreakpoints
             revSEUpdate false
          end if
@@ -551,12 +551,12 @@ private command handleWindowMenuPick pItemName
    if dispatchMenuPick("Window", pItemName) then
       exit handleWindowMenuPick
    end if
-   
+
    if pItemName is "Send Window to back" then
       actionSendWindowToBack
       exit handleWindowMenuPick
    end if
-   
+
    if exists(pItemName) then
       lock screen
       go pItemName
@@ -564,12 +564,12 @@ private command handleWindowMenuPick pItemName
       unlock screen
    end if
 end handleWindowMenuPick
-     
+
 private command handleHelpMenuPick pItemName
    if dispatchMenuPick("Help", pItemName) then
       exit handleHelpMenuPick
    end if
-   
+
    switch pItemName
       case "Documentation Pane"
          sePaneShow "Documentation"
@@ -608,7 +608,7 @@ private function modifyMenu pMenuName, pMenu
    if the last char of pMenu is not return then
       put return after pMenu
    end if
-   
+
    local tModifiedMenu
    dispatch "revHookBuildScriptEditorMenu" to me with pMenuName, pMenu, tModifiedMenu
    if it is not "handled" then

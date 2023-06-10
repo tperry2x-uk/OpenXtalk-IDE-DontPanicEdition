@@ -1406,23 +1406,23 @@ on selectionUpdate
 end selectionUpdate
 
 on mouseMove
-   -- if revEnvironmentEditionProperty("autocomplete") then
+   if revEnvironmentEditionProperty("autocomplete") then
       ideAutocompleteCancelFind the long id of me
-   -- end if
+   end if
    pass mouseMove
 end mouseMove
 
 on closeField
-   -- if revEnvironmentEditionProperty("autocomplete") then
+   if revEnvironmentEditionProperty("autocomplete") then
       ideAutocompleteCancelFind the long id of me
-   -- end if
+   end if
    pass closeField
 end closeField
 
 on exitField
-   -- if revEnvironmentEditionProperty("autocomplete") then
+   if revEnvironmentEditionProperty("autocomplete") then
       ideAutocompleteCancelFind the long id of me
-   -- end if
+   end if
    pass exitField
 end exitField
 

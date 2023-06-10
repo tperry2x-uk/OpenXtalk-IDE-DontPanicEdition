@@ -22,8 +22,6 @@ revIDEDocumentationLoad "API", "LiveCode Script"
 
 revIDEDocumentationLoad "API", "Guide"
 
-launch document revIDEGetDictionaryUrl(guide) -- open guides in default webbrowser
-
 revIDEActionNewMainstack "default"
 
 revIDEActionNewScriptOnlyStack

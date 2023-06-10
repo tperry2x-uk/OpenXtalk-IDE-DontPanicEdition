@@ -1240,15 +1240,14 @@ private function __extensionNeedsLoad pType
    switch pType
       case "snippet"
       case "sample"
-         return true
-         -- return false
+         -- return true
+         return false
       default
          return true
    end switch
 end __extensionNeedsLoad
 
-private command __revIDELCSExtensionLoad pFullPath, pFolder, pVersion, pStatus, \
-      pError, pIsIDEExtension, pSourceFile, pAdditionalInfoA, pIsStartup
+private command __revIDELCSExtensionLoad pFullPath, pFolder, pVersion, pStatus, pError, pIsIDEExtension, pSourceFile, pAdditionalInfoA, pIsStartup
 
    # Find entry in the cache if it exists
    local tCacheIndex
@@ -1297,8 +1296,6 @@ private command __revIDELCSExtensionLoad pFullPath, pFolder, pVersion, pStatus, 
    __extensionPropertySet tCacheIndex, "svgicon", pAdditionalInfoA["svgicon"]
    __extensionPropertySet tCacheIndex, "version", pAdditionalInfoA["version"]
 
-   __extensionPropertySet tCacheIndex, "samples", __extensionSampleStacks(tId,pFolder)
-
    repeat for each key tKey in pAdditionalInfoA["uses"]
       local tSettingString
       put empty into tSettingString
@@ -1314,10 +1311,12 @@ private command __revIDELCSExtensionLoad pFullPath, pFolder, pVersion, pStatus, 
    __extensionPropertySet tCacheIndex, "source_type", "lcs"
    __extensionPropertySet tCacheIndex, "type", pAdditionalInfoA["type"]
    __extensionPropertySet tCacheIndex, "uservisible", true
-   __extensionPropertySet tCacheIndex, "support_files", pAdditionalInfoA["support_files"]
+   __extensionPropertySet tCacheIndex, "support_files", pAdditionalInfoA["support_files"] -- tSupportFiles --
+
+   __extensionPropertySet tCacheIndex, "samples", __extensionSampleStacks(tId,pFolder)
 
    # Store the extension's property metadata
-   --  revIDEExtensionSetInfo pID
+    -- revIDEExtensionSetInfo tID
 
    # Deal with the various icon possibilities
    if sExtensionProperties[tID]["svgicon"] is empty then
@@ -1406,13 +1405,13 @@ function __extensionSampleStacks pID, pFolder
    local tSampleFolder, tSamples, tSampleArray
 
    # Get the paths to sample satcks in the bundle
-   put pFolder & slash & "samples" into tSampleFolder
+   put pFolder & "/samples" into tSampleFolder
    if there is a folder tSampleFolder then
       put files(tSampleFolder) into tSamples
       filter tSamples without ".*"
       repeat for each line tStack in tSamples
          -- put pFolder & slash & "samples/" & tStack & cr after msg -- display sample stacks list in msg box
-          put pFolder & slash & "samples/" & tStack into tSampleArray[tStack]
+          put pFolder & "/samples/" & tStack into tSampleArray[tStack]
       end repeat
    end if
 
@@ -1654,7 +1653,7 @@ command revIDEExtensionLaunchSampleStack pSampleStack
    // i.e. if its name is mapped in the array. If so, just
    // open it.
    if there is a stack (sOpenedStacksA[pSampleStack]) then
-         open stack sOpenedStacksA[pSampleStack] ---- THIS IS NOT WORKING FOR SOME REASON!?!?!
+         open stack sOpenedStacksA[pSampleStack]
          exit revIDEExtensionLaunchSampleStack
    end if
    -- open stack sOpenedStacksA[pSampleStack]

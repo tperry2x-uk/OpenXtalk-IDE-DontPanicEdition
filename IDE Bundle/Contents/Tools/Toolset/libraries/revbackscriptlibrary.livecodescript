@@ -32,20 +32,33 @@ function revImageType pImageNo
    if charToNum(char 1 of tHeader) is among the items of "255,216" and "JFIF" is in tHeader then return ".jpg"
    --GIF
    if "GIF" is in tHeader then return ".gif"
-   --PICT
-   --can't get the code to detect this right, use internal format
+   --PICT -- deprecated macOS 9 Classic era
+   --can't get the code to detect this right, use internal format -- resources in resource-fork or maybe AppleDouble (ie ._ metadata files)
    --default
    --edited in mc or recompressed by MC (imported BMP, XWD etc.)
-   return ".ppm"
+   return ".ppm" -- could actually need a different dotthree.ext file extension based on pixel depth
+   -- P3 space delimited ASCI RGB Values (0–255 for each RGB channel, some support for 0-65535 per channel)
+   -- in xTalk that would be three 'words' in a text container or
+   -- P6 for binary format
+
+   -- ".pbm" is extremely simply for B&W images
+   -- P4 for 1bit per pixel, for binary format or
+   -- P1 with bits as space-delimited ASCII characters 0 or 1
+
+   -- ".pgm" P5 1byte per pixel greayscale or
+   --  P2 ascii text of byte values delimited by space char
+   --
+   -- http://paulbourke.net/dataformats/ppm/
+   -- https://en.wikipedia.org/wiki/Netpbm
+
 end revImageType
 
+--- does anything even use this? I mean 'PICT' format is pretty crusty nowadays -- PM
 function revIsPICT pWhatPath
    --takes a valid file path and returns if PICT or not
    if not (there is a file pWhatPath) then return "error"
-
    local tData
    put char 1 to 600 of url ("binfile:"&pWhatPath) into tData
-
    local tPICT
    repeat with i = 1 to 7
       if charToNum(char i of tData) is 0 then

@@ -5132,7 +5132,7 @@ end __setPropertyOfObject
 
 function ideCheckStackName pName
    if char 1 to 3 of pName is "rev" then
-      answer warning revIDELocalise("Using rev in the first three characters of a stack name is reserved for use by the LiveCode development environment and advanced users creating Plug-ins. If you use these characters, your stack may not behave as expected.") with revIDELocalise("OK") and revIDELocalise("Cancel")
+      answer warning revIDELocalise("Using rev in the first three characters of a stack name is reserved for use by the development environment and advanced users creating Plug-ins. If you use these characters, your stack may not behave as expected.") with revIDELocalise("OK") and revIDELocalise("Cancel")
       if it is revIDELocalise("Cancel") then
          return false
       end if

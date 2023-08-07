@@ -1194,13 +1194,15 @@ function revAnswerFile pType, pPrompt
       case "stack"
          answer file pPrompt with type "Stacks|livecode,rev,mc,livecodescript,oxtstack,oxtscript|RSTK,MSTK,STAK" or type "All Files|"
          break
-      case "image"
+      case "image" -- need to add SVG here
          answer file pPrompt with type "All Picture Files|png,gif,jpg,jpeg,bmp,pct,xbm,xpm,xwd,pbm,ppm,pgm" or type "Portable Network Graphics|png" or type "Joint Photographics Experts Group|jpg,jpeg" or type "Graphics Interchange Format|gif" or type "Windows Bitmap|bmp" or type "Unix Formats|xbm,xpm,xwd,pbm,ppm,pgm" or type "Macintosh PICT - displays on MacOS only|pct" or type "All Files|"
          break
       case "quicktime"
          answer file pPrompt with type "QuickTime Movies|mov" or type "All Files|"
          break
-      case "audio" -- implement later
+      case "audio" -- implement - Paul
+         answer file pPrompt with type "Wave Auidio|wav" or type "Audio Imterchange|aif,aiff" or type "AU (*nix)|au" or type "MP3 Compressed|mp3" or type "All Auidio Files|wav,au,aif,mp3,m4a" or type "All Files|"
+         break
       case "video"
       case "text"
       case "eps"

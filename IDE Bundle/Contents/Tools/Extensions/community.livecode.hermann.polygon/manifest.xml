@@ -1,0 +1,111 @@
+<package version="0.0">
+  <name>community.livecode.hermann.polygon</name>
+  <title>hhPoly</title>
+  <author>Hermann Hoch</author>
+  <version>1.2.1</version>
+  <license>community</license>
+  <type>widget</type>
+  <requires name="com.livecode.engine"/>
+  <requires name="com.livecode.canvas"/>
+  <requires name="com.livecode.math"/>
+  <requires name="com.livecode.widget"/>
+  <requires name="com.livecode.arithmetic"/>
+  <requires name="com.livecode.binary"/>
+  <requires name="com.livecode.list"/>
+  <requires name="com.livecode.logic"/>
+  <requires name="com.livecode.string"/>
+  <requires name="com.livecode.type"/>
+  <requires name="com.livecode.array"/>
+  <requires name="com.livecode.mathfoundation"/>
+  <requires name="com.livecode.typeconvert"/>
+  <requires name="com.livecode.char"/>
+  <metadata key="preferredSize">128,128</metadata>
+  <metadata key="svgicon">M0 63.5 C 0 127,0 127,109.5 127 C 219 127,219 127,219 63.5 C 219 0,219 0,109.5 0 C 0 0,0 0,0 63.5 M148 63 C 148 98,148 98,140.5 98 C 133 98,133 98,133 63 C 133 28,133 28,140.5 28 C 148 28,148 28,148 63 M50.347 36.364 C 63.873 40.546,70.164 51.350,66.418 63.966 C 63.687 73.161,54.638 78.834,40 80.528 C 34.5 81.165,34.5 81.165,34.5 89.332 C 34.5 97.5,34.5 97.5,26.250 97.790 C 18 98.081,18 98.081,18 65.892 C 18 33.703,18 33.703,31.750 34.284 C 39.430 34.609,47.640 35.527,50.347 36.364 M34 58.373 C 34 70,34 70,37.032 70 C 41.237 70,46.426 67.658,48.369 64.883 C 51.034 61.078,50.487 54.577,47.191 50.887 C 44.906 48.331,43.411 47.650,39.191 47.244 C 34 46.746,34 46.746,34 58.373 M106.239 49.372 C 123.594 54.595,129.396 77.180,117.001 91.261 C 112.054 96.882,105.828 99.496,97.5 99.449 C 89.554 99.404,84.579 97.574,79.387 92.789 C 73.951 87.778,71.483 81.544,71.553 72.997 C 71.698 55.310,88.330 43.982,106.239 49.372 M175.766 62.792 C 178.8 70.606,181.557 77,181.893 77 C 182.229 77,184.278 72.388,186.447 66.750 C 194.387 46.112,192.931 47.836,200.576 50.022 C 204.257 51.074,207.490 52.157,207.760 52.427 C 208.150 52.817,183.168 111.707,179.882 118.144 C 179.112 119.653,178.530 119.662,172.772 118.255 C 169.322 117.412,166.135 116.397,165.688 116 C 165.242 115.602,166.704 111.217,168.938 106.256 C 171.172 101.295,173 96.931,173 96.558 C 173 96.184,168.876 86.231,163.835 74.438 C 158.795 62.645,154.915 52.751,155.214 52.452 C 155.953 51.714,168.280 48.196,169.375 48.411 C 169.856 48.506,172.732 54.977,175.766 62.792 M92.117 61.631 C 84.832 66.733,85.583 82.665,93.297 86.654 C 95.805 87.950,96.997 88.018,100.240 87.046 C 106.548 85.156,109.463 76.807,106.960 67.795 C 105.062 60.963,97.534 57.837,92.117 61.631Z</metadata>
+  <handler name="OnCreate" parameters="" return="any"/>
+  <handler name="OnOpen" parameters="" return="any"/>
+  <handler name="OnTimer" parameters="" return="any"/>
+  <handler name="OnPaint" parameters="" return="any"/>
+  <handler name="OnSave" parameters="out array" return="any"/>
+  <handler name="OnLoad" parameters="in array" return="any"/>
+  <handler name="OnGeometryChanged" parameters="" return="any"/>
+  <handler name="OnMouseDown" parameters="" return="any"/>
+  <handler name="OnMouseUp" parameters="" return="any"/>
+  <handler name="OnMouseRelease" parameters="" return="any"/>
+  <handler name="OnMouseEnter" parameters="" return="any"/>
+  <handler name="OnMouseLeave" parameters="" return="any"/>
+  <property name="widgetVersion" get="string"/>
+  <property name="polyPoints" get="string" set="string"/>
+  <metadata key="polyPoints.editor">com.livecode.pi.text</metadata>
+  <metadata key="polyPoints.section">Contents</metadata>
+  <property name="regularStarPolygon" get="string" set="string"/>
+  <metadata key="regularStarPolygon.editor">com.livecode.pi.enum</metadata>
+  <metadata key="regularStarPolygon.options">5_2,7_2,7_3,8_3,9_2,9_4,10_3,11_2,11_3,11_4,11_5,12_5,13_2,13_3,13_4,13_5,13_6,14_3,14_5,15_2,15_4,15_7,16_3,16_5,16_7,17_2,17_3,17_4,17_5,17_6,17_7,17_8,18_5,18_7,19_2,19_3,19_4,19_5,19_6,19_7,19_8,19_9,20_3,20_7,20_9</metadata>
+  <metadata key="regularStarPolygon.default">8_3</metadata>
+  <property name="useStarPolygon" get="boolean" set="boolean"/>
+  <property name="numOfVertices" get="number" set="number"/>
+  <metadata key="numOfVertices.editor">com.livecode.pi.number</metadata>
+  <metadata key="numOfVertices.min">3</metadata>
+  <metadata key="numOfVertices.max">128</metadata>
+  <metadata key="numOfVertices.step">1</metadata>
+  <property name="radius" get="number" set="number"/>
+  <metadata key="radius.editor">com.livecode.pi.number</metadata>
+  <metadata key="radius.min">0</metadata>
+  <metadata key="radius.max">256</metadata>
+  <metadata key="radius.step">1</metadata>
+  <property name="editMode" get="boolean" set="boolean"/>
+  <property name="showBounds" get="boolean" set="boolean"/>
+  <property name="showMouseDownPosition" get="boolean" set="boolean"/>
+  <property name="whitePositionColor" get="boolean" set="boolean"/>
+  <property name="rotateBy" get="number" set="number"/>
+  <metadata key="rotateBy.editor">com.livecode.pi.enum</metadata>
+  <metadata key="rotateBy.options">0,+1,-1,+3,-3,+5,-5,+15,-15,+30,-30,+45,-45,+60,-60,+90,-90,180</metadata>
+  <metadata key="rotateBy.default">0</metadata>
+  <property name="builtInImgFill" get="string" set="string"/>
+  <metadata key="builtInImgFill.editor">com.livecode.pi.enum</metadata>
+  <metadata key="builtInImgFill.options">buchenberg.jpg,burg.jpg,gs01.png,gs02.png,gs03.png,gs04.png,gs05.png,gs06.png,gs07.png,gs08.png,gs09.png,gs10.png,gs11.png,gs12.png,patt01.jpg,patt02.jpg,water.jpg</metadata>
+  <metadata key="builtInImgFill.default">water.jpg</metadata>
+  <metadata key="builtInImgFill.section">Colors</metadata>
+  <property name="filenameFill" get="string" set="string"/>
+  <metadata key="filenameFill.editor">com.livecode.pi.file</metadata>
+  <metadata key="filenameFill.section">Colors</metadata>
+  <property name="usePatternFill" get="boolean" set="boolean"/>
+  <metadata key="usePatternFill.section">Colors</metadata>
+  <property name="scalePatternFill" get="boolean" set="boolean"/>
+  <metadata key="scalePatternFill.section">Colors</metadata>
+  <property name="usePatternStroke" get="boolean" set="boolean"/>
+  <metadata key="usePatternStroke.section">Colors</metadata>
+  <property name="scalePatternStroke" get="boolean" set="boolean"/>
+  <metadata key="scalePatternStroke.section">Colors</metadata>
+  <property name="builtInImgStroke" get="string" set="string"/>
+  <metadata key="builtInImgStroke.editor">com.livecode.pi.enum</metadata>
+  <metadata key="builtInImgStroke.options">buchenberg.jpg,burg.jpg,gs01.png,gs02.png,gs03.png,gs04.png,gs05.png,gs06.png,gs07.png,gs08.png,gs09.png,gs10.png,gs11.png,gs12.png,patt01.jpg,patt02.jpg,water.jpg</metadata>
+  <metadata key="builtInImgStroke.default">patt02.jpg</metadata>
+  <metadata key="builtInImgStroke.section">Colors</metadata>
+  <property name="filenameStroke" get="string" set="string"/>
+  <metadata key="filenameStroke.editor">com.livecode.pi.file</metadata>
+  <metadata key="filenameStroke.section">Colors</metadata>
+  <property name="fillColor" get="string" set="string"/>
+  <metadata key="fillColor.editor">com.livecode.pi.colorwithalpha</metadata>
+  <metadata key="fillColor.section">Colors</metadata>
+  <property name="strokeColor" get="string" set="string"/>
+  <metadata key="strokeColor.editor">com.livecode.pi.colorwithalpha</metadata>
+  <metadata key="strokeColor.section">Colors</metadata>
+  <property name="verticesColor" get="string" set="string"/>
+  <metadata key="verticesColor.editor">com.livecode.pi.colorwithalpha</metadata>
+  <metadata key="verticesColor.section">Colors</metadata>
+  <property name="fillRule" get="string" set="string"/>
+  <metadata key="fillRule.editor">com.livecode.pi.enum</metadata>
+  <metadata key="fillRule.options">even odd,non-zero</metadata>
+  <metadata key="filenameFill.section">Colors</metadata>
+  <metadata key="fillRule.user_visible">false</metadata>
+  <property name="fillPoly" get="boolean" set="boolean"/>
+  <metadata key="fillPoly.section">Colors</metadata>
+  <property name="strokePoly" get="boolean" set="boolean"/>
+  <metadata key="strokePoly.section">Colors</metadata>
+  <property name="strokeWidth" get="number" set="number"/>
+  <metadata key="strokeWidth.editor">com.livecode.pi.number</metadata>
+  <metadata key="strokeWidth.min">1</metadata>
+  <metadata key="strokeWidth.max">24</metadata>
+  <metadata key="strokeWidth.step">1</metadata>
+  <metadata key="strokeWidth.section">Colors</metadata>
+</package>

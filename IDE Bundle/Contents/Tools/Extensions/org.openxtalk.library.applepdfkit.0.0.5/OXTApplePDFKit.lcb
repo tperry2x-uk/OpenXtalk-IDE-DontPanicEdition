@@ -1,0 +1,449 @@
+library org.openxtalk.library.applepdfkit
+-- widget com.livecode.widget.applepdfkit.paulmcclernan
+
+use com.livecode.engine
+use com.livecode.foreign
+use com.livecode.objc
+use com.livecode.array
+use com.livecode.list
+use com.livecode.byte
+use com.livecode.date
+use com.livecode.binary
+use com.livecode.bitwise
+use com.livecode.math
+use com.livecode.string
+use com.livecode.widget
+use com.livecode.canvas
+use com.livecode.library.widgetutils
+
+metadata version is "0.0.5"
+metadata author is "Paul McClernan"
+metadata title is "OpenXTalk.org Apple PDF Kit Library"
+metadata svgicon is "M92.17,0H0v149.53h118.32V25.82L92.17,0z M92.21,5.52l18.82,18.58c-8.47,0-17.1,0-18.82,0 C92.21,22.4,92.21,13.91,92.21,5.52z M114.42,145.63c0,0-106.82,0-110.52,0c0-3.74,0-137.98,0-141.73c2.56,0,52.51,0,84.41,0V28 h26.11V145.63z M25.53,28.15c0.82-0.57,1.49-1.35,2.02-2.34c2-3.74,0.38-9.3-4-10.64c-1.33-0.41-13.42-0.22-13.42-0.22v23.63h4.82 v-8.96C14.95,29.62,23.53,29.89,25.53,28.15z M14.93,25.6v-6.77c0,0,6.75-0.57,7.85,1.22c0.45,0.64,0.72,1.37,0.77,2.1 c0.05,0.77-0.15,1.54-0.62,2.19C21.73,25.99,14.93,25.59,14.93,25.6L14.93,25.6z M45.47,38.08c1.41-0.45,2.53-1.09,3.36-1.9 c1.1-1.07,1.94-2.47,2.54-4.2c0.99-3.56,0.98-7.12-0.05-10.68c-0.52-1.52-1.27-2.8-2.26-3.85c-0.99-1.05-2.18-1.78-3.57-2.19 c-1.04-0.3-2.54-0.45-4.51-0.45h-8.75v23.77h9.01C43,38.58,44.41,38.41,45.47,38.08C46.88,37.63,44.41,38.41,45.47,38.08z M37.13,18.76c1.95,0,4.2-0.04,5.99,0.29s2.93,1.26,3.57,3.42c0.64,2.18,0.88,6.25-0.17,9.08c-1.38,3.73-9.47,2.94-9.47,2.94 L37.13,18.76z M60.99,38.58h-4.81V14.81h16.27v4.02H60.99v5.61h9.87v4.02h-9.87V38.58z M92.46,89.89c2.59,0.75,4.82,2.09,6.61,4.35 c-7.62,6.63-7.21,13.02,1.26,19.16c-1.2,3.46-2.94,6.48-5.2,9.05c-1.71,2.31-3.59,3.6-5.65,3.82c-2.24,0.24-6.13-1.58-6.13-1.58 c-2.39-0.74-3.92-0.75-6.33,0.29c0,0-3.44,1.41-5.54,1.33c-3.26-0.12-5.93-2.7-8.01-7.39c-2.75-4.74-6.21-12.2-4.43-19.22 c1.29-5.11,5.49-10.13,11.5-10.45c1.78-0.09,3.72,0.22,5.8,1.07c0,0,3.26,1.25,4,1.24c0.65-0.01,1.29-0.16,1.95-0.44 c0,0,3.3-1.18,4.18-1.34C88.21,89.47,90.53,89.34,92.46,89.89z M88.53,78.67c0.17-0.02,0.44-0.05,0.8-0.1 c0.31,5.67-3.59,11.53-9.89,11.53c-0.42-2.83,0.47-5.44,2.67-7.84C83.97,80.22,86.11,79.03,88.53,78.67 C88.7,78.65,86.11,79.03,88.53,78.67z M64.03,75.44c0,0,18-2.12,21.8-8.64c0.13-0.22,0.36-1.06,0.36-1.06 c0.05-0.45-0.29-1.82-0.29-1.82c-0.21-1.37-0.92-2.31-2.05-2.72c-3.46-1.27-11.14,2.69-20.07,10.34c-2.91,0.23-5.71,0.25-8.32,0.05 c-6.18-0.57-13.48-3.88-20.58-9.31c-0.86-1.93-2.29-5.3-3.96-8.73c-1.68-3.45-3.88-7.72-5.72-9.85c-1.13-1.31-4.44-3.96-6.34-1.01 c-0.79,1.23-0.99,3.71-0.72,4.48C19.89,52.2,25.42,59,32.26,64.54c2.16,6.64,3.81,14.04,4.88,22.01 c2.99,22.17,2.51,34.94-1.41,38.08c-0.96-1.59-1.16-5.72-0.45-10.61c0.4-2.79,1.66-8.99,1.66-8.99c-4.97,9.39-5.18,16.41-3.86,19.57 c0.16,0.39,0.81,1.18,1.62,1.44c0.87,0.27,1.92,0,1.92,0c0.61-0.08,1.18-0.29,1.7-0.64c3.61-2.44,4.88-11.55,3.79-27.14 C47.47,90.94,64.03,75.44,64.03,75.44z M84.98,64.27c0.18,0.68-1.32,1.87-3.45,3.18s-11.7,3.34-11.7,3.34s5.91-4.15,10.42-6.05 C82.42,63.83,84.8,63.59,84.98,64.27z M20.78,45.8c-0.14-0.51,1.27-6.22,5.82,4.88c0.9,1.88,2.07,4.33,3.3,7.38 C25.14,53.58,21.63,48.9,20.78,45.8C20.64,45.29,21.63,48.9,20.78,45.8z M41.97,96.4c-0.24-3.04-0.57-6.32-0.97-9.78 c-0.83-7.12-2.1-13.2-3.86-18.52c5.97,3.93,12.02,6.34,17.57,6.98c1.54,0.18,3.19,0.26,4.92,0.25 C52.89,81.72,46.69,89.12,41.97,96.4"
+
+public handler LogNSObjectClassName(in tNSObj as optional ObjcId)
+   variable tOSStatus as CSInt
+   variable tNSStrObj as optional ObjcId
+   variable tStr as optional String
+   if tNSObj is not nothing then
+   unsafe
+      put objC_NSObjectClassName(tNSObj) into tNSStrObj
+      put StringFromNSString(tNSStrObj) into tStr
+      log tStr
+   end unsafe
+   else
+      log "No Object"
+   end if
+end handler
+
+public handler GetNSObjectClassName(in tNSObj as optional ObjcId) returns optional String
+   variable tOSStatus as CSInt
+   variable tNSStrObj as optional ObjcId
+   variable tStr as optional String
+   if tNSObj is not nothing then
+   unsafe
+      put objC_NSObjectClassName(tNSObj) into tNSStrObj
+      put StringFromNSString(tNSStrObj) into tStr
+      return tStr
+   end unsafe
+   else
+      return nothing
+   end if
+end handler
+
+public foreign type CGSize binds to "MCAggregateTypeInfo:qq"
+public foreign type NSRect binds to "MCAggregateTypeInfo:qqqq"
+public foreign type CGImageRef binds to "MCAggregateTypeInfo:r"
+public foreign type CGPoint binds to "MCAggregateTypeInfo:qq"
+
+private variable sMyWindow as optional ObjcObject
+private variable mPDFView as optional ObjcObject
+private variable mPDFDocument as optional ObjcObject
+private variable mPDFViewProxy as optional ObjcObject
+private variable sMyWindowController as optional ObjcObject
+private variable sPDFViewController as optional ObjcObject
+
+-------------------------------------------------------------- NSApplication ------------------------------------------------------------------------------
+private foreign handler ObjC_NSApplicationSharedApplication() returns ObjcId binds to "objc:NSApplication.+sharedApplication"
+private foreign handler ObjC_NSAppWindowWithWindowNumber(in pObj as ObjcId, in pWindowNumber as CLong) returns ObjcId binds to "objc:NSApplication.-windowWithWindowNumber:"
+-------------------------------------------------------------- NSURL ------------------------------------------------------------------------------
+private foreign handler objC_NSURLURLWithString(in pURLString as ObjcId) returns ObjcId binds to "objc:NSURL.+URLWithString:"
+private foreign handler objC_NSURLfileOrDirURLWithPath(in pPathString as ObjcId, in pIsDir as CBool) returns ObjcId binds to "objc:.NSURL.+fileURLWithPath:isDirectory:"
+private foreign handler objC_NSURLfileURLWithPath(in pPathString as ObjcId) returns ObjcId binds to "objc:NSURL.+fileURLWithPath:"
+private foreign handler objC_NSURLGetAbsoluteString(in pURLString as ObjcId) returns ObjcId binds to "objc:NSURL.absoluteString"
+private foreign handler objC_NSURLGetPath(in pURLString as ObjcId) returns ObjcId binds to "objc:NSURL.path"
+------------------------------------------------------------ NSBundle ------------------------------------------------------------------------------
+private foreign handler ObjC_NSBundleWithURL(in pNSURL as ObjcId) returns ObjcId binds to "objc:NSBundle.+bundleWithURL:"
+private foreign handler ObjC_NSBundleGetClassNamed(in pNSbundle as ObjcId,in pClassNameNSString as ObjcId) returns ObjcId binds to "objc:NSBundle.-classNamed:"
+------------------------------------------------------------ NSArray / NSMutableArray ------------------------------------------------------------------------------
+private foreign handler objC_NSMutableArrayAlloc() returns ObjcRetainedId binds to "objc:NSMutableArray.+alloc"
+private foreign handler objC_NSMutableArrayInitWithCapacity(in pNSMutableArray as ObjcId, in pCapacity as NaturalFloat) returns ObjcId binds to "objc:NSMutableArray.-initWithCapacity:"
+private foreign handler objC_NSMutableArrayInitWithNSArray(in pNSMutableArray as ObjcId, in pNSArray as ObjcId) returns ObjcId binds to "objc:NSMutableArray.-initWithArray:"
+-------------------------------------------------------------- NSImage ------------------------------------------------------------------------------
+private foreign handler ObjC_NSImageAlloc() returns ObjcRetainedId binds to "objc:NSImage.+alloc"
+private foreign handler ObjC_NSImageInitWithData(in pObj as ObjcRetainedId, in pData as ObjcId) returns optional ObjcRetainedId binds to "objc:NSImage.-initWithData:"
+private foreign handler ObjC_NSImageInitWithContentsOfFile(in pObj as ObjcRetainedId, in pFilename as ObjcId) returns optional ObjcRetainedId binds to "objc:NSImage.-initWithContentsOfFile:"
+private foreign handler ObjC_NSImageSetTemplate(in pObj as ObjcId, in pTemplate as CBool) returns nothing binds to "objc:NSImage.-setTemplate:"
+-------------------------------------------------------------- NSWindow ------------------------------------------------------------------------------
+private foreign handler ObjC_NSWindowAlloc() returns ObjcRetainedId binds to "objc:NSWindow.+alloc"
+private foreign handler ObjC_NSWindowInitWithRectStyleBackingDefer(in pObj as ObjcRetainedId, in pRect as NSRect, in pStyleMask as CLong, in pBackingStoreType as CLong, in pDefer as CBool) \
+                                                       returns ObjcId binds to "objc:NSWindow.-initWithContentRect:styleMask:backing:defer:"
+--private foreign handler ObjC_NSWindowInitWithRectStyleBackingDefer(in pObj as ObjcRetainedId, in pRect as NSRect, in pStyleMask as CLong, in pBackingStoreType as CLong, in pDefer as CBool) returns ObjcId binds to "objc:NSWindow.-initWithContentRect:styleMask:backing:defer:"
+private foreign handler ObjC_NSWindowSetTitle(in pObj as ObjcId, in pTitleNSStr as ObjcId) returns nothing binds to "objc:NSWindow.-setTitle:"
+private foreign handler ObjC_NSWindowGetStyleMask(in pObj as ObjcId) returns CLong binds to "objc:NSWindow.-styleMask"
+private foreign handler ObjC_NSWindowSetStyleMask(in pObj as ObjcId, in pOptions as CInt) returns nothing binds to "objc:NSWindow.-setStyleMask:"
+private foreign handler ObjC_NSWindowSetLevel(in pObj as ObjcId, in pLevel as CInt) returns nothing binds to "objc:NSWindow.-setLevel:"
+private foreign handler ObjC_NSWindowGetLevel(in pObj as ObjcId) returns CInt binds to "objc:NSWindow.-level"
+private foreign handler ObjC_NSWindowGetReleasedWhenClosed(in pObj as ObjcId) returns CBool binds to "objc:NSWindow.isReleasedWhenClosed"
+private foreign handler ObjC_NSWindowCreateWithViewController(in pNSViewController as ObjcId) returns ObjcRetainedId binds to "objc:NSWindow.+windowWithContentViewController:"
+private foreign handler ObjC_NSWindowDealloc(in pNSViewController as ObjcId) returns nothing binds to "objc:NSWindow.-dealloc"
+private foreign handler ObjC_NSWindowSetContentView(in pNSWindow as ObjcId, in pNSView as ObjcId) returns nothing binds to "objc:NSWindow.-setContentView:"
+private foreign handler ObjC_NSWindowSetBoolValueForKey( in pNSWindow as ObjcId, in pValue as CBool, in pSelector as ObjcId) returns nothing binds to "objc:NSWindow.-setValue:forKey:"
+-- private foreign handler ObjC_NSWindowSetTitlebarTransparent(in pObj as ObjcId, in pBool as CBool) returns nothing binds to "objc:NSWindow.titlebarAppearsTransparent"
+-------------------------------------------------------------- NSWindowController ------------------------------------------------------------------------------
+private foreign handler ObjC_NSWindowControllerAlloc() returns ObjcRetainedId binds to "objc:NSWindowController.+alloc"
+private foreign handler ObjC_NSWindowControllerDealloc(in pObj as ObjcId) returns nothing binds to "objc:NSWindowController.-dealloc"
+private foreign handler ObjC_NSWindowControllerInitWithWindow(in pObj as ObjcRetainedId,in pNSWindow as ObjcRetainedId) returns ObjcId binds to "objc:NSWindowController.-initWithWindow:"
+--private foreign handler ObjC_NSWindowControllerInitWithWindow(in pObj as ObjcId,in pNSWindow as ObjcId) returns ObjcId binds to "objc:NSWindowController.-initWithWindow:"
+private foreign handler ObjC_NSWindowControllerShowWindow(in pObj as ObjcId,in pNSWindow as ObjcId) returns nothing binds to "objc:NSWindowController.-showWindow:"
+private foreign handler ObjC_NSWindowControllerClose(in pNSWindowController as ObjcId) returns nothing binds to "objc:NSWindowController.-close"
+private foreign handler ObjC_NSWindowSetContentViewController(in pObj as ObjcId, in pViewController as ObjcId) returns nothing binds to "objc:NSWindow.-setContentView:"
+private foreign handler ObjC_NSWindowGetContentViewController(in pObj as ObjcId) returns ObjcId binds to "objc:NSWindow.-contentViewController"
+-------------------------------------------------------------- NSView ------------------------------------------------------------------------------
+private foreign handler ObjC_NSViewControllerAlloc() returns ObjcRetainedId binds to "objc:NSViewController.+alloc"
+private foreign handler ObjC_NSViewControllerDealloc(in pObj as ObjcId) returns nothing binds to "objc:NSViewController.-dealloc"
+
+------------------------------------------ General Objtive C Cocoa / Foundation Bindings ------------------------------------------------------------------------------
+private foreign handler objC_NSObjectRetain(in pNSObj as ObjcId) returns ObjcId binds to "objc:NSObject.-retain"
+private foreign handler objC_NSObjectAutoRealease(in pNSObj as ObjcId) returns ObjcId binds to "objc:NSObject.-autorelease"
+private foreign handler objC_NSObjectRelease(in pNSObj as ObjcId) returns nothing binds to "objc:NSObject.-release"
+private foreign handler objC_NSObjectDescription(in pNSObj as optional ObjcId) returns ObjcId binds to "objc:NSObject.description"
+private foreign handler objC_NSObjectClassName(in pNSObj as ObjcId) returns ObjcId binds to "objc:NSObject.className"
+private foreign handler objC_NSObjectGetSuperClass(in pNSObj as ObjcId) returns ObjcRetainedId binds to "c:NObject.+superclass:"
+private foreign handler c_NSClassFromString(in pClassNameString as ObjcId) returns ObjcId binds to "c:NSClassFromString"
+private foreign handler objC_NSErrorAlloc() returns ObjcId binds to "objc:NSError.+alloc"
+private foreign handler c_CFErrorCopyDescription(in pCFErrorRef as ObjcId) returns ObjcId binds to "c:CFErrorCopyDescription"
+
+-------------------------------------------------------------------------------------------  Apple PDFKit Bindings ----------------------------------------------------------------------------------------
+private foreign handler objC_ApplePDFKitPDFViewAlloc() returns ObjcId binds to "objc:PDFView.+alloc"
+private foreign handler objC_ApplePDFKitPDFViewInit(in pPDFView as ObjcRetainedId) returns ObjcRetainedId binds to "objc:PDFView.-init"
+-- private foreign handler objC_ApplePDFKitPDFSetDocument(in pPDFView as ObjcId, in pPDFDocument as ObjcId) returns nothing binds to "objc:objc:PDFView.-document:"
+private foreign handler objC_ApplePDFKitPDFViewSetValueForKey(in pPDFDocument as ObjcId, in pValue as ObjcId, in pSelector as ObjcId) returns nothing binds to "objc:PDFView.-setValue:forKey:"
+private foreign handler objC_ApplePDFKitPDFViewSetBoolValueForKey(in pPDFDocument as ObjcId, in pValue as CBool, in pSelector as ObjcId) returns nothing binds to "objc:PDFView.-setValue:forKey:"
+
+private foreign handler objC_ApplePDFKitPDFDocumentAlloc() returns ObjcRetainedId binds to "objc:PDFDocument.+alloc"
+private foreign handler objC_ApplePDFKitPDFDocumentInitFromURL(in pPDFDocument as ObjcRetainedId, in pNSURL as ObjcId) returns ObjcRetainedId binds to "objc:PDFDocument.-initWithURL:"
+--private foreign handler objC_ApplePDFKitPDFDocumentGetPageCount(in pPDFDocument as ObjcId) returns ObjcId binds to "objc:PDFDocument.pageCount"
+private foreign handler objC_ApplePDFKitPDFDocumentValueForKey(in pPDFDocument as ObjcId, in pSelector as ObjcId) returns ObjcId binds to "objc:PDFDocument.-valueForKey:"
+
+
+private foreign handler ObjC_NSApplicationGetTargetForAction(in pNSApp as ObjcId, in pSelectorNSStr as ObjcId ) returns ObjcId binds to "objc:NSApplication.-targetForAction:"
+-- Returns the object that receives the action message specified by the given selector.
+private foreign handler ObjC_NSNotificationCenter() returns ObjcId binds to "objc:NSNotificationCenter.+defaultCenter"
+private foreign handler ObjC_NSNotificationCenterAddObserverForSelector( in pNotificationCenter as ObjcId, in pObserver as ObjcId, in pSelectorNSStr as optional ObjcId, \
+                                          in pNameNSStr as optional ObjcId, in pSender as optional ObjcId) returns ObjcId binds to "objc:NSNotificationCenter.-addObserver:selector:name:object:"
+private foreign handler ObjC_NSNotificationCenterAddObserverForNameUsingBlock( in pNotificationCenter as ObjcId, in pObserverForNameNSStr as ObjcId, in pObject as optional ObjcId, \
+                                          in pQueue as optional ObjcId, in pBlock as ObjcBlockPointer) returns ObjcId binds to "objc:NSNotificationCenter.-addObserverForName:object:queue:usingBlock:"
+--- private foreign handler ObjC_NSTextFieldSetTarget(in pObj as ObjcId, in pTarget as ObjcId) returns nothing binds to "objc:NSTextField.-setTarget:"
+-- private foreign handler ObjC_NSTextFieldSetAction(in pObj as ObjcId, in pAction as UIntPtr) returns nothing binds to "objc:NSTextField.-setAction:"
+-- put ObjcProxyGetTarget(TextFieldActionCallback, nothing) into mTextFieldProxy
+-- ObjC_NSTextFieldSetTarget(mTextFieldView, mTextFieldProxy)
+-- ObjC_NSTextFieldSetAction(mTextFieldView, ObjcProxyGetAction())
+-- private variable mTextFieldView as optional ObjcObject
+-- private variable mTextFieldProxy as optional ObjcObject
+
+private variable mPDFViewVisiblePageChangedCallbackBlkPtr as optional ObjcBlockPointer
+private handler PDFViewVisiblePageChangedCallback(in pBlock as optional ObjcBlockPointer, in pNotification as optional ObjcId)
+   if pNotification is not nothing then
+      variable tStr as optional String
+      put StringFromNSString(pNotification) into tStr
+      log tStr
+   end if
+   post "PDFViewVisiblePageChanged" to sTarget
+end handler
+private variable mPDFViewPageChangedCallbackBlkPtr as optional ObjcBlockPointer
+private handler PDFViewPageChangedCallback(in pBlock as optional ObjcBlockPointer, in pNotification as optional ObjcId)
+   if pNotification is not nothing then
+      variable tStr as optional String
+      put StringFromNSString(pNotification) into tStr
+      log tStr
+   end if
+   post "PDFViewChangedHistory" to sTarget
+   -- log "PDFViewPageChanged"
+end handler
+
+public handler PDFViewInitCallbacks()
+    if mPDFViewVisiblePageChangedCallbackBlkPtr is nothing then
+     	 if not CreateObjcBlockPointerFromHandler(PDFViewVisiblePageChangedCallback, mPDFViewVisiblePageChangedCallbackBlkPtr) then
+     	   put nothing into mPDFViewVisiblePageChangedCallbackBlkPtr
+         log "Error Creating Callback Pointer"
+      else
+         log mPDFViewVisiblePageChangedCallbackBlkPtr
+      end if
+   end if
+
+   if mPDFViewPageChangedCallbackBlkPtr is nothing then
+     if not CreateObjcBlockPointerFromHandler(PDFViewVisiblePageChangedCallback, mPDFViewPageChangedCallbackBlkPtr) then
+        put nothing into mPDFViewPageChangedCallbackBlkPtr
+        log "Error Creating Callback Pointer"
+     else
+        log mPDFViewPageChangedCallbackBlkPtr
+     end if
+     --  put the caller into sTarget
+     -- resolve script object "this stack"
+     -- put the result into sTarget
+   end if
+end handler
+
+public handler PDFViewRemoveCallbacks()
+	if mPDFViewVisiblePageChangedCallbackBlkPtr is not nothing then
+		DeleteObjcBlockPointer(mPDFViewVisiblePageChangedCallbackBlkPtr)
+      DeleteObjcBlockPointer(mPDFViewPageChangedCallbackBlkPtr)
+		put nothing into mPDFViewVisiblePageChangedCallbackBlkPtr
+      put nothing into mPDFViewPageChangedCallbackBlkPtr
+	 end if
+end handler
+
+private variable sTarget as ScriptObject
+-- NotificationCenter.default.addObserver(self, selector: #selector(handlePageChange(notification:)), name: Notification.Name.PDFViewPageChanged, object: nil)
+-- @objc private func handlePageChange(notification: Notification) { print("Page changed") }
+-- https://developer.apple.com/documentation/foundation/nsnotificationcenter/1411723-addobserverforname?language=objc
+-- https://developer.apple.com/documentation/foundation/nsnotificationcenter/1414169-defaultcenter?language=objc
+public handler getDefaultNotificationCenterAndAddObserverPDFViewPageChanged() -- in pTargetLCSObj as String) returns nothing
+   variable tOSStatus as CSInt
+   variable tNSObj as optional ObjcId
+   variable tNSNotificationCenter as optional ObjcId
+   variable tStr as optional String
+   -- resolve script object pTargetLCSObj
+   -- put the result into sTarget
+   resolve script object "this stack"
+   put the result into sTarget
+
+   unsafe
+      put ObjC_NSNotificationCenter() into tNSNotificationCenter
+      put objC_NSObjectClassName(tNSNotificationCenter) into tNSObj
+      put StringFromNSString(tNSObj) into tStr
+      log tStr
+      -- put ObjcProxyGetTarget(PDFViewCallback, nothing) into mPDFViewProxy
+      -- NSNotificationCenter.addObserver:selector:name:object
+      -- ObjC_NSNotificationCenterAddObserverForSelector( tNSNotificationCenter, mPDFViewProxy, StringToNSString("NSWindowDidBecomeMainNotification"), nothing, nothing )
+      PDFViewInitCallbacks()
+      ObjC_NSNotificationCenterAddObserverForNameUsingBlock(tNSNotificationCenter, StringToNSString("PDFViewVisiblePagesChanged"), mPDFView, nothing, mPDFViewVisiblePageChangedCallbackBlkPtr )
+      -- ObjC_NSNotificationCenterAddObserverForNameUsingBlock(tNSNotificationCenter, StringToNSString("PDFViewPageChanged"), mPDFView, nothing, mPDFViewPageChangedCallbackBlkPtr )
+      ObjC_NSNotificationCenterAddObserverForNameUsingBlock(tNSNotificationCenter, StringToNSString("PDFViewChangedHistory"), mPDFView, nothing, mPDFViewPageChangedCallbackBlkPtr )
+
+      -- ObjC_NSNotificationCenterAddObserverForNameUsingBlock(tNSNotificationCenter, StringToNSString("PDFViewVisiblePagesChanged"), nothing, nothing, mPDFViewProxyBlockPtr )
+      -- ObjC_NSNotificationCenterAddObserverForNameUsingBlock(tNSNotificationCenter, StringToNSString("PDFViewVisiblePagesChanged"), mPDFView, nothing, mPDFViewProxyBlockPtr )
+      -- PDFViewAnnotationHit	= Posted when the user clicks on an annotation.
+      -- PDFViewAnnotationWillHit = Posted before the user clicks an annotation.
+      -- PDFViewChangedHistory = Posted when the page history changes.
+      -- PDFViewCopyPermission	 = Posted when the user attempts to copy to the pasteboard without the appropriate permissions.
+      -- PDFViewDisplayBoxChanged	 = Posted when the display box has changed.
+      -- PDFViewDisplayModeChanged	 = Posted when the display mode has changed.
+      -- PDFViewDocumentChanged	 = Posted when a new document is associated with the view.
+      -- PDFViewPageChanged	 = Posted when a new page becomes the current page.
+      -- PDFViewVisiblePagesChanged	= Posted when a new page becomes the current visible page (NEWER than PDFViewPageChanged ?)
+      -- PDFViewPrintPermission	 = Posted when the user attempts to print without the appropriate permissions.
+      -- PDFViewScaleChanged	 = Posted when the scale factor changes.
+      -- PDFViewSelectionChanged	 = Posted when the current selection has changed.
+   end unsafe
+   -- log "Notification.Name.PDFViewPageChanged"
+end handler
+
+
+public handler ApplePDFKitGetPDFPageCount(in pPathToPDFStr as String) returns optional any
+   if (the operating system is "mac") or (the operating system is "ios") then
+      --- need NSURL objects to pass to AVMIDIplayer
+      variable tFileNSURL as ObjcId
+      --- need NSError object to pass to AVMIDIplayer
+      variable tNSError as optional ObjcId
+      variable tNSObj as optional ObjcId
+      variable tString as String
+      variable tNumber as Integer
+      variable tNSSharedApplication as ObjcId
+      variable tNSRect as NSRect
+      variable tWindow as optional ObjcObject
+      variable tStyleMask as CLong
+      variable tStr as String
+      -- variable tIsDir as optional CBool
+      -- put false into tIsDir
+      unsafe
+         put objC_NSURLfileURLWithPath(StringToNSString(pPathToPDFStr)) into tFileNSURL
+         put objC_ApplePDFKitPDFDocumentAlloc() into mPDFDocument
+         put objC_ApplePDFKitPDFDocumentInitFromURL(mPDFDocument,tFileNSURL) into mPDFDocument
+         put objC_ApplePDFKitPDFDocumentValueForKey(mPDFDocument,StringToNSString("pageCount")) into tNSObj
+         put NumberFromNSNumber(tNSObj) into tNumber
+         return tNumber
+      end unsafe
+   end if
+end handler
+
+public handler ApplePDFKitGetPDFText(in pPathToPDFStr as String) returns optional any
+   if (the operating system is "mac") or (the operating system is "ios") then
+      --- need NSURL objects to pass to AVMIDIplayer
+      variable tFileNSURL as ObjcId
+      --- need NSError object to pass to AVMIDIplayer
+      variable tNSError as optional ObjcId
+      variable tNSObj as optional ObjcId
+      variable tString as String
+      variable tNumber as Integer
+      variable tNSSharedApplication as ObjcId
+      variable tNSRect as NSRect
+      variable tWindow as optional ObjcObject
+      variable tStyleMask as CLong
+      variable tStr as String
+      -- variable tIsDir as optional CBool
+      -- put false into tIsDir
+      unsafe
+         put objC_NSURLfileURLWithPath(StringToNSString(pPathToPDFStr)) into tFileNSURL
+         put objC_ApplePDFKitPDFDocumentAlloc() into mPDFDocument
+         put objC_ApplePDFKitPDFDocumentInitFromURL(mPDFDocument,tFileNSURL) into mPDFDocument
+
+         put objC_ApplePDFKitPDFDocumentValueForKey(mPDFDocument,StringToNSString("string")) into tNSObj
+         put StringFromNSString(tNSObj) into tString
+         return tString
+      end unsafe
+   end if
+end handler
+
+public handler ApplePDFKitMakePDFViewWindow(in pPathToPDFStr as String) returns optional any
+   --- need NSURL objects to pass
+   variable tFileNSURL as ObjcId
+   --- need NSError object to pass to AVMIDIplayer
+   variable tNSError as optional ObjcId
+   variable tNSObj as optional ObjcId
+   variable tString as String
+   variable tNumber as Integer
+   variable tNSSharedApplication as ObjcId
+   variable tNSRect as NSRect
+   variable tWindow as optional ObjcObject
+   variable tStyleMask as CLong
+   variable tStr as String
+
+   if (the operating system is "mac") then
+      -- variable tIsDir as optional CBool
+      -- put false into tIsDir
+      unsafe
+         put objC_ApplePDFKitPDFViewAlloc() into mPDFView
+         objC_ApplePDFKitPDFViewInit(mPDFView)
+         put objC_NSURLfileURLWithPath(StringToNSString(pPathToPDFStr)) into tFileNSURL
+         put objC_ApplePDFKitPDFDocumentAlloc() into mPDFDocument
+         put objC_ApplePDFKitPDFDocumentInitFromURL(mPDFDocument,tFileNSURL) into mPDFDocument
+         -- objC_ApplePDFKitPDFSetDocument(mPDFView,mPDFDocument)
+         objC_ApplePDFKitPDFViewSetValueForKey(mPDFView,mPDFDocument,StringToNSString("document"))
+         objC_ApplePDFKitPDFViewSetBoolValueForKey(mPDFView,true,StringToNSString("autoScales"))
+         -- LogNSObjectClassName(tFileNSURL)
+         --LogNSObjectClassName(mPDFView)
+         --LogNSObjectClassName(mPDFDocument)
+         --put objC_ApplePDFKitPDFDocumentGetPageCount(mPDFDocument) into tNSNumber
+         --put objC_ApplePDFKitPDFDocumentValueForKey(mPDFDocument,StringToNSString("pageCount")) into tNSObj
+         --log tNSObj
+         --put NumberFromNSNumber(tNSObj) into tNumber
+         --log ["PageCount",tNumber]
+         --put objC_ApplePDFKitPDFDocumentValueForKey(mPDFDocument,StringToNSString("string")) into tNSObj
+         --put StringFromNSString(tNSObj) into tString
+         --log tString
+      end unsafe
+   end if
+   -- if pWindowH is nothing then
+   -- put 200 into pWindowH
+   --end if
+   --if pWindowW is nothing then
+   --   put 200 into pWindowW
+   --end if
+   -- Borderless = 0
+   -- Titled = 1
+   -- Closable = 2
+   -- Miniaturizable = 4
+   -- Resizable = 8
+   -- Utility = 16
+   -- DocModal = 64
+   -- NonactivatingPanel = 128
+   -- TexturedBackground = 256
+   -- Unscaled = 2048
+   -- UnifiedTitleAndToolbar = 4096
+   -- Hud = 8192
+   -- FullScreenWindow = 16384
+   -- FullSizeContentView = 32768
+
+   -- put 1 shifted left by 0 bitwise into tStyleMask -- titlebar only
+   -- put 23 into tStyleMask -- <- Titled is 1 + Closable is 2 + Utility is 16 + Miniaturizable is 4 = 23
+   put 11 into tStyleMask -- <- Titled is 1 + Closable is 2 + Resizable is 8
+   -- put 64+8 into tStyleMask
+   unsafe
+      put [640,640,500,500] into tNSRect
+      put ObjC_NSWindowAlloc() into sMyWindow
+      put ObjC_NSWindowInitWithRectStyleBackingDefer(sMyWindow,tNSRect,tStyleMask,2,true) into sMyWindow
+     -- log sMyWindow
+      ObjC_NSWindowSetTitle(sMyWindow,StringToNSString(pPathToPDFStr))
+      ObjC_NSWindowSetBoolValueForKey(sMyWindow,true,StringToNSString("titlebarAppearsTransparent")) --- add this and other NSWindow properties to lcb_MacTools
+      ---
+      -------------------------------------------------------------
+      put ObjC_NSWindowControllerAlloc() into sMyWindowController
+      put ObjC_NSWindowControllerInitWithWindow(sMyWindowController,sMyWindow) into sMyWindowController
+      ObjC_NSWindowControllerShowWindow(sMyWindowController,sMyWindow)
+      -- ObjC_NSWindowSetValueForKey(sMyWindow,mPDFView,StringToNSString("contentView"))
+      ObjC_NSWindowSetContentView(sMyWindow, mPDFView)
+      -- ObjC_NSWindowSetContentViewController(sMyWindow, mPDFView)
+    end unsafe
+end handler
+
+public handler ClosePDFWindow()
+   unsafe
+      if sMyWindowController is not nothing then
+         objC_NSWindowControllerClose(sMyWindowController)
+      end if
+   end unsafe
+end handler
+
+public handler ViewControllerCompletionHandler( in pContext as optional ObjcBlockPointer,in pNSViewController as optional ObjcId )
+   variable tStr as optional String
+   if pNSViewController is not nothing then
+      put GetNSObjectClassName(pNSViewController) into tStr
+      if tStr is "PDFViewController" then
+         put pNSViewController into sPDFViewController
+         -- OpenAUWindow()
+      else
+         log tStr
+      end if
+   end if
+end handler
+
+public unsafe handler LCImageToNSImage(in pImage as String) returns optional ObjcObject
+	variable tObject as optional ScriptObject
+	resolve script object pImage
+	put the result into tObject
+
+	variable tNSImage as optional ObjcObject
+	variable tFile as String
+	if tObject exists then
+		put property "filename" of tObject into tFile
+		if tFile is empty then
+			variable tData as Data
+			put property "text" of tObject into tData
+			put ObjC_NSImageAlloc() into tNSImage
+			put ObjC_NSImageInitWithData(tNSImage, DataToNSData(tData)) into tNSImage
+		else
+			resolve file tFile relative to tObject
+			if the result is not nothing then
+				put the result into tFile
+			end if
+		end if
+	else
+		resolve file pImage
+		if the result is not nothing then
+			put the result into tFile
+		end if
+	end if
+
+	if tFile is not empty then
+		put ObjC_NSImageAlloc() into tNSImage
+		put ObjC_NSImageInitWithContentsOfFile(tNSImage, StringToNSString(tFile)) into tNSImage
+	end if
+   LogNSObjectClassName(tNSImage)
+   log tNSImage
+	return -- tNSImage
+end handler
+
+end library
+-- end widget

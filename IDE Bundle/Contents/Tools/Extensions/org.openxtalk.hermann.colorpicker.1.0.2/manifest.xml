@@ -1,0 +1,45 @@
+<package version="0.0">
+  <name>org.openxtalk.hermann.colorpicker</name>
+  <title>hhColor</title>
+  <author>Hermann Hoch</author>
+  <version>1.0.2</version>
+  <license>community</license>
+  <type>widget</type>
+  <requires name="com.livecode.engine"/>
+  <requires name="com.livecode.canvas"/>
+  <requires name="com.livecode.library.widgetutils"/>
+  <requires name="com.livecode.array"/>
+  <requires name="com.livecode.list"/>
+  <requires name="com.livecode.widget"/>
+  <requires name="com.livecode.arithmetic"/>
+  <requires name="com.livecode.type"/>
+  <requires name="com.livecode.binary"/>
+  <requires name="com.livecode.logic"/>
+  <requires name="com.livecode.string"/>
+  <requires name="com.livecode.char"/>
+  <requires name="com.livecode.typeconvert"/>
+  <requires name="com.livecode.math"/>
+  <metadata key="preferredSize">230,115</metadata>
+  <metadata key="svgicon">M0 63.500 C 0 127,0 127,130 127 C 260 127,260 127,260 63.500 C 260 0,260 0,130 0 C 0 0,0 0,0 63.500 M145 63 C 145 98,145 98,137.500 98 C 130 98,130 98,130 63 C 130 28,130 28,137.500 28 C 145 28,145 28,145 63 M63.327 34.750 C 63.572 35.163,64.085 38.247,64.467 41.604 C 65.162 47.707,65.162 47.707,58.331 48.375 C 47.733 49.410,41.224 51.819,36.313 56.524 C 32.202 60.464,32 60.928,32 66.446 C 32 71.806,32.278 72.512,35.750 75.964 C 40.441 80.629,48.491 83.689,58.442 84.591 C 66.080 85.283,66.080 85.283,65.485 89.892 C 64.166 100.121,65.093 99.362,54.695 98.715 C 34.026 97.427,19.607 88.679,15.034 74.651 C 13.377 69.568,14.125 59.510,16.533 54.500 C 20.606 46.024,31.302 38.576,43.721 35.567 C 49.961 34.055,62.602 33.528,63.327 34.750 M106.595 50.783 C 111.320 53.205,116.639 58.893,118.625 63.645 C 119.381 65.455,120 70.020,120 73.789 C 120 90.976,105.955 102.471,89.086 99.091 C 80.271 97.325,75.103 93.540,71.161 85.965 C 68.053 79.992,67.831 78.956,68.241 72.356 C 68.938 61.158,74.521 53.358,84.591 49.513 C 90.073 47.419,101.296 48.067,106.595 50.783 M192.595 50.783 C 197.320 53.205,202.639 58.893,204.625 63.645 C 205.381 65.455,206 70.020,206 73.789 C 206 90.976,191.955 102.471,175.086 99.091 C 166.271 97.325,161.103 93.540,157.161 85.965 C 154.053 79.992,153.831 78.956,154.241 72.356 C 154.938 61.158,160.521 53.358,170.591 49.513 C 176.073 47.419,187.296 48.067,192.595 50.783 M249.595 53.750 C 250.502 56.913,251.392 59.758,251.572 60.073 C 251.752 60.388,247.085 62.509,241.200 64.787 C 230.500 68.927,230.500 68.927,230.801 83.464 C 231.103 98,231.103 98,223.051 98 C 215 98,215 98,215 73.500 C 215 49,215 49,222.500 49 C 230 49,230 49,230 52 C 230 53.650,230.188 55,230.419 55 C 230.649 55,234.124 53.425,238.140 51.500 C 242.157 49.575,246.006 48,246.694 48 C 247.382 48,248.687 50.587,249.595 53.750 M89.244 61.495 C 81.531 67.057,82.476 83.949,90.674 87.066 C 99.332 90.358,106.997 80.129,104.056 69.207 C 103.461 66.997,102.188 64.218,101.227 63.032 C 98.885 60.140,92.295 59.294,89.244 61.495 M175.244 61.495 C 167.531 67.057,168.476 83.949,176.674 87.066 C 185.332 90.358,192.997 80.129,190.056 69.207 C 189.461 66.997,188.188 64.218,187.227 63.032 C 184.885 60.140,178.295 59.294,175.244 61.495 </metadata>
+  <handler name="OnSave" parameters="out array" return="any"/>
+  <handler name="OnLoad" parameters="in array" return="any"/>
+  <handler name="OnCreate" parameters="" return="any"/>
+  <handler name="OnPaint" parameters="" return="any"/>
+  <handler name="OnTimer" parameters="" return="any"/>
+  <handler name="OnMouseDown" parameters="" return="any"/>
+  <handler name="OnMouseUp" parameters="" return="any"/>
+  <handler name="OnMouseCancel" parameters="" return="any"/>
+  <handler name="OnMouseRelease" parameters="" return="any"/>
+  <property name="useMouseColor" get="boolean" set="boolean"/>
+  <metadata key="useMouseColor.editor">com.livecode.pi.boolean</metadata>
+  <metadata key="useMouseColor.default">true</metadata>
+  <property name="widgetColor" get="string" set="string"/>
+  <metadata key="widgetColor.editor">com.livecode.pi.colorwithalpha</metadata>
+  <metadata key="widgetColor.section">Colors</metadata>
+  <metadata key="widgetColor.default">51,102,153,204</metadata>
+  <metadata key="widgetColor.user_visible">false</metadata>
+  <property name="typicalScript" get="string"/>
+  <metadata key="typicalScript.editor">com.livecode.pi.string</metadata>
+  <metadata key="typicalScript.section">Contents</metadata>
+  <property name="widgetVersion" get="string"/>
+</package>

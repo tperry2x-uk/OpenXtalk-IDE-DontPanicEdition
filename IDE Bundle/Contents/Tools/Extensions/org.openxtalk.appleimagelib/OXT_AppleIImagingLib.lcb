@@ -1,0 +1,1281 @@
+library org.openxtalk.appleimagelib
+
+use com.livecode.engine
+use com.livecode.foreign
+use com.livecode.objc
+use com.livecode.array
+use com.livecode.list
+use com.livecode.byte
+use com.livecode.date
+use com.livecode.binary
+use com.livecode.bitwise
+use com.livecode.math
+use com.livecode.string
+use com.livecode.char
+
+  metadata title is "OpenXtalk Apple Image Lib"
+  metadata author is "Paul McClernan"
+  metadata version is "0.0.2"
+
+constant kNSImageNames is "NSActionTemplate,NSAddBookmarkTemplate,NSAddTemplate,NSAdvanced,NSAppleMenuImage,NSApplicationIcon,NSArrowCursor,NSAudioOutputMuteTemplate,NSAudioOutputVolumeHighTemplate,NSAudioOutputVolumeLowTemplate,NSAudioOutputVolumeMedTemplate,NSAudioOutputVolumeOffTemplate,NSBluetoothTemplate,NSBonjour,NSBookmarksTemplate,NSBrowserCellBranch,NSBrowserCellBranchH,NSCaution,NSChildContainerEmptyTemplate,NSChildContainerTemplate,NSClosedHandCursor,NSCMYKButton,NSColorPanel,NSColorPickerCrayon,NSColorPickerList,NSColorPickerSliders,NSColorPickerUser,NSColorPickerWheel,NSColorSwatchResizeDimple,NSColumnViewTemplate,NSComputer,NSCopyDragCursor,NSCrosshairCursor,NSDatePickerCalendarArrowLeft,NSDatePickerCalendarArrowRight,NSDatePickerCalendarHome,NSDatePickerClockCenter,NSDatePickerClockFace,NSDocEditing,NSDocSaved,NSDropDownIndicatorTemplate,NSEnterFullScreenTemplate,NSEveryone,NSExitFullScreenTemplate,NSFastForwardTemplate,NSFlowViewTemplate,NSFolder,NSFolderBurnable,NSFolderSmart,NSFollowLinkFreestandingTemplate,NSFontPanel,NSFontPanelActionButton,NSFontPanelActionButtonPressed,NSFontPanelBlurEffect,NSFontPanelDropEffectPressed,NSFontPanelEffectsDivider,NSFontPanelMinusIdle,NSFontPanelMinusPressed,NSFontPanelOpacityEffect,NSFontPanelPaperColour,NSFontPanelPaperColourPressed,NSFontPanelPlusIdle,NSFontPanelPlusPressed,NSFontPanelSliderThumb,NSFontPanelSliderThumbPressed,NSFontPanelSliderTrack,NSFontPanelSplitterKnob,NSFontPanelSpreadEffect,NSFontPanelStrikeEffectPressed,NSFontPanelTextColour,NSFontPanelTextColourPressed,NSFontPanelUnderlineEffect,NSFontPanelUnderlineEffectPressed,NSGenericDragCursor,NSGoLeftSmall,NSGoLeftTemplate,NSGoRightSmall,NSGoRightTemplate,NSGrayResizeCorner,NSGreyButton,NSHandCursor,NSHighlightedLinkButton,NSHighlightedMenuArrow,NSHighlightedScrollDownButton,NSHighlightedScrollLeftButton,NSHighlightedScrollRightButton,NSHighlightedScrollUpButton,NSHomeTemplate,NSHSBButton,NSIBeamCursor,NSIChatTheaterTemplate,NSIconViewTemplate,NSInfo,NSInvalidDataFreestandingTemplate,NSLeftFacingTriangleTemplate,NSLeftMenuBarCap,NSLinkButton,NSLinkDragCursor,NSListViewTemplate,NSLockLockedTemplate,NSLockUnlockedTemplate,NSMacPopUpArrows,NSMacPullDownArrow,NSMacSmallPopUpArrows,NSMacSmallPullDownArrow,NSMacSubmenuArrow,NSMacTinyPopUpArrows,NSMacTinyPullDownArrow,NSMagnifyingGlass,NSMediaBrowserIcon,NSMediaBrowserMediaTypeAudio,NSMediaBrowserMediaTypeAudioTemplate32,NSMediaBrowserMediaTypeMovies,NSMediaBrowserMediaTypeMoviesTemplate32,NSMediaBrowserMediaTypePhotos,NSMediaBrowserMediaTypePhotosTemplate32,NSMenuArrow,NSMenuBackTabKeyGlyph,NSMenuCheckmark,NSMenuClearKeyGlyph,NSMenuCommandKeyGlyph,NSMenuControlKeyGlyph,NSMenuDeleteBackwardKeyGlyph,NSMenuDeleteForwardKeyGlyph,NSMenuDownArrowKeyGlyph,NSMenuDownScrollArrow,NSMenuEndKeyGlyph,NSMenuEnterKeyGlyph,NSMenuEscapeKeyGlyph,NSMenuHelpKeyGlyph,NSMenuHomeKeyGlyph,NSMenuISOControlKeyGlyph,NSMenuLeftArrowKeyGlyph,NSMenuMixedState,NSMenuMixedStateTemplate,NSMenuOnStateTemplate,NSMenuOptionKeyGlyph,NSMenuPageDownKeyGlyph,NSMenuPageUpKeyGlyph,NSMenuRadio,NSMenuReturnKeyGlyph,NSMenuRightArrowKeyGlyph,NSMenuShiftKeyGlyph,NSMenuTabKeyGlyph,NSMenuUpArrowKeyGlyph,NSMenuUpScrollArrow,NSMenuWindowDirtyState,NSMiniTextAlignCenter,NSMiniTextAlignJust,NSMiniTextAlignLeft,NSMiniTextAlignRight,NSMiniTextList,NSMobileMe,NSMoveCursor,NSMultipleDocuments,NSNavEjectButton.normal,NSNavEjectButton.normalSelected,NSNavEjectButton.pressed,NSNavEjectButton.rollover,NSNavEjectButton.small.normal,NSNavEjectButton.small.normalSelected,NSNavEjectButton.small.pressed,NSNavEjectButton.small.rollover,NSNavigationBarButtonFillActive,NSNavigationBarButtonFillInactive,NSNavigationBarButtonFillPressedAqua,NSNavigationBarButtonFillPressedGraphite,NSNavigationBarButtonLeftActive,NSNavigationBarButtonLeftInactive,NSNavigationBarButtonLeftPressedAqua,NSNavigationBarButtonLeftPressedGraphite,NSNavigationBarButtonRightActive,NSNavigationBarButtonRightInactive,NSNavigationBarButtonRightPressedAqua,NSNavigationBarButtonRightPressedGraphite,NSNavigationBarLeftAngleActive,NSNavigationBarLeftAngleInactive,NSNavigationBarLeftAnglePressedAqua,NSNavigationBarLeftAnglePressedGraphite,NSNavigationBarRightAngleActive,NSNavigationBarRightAngleInactive,NSNavigationBarRightAnglePressedAqua,NSNavigationBarRightAnglePressedGraphite,NSNetwork,NSPathLocationArrow,NSPathTemplate,NSPauseTemplate,NSPlayTemplate,NSPreferencesGeneral,NSPrivateArrowNextTemplate,NSPrivateArrowPreviousTemplate,NSPrivateChaptersTemplate,NSQuickLookTemplate,NSRadioButtonDisabledMixed,NSRadioButtonDisabledOff,NSRadioButtonDisabledOn,NSRadioButtonEnabledMixed,NSRadioButtonEnabledOff,NSRadioButtonEnabledOn,NSRadioButtonFocusRing,NSRadioButtonHighlightedMixed,NSRadioButtonHighlightedOff,NSRadioButtonHighlightedOn,NSRecordStartTemplate,NSRecordStopTemplate,NSRefreshFreestandingTemplate,NSRefreshTemplate,NSRemoveTemplate,NSResizeLeftCursor,NSResizeLeftRightCursor,NSResizeRightCursor,NSRevealFreestandingTemplate,NSRewindTemplate,NSRGBButton,NSRightFacingTriangleTemplate,NSRightMenuBarCap,NSScriptTemplate,NSScrollDownArrow,NSScrollDownArrowDisabled,NSScrollDownButton,NSScrollLeftArrow,NSScrollLeftArrowDisabled,NSScrollLeftButton,NSScrollRightArrow,NSScrollRightArrowDisabled,NSScrollRightButton,NSScrollUpArrow,NSScrollUpArrowDisabled,NSScrollUpButton,NSSecurity,NSShareTemplate,NSSkipAheadTemplate,NSSkipBackTemplate,NSSliderKnobAbove,NSSliderKnobAboveDisabled,NSSliderKnobAbovePressed,NSSliderKnobBelow,NSSliderKnobBelowDisabled,NSSliderKnobBelowPressed,NSSliderKnobHorizontal,NSSliderKnobHorizontalDisabled,NSSliderKnobHorizontalPressed,NSSliderKnobLeft,NSSliderKnobLeftDisabled,NSSliderKnobLeftPressed,NSSliderKnobRight,NSSliderKnobRightDisabled,NSSliderKnobRightPressed,NSSliderKnobVertical,NSSliderKnobVerticalDisabled,NSSliderKnobVerticalPressed,NSSlideshowTemplate,NSSmallMagnifyingGlass,NSSmallSCurveFill_Active_Textured,NSSmallSCurveFill_Disabled_Textured,NSSmallSCurveFill_Pressed_Textured,NSSmallSCurveLeftCap_Active_Textured,NSSmallSCurveLeftCap_Disabled_Textured,NSSmallSCurveLeftCap_Pressed_Textured,NSSmallSCurveRightCap_Active_Textured,NSSmallSCurveRightCap_Disabled_Textured,NSSmallSCurveRightCap_Pressed_Textured,NSSmartBadgeTemplate,NSStatusAvailable,NSStatusAvailableFlat,NSStatusAway,NSStatusIdle,NSStatusNone,NSStatusNoneFlat,NSStatusOffline,NSStatusPartiallyAvailable,NSStatusPartiallyAvailableFlat,NSStatusUnavailable,NSStatusUnavailableFlat,NSStatusUnknown,NSStopProgressFreestandingTemplate,NSStopProgressTemplate,NSSwitchDisabledMixed,NSSwitchDisabledOff,NSSwitchDisabledOn,NSSwitchEnabledMixed,NSSwitchEnabledOff,NSSwitchEnabledOn,NSSwitchFocusRing,NSSwitchHighlightedMixed,NSSwitchHighlightedOff,NSSwitchHighlightedOn,NSSynchronize,NSTableViewDropBetweenCircleMarker,NSTextRulerAlignCentered,NSTextRulerAlignJustified,NSTextRulerAlignLeft,NSTextRulerAlignRight,NSTextRulerCenterTab,NSTextRulerDecimalTab,NSTextRulerFirstLineIndent,NSTextRulerIndent,NSTextRulerIndentFirst,NSTextRulerIndentLeft,NSTextRulerIndentRight,NSTextRulerLeftTab,NSTextRulerLineHeightDecrease,NSTextRulerLineHeightFixed,NSTextRulerLineHeightFlexible,NSTextRulerLineHeightIncrease,NSTextRulerMarginLeft,NSTextRulerMarginRight,NSTextRulerRightTab,NSTextRulerTabCenter,NSTextRulerTabDecimal,NSTextRulerTabLeft,NSTextRulerTabRight,NSThemeWindowDocument,NSTitlebarEnterFullScreenTemplate,NSTitlebarExitFullScreenTemplate,NSTokenPopDownArrow,NSToolbarBookmarks,NSToolbarClipIndicator,NSToolbarCustomizeToolbarItemImage,NSToolbarFlexibleSpaceItemPaletteRep,NSToolbarMoreTemplate,NSToolbarPrintItemImage,NSToolbarShowColorsItemImage,NSToolbarShowFontsItemImage,NSToolbarSpaceItemPaletteRep,NSTouchBarAddDetailTemplate,NSTouchBarAddTemplate,NSTouchBarAlarmTemplate,NSTouchBarAudioInputMuteTemplate,NSTouchBarAudioInputTemplate,NSTouchBarAudioOutputMuteTemplate,NSTouchBarAudioOutputVolumeHighTemplate,NSTouchBarAudioOutputVolumeLowTemplate,NSTouchBarAudioOutputVolumeMediumTemplate,NSTouchBarAudioOutputVolumeOffTemplate,NSTouchBarBookmarksTemplate,NSTouchBarColorPickerFill,NSTouchBarColorPickerFont,NSTouchBarColorPickerStroke,NSTouchBarCommunicationAudioTemplate,NSTouchBarCommunicationVideoTemplate,NSTouchBarComposeTemplate,NSTouchBarDeleteTemplate,NSTouchBarDownloadTemplate,NSTouchBarEnterFullScreenTemplate,NSTouchBarExitFullScreenTemplate,NSTouchBarFastForwardTemplate,NSTouchBarFolderCopyToTemplate,NSTouchBarFolderMoveToTemplate,NSTouchBarFolderTemplate,NSTouchBarGetInfoTemplate,NSTouchBarGoBackTemplate,NSTouchBarGoDownTemplate,NSTouchBarGoForwardTemplate,NSTouchBarGoUpTemplate,NSTouchBarHistoryTemplate,NSTouchBarIconViewTemplate,NSTouchBarListViewTemplate,NSTouchBarMailTemplate,NSTouchBarNewFolderTemplate,NSTouchBarNewMessageTemplate,NSTouchBarOpenInBrowserTemplate,NSTouchBarPauseTemplate,NSTouchBarPlayPauseTemplate,NSTouchBarPlayTemplate,NSTouchBarQuickLookTemplate,NSTouchBarRecordStartTemplate,NSTouchBarRecordStopTemplate,NSTouchBarRefreshTemplate,NSTouchBarRewindTemplate,NSTouchBarRotateLeftTemplate,NSTouchBarRotateRightTemplate,NSTouchBarSearchTemplate,NSTouchBarShareTemplate,NSTouchBarSidebarTemplate,NSTouchBarSkipAhead15SecondsTemplate,NSTouchBarSkipAhead30SecondsTemplate,NSTouchBarSkipAheadTemplate,NSTouchBarSkipBack15SecondsTemplate,NSTouchBarSkipBack30SecondsTemplate,NSTouchBarSkipBackTemplate,NSTouchBarSkipToEndTemplate,NSTouchBarSkipToStartTemplate,NSTouchBarSlideshowTemplate,NSTouchBarTagIconTemplate,NSTouchBarTextBoldTemplate,NSTouchBarTextBoxTemplate,NSTouchBarTextCenterAlignTemplate,NSTouchBarTextItalicTemplate,NSTouchBarTextJustifiedAlignTemplate,NSTouchBarTextLeftAlignTemplate,NSTouchBarTextListTemplate,NSTouchBarTextRightAlignTemplate,NSTouchBarTextStrikethroughTemplate,NSTouchBarTextUnderlineTemplate,NSTouchBarUserAddTemplate,NSTouchBarUserGroupTemplate,NSTouchBarUserTemplate,NSTouchBarVolumeDownTemplate,NSTouchBarVolumeUpTemplate,NSTrashEmpty,NSTrashFull,NSTriangleNormalDown,NSTriangleNormalRight,NSTrianglePressedDown,NSTrianglePressedRDown,NSTrianglePressedRight,NSTriangleWhite-Collapsed,NSTriangleWhite-Expanded,NSTriangleWhite-Pressed-Collapsed,NSTriangleWhite-Pressed-Expanded,NSTriangleWhite-Turning,NSTruthBottomLeftResizeCursor,NSTruthBottomRightResizeCursor,NSTruthClose,NSTruthCloseH,NSTruthCollapse,NSTruthCollapseH,NSTruthEditedClose,NSTruthEditedCloseH,NSTruthHorizontalResizeCursor,NSTruthHorizontalResizeCursor,NSTruthHResizeCursor,NSTruthHResizeCursor,NSTruthMiniDocument,NSTruthMiniDocumentEdited,NSTruthTopLeftResizeCursor,NSTruthTopRightResizeCursor,NSTruthVerticalResizeCursor,NSTruthVerticalResizeCursor,NSTruthVResizeCursor,NSTruthVResizeCursor,NSTruthZoom,NSTruthZoomH,NSUser,NSUserAccounts,NSUserGroup,NSUserGuest,NSUtilityClose,NSUtilityCloseH,NSUtilityCollapse,NSUtilityCollapseH,NSUtilityEditedClose,NSUtilityEditedCloseH,NSUtilityZoom,NSUtilityZoomH,NSWaitCursor,NSWin95BrowserBranch,NSWin95ComboBoxDownArrow,NSWin95HighlightedBrowserBranch,NSWin95PopUpArrows,NSWin95PullDownArrow,NSWindowClose,NSWindowCloseH,NSWindowCollapse,NSWindowCollapseH,NSWindowEditedClose,NSWindowEditedCloseH,NSWindowMiniDocument,NSWindowMiniDocumentEdited,NSWindowZoom,NSWindowZoomH,NSWinHighRadio,NSWinHighSwitch,NSWinRadio,NSWinSliderKnobAbove,NSWinSliderKnobAbovePressed,NSWinSliderKnobBelow,NSWinSliderKnobBelowPressed,NSWinSliderKnobHorizontal,NSWinSliderKnobHorizontalPressed,NSWinSliderKnobLeft,NSWinSliderKnobLeftPressed,NSWinSliderKnobRight,NSWinSliderKnobRightPressed,NSWinSliderKnobVertical,NSWinSliderKnobVerticalPressed,NSWinSwitch,NXAppTile,NXauto,NXBreak,NXBreakAll,NXcircle16,NXcircle16H,NXclose,NXcloseH,NXdefaultappicon,NXdefaulticon,NXdivider,NXdividerH,NXediting,NXfirstindent,NXFollow,NXGrey0,NXGrey1,NXGrey2,NXGrey3,NXGrey4,NXGrey5,NXGrey6,NXHDestLinkChain,NXHelpBacktrack,NXHelpFind,NXHelpIndex,NXHelpMarker,NXHelpMarkerH,NXhSliderKnob,NXHSrcLinkChain,NXiconify,NXiconifyH,NXleftindent,NXleftmargin,NXMagnifier,NXmanual,NXminiWindow,NXminiWorld,NXpopup,NXpopupH,NXpulldown,NXpulldownH,NXresize,NXresizeH,NXresizeKnob,NXresizeKnobH,NXrightindent,NXrightmargin,NXscrollKnob,NXscrollMenuDown,NXscrollMenuDownD,NXscrollMenuDownH,NXscrollMenuLeft,NXscrollMenuLeftD,NXscrollMenuLeftH,NXscrollMenuRight,NXscrollMenuRightD,NXscrollMenuRightH,NXscrollMenuUp,NXscrollMenuUpD,NXscrollMenuUpH,NXsquare16,NXsquare16H,NXtab,NXUpdate,NXVDestLinkChain,NXvSliderKnob,NXVSrcLinkChain,NXwait"
+
+----      CoreImage Filter Categories
+constant kCICategoryBuiltIn is "CICategoryBuiltIn"
+constant kCICategoryBlur is "CICategoryBlur"
+constant kCICategoryColorAdjustment is "CICategoryColorAdjustment"
+constant kCICategoryCompositeOperation is "CICategoryCompositeOperation"
+constant kCICategoryDistortionEffect is "CICategoryDistortionEffect"
+constant kCICategoryGenerator is "CICategoryGenerator"
+constant kCICategoryGeometryAdjustment is "CICategoryGeometryAdjustment"
+constant kCICategoryGradient is "CICategoryGradient"
+constant kCICategoryHalftoneEffect is "CICategoryHalftoneEffect"
+constant kCICategoryReduction is "CICategoryReduction"
+constant kCICategorySharpen is "CICategorySharpen"
+constant kCICategoryStylize is "CICategoryStylize"
+constant kCICategoryTileEffect is "CICategoryTileEffect"
+constant kCICategoryTransition is "CICategoryTransition"
+
+-------------------- Type Declarations -------------------------------
+public foreign type CGSize binds to "MCAggregateTypeInfo:qq"
+public foreign type NSSize binds to "MCAggregateTypeInfo:qq"
+public foreign type CGRect binds to "MCAggregateTypeInfo:qqqq"
+public foreign type NSRect binds to "MCAggregateTypeInfo:qqqq"
+
+public foreign type CGImageRef binds to "MCAggregateTypeInfo:r"
+-- public type CGImageRef is Pointer
+public foreign type CGPoint binds to "MCAggregateTypeInfo:qq"
+
+-- Core Graphics / Quartz Display Services / CGCaptureAllDisplays
+-- CGError CGCaptureAllDisplays(void)
+public foreign handler c_CGCaptureAllDisplays() returns optional ObjcId binds to "c:CoreGraphics>CGCaptureAllDisplays"
+public foreign handler c_CGSessionCopyCurrentDictionary() returns optional ObjcId binds to "c:CoreGraphics>CGSessionCopyCurrentDictionary"
+public foreign handler c_CGMainDisplayID() returns optional CUInt binds to "c:CoreGraphics>CGMainDisplayID"
+public foreign handler c_CGDisplayScreenSize(in tDisplayID as optional CUInt) returns optional CGSize binds to "c:CoreGraphics>CGDisplayScreenSize"
+public foreign handler c_CGDisplayPixelsHigh(in tDisplayID as optional CUInt) returns optional CUint binds to "c:CoreGraphics>CGDisplayPixelsHigh"
+public foreign handler c_CGDisplayPixelsWide(in tDisplayID as optional CUInt) returns optional CUint binds to "c:CoreGraphics>CGDisplayPixelsWide"
+-- CGSize CGDisplayScreenSize(CGDirectDisplayID display);
+
+private foreign handler ObjC_CIImageWithCGImage(in pImage as CGImageRef) returns ObjcId binds to "objc:CIImage.+imageWithCGImage:"
+private foreign handler ObjC_CIImageGetProps(in pCIImage as ObjcId) returns optional ObjcId binds to "objc:CIImage.-properties"
+
+private foreign handler ObjC_CIContextCreate(in pOptions as ObjcId) returns ObjcId binds to "objc:CIContext.+contextWithOptions:"
+private foreign handler ObjC_CIFilterOutputImage(in pCIFilter as ObjcId) returns optional ObjcId binds to "objc:CIFilter.outputImage"
+-- @property(readonly, nonatomic, nullable) CIImage *outputImage;
+private foreign handler ObjC_CIFilterSetValueForKey(in pCIFilter as ObjcId, in pValue as ObjcId, in pKey as ObjcId) returns ObjcId binds to "objc:CIFilter.-setValue:forKey:"
+
+private foreign handler ObjC_CGImageSourceCreateWithURL(in pURL as ObjcId, in pOptions as ObjcId) returns ObjcId binds to "objc:CGImageSource.+imageSourceWithURL:options:"
+private foreign handler ObjC_CGImageSourceCreateImageAtIndex(in pObj as ObjcRetainedId, in pIndex as CUInt, in pOptions as ObjcId) returns CGImageRef binds to "objc:CGImageSource.-createImageAtIndex:options:"
+
+-- NSArray *filterNames =[CIFilter filterNamesInCategory:kCICategoryBuiltIn];
+private foreign handler ObjC_CIFiltersNames(in pNameNSString as optional ObjcId) returns ObjcId binds to "objc:CIFilter.+filterNamesInCategories:"
+private foreign handler ObjC_CIFiltersInputKeys(in pCIFilter as ObjcId) returns ObjcId binds to "objc:CIFilter.-inputKeys"
+
+
+private foreign handler ObjC_CIFiltersFilterWithName(in pCIFilterNSStr as ObjcId) returns optional ObjcId binds to "objc:CIFilter.+filterWithName:"
+
+private foreign handler ObjC_NSImageAlloc() returns ObjcRetainedId binds to "objc:NSImage.+alloc"
+private foreign handler ObjC_NSImageInit(in pObj as ObjcRetainedId) returns ObjcId binds to "objc:NSImage.-init"
+
+private foreign handler ObjC_NSImageNamed( in pNameNSString as optional ObjcId) returns ObjcRetainedId binds to "objc:NSImage.+imageNamed:"
+
+private foreign handler ObjC_NSImageImageWithSymbolConfiguration( in pObj as ObjcId, in pNSImageSymbolConfig as ObjcId) returns optional ObjcId binds to "objc:NSImage.-imageWithSymbolConfiguration:"
+
+
+private foreign handler ObjC_NSImageGetSystemImageNamed(in pNameNSString as ObjcId, in pAccessibilityDescr as optional ObjcId) returns ObjcRetainedId binds to "objc:NSImage.+systemImageNamed:"
+private foreign handler ObjC_NSImageWithSystemSymbolNameAndDescription( in pNameNSString as optional ObjcId, in pCaptionNSString as optional ObjcId) returns optional ObjcId binds to "objc:NSImage.+imageWithSystemSymbolName:accessibilityDescription:"
+private foreign handler ObjC_NSImageWithSymbolConfiguration( in pNameNSString as optional ObjcId, in pNSImageSymbolConfig as optional ObjcId) returns optional ObjcId binds to "objc:NSImage.-imageWithSymbolConfiguration:"
+
+--macOS 11.0+
+private foreign handler ObjC_NSImageSymbolConfigWithScale( in pScale as CUInt) returns optional ObjcId binds to "objc:NSImageSymbolConfiguration.+configurationWithScale:"
+private foreign handler ObjC_NSImageSymbolConfigWithPointSizeAndWeight( in pPointSize as NaturalFloat, in pWeight as NaturalFloat) returns ObjcId binds to "objc:NSImageSymbolConfiguration.+configurationWithPointSize:weight:"
+private foreign handler ObjC_NSImageSymbolConfigWithPointSizeWeightAndScale( in pPointSize as NaturalFloat, in pWeight as NaturalFloat, in pScale as CUInt) returns ObjcId binds to "objc:NSImageSymbolConfiguration.+configurationWithPointSize:weight:scale:"
+
+private foreign handler ObjC_NSImageNamesList( in pNameNSString as optional ObjcId) returns ObjcId binds to "objc:NSImage.-names:"
+
+private foreign handler ObjC_NSImageSetValueForKey(in pObj as ObjcRetainedId, in pValue as ObjcId, in pSelector as ObjcId) returns ObjcId binds to "objc:NSImage.-setValue:forKey:"
+
+private foreign handler ObjC_NSImageResizingMode(in pObj as ObjcId, in pBoolean as CUInt) returns nothing binds to "objc:NSImage.-setResizingMode:"
+-- NSImageResizingModeStretch = 1 or NSImageResizingModeTile = 0
+
+private foreign handler ObjC_NSImageInitWithContentsOfFile(in pObj as ObjcId, in pFilename as ObjcId) returns ObjcId binds to "objc:NSImage.-initWithContentsOfFile:"
+private foreign handler ObjC_NSImageInitWithData(in pObj as ObjcRetainedId, in pData as ObjcId) returns optional ObjcRetainedId binds to "objc:NSImage.-initWithData:"
+private foreign handler ObjC_NSImageSetTemplate(in pObj as ObjcId, in pBoolean as CBool) returns nothing binds to "objc:NSImage.-setTemplate:"
+private foreign handler ObjC_NSImageTIFFRepresentation(in pObj as ObjcId) returns optional ObjcId binds to "objc:NSImage.-TIFFRepresentation"
+
+private foreign handler ObjC_NSBitmapImageRepAlloc() returns ObjcRetainedId binds to "objc:NSBitmapImageRep.+alloc"
+private foreign handler ObjC_NSBitmapImageRepInitWithCGImage(in pImageRep as ObjcId, in pCGImageRef as CGImageRef) returns ObjcId binds to "objc:NSBitmapImageRep.-initWithCGImage:"
+private foreign handler ObjC_NSBitmapImageRepInitWithCIImage(in pNSBitmapImgRep as ObjcRetainedId, in pCIImage as ObjcId) returns optional ObjcId binds to "objc:NSBitmapImageRep.-initWithCIImage:"
+private foreign handler ObjC_NSBitmapImageRepRepresenatationUsingType(in pBitmapImageRep as ObjcId, in pType as CInt, in pProps as optional ObjcId) returns ObjcId binds to "objc:NSBitmapImageRep.-representationUsingType:properties:"
+private foreign handler ObjC_NSBitmapImageRepWithData(in pData as ObjcId) returns optional ObjcRetainedId binds to "objc:NSBitmapImageRep.+imageRepWithData:"
+
+private foreign handler ObjC_NSImageRepAlloc() returns ObjcRetainedId binds to "objc:NSImageRep.+alloc"
+private foreign handler ObjC_NSImageRepInit(in pNSImageRep as ObjcRetainedId ) returns ObjcId binds to "objc:NSImageRep.-init"
+private foreign handler ObjC_NSImageRepSetSize(in pNSImageRep as ObjcId, in pNSSize as NSSize) returns nothing binds to "objc:NSImageRep.-setSize:"
+private foreign handler ObjC_NSImageRepSetHeight(in pNSImageRep as ObjcId, in pNSSize as CUInt) returns nothing binds to "objc:NSImageRep.-setPixelsHigh:"
+private foreign handler ObjC_NSImageRepSetWidth(in pNSImageRep as ObjcId, in pNSSize as CUInt) returns nothing binds to "objc:NSImageRep.-setPixelsWide:"
+private foreign handler ObjC_NSImageRepDraw(in pNSImageRep as ObjcId) returns CBool binds to "objc:NSImageRep.-draw"
+private foreign handler ObjC_NSImageRepDrawInRect(in pNSImageRep as ObjcId, in pNSRect as ObjcId) returns CBool binds to "objc:NSImageRep.-drawInRect:"
+
+private foreign handler ObjC_NSImageRepresentations(in pImage as ObjcId) returns ObjcId binds to "objc:NSImage.-representations"
+private foreign handler ObjC_NSImageRepGetCGImageForRectContextHints( in pNSImageRep as ObjcId, in pContentRect as optional any, in pContext as optional ObjcId, in pHints as optional ObjcId) returns CGImageRef binds to "objc:NSImage.-CGImageForProposedRect:context:hints:"
+
+-- NSStringFromRect is handy when used in conjunction with Log for printing debug messages:
+private foreign handler c_NSStringFromRect(in pCGRect as CGRect) returns ObjcId binds to "c:NSStringFromRect"
+-- c_NSRectFromString is super handy, it parses an NSstring for four numbers in order orig x, orig y, width, height:
+private foreign handler c_NSRectFromString(in pNSString as ObjcId) returns NSRect binds to "c:NSRectFromString" -- might return pointer to CGRect
+private foreign handler objC_NSRectFromString(in pNSString as ObjcId) returns CGRect binds to "objc:NSRect.+NSRectFromString:"
+
+private foreign handler c_NSSizeFromString(in pNSString as ObjcId) returns optional NSSize binds to "c:NSSizeFromString"
+private foreign handler ObjC_NSImageGetSize(in pObj as ObjcId, in pNSSize as NSSize) returns NSSize binds to "objc:NSImage.size"
+private foreign handler ObjC_NSImageSetSize(in pObj as ObjcId, in pNSSize as NSSize) returns nothing binds to "objc:NSImage.-setSize:"
+private foreign handler ObjC_NSImageSetScale(in pObj as ObjcId, in pScale as CUInt) returns nothing binds to "objc:NSImage.-setScale:"
+
+
+-- + (instancetype)imageRepWithData:(NSData *)data;
+-- https://developer.apple.com/documentation/appkit/nsbitmapimagerep/1395502-imagerepwithdata?language=objc
+public foreign handler ObjC_NSDataAlloc() returns ObjcRetainedId binds to "objc:NSData.+alloc"
+
+private foreign handler ObjC_NSWorkspaceSharedWorkspace() returns ObjcId binds to "objc:NSWorkspace.+sharedWorkspace"
+private foreign handler ObjC_NSWorkspaceSelectFile(in pSharedWorkspace as ObjcId, in pFilename as ObjcId, in pRootedAtPath as ObjcId) returns CBool binds to "objc:NSWorkspace.-selectFile:inFileViewerRootedAtPath:"
+private foreign handler ObjC_NSWorkspaceIsFilePackageAtPath(in pSharedWorkspace as ObjcId, in pFilename as ObjcId) returns CBool binds to "objc:NSWorkspace.-isFilePackageAtPath:"
+private foreign handler ObjC_NSWorkspaceRunningApplications(in pSharedWorkspace as ObjcId) returns ObjcId binds to "objc:NSWorkspace.-runningApplications"
+private foreign handler ObjC_NSWorkspaceLaunchApplication(in pSharedWorkspace as ObjcId, in pAppName as ObjcId) returns CBool binds to "objc:NSWorkspace.launchApplication:"
+private foreign handler ObjC_NSWorkspaceFrontmostApplication(in pSharedWorkspace as ObjcId) returns ObjcId binds to "objc:NSWorkspace.-frontmostApplication"
+private foreign handler ObjC_NSWorkspaceURLForAppBundleID(in pSharedWorkspace as ObjcId, in pBundleID as ObjcId ) returns ObjcId binds to "objc:NSWorkspace.-URLForApplicationWithBundleIdentifier:"
+
+private foreign handler ObjC_NSWorkspaceIconForFile(in pSharedWorkspace as ObjcId, in pFilename as ObjcId) returns optional ObjcId binds to "objc:NSWorkspace.-iconForFile:"
+private foreign handler ObjC_NSWorkspaceIconForContentType(in pSharedWorkspace as ObjcId, in pUTType as ObjcId) returns optional ObjcId binds to "objc:NSWorkspace.-iconForContentType:"
+private foreign handler ObjC_NSWorkspaceSetIconForFile(in pSharedWorkspace as ObjcId, in tNSImage as optional ObjcId, in pFilename as ObjcId, in pOption as CUInt ) returns CBool binds to "objc:NSWorkspace.-setIcon:forFile:options:"
+
+public handler getNSImageNames()
+   variable rRetStr as optional String
+   put kNSImageNames into rRetStr
+   replace "," with "\n" in rRetStr
+   return rRetStr
+end handler
+
+public handler getCoreImageFiltersNames() returns String
+   variable tNSObj as optional ObjcObject
+   variable tStr as optional String
+   variable rRetStr as optional String
+   variable tList as optional List
+   unsafe
+   --- get filters
+      put ObjC_CIFiltersNames( nothing ) into tNSObj -- pass 'nothing' for full list from all filter categories -- or pass categories to narrow the returned list
+       -- LogNSObjectReflection(tNSObj)
+       put ListFromNSArray(tNSObj) into tList
+       -- log [tList]
+       put "" into rRetStr
+       repeat for each element tStr in tList
+          put tStr & "\n" after rRetStr
+       end repeat
+   end unsafe
+   delete the last char of rRetStr -- remove trailing empty newline break
+   return rRetStr
+end handler
+
+private foreign handler ObjC_UTTypeWithIdentifier( in pUTTypeIDNSStr as ObjcId) returns optional ObjcId binds to "objc:UTType.+typeWithIdentifier:"
+public handler getIconForContentType( in pUTTypeIDstr as String, in pImageRep as optional String) returns optional any
+   -- https://developer.apple.com/documentation/uniformtypeidentifiers/system-declared_uniform_type_identifiers?language=objc
+   -- public.midi-audio
+   variable tImgRepNum as optional Number
+   variable pSharedWorkspace as ObjcObject
+   variable tStatus as Boolean
+   variable tNSImage as optional ObjcObject
+   variable tCIImage as optional ObjcObject
+   variable tUTType as optional ObjcObject
+   variable tData as optional Data
+   variable tList as optional List
+   variable tImageDataObj as ObjcId
+   variable tImageData as Data
+   variable tImageReps as ObjcObject
+   variable tImageRepsList as List
+   variable tImageRep as ObjcId
+   variable tBitmapImageRep as ObjcObject
+   variable tCGImageRef as CGImageRef
+   unsafe
+      put ObjC_NSWorkspaceSharedWorkspace() into pSharedWorkspace
+      -- NSWorkspaceIconForContentType
+      -- https://developer.apple.com/documentation/uniformtypeidentifiers/uttype/3548218-typewithidentifier?language=objc
+      put ObjC_UTTypeWithIdentifier(StringToNSString(pUTTypeIDstr)) into tUTType
+      if tUTType is not nothing then
+         put ObjC_NSWorkspaceIconForContentType( pSharedWorkspace, tUTType) into tNSImage
+         -- put ObjC_NSWorkspaceIconForFile( pSharedWorkspace, StringToNSString(pFilePath)) into tNSImage
+         if tNSImage is not nothing then
+            -- put ObjC_NSWorkspaceSelectFile(pSharedWorkspace, StringToNSString(pFilePath), StringToNSString("")) into tStatus
+            put ObjC_NSImageRepresentations(tNSImage) into tImageReps
+            put ListFromNSArray(tImageReps) into tImageRepsList
+            if pImageRep contains "large" then
+                  put the last element of tImageRepsList into tImageRep
+               else if pImageRep contains "small" then
+                  put element 1 of tImageRepsList into tImageRep
+               else if pImageRep is the empty string then
+                  put element 1 of tImageRepsList into tImageRep
+               else
+                  put pImageRep parsed as number into tImgRepNum
+                  put element tImgRepNum of tImageRepsList into tImageRep
+            end if
+            LogNSObjectReflection(tImageRep)
+            --if tImageRep is not nothing then
+            put ObjC_NSImageRepGetCGImageForRectContextHints( tImageRep, nothing, nothing, nothing) into tCGImageRef
+            -- log ["CGImage",tCGImageRef]
+            put ObjC_CIImageWithCGImage(tCGImageRef) into tCIImage
+            put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+            put ObjC_NSBitmapImageRepInitWithCIImage(tBitmapImageRep, tCIImage) into tBitmapImageRep
+            put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj --- TIFF = 0 -- BMP = 1 -- GIF = 2 - JPEG = 3 -- PNG = 4 - JPEG2000 = 3
+            put DataFromNSData(tImageDataObj) into tImageData
+         else
+            put "Error: Identifier Not Found!" into tImageData
+         end if
+      end if
+   end unsafe
+   return tImageData
+end handler
+
+/**
+Summary: Gets the icon associated with the file / folder passed in.
+
+Parameters:
+pFilePath: Path to the file or folder to get the associated icon image for.
+
+Returns: Boolean
+*/
+public handler getIconForFile(in pFilePath as String) returns optional any
+   variable pSharedWorkspace as ObjcObject
+   variable tStatus as Boolean
+   variable tNSImage as optional ObjcObject
+   variable tCIImage as optional ObjcObject
+   variable tCIFilter as optional ObjcObject
+   variable tData as optional Data
+   variable tList as optional List
+   variable tImageDataObj as ObjcId
+   variable tImageData as Data
+   variable tImageReps as ObjcObject
+   variable tImageRepsList as List
+   variable tImageRep as ObjcId
+   variable tBitmapImageRep as ObjcObject
+   variable tCGImageRef as CGImageRef
+   unsafe
+      put ObjC_NSWorkspaceSharedWorkspace() into pSharedWorkspace
+      -- log pFilePath
+      put ObjC_NSWorkspaceIconForFile( pSharedWorkspace, StringToNSString(pFilePath)) into tNSImage
+      if tNSImage is not nothing then
+      -- put ObjC_NSWorkspaceSelectFile(pSharedWorkspace, StringToNSString(pFilePath), StringToNSString("")) into tStatus
+      put ObjC_NSImageRepresentations(tNSImage) into tImageReps
+      put ListFromNSArray(tImageReps) into tImageRepsList
+      put the last element of tImageRepsList into tImageRep
+      -- LogNSObjectReflection(tImageRep)
+      --if tImageRep is not nothing then
+      put ObjC_NSImageRepGetCGImageForRectContextHints( tImageRep, nothing, nothing, nothing) into tCGImageRef
+      -- log ["CGImage",tCGImageRef]
+      put ObjC_CIImageWithCGImage(tCGImageRef) into tCIImage
+      put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+      put ObjC_NSBitmapImageRepInitWithCIImage(tBitmapImageRep, tCIImage) into tBitmapImageRep
+      put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj --- TIFF = 0 -- BMP = 1 -- GIF = 2 - JPEG = 3 -- PNG = 4 - JPEG2000 = 3
+      put DataFromNSData(tImageDataObj) into tImageData
+      return tImageData
+   end if
+   end unsafe
+   return tStatus
+end handler
+
+public handler setIconForFile(in pImageScriptObj as String, in pFilePath as String) returns Boolean
+   variable pSharedWorkspace as ObjcObject
+   variable tStatus as Boolean
+   variable tNSImage as optional ObjcObject
+   variable tCIImage as optional ObjcObject
+   variable tCIFilter as optional ObjcObject
+   variable tData as optional Data
+   variable tList as optional List
+   variable tImageDataObj as ObjcId
+   variable tImageData as Data
+   variable tImageReps as ObjcObject
+   variable tImageRepsList as List
+   variable tImageRep as ObjcId
+   variable tBitmapImageRep as ObjcObject
+   variable tCGImageRef as CGImageRef
+   unsafe
+   --- boiler plate for getting the image data
+      variable tObject as optional ScriptObject
+      variable tFile as String
+      resolve script object pImageScriptObj
+      put the result into tObject
+     if tObject exists then
+         put property "filename" of tObject into tFile
+         if tFile is empty then
+            put property "text" of tObject into tData
+            put ObjC_NSImageAlloc() into tNSImage
+            put ObjC_NSImageInitWithData(tNSImage, DataToNSData(tData)) into tNSImage
+         else
+            resolve file tFile relative to tObject
+            if the result is not nothing then
+               put the result into tFile
+            end if
+         end if
+     else
+         resolve file pImageScriptObj
+         if the result is not nothing then
+            put the result into tFile
+         end if
+     end if
+     if tFile is not empty then
+         put ObjC_NSImageAlloc() into tNSImage
+         put ObjC_NSImageInitWithContentsOfFile(tNSImage, StringToNSString(tFile)) into tNSImage
+     end if
+     --- end of boiler plate for getting the image data
+     if tNSImage is not nothing then
+         put ObjC_NSWorkspaceSharedWorkspace() into pSharedWorkspace
+         -- NSExcludeQuickDrawElementsIconCreationOption = 2  --  NSExclude10_4ElementsIconCreationOption = 4 -- NO OPTIONS = 0
+         -- NOTE: you can pass 'nothing' instead of an image to reset a file to the non-custom default icon for its type.
+         put ObjC_NSWorkspaceSetIconForFile( pSharedWorkspace, tNSImage, StringToNSString(pFilePath), 0 ) into tStatus
+         return tStatus
+      else
+         put false into tStatus
+      end if
+   end unsafe
+   return tStatus
+end handler
+
+public handler CoreImageFilterNoParam( in pImageScriptObj as String, in pFilterNameStr as String) returns optional any -- ObjcObject
+   variable tNSImage as optional ObjcObject
+   variable tCIImage as optional ObjcObject
+   variable tCIFilter as optional ObjcObject
+   variable tData as optional Data
+   variable tList as optional List
+   variable tImageDataObj as ObjcId
+   variable tImageData as Data
+   variable tImageReps as ObjcObject
+   variable tImageRepsList as List
+   variable tImageRep as ObjcId
+   variable tBitmapImageRep as ObjcObject
+   variable tCGImageRef as CGImageRef
+   unsafe
+   --- boiler plate for getting the image data
+      variable tObject as optional ScriptObject
+      variable tFile as String
+      resolve script object pImageScriptObj
+      put the result into tObject
+     if tObject exists then
+         put property "filename" of tObject into tFile
+         if tFile is empty then
+            put property "text" of tObject into tData
+            put ObjC_NSImageAlloc() into tNSImage
+            put ObjC_NSImageInitWithData(tNSImage, DataToNSData(tData)) into tNSImage
+         else
+            resolve file tFile relative to tObject
+            if the result is not nothing then
+               put the result into tFile
+            end if
+         end if
+     else
+         resolve file pImageScriptObj
+         if the result is not nothing then
+            put the result into tFile
+         end if
+     end if
+     if tFile is not empty then
+         put ObjC_NSImageAlloc() into tNSImage
+         put ObjC_NSImageInitWithContentsOfFile(tNSImage, StringToNSString(tFile)) into tNSImage
+     end if
+     -- LogNSObjectReflection(tNSImage)
+     --- end of boiler plate for getting the image data
+     put ObjC_NSImageRepresentations(tNSImage) into tImageReps
+     put ListFromNSArray(tImageReps) into tImageRepsList
+     put the last element of tImageRepsList into tImageRep
+     LogNSObjectReflection(tImageRep)
+     --if tImageRep is not nothing then
+     put ObjC_NSImageRepGetCGImageForRectContextHints( tImageRep, nothing, nothing, nothing) into tCGImageRef
+     -- log ["CGImage",tCGImageRef]
+     put ObjC_CIImageWithCGImage(tCGImageRef) into tCIImage
+     put ObjC_CIFiltersFilterWithName( StringToNSString ( pFilterNameStr ) ) into tCIFilter
+     ObjC_CIFilterSetValueForKey(tCIFilter, tCIImage, StringToNSString("inputImage"))
+     put ObjC_CIFilterOutputImage(tCIFilter) into tCIImage
+     --  LogNSObjectReflection(tCIImage)
+     put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+     put ObjC_NSBitmapImageRepInitWithCIImage(tBitmapImageRep, tCIImage) into tBitmapImageRep
+     put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj --- TIFF = 0 -- BMP = 1 -- GIF = 2 - JPEG = 3 -- PNG = 4 - JPEG2000 = 3
+     put DataFromNSData(tImageDataObj) into tImageData
+     return tImageData
+  end unsafe
+end handler
+
+public handler CoreImageFilterParamsList( in pCIFilterName as String) returns String
+    variable tCIFilter as optional ObjcObject
+    variable tList as optional List
+    variable tFiltersKeysList as optional List
+    variable tKey as String
+    variable tNSArray as optional ObjcObject
+    variable rReturnStr as String
+    unsafe
+    put ObjC_CIFiltersFilterWithName( StringToNSString ( pCIFilterName ) ) into tCIFilter
+    if tCIFilter is not nothing then
+       put ObjC_CIFiltersInputKeys(tCIFilter) into tNSArray
+       put ListFromNSArray(tNSArray) into tFiltersKeysList
+       put "" into rReturnStr
+       repeat for each element tKey in tFiltersKeysList
+          put tKey & "\n" after rReturnStr
+       end repeat
+       return rReturnStr
+    end if
+    return ""
+   end unsafe
+end handler
+
+public handler CoreImageGenerateTextImage( in tText as String , in tFontName as String, in tFontSize as Number,in tScaleFactor as Number,in tPadding as Number) returns optional any -- ObjcObject
+    -- variable tCGRect as CGRect
+    variable tNSImage as optional ObjcObject
+    variable tCIImage as optional ObjcObject
+    variable tCIFilter as optional ObjcObject
+    variable tData as optional Data
+    variable tList as optional List
+    variable tImageDataObj as ObjcId
+    variable tImageData as Data
+    variable tImageReps as ObjcObject
+    variable tImageRepsList as List
+    variable tImageRep as ObjcId
+    variable tBitmapImageRep as ObjcObject
+    variable tCGImageRef as CGImageRef
+    unsafe
+    put ObjC_CIFiltersFilterWithName( StringToNSString ( "CITextImageGenerator" ) ) into tCIFilter
+
+      ObjC_CIFilterSetValueForKey(tCIFilter, StringToNSString(tText), StringToNSString("inputText"))
+      ObjC_CIFilterSetValueForKey(tCIFilter, StringToNSString(tFontName), StringToNSString("inputFontName"))
+      ObjC_CIFilterSetValueForKey(tCIFilter, NumberToNSNumber(tFontSize), StringToNSString("inputFontSize"))
+      ObjC_CIFilterSetValueForKey(tCIFilter, NumberToNSNumber(tScaleFactor), StringToNSString("inputScaleFactor"))
+      -- log [the platform]
+      -- ObjC_CIFilterSetValueForKey(tCIFilter, NumberToNSNumber(tPadding), StringToNSString("inputPadding"))
+      LogNSObjectReflection(tCIFilter)
+      put ObjC_CIFilterOutputImage(tCIFilter) into tCIImage
+      LogNSObjectReflection(tCIImage)
+      -- put c_NSRectFromString( StringToNSString("0,0,128,128") ) into tCGRect
+      -- log tCGRect
+      put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+      put ObjC_NSBitmapImageRepInitWithCIImage(tBitmapImageRep, tCIImage) into tBitmapImageRep
+      put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj --- TIFF = 0 -- BMP = 1 -- GIF = 2 - JPEG = 3 -- PNG = 4 - JPEG2000 = 3
+      put DataFromNSData(tImageDataObj) into tImageData
+      return tImageData
+   end unsafe
+end handler
+
+public handler CoreImageGenoratorWithParam(  in pGenFilterNameStr as String, in pParamNameStr as String, in pParam1Val as optional Number) returns optional any -- ObjcObject
+    variable tNSImage as optional ObjcObject
+    variable tCIImage as optional ObjcObject
+    variable tCIFilter as optional ObjcObject
+    variable tData as optional Data
+    variable tList as optional List
+    variable tImageDataObj as ObjcId
+    variable tImageData as Data
+    variable tImageReps as ObjcObject
+    variable tImageRepsList as List
+    variable tImageRep as ObjcId
+    variable tBitmapImageRep as ObjcObject
+    variable tCGImageRef as CGImageRef
+    unsafe
+
+      put ObjC_CIFiltersFilterWithName( StringToNSString ( pGenFilterNameStr ) ) into tCIFilter
+
+      ObjC_CIFilterSetValueForKey(tCIFilter, NumberToNSNumber(pParam1Val), StringToNSString(pParamNameStr))
+      -- LogNSObjectReflection(tCIFilter)
+      put ObjC_CIFilterOutputImage(tCIFilter) into tCIImage
+      --  LogNSObjectReflection(tCIImage)
+      put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+      put ObjC_NSBitmapImageRepInitWithCIImage(tBitmapImageRep, tCIImage) into tBitmapImageRep
+      put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj --- TIFF = 0 -- BMP = 1 -- GIF = 2 - JPEG = 3 -- PNG = 4 - JPEG2000 = 3
+      put DataFromNSData(tImageDataObj) into tImageData
+      return tImageData
+   end unsafe
+end handler
+
+
+public handler CoreImageFilterWithParam( in pImageScriptObj as String, in pFilterNameStr as String, in pParamNameStr as String, in pParam1Val as optional Number) returns optional any -- ObjcObject
+    variable tNSImage as optional ObjcObject
+    variable tCIImage as optional ObjcObject
+    variable tCIFilter as optional ObjcObject
+    variable tData as optional Data
+    variable tList as optional List
+    variable tImageDataObj as ObjcId
+    variable tImageData as Data
+    variable tImageReps as ObjcObject
+    variable tImageRepsList as List
+    variable tImageRep as ObjcId
+    variable tBitmapImageRep as ObjcObject
+    variable tCGImageRef as CGImageRef
+    unsafe
+    --- boiler plate for getting the image data
+       variable tObject as optional ScriptObject
+       variable tFile as String
+       resolve script object pImageScriptObj
+       put the result into tObject
+      if tObject exists then
+          put property "filename" of tObject into tFile
+          if tFile is empty then
+             put property "text" of tObject into tData
+             put ObjC_NSImageAlloc() into tNSImage
+             put ObjC_NSImageInitWithData(tNSImage, DataToNSData(tData)) into tNSImage
+          else
+             resolve file tFile relative to tObject
+             if the result is not nothing then
+                put the result into tFile
+             end if
+          end if
+      else
+          resolve file pImageScriptObj
+          if the result is not nothing then
+             put the result into tFile
+          end if
+      end if
+      if tFile is not empty then
+          put ObjC_NSImageAlloc() into tNSImage
+          put ObjC_NSImageInitWithContentsOfFile(tNSImage, StringToNSString(tFile)) into tNSImage
+      end if
+      -- LogNSObjectReflection(tNSImage)
+      --- end of boiler plate for getting the image data
+      put ObjC_NSImageRepresentations(tNSImage) into tImageReps
+      put ListFromNSArray(tImageReps) into tImageRepsList
+      put the last element of tImageRepsList into tImageRep
+      LogNSObjectReflection(tImageRep)
+      --if tImageRep is not nothing then
+      put ObjC_NSImageRepGetCGImageForRectContextHints( tImageRep, nothing, nothing, nothing) into tCGImageRef
+      -- log ["CGImage",tCGImageRef]
+      put ObjC_CIImageWithCGImage(tCGImageRef) into tCIImage
+      put ObjC_CIFiltersFilterWithName( StringToNSString ( pFilterNameStr ) ) into tCIFilter
+      ObjC_CIFilterSetValueForKey(tCIFilter, tCIImage, StringToNSString("inputImage"))
+      if pParam1Val is nothing then
+         put 1 into pParam1Val
+      end if
+      ObjC_CIFilterSetValueForKey(tCIFilter, NumberToNSNumber(pParam1Val), StringToNSString(pParamNameStr))
+      -- LogNSObjectReflection(tCIFilter)
+      put ObjC_CIFilterOutputImage(tCIFilter) into tCIImage
+      --  LogNSObjectReflection(tCIImage)
+      put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+      put ObjC_NSBitmapImageRepInitWithCIImage(tBitmapImageRep, tCIImage) into tBitmapImageRep
+      put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj --- TIFF = 0 -- BMP = 1 -- GIF = 2 - JPEG = 3 -- PNG = 4 - JPEG2000 = 3
+      put DataFromNSData(tImageDataObj) into tImageData
+      return tImageData
+   end unsafe
+end handler
+
+public handler CoreImageFilterWithParamsList( in pImageScriptObj as String, in pParamsStrList as String) returns optional any -- ObjcObject
+    variable tNSImage as optional ObjcObject
+    variable tCIImage as optional ObjcObject
+    variable tCIFilter as optional ObjcObject
+    variable tData as optional Data
+    variable tList as optional List
+    variable tFiltersKeysList as optional List
+
+    variable tLineCount as Number
+    variable tCnt as Number
+    variable tLineCounter as Number
+
+    variable tNSArray as optional ObjcObject
+
+    variable tListLine as String
+    variable tSublist as optional List
+    variable tParamCount as Number
+    variable tParamAndValue as optional List
+    variable tKey as String
+    variable tValue as Number
+    variable tFilterName as String
+    variable tImageDataObj as ObjcId
+    variable tImageData as Data
+    variable tImageReps as ObjcObject
+    variable tImageRepsList as List
+    variable tImageRep as ObjcId
+    variable tBitmapImageRep as ObjcObject
+    variable tCGImageRef as CGImageRef
+
+    unsafe
+    --- boiler plate for getting the image data
+       variable tObject as optional ScriptObject
+       variable tFile as String
+       resolve script object pImageScriptObj
+       put the result into tObject
+      if tObject exists then
+          put property "filename" of tObject into tFile
+          if tFile is empty then
+             put property "text" of tObject into tData
+             put ObjC_NSImageAlloc() into tNSImage
+             put ObjC_NSImageInitWithData(tNSImage, DataToNSData(tData)) into tNSImage
+          else
+             resolve file tFile relative to tObject
+             if the result is not nothing then
+                put the result into tFile
+             end if
+          end if
+      else
+          resolve file pImageScriptObj
+          if the result is not nothing then
+             put the result into tFile
+          end if
+      end if
+      if tFile is not empty then
+          put ObjC_NSImageAlloc() into tNSImage
+          put ObjC_NSImageInitWithContentsOfFile(tNSImage, StringToNSString(tFile)) into tNSImage
+      end if
+      -- LogNSObjectReflection(tNSImage)
+      --- end of boiler plate for getting the image data
+
+    split pParamsStrList by "\n" into tList
+    -- log tList
+    -- repeat loop goes here for multi-filter / multi-line list
+    put element 1 of tList into tListLine --- just doing the first line for now
+
+    split pParamsStrList by " " into tSublist
+    put the first element of tSublist into tFilterName
+    -- log ["FilerName=", tFilterName]
+    delete the first element of tSublist
+    put the number of elements in tSublist into tLineCount
+    -- log tLineCount
+
+    put ObjC_CIFiltersFilterWithName( StringToNSString ( tFilterName ) ) into tCIFilter
+    -- put ObjC_CIFiltersFilterWithName( StringToNSString ( tFilterNameStr ) ) into tCIFilter
+    if tCIFilter is not nothing then
+       put ObjC_CIFiltersInputKeys(tCIFilter) into tNSArray
+       put ListFromNSArray(tNSArray) into tFiltersKeysList
+       log [tFiltersKeysList]
+
+       --- NSImage to CIImage ----
+       put ObjC_NSImageRepresentations(tNSImage) into tImageReps
+       put ListFromNSArray(tImageReps) into tImageRepsList
+       put the last element of tImageRepsList into tImageRep
+       -- LogNSObjectReflection(tImageRep)
+       --if tImageRep is not nothing then
+       put ObjC_NSImageRepGetCGImageForRectContextHints( tImageRep, nothing, nothing, nothing) into tCGImageRef
+       -- log ["CGImage",tCGImageRef]
+       put ObjC_CIImageWithCGImage(tCGImageRef) into tCIImage
+      --- End NSImage to CIImage ----
+       ObjC_CIFilterSetValueForKey(tCIFilter, tCIImage, StringToNSString("inputImage")) -- set the inputImage to the CIImage
+
+       --- process the textual params list
+       repeat with tCnt from 1 up to tLineCount
+          split element tCnt of tSublist by "=" into tParamAndValue
+          put element 1 of tParamAndValue into tKey
+          if tKey is "inputRadius" or tKey is "radius" then
+             if tKey is "radius" then
+                put "inputRadius" into tKey
+             end if
+             parse element 2 of tParamAndValue as number into tValue
+          end if
+          if tKey is "inputAngle" or tKey is "angle" then
+             if tKey is "angle" then
+                put "inputAngle" into tKey
+             end if
+             parse element 2 of tParamAndValue as number into tValue
+          end if
+          if tKey is "inputAmount" or tKey is "amount" then
+             if tKey is "amount" then
+                put "inputAmount" into tKey
+             end if
+             parse element 2 of tParamAndValue as number into tValue
+          end if
+          if tKey is "inputIntensity" or tKey is "intensity" then
+             if tKey is "intensity" then
+                put "inputIntensity" into tKey
+             end if
+             parse element 2 of tParamAndValue as number into tValue
+          end if
+          if tKey is "inputAspectRatio" or tKey is "aspectRatio" then
+             if tKey is "aspectRatio" then
+                put "inputAspectRatio" into tKey
+             end if
+             parse element 2 of tParamAndValue as number into tValue
+          end if
+          if tKey is "inputScale" or tKey is "scale" then
+             if tKey is "scale" then
+               put "inputScale" into tKey
+             end if
+             parse element 2 of tParamAndValue as number into tValue
+          end if
+          if tKey is "inputWidth" or tKey is "width" then
+             if tKey is "width" then
+               put "inputWidth" into tKey
+             end if
+             parse element 2 of tParamAndValue as number into tValue
+          end if
+          if tKey is "inputCenter" or tKey is "center" then
+            if tKey is "center" then
+               put "inputCenter" into tKey
+               log tKey
+            end if
+            -- parse element 2 of tParamAndValue as number into tValue
+          end if
+
+          --- need to add to this params parsing loop
+
+          -- log ["Params and value", tKey, tValue]
+
+          if tKey is in tFiltersKeysList then
+             log ["key is valid for filter", tKey]
+            if tValue is nothing then
+               put 1 into tValue
+             end if
+             ObjC_CIFilterSetValueForKey(tCIFilter, NumberToNSNumber(tValue), StringToNSString(tKey))
+          end if
+        end repeat
+
+        LogNSObjectReflection(tCIFilter)
+        --- Apply Filter to CIImage getting the output image
+        put ObjC_CIFilterOutputImage(tCIFilter) into tCIImage
+        -- LogNSObjectReflection(tCIImage)
+
+       --- convert back to bitmap image data
+       put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+       put ObjC_NSBitmapImageRepInitWithCIImage(tBitmapImageRep, tCIImage) into tBitmapImageRep
+       put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj --- TIFF = 0 -- BMP = 1 -- GIF = 2 - JPEG = 3 -- PNG = 4 - JPEG2000 = 3
+       put DataFromNSData(tImageDataObj) into tImageData
+       return tImageData
+    end if
+   end unsafe
+end handler
+
+public handler ImageScriptObjToImageFormat( in pImageScriptObj as String, in pReturnFormat as optional String) returns Data
+      -- might be good to have another handler that writes bitmapped images directly to file instead of passing potentially very large image data back to the engine
+    variable tImage as optional ObjcObject
+    variable tCIImage as optional ObjcObject
+    variable tNSObj as optional ObjcObject
+    variable tCIFilter as optional ObjcObject
+    variable tFile as String
+    variable tData as optional Data
+    variable tStr as optional String
+    variable tStrPtr as optional Pointer
+    variable tArray as optional Array
+    variable tList as optional List
+    variable tUint32 as optional CUint
+    variable tImageDataObj as ObjcId
+    variable tImageData as Data
+    variable tImageReps as ObjcObject
+    variable tImageRepsList as List
+    variable tImageRep as ObjcId
+    variable tBitmapImageRep as ObjcObject
+    variable tCGImageRef as CGImageRef
+
+    variable tObject as optional ScriptObject
+     resolve script object pImageScriptObj
+     put the result into tObject
+    unsafe
+      if tObject exists then
+          put property "filename" of tObject into tFile
+          if tFile is the empty string then
+             put property "text" of tObject into tData
+             put ObjC_NSImageAlloc() into tImage
+             put ObjC_NSImageInitWithData(tImage, DataToNSData(tData)) into tImage
+          else
+             resolve file tFile relative to tObject
+             if the result is not nothing then
+                put the result into tFile
+             end if
+          end if
+      else
+          resolve file pImageScriptObj
+          if the result is not nothing then
+             put the result into tFile
+          end if
+      end if
+      if tFile is not empty then
+          put ObjC_NSImageAlloc() into tImage
+          put ObjC_NSImageInitWithContentsOfFile(tImage, StringToNSString(tFile)) into tImage
+      end if
+   if pReturnFormat is  "TIFF" or  pReturnFormat is  "tif" then
+         put ObjC_NSImageTIFFRepresentation(tImage) into tImageDataObj
+         put DataFromNSData(tImageDataObj) into tImageData
+         -- log tImageData
+   else
+      put ObjC_NSImageRepresentations(tImage) into tImageReps
+      put ListFromNSArray(tImageReps) into tImageRepsList
+      put the last element of tImageRepsList into tImageRep
+       LogNSObjectReflection(tImageRep)
+      --if tImageRep is not nothing then
+      put ObjC_NSImageRepGetCGImageForRectContextHints( tImageRep, nothing, nothing, nothing) into tCGImageRef
+      log ["CGImage",tCGImageRef]
+      put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+      put ObjC_NSBitmapImageRepInitWithCGImage(tBitmapImageRep, tCGImageRef) into tBitmapImageRep
+      -- TIFF = 0 -- BMP = 1 -- GIF = 2 - JPEG = 3 -- PNG = 4 - JPEG2000 = 3
+      if pReturnFormat is  "PNG" or  pReturnFormat is  "png" then
+            put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj
+      else if pReturnFormat is  "JPEG" or  pReturnFormat is  "jpg" then
+         put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 3, nothing) into tImageDataObj
+      else if pReturnFormat is  "GIF" or  pReturnFormat is  "gif" then
+         put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 2, nothing) into tImageDataObj
+      else if pReturnFormat is  "BMP"  then
+         put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 1, nothing) into tImageDataObj
+     end if
+      put DataFromNSData(tImageDataObj) into tImageData
+      -- log tImageData
+        -- get GetNSObjectClassName(tNSImage)
+        -- log the result
+     end if
+     end unsafe
+     return tImageData
+end handler
+
+public handler logMainDisplayInfo() -- returns optional any
+   variable tNSImage as optional ObjcObject
+   variable tNSObj as optional ObjcObject
+   variable tNSStrObj as optional ObjcId
+   variable tClass as optional ObjcObject
+   variable tData as optional Data
+
+   variable tStr as optional String
+   variable tStrPtr as optional Pointer
+   variable tArray as optional Array
+   variable tList as optional List
+   variable tUint32 as optional CUint
+   variable tNum as optional Number
+
+   unsafe
+    ---------------------- WindowServer Session Infomation ---------------------------
+    put c_CGSessionCopyCurrentDictionary() into tNSObj
+    put ArrayFromNSDictionary(tNSObj) into tArray
+    log tArray
+    -- CGGetActiveDisplayList
+    -- CGMainDisplayID Returns the display ID of the main display.
+    -- CGDirectDisplayID CGMainDisplayID()
+      put c_CGMainDisplayID() into tUint32
+      log ["Main Display ID", tUint32]
+      put c_CGDisplayScreenSize(tUint32) into tList -- The size of the specified display in millimeters, or 0 if the display is not valid.
+      -- log ["Main Display Size in Miliimeters",tList]
+      -- put (element 1 of tList) into tNum -- * 2.835 into tNum
+      -- log ["Main Display Size in Miliimeters",tNum]
+      -- put (element 2 of tList) into tNum -- * 2.835 into tNum
+      -- log ["Main Display Size in Points",tNum]
+      put c_CGDisplayPixelsHigh(tUint32) into tNum
+      log ["Main Display Pixels High",tNum]
+      put c_CGDisplayPixelsWide(tUint32) into tNum
+      log ["Main Display Pixels Wide",tNum]
+      -- 1cm = 96px / 2.54
+    ----------------------------------------------------------------------------------
+   end unsafe
+end handler
+
+private foreign handler objC_NSApplicationSharedApplication() returns ObjcId binds to "objc:NSApplication.+sharedApplication"
+public handler GetNSImageNamed(in pImageNameStr as String, in pReturnFormat as String) returns optional Data
+   variable tNSImage as optional ObjcObject
+   variable tNSObj as optional ObjcObject
+   variable tNSStrObj as optional ObjcId
+   variable tClass as optional ObjcObject
+   variable tData as optional Data
+
+   variable tStr as optional String
+   variable tStrPtr as optional Pointer
+   variable tArray as optional Array
+   variable tList as optional List
+   variable tUint32 as optional CUint
+   variable tNum as optional Number
+
+   variable tImageDataObj as ObjcId
+   variable tImageData as Data
+   variable tImageReps as ObjcObject
+   variable tImageRepsList as List
+   variable tImageRep as ObjcId
+   variable tBitmapImageRep as ObjcObject
+   variable tCGImageRef as CGImageRef
+
+   unsafe
+     ----------------------------------------------------------------------------------
+     put objC_NSApplicationSharedApplication() into tNSObj -- force AppKit to load, may not be needed?
+     -- put c_CGCaptureAllDisplays() into tNSObj -- returns a result code. To interpret the result code, see CGError. -- this is powerful juju
+      --put ObjC_NSImageAlloc() into tNSImage
+      -- put ObjC_NSImageInit(tNSImage) into tNSImage
+      log [pImageNameStr]
+      put StringToNSString(pImageNameStr) into tNSStrObj
+      -- put StringToNSString("NSApplicationIcon") into tNSStrObj
+      -- put StringToNSString("NSComputer") into tNSStrObj
+      put ObjC_NSImageNamed( tNSStrObj ) into tNSImage -- OOOD!
+      -- put ObjC_NSImageNamed( StringToNSString("NSApplicationIcon") ) into tNSImage -- OOOD!
+      -- put ObjC_NSImageInitWithName(tNSImage,StringToNSString(pImageNameStr)) into tNSImage
+      if tNSImage is not nothing then
+         LogNSObjectReflection(tNSImage)
+         if pReturnFormat is  "TIFF" or  pReturnFormat is  "tif" then
+               put ObjC_NSImageTIFFRepresentation(tNSImage) into tImageDataObj
+               put DataFromNSData(tImageDataObj) into tImageData
+               log tImageData
+               return tImageData
+         else
+            put ObjC_NSImageRepresentations(tNSImage) into tImageReps
+            put ListFromNSArray(tImageReps) into tImageRepsList
+            put the last element of tImageRepsList into tImageRep
+             LogNSObjectReflection(tImageRep)
+            --if tImageRep is not nothing then
+            put ObjC_NSImageRepGetCGImageForRectContextHints( tImageRep, nothing, nothing, nothing) into tCGImageRef
+            log ["CGImage",tCGImageRef]
+            put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+            put ObjC_NSBitmapImageRepInitWithCGImage(tBitmapImageRep, tCGImageRef) into tBitmapImageRep
+            -- TIFF = 0 -- BMP = 1 -- GIF = 2 - JPEG = 3 -- PNG = 4 - JPEG2000 = 3
+            if pReturnFormat is  "PNG" or  pReturnFormat is  "png" then
+                  put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj
+            else if pReturnFormat is  "JPEG" or  pReturnFormat is  "jpg" then
+               put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 3, nothing) into tImageDataObj
+            else if pReturnFormat is  "GIF" or  pReturnFormat is  "gif" then
+               put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 2, nothing) into tImageDataObj
+            else if pReturnFormat is  "BMP"  then
+               put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 1, nothing) into tImageDataObj
+            end if
+            put DataFromNSData(tImageDataObj) into tImageData
+            -- log tImageData
+            --  tImageData
+              -- get GetNSObjectClassName(tNSImage)
+              -- log the result
+         end if
+      end if
+  end unsafe
+   return tImageData
+end handler
+
+public handler GetNSImageSystemSymbolNamed(in pImageNameStr as String, in pPtSize as Number, in pWeight as Number, in pScale as Number, in pReturnFormat as String) returns optional any
+   -- (https://developer.apple.com/documentation/appkit/nsimage/3622472-init),
+   -- NSImage(systemSymbolName: "pencil", accessibilityDescription: nil)
+   -- NOTE: this method is only available in macOS 11.0 (Big Sur) and above so need to add OS version check here.
+
+   variable tNSImage as optional ObjcObject
+   variable tNSObj as optional ObjcObject
+   variable tNSStrObj as optional ObjcId
+   variable tClass as optional ObjcObject
+   variable tData as optional Data
+
+   variable tStr as optional String
+   variable tStrPtr as optional Pointer
+   variable tArray as optional Array
+   variable tList as optional List
+   variable tUint32 as optional CUint
+   variable tNum as optional Number
+
+   variable tImageDataObj as ObjcId
+   variable tImageData as Data
+   variable tImageReps as ObjcObject
+   variable tImageRepsList as List
+   variable tImageRep as ObjcId
+   variable tBitmapImageRep as ObjcObject
+   variable tCGImageRef as CGImageRef
+   variable tCGRect as optional CGRect
+
+   unsafe
+     ----------------------------------------------------------------------------------
+     put objC_NSApplicationSharedApplication() into tNSObj -- force AppKit to load, may not be needed?
+      log [pImageNameStr]
+      put StringToNSString(pImageNameStr) into tNSStrObj
+      -- put ObjC_NSImageWithSystemSymbolNameAccessibilityDescription(StringToNSString( pImageNameStr ),StringToNSString( pImageNameStr )) into tNSImage
+      put ObjC_NSImageWithSystemSymbolNameAndDescription(tNSStrObj, nothing) into tNSImage
+      -- log ["NSImage Obj",tNSImage]() mode
+      --  LogNSObjectReflection(tNSImage)
+      variable tSymbolConfig as ObjcId
+      -- put ObjC_NSImageSymbolConfigWithScale( 3 ) into tSymbolConfig
+      -- put ObjC_NSImageSymbolConfigWithPointSizeAndWeight( 48, 500 ) into tSymbolConfig
+      put ObjC_NSImageSymbolConfigWithPointSizeWeightAndScale( pPtSize , pWeight , pScale ) into tSymbolConfig
+
+      put ObjC_NSImageImageWithSymbolConfiguration(tNSImage, tSymbolConfig) into tNSImage
+
+      LogNSObjectReflection( tSymbolConfig )
+      -- return ""
+      if tNSImage is not nothing then
+         --   ObjC_NSImageResizingMode(tNSImage, 2) --  mode?
+         ObjC_NSImageResizingMode(tNSImage, 1) -- stretch mode
+
+         put ObjC_NSImageRepresentations(tNSImage) into tImageReps
+         put ListFromNSArray(tImageReps) into tImageRepsList
+         log tImageRepsList
+         -- put the first element of tImageRepsList into tImageRep
+         put the last element of tImageRepsList into tImageRep
+          LogNSObjectReflection(tImageRep)
+         --if tImageRep is not nothing then
+         -- put c_NSRectFromString(StringToNSString("0,0,128,128")) into tCGRect
+         -- log tCGRect
+         put ObjC_NSImageRepGetCGImageForRectContextHints( tNSImage, nothing, nothing, nothing) into tCGImageRef
+
+            --  LogNSObjectReflection(tImage)
+            -- put ObjC_NSImageInitWithName(tNSImage,StringToNSString(pImageNameStr)) into tNSImage
+            -- log ["NSImage Obj",tNSImage]
+
+         log ["CGImage",tCGImageRef]
+         put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+         put ObjC_NSBitmapImageRepInitWithCGImage(tBitmapImageRep, tCGImageRef) into tBitmapImageRep
+         -- TIFF = 0 -- BMP = 1 -- GIF = 2 - JPEG = 3 -- PNG = 4 - JPEG2000 = 3
+         if pReturnFormat is  "PNG" or  pReturnFormat is  "png" then
+               put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj
+         else if pReturnFormat is  "JPEG" or  pReturnFormat is  "jpg" then
+            put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 3, nothing) into tImageDataObj
+         else if pReturnFormat is  "GIF" or  pReturnFormat is  "gif" then
+            put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 2, nothing) into tImageDataObj
+         else if pReturnFormat is  "BMP"  then
+            put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 1, nothing) into tImageDataObj
+         end if
+         put DataFromNSData(tImageDataObj) into tImageData
+         -- log tImageData
+         -- return tImageData
+           -- get GetNSObjectClassName(tNSImage)
+      else
+         put "Symbol Not Found" into tImageData
+      end if
+  end unsafe
+  return tImageData
+   -- return --tNSImage
+end handler
+
+-- size = NSMakeSize(512, 512)
+--image.setSize_(size) -- setSize is only available in 10.10+
+--cgRef, rect = image.CGImageForProposedRectContextHints(NULL, None, None)
+--put NSBitmapImageRep.alloc() into tImageRep
+--put NSBitmapImageRepInitWithCGImage(tImageRep) into tImageRep
+--imageRep.setSize_(image.size())
+--PngData = imageRep.RepresentationUsingType_properties (NSPNGFileType, None)
+-- pngData.writeToFile_atomically_("computer.png", True)
+private handler NSImageToImageDataAsType(in pNSImage as ObjcId, in pImageType as optional Number) returns Data
+     variable tImageReps as ObjcObject
+     variable tImageRepsList as List
+     variable tImageRep as ObjcId
+     variable tBitmapImageRep as ObjcObject
+     variable tCGImageRef as CGImageRef
+     variable tImageDataObj as ObjcId
+     variable tImageData as Data
+
+     -- Default to PNG
+     if pImageType is nothing then
+        put 4 into pImageType
+     end if
+
+     unsafe
+      put ObjC_NSImageRepresentations(pNSImage) into tImageReps
+      put ListFromNSArray(tImageReps) into tImageRepsList
+      put element 1 of tImageRepsList into tImageRep
+      if tImageRep is not nothing then
+         put ObjC_NSImageRepGetCGImageForRectContextHints(tImageRep, nothing, nothing, nothing) into tCGImageRef
+         log ["Got CGImageRef", tCGImageRef]
+
+         put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+         --log tBitmapImageRep
+         put ObjC_NSBitmapImageRepInitWithCGImage(tBitmapImageRep, tCGImageRef) into tBitmapImageRep
+         -- TIFF = 0
+         -- BMP = 1
+         -- GIF = 2
+         -- JPEG = 3
+         -- PNG = 4
+         -- JPEG2000 = 5
+         put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj
+      end if
+     end unsafe
+  put DataFromNSData(tImageDataObj) into tImageData
+  return tImageData
+end handler
+
+public handler CoreImageMotionBlurImage( in pImageScriptObj as String, in pNumValue as optional Number, in pAngle as optional Number ) returns optional any -- ObjcObject
+    variable tNSImage as optional ObjcObject
+    variable tCIImage as optional ObjcObject
+    variable tCIFilter as optional ObjcObject
+    variable tData as optional Data
+    variable tList as optional List
+    variable tImageDataObj as ObjcId
+    variable tImageData as Data
+    variable tImageReps as ObjcObject
+    variable tImageRepsList as List
+    variable tImageRep as ObjcId
+    variable tBitmapImageRep as ObjcObject
+    variable tCGImageRef as CGImageRef
+    unsafe
+    --- boiler plate for getting the image data
+       variable tObject as optional ScriptObject
+       variable tFile as String
+       resolve script object pImageScriptObj
+       put the result into tObject
+      if tObject exists then
+          put property "filename" of tObject into tFile
+          if tFile is empty then
+             put property "text" of tObject into tData
+             put ObjC_NSImageAlloc() into tNSImage
+             put ObjC_NSImageInitWithData(tNSImage, DataToNSData(tData)) into tNSImage
+          else
+             resolve file tFile relative to tObject
+             if the result is not nothing then
+                put the result into tFile
+             end if
+          end if
+      else
+          resolve file pImageScriptObj
+          if the result is not nothing then
+             put the result into tFile
+          end if
+      end if
+      if tFile is not empty then
+          put ObjC_NSImageAlloc() into tNSImage
+          put ObjC_NSImageInitWithContentsOfFile(tNSImage, StringToNSString(tFile)) into tNSImage
+      end if
+      -- LogNSObjectReflection(tNSImage)
+      --- end of boiler plate for getting the image data
+
+      put ObjC_NSImageRepresentations(tNSImage) into tImageReps
+      put ListFromNSArray(tImageReps) into tImageRepsList
+      put the last element of tImageRepsList into tImageRep
+      LogNSObjectReflection(tImageRep)
+      --if tImageRep is not nothing then
+      put ObjC_NSImageRepGetCGImageForRectContextHints( tImageRep, nothing, nothing, nothing) into tCGImageRef
+      -- log ["CGImage",tCGImageRef]
+      put ObjC_CIImageWithCGImage(tCGImageRef) into tCIImage
+      put ObjC_CIFiltersFilterWithName( StringToNSString ( "CIMotionBlur" ) ) into tCIFilter
+      ObjC_CIFilterSetValueForKey(tCIFilter, tCIImage, StringToNSString("inputImage"))
+      if pNumValue is nothing then
+         put 1 into pNumValue
+      end if
+      ObjC_CIFilterSetValueForKey(tCIFilter, NumberToNSNumber(pNumValue), StringToNSString("inputRadius"))
+      if pAngle is nothing then
+         put 30 into pAngle
+      end if
+      ObjC_CIFilterSetValueForKey(tCIFilter, NumberToNSNumber(pNumValue), StringToNSString("inputAngle"))
+
+      LogNSObjectReflection(tCIFilter)
+      put ObjC_CIFilterOutputImage(tCIFilter) into tCIImage
+      --  LogNSObjectReflection(tCIImage)
+      put ObjC_NSBitmapImageRepAlloc() into tBitmapImageRep
+      put ObjC_NSBitmapImageRepInitWithCIImage(tBitmapImageRep, tCIImage) into tBitmapImageRep
+      put ObjC_NSBitmapImageRepRepresenatationUsingType(tBitmapImageRep, 4, nothing) into tImageDataObj --- TIFF = 0 -- BMP = 1 -- GIF = 2 - JPEG = 3 -- PNG = 4 - JPEG2000 = 3
+      put DataFromNSData(tImageDataObj) into tImageData
+      return tImageData
+   end unsafe
+end handler
+
+  private foreign handler c_NSClassFromString(in pClassNameString as ObjcId) returns ObjcId binds to "c:NSClassFromString"
+  private foreign handler c_class_copyPropertyList(in pClass as ObjcId, out pCount as UInt32) returns optional Pointer binds to "c:class_copyPropertyList"
+  private foreign handler c_class_getProperty(in pClass as ObjcId, in pPropNameNSStr as ObjcId) returns optional Pointer binds to "c:c_class_getProperty"
+  -- objc_property_t class_getProperty(Class cls, const char *name);
+
+  private foreign handler c_property_getName(in pClass as optional Pointer) returns optional Pointer binds to "c:property_getName"
+  -- const char * property_getName(objc_property_t property);
+  private foreign handler objC_NSObjectRetain(in pNSObj as ObjcId) returns ObjcId binds to "objc:NSObject.-retain"
+  private foreign handler objC_NSObjectAutoRealease(in pNSObj as ObjcId) returns ObjcId binds to "objc:NSObject.-autorelease"
+  private foreign handler objC_NSObjectRelease(in pNSObj as ObjcId) returns nothing binds to "objc:NSObject.-release"
+  private foreign handler objC_NSObjectDescription(in pNSObj as optional ObjcId) returns ObjcId binds to "objc:NSObject.description"
+  private foreign handler objC_NSObjectClassName(in pNSObj as ObjcId) returns ObjcId binds to "objc:NSObject.className"
+  private foreign handler objC_NSObjectGetSuperClass(in pNSObj as ObjcId) returns ObjcId binds to "objc:NSObject.superclass"
+  private foreign handler objC_NSObjectGetDescription(in pNSObj as ObjcId) returns ObjcId binds to "objc:NSObject.description"
+  private foreign handler objC_NSObjectClassDescription(in pNSObject as ObjcId) returns optional ObjcId binds to "objc:NSObject.-classDescription"
+  private foreign handler ObjC_NSObjectGetClassNamed( in pNSClassName as ObjcId) returns optional ObjcId binds to "objc:NSObject.-classNamed:"
+  private foreign handler ObjC_NSObjectGetAttributeKeys( in pNSObjct as ObjcId) returns optional ObjcId binds to "objc:NSObject.-attributeKeys"
+  private foreign handler objC_NSObjectAttributeKeys(in pNSObject as ObjcId) returns optional ObjcId binds to "objc:NSObject.attributeKeys"
+
+  public foreign handler objC_NSObjectsGetClassDescriptionForClass(in pClasss as ObjcId) returns optional ObjcRetainedId binds to "objc:NSClassDescription.+classDescriptionForClass:"
+
+  __safe foreign handler MCStringCreateWithCString(in pString as Pointer, out rString as String) returns CBool binds to "<builtin>"
+  __safe foreign handler MCArrayCreateWithCFArrayRef(in pCFArray as optional Pointer, in pUseList as CBool, out rList as List ) returns CBool binds to "<builtin>"
+  public foreign type ClassPropertiesList  binds to "MCAggregateTypeInfo:r"
+  __safe foreign handler PointerToPropsList(out rAggregate as ClassPropertiesList, in pPointer as Pointer, in pSize as UIntSize) returns nothing binds to "c:memcpy"
+  -- PointerToPropsList(PropsList,rOutArrayPtr,8)
+  private foreign handler c_CFArrayCreate(in pAllocatorRef as optional any,in pCArray as Pointer, in pCFIndex as UInt32, in pCFArrayCallback as optional any) returns optional ObjcId binds to "c:CFArrayCreate"
+  -- CFArrayRef CFArrayCreate(CFAllocatorRef allocator, const void **values, CFIndex numValues, const CFArrayCallBacks *callBacks);
+
+  public handler GetNSObjectClassName(in tNSObj as optional ObjcId) returns optional String
+     variable tOSStatus as CSInt
+     variable tNSStrObj as optional ObjcId
+     variable tStr as optional String
+     if tNSObj is not nothing then
+     unsafe
+        put objC_NSObjectClassName(tNSObj) into tNSStrObj
+        put StringFromNSString(tNSStrObj) into tStr
+        return tStr
+     end unsafe
+     else
+        return nothing
+     end if
+  end handler
+
+  public handler LogNSObjectReflection(in pNSObj as ObjcId)
+     variable tOSStatus as CSInt
+     variable tNSStrObj as optional ObjcId
+     variable tNSObjB as optional ObjcId
+     variable tStr as optional String
+     variable tClass as ObjcId
+     variable tPropsCount as optional UInt32
+     variable tClassDescription as optional ObjcId
+     variable tListNSObj as optional ObjcId
+     variable tListOpaquePtr as optional Pointer -- to an array of 'objc_property_t'
+     variable tListArray as optional Array
+     variable tList as optional List
+     variable tString as optional ZStringNative
+     variable tCStringPtr as optional Pointer
+     variable tSuccess as CBool
+     variable rOutArrayPtr as ClassPropertiesList
+
+     if pNSObj is not nothing then
+        unsafe
+           put objC_NSObjectClassName(pNSObj) into tNSStrObj
+           put StringFromNSString(tNSStrObj) into tStr
+           log ["Class Name" , tStr]
+           put c_NSClassFromString(tNSStrObj) into tClass
+
+           put objC_NSObjectGetSuperClass(pNSObj) into tNSObjB
+           put objC_NSObjectClassName(tNSObjB) into tNSStrObj
+           put StringFromNSString(tNSStrObj) into tStr
+           log ["SuperClass" , tStr]
+
+           put objC_NSObjectGetDescription(pNSObj) into tNSStrObj
+           put StringFromNSString(tNSStrObj) into tStr
+           log ["Description" , tStr]
+
+           -- GetNSObjectAttributeKeys(pNSObj)
+           put ObjC_NSObjectGetAttributeKeys(pNSObj) into tListNSObj
+           -- put ListFromNSArray(tNSObjB) into tList
+           -- log  ["AttributeKeys obj" , tListNSObj]
+           if tListNSObj is not nothing then
+              put StringFromNSString(tListNSObj) into tStr
+              log ["AttributeKeys" , tStr]
+           end if
+           put c_class_copyPropertyList(tClass,tPropsCount) into tListOpaquePtr
+           log ["Props List Count and Pointer", tPropsCount,tListOpaquePtr ]
+           --if tPropsCount is not 0 then
+              -- put PointerToObjcObject(tListOpaquePtr) into tListNSObj
+              --   put c_CFArrayCreate(nothing, tListOpaquePtr, tPropsCount, nothing) into tListNSObj
+              -- log tListNSObj
+              -- put ListFromNSArray(tListNSObj) into tList
+              -- log tList
+
+              -- put objC_NSObjectClassName(tListNSObj) into tNSStrObj
+              -- put StringFromNSString(tNSStrObj) into tStr
+              -- log ["Class Name" , tStr]
+              -- put MCArrayCreateWithCFArrayRef(tListOpaquePtr,true,tList) into tSuccess
+              -- log ["Props List", tList ]
+
+               -- LogNSObjectClassName(tListNSObj)
+               -- log "Has Props"
+              -- PointerToPropsList(rOutArrayPtr,tListOpaquePtr,8)
+              -- log ["Out Array", rOutArrayPtr]
+              -- put PointerToObjcObject(tListOpaquePtr) into tListNSObj
+              -- put ListFromNSArray(tListNSObj) into tList
+              -- log tList
+              -- put c_property_getName(tPropertyPtr) into tCStringPtr
+              -- log ["Name String Ptr", tCStringPtr]
+              -- put MCStringCreateWithCString(tCStringPtr,tString) into tSuccess
+              -- log [tSuccess,tString ]
+              -- put PointerToObjcObject(tListOpaquePtr) into tListNSObj
+              -- log tListNSObj
+              -- LogNSObjectClassName(tListNSObj)
+              -- log tString
+           -- end if
+
+           -- const char * property_getName(objc_property_t property);
+           -- unsigned int outCount, i;
+           -- objc_property_t *properties = class_copyPropertyList([TestClass class], &outCount);
+           --for (i = 0; i < outCount; i++) {
+           --    objc_property_t property = properties[i];
+           --    fprintf(stdout, "%s %s\n", property_getName(property), property_getAttributes(property)); }
+
+
+           -- put ListFromNSArray(tListOpaquePtr) into tList
+           -- log tList
+        --   put PointerToObjcObject(tListOpaquePtr) into tListNSObj
+        -- put ListFromNSArray[tListNSObj] into tList
+        --   log tList
+
+           --put objC_NSObjectsGetClassDescriptionForClass(tClass) into tClassDescription
+           -- log ["Class Description Obj", tClassDescription]
+           -- objC_lookUpClass(pClass)
+           -- LogNSObjectClassName(tClassDescription)
+           -- put objC_NSObjectGetAttributeKeys(tClassDescription) into tListNSObj
+           -- attributeKeys
+           -- Get the list of methodss
+           -- objc_sendMessage(tClass, "methods")
+           -- put ListFromNSArray(tListNSObj) into tList
+           -- log tList
+
+        end unsafe
+     else
+        log "No Object"
+     end if
+  end handler
+
+end library

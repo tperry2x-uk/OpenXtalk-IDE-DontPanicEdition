@@ -6,7 +6,7 @@
 * version 1.0.6
 *
 * This code is part of DevGuides extension created by FerrusLogic team to provide design guides to
-* help LiveCode developers in the process of designing graphic interfaces in an easy and modern way
+* help developers in the process of designing graphic interfaces in an easy and modern way
 */
 
 local  sMessageID,  sGridSystem, sThisCard, sControls, sLabels

@@ -1,0 +1,47 @@
+<package version="0.0">
+  <name>org.openxtalk.appleimagelib</name>
+  <title>OpenXtalk Apple Image Lib</title>
+  <author>Paul McClernan</author>
+  <version>0.0.2</version>
+  <license>community</license>
+  <type>library</type>
+  <requires name="com.livecode.objc"/>
+  <requires name="com.livecode.foreign"/>
+  <requires name="com.livecode.engine"/>
+  <requires name="com.livecode.string"/>
+  <requires name="com.livecode.array"/>
+  <requires name="com.livecode.list"/>
+  <requires name="com.livecode.binary"/>
+  <requires name="com.livecode.char"/>
+  <requires name="com.livecode.arithmetic"/>
+  <requires name="com.livecode.logic"/>
+  <requires name="com.livecode.type"/>
+  <requires name="com.livecode.byte"/>
+  <requires name="com.livecode.typeconvert"/>
+  <handler name="c_CGCaptureAllDisplays" parameters="" return="optional ObjcId"/>
+  <handler name="c_CGSessionCopyCurrentDictionary" parameters="" return="optional ObjcId"/>
+  <handler name="c_CGMainDisplayID" parameters="" return="optional CUInt"/>
+  <handler name="c_CGDisplayScreenSize" parameters="in optional CUInt" return="optional CGSize"/>
+  <handler name="c_CGDisplayPixelsHigh" parameters="in optional CUInt" return="optional CUint"/>
+  <handler name="c_CGDisplayPixelsWide" parameters="in optional CUInt" return="optional CUint"/>
+  <handler name="ObjC_NSDataAlloc" parameters="" return="ObjcRetainedId"/>
+  <handler name="getNSImageNames" parameters="" return="any"/>
+  <handler name="getCoreImageFiltersNames" parameters="" return="string"/>
+  <handler name="getIconForContentType" parameters="in string,in optional string" return="optional any"/>
+  <handler name="getIconForFile" parameters="in string" return="optional any"/>
+  <handler name="setIconForFile" parameters="in string,in string" return="boolean"/>
+  <handler name="CoreImageFilterNoParam" parameters="in string,in string" return="optional any"/>
+  <handler name="CoreImageFilterParamsList" parameters="in string" return="string"/>
+  <handler name="CoreImageGenerateTextImage" parameters="in string,in string,in number,in number,in number" return="optional any"/>
+  <handler name="CoreImageGenoratorWithParam" parameters="in string,in string,in optional number" return="optional any"/>
+  <handler name="CoreImageFilterWithParam" parameters="in string,in string,in string,in optional number" return="optional any"/>
+  <handler name="CoreImageFilterWithParamsList" parameters="in string,in string" return="optional any"/>
+  <handler name="ImageScriptObjToImageFormat" parameters="in string,in optional string" return="data"/>
+  <handler name="logMainDisplayInfo" parameters="" return="any"/>
+  <handler name="GetNSImageNamed" parameters="in string,in string" return="optional data"/>
+  <handler name="GetNSImageSystemSymbolNamed" parameters="in string,in number,in number,in number,in string" return="optional any"/>
+  <handler name="CoreImageMotionBlurImage" parameters="in string,in optional number,in optional number" return="optional any"/>
+  <handler name="objC_NSObjectsGetClassDescriptionForClass" parameters="in ObjcId" return="optional ObjcRetainedId"/>
+  <handler name="GetNSObjectClassName" parameters="in optional ObjcId" return="optional string"/>
+  <handler name="LogNSObjectReflection" parameters="in ObjcId" return="any"/>
+</package>

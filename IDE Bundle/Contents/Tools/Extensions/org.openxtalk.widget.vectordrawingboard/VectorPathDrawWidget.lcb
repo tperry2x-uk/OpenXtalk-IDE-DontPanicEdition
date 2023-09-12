@@ -1,0 +1,383 @@
+/*
+4-20-2023 Paul McClernan
+
+This file is part of OpenXTalk OpenXTalk.org
+
+OpenXTalk is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License v3 as published by the Free
+Software Foundation.
+
+OpenXTalk derived from LiveCode Community Edition which, as of v.9.6.3 / Sept. 1st 2021,
+is no longer supported by LiveCode Ltd.
+
+OpenXTalk is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License
+along with OpenXTalk.  If not see <http://www.gnu.org/licenses/>.  */
+
+/**
+A widget that allows for basic vector path drawing
+
+Name: mouseUp
+
+Summary: Sent when the tile is clicked
+
+Syntax: mouseUp
+
+Type: message
+
+Name: mouseEnter
+
+Summary: Sent when the mouse enters the tile
+
+Syntax: mouseEnter
+
+Type: message
+
+Name: mouseLeave
+
+Summary: Sent when the mouse leaves the tile
+
+Syntax: mouseLeave
+
+Type: messages
+
+Name: foregroundColor
+
+Type: property
+
+Name: borderColor
+
+Type: property
+*/
+
+widget org.openxtalk.widget.vectordrawingboard
+
+-- dependancy declarations
+use com.livecode.canvas
+use com.livecode.string
+use com.livecode.char
+use com.livecode.widget
+use com.livecode.engine
+use com.livecode.library.widgetutils
+
+-- adding metadata to ensure the extension displays correctly in the IDE
+metadata title is "VectorDrawWidget"
+metadata author is "Paul McClernan for OpenXtalk IDE"
+metadata version is "0.1"
+metadata preferredSize is "600,400"
+metadata svgicon is "M17.8,8.3L20.9,9l0,0l-2.3,0.4l-2,2.7L13.4,12l-3.1-3.2L8.7,8L6.6,8.1l-3.3,2.3l0.7-2.4l2.7-1.6L9,6.3l2.4,1l2.1,2.6 l2.2,0.7L17.8,8.3z M23.8,13.6H1.4V2.9h22.4v1.2L25.1,3V1.5H0.2V15h24.9V8.3l-1.2,1.1V13.6z M30.9,0.4c-0.1-0.1-0.3-0.2-0.4-0.2 c-0.1,0-0.2,0-0.3,0.1L29,1.2l1.8,2.2l1.1-0.8C32.2,2.3,32.2,2,32,1.8L30.9,0.4z M22,6.5l-0.8,2.1l2.6-0.4l6.4-4.4l-1.8-2.2L22,6.5z"
+
+/**
+Syntax:
+set the lineSize of <widget> to <pLineWidth>
+get the lineSize of <widget>
+
+Summary: Set or get the line thisckness for drawing strokes.
+
+Description:
+Use the <lineSize> property to set or get the line thisckness for drawing strokes.
+*/
+private variable mLineSize as Real
+property "lineSize" get mLineSize set setLineSize
+metadata lineSize.editor is "com.livecode.pi.number"
+metadata lineSize.default is "2"
+metadata lineSize.label is "line thickness"
+
+public handler setLineSize(in pLineSize as Number) returns nothing
+	put pLineSize into mLineSize
+	redraw all
+end handler
+
+/**
+Syntax:
+set the foregroundColor of <widget> to <pColor>
+get the foregroundColor of <widget>
+
+Summary: Determines the color of the icon when not highlighted.
+
+Description:
+Use the <foregroundColor> property to set the color of the SVG paths.
+*/
+metadata foregroundColor.editor is "com.livecode.pi.color"
+metadata foregroundColor.default is "180,100,120"
+metadata foregroundColor.section is "Colors"
+metadata foregroundColor.label is "line color"
+
+
+/**
+Syntax:
+set the backingFillColor of <widget> to <pColor>
+get the backingFillColor of <widget>
+
+Summary: Determines the color of the bounding box of the widget.
+
+Description:
+Use the <backingFillColor> property to set the color of the bounding box of the widget.
+*/
+private variable mBackingFillColor as optional Color
+property backingFillColor   get getBackingFillColor  set setBackingFillColor
+property chalkboardColor   get getBackingFillColor  set setBackingFillColor --- this line is an example of creating a Synonym property name.
+metadata blackKeysColor.user_visible is "false"
+metadata backingFillColor.editor is "com.livecode.pi.colorwithalpha"
+metadata backingFillColor.section is "Colors"
+metadata backingFillColor.label is "backing fill color"
+metadata backingFillColor.default is "0,0,0,128"
+public handler setBackingFillColor(in pColor as String) returns nothing
+   put stringToColor(pColor) into mBackingFillColor
+   redraw all
+end handler
+public handler getBackingFillColor() returns String
+   return colorToString(mBackingFillColor, true)
+end handler
+
+
+/**
+Syntax:
+set the backgroundColor of <widget> to <pColor>
+get the backgroundColor of <widget>
+
+Summary: Determines the color of the background of the widget.
+
+Description:
+Use the <backgroundColor> property to set the color of the SVG paths.
+*/
+metadata borderColor.editor is "com.livecode.pi.color"
+metadata borderColor.default is "32,32,32"
+metadata borderColor.section is "Colors"
+metadata borderColor.label is "border color"
+
+
+/**
+Syntax:
+set the opaque of <widget> to {true|false}
+get the opaque of <widget>
+
+Summary: `true` if the SVG path is filled; `false` otherwise
+
+Description:
+Use the `opaque` property to test or control whether the SVG path is
+displayed as filled or not.
+*/
+private variable mIsOpague as Boolean
+property "opaque" get mIsOpague set setIsOpaque
+metadata opaque.default is "true"
+metadata opaque.label is "opaque"
+
+public handler setIsOpaque(in pBoolean as Boolean)
+	put pBoolean into mIsOpague
+	redraw all
+end handler
+
+private variable mPrevPoint as Point
+private variable mBeginPoint as Point
+public variable mCurrentPath as String
+public variable mCurrentPathPointsList as List
+
+public variable mPathsList as List
+property "SVGPaths" get getSVGPaths set setSVGPaths
+metadata SVGPaths.default is ""
+metadata SVGPaths.label is "SVGPaths"
+metadata SVGPaths.editor is "com.livecode.pi.string"
+
+public handler getSVGPaths() returns String
+   variable tPath
+   variable tStringListFomatted as String
+   variable tPoint
+   variable tPosition as Point
+   put "" into tStringListFomatted
+   repeat for each element tPath in mPathsList
+      put tPath &"\n" after  tStringListFomatted
+   end repeat
+	return tStringListFomatted
+end handler
+
+public handler setSVGPaths(in pPaths as String)
+   variable tList as List
+   split pPaths by "\n" into tList
+   put tList into mPathsList
+	redraw all
+end handler
+----------------------------------------------- Properties saving and loading -----------------------------------
+public handler OnStopEditing()
+   OnGeometryChanged()
+   redraw all
+end handler
+-- this handler is called when the widget is saved
+public handler OnSave(out rProperties as Array)
+   put getSVGPaths() into rProperties["SVGPaths"]
+   put mIsOpague into rProperties["opaque"]
+   put mLineSize into rProperties["lineSize"]
+   put colorToString(mBackingFillColor, true) into rProperties["backingFillColor"]
+end handler
+-- this handler is called when the widget is loaded
+public handler OnLoad(in pProperties as Array)
+   --log pProperties --> logging this doesn't seem to work!
+   setSVGPaths( pProperties["SVGPaths"])
+   setIsOpaque( pProperties["opaque"])
+   setLineSize( pProperties["lineSize"])
+   put stringToColor(pProperties["backingFillColor"]) into mBackingFillColor
+   OnGeometryChanged()
+   redraw all
+end handler
+-----------------------------------------------------------------------------------------------  Mouse Handlers --------------------------------------------------------------------------------------
+private variable mMouseButtonDown as Boolean
+
+public handler OnMouseUp()
+   post "mouseUp" with [the click button] --  to my script object with [the click button]
+   variable tPosition as Point
+   put the mouse position into tPosition
+   push tPosition onto mCurrentPathPointsList
+   put false into mMouseButtonDown
+   put "M" into mCurrentPath
+   repeat for each element tPosition in mCurrentPathPointsList
+     put the x of tPosition formatted as string &","& the y of tPosition formatted as string after mCurrentPath
+     put " L" after mCurrentPath
+   end repeat
+    delete the last char of mCurrentPath
+    -- log [mCurrentPath]
+    -- stroke path mCurrentPath on this canvas
+    push mCurrentPath onto mPathsList
+    put the empty list into mCurrentPathPointsList
+   redraw all
+end handler
+
+public handler OnMouseDown()
+   -- variable tPosition as Point
+   put true into mMouseButtonDown
+   post "mouseDown" with [the click button] --- to my script object with [the click button]
+   put the empty list into mCurrentPathPointsList
+   variable tPosition as Point
+   put the mouse position into tPosition
+   push tPosition onto mCurrentPathPointsList
+   -- push [the x of tPosition, the y of tPosition] onto mCurrentPathPointsList
+   -- put "M " & [the x of tPosition, the y of tPosition] into mCurrentPath
+   redraw all
+end handler
+
+public handler OnMouseMove()
+   variable tPosition as Point
+   put the mouse position into tPosition
+   post "mouseMove" with [the x of tPosition, the y of tPosition]
+   if mMouseButtonDown then
+      push tPosition onto mCurrentPathPointsList
+      redraw all
+   end if
+end handler
+
+public handler OnMouseCancel()
+   OnMouseUp()
+end handler
+--public handler OnMouseCancelHover()
+--end handler
+
+public handler OnMouseEnter()
+   execute script "set the cursor to 11; lock cursor" -- pencil in 'revCursor' stack
+end handler
+
+public handler OnMouseLeave()
+   execute script "set the cursor to arrow; unlock cursor"
+end handler
+
+----------------------------------------------------------------------------  Creating & Drawing --------------------------------------------------------------------------------------
+--- called when widget is created
+public handler OnCreate()
+   put the empty list into mCurrentPathPointsList
+   put the empty list into mPathsList
+   put the empty string into mCurrentPath
+   put 2 into mLineSize
+end handler
+
+public handler OnGeometryChanged()
+    redraw all
+end handler
+--------------------------------------------------------------------------------------------------------------
+-- called whenever LiveCode needs to redraw the widget
+public handler OnPaint()
+   -- set the paint of this canvas to my background paint
+   variable tPath
+   variable tBounds
+   variable tPoint
+   variable tPosition as Point
+   --------------------------------- Frame Widget Bounds ---------------------------------
+	set the cap style of this canvas to "round"
+   put my bounds into tBounds
+   -- log [tBounds]
+   -- put rectangle path of rectangle [10,10,210,60] into tPath
+   put rectangle path of tBounds into tPath
+   if mIsOpague then
+	 set the paint of this canvas to solid paint with mBackingFillColor
+	 fill tPath on this canvas
+   end if
+
+   set the paint of this canvas to my border paint
+   set the stroke width of this canvas to 3
+   stroke tPath on this canvas
+   --------------------------------- Draw current path & paths List ---------------------------------
+   set the paint of this canvas to my foreground paint
+   set the stroke width of this canvas to mLineSize
+   repeat for each element tPath in mPathsList
+      if tPath is not the empty string and char 1 of tPath is "M" then
+         stroke path tPath on this canvas
+      end if
+   end repeat
+   if mCurrentPathPointsList is not the empty list then
+      -- log [mCurrentPath]
+      put "M" into mCurrentPath
+      repeat for each element tPosition in mCurrentPathPointsList
+         put the x of tPosition formatted as string &","& the y of tPosition formatted as string after mCurrentPath
+         -- log the x of tPoint &"," & the y of tPoint after tPath
+         -- put the x of tPoint &"," & the y of tPoint after tPath
+         put " L" after mCurrentPath
+      end repeat
+      delete the last char of mCurrentPath
+      set the paint of this canvas to my border paint
+      set the stroke width of this canvas to 2
+      stroke path mCurrentPath on this canvas
+      -- log [mCurrentPath]
+   end if
+
+end handler
+
+-- this handler is called when a card containg the widget is opened
+public handler OnOpen()
+   OnGeometryChanged()
+   redraw all
+end handler
+
+--- Monte's point-within-path handler:
+public handler hitTestPath(in pPoint as Point, in pPath as Path, in pStrokeWidth as Number, in pWithin as Boolean) returns Boolean
+	-- set pWithin true and pStrokeWidth to 0 if you want to hit-test the filled path
+	-- set pWithin false and pStrokeWidth != 0 if you want hit-test the stroked path (i.e. just the outline)
+	-- set pWithin true and pStrokeWidth != 0 if you want to hit-test the stroked and filled path.
+	------------------------------------------------------------------------------------------------------------------------------
+	-- create a 1 x 1 canvas
+	variable tCanvas as Canvas
+	put a new canvas with size [1,1] into tCanvas
+	-- ensure we either get pixels drawn with our color or not drawn
+	set the antialias of tCanvas to false
+	-- translate the path by the point
+	translate pPath by [-(the x of pPoint), -(the y of pPoint)]
+	-- draw the path to the canvas
+	set the paint of tCanvas to solid paint with color [0.0, 0.0, 0.0, 1.0]
+	if pStrokeWidth is 0 and not pWithin then
+		put 1 into pStrokeWidth
+	end if
+	if pWithin then
+		fill pPath on tCanvas
+	end if
+	if pStrokeWidth > 0 then
+		set the stroke width of tCanvas to pStrokeWidth
+		stroke pPath on tCanvas
+	end if
+	-- get the pixel data of the canvas
+	variable tData as Data
+	put the pixel data of tCanvas into tData
+	-- return whether pixel is opaque
+	return the first byte of tData is the byte with code 255
+end handler
+-------------------
+end widget

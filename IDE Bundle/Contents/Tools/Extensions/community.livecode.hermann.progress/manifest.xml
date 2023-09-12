@@ -1,0 +1,123 @@
+<package version="0.0">
+  <name>community.livecode.hermann.progress</name>
+  <title>hhProgress</title>
+  <author>Hermann Hoch</author>
+  <version>1.3.0</version>
+  <license>community</license>
+  <type>widget</type>
+  <requires name="com.livecode.engine"/>
+  <requires name="com.livecode.canvas"/>
+  <requires name="com.livecode.math"/>
+  <requires name="com.livecode.widget"/>
+  <requires name="com.livecode.arithmetic"/>
+  <requires name="com.livecode.binary"/>
+  <requires name="com.livecode.list"/>
+  <requires name="com.livecode.logic"/>
+  <requires name="com.livecode.string"/>
+  <requires name="com.livecode.type"/>
+  <requires name="com.livecode.mathfoundation"/>
+  <requires name="com.livecode.date"/>
+  <requires name="com.livecode.char"/>
+  <requires name="com.livecode.array"/>
+  <requires name="com.livecode.typeconvert"/>
+  <metadata key="preferredSize">128,22</metadata>
+  <metadata key="svgicon">M0 63.5 C 0 127,0 127,140 127 C 280 127,280 127,280 63.5 C 280 0,280 0,140 0 C 0 0,0 0,0 63.5 M128.438 30.9 C 128.744 31.394,128.701 37.244,128.343 43.9 C 127.693 56,127.693 56,121.486 56 C 115.279 56,115.279 56,114.648 50.750 C 114.301 47.862,114.013 42.013,114.009 37.750 C 114 30,114 30,120.941 30 C 124.759 30,128.132 30.405,128.438 30.9 M50.347 36.364 C 63.873 40.546,70.164 51.350,66.418 63.966 C 63.687 73.161,54.638 78.834,40 80.528 C 34.5 81.165,34.5 81.165,34.5 89.332 C 34.5 97.5,34.5 97.5,26.250 97.790 C 18 98.081,18 98.081,18 65.892 C 18 33.703,18 33.703,31.750 34.284 C 39.430 34.609,47.640 35.527,50.347 36.364 M34 58.373 C 34 70,34 70,37.032 70 C 41.237 70,46.426 67.658,48.369 64.883 C 51.034 61.078,50.487 54.577,47.191 50.887 C 44.906 48.331,43.411 47.650,39.191 47.244 C 34 46.746,34 46.746,34 58.373 M110.595 53.750 C 111.502 56.913,112.392 59.758,112.572 60.073 C 112.752 60.388,108.085 62.509,102.2 64.787 C 91.5 68.927,91.5 68.927,91.801 83.464 C 92.103 98,92.103 98,84.051 98 C 76 98,76 98,76 73.5 C 76 49,76 49,83.5 49 C 91 49,91 49,91 52 C 91 53.650,91.188 55,91.419 55 C 91.649 55,95.124 53.425,99.140 51.5 C 103.157 49.575,107.006 48,107.694 48 C 108.382 48,109.687 50.587,110.595 53.750 M166.905 48.973 C 175.704 51.496,182 59.932,182 69.196 C 182 74,182 74,166 74 C 148.512 74,148.489 74.009,151.960 79.701 C 154.962 84.626,159.192 86.316,169.750 86.808 C 179 87.239,179 87.239,179 90.554 C 179 92.378,178.561 95.024,178.025 96.435 C 177.119 98.816,176.595 99,170.708 99 C 147.866 99,134.685 89.478,134.719 73.002 C 134.744 60.891,140.905 52.307,151.994 48.934 C 155.626 47.829,162.984 47.848,166.905 48.973 M223.358 52.750 C 224.536 59.879,224.710 59.691,216.432 60.223 C 207.868 60.772,204.605 62.614,207.026 65.531 C 207.771 66.429,210.935 68.453,214.057 70.029 C 224.626 75.364,227.747 82.581,222.737 90.102 C 218.806 96.003,209.627 99,195.480 99 C 187.399 99,187.042 98.653,187.014 90.750 C 187 87,187 87,194.435 87 C 208.913 87,211.145 83.426,200.243 77.697 C 190.794 72.731,188.5 70.051,188.5 63.975 C 188.5 59.775,188.976 58.620,191.983 55.518 C 196.486 50.872,202.241 49.157,213.619 49.070 C 222.738 49,222.738 49,223.358 52.750 M265.358 52.750 C 266.536 59.879,266.710 59.691,258.432 60.223 C 249.868 60.772,246.605 62.614,249.026 65.531 C 249.771 66.429,252.935 68.453,256.057 70.029 C 266.626 75.364,269.747 82.581,264.737 90.102 C 260.806 96.003,251.627 99,237.480 99 C 229.399 99,229.042 98.653,229.014 90.750 C 229 87,229 87,236.435 87 C 250.913 87,253.145 83.426,242.243 77.697 C 232.794 72.731,230.5 70.051,230.5 63.975 C 230.5 59.775,230.976 58.620,233.983 55.518 C 238.486 50.872,244.241 49.157,255.619 49.070 C 264.738 49,264.738 49,265.358 52.750 M154.217 59.561 C 152.991 60.419,151.305 62.444,150.469 64.061 C 148.949 67,148.949 67,158.422 67 C 167.896 67,167.896 67,166.845 63.984 C 164.905 58.419,158.866 56.304,154.217 59.561Z</metadata>
+  <handler name="OnCreate" parameters="" return="any"/>
+  <handler name="OnOpen" parameters="" return="any"/>
+  <handler name="OnClose" parameters="" return="any"/>
+  <handler name="OnPaint" parameters="" return="any"/>
+  <handler name="OnTimer" parameters="" return="any"/>
+  <handler name="OnMouseDown" parameters="" return="any"/>
+  <handler name="OnMouseUp" parameters="" return="any"/>
+  <handler name="OnMouseEnter" parameters="" return="any"/>
+  <handler name="OnMouseLeave" parameters="" return="any"/>
+  <handler name="OnMouseRelease" parameters="" return="any"/>
+  <handler name="OnGeometryChanged" parameters="" return="any"/>
+  <handler name="OnLoad" parameters="in array" return="any"/>
+  <handler name="OnSave" parameters="out array" return="any"/>
+  <property name="widgetVersion" get="string"/>
+  <property name="mode" get="string" set="string"/>
+  <metadata key="mode.editor">com.livecode.pi.enum</metadata>
+  <metadata key="mode.options">Ellipse,Rectangle</metadata>
+  <property name="mode2" get="string" set="string"/>
+  <metadata key="mode2.editor">com.livecode.pi.enum</metadata>
+  <metadata key="mode2.options">Ellipse,Rectangle</metadata>
+  <metadata key="mode2.section">Colors</metadata>
+  <property name="percentage" get="number" set="number"/>
+  <metadata key="percentage.editor">com.livecode.pi.number</metadata>
+  <metadata key="percentage.min">0</metadata>
+  <metadata key="percentage.max">100</metadata>
+  <metadata key="percentage.step">1</metadata>
+  <property name="allowContextMenu" get="boolean" set="boolean"/>
+  <property name="allowGrab" get="boolean" set="boolean"/>
+  <property name="ellipseShowInner" get="boolean" set="boolean"/>
+  <property name="ellipseInnerPercent" get="number" set="number"/>
+  <metadata key="ellipseInnerPercent.editor">com.livecode.pi.number</metadata>
+  <metadata key="ellipseInnerPercent.min">0</metadata>
+  <metadata key="ellipseInnerPercent.max">100</metadata>
+  <metadata key="ellipseInnerPercent.step">1</metadata>
+  <property name="strokeEllipseProgress" get="boolean" set="boolean"/>
+  <metadata key="strokeEllipseProgress.section">Basic</metadata>
+  <property name="strokeEllipseProgress2" get="boolean" set="boolean"/>
+  <metadata key="strokeEllipseProgress2.section">Colors</metadata>
+  <property name="showDemo" get="boolean" set="boolean"/>
+  <property name="demoMode" get="string" set="string"/>
+  <metadata key="demoMode.editor">com.livecode.pi.enum</metadata>
+  <metadata key="demoMode.options">FastDemo,Seconds,Minutes,Hours12,Hours24</metadata>
+  <property name="UTCHoursOffset" get="number" set="number"/>
+  <metadata key="UTCHoursOffset.editor">com.livecode.pi.number</metadata>
+  <metadata key="UTCHoursOffset.min">-12.0</metadata>
+  <metadata key="UTCHoursOffset.max">12.0</metadata>
+  <metadata key="UTCHoursOffset.step">0.25</metadata>
+  <metadata key="UTCHoursOffset.default">2.0</metadata>
+  <property name="localUTCOffset" get="number"/>
+  <property name="fillRule" get="string" set="string"/>
+  <metadata key="fillRule.editor">com.livecode.pi.enum</metadata>
+  <metadata key="fillRule.options">even odd,non-zero</metadata>
+  <metadata key="filenameFill.section">Colors</metadata>
+  <metadata key="fillRule.user_visible">false</metadata>
+  <property name="fillFace" get="boolean" set="boolean"/>
+  <metadata key="fillFace.section">Colors</metadata>
+  <property name="faceColor" get="string" set="string"/>
+  <metadata key="faceColor.editor">com.livecode.pi.colorwithalpha</metadata>
+  <metadata key="faceColor.section">Colors</metadata>
+  <property name="fillColor" get="string" set="string"/>
+  <metadata key="fillColor.editor">com.livecode.pi.colorwithalpha</metadata>
+  <metadata key="fillColor.section">Colors</metadata>
+  <property name="strokeColor" get="string" set="string"/>
+  <metadata key="strokeColor.editor">com.livecode.pi.colorwithalpha</metadata>
+  <metadata key="strokeColor.section">Colors</metadata>
+  <property name="progressTextColor" get="string" set="string"/>
+  <metadata key="progressTextColor.editor">com.livecode.pi.colorwithalpha</metadata>
+  <metadata key="progressTextColor.section">Colors</metadata>
+  <property name="insetRect" get="number" set="number"/>
+  <metadata key="insetRect.editor">com.livecode.pi.number</metadata>
+  <metadata key="insetRect.min">1</metadata>
+  <metadata key="insetRect.max">32</metadata>
+  <metadata key="insetRect.step">1</metadata>
+  <metadata key="insetRect.section">Colors</metadata>
+  <property name="roundRectRadius" get="number" set="number"/>
+  <metadata key="roundRectRadius.editor">com.livecode.pi.number</metadata>
+  <metadata key="roundRectRadius.section">Colors</metadata>
+  <metadata key="roundRectRadius.min">0</metadata>
+  <metadata key="roundRectRadius.max">32</metadata>
+  <metadata key="roundRectRadius.step">1</metadata>
+  <property name="autoStrokeWidthRect" get="boolean" set="boolean"/>
+  <metadata key="autoStrokeWidthRect.section">Colors</metadata>
+  <property name="strokeWidthRect" get="number" set="number"/>
+  <metadata key="strokeWidthRect.editor">com.livecode.pi.number</metadata>
+  <metadata key="strokeWidthRect.section">Colors</metadata>
+  <metadata key="strokeWidthRect.min">1</metadata>
+  <metadata key="strokeWidthRect.max">256</metadata>
+  <metadata key="strokeWidthRect.step">1</metadata>
+  <property name="strokeWidthCirc" get="number" set="number"/>
+  <metadata key="strokeWidthCirc.editor">com.livecode.pi.number</metadata>
+  <metadata key="strokeWidthCirc.section">Colors</metadata>
+  <metadata key="strokeWidthCirc.min">0</metadata>
+  <metadata key="strokeWidthCirc.max">256</metadata>
+  <metadata key="strokeWidthCirc.step">1</metadata>
+  <property name="showProgressText" get="boolean" set="boolean"/>
+  <metadata key="showProgressText.section">Text</metadata>
+  <property name="textDrawsDifferent" get="boolean" set="boolean"/>
+  <metadata key="textDrawsDifferent.section">Text</metadata>
+</package>

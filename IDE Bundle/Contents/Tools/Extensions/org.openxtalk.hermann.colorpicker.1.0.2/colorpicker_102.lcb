@@ -1,0 +1,541 @@
+/**
+Color picker v1.0.1 [-hh fecit, Oct 2018]
+This widget displays a modeless color dialog for selecting a RGBA color.
+These are four 0-255 integer items R,G,B,A where A may be used in LCS as blendLevel.
+You may use the widget as popup (using "it") or as 'ordinary' widget (using "colorChosen")
+See the "typical scripts" of the widget in contents section of the property inspector.
+Click  _and hold down_  the mouse while moving for picking a color of any screen pixel.
+If not popped up grab the widget by its border.
+**/
+widget org.openxtalk.hermann.colorpicker
+
+use com.livecode.canvas
+use com.livecode.widget
+use com.livecode.engine
+use com.livecode.library.widgetutils
+
+constant kWidgetVersion is "hhColorPicker_v102 [fat widget]"
+metadata version 			is "1.0.2" -- final date Oct 01, 2018
+metadata title 			is "hhColor"
+metadata author 			is "Hermann Hoch"
+metadata preferredSize 	is "230,115"
+metadata svgicon is "M0 63.500 C 0 127,0 127,130 127 C 260 127,260 127,260 63.500 C 260 0,260 0,130 0 C 0 0,0 0,0 63.500 M145 63 C 145 98,145 98,137.500 98 C 130 98,130 98,130 63 C 130 28,130 28,137.500 28 C 145 28,145 28,145 63 M63.327 34.750 C 63.572 35.163,64.085 38.247,64.467 41.604 C 65.162 47.707,65.162 47.707,58.331 48.375 C 47.733 49.410,41.224 51.819,36.313 56.524 C 32.202 60.464,32 60.928,32 66.446 C 32 71.806,32.278 72.512,35.750 75.964 C 40.441 80.629,48.491 83.689,58.442 84.591 C 66.080 85.283,66.080 85.283,65.485 89.892 C 64.166 100.121,65.093 99.362,54.695 98.715 C 34.026 97.427,19.607 88.679,15.034 74.651 C 13.377 69.568,14.125 59.510,16.533 54.500 C 20.606 46.024,31.302 38.576,43.721 35.567 C 49.961 34.055,62.602 33.528,63.327 34.750 M106.595 50.783 C 111.320 53.205,116.639 58.893,118.625 63.645 C 119.381 65.455,120 70.020,120 73.789 C 120 90.976,105.955 102.471,89.086 99.091 C 80.271 97.325,75.103 93.540,71.161 85.965 C 68.053 79.992,67.831 78.956,68.241 72.356 C 68.938 61.158,74.521 53.358,84.591 49.513 C 90.073 47.419,101.296 48.067,106.595 50.783 M192.595 50.783 C 197.320 53.205,202.639 58.893,204.625 63.645 C 205.381 65.455,206 70.020,206 73.789 C 206 90.976,191.955 102.471,175.086 99.091 C 166.271 97.325,161.103 93.540,157.161 85.965 C 154.053 79.992,153.831 78.956,154.241 72.356 C 154.938 61.158,160.521 53.358,170.591 49.513 C 176.073 47.419,187.296 48.067,192.595 50.783 M249.595 53.750 C 250.502 56.913,251.392 59.758,251.572 60.073 C 251.752 60.388,247.085 62.509,241.200 64.787 C 230.500 68.927,230.500 68.927,230.801 83.464 C 231.103 98,231.103 98,223.051 98 C 215 98,215 98,215 73.500 C 215 49,215 49,222.500 49 C 230 49,230 49,230 52 C 230 53.650,230.188 55,230.419 55 C 230.649 55,234.124 53.425,238.140 51.500 C 242.157 49.575,246.006 48,246.694 48 C 247.382 48,248.687 50.587,249.595 53.750 M89.244 61.495 C 81.531 67.057,82.476 83.949,90.674 87.066 C 99.332 90.358,106.997 80.129,104.056 69.207 C 103.461 66.997,102.188 64.218,101.227 63.032 C 98.885 60.140,92.295 59.294,89.244 61.495 M175.244 61.495 C 167.531 67.057,168.476 83.949,176.674 87.066 C 185.332 90.358,192.997 80.129,190.056 69.207 C 189.461 66.997,188.188 64.218,187.227 63.032 C 184.885 60.140,178.295 59.294,175.244 61.495 "
+
+variable mWidgetVersion as String
+variable mE as ScriptObject
+variable mClickRects0 as List
+variable mClickRects as List
+variable mClickInfo as List
+variable mObjects as Array
+variable mHilite as Array
+variable mCurrentObject as List
+variable mColor as Color
+variable mWidth as Number
+variable mBaseWidth as Number
+variable mW0 as Number
+variable mEffect as Effect
+variable mFont as Font
+variable mDown as Boolean
+variable mGrab as Boolean
+variable mPick as Boolean
+variable mUseMouseColor as Boolean
+variable mMouse as Point
+variable mScript as String
+variable mPicker as String
+variable mColorSpectrum as Image
+variable mGraySpectrum as Image
+
+--mark PUBLIC HANDLERS
+public handler OnSave(out rA as Array)
+	put getColor() into rA["currentColor"]
+end handler
+
+public handler OnLoad(in pA as Array)
+	if "currentColor" is among the keys of pA then
+	 setColor(pA["currentColor"])
+	end if
+end handler
+
+public handler OnCreate()
+	put my script object into mE
+	put kWidgetVersion into mWidgetVersion
+	put hhPickerScript() into mPicker
+	put getTypicalScript() into mScript
+	put 13 into mW0
+	put 100 into mWidth
+	put true into mUseMouseColor
+	put color [0.2,0.4,0.6,0.8] into mColor
+	put font "Verdana" at size mW0 into mFont
+	put outer shadow effect into mEffect
+	set the size of mEffect to 2
+	set the distance of mEffect to 2
+	set mObjects["Red"]   to {"value": 127, "width": 64}
+	set mObjects["Green"] to {"value": 127, "width": 64}
+	set mObjects["Blue"]  to {"value": 127, "width": 64}
+	set mObjects["Alpha"] to {"value": 255, "width": 64}
+	put image from resource file "colorspectrum.png" into mColorSpectrum
+	put image from resource file "grayspectrum.png" into mGraySpectrum
+	put [] into mClickrects0
+	push [rectangle [184, 9,196,21],["xBlack",  [0.0,0.0,0.0,1.0]]] onto mClickRects0
+	push [rectangle [184,21,196,33],["xGray3",  [0.3,0.3,0.3,1.0]]] onto mClickRects0
+	push [rectangle [184,33,196,45],["xGray5",  [0.5,0.5,0.5,1.0]]] onto mClickRects0
+ 	push [rectangle [184,45,196,57],["xGray7",  [0.7,0.7,0.7,1.0]]] onto mClickRects0
+	push [rectangle [184,57,196,69],["xGray9",  [0.9,0.9,0.9,1.0]]] onto mClickRects0
+	push [rectangle [184,69,196,81],["xWhite",  [1.0,1.0,1.0,1.0]]] onto mClickRects0
+	push [rectangle [196, 9,208,21],["xMaroon", [0.5,0.0,0.0,1.0]]] onto mClickRects0
+	push [rectangle [196,21,208,33],["xOlive",  [0.5,0.5,0.0,1.0]]] onto mClickRects0
+	push [rectangle [196,33,208,45],["xGreen",  [0.0,0.5,0.0,1.0]]] onto mClickRects0
+	push [rectangle [196,45,208,57],["xPurple", [0.5,0.0,0.5,1.0]]] onto mClickRects0
+	push [rectangle [196,57,208,69],["yTeal",   [0.0,0.5,0.5,1.0]]] onto mClickRects0
+	push [rectangle [196,69,208,81],["xNavy",   [0.0,0.0,0.5,1.0]]] onto mClickRects0
+	push [rectangle [208, 9,220,21],["xRed",    [1.0,0.0,0.0,1.0]]] onto mClickRects0
+	push [rectangle [208,21,220,33],["xLime",   [0.0,1.0,0.0,1.0]]] onto mClickRects0
+	push [rectangle [208,33,220,45],["xBlue",   [0.0,0.0,1.0,1.0]]] onto mClickRects0
+	push [rectangle [208,45,220,57],["xCyan",   [0.0,1.0,1.0,1.0]]] onto mClickRects0
+	push [rectangle [208,57,220,69],["xMagenta",[1.0,0.0,1.0,1.0]]] onto mClickRects0
+	push [rectangle [208,69,220,81],["xYellow", [1.0,1.0,0.0,1.0]]] onto mClickRects0
+	set mHilite["OK"] to solid paint with color [0.0,0.9,0.0,1.0]
+	set mHilite["White"] to solid paint with color [1.0,1.0,1.0,1.0]
+	set mHilite["Red"]   to solid paint with color [1.0,0.0,0.0,1.0]
+	set mHilite["Green"] to solid paint with color [0.0,1.0,0.0,1.0]
+	set mHilite["Blue"]  to solid paint with color [0.0,0.0,1.0,1.0]
+	set mHilite["Alpha"] to solid paint with color [0.6,0.6,0.6,0.7]
+	post "set width of me to 230; set height of me to 115"
+end handler
+
+public handler OnPaint()
+ 	variable tRect as Rectangle
+   variable tObject as Array
+   variable tLabels as List
+ 	variable tBounds as Rectangle
+ 	variable tW0 as Number
+  	variable tW2 as Number
+	variable tW3 as Number
+	variable tW4 as Number
+	variable tW5 as Number
+	variable tW6 as Number
+	variable tW as Number
+ 	variable tWx as Number
+ 	variable tC as Number
+	variable tCH as Number
+	variable tCV as Number
+	variable tV as Number
+   variable tS as String
+	variable tCS as String
+	variable tFill as Paint
+	variable tStroke as Paint
+	variable tTextStroke as Paint
+	set the cap style of this canvas to "round"
+	set the join style of this canvas to "round"
+	set the paint of this canvas to solid paint with color [0.7,0.7,0.7,1.0]
+	fill rounded rectangle path of rectangle \
+		[3,3,my width -3, my height -3] with radius 8 on this canvas
+	set the stroke width of this canvas to 6
+	set the paint of this canvas to solid paint with color [0,0,0,1]
+	stroke rounded rectangle path of rectangle \
+		[3,3,my width -3, my height -3] with radius 8 on this canvas
+ 	put mClickRects0 into mClickRects
+--mark draw widgetColor
+	put rectangle [130,9,179,81] into tRect
+ 	set the paint of this canvas to solid paint with mColor
+ 	fill rounded rectangle path of tRect with radius 8 on this canvas
+	set the stroke width of this canvas to 2
+ 	set the paint of this canvas to solid paint with color [0,0,0,1]
+	stroke rounded rectangle path of tRect with radius 8 on this canvas
+--mark draw OK Button and start with collecting clickrects
+	set the paint of this canvas to mHilite["White"]
+	if mCurrentObject is not empty then
+		if mCurrentObject[1] is "OK" then
+ 			set the paint of this canvas to mHilite["OK"]
+ 		end if
+	end if
+ 	put rectangle [135,33,174,53] into tRect
+	fill rounded rectangle path of tRect with radius 8 on this canvas
+   push [tRect,["OK"]] onto mClickRects
+	set the paint of this canvas to solid paint with color [0,0,0,1]
+ 	fill text "OK" at point [145,48] on this canvas
+ 	stroke rounded rectangle path of tRect with radius 8 on this canvas
+-- draw 18 colors palette and collect clickrects
+ 	repeat with tC from 1 up to 18
+ 		set the paint of this canvas to solid paint with color mClickRects[tC][2][2]
+ 		fill rectangle path of mClickRects[tC][1] on this canvas
+	end repeat
+	put color getCurrentColor() into mColor
+--mark draw RGBA sliders and collect clickrects
+ 	put mW0 into tW0
+	put 0.2*tW0 into tW2
+	put 0.3*tW0 into tW3
+	put 0.4*tW0 into tW4
+	put 0.5*tW0 into tW5
+	put 0.6*tW0 into tW6
+  	put ["Red","Green","Blue","Alpha"] into tLabels
+	set the font of this canvas to mFont
+	put solid paint with color [0.2,0.2,0.2] into tFill
+	put solid paint with color [1,1,1] into tStroke
+	put solid paint with color [0,0,0] into tTextStroke
+	repeat with tC from 1 up to 4
+		put tLabels[tC] into tCS
+		put mObjects[tCS] into tObject
+		put rectangle [tW5, (1.5*tC-1.3)*tW0, tW5+tObject["width"], (1.5*tC)*tW0] into tRect
+		add 4 to the left of tRect
+		add 4 to the top of tRect
+		put (the top of tRect + the bottom of tRect)/2 into tCV
+		begin layer with mEffect on this canvas
+		set the stroke width of this canvas to tW4
+		set the paint of this canvas to tFill
+		stroke line path from point \
+			[the left of tRect, tCV] to point [the right of tRect, tCV] on this canvas
+		set the stroke width of this canvas to tW6
+		set the paint of this canvas to tStroke
+		put tObject["value"]/255 into tV
+		put (1-tV)*the left of tRect + tV*the right of tRect into tCH
+		set the paint of this canvas to tStroke
+		if mCurrentObject is not empty then
+			if mCurrentObject[1] is tCS then
+				set the paint of this canvas to mHilite[tCS]
+			end if
+		end if
+		stroke line path from point \
+			[tCH, tW3+the top of tRect ] to point [tCH, -tW3+the bottom of tRect] on this canvas
+		push [rectangle [tCH-tW3, -tW2+the top of tRect,tCH+tW3, tW2+the bottom of tRect],[tCS, "knob", (the left of tRect formatted as string)&","&(the right of tRect formatted as string)]] onto mClickRects
+		push [rectangle [the left of tRect,  tCV-tW3, tCH-tW3-1, tCV+tW3],[tCS,"baseLeft"]] onto mClickRects
+		push [rectangle [tCH+tW3+1, tCV-tW3, the right of tRect, tCV+tW3],[tCS,"baseRight"]] onto mClickRects
+		end layer on this canvas
+		put the bounds of text "555" on this canvas into tBounds
+		put tW5+the width of tBounds into tWx
+		add tObject["width"] + tW5 to the left of tRect
+		set the width of tRect to tWx
+		set the paint of this canvas to solid paint with color [1,1,1]
+		fill rectangle path of tRect on this canvas
+		put (tObject["value"] formatted as string) into tS
+		put the bounds of text tS on this canvas into tBounds
+		set the paint of this canvas to tTextStroke
+		fill text tS at point [the left of tRect + (the width of tRect - the width of tBounds)/2 , the bottom of tRect - tW3] on this canvas
+		add -tW3+tWx to the left of tRect
+		put char 1 of tCS into tS
+		fill text tS at point [tW5+the left of tRect,the bottom of tRect-tW3] on this canvas
+	end repeat
+--mark draw spectra
+	add -2+the height of tRect to the top of tRect
+	put rectangle [1+tW5,tW5+the top of tRect,tW5+191,tW5+10+the top of tRect] into tRect
+	draw mColorSpectrum into tRect of this canvas
+	push [tRect,["colorspectrum"]] onto mClickrects
+	add 10 to the top of tRect
+	put rectangle [1+tW5,the top of tRect,tW5+191,10+the top of tRect] into tRect
+	draw mGraySpectrum into tRect of this canvas
+	push [tRect,["grayspectrum"]] onto mClickrects
+--mark draw pipette
+	variable tPath as Path
+	put path kPipette into tPath
+	put the bounding box of tPath into tBounds
+	scale tPath by [19/the width of tBounds, 19/the height of tBounds]
+	translate tPath by [200,86]
+	set the paint of this canvas to mHilite["White"]
+	if mCurrentObject is not empty then
+		if mCurrentObject[1] is in ["pipette","colorspectrum","grayspectrum"] and mPick then
+ 			set the paint of this canvas to mHilite["OK"]
+  		end if
+	end if
+	fill rounded rectangle path of rectangle [199,85,221,107] with radius 4 on this canvas
+	set the paint of this canvas to solid paint with color [0.4,0.4,0.4]
+	fill tPath on this canvas
+	push [rectangle [199,85,221,107],["pipette"]] onto mClickRects
+end handler
+
+public handler OnTimer()
+	if mPick then
+		if mUseMouseColor then
+			execute script "return the mouseColor"
+		else
+			execute script mPicker
+		end if
+		setColor(the result)
+		schedule timer in 0.02 seconds
+	else if mGrab then
+		variable tMouse as Point
+		variable tRect as Rectangle
+		variable tL as List
+		put the mouse position into tMouse
+		put my rectangle into tRect
+		set property "left" of mE to (the left of tRect + the x of tMouse - the x of mMouse)
+		set property "top" of mE to (the top of tRect + the y of tMouse - the y of mMouse)
+		schedule timer in 0.02 seconds
+	else if not mDown then
+		cancel timer
+	else
+		if mClickInfo is not [] then
+			variable tL as Array
+			variable tL0 as List
+			variable tN as String
+			variable tS as String
+			variable tC as Number
+			variable tV as Number
+			put mClickInfo[1] into tN
+			if tN is in ["pipette","colorspectrum","grayspectrum"] then
+				put true into mPick
+				schedule timer in 0.01 seconds
+			else if tN is "OK" then
+				if currently popped up then
+					close popup returning getCurrentWidgetColor()
+				else
+					send "colorChosen" to mE with [getCurrentWidgetColor()]
+				end if
+			else if tN is in ["Red","Green","Blue","Alpha"] then
+				if mClickInfo[2] is "baseLeft" then
+					put mObjects[tN]["value"] into tV
+					if tV > 0 then
+						subtract 1 from mObjects[tN]["value"]
+					else
+						put 0 into mObjects[tN]["value"]
+					end if
+				else if mClickInfo[2] is "baseRight" then
+					if tV < 255 then
+						add 1 to mObjects[tN]["value"]
+					else
+						put 255 into mObjects[tN]["value"]
+					end if
+				else if mClickInfo[2] is "knob" then
+					split mClickInfo[3] by "," into tL0
+					parse tL0[1] as number into tL0[1]
+					parse tL0[2] as number into tL0[2]
+					put (the x of the mouse position - tL0[1])/(tL0[2]-tL0[1]) into tV
+					if tV < 0.0 then
+						put 0.0 into tV
+					else if tV > 1.0 then
+						put 1.0 into tV
+					end if
+					put the trunc of (255*tV) into mObjects[tN]["value"]
+					schedule timer in 0.01 seconds
+				end if
+			else
+				setCurrentColor(mClickInfo[2])
+			end if
+			redraw all
+		end if
+	end if
+end handler
+
+public handler OnMouseDown()
+	put true into mDown
+	put the click position into mMouse
+	if nearMyBounds(the x of mMouse, the y of mMouse) and not currently popped up then
+		put true into mGrab
+		schedule timer in 0.05 seconds
+	else
+		put whichRect(mMouse) into mClickInfo
+		if mClickInfo is not [] then
+			if mClickInfo[1] is in ["pipette","colorspectrum","grayspectrum"] then
+				execute script "set the defaultcursor to cross"
+			end if
+			schedule timer in 0.01 seconds
+		end if
+	end if
+end handler
+
+public handler OnMouseUp()
+	cleanUp()
+	redraw all
+end handler
+
+public handler OnMouseCancel()
+	cleanUp()
+	redraw all
+end handler
+
+public handler OnMouseRelease()
+	cleanUp()
+	redraw all
+end handler
+
+--mark PRIVATE HANDLERS
+
+handler cleanUp()
+	cancel timer
+	put false into mDown
+	put false into mGrab
+	put false into mPick
+	put [] into mClickInfo
+	put [] into mCurrentObject
+	execute script "set the defaultcursor to arrow"
+end handler
+
+handler nearMyBounds(in pX as Number, in pY as Number) returns Boolean
+	if pX < 6 then
+		return true
+	else if pY < 6 then
+		return true
+	else if pX > -6+ my width then
+		return true
+	else if pY > -6 + my height then
+		return true
+	end if
+	return false
+end handler
+
+handler whichRect(in pP as Point) returns List
+	variable tC as Number
+	put [] into mCurrentObject
+	repeat with tC from 1 up to the number of elements in mClickRects
+		if pP is within mClickRects[tC][1] then
+		   put mClickRects[tC][2] into mCurrentObject
+			exit repeat
+		end if
+	end repeat
+	return mCurrentObject
+end handler
+
+handler getCurrentColor() returns List
+	variable tL as List
+	put [] into tL
+	push mObjects["Red"]["value"]/255 onto tL
+	push mObjects["Green"]["value"]/255 onto tL
+	push mObjects["Blue"]["value"]/255 onto tL
+	push mObjects["Alpha"]["value"]/255 onto tL
+	return tL
+end handler
+
+handler getCurrentWidgetColor() returns String
+	variable tS as String
+	put (mObjects["Red"]["value"] formatted as string) into tS
+	put "," & (mObjects["Green"]["value"] formatted as string) after tS
+	put "," & (mObjects["Blue"]["value"]  formatted as string) after tS
+	put "," & (mObjects["Alpha"]["value"] formatted as string) after tS
+	return tS
+end handler
+
+handler setCurrentColor(in pL as List) returns nothing
+	put color pL into mColor
+	set mObjects["Red"]["value"]   to the trunc of (pL[1]*255)
+	set mObjects["Green"]["value"] to the trunc of (pL[2]*255)
+	set mObjects["Blue"]["value"]  to the trunc of (pL[3]*255)
+	set mObjects["Alpha"]["value"] to the trunc of (pL[4]*255)
+end handler
+
+handler setColor(in tColor as String) returns nothing
+	put stringToColor(tColor) into mColor
+	set mObjects["Red"]["value"]   to the trunc of (the red of mColor*255)
+	set mObjects["Green"]["value"] to the trunc of (the green of mColor*255)
+	set mObjects["Blue"]["value"]  to the trunc of (the blue of mColor*255)
+	set mObjects["Alpha"]["value"] to the trunc of (the alpha of mColor*255)
+	redraw all
+end handler
+
+handler getColor() returns String
+   return colorToString(mColor, true)
+end handler
+
+handler getTypicalScript() returns String
+	return "## Typical scripts for hhColorPicker [-hh fecit, Sep 2018] \n" & \
+	"####################################### \n" & \
+	"## VARIANT 1: Usage as popup. Click outside the popup to dismiss it. \n" & \
+	"## Make a rectangle graphic of size 16x16 with the following script. \n" & \
+	"## Then use the backcolor and the blendlevel of the graphic for other objects. \n" & \
+	"on mouseUp \n" & \
+  	"  popupColor \n" & \
+	"end mouseUp \n" & \
+	"\n" & \
+	"on popupColor \n" & \
+	"  -- set properties: width, height, startColor, startAlpha \n" & \
+	"  put 115 into tP[\qheight\q] \n" & \
+	"  put 230 into tP[\qwidth\q] \n" & \
+	"  put the effective backcolor of me into tP[\qwidgetColor\q] \n" & \
+	"  put \q,\q & trunc(255*(1-the blendLevel of me/100)) after tP[\qwidgetColor\q] \n" & \
+	"  -- popup: \n" & \
+	"  popup widget \qcommunity.livecode.hermann.hhcolorpicker\q \\ \n" & \
+	"        at the clickloc with properties tP \n" & \
+	"  -- evaluate the result = 4 items color r,g,b,a (set swatch color) \n" & \
+	"   if it is not empty then \n" & \
+	"    set the backcolor of me to item 1 to 3 of it \n" & \
+	"    set the blendLevel of me to trunc(100*(1-item 4 of it/255)) \n" & \
+	"  end if \n" & \
+	"  -- now set an action: \n" & \
+	"end popupColor \n" & \
+	"####################################### \n" & \
+	"## VARIANT 2: Ordinary usage (no popup) \n" & \
+	"## The widgets sends by click on \qOK\q to the card via its script \n" & \
+	"## the message \qonColorChosen\q with its current RGBA-color: \n" & \
+	"on colorChosen pColor \n" & \
+	"   put item 1 to 3 of pColor into rgb  \n" & \
+	"   put item 4 of pColor into alpha \n" & \
+	"   put trunc(100*(1-alpha/255)) into tBlendLevel \n" & \
+	"   -- now set an action: \n" & \
+	"end colorChosen \n" & \
+	""
+end handler
+
+handler hhPickerScript() returns String
+	return "## [-hh fecit, 2017]\n" & \
+	"--function readPixel\n" & \
+	"local ii=\qtmp\q\n" & \
+	"put the screenmouseloc into L\n" & \
+	"set the resizequality of the templateImage to \qbest\q\n" & \
+	"export snapshot from rect (-1+item 1 of L, -1+item 2 of L,1+item 1 of L, 1+item 2 of L) at size 1,1 to templateImage as PNG \n" & \
+	"put the imageData of templateImage into j\n" & \
+	"return (byteToNum(byte 2 of j),byteToNum(byte 3 of j),byteToNum(byte 4 of j),byteToNum(byte 1 of j))\n" & \
+	"--end readPixel\n"
+end handler
+
+constant kPipette is "M23.177,244.78c-0.693,0.692-1.206,1.544-1.493,2.48L0.264,317.006c-0.652,2.124-0.078,4.434,1.494,6.005c1.142,1.142,2.675,1.757,4.243,1.757c0.588,0,1.182-0.087,1.762-0.265l69.742-21.426c0.937-0.287,1.788-0.8,2.48-1.493 l111.752-111.751l-56.807-56.808L23.177,244.78z M312.724,16.641l-4.15-4.151c-16.344-16.344-42.938-16.343-59.279,0.001l-76.068,76.068l-5.738-5.737c-3.779-3.778-8.806-5.86-14.153-5.861c-0.002,0-0.004,0-0.006,0c-5.351,0-10.378,2.082-14.16,5.866l-1.618,1.621c-3.781,3.78-5.864,8.81-5.864,14.159c-0.001,5.351,2.082,10.379,5.863,14.159l74.903,74.902c3.78,3.781,8.809,5.864,14.159,5.864 c5.35,0,10.378-2.083,14.16-5.865l1.62-1.621c7.806-7.812,7.805-20.516,0-28.318l-5.733-5.736l76.069-76.066c0.053-0.053,0.105-0.107,0.154-0.16c7.817-7.897,12.119-18.358,12.118-29.483C325,35.082,320.64,24.555,312.724,16.641z"
+
+--mark useMouseColor
+/**
+Syntax:
+set the useMouseColor of <widget> to <pTrueOrFalse>
+get the useMouseColor of <widget>
+
+Parameters:
+pTrueOrFalse is true or false. default is true.
+
+Example:
+set the useMouseColor of widget "hhColorPicker" to not \
+        the useMouseColor of widget "hhColorPicker"
+
+Summary: Sets or gets the mode for getting a screenPixel. If true then the LCS-mouseColor is used, if false the imageData of a snapshot is used. The colors are up to 1/32 "off" and are moreover are only valid if the pixel's transparency is zero.
+For picking up the color of any screen pixel click the "pipette" and hold down the mouse while moving.
+**/
+property useMouseColor get mUseMouseColor set mUseMouseColor
+metadata useMouseColor.editor is "com.livecode.pi.boolean"
+metadata useMouseColor.default is "true"
+
+--mark widgetColor
+/**
+Syntax:
+set the widgetColor of <widget> to <pColor>
+get the widgetColor of <widget>
+
+Parameters:
+pColor: is a RGBA color = 4 integers in range 0-255. When setting the widgetColor at least 3 items (R,G,B) are needed, item 4 may be omitted.
+Getting the widgetColor always returns the 4 values R,G,B,A.
+
+Example:
+set the widgetColor of widget "hhColorPicker" to the effective backColor of this card
+
+Summary: Sets or gets the RGBA color of the widget.
+**/
+property widgetColor get getColor set setColor
+metadata widgetColor.editor is "com.livecode.pi.colorwithalpha"
+metadata widgetColor.section is "Colors"
+metadata widgetColor.default is "51,102,153,204"
+metadata widgetColor.user_visible is "false"
+
+--mark typicalScript
+/**
+Syntax:
+get the typicalScript of <widget>
+
+Parameters:
+
+Example:
+set the script of graphic 1 to the typicalScript of widget "hhColorPicker".
+
+Description:
+Make a rectangle graphic of size 16x16 with the typical script.
+This may serve as color swatch option (use the backcolor and the blendlevel of the graphic for other objects).
+**/
+property typicalScript get mScript
+metadata typicalScript.editor is "com.livecode.pi.string"
+metadata typicalScript.section is "Contents"
+
+property widgetVersion	get mWidgetVersion
+
+end widget

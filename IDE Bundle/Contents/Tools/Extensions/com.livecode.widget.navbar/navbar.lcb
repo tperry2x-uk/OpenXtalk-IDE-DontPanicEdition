@@ -243,7 +243,7 @@ highlighted.
 
 Each icon name must be one of the graphics supplied by the "IconSVG"
 library.  You can get a list of available predefined path names by running
-`put iconNames()` in the Message Box.  See the 
+`put iconNames()` in the Message Box.  See the
 <com.livecode.library.iconsvg|Icon SVG Library>
 documentation for handlers to manage user icon families.
 
@@ -262,7 +262,7 @@ itemNames(property),  com.livecode.library.iconsvg (library)
 
 */
 property itemIcons		get getNavIcons			set setNavIcons
-metadata itemIcons.user_visible is "false"
+metadata itemIcons.user_visible is "true"
 
 /**
 Syntax: set the hilitedItemIcons of <widget> to <icons>
@@ -277,7 +277,7 @@ highlighted.
 
 Each icon name must be one of the graphics supplied by the "IconSVG"
 library.  You can get a list of available predefined path names by running
-`put iconNames()` in the Message Box.  See the 
+`put iconNames()` in the Message Box.  See the
 <com.livecode.library.iconsvg|Icon SVG Library>
 documentation for handlers to manage user icon families.
 

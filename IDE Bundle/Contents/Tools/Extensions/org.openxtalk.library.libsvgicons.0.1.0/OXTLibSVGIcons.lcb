@@ -1,0 +1,326 @@
+/*
+Copyright (C) 2023 Paul McClernan for OpenXTalk.org
+
+This file is part of the OpenXTalk IDE.
+
+OpenXTalk IDE is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License v3 as published by the Free
+Software Foundation.
+
+OpenXTalk IDE is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License
+along with OpenXTalk IDE.  If not see <http://www.gnu.org/licenses/>.  */
+
+/**
+This is the OpenXtalk SVG icon path library.
+*/
+
+library org.openxtalk.library.libsvgicons
+
+use com.livecode.engine
+use com.livecode.file
+use com.livecode.char
+use com.livecode.typeconvert
+use com.livecode.string
+use com.livecode.array
+use com.livecode.binary
+use com.livecode.byte
+use com.livecode.foreign
+use com.livecode.codeunit
+use com.livecode.library.iconsvg
+use com.livecode.widget
+use com.livecode.canvas
+
+metadata version is "0.1.0"
+metadata author is "OpenXTalk"
+metadata title is "OpenXTalk libSVGIcons"
+metadata _ide is "true"
+
+private variable sFontArray as Array
+private variable sNamesArray as Array
+private variable sInitialised as optional Boolean
+private variable sCurrentFamily as String
+
+private constant kDefaultFamily is "OXTide"
+private constant kDefaultUserFamily is "custom"
+
+private handler ensureInitialised()
+	if sInitialised is nothing then
+		loadOXTIcons()
+		put true into sInitialised
+		put kDefaultFamily into sCurrentFamily
+	end if
+end handler
+
+----------------------------------------------------------------
+-- UTF-8 encoding/decoding
+----------------------------------------------------------------
+-- FIXME this should use proper Extebsion Builder syntax for string encoding/decoding (which was never completed up to v9.6.3)
+-- https://forums.livecode.com/viewtopic.php?t=28086
+foreign handler MCStringEncode(in Source as String, in Encoding as CInt, in IsExternalRep as CBool, out Encoded as Data) returns CBool binds to "<builtin>"
+foreign handler MCStringDecode(in Encoded as Data, in Encoding as CInt, in IsExternalRep as CBool, out Result as String) returns CBool binds to "<builtin>"
+public handler DataFromUTF8(in pString as String) returns Data
+	variable tEncoded as Data
+	unsafe
+		MCStringEncode(pString, 4 , false, tEncoded) -- 4 = UTF-8
+	end unsafe
+	return tEncoded
+end handler
+public handler DataToUTF8(in pData as Data) returns String
+	variable tString as String
+	unsafe
+		MCStringDecode(pData, 4, false, tString) -- 4 = UTF-8
+	end unsafe
+	return tString
+end handler
+-------------------------------------------------------------------
+
+-- public handler Main() -- what is the Library equivelant to 'OnLoad'????
+--	log "Extensions"
+-- end handler
+
+/**
+**/
+private handler initializeIconsFromTSV(in pTSVFile as optional String) returns Array
+	variable tArray as Array
+	variable tAStr as optional String
+	variable tBStr as optional String
+
+	variable tAData as any
+	variable tFileText -- as Data
+	variable tResourceFile as optional any
+	variable tList as optional List
+	variable tLine as optional any
+	variable tLineCnt as optional Number
+	variable tErrCnt as optional Number
+	variable tFileTextStr as String
+	variable tKeyValuePair as optional List
+
+	variable tVar as Number
+	variable tFilePath as String
+	variable tName as String
+	variable tSVGPath as String
+	put {} into tArray
+	if pTSVFile is nothing or pTSVFile is the empty string then
+		put my resources folder & "/OpenXtalkSVGIcons.tsv" into tResourceFile
+	else if pTSVFile is "IonIcons.tsv" or pTSVFile is "MaterialIcons4.tsv" or pTSVFile is "BoxIcons.tsv" then
+		put my resources folder & "/" & pTSVFile into tResourceFile
+		log [pTSVFile]
+	else
+		-- resolve file pTSVFile -- don't use resolve file, expect full paths instead
+		-- put the result into tResourceFile
+		put pTSVFile into tResourceFile
+		log [pTSVFile]
+	end if
+
+	-- TODO: resolve file first to catch file not found error
+
+	put the contents of file tResourceFile into tFileText -- slurp the entire file into a variable
+	-- if tFileText is not the empty data then
+		--  put byte 1 to -1 of tFileText into tAny
+		-- variable tDotOffset
+	   -- put the first offset of newline in tFileText into tDotOffset
+		-- put the first offset of (the byte with code 9) in tFileText into tDotOffset
+		-- put byte 1 to tDotOffset of tFileText into tAData
+		put DataToUTF8( tFileText ) into tAStr
+		-- log [tBStr]
+		-- put codeunit 1 to tDotOffset of tFileText into tAStr
+		-- put the char with code (byte 1 of tFileText) into tAStr
+	   --	repeat for each byte tByte in tFileText
+		put 0 into tErrCnt
+		put 0 into tLineCnt
+		split tAStr by newline into tList
+		repeat for each element tLine in tList
+			add 1 to tLineCnt
+			log tLineCnt
+			if (tLine contains "Name") or (tLine contains "SVGPath") then
+				next repeat
+			end if
+			split tLine by "\t" into tKeyValuePair
+			if ( tKeyValuePair is nothing ) or (the number of elements in tKeyValuePair is not 2) then
+				add 1 to tErrCnt
+				log ["error parsing line", tLineCnt]
+				log [ tName ]
+				next repeat
+			else
+				put element 1 of tKeyValuePair into tName
+			   put element 2 of tKeyValuePair into tSVGPath
+				-- log [tName]
+				-- log [tSVGPath]
+				put the empty array into tArray[tName]
+				put tSVGPath into tArray[tName]["svg"]
+				put "0" into tArray[tName]["codepoint"]
+			end if
+		end repeat
+		log ["Parsed", tLineCnt]
+		log ["Parsing Error Count",tErrCnt]
+
+		-- put the char with code tByte  after tFileTextStr
+		-- log [tArray]
+		return tArray
+	-- else
+	--	return the empty array
+	--  end if
+end handler
+
+/**
+**/
+public handler loadOXTIcons() returns nothing
+	addIconFamily("OXTide", initializeIconsFromTSV( "" ) )
+end handler
+
+/**
+**/
+public handler loadAllIconSets() returns nothing
+	variable tFamily
+	variable tName
+	variable tTempArray as optional Array
+	loadOXTIcons()
+	addIconFamily("IonIcons", initializeIconsFromTSV("IonIcons.tsv") )
+ 	addIconFamily("MaterialIcons4", initializeIconsFromTSV("MaterialIcons4.tsv") )
+	addIconFamily("BoxIcons", initializeIconsFromTSV("BoxIcons.tsv") )
+end handler
+
+/**
+Syntax:
+loadIconSetFromTSVFile pFilePathToTSVfile
+
+Summary:
+
+Parameters:
+pFilePathToTSVfile: A file path to an SVG glyphs collection in Tab Seperated Values format.
+
+Example:
+put horizontalFlippedOfSVGPath(pInSVGPath) into tOutSVGPath
+
+Description:
+Use loadIconSetFromTSVFile command to load an SVG glyphs collection in
+Tab Seperated Values format. The will then be parsed and loaded into memory into
+the font family array compatible with the IconSVG library.
+LibSVGIcons comes with glyph several sets ready to be used.
+**/
+public handler loadIconSetFromTSVFile(in pLoadName as String, in pTSVFilePath as String) returns nothing
+		if pLoadName is the empty string then
+			--- Parse an Appropriate Name here
+			put "Loaded Icon Set" into pLoadName
+		end if
+		addIconFamily( pLoadName, initializeIconsFromTSV(pTSVFilePath) )
+end handler
+
+/**
+Syntax:
+verticalFlippedOfSVGPath( pInSVGPath )
+
+Summary:
+
+Parameters:
+pInSVGPath: An SVG path string
+
+Returns:
+pOutSVGPath: A modified SVG path string
+
+Example:
+put verticalFlippedOfSVGPath(pInSVGPath) into tOutSVGPath
+
+Description:
+verticalFlippedOfSVGPath function takes an input SVG Path and returns a new
+SVG path string that has been flipped vertically.
+**/
+public handler verticalFlippedOfSVGPath(in pSVGPath) returns String
+	variable tPath as Path
+	variable tPathData as String
+	put path pSVGPath into tPath
+	scale tPath by [1,-1]
+	translate tPath by [0, the height of the bounding box of tPath]
+	put the instructions of tPath into tPathData
+	return tPathData
+end handler
+
+/**
+Syntax:
+horizontalFlippedOfSVGPath( pInSVGPath )
+
+Summary:
+
+Parameters:
+pInSVGPath: An SVG path string
+
+Returns:
+pOutSVGPath: A modified SVG path string
+
+Example:
+put horizontalFlippedOfSVGPath(pInSVGPath) into tOutSVGPath
+
+Description:
+horizontalFlippedOfSVGPath function takes an input SVG Path and returns a new
+SVG path string that has been flipped horizontally.
+**/
+public handler horizontalFlippedOfSVGPath(in pSVGPath) returns String
+	variable tPath as Path
+	variable tPathData as String
+	put path pSVGPath into tPath
+	scale tPath by [-1,1]
+	translate tPath by [the width of the bounding box of tPath, 0]
+	put the instructions of tPath into tPathData
+	return tPathData
+end handler
+
+/**
+Syntax:
+horizSquishFlippedOfSVGPath( pSVGPath )
+
+Summary:
+
+Parameters:
+pScale: Percentage of original to scale
+pSVGPath: An SVG path string
+
+Example:
+put horizScaledOfSVGPath( 1.5, pInSVGPath) into tOutSVGPath -- tOutSVGPath is 150% of the width of pInSVGPath
+
+Description:
+Use horizScaledOfSVGPath function to get a path that is scaled width-wise.
+
+**/
+public handler horizScaledOfSVGPath(in pScale as Integer, in pSVGPath) returns String
+	variable tPath as Path
+	variable tPathData as String
+	put path pSVGPath into tPath
+	scale tPath by [1,pScale]
+	translate tPath by [the height of the bounding box of tPath, 0]
+	put the instructions of tPath into tPathData
+	return tPathData
+end handler
+
+/**
+Syntax:
+vertScaledOfSVGPath( pSVGPath )
+
+Summary:
+
+Parameters:
+pScale: Percentage of original to scale
+pSVGPath: An SVG path string
+
+Example:
+put vertScaledOfSVGPath( 1.5, pInSVGPath) into tOutSVGPath -- tOutSVGPath is 150% of the height of pInSVGPath
+
+Description:
+Use vertScaledOfSVGPath function to get a path that is scaled height-wise.
+
+**/
+public handler vertScaledOfSVGPath(in pScale as Integer, in pSVGPath) returns String
+	variable tPath as Path
+	variable tPathData as String
+	put path pSVGPath into tPath
+	scale tPath by [pScale,1]
+	translate tPath by [the height of the bounding box of tPath, 0]
+	put the instructions of tPath into tPathData
+	return tPathData
+end handler
+
+end library

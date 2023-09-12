@@ -1,5 +1,5 @@
 # Tree View
-The tree view widget provides a way to represent a LiveCode array 
+The tree view widget provides a way to represent an array 
 visually in various ways. In its simplest form, it allows selection of
 key/value pairs, and folding and unfolding of nested arrays.
 
@@ -19,8 +19,8 @@ Alternatively it can be created in script using:
 	create widget as "com.livecode.widget.treeview"
 
 ## Using the Tree View
-The content of the tree view is controlled by using the `arrayData` 
-property. The following handlers can be used to set and get data on a 
+The content of the tree view is controlled by using the `arrayData`
+property. The following handlers can be used to set and get data on a
 specific `pathDelimiter`-delimited path rather than the whole array:
 
 	command setArrayDataOnPath pValue, pPath, @xArray
@@ -66,8 +66,8 @@ The tree view widget has a number of display options:
 * `arrayStyle` - Whether the tree view should display its contents in array style or as a standard tree view.
 
 ## Edit Mode
-When in edit mode, there are a number of additional user-interactions 
-available. The following two show at the end of a given line when the 
+When in edit mode, there are a number of additional user-interactions
+available. The following two show at the end of a given line when the
 mouse hovers over it:
 
 * Delete keys
@@ -81,7 +81,7 @@ delete the key in question.
 
 * Add new sub-keys
 
-Clicking the plus icon adds a new numerically named key underneath the 
+Clicking the plus icon adds a new numerically named key underneath the
 nested array that was clicked. When the row contains a text value, that
 value is discarded and a new nested array created at the chosen key.
 
@@ -96,23 +96,23 @@ a new default top-level key to the array. It has a numeric key.
 
 ![Add new key](images/edit-add-new.png)
 
->**Note:** As LCB does not yet allow text input, there is no way to 
-> allow a user to edit the keys and values inline. In order to provide 
-> such functionality, you would have to create fields and track the 
+>**Note:** As LCB does not yet allow text input, there is no way to
+> allow a user to edit the keys and values inline. In order to provide
+> such functionality, you would have to create fields and track the
 > current `hilitedElement`.
 
 ## Messages
-The widget sends a number of messages in response to actions. When the 
-underlying data changes, a `dataChanged` message is sent. This is handy 
-when the widget is not `readOnly` and therefore the content can be 
-changed by user interaction. 
+The widget sends a number of messages in response to actions. When the
+underlying data changes, a `dataChanged` message is sent. This is handy
+when the widget is not `readOnly` and therefore the content can be
+changed by user interaction.
 
-The `hiliteChanged` message is sent when the user clicks on a row to 
+The `hiliteChanged` message is sent when the user clicks on a row to
 select or deselect it.
 
-When a row is double-clicked, an `actionDoubleClick` message is sent. 
-The `actionInspect` message is sent when the inspect icon is clicked - 
-this icon is displayed when the tree view value is too long to be 
+When a row is double-clicked, an `actionDoubleClick` message is sent.
+The `actionInspect` message is sent when the inspect icon is clicked -
+this icon is displayed when the tree view value is too long to be
 displayed, or contains multiple lines.
 
 ![Inspect](images/action-inspect.png)

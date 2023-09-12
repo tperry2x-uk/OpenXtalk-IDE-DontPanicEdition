@@ -1,0 +1,59 @@
+<package version="0.0">
+  <name>org.openxtalk.widget.eightway</name>
+  <title>EightWay</title>
+  <author>Paul McClernan</author>
+  <version>0.1</version>
+  <license>community</license>
+  <type>widget</type>
+  <requires name="com.livecode.canvas"/>
+  <requires name="com.livecode.library.widgetutils"/>
+  <requires name="com.livecode.arithmetic"/>
+  <requires name="com.livecode.binary"/>
+  <requires name="com.livecode.string"/>
+  <requires name="com.livecode.widget"/>
+  <requires name="com.livecode.logic"/>
+  <requires name="com.livecode.array"/>
+  <requires name="com.livecode.list"/>
+  <requires name="com.livecode.engine"/>
+  <requires name="com.livecode.type"/>
+  <requires name="com.livecode.byte"/>
+  <metadata key="preferredSize">203.65,203.65</metadata>
+  <property name="deadZoneSize" get="number" set="number"/>
+  <metadata key="deadZoneSize.editor">com.livecode.pi.number</metadata>
+  <metadata key="deadZoneSize.label">Dead Zone</metadata>
+  <metadata key="deadZoneSize.step">1</metadata>
+  <metadata key="deadZoneSize.default">25</metadata>
+  <metadata key="deadZoneSize.min">0.5</metadata>
+  <metadata key="deadZoneSize.max">50</metadata>
+  <metadata key="deadZoneSize.section">Basic</metadata>
+  <property name="iconHiliteColor" get="string" set="string"/>
+  <metadata key="iconHiliteColor.editor">com.livecode.pi.color</metadata>
+  <metadata key="iconHiliteColor.section">Colors</metadata>
+  <property name="borderWidth" get="number" set="number"/>
+  <metadata key="borderWidth.editor">com.livecode.pi.number</metadata>
+  <metadata key="borderWidth.label">Border width</metadata>
+  <metadata key="borderWidth.step">0.5</metadata>
+  <metadata key="borderWidth.default">2</metadata>
+  <metadata key="borderWidth.min">0.5</metadata>
+  <metadata key="borderWidth.max">25</metadata>
+  <handler name="setBorderWidth" parameters="in number" return="nothing"/>
+  <property name="selectedDPad" get="string" set="string"/>
+  <metadata key="selectedDPad.editor">com.livecode.pi.string</metadata>
+  <handler name="OnCreate" parameters="" return="any"/>
+  <handler name="OnGeometryChanged" parameters="" return="any"/>
+  <handler name="OnPaint" parameters="" return="any"/>
+  <handler name="OnSave" parameters="out array" return="any"/>
+  <handler name="OnLoad" parameters="in array" return="any"/>
+  <handler name="OnMouseUp" parameters="" return="any"/>
+  <handler name="OnMouseCancel" parameters="" return="any"/>
+  <handler name="OnMouseEnter" parameters="" return="any"/>
+  <handler name="OnMouseDown" parameters="" return="any"/>
+  <handler name="OnMouseMove" parameters="" return="optional any"/>
+  <handler name="setMaintainAspectRatio" parameters="in boolean" return="any"/>
+  <handler name="setColor" parameters="in string" return="nothing"/>
+  <handler name="getColor" parameters="" return="string"/>
+  <handler name="setHiliteColor" parameters="in string" return="nothing"/>
+  <handler name="getHiliteColor" parameters="" return="string"/>
+  <handler name="hitTestPath" parameters="in Point,in Path,in number,in boolean" return="boolean"/>
+  <handler name="scaleAndMaintainAspectRatioTransform" parameters="in Rectangle,in Rectangle,in Rectangle" return="Transform"/>
+</package>

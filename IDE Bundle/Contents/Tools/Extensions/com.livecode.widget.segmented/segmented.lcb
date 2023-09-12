@@ -1,19 +1,19 @@
 /*
 Copyright (C) 2015 - 2016 LiveCode Ltd.
 
-This file is part of LiveCode.
+This file is part of OpenXTalk.
 
-LiveCode is free software; you can redistribute it and/or modify it under
+OpenXTalk is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License v3 as published by the Free
 Software Foundation.
 
-LiveCode is distributed in the hope that it will be useful, but WITHOUT ANY
+OpenXTalk is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or
 FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 for more details.
 
 You should have received a copy of the GNU General Public License
-along with LiveCode.  If not see <http://www.gnu.org/licenses/>.  */
+along with OpenXTalk.  If not see <http://www.gnu.org/licenses/>.  */
 
 /**
 A widget that shows a row of selectable horizontal segments.
@@ -31,8 +31,7 @@ highlighted, but it is possible to
 The segmented control is great for:
 
 - displaying a set of different options in a settings window (for
-  example, it is used to display text alignment in the LiveCode
-  property inspector)
+  example, it is used to display text alignment in the property inspector)
 - switching between different cards in a stack
 - displaying a set of toggleable settings
 
@@ -167,7 +166,7 @@ metadata hilitedTextColor.section is "Colors"
 metadata hilitedTextColor.label is "Hilited segment label color"
 
 metadata themeClass.default is "list"
-metadata themeClass.user_visible is "false"
+metadata themeClass.user_visible is "true"
 
 /**
 Syntax: set the horizontal of <widget> to {true | false}
@@ -229,7 +228,7 @@ constant kDontPostMessage is false
 
 public handler OnSave(out rProperties as Array)
 	put the empty array into rProperties
-	
+
 	put mMultiSelect		into rProperties["multiSelect"]
 	put mToggleHilites 	into rProperties["toggleHilites"]
 	put mSegmentNames		into rProperties["segmentNames"]
@@ -243,7 +242,7 @@ public handler OnSave(out rProperties as Array)
 	put mShowFrameBorder	into rProperties["showFrameBorder"]
 	put mIsHorizontal		into rProperties["horizontal"]
 	put mRadius into rProperties["cornerRadius"]
-	
+
 	if mSelectedLabelColor is not nothing then
 		put colorToString(mSelectedLabelColor, false) into rProperties["selectedLabelColor"]
 	end if
@@ -278,11 +277,11 @@ public handler OnLoad(in pProperties as Array)
 	if "selectedLabelColor" is among the keys of pProperties then
 		put stringToColor(pProperties["selectedLabelColor"]) into mSelectedLabelColor
 	end if
-	
+
 	if "horizontal" is among the keys of pProperties then
 		put pProperties["horizontal"] into mIsHorizontal
 	end if
-	
+
 end handler
 
 public handler OnCreate()
@@ -295,13 +294,13 @@ public handler OnCreate()
 	put ["align left","align center","align right"] into mSegmentIcons
 	put ["align left","align center","align right"] into mSelectedIcons
 	put [false, false, false] into mSegmentSelected
-	
+
 	put "text" into mSegmentDisplay
 	put [kDefaultSegmentMinExtent, kDefaultSegmentMinExtent, kDefaultSegmentMinExtent] into mSegmentMinExtent
-	
+
 	put true into mShowFrameBorder
-	put true into mIsHorizontal	
-		
+	put true into mIsHorizontal
+
 	// Initialise other variables
 	put true into mGeometryIsChanged
 	put (the number of elements in mSegmentNames) into mNumSegments
@@ -311,16 +310,16 @@ public handler OnCreate()
 	put [] into mCalculatedExtents
 end handler
 
-public handler OnPaint()	
+public handler OnPaint()
 	if mGeometryIsChanged then
 		calculateExtents()
 		-- update mPerimeter and mLines variables if the geometry has changed
 		updatePerimeter()
 		updateLines()
 	end if
-	
+
 	drawSegments()
-	
+
 	if mShowFrameBorder then
 		-- draw the lines to separate the segments
 		set the antialias of this canvas to false
@@ -371,7 +370,7 @@ public handler OnClick() returns nothing
 	 if tSegmentIndex is 0 then
 		 return
 	 end if
-	 
+
 	if mMultiSelect is false then
 		-- If cannot multiselect, then need to select the clicked-on segment and
 		-- deselect the currently selected segment. If the clicked-on segment is
@@ -487,8 +486,8 @@ private handler drawSegments() returns nothing
 			end if
 		else
 			set the paint of this canvas to my foreground paint
-		end if	
-			
+		end if
+
 		variable tIconPath as Path
 		variable tLabelRect as Rectangle
 
@@ -540,7 +539,7 @@ private handler drawSegments() returns nothing
 
 		add tExtent to tStart
 	end repeat
-	
+
 end handler
 
 private handler updateLines() returns nothing
@@ -549,13 +548,13 @@ private handler updateLines() returns nothing
 	variable tExtent as Real
 	variable tStart as Real
 	variable tBorderOffset as Real
-	
+
 	if mShowFrameBorder then
 		put 0.5 into tBorderOffset // border is hard coded at 1 pixel
 	else
 		put 0 into tBorderOffset
 	end if
-	
+
 	put the empty list into mLines
 
 	put 0 into tStart
@@ -571,7 +570,7 @@ private handler updateLines() returns nothing
 				push line path from point [tBorderOffset, tStart] to point [my width-tBorderOffset, tStart] onto back of mLines
 			end if
 		end if
-		
+
 	end repeat
 end handler
 
@@ -689,7 +688,7 @@ private handler setSelectedLabelColor(in pColor as String)
 	else
 		put stringToColor(pColor) into mSelectedLabelColor
 	end if
-	
+
 	redraw all
 end handler
 
@@ -749,7 +748,7 @@ end handler
 ----------------------------------------------------------------
 
 -- Helper function for updating a property that contains a list of
--- strings from a LiveCode Script "item" list.  It ensures that the
+-- strings from a Script "item" list.  It ensures that the
 -- xListProperty variable always contains the same number of elements
 -- as the widget has segments.
 --

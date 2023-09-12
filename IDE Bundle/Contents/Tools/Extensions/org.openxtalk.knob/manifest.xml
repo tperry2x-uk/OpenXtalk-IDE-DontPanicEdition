@@ -1,0 +1,83 @@
+<package version="0.0">
+  <name>org.openxtalk.knob</name>
+  <title>Knob Widget</title>
+  <author>Paul McClernan (with code from Trevor DeVore)</author>
+  <version>1.0.0</version>
+  <license>community</license>
+  <type>widget</type>
+  <requires name="com.livecode.canvas"/>
+  <requires name="com.livecode.math"/>
+  <requires name="com.livecode.binary"/>
+  <requires name="com.livecode.list"/>
+  <requires name="com.livecode.string"/>
+  <requires name="com.livecode.arithmetic"/>
+  <requires name="com.livecode.logic"/>
+  <requires name="com.livecode.typeconvert"/>
+  <requires name="com.livecode.type"/>
+  <requires name="com.livecode.array"/>
+  <requires name="com.livecode.widget"/>
+  <requires name="com.livecode.engine"/>
+  <requires name="com.livecode.mathfoundation"/>
+  <metadata key="preferredSize">240,240</metadata>
+  <property name="iconOrigin" get="string" set="string"/>
+  <property name="fillColor" get="string" set="string"/>
+  <metadata key="fillColor.editor">com.livecode.pi.colorwithalpha</metadata>
+  <metadata key="fillColor.label">Fill color</metadata>
+  <metadata key="fillColor.section">Colors</metadata>
+  <property name="outerShadowAngle" get="number" set="number"/>
+  <metadata key="outerShadowAngle.editor">com.livecode.pi.number</metadata>
+  <metadata key="outerShadowAngle.label">Outer Shadow angle</metadata>
+  <metadata key="outerShadowAngle.step">1</metadata>
+  <metadata key="outerShadowAngle.default">105</metadata>
+  <metadata key="outerShadowAngle.min">0</metadata>
+  <metadata key="outerShadowAngle.max">359</metadata>
+  <metadata key="outerShadowAngle.section">Effects</metadata>
+  <property name="outerShadowDistance" get="number" set="number"/>
+  <metadata key="outerShadowDistance.editor">com.livecode.pi.number</metadata>
+  <metadata key="outerShadowDistance.label">Outer Shadow distance</metadata>
+  <metadata key="outerShadowDistance.step">1</metadata>
+  <metadata key="outerShadowDistance.default">7</metadata>
+  <metadata key="outerShadowDistance.min">0</metadata>
+  <metadata key="outerShadowDistance.max">255</metadata>
+  <metadata key="outerShadowDistance.section">Effects</metadata>
+  <property name="outerShadowColor" get="string" set="string"/>
+  <metadata key="outerShadowColor.editor">com.livecode.pi.color</metadata>
+  <metadata key="outerShadowColor.label">Outer Shadow color</metadata>
+  <metadata key="outerShadowColor.section">Effects</metadata>
+  <property name="outerShadowSize" get="number" set="number"/>
+  <metadata key="outerShadowSize.editor">com.livecode.pi.number</metadata>
+  <metadata key="outerShadowSize.section">Effects</metadata>
+  <metadata key="outerShadowSize.label">Outer Shadow size</metadata>
+  <metadata key="outerShadowSize.step">1</metadata>
+  <metadata key="outerShadowSize.default">15</metadata>
+  <metadata key="outerShadowSize.min">0</metadata>
+  <metadata key="outerShadowSize.max">255</metadata>
+  <metadata key="outerShadowSize.section">Effects</metadata>
+  <property name="iconSVGPath" get="string" set="string"/>
+  <metadata key="iconSVGPath.editor">com.livecode.pi.text</metadata>
+  <property name="SVGPathColor" get="string" set="string"/>
+  <metadata key="SVGPathColor.editor">com.livecode.pi.color</metadata>
+  <metadata key="SVGPathColor.section">Colors</metadata>
+  <metadata key="SVGPathColor.label">SVG Path color</metadata>
+  <property name="iconSize" get="number" set="number"/>
+  <property name="maxRotation" get="number" set="number"/>
+  <property name="currentRotation" get="number" set="number"/>
+  <property name="iconStyle" get="string" set="string"/>
+  <metadata key="iconStyle.editor">com.livecode.pi.enum</metadata>
+  <metadata key="iconStyle.options">circle notch,pointy,knob1,knob2,classic knob</metadata>
+  <handler name="OnCreate" parameters="" return="any"/>
+  <handler name="OnSave" parameters="out array" return="any"/>
+  <handler name="OnLoad" parameters="in array" return="any"/>
+  <handler name="OnOpen" parameters="" return="any"/>
+  <handler name="OnGeometryChanged" parameters="" return="any"/>
+  <handler name="OnMouseUp" parameters="" return="any"/>
+  <handler name="OnMouseMove" parameters="" return="any"/>
+  <handler name="OnMouseCancel" parameters="" return="any"/>
+  <handler name="OnMouseDown" parameters="" return="any"/>
+  <handler name="OnPaint" parameters="" return="any"/>
+  <handler name="OnClose" parameters="" return="any"/>
+  <handler name="scaleAndMaintainAspectRatioTransform" parameters="in Rectangle,in Rectangle,in Rectangle" return="Transform"/>
+  <handler name="calculateRotatedPath" parameters="inout Path,in number,in Point,in boolean" return="any"/>
+  <handler name="rotatedTransformation" parameters="in number,in Point,in boolean" return="Transform"/>
+  <handler name="preparePathForRotation" parameters="inout Path,in list,in Rectangle,in Rectangle" return="Point"/>
+</package>

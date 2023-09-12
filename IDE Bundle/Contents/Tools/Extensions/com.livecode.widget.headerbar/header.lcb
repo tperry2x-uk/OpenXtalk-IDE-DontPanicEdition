@@ -265,7 +265,7 @@ The <itemLabels> are displayed by the header bar widget when the
 Related: itemArray (property), itemStyle (property)
 **/
 property itemLabels get getActionLabels set setActionLabels
-metadata itemLabels.user_visible is "false"
+metadata itemLabels.user_visible is "true"
 
 /**
 Summary: The icons for actions when not highlighted.
@@ -512,7 +512,7 @@ constant kGeometry is { \
 
 public handler OnSave(out rProperties as Array)
    put the empty array into rProperties
-   
+
    put mHeaderTitle into rProperties["headerTitle"]
    put getHeaderActions() into rProperties["headerActions"]
    put mIsOpaque into rProperties["backgroundOpacity"]
@@ -533,16 +533,16 @@ public handler OnLoad(in pProperties as Array)
    put pProperties["showDivide"] into mShowDivide
 
    put pProperties["titleVisibility"] into mShowTitle
-   
+
    if "firstActionLeft" is among the keys of pProperties then
       put pProperties["firstActionLeft"] into mFirstActionLeft
-   end if 
+   end if
 end handler
 
 public handler OnCreate()
 	put 0 into mHeight
 	put 0 into mWidth
-	
+
 	put "native" into mTheme
 	put getNativeThemeName() into mWidgetTheme
 
@@ -563,7 +563,7 @@ public handler OnCreate()
    put "plus" into tArray["icon_name"]
    put "" into tArray["hilited_icon_name"]
    push tArray onto tHeaderActions
-   
+
    put tHeaderActions into mHeaderActions
 
    -- properties
@@ -577,17 +577,17 @@ public handler OnCreate()
    put true into mShowTitle
 
    put 0 into mSelectedAction
-   
+
    put true into mRecalculate
 end handler
 
 public handler OnPaint()
 	set the font of this canvas to my font
-	
+
    if mRecalculate then
       updateVariables()
    end if
-   
+
    if mWidgetTheme is kWidgetThemeIos then
       drawIosBackground()
 		drawIosTitle()
@@ -595,9 +595,9 @@ public handler OnPaint()
       drawAndroidBackground()
 		drawAndroidTitle()
    end if
-	
+
    drawActions()
-      
+
    -- draw the bottom line
    if mShowDivide then
       set the paint of this canvas to fetchPaint("line")
@@ -609,7 +609,7 @@ public handler OnGeometryChanged() returns nothing
    if my height is not mHeight or my width is not mWidth then
       put true into mRecalculate
       redraw all
-   end if 
+   end if
 end handler
 
 private handler drawIosBackground() returns nothing
@@ -676,7 +676,7 @@ private handler drawActions() returns nothing
       if tDrawIcon then
          drawIcon(tX)
 		end if
-		
+
       if tDrawLabel then
          drawLabel(tX)
       end if
@@ -690,7 +690,7 @@ private handler drawIcon(in pIndex as Integer)
    variable tIconPath as Path
    set the paint of this canvas to fetchPaint("icon")
    put mHeaderActions[pIndex]["icon_rect"] into tActionRect
-   
+
    variable tIconName as String
    if pIndex is not mSelectedAction or \
       mHeaderActions[pIndex]["hilited_icon_name"] is empty then
@@ -698,10 +698,10 @@ private handler drawIcon(in pIndex as Integer)
    else
       put mHeaderActions[pIndex]["hilited_icon_name"] into tIconName
    end if
-   
+
    put fetchIconPath(tIconName, tActionRect) into tIconPath
    fill tIconPath on this canvas
-   
+
    if pIndex is mSelectedAction then
       set the opacity of this canvas to kHighlightOpacity
       set the paint of this canvas to fetchPaint("pushedIcon")
@@ -716,7 +716,7 @@ private handler drawLabel(in pIndex as Integer)
    set the paint of this canvas to fetchPaint("icon")
    put mHeaderActions[pIndex]["label_rect"] into tActionRect
    fill text mHeaderActions[pIndex]["label"] at center of tActionRect on this canvas
-   
+
    if pIndex is mSelectedAction then
       set the opacity of this canvas to kHighlightOpacity
       set the paint of this canvas to fetchPaint("pushedIcon")
@@ -803,7 +803,7 @@ private handler locToAction(in pLoc as Point) returns Integer
 
       if tLabel and pLoc is within mHeaderActions[tX]["label_rect"] then
          return tX
-      end if         
+      end if
    end repeat
    return 0
 end handler
@@ -830,7 +830,7 @@ end handler
 private handler updateVariables() returns nothing
    put my height into mHeight
    put my width into mWidth
-	
+
 	variable tMargin as Real
 	variable tDefaultHeight as Real
 	variable tDefaultWidth as Real
@@ -839,38 +839,38 @@ private handler updateVariables() returns nothing
 	put kGeometry["default-width"][mWidgetTheme] into tDefaultWidth
 	put kGeometry["margin-px"][mWidgetTheme] into tMargin
 	put kGeometry["left-margin-px"][mWidgetTheme] into tLeftMargin
-	
+
 	variable tContentHeight as Real
 	put contentHeight() into tContentHeight
-	
+
 	variable tHMargin as Real
 	variable tVMargin as Real
 	-- Calculate the margins by scaling the default according to the current dimensions
 	put mWidth*(tMargin / tDefaultWidth) into tHMargin
 	put tContentHeight*(tMargin / tDefaultHeight) into tVMargin
-	
+
 	-- Scale the icon size so that it doesn't get too big for the smaller dimension
 	variable tIconSize as Real
 	put tDefaultHeight - 2 * tMargin into tIconSize
 	variable tScale as Real
 	put the minimum of (tContentHeight / tDefaultHeight) and (mWidth / tDefaultWidth) into tScale
 	multiply tIconSize by tScale
-	
+
 	variable tContentTop as Real
 	variable tContentBottom as Real
    put kGeometry["status-bar-offset"][mWidgetTheme] + tVMargin into tContentTop
 	put tContentTop + tContentHeight - 2 * tVMargin into tContentBottom
-	
+
 	variable tTextBounds as Rectangle
 	variable tNumActions as Integer
 	put the number of elements in mHeaderActions into tNumActions
-	
+
 	variable tFirstRightAction as Integer
 	put 1 into tFirstRightAction
 	if mFirstActionLeft and tNumActions > 0 then
 		put rectangle [tLeftMargin, tContentTop, tLeftMargin + tIconSize, tContentBottom] into mHeaderActions[1]["icon_rect"]
 		put 2 into tFirstRightAction
-		
+
 		if mWidgetTheme is kWidgetThemeIos then
 			-- If the theme is iOS, always show the icon and label on the left.
 			variable tTextLeft as Real
@@ -884,11 +884,11 @@ private handler updateVariables() returns nothing
 			put rectangle [0,0,0,0] into mHeaderActions[1]["label_rect"]
 		end if
 	end if
-	
+
 	variable tRight as Number
 	put mWidth into tRight
 	subtract tHMargin from tRight
-	
+
 	variable tX as Integer
 	repeat with tX from tFirstRightAction up to tNumActions
 		variable tActionSize
@@ -905,11 +905,11 @@ private handler updateVariables() returns nothing
 		subtract tActionSize from tRight
 		subtract tHMargin from tRight
 	end repeat
-	
+
 	variable tTitleLeft as Real
 	put kGeometry["title-left-offset"][mWidgetTheme] into tTitleLeft
 	put rectangle [tTitleLeft, tContentTop, mWidth, tContentBottom] into mTitleRect
-	
+
 	put false into mRecalculate
 end handler
 
@@ -929,11 +929,11 @@ public handler OnMouseUp()
    if mMouseAction is mSelectedAction then
       post "mouseUp"
    end if
-   
+
    -- the icons change back to their original colors on mouse up
    put 0 into mSelectedAction
    redraw all
-end handler 
+end handler
 
 public handler OnMouseMove()
    -- track the mouseAction
@@ -970,8 +970,8 @@ end handler
 private handler getMouseActionName() returns String
    if mMouseAction is not 0 then
       return mHeaderActions[mMouseAction]["name"]
-   end if 
-   
+   end if
+
    return ""
 end handler
 
@@ -1056,9 +1056,9 @@ end handler
 
 private handler setFirstActionLeft(in pToLeft as Boolean) returns nothing
    if pToLeft is mFirstActionLeft then
-      return 
-   end if 
-   
+      return
+   end if
+
    put pToLeft into mFirstActionLeft
 	put true into mRecalculate
    redraw all

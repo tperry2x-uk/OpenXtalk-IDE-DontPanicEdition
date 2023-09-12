@@ -1,0 +1,1522 @@
+/**
+progress v1.3.0 [-hh fecit, Nov 2017/Oct 2018]
+
+Widget 'hhProgress' displays progress, in elliptical or rectangular mode.
+++ Resize with pointer tool and shiftKey down to get a proportional resizing.
+++ Resize with pointer tool and optionKey down to get a shape of equal width and height.
+++ Drag with pointer tool and optionKey down to 'duplicate' the widget (may be the copy loses some properties).
+++ The rectangle progress moves left-right or bottom-up, depending on the chosen width and height.
+++ Drag the widget by mouseDown (if property allowGrab is true)
+++ RightClick the widget for a menu of basic options (if property allowContextMenu is true)
+
+The widget passes the following mouse messages for your own use in the widget's script:
+mouseDown (late), mouseEnter, mouseLeave, mouseRelease, mouseUp.
+**/
+
+widget community.livecode.hermann.progress
+
+use com.livecode.math
+use com.livecode.canvas
+use com.livecode.widget
+use com.livecode.engine
+
+constant kWidgetVersion is "hhProgress_v130 [fat widget]"
+constant kMenu is "Ellipse\nRectangle\n-\nNo demo\nFastDemo\nSeconds\nMinutes\nHours12\nHours24"
+
+metadata title 		is "hhProgress"
+metadata author 		is "Hermann Hoch"
+metadata version 		is "1.3.0"
+metadata preferredSize 	is "128,22"
+metadata svgicon is "M0 63.5 C 0 127,0 127,140 127 C 280 127,280 127,280 63.5 C 280 0,280 0,140 0 C 0 0,0 0,0 63.5 M128.438 30.9 C 128.744 31.394,128.701 37.244,128.343 43.9 C 127.693 56,127.693 56,121.486 56 C 115.279 56,115.279 56,114.648 50.750 C 114.301 47.862,114.013 42.013,114.009 37.750 C 114 30,114 30,120.941 30 C 124.759 30,128.132 30.405,128.438 30.9 M50.347 36.364 C 63.873 40.546,70.164 51.350,66.418 63.966 C 63.687 73.161,54.638 78.834,40 80.528 C 34.5 81.165,34.5 81.165,34.5 89.332 C 34.5 97.5,34.5 97.5,26.250 97.790 C 18 98.081,18 98.081,18 65.892 C 18 33.703,18 33.703,31.750 34.284 C 39.430 34.609,47.640 35.527,50.347 36.364 M34 58.373 C 34 70,34 70,37.032 70 C 41.237 70,46.426 67.658,48.369 64.883 C 51.034 61.078,50.487 54.577,47.191 50.887 C 44.906 48.331,43.411 47.650,39.191 47.244 C 34 46.746,34 46.746,34 58.373 M110.595 53.750 C 111.502 56.913,112.392 59.758,112.572 60.073 C 112.752 60.388,108.085 62.509,102.2 64.787 C 91.5 68.927,91.5 68.927,91.801 83.464 C 92.103 98,92.103 98,84.051 98 C 76 98,76 98,76 73.5 C 76 49,76 49,83.5 49 C 91 49,91 49,91 52 C 91 53.650,91.188 55,91.419 55 C 91.649 55,95.124 53.425,99.140 51.5 C 103.157 49.575,107.006 48,107.694 48 C 108.382 48,109.687 50.587,110.595 53.750 M166.905 48.973 C 175.704 51.496,182 59.932,182 69.196 C 182 74,182 74,166 74 C 148.512 74,148.489 74.009,151.960 79.701 C 154.962 84.626,159.192 86.316,169.750 86.808 C 179 87.239,179 87.239,179 90.554 C 179 92.378,178.561 95.024,178.025 96.435 C 177.119 98.816,176.595 99,170.708 99 C 147.866 99,134.685 89.478,134.719 73.002 C 134.744 60.891,140.905 52.307,151.994 48.934 C 155.626 47.829,162.984 47.848,166.905 48.973 M223.358 52.750 C 224.536 59.879,224.710 59.691,216.432 60.223 C 207.868 60.772,204.605 62.614,207.026 65.531 C 207.771 66.429,210.935 68.453,214.057 70.029 C 224.626 75.364,227.747 82.581,222.737 90.102 C 218.806 96.003,209.627 99,195.480 99 C 187.399 99,187.042 98.653,187.014 90.750 C 187 87,187 87,194.435 87 C 208.913 87,211.145 83.426,200.243 77.697 C 190.794 72.731,188.5 70.051,188.5 63.975 C 188.5 59.775,188.976 58.620,191.983 55.518 C 196.486 50.872,202.241 49.157,213.619 49.070 C 222.738 49,222.738 49,223.358 52.750 M265.358 52.750 C 266.536 59.879,266.710 59.691,258.432 60.223 C 249.868 60.772,246.605 62.614,249.026 65.531 C 249.771 66.429,252.935 68.453,256.057 70.029 C 266.626 75.364,269.747 82.581,264.737 90.102 C 260.806 96.003,251.627 99,237.480 99 C 229.399 99,229.042 98.653,229.014 90.750 C 229 87,229 87,236.435 87 C 250.913 87,253.145 83.426,242.243 77.697 C 232.794 72.731,230.5 70.051,230.5 63.975 C 230.5 59.775,230.976 58.620,233.983 55.518 C 238.486 50.872,244.241 49.157,255.619 49.070 C 264.738 49,264.738 49,265.358 52.750 M154.217 59.561 C 152.991 60.419,151.305 62.444,150.469 64.061 C 148.949 67,148.949 67,158.422 67 C 167.896 67,167.896 67,166.845 63.984 C 164.905 58.419,158.866 56.304,154.217 59.561Z"
+
+--mark VARIABLES
+variable mAutoAdjustRect as Boolean
+variable mAutoStroke		as Boolean
+variable mEllipseHeight	as Number
+variable mEllipseWidth	as Number
+variable mClockOffset	as Number
+variable mCurrentMode	as String
+variable mDemoMode		as String
+variable mDown 			as Boolean
+variable mAllowContextMenu as Boolean
+variable mAllowGrab 		as Boolean
+variable mE 				as ScriptObject
+variable mEllipseInnerPercent	as Number
+variable mEllipseShowInner	as Boolean
+variable mFaceColor		as Color
+variable mFill 			as Boolean
+variable mFillColor		as Color
+variable mFillRule		as String
+variable mFirstTime		as Boolean
+variable mGrab 			as Boolean
+variable mInset			as Number
+variable mMouse 			as Point
+variable mPath 			as Path
+variable mPercentage		as Number
+variable mRectHeight		as Number
+variable mRectWidth		as Number
+variable mRightClick		as Boolean
+variable mRoundRadius	as Number
+variable mShowDemo		as Boolean
+variable mShowProgressText		as Boolean
+variable mStrokeColor			as Color
+variable mStrokeEllipseProgress as Boolean
+variable mStrokeWidthEllipse	as Number
+variable mStrokeWidthRect		as Number
+variable mProgressTextColor	as Color
+variable mTextDrawsDifferent	as Boolean
+variable mWidgetVersion			as String
+
+--mark PUBLIC HANDLERS
+
+--
+public handler OnCreate()
+	put kWidgetVersion into mWidgetVersion
+	put my script object into mE
+	put hhStringToColor("0,0,255,158") into mFaceColor
+	put hhStringToColor("51,51,51,255") into mFillColor
+	put hhStringToColor("255,255,51,255") into mStrokeColor
+	put hhStringToColor("0,0,0,255") into mProgressTextColor
+	put false into mGrab
+	put false into mDown
+	put true	 into mFirstTime
+	put "Rectangle" into mCurrentMode
+	put "No Demo" into mDemoMode
+	put "even odd" into mFillRule
+	put true	into mAutoAdjustRect
+	put false	into mAutoStroke
+	put true	into mAllowContextMenu
+	put false	into mAllowGrab
+	put false	into mEllipseShowInner
+	put true	into mFill
+	put true	into mShowDemo
+	put true	into mShowProgressText
+	put true	into mStrokeEllipseProgress
+	put true	into mTextDrawsDifferent
+	put 128	into mEllipseHeight
+	put 128	into mEllipseWidth
+	put 0		into mClockOffset
+	put 50	into mEllipseInnerPercent
+	put 11	into mInset
+	put 12	into mRoundRadius
+	put 128	into mRectWidth
+	put 22	into mRectHeight
+	put 16	into mStrokeWidthRect
+	put 2		into mStrokeWidthEllipse
+	put 50	into mPercentage
+end handler
+
+--
+public handler OnOpen()
+	if mCurrentMode is "Rectangle" then
+  		set property "width" of me to mRectWidth
+  		set property "height" of me to mRectHeight
+	else
+  		set property "width" of me to mEllipseWidth
+  		set property "height" of me to mEllipseHeight
+	end if
+	if mDemoMode is not "NoDemo" then
+		schedule timer in 0.08 seconds
+	end if
+end handler
+
+--
+public handler OnClose()
+	cancel timer
+end handler
+
+--
+public handler OnPaint()
+	variable tTimedPath as Path
+	variable tOuterPath as Path
+	variable tInnerPath as Path
+	variable tInnerSectorPath as Path
+	variable tRect as Rectangle
+	set the antialias of this canvas to true
+	-- set the stippled of this canvas to true
+	if mPercentage < 10^(-6) then -- avoid 'jumping'-bug
+		put 0.001 into mPercentage
+	else if mPercentage > 100 - 10^(-6) then
+		put 99.999 into mPercentage
+	end if	
+	if mCurrentMode is "Rectangle" then
+		if mAutoStroke then
+			put minL([my width,my height])-2*mInset into mStrokeWidthRect
+		else
+			set mStrokeWidthRect to \
+				maxL([1,minL([mStrokeWidthRect,minL([my width,my height])-2])])
+		end if
+		put rectangle [0,0,mRectWidth,mRectHeight] into tRect
+		if mRoundRadius = 0 then
+			set tOuterPath to rectangle path of tRect
+			set the cap style of this canvas to "butt"
+		else
+			set tOuterPath to rounded rectangle path of tRect with radius mRoundRadius
+			set the cap style of this canvas to "round"
+		end if
+		if my width > my height then
+			set tInnerPath to polyline path with points \
+				[point [mInset,my height/2], point [my width-mInset,my height/2]]
+			set tTimedPath to polyline path with points \
+				[point [mInset,my height/2], \
+				 point [mInset+mPercentage/100*(my width-2*mInset),my height/2]]
+		else
+			set tInnerPath to polyline path with points \
+				[point [my width/2,mInset], point [my width/2,my height-mInset]]
+			set tTimedPath to polyline path with points \
+				[point [my width/2, my height-mInset -mPercentage/100*(my height-2*mInset)], \
+				 point [my width/2,my height - mInset]]
+		end if
+		set the stroke width of this canvas to mStrokeWidthRect
+		set the paint of this canvas to solid paint with mFaceColor
+		if mFill then
+			fill tOuterPath on this canvas
+		end if
+		set the paint of this canvas to solid paint with mFillColor
+		stroke tInnerPath on this canvas
+		set the paint of this canvas to solid paint with mStrokeColor
+		stroke tTimedPath on this canvas
+	else if mCurrentMode is "Ellipse" then
+		variable tRadiusX as Number
+		variable tRadiusY as Number
+		put 0.5*mEllipseWidth  - 1.414*mStrokeWidthEllipse into tRadiusX
+		put 0.5*mEllipseHeight - 1.414*mStrokeWidthEllipse into tRadiusY
+		set tOuterPath to ellipse path centered at point \
+			[my width/2,my height/2] with radii [tRadiusX,tRadiusY]
+		set tTimedPath to sector path centered at point \
+			[my width/2,my height/2] with radii [tRadiusX,tRadiusY] \
+				from -90 to (mPercentage/5*18)-90
+		if mEllipseShowInner then
+			set tInnerPath to ellipse path centered at point \
+				[my width/2,my height/2] with radii \
+					[tRadiusX*mEllipseInnerPercent/100,tRadiusY*mEllipseInnerPercent/100]
+			add tInnerPath to tTimedPath
+		else
+			set tInnerSectorPath to sector path centered at point \
+				[my width/2,my height/2] with radii \
+					[tRadiusX*mEllipseInnerPercent/100,tRadiusY*mEllipseInnerPercent/100] \
+					from -90 to (mPercentage/5*18)-90
+			add tInnerSectorPath to tTimedPath
+		end if
+		if mFill then
+			set the paint of this canvas to solid paint with mFaceColor
+			fill tOuterPath on this canvas
+		end if
+		set the paint of this canvas to solid paint with mFillColor
+		set the fill rule of this canvas to "even odd"
+		fill tTimedPath on this canvas
+		if mStrokeEllipseProgress then
+			set the paint of this canvas to solid paint with mStrokeColor
+			set the stroke width of this canvas to mStrokeWidthEllipse
+			set the join style of this canvas to "round"
+			set the cap style of this canvas to "round"
+			if mEllipseShowInner then
+				stroke tTimedPath on this canvas
+			else
+				variable tP as Number
+				variable tE as Number
+				put mEllipseInnerPercent/100 into tE
+				put (mPercentage/5*18)-90 into tP
+				set tOuterPath to arc path centered at point \
+					[my width/2,my height/2] with radii [tRadiusX,tRadiusY] from -90 to tP
+				set tInnerPath to arc path centered at point \
+					[my width/2,my height/2] with radii [tRadiusX*tE,tRadiusY*tE] from -90 to tP
+				add tInnerPath to tOuterPath
+				move to point \
+					[my width/2 + tRadiusX*cos(-90*pi/180), \
+					 my height/2 + tRadiusY*sin(-90*pi/180)] on tOuterPath
+				line to  point \
+					[my width/2 + tRadiusX*tE*cos(-90*pi/180), \
+					 my height/2 + tRadiusY*tE*sin(-90*pi/180)] on tOuterPath
+				move to point \
+					[my width/2 + tRadiusX*cos(tP*pi/180), \
+					 my height/2 + tRadiusY*sin(tP*pi/180)] on tOuterPath
+				line to  point \
+					[my width/2 + tRadiusX*tE*cos(tP*pi/180), \
+					 my height/2 + tRadiusY*tE*sin(tP*pi/180)] on tOuterPath
+				stroke tOuterPath on this canvas
+			end if
+		end if
+	end if
+	if mShowProgressText then
+		variable tR as Rectangle
+		variable tS as String
+		variable tN as Number
+		set the font of this canvas to my font
+		put ((the rounded of mPercentage) formatted as string)&"%" into tS
+		measure tS on this canvas
+		put the result into tR
+		save state of this canvas
+		variable tFaceColor as Color
+		variable tTextColor as Color
+		if mTextDrawsDifferent then
+			put mFaceColor into tFaceColor
+			put color [1,1,1] into tTextColor
+			set the alpha of tFaceColor to 0.01
+		else
+			put mProgressTextColor into tTextColor
+			put hhStringToColor(getContrastColor(hhColorToString(mProgressTextColor))) into tFaceColor
+		end if
+		set the paint of this canvas to solid paint with tFaceColor
+		put 0.5*the size of my font into tN
+		fill rounded rectangle path of rectangle \
+			[-tN+(-the width of tR + my width)/2, -tN/2+(-the height of tR + my height)/2, \
+			  tN+ (the width of tR + my width)/2,  tN/2+( the height of tR + my height)/2] \
+				with radius 8 on this canvas
+		if mTextDrawsDifferent then
+			set the blend mode of this canvas to "difference"
+		end if
+		set the paint of this canvas to solid paint with tTextColor
+		fill text tS at point \
+				[(-the width of tR + my width)/2, (0.6*the height of tR + my height)/2] on this canvas
+		restore state of this canvas
+	end if
+end handler
+
+--
+public handler OnTimer()
+	if mAllowGrab and not mRightClick and mDown then -- grab
+		cancel timer
+		variable tMouse as Point
+		put the mouse position into tMouse
+		variable tRect as Rectangle
+		put my rectangle into tRect
+		set property "left" of mE to \
+			(the left of tRect + the x of tMouse - the x of mMouse)
+		set property "top"  of mE to \
+			(the top  of tRect + the y of tMouse - the y of mMouse)
+		redraw all
+		schedule timer in 0.04 seconds
+	else if mShowDemo then
+		variable tUTC as Number
+		put the universal time into tUTC
+		add 3600*mClockOffset to tUTC -- mClockOffset are hours
+		if mDemoMode is "Seconds" then
+			set mPercentage to (tUTC mod 60)*5/3
+			redraw all
+			schedule timer in (1 - (tUTC mod 1)) seconds
+		else if mDemoMode is "Minutes" then
+			set mPercentage to ((tUTC mod 3600)/60)*5/3
+			redraw all
+			schedule timer in (10 - (tUTC mod 1)) seconds
+		else if mDemoMode is "Hours12" then
+			set mPercentage to ((tUTC mod 43200)/3600)*25/3
+			redraw all
+			schedule timer in (60 - (tUTC mod 1)) seconds
+		else if mDemoMode is "Hours24" then
+			set mPercentage to ((tUTC mod 86400)/3600)*25/6	
+			redraw all
+			schedule timer in (60 - (tUTC mod 1)) seconds -- 1440=60*24 pixels
+		else if mDemoMode is "FastDemo" then
+			set mPercentage to (tUTC mod 4)*25
+			redraw all
+			schedule timer in (0.1 - (tUTC mod 0.1)) seconds
+		else
+			cancel timer
+			redraw all
+		end if
+	else
+		cancel timer
+	end if
+end handler
+
+--
+public handler OnMouseDown()
+	variable tStop
+	set tStop to false
+	put (the click button is 3) into mRightClick
+	put the mouse position into mMouse
+	--popup widget "community.livecode.hermann.clockaround" at mMouse
+	if the click count is 2 then
+		redraw all
+	end if
+	cancel timer
+	if mAllowContextMenu and mRightClick then
+		put false into mDown
+		put false into mGrab
+		variable tCurrent as String
+		variable tMenu as String
+		variable tResult as String
+		put mCurrentMode into tCurrent
+		put kMenu into tMenu
+		replace tCurrent with "[X] "& tCurrent in tMenu
+		replace mDemoMode with "[+] "& mDemoMode in tMenu
+		popup menu tMenu at mMouse
+		if the result is not nothing then
+			put the result into tResult
+			replace "[X] " with "" in tResult
+			replace "[+] " with "" in tResult
+			if char 1 of tResult is in "ER" then
+				setCurrentMode(tResult)
+			else
+				setDemoMode(tResult)
+			end if
+		end if
+	else if mAllowGrab then
+		put true into mDown
+		put true into mGrab
+		post "lock cursor; set cursor to hand"
+		schedule timer in 0.08 seconds
+		redraw all
+	else
+		set mDown to false
+		set mGrab to false
+		post "mouseDown" to mE with [the click button]
+	end if
+end handler
+
+--
+public handler OnMouseUp()
+	put false into mDown
+	put false into mGrab
+	post "unlock cursor"
+	post "mouseUp" with [the click button]
+	redraw all
+end handler
+
+--
+public handler OnMouseEnter()
+	post "mouseEnter"
+end handler
+
+--
+public handler OnMouseLeave()
+	post "mouseLeave"
+end handler
+
+--
+public handler OnMouseRelease()
+	put false into mDown
+	post "unlock cursor"
+	post "mouseRelease" with [the click button]
+	redraw all
+end handler
+
+--
+public handler OnGeometryChanged()
+	if mCurrentMode is "Rectangle" then
+		put my width  into mRectWidth
+		put my height into mRectHeight
+	else 
+		put my width into mEllipseWidth
+		put my height into mEllipseHeight
+	end if
+end handler
+
+-- 
+public handler OnLoad(in rProp as Array)
+	if "faceColor" is not among the keys of rProp then
+		put hhStringToColor("0, 0, 255, 158") into mFaceColor
+	else
+		put hhStringToColor(rProp["faceColor"]) into mFaceColor
+	end if
+	if "fillColor" is not among the keys of rProp then
+		put hhStringToColor("51, 51, 51,255") into mFillColor
+	else
+		put hhStringToColor(rProp["fillColor"]) into mFillColor
+	end if
+	if "strokeColor" is not among the keys of rProp then
+		put hhStringToColor("255, 255, 51,255") into mStrokeColor
+	else
+		put hhStringToColor(rProp["strokeColor"]) into mStrokeColor
+	end if
+	if "progressTextColor" is not among the keys of rProp then
+		put hhStringToColor("0,0,0,255") into mProgressTextColor
+	else
+		put hhStringToColor(rProp["progressTextColor"]) into mProgressTextColor
+	end if
+	if "allowContextMenu" is not among the keys of rProp then
+		put false into mAllowContextMenu
+	else
+		put rProp["allowContextMenu"] into mAllowContextMenu
+	end if
+	if "allowGrab" is not among the keys of rProp then
+		put false into mAllowGrab
+	else
+		put rProp["allowGrab"] into mAllowGrab
+	end if
+	if "autoAdjustRect" is not among the keys of rProp then
+		put false into mAutoAdjustRect
+	else
+		put rProp["autoAdjustRect"] into mAutoAdjustRect
+	end if
+	if "autoStroke" is not among the keys of rProp then
+		put false into mAutoStroke
+	else
+		put rProp["autoStroke"] into mAutoStroke
+	end if
+	if "ellipseWidth" is not among the keys of rProp then
+		put 128 into mEllipseWidth
+	else
+		put rProp["ellipseWidth"] into mEllipseWidth
+	end if
+	if "ellipseHeight" is not among the keys of rProp then
+		put 128 into mEllipseHeight
+	else
+		put rProp["ellipseHeight"] into mEllipseHeight
+	end if
+	if "clockOffset" is not among the keys of rProp then
+		put 0 into mClockOffset
+	else
+		put rProp["clockOffset"] into mClockOffset
+	end if
+	if "currentMode" is not among the keys of rProp then
+		put "Ellipse" into mCurrentMode
+	else
+		put rProp["currentMode"] into mCurrentMode
+	end if
+	if "demoMode" is not among the keys of rProp then
+		put "Seconds" into mDemoMode
+	else
+		put rProp["demoMode"] into mDemoMode
+	end if
+	if "ellipseShowInner" is not among the keys of rProp then
+		put true into mEllipseShowInner
+	else
+		put rProp["ellipseShowInner"] into mEllipseShowInner
+	end if
+	if "ellipseInnerPercent" is not among the keys of rProp then
+		put 50 into mEllipseInnerPercent
+	else
+		put rProp["ellipseInnerPercent"] into mEllipseInnerPercent
+	end if
+	if "fillFace" is not among the keys of rProp then
+		put false into mFill
+	else
+		put rProp["fillFace"] into mFill
+	end if
+	if "fillRule" is not among the keys of rProp then
+		put "even odd" into mFillRule
+	else
+		put rProp["fillRule"] into mFillRule
+	end if
+	if "inset" is not among the keys of rProp then
+		put 4 into mInset
+	else
+		put rProp["inset"] into mInset
+	end if
+	if "percentage" is not among the keys of rProp then
+		put 50 into mPercentage
+	else
+		put rProp["percentage"] into mPercentage
+	end if
+	if "rectWidth" is not among the keys of rProp then
+		put 128 into mRectWidth
+	else
+		put rProp["rectWidth"] into mRectWidth
+	end if
+	if "rectHeight" is not among the keys of rProp then
+		put 12 into mRectHeight
+	else
+		put rProp["rectHeight"] into mRectHeight
+	end if
+	if "roundRectRadius" is not among the keys of rProp then
+		put 4 into mRoundRadius
+	else
+		put rProp["roundRectRadius"] into mRoundRadius
+	end if
+	if "showDemo" is not among the keys of rProp then
+		put false into mShowDemo
+	else
+		put rProp["showDemo"] into mShowDemo
+	end if
+	if "showProgressText" is not among the keys of rProp then
+		put true into mShowProgressText
+	else
+		put rProp["showProgressText"] into mShowProgressText
+	end if
+	if "strokeWidthRect" is not among the keys of rProp then
+		put 4 into mStrokeWidthRect
+	else
+		put rProp["strokeWidthRect"] into mStrokeWidthRect
+	end if
+	if "strokeWidthEllipse" is not among the keys of rProp then
+		put 2 into mStrokeWidthEllipse
+	else
+		put rProp["strokeWidthCirc"] into mStrokeWidthEllipse
+	end if
+	if "strokeEllipseProgress" is not among the keys of rProp then
+		put true into mStrokeEllipseProgress
+	else
+		put rProp["strokeEllipseProgress"] into mStrokeEllipseProgress
+	end if
+	if "textDrawsDifferent" is not among the keys of rProp then
+		put true into mTextDrawsDifferent
+	else
+		put rProp["textDrawsDifferent"] into mTextDrawsDifferent
+	end if
+end handler
+
+--
+public handler OnSave(out rProp as Array)
+	put {} into rProp
+	put hhColorToString(mFaceColor) into rProp["faceColor"]
+	put hhColorToString(mFillColor) into rProp["fillColor"]
+	put hhColorToString(mStrokeColor) into rProp["strokeColor"]
+	put hhColorToString(mProgressTextColor) into rProp["progressTextColor"]
+	put mAllowContextMenu into rProp["allowContextMenu"]	
+	put mAllowGrab into rProp["allowGrab"]	
+	put mAutoAdjustRect into rProp["autoAdjustRect"]	
+	put mAutoStroke into rProp["autoStroke"]
+	put mEllipseHeight into rProp["ellipseHeight"]
+	put mEllipseWidth into rProp["ellipseWidth"]
+	put mClockOffset into rProp["clockOffset"]
+	put mCurrentMode into rProp["currentMode"]
+	put mDemoMode into rProp["demoMode"]
+	put mEllipseInnerPercent into rProp["ellipseInnerPercent"]
+	put mEllipseShowInner into rProp["ellipseShowInner"]
+	put mFill into rProp["fillFace"]
+	put mFillRule into rProp["fillRule"]
+	put mInset into rProp["inset"]
+	put mPercentage into rProp["percentage"]
+	put mRectHeight into rProp["rectHeight"]
+	put mRectWidth into rProp["rectWidth"]
+	put mRoundRadius into rProp["roundRectRadius"]
+	put mShowDemo into rProp["showDemo"]
+	put mShowProgressText into rProp["showProgressText"]
+	put mStrokeEllipseProgress into rProp["strokeEllipseProgress"]
+	put mStrokeWidthEllipse into rProp["strokeWidthCirc"]
+	put mStrokeWidthEllipse into rProp["strokeWidthEllipse"]
+	put mStrokeWidthRect into rProp["strokeWidthRect"]
+	put mTextDrawsDifferent into rProp["textDrawsDifferent"]
+end handler
+
+--mark GETTER/SETTER
+
+--
+handler setAllowGrab(in pBool as Boolean) returns nothing
+	set mAllowGrab to pBool
+	redraw all
+end handler
+
+--
+handler setAllowContextMenu(in pBool as Boolean) returns nothing
+	set mAllowContextMenu to pBool
+	redraw all
+end handler
+
+--
+handler setPercentage(in pValue as Number) returns nothing
+	set mShowDemo to false
+	put pValue into mPercentage
+	redraw all
+end handler
+
+--
+handler setShowDemo(in pBool as Boolean) returns nothing
+	put pBool into mShowDemo
+	if mShowDemo then
+		schedule timer in 0.08 seconds
+	else
+		cancel timer
+	end if
+	redraw all
+end handler
+
+--
+handler setShowProgressText(in pBool as Boolean) returns nothing
+	set mShowProgressText to pBool
+	redraw all
+end handler
+
+--
+handler setDemoMode(in pMode as String) returns nothing
+	put pMode into mDemoMode
+	if pMode is "No Demo" then
+		set mShowDemo to false
+		cancel timer
+	else
+		set mShowDemo to true
+		schedule timer in 0.08 seconds
+	end if
+	redraw all
+end handler
+
+--
+handler setEllipseInnerPercent(in pN as Number) returns nothing
+	put the minimum of 100 and (the maximum of 0.1 and pN) into mEllipseInnerPercent
+	redraw all
+end handler
+
+--
+handler setEllipseShowInner(in pB as Boolean) returns nothing
+	put pB into mEllipseShowInner
+	redraw all
+end handler
+
+--
+handler setStrokeEllipseProgress(in pB as Boolean) returns nothing
+	put pB into mStrokeEllipseProgress
+	redraw all
+end handler
+
+--
+handler setClockOffset(in pNum as Number) returns nothing
+    put (the trunc of (4*pNum))/4 into pNum
+	put pNum into mClockOffset -- hours in range -12.0 to 12.0
+	if mShowDemo then
+		schedule timer in 0.08 seconds
+	else
+		cancel timer
+	end if
+	redraw all
+end handler
+
+--
+handler setCurrentMode(in pMode as String) returns nothing
+	put pMode into mCurrentMode
+	if mCurrentMode is "Ellipse" then
+		post  "lock screen; lock messages; put the loc of me into tL ; " & \
+				"set rect of me to \q0,0," & \
+				(mEllipseWidth  formatted as string) &","& (mEllipseHeight formatted as string) & \
+				"\q ; set loc of me to tL"
+	else 
+		post  "lock screen; lock messages; put the loc of me into tL ; " & \
+				"set rect of me to \q0,0," & \
+				(mRectWidth  formatted as string) &","& (mRectHeight formatted as string) & \
+				"\q ; set loc of me to tL"
+	end if
+	redraw all
+end handler
+
+--
+handler setFillRule(in pRule as String) returns nothing
+	put pRule into mFillRule
+	redraw all
+end handler
+
+--
+handler setFill(in pBool as Boolean) returns nothing
+	put pBool into mFill
+	redraw all
+end handler
+
+--
+handler setFaceColor(in pColor as String) returns nothing
+	put hhStringToColor(pColor) into mFaceColor
+	redraw all
+end handler
+
+--
+handler getFaceColor() returns String
+	return hhColorToString(mFaceColor)
+end handler
+
+--
+handler setFillColor(in pColor as String) returns nothing
+	put hhStringToColor(pColor) into mFillColor
+	redraw all
+end handler
+
+--
+handler getFillColor() returns String
+	return hhColorToString(mFillColor)
+end handler
+
+--
+handler setStrokeColor(in pColor as String) returns nothing
+	put hhStringToColor(pColor) into mStrokeColor
+	redraw all
+end handler
+
+--
+handler getStrokeColor() returns String
+	return hhColorToString(mStrokeColor)
+end handler
+
+--
+handler getProgressTextColor() returns String
+	return hhColorToString(mProgressTextColor)
+end handler
+
+--
+handler setProgressTextColor(in pColor as String) returns nothing
+	put hhStringToColor(pColor) into mProgressTextColor
+	redraw all
+end handler
+
+--
+handler setInset(in pNum as Number) returns nothing
+	put pNum into mInset
+	if pNum > 1 then
+		set mAutoStroke to false
+	end if
+	redraw all
+end handler
+
+--
+handler setRoundRadius(in pNum as Number) returns nothing
+	put pNum into mRoundRadius
+	if pNum > 0 then
+		set mAutoStroke to false
+	end if
+	redraw all
+end handler
+
+--
+handler setAutoStroke(in pBool as Boolean) returns nothing
+	put pBool into mAutoStroke
+	if pBool then
+		set mInset to 1
+		set mRoundRadius to 0
+	end if
+	redraw all
+end handler
+
+--
+handler setStrokeWidthRect(in pNum as Number) returns nothing
+	-- avoid jumping with odd integers
+	if pNum > 8 then
+		put the maximum of 1 and (2*the trunc of (pNum/2)) into mStrokeWidthRect
+	else
+		put the maximum of 1 and (the trunc of pNum) into mStrokeWidthRect
+	end if
+	redraw all
+end handler
+
+--
+handler setStrokeWidthCirc(in pNum as Number) returns nothing
+	-- avoid jumping with odd integers
+	if pNum > 8 then
+		put the maximum of 1 and (2*the trunc of (pNum/2)) into mStrokeWidthEllipse
+	else
+		put the maximum of 1 and (the trunc of pNum) into mStrokeWidthEllipse
+	end if
+	redraw all
+end handler
+
+--
+handler setTextDrawsDifferent(in pBool as Boolean) returns nothing
+	put pBool into mTextDrawsDifferent
+	redraw all
+end handler
+
+--mark PRIVATE HANDLERS
+
+--
+handler hhStringToColor(in pString as String) returns Color
+	if the number of chars in pString is 0 then
+		 return color [0.0, 0.0, 0.0, 1.0]
+	end if
+	variable tList as List
+	split pString by "," into tList
+	variable tNum as Number
+	put the number of elements in tList into tNum
+	variable tR as Number
+	variable tG as Number
+	variable tB as Number
+	variable tA as Number	
+	put ((element 1 of tList) parsed as number) into tR
+	put ((element 2 of tList) parsed as number) into tG
+	put ((element 3 of tList) parsed as number) into tB
+	if tNum = 4 then -- put first tA in range 0-1
+		put ((element 4 of tList) parsed as number) into tA
+		if not ("." is in pString) then
+			put tA/255 into tA
+		end if
+	else
+		put 1.0 into tA
+	end if
+	if "." is in pString then
+		return color [tR, tG, tB, tA]
+	else
+		return color [tR/255, tG/255, tB/255, tA]
+	end if
+end handler
+
+-- Returns the color as a four-item string
+handler hhColorToString(in pColor as Color) returns String
+	variable tString as String
+	if pColor is nothing then
+		return "0,0,0,255"
+	end if
+	put (the trunc of ((the red of pColor) * 255)) formatted as string into tString
+	put "," & (the trunc of ((the green of pColor) * 255)) formatted as string after tString
+	put "," & (the trunc of ((the blue of pColor) * 255)) formatted as string after tString
+	put "," & (the trunc of ((the alpha of pColor) * 255)) formatted as string after tString
+	return tString
+end handler
+
+--mark UTILITIES
+
+-- in/out 0-255 colors string
+handler getContrastColor(in pC as String) returns String
+	variable tB as List
+	variable tF as List
+	variable tA as Number
+	put stringToNumList(pC) into tB
+	if the number of elements in tB < 4 then
+		put 255 into tA
+	else
+		put element 4 of tB into tA
+		delete element 4 of tB
+	end if
+	put adjustContrastRatio(7, tB, tB)&[tA] into tF
+	return numListToString(tF)
+end handler
+
+handler adjustContrastRatio(in pMinContrast as Number,in pBaseClr as List,in pClr as List) returns List
+-- pMinContrast is usually a number between 4.0 and 7.0, I use mostly 5.5
+-- pBaseColor is usually used as backColor, pClr is a "startColor"
+-- The result is again in the form [r,g,b], usable as "color [r/255, g/255, b/255]
+-- (or convert it to a string for use in LC Script)
+-- The result is here a grayLevel (r=g=b), usually not too bad in contrast.
+	variable goDown as Boolean
+	put false into goDown
+	variable pClr1 as List
+	put pClr into pClr1
+	variable tCnt as Number
+	put 0 into tCnt
+	repeat forever
+		add 1 to tCnt
+		if contrastRatio(relativeLuminance(pClr),relativeLuminance(pBaseClr)) > pMinContrast or tCnt > 999 then
+			exit repeat
+		end if
+		if pClr is [255,255,255] then -- or other criterium
+			put true into goDown
+			put pClr1 into pClr
+		end if
+		variable tC as Number
+		if goDown then
+			 repeat with tC from 1 up to 3
+				put the maximum of 0 and (-1 + pClr[tC]) into pClr[tC]
+			end repeat
+		else
+			repeat with tC from 1 up to 3
+				put the minimum of 255 and (1 + pClr[tC]) into pClr[tC]
+			end repeat
+		end if
+		if pClr is [0,0,0] then
+			exit repeat
+		end if
+	end repeat
+	return pClr
+end handler
+
+-- pRGB is of the form [r,g,b] where each element r,g,b is an integer in range 0-255
+handler relativeLuminance(in pRGB as List) returns Number
+	variable tLuminance as Number
+	put 0 into tLuminance
+	variable tWeights as List
+	put [0.2126,0.7152,0.0722] into tWeights
+	variable tC as Number
+	repeat with tC from 1 up to 3
+		variable tCC
+		variable tRi
+		put pRGB[tC]/255 into tCC
+		if tCC <= 0.03928 then
+			put tCC/12.92 into tRi
+		else
+			put ((tCC+0.055)/1.055)^2.4 into tRi
+		end if
+		add (tWeights[tC]*tRi) to tLuminance
+	end repeat
+	return tLuminance
+end handler
+
+-- computes ratio of lighter against darker
+handler contrastRatio (in pL1 as Number, in pL2 as Number) returns Number
+	if pL1 > pL2 then -- pL2 is darker
+		return (pL1 + 0.05) / (pL2 + 0.05)
+	else
+		return (pL2 + 0.05) / (pL1 + 0.05)
+	end if
+end handler
+
+--
+handler postRect(in pRect as List)
+	post "set rect of me to " & numListToString(pRect)
+end handler
+
+--
+handler hhLocalOffset2() returns Number -- as hour (e.g. 4.5)
+	variable tX as String
+	execute script "return word 6 of the internet date"
+	put the result into tX
+	return ((char 1 to 3 of tX) parsed as number)  +  (((char 1 of tX) & (char 4 to 5 of tX)) parsed as number)/60
+end handler
+
+-- peter b's snippet
+handler type ApplyHandler(in pValue as optional any) returns optional any
+handler applyToList(in pHandler as ApplyHandler, in pValues as List) returns List
+   variable tResult as List
+   variable tValue as optional any
+   repeat for each element tValue in pValues
+      push pHandler(tValue) onto tResult
+   end repeat
+   return tResult
+end handler
+
+--
+handler numListToStringList(in pNumList as List) returns List
+    return applyToList(formatToString,pNumList)
+end handler
+
+--
+handler numListToString(in pNumList as List) returns String
+	variable tList as List
+	variable tString as String
+	set tList to applyToList(formatToString,pNumList)
+    combine tList with "," into tString
+    return tString
+end handler
+handler formatToString(in pEach as optional any) returns optional any
+    return pEach formatted as string
+end handler
+
+--
+handler stringListToNumList(in pStringList as List) returns List
+		return pStringList parsed as list of number
+		--return applyToList(formatToNumber,pStringList)
+end handler
+
+--
+handler stringToNumList(in pString as String) returns List
+	variable tL as List
+	split pString by "," into tL
+	return stringListToNumList(tL)
+end handler
+
+--
+handler maxL(in pList as List)
+	return the maximum value of pList
+end handler
+
+--
+handler minL(in pList as List)
+	return the minimum value of pList
+end handler
+
+--mark PROPERTIES
+
+property widgetVersion get mWidgetVersion
+
+--mark  mode
+/**
+Syntax:
+set the mode of <widget> to <pMode>
+get the mode of <widget>
+
+Parameters:
+pMode: A string, either "Ellipse" or "Rectangle".
+
+Example:
+set the mode of widget "hhProgress" to "Ellipse"
+get the mode of widget "hhProgress"
+
+Summary: Set property mode to switch between Ellipse and Rectangle.  Also choosable from a popup menu by rightClicking the widget.
+
+Description: Set property mode to switch between Ellipse and Rectangle.
+Resize the widget with shiftKeyDown and pointer tool to get a proportional resize, resize it with optionKey down to get a shape with equal width and height (= a ellipse or a square).
+Property _mode2_ is a synonym and for your comfort available in section "Colors".
+**/
+property "mode" get mCurrentMode set setCurrentMode
+metadata mode.editor 	is "com.livecode.pi.enum" 
+metadata mode.options	is "Ellipse,Rectangle" 
+--mark  mode2
+property "mode2" get mCurrentMode set setCurrentMode
+metadata mode2.editor 	is "com.livecode.pi.enum" 
+metadata mode2.options	is "Ellipse,Rectangle" 
+metadata mode2.section 	is "Colors"
+
+--mark  percentage
+/**
+Syntax:
+set the percentage of <widget> to <pPercents>
+get the percentage of <widget>
+
+Parameters:
+pPercents: The percentage of the progress is any number in range 0-100.
+
+Example:
+set the percentage of widget "hhProgress" to 61.8
+get the percentage of widget "hhProgress" -- returns a number in range 0-100
+
+Summary: The progress of the progress indicator as a percentage (in range 0-100)
+
+Description:
+Use the percentage property to set the 'progress' of the progress indicator]
+**/
+property "percentage" get mPercentage set setPercentage
+metadata percentage.editor		is "com.livecode.pi.number" 
+metadata percentage.min 		is "0"
+metadata percentage.max 		is "100"
+metadata percentage.step 		is "1"
+
+--mark  allowContextMenu
+/**
+Syntax:
+set the allowContextMenu of <widget> to <pTrueOrFalse>
+get the allowContextMenu of <widget>
+
+Parameters:
+pTrueOrFalse: is true or false 
+
+Example:
+set the allowContextMenu of widget "hhProgress" to not \
+    the allowContextMenu of widget "hhProgress"
+
+Summary: Whether to allow the ContextMenu (by rightClick).
+
+Description:
+Use the allowContextMenu to disable/enable the widget's contextMenu.
+**/
+property "allowContextMenu" get mAllowContextMenu set setAllowContextMenu
+
+--mark  allowGrab
+/**
+Syntax:
+set the allowGrab of <widget> to <pTrueOrFalse>
+get the allowGrab of <widget>
+
+Parameters:
+pTrueOrFalse: is true or false 
+
+Example:
+set the allowGrab of widget "hhProgress" to not \
+    the allowGrab of widget "hhProgress"
+
+Summary: Whether to allow the widget to grab on mouseDown.
+
+Description:
+Use the allowGrab to disable/enable the widget's "grab" (on mouseDown). You can still use YOUR mouseDown handler in the widget's script.
+**/
+property "allowGrab" get mAllowGrab set setAllowGrab
+
+--mark  ellipseShowInner
+/**
+Syntax:
+set the ellipseShowInner of <widget> to <pTrueOrFalse>
+get the ellipseShowInner of <widget>
+
+Parameters:
+pTrueOrFalse: is true or false 
+
+Example:
+set the ellipseShowInner of widget "hhProgress" to not \
+    the ellipseShowInner of widget "hhProgress"
+
+Summary: Whether to show the 'complementary' inner part in ellipse mode.
+
+Description:
+If set to true property ellipseShowInner shows a complementary filled inner part. The area percentage of that inner part is set by property ellipseInnerPercent.
+**/
+property "ellipseShowInner" get mEllipseShowInner set setEllipseShowInner
+
+--mark  ellipseInnerPercent
+/**
+Syntax:
+set the ellipseInnerPercent of <widget> to <pPerc>
+get the ellipseInnerPercent of <widget>
+
+Parameters:
+pPerc: A positive number in Range 0-100
+
+Example:
+set the ellipseInnerPercent of widget "hhProgress" to 42
+
+Summary: Set or get the ellipseInnerPercent 
+
+Description:
+Use the strokeWidthRect property to get or set the area percentage of the inner part. Property ellipseShowInner setsthe visibility of that part.
+**/
+property "ellipseInnerPercent" get mEllipseInnerPercent set setEllipseInnerPercent
+metadata ellipseInnerPercent.editor		is "com.livecode.pi.number" 
+metadata ellipseInnerPercent.min 		is "0"
+metadata ellipseInnerPercent.max 		is "100"
+metadata ellipseInnerPercent.step 		is "1"
+
+--mark  strokeEllipseProgress
+/**
+Syntax:
+set the strokeEllipseProgress of <widget> to <pTrueOrFalse>
+get the strokeEllipseProgress of <widget>
+
+Parameters:
+pTrueOrFalse: is true or false 
+
+Example:
+set the strokeEllipseProgress of widget "hhProgress" to not \
+    the strokeEllipseProgress of widget "hhProgress"
+
+Summary: If set to true property strokeEllipseProgress causes the two ellipsearcs to be stroked with the current strokeColor.
+
+Description:
+Use the fillFace property to fill the face (ellipse or rectangle) or not.
+**/
+property "strokeEllipseProgress" get mStrokeEllipseProgress set setStrokeEllipseProgress
+metadata strokeEllipseProgress.section is "Basic"
+
+--mark  strokeEllipseProgress2
+property "strokeEllipseProgress2" get mStrokeEllipseProgress set setStrokeEllipseProgress
+metadata strokeEllipseProgress2.section is "Colors"
+
+--mark  showDemo
+/**
+Syntax:
+set the showDemo of <widget> to <pTrueOrFalse>
+get the showDemo of <widget>
+
+Parameters:
+pTrueOrFalse: is true or false 
+
+Example:
+set the showDemo of widget "hhProgress" to not \
+    the showDemo of widget "hhProgress"
+
+Summary: If set to true property showDemo displays timed percentages accorting to th chosen demoMode.
+
+Description:
+Use the showDemo property for a preview when adjusting the options or as part of a time display. Choose also an appropriate demoMode.
+**/
+property "showDemo" get mShowDemo set setShowDemo
+
+--mark  demoMode
+/**
+Syntax:
+set the demoMode of <widget> to <pMode>
+get the demoMode of <widget>
+
+Parameters:
+pMode: One of the strings "FastDemo", "Seconds", "Minutes", "Hours12", "Hours24".
+
+Example:
+set the demoMode of widget "hhProgress" to "Seconds"
+get the demoMode of widget "hhProgress"
+
+Summary: Set property demoMode to display one of the 5 modes FastDemo, Seconds, Minutes, Hours12 or Hours24 as percentages.
+
+Description:
+Use the demoMode property to display timed preview when adjusting the options or as part of a time display. Needs property showDemo set to true for working.
+**/
+property "demoMode" get mDemoMode set setDemoMode
+metadata demoMode.editor 	is "com.livecode.pi.enum" 
+metadata demoMode.options	is "FastDemo,Seconds,Minutes,Hours12,Hours24" 
+
+--mark  UTCHoursOffset
+/**
+Syntax:
+set the UTCHoursOffset of <widget> to <pOffset>
+get the UTCHoursOffset of <widget>
+
+Parameters:
+pOffset: A number between -12.0 and 12.0, choosable in steps of 0.25 (hours).
+
+Example:
+set the UTCHoursOffset of widget "hhProgress" to 4.5
+get the UTCHoursOffset of widget "hhProgress"
+
+Summary: Set property UTCHoursOffset to shift the time display if demoMode is set to true and one of the demoModes is Seconds, Minutes, Hours12 or Hours24.
+
+Description:
+Use the UTCHoursOffset property to shift the timed setting of percentages by an UTC offset. Need the demoMode set to true.
+**/
+property "UTCHoursOffset" get mClockOffset set setClockOffset
+metadata UTCHoursOffset.editor 	is "com.livecode.pi.number" 
+metadata UTCHoursOffset.min 		is "-12.0"
+metadata UTCHoursOffset.max 		is "12.0"
+metadata UTCHoursOffset.step 		is "0.25"
+metadata UTCHoursOffset.default 	is "2.0"
+
+--mark  localUTCOffset
+property "localUTCOffset" get hhLocalOffset2 --> avoid current LC bug with local date
+
+--mark  fillRule
+property "fillRule" get mFillRule set setFillRule
+metadata fillRule.editor		is "com.livecode.pi.enum"
+metadata fillRule.options		is "even odd,non-zero"
+metadata filenameFill.section	is "Colors"
+metadata fillRule.user_visible is "false"
+
+--mark  fillFace
+/**
+Syntax:
+set the fillFace of <widget> to <pTrueOrFalse>
+get the fillFace of <widget>
+
+Parameters:
+pTrueOrFalse: is true or false 
+
+Example:
+set the fillFace of widget "hhProgress" to not \
+    the fillFace of widget "hhProgress"
+
+Summary: If set to true property fillFace causes the "face" of the progress ellipse or the background of the progress rectangle filled with the current faceColor.
+
+Description:
+Use the fillFace property to fill the face (ellipse or rectangle) or not.
+**/
+property "fillFace" get mFill	set setFill
+metadata fillFace.section is "Colors"
+
+--mark  faceColor
+/**
+Syntax:
+set the faceColor of <widget> to <pColor>
+get the faceColor of <widget>
+
+Summary:
+Sets or gets the color of the "face" of the progress ellipse or the background of the progress rectangle. Property fillFace determines, whether the fill occurs.
+
+Parameters:
+pColor: The color of the "face" or background fill, in RGB or RGBA format
+
+Example:
+set the faceColor of widget "hhProgress" to "255,127,0"
+-- returns a _four-item_ string
+get the faceColor of widget "hhProgress" -- "255,127,0,255"
+set the faceColor of widget "hhProgress" to "255,127,0,127"
+
+Description:
+Use the faceColor property to set the color of the "face" of the progress ellipse or the background of the progress rectangle.
+The color is in the form of a 3 or 4 item string, the 4th optional item being the alpha value, all integers between 0 and 255.
+[You may also use numbers containing a decimal point between 0.0 and 1.0, for example "0.2,0.1,0.2".
+.: The "get" always returns _four_ items in the integer form (each in range 0-255). :.
+**/
+property "faceColor"	get getFaceColor set setFaceColor
+metadata faceColor.editor 	is "com.livecode.pi.colorwithalpha"
+metadata faceColor.section	is "Colors"
+
+--mark  fillColor
+/**
+Syntax:
+set the fillColor of <widget> to <pColor>
+get the fillColor of <widget>
+
+Summary: Sets or gets the color of the progress indicator's background fill (=100%).
+
+Parameters:
+pColor: The color of the fill, in RGB or RGBA format
+
+Example:
+set the fillColor of widget "hhProgress" to "255,127,0"
+-- returns a _four-item_ string
+get the fillColor of widget "hhProgress" -- "255,127,0,255"
+set the fillColor of widget "hhProgress" to "255,127,0,127"
+
+Description:
+Use the fillColor property to set the color of the of the progress indicator's background fill (=100%).
+The color is in the form of a 3 or 4 item string, the 4th optional item being the alpha value, all integers between 0 and 255.
+[You may also use numbers containing a decimal point between 0.0 and 1.0, for example "0.2,0.1,0.2".
+.: The "get" always returns _four_ items in the integer form (each in range 0-255). :.
+**/
+property "fillColor" get getFillColor set setFillColor
+metadata fillColor.editor	is "com.livecode.pi.colorwithalpha"
+metadata fillColor.section	is "Colors"
+
+--mark  strokeColor
+/**
+Syntax:
+set the strokeColor of <widget> to <pColor>
+get the strokeColor of <widget>
+
+Summary: Sets or gets the color of the progress indicator's stroke (= current percentage stroke, the "progress" stroke).
+
+Parameters:
+pColor: The stroke color of the progress/percentage, in RGB or RGBA format
+
+Example:
+set the strokeColor of widget "hhProgress" to "255,127,0"
+-- returns a _four-item_ string
+get the strokeColor of widget "hhProgress" -- "255,127,0,255"
+set the strokeColor of widget "hhProgress" to "255,127,0,127"
+
+Description:
+Use the strokeColor property to set the color of the progress indicator's stroke (= current percentage stroke, the "progress" stroke).
+The color is in the form of a 3 or 4 item string, the 4th optional item being the alpha value, all integers between 0 and 255.
+[You may also use numbers containing a decimal point between 0.0 and 1.0, for example "0.2,0.1,0.2".
+.: The "get" always returns _four_ items in the integer form (each in range 0-255). :.
+**/
+property "strokeColor" get getStrokeColor set setStrokeColor
+metadata strokeColor.editor	is "com.livecode.pi.colorwithalpha"
+metadata strokeColor.section	is "Colors"
+
+--mark  progressTextColor
+/**
+Syntax:
+set the progressTextColor of <widget> to <pColor>
+get the progressTextColor of <widget>
+
+Summary: Sets or gets the color of the progress indicator's stroke (= current percentage stroke, the "progress" stroke).
+
+Parameters:
+pColor: The text color of the progress/percentage text
+
+Example:
+set the progressTextColor of widget "hhProgress" to "255,127,0"
+-- returns a _four-item_ string
+get the progressTextColor of widget "hhProgress" -- "255,127,0,255"
+set the progressTextColor of widget "hhProgress" to "255,127,0,127"
+
+Description:
+Use the progressTextColor property to set the color of the progress indicator text (= current percentage).
+The color is in the form of a 3 or 4 item string, the 4th optional item being the alpha value, all integers between 0 and 255.
+[You may also use numbers containing a decimal point between 0.0 and 1.0, for example "0.2,0.1,0.2".
+.: The "get" always returns _four_ items in the integer form (each in range 0-255). :.
+**/
+property "progressTextColor" get getProgressTextColor set setProgressTextColor
+metadata progressTextColor.editor	is "com.livecode.pi.colorwithalpha"
+metadata progressTextColor.section	is "Colors"
+
+--mark  insetRect
+/**
+Syntax:
+set the insetRect of <widget> to <pNum>
+get the insetRect of <widget>
+
+Parameters:
+pNum: A positive number (of pixels)
+
+Example:
+set the insetRect of widget "hhProgress" to 4
+
+Summary: Use insetRect amount of pixels before start and after end of progress indicator's background rect.
+
+Description:
+Use the insetRect property to set the inset of progress indicator's background rect within the filled background rectangle. Useful for adjusting the widget's display to the chosen roundRectRadius.
+**/
+property "insetRect" get mInset set setInset
+metadata insetRect.editor	is "com.livecode.pi.number"
+metadata insetRect.min	 	is "1"
+metadata insetRect.max	 	is "32"
+metadata insetRect.step		is "1"
+metadata insetRect.section	is "Colors"
+
+--mark  roundRectRadius
+/**
+Syntax:
+set the roundRectRadius of <widget> to <pNum>
+get the roundRectRadius of <widget>
+
+Parameters:
+pNum: A non-negative number (of pixels)
+
+Example:
+set the roundRectRadius of widget "hhProgress" to 4
+
+Summary: Use roundRectRadius of 0-32 pixels for adjusting the rounded background rectangle (parameter 0 = not rounded).
+
+Description:
+Use the roundRectRadius property for adjusting the rounded background rectangle.
+The roundRectRadius can be set to zero (= no rounding of edges, the usual rectangle). The property insetRect may need changes after changing the roundRectRadius.
+**/
+property "roundRectRadius" get mRoundRadius set setRoundRadius
+metadata roundRectRadius.editor	is "com.livecode.pi.number"
+metadata roundRectRadius.section	is "Colors"
+metadata roundRectRadius.min	 	is "0"
+metadata roundRectRadius.max	 	is "32"
+metadata roundRectRadius.step	 	is "1"
+
+--mark  autoStrokeWidthRect
+/**
+Syntax:
+set the autoStrokeWidthRect of <widget> to <pTrueOrFalse>
+get the autoStrokeWidthRect of <widget>
+
+Parameters:
+pTrueOrFalse: is true or false 
+
+Example:
+set the autoStrokeWidthRect of widget "hhProgress" to not \
+    the autoStrokeWidthRect of widget "hhProgress"
+
+Summary: If set to true property autoStrokeWidthRect is chosen to fill the rectangle's outline up to 1 pixel inset. This overrides "rounded"-settings, the rectangle becomes not rounded.
+
+Description:
+Use the autoStrokeWidthRect property for a default setting of the strokeWidthRect. If set to true this overrides "rounded"-settings, the rectangle becomes not rounded.
+**/
+property "autoStrokeWidthRect" get mAutoStroke set setAutoStroke
+metadata autoStrokeWidthRect.section is "Colors"
+
+--mark  strokeWidthRect
+/**
+Syntax:
+set the strokeWidthRect of <widget> to <pWidth>
+get the strokeWidthRect of <widget>
+
+Parameters:
+pWidth: A positive number
+
+Example:
+set the strokeWidthRect of widget "hhProgress" to 4.2
+
+Summary: Set or get the strokeWidthRect property for stroking the "progress"/percentage.
+
+Description:
+Use the strokeWidthRect property to set the width for stroking the "progress"/percentage in the "rectangle"-mode with the current strokeColor.
+**/
+property "strokeWidthRect" get mStrokeWidthRect	set setStrokeWidthRect
+metadata strokeWidthRect.editor is "com.livecode.pi.number"
+metadata strokeWidthRect.section	is "Colors"
+metadata strokeWidthRect.min		is "1"
+metadata strokeWidthRect.max		is "256"
+metadata strokeWidthRect.step		is "1"
+
+--mark  strokeWidthCirc
+/**
+Syntax:
+set the strokeWidthCirc of <widget> to <pWidth>
+get the strokeWidthCirc of <widget>
+
+Parameters:
+pWidth: A non-negative number
+
+Example:
+set the strokeWidthCirc of widget "hhProgress" to 4.2
+
+Summary: Set or get the strokeWidthCirc property for stroking the "progress"/percentage sector of the ellipse.
+
+Description:
+Use the strokeWidthRect property to set the width for stroking (the 'outline' of) the "progress"/percentage sector  the sector) of the ellipse with the current strokeColor.
+**/
+property "strokeWidthCirc" get mStrokeWidthEllipse	set setStrokeWidthCirc
+metadata strokeWidthCirc.editor	is "com.livecode.pi.number"
+metadata strokeWidthCirc.section	is "Colors"
+metadata strokeWidthCirc.min		is "0"
+metadata strokeWidthCirc.max		is "256"
+metadata strokeWidthCirc.step		is "1"
+
+--mark  showProgressText
+/**
+Syntax:
+set the showProgressText of <widget> to <pTrueOrFalse>
+get the showProgressText of <widget>
+
+Parameters:
+pTrueOrFalse: is true or false 
+
+Example:
+set the showProgressText of widget "hhProgress" to not \
+    the showProgressText of widget "hhProgress"
+
+Summary: Whether to show the percentage as text
+
+Description:
+Use the showProgressText property to display the progress centered as text (percentage). 
+**/
+property "showProgressText" get mShowProgressText set setShowProgressText
+metadata showProgressText.section is "Text"
+
+--mark  textDrawsDifferent
+/**
+Syntax:
+set the textDrawsDifferent of <widget> to <pTrueOrFalse>
+get the textDrawsDifferent of <widget>
+
+Parameters:
+pTrueOrFalse: is true or false 
+
+Example:
+set the textDrawsDifferent of widget "hhProgress" to not \
+    the textDrawsDifferent of widget "hhProgress"
+
+Summary: Whether the progress text draws with blend mode "difference"
+
+Description:
+Use the textDrawsDifferent property to draw with inverting the text color by the progress (blend mode different). Whether the text is shown determines property "showProgressText".
+**/
+property "textDrawsDifferent" get mTextDrawsDifferent set setTextDrawsDifferent
+metadata textDrawsDifferent.section is "Text"
+
+
+end widget

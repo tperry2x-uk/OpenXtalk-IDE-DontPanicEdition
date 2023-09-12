@@ -1,0 +1,797 @@
+/**
+
+Description:
+This widget will rotate a path around a point of origin. You can choose from one of the included Font Awesome paths
+(circle notch, cog, pulse, spinner, or refresh) by setting the <iconStyle> property. Or you can assign your own path to the iconSVGPath property.
+You specify the size of the path by setting the <iconSize> property. The path will always be centered in the middle of the widget.
+
+You can change the amount of rotation that occurs as well as the frequency of animation by setting the
+<rotateBy> and 'frequency' properties.
+
+Name: knobTurned
+
+Type: message
+
+Name: mouseMove
+
+Type: message
+
+Name: mouseDown
+
+Type: message
+
+Name: mouseUp
+
+Type: message
+
+Name: mouseRelease
+
+Type: message
+
+Name: backgroundColor
+
+Type: property
+
+Name: hiliteColor
+
+Type: property
+
+Name: outerShadowColor
+
+Type: property
+
+*/
+widget org.openxtalk.knob
+
+use com.livecode.canvas
+use com.livecode.widget
+use com.livecode.engine
+use com.livecode.math
+
+metadata title is "Knob Widget"
+metadata author is "Paul McClernan (with code from Trevor DeVore)"
+metadata version is "1.0.0"
+metadata preferredSize is "240,240"
+-- public
+private variable mSVGPath           as Path
+private variable mSVGCircleBase     as Path
+private variable mIconStyle         as String
+private variable mCenter            as Point
+private variable mWorkingPath       as Path
+private variable mWorkingBasePath       as Path
+
+-- private variable mRotation          as Number
+
+private variable mIconOrigin        as List
+property iconOrigin         get getIconOrigin        set setIconOrigin
+private handler getIconOrigin() returns String
+   return (element 1 of mIconOrigin) formatted as string & "," & (element 2 of mIconOrigin) formatted as string
+end handler
+private handler setIconOrigin(in pPoint as String)
+   variable tList as List
+   split pPoint by "," into tList
+   put tList parsed as list of number into tList
+   if the number of elements in tList is 2 then
+      put tList into mIconOrigin
+      initializationCalculations()
+      redraw all
+   end if
+end handler
+
+private variable mFillColor	as Color
+property fillColor   get getFillColor  set setFillColor
+metadata fillColor.editor  is "com.livecode.pi.colorwithalpha" -- "com.livecode.pi.color"
+metadata fillColor.label is "Fill color"
+metadata fillColor.section is "Colors"
+private handler setFillColor(in pColor as String)
+   put stringToColor(pColor) into mFillColor
+   redraw all
+end handler
+private handler getFillColor() returns String
+   return colorToString(mFillColor, true)
+end handler
+
+-- private variable mShadow as Boolean
+--property outerShadow	 get mShadow	  set mShadow
+--metadata outerShadow.label is "Outer Shadow"
+---metadata outerShadow.section is "Effects"
+
+private variable mOuterShadowAngle as Number
+property outerShadowAngle get mOuterShadowAngle  set setOuterShadowAngle
+metadata outerShadowAngle.editor is "com.livecode.pi.number"
+metadata outerShadowAngle.label is "Outer Shadow angle"
+metadata outerShadowAngle.step is "1"
+metadata outerShadowAngle.default is "105"
+metadata outerShadowAngle.min is "0"
+metadata outerShadowAngle.max is "359"
+metadata outerShadowAngle.section is "Effects"
+private handler setOuterShadowAngle(in pNumber as Number)
+   put pNumber into mOuterShadowAngle
+   redraw all
+end handler
+
+--private variable mShadowBlendMode
+--property shadowBlendMode	 get mShadowBlendMode	  set mShadowBlendMode
+--metadata shadowBlendMode.section is "Effects"
+
+private variable mOuterShadowDistance	as Number
+property outerShadowDistance	 get mOuterShadowDistance	  set setOuterShadowDistance
+metadata outerShadowDistance.editor is "com.livecode.pi.number"
+metadata outerShadowDistance.label is "Outer Shadow distance"
+metadata outerShadowDistance.step is "1"
+metadata outerShadowDistance.default is "7"
+metadata outerShadowDistance.min is "0"
+metadata outerShadowDistance.max is "255"
+metadata outerShadowDistance.section is "Effects"
+private handler setOuterShadowDistance(in pNumber as Number) returns nothing
+   put pNumber into mOuterShadowDistance
+   redraw all
+end handler
+
+private variable mOuterShadowColor	as Color
+property outerShadowColor get getOuterShadowColor  set setOuterShadowColor
+metadata outerShadowColor.editor is "com.livecode.pi.color"
+metadata outerShadowColor.label is "Outer Shadow color"
+metadata outerShadowColor.section is "Effects"
+private handler setOuterShadowColor(in pColor as String) returns nothing
+   put stringToColor(pColor) into mOuterShadowColor
+   redraw all
+end handler
+private handler getOuterShadowColor() returns String
+   return colorToString(mOuterShadowColor,false)
+end handler
+--private variable mShadowFilter
+--property shadowFilter	 get mShadowFilter	  set mShadowFilter
+--metadata shadowFilter.section is "Effects"
+
+private variable mOuterShadowSize	as Number
+property outerShadowSize	 get mOuterShadowSize	  set setOuterShadowSize
+metadata outerShadowSize.editor is "com.livecode.pi.number"
+metadata outerShadowSize.section is "Effects"
+metadata outerShadowSize.label is "Outer Shadow size"
+metadata outerShadowSize.step is "1"
+metadata outerShadowSize.default is "15"
+metadata outerShadowSize.min is "0"
+metadata outerShadowSize.max is "255"
+metadata outerShadowSize.section is "Effects"
+private handler setOuterShadowSize(in pNumber as Number) returns nothing
+   put pNumber into mOuterShadowSize
+   redraw all
+end handler
+
+property iconSVGPath        get getIconPath          set setIconPath
+metadata iconSVGPath.editor is "com.livecode.pi.text"
+private handler getIconPath() returns String
+	return the instructions of mSVGPath
+end handler
+private handler setIconPath(in pPath as String)
+	put path pPath into mSVGPath
+	put "custom" into mIconStyle
+	initializationCalculations()
+	redraw all
+end handler
+
+private variable mSVGPathColor as Color
+property SVGPathColor        	 get getSVGPathColor             set setSVGPathColor
+metadata SVGPathColor.editor is "com.livecode.pi.color"
+metadata SVGPathColor.section is "Colors"
+metadata SVGPathColor.label is "SVG Path color"
+private handler getSVGPathColor() returns String
+	return colorToString(mSVGPathColor, false)
+end handler
+private handler setSVGPathColor(in pColor as String)
+	put stringToColor(pColor) into mSVGPathColor
+	redraw all
+end handler
+
+private variable mIconSize          as Number
+property iconSize           get mIconSize            set setIconSize
+private handler setIconSize(in pSize as Number)
+	put pSize into mIconSize
+	initializationCalculations()
+	redraw all
+end handler
+
+private variable mMaxRotatiom   as Number
+property maxRotation    get mMaxRotatiom		     set mMaxRotatiom
+
+private variable mCurrentRotation   as Number
+property currentRotation    get mCurrentRotation		     set setRotation
+private handler setRotation(in pRotation as Number)
+	initializationCalculations()
+	calculateRotatedPath(mWorkingPath, pRotation, mCenter, true)
+   calculateRotatedPath(mWorkingBasePath, pRotation, mCenter, true)
+   put pRotation into mCurrentRotation
+	redraw all
+end handler
+
+property iconStyle          get mIconStyle           set setIconStyle
+metadata iconStyle.editor is "com.livecode.pi.enum"
+metadata iconStyle.options is "circle notch,pointy,knob1,knob2,classic knob"
+-- metadata currentRotation.user_visible is "true"
+private handler setIconStyle(in pStyle as String)
+	_setIconStyle(pStyle)
+	initializationCalculations()
+	redraw all
+end handler
+
+private handler _setIconStyle(in pStyle as String)
+	put pStyle into mIconStyle
+	put path "M118.126,16.67C104.636,5.351,88.215-0.177,71.882-0.176c-20.546,0-40.952,8.75-55.192,25.721 C-8.87,56.006-4.897,101.42,25.564,126.98c13.491,11.32,29.911,16.847,46.244,16.847c20.546,0,40.952-8.75,55.192-25.721 " & \
+	"C152.561,87.645,148.587,42.23,118.126,16.67" into mSVGCircleBase
+
+	if pStyle is "circle notch" then
+		put path "M38.198,13.797C53.995,4.678,72.805,2.668,89.189,7.031c16.383,4.362,31.656,15.559,40.776,31.354 " &\
+			"c9.119,15.795,11.159,34.587,6.765,50.989c-4.396,16.404-15.559,31.657-31.354,40.777c-19.195,11.082-42.157,11.867-61.695,2.873 " &\
+			"c-9.777-4.471-17.951-11.001-24.687-19.497l16.874-9.742c14.957,16.917,40.001,21.251,59.916,9.753 " &\
+			"c11.25-6.495,19.169-17.477,22.325-29.154c3.123-11.656,1.737-25.158-4.758-36.407c-6.494-11.25-17.514-19.233-29.189-22.39 " &\
+			"C72.504,22.463,59.04,23.915,47.79,30.41C27.842,41.927,19.105,65.764,26.277,87.175L9.403,96.917 " &\
+			"C1.29,76.748,3.495,54.283,15.047,35.928C20.889,26.712,28.584,19.348,38.198,13.797z" into mSVGPath
+      put [0.50,0.50] into mIconOrigin
+      put 240 into mMaxRotatiom
+	else if pStyle is "knob1" then
+		put path "M118.13,16.67C104.64,5.35,88.22-0.18,71.88-0.18c-20.55,0-40.95,8.75-55.19,25.72C-8.87,56.01-4.9,101.42,25.56,126.98 c13.49,11.32,29.91,16.85,46.24,16.85c20.55,0,40.95-8.75,55.19-25.72C152.56,87.65,148.59,42.23,118.13,16.67z M8.23,77.39" & \
+   		"c-1.49-16.99,3.73-33.55,14.7-46.61C35.09,16.28,52.93,7.97,71.88,7.97h0c14.96,0,29.53,5.31,41.01,14.94 c13.07,10.96,21.08,26.36,22.57,43.35c1.49,16.99-3.73,33.55-14.7,46.61c-12.16,14.5-30.01,22.81-48.95,22.81" & \
+   		"c-10.77,0-21.34-2.76-30.69-7.9c0.68-0.14,1.34-0.35,2-0.58c9.02,4.69,18.88,7,28.7,7c17.8,0,35.48-7.58,47.82-22.28 c22.15-26.39,18.7-65.74-7.69-87.88c-11.69-9.81-25.91-14.6-40.06-14.6v1.39h0c14.29,0,28.2,5.07,39.17,14.27" & \
+   		"c12.48,10.47,20.14,25.18,21.56,41.41c1.42,16.23-3.57,32.04-14.04,44.52c-11.62,13.85-28.66,21.79-46.76,21.79 c-9.41,0-18.65-2.21-27-6.34c1.64-0.81,3.14-1.91,4.41-3.32c5.3-5.89,4.48-14.68-1.84-19.63c-2.8-2.19-6.2-3.26-9.59-3.26" & \
+   		"c-4.26,0-8.49,1.69-11.45,4.98c-1.14,1.27-1.98,2.67-2.56,4.14c-7.23-9.21-11.66-20.31-12.7-32.25 C9.66,60.91,14.65,45.1,25.12,32.62c11.62-13.85,28.66-21.79,46.76-21.79l0-1.39c0,0,0,0,0,0c-17.8,0-35.48,7.58-47.82,22.28" & \
+   		"c-19.49,23.23-19.15,56.5-0.79,79.24c-0.16,0.63-0.28,1.26-0.35,1.89C14.53,102.9,9.39,90.64,8.23,77.39z M25.83,115.17 c-0.26-2.92,0.64-5.77,2.53-8.02c2.09-2.49,5.16-3.93,8.42-3.93c2.57,0,5.08,0.91,7.06,2.57c4.64,3.89,5.25,10.84,1.35,15.48" & \
+   		"c-2.09,2.49-5.16,3.93-8.42,3.93c-2.57,0-5.08-0.91-7.06-2.57C27.47,120.74,26.09,118.09,25.83,115.17z M33.41,127.52 c1.3,0.37,2.63,0.57,3.97,0.6c10.61,6.51,22.54,9.72,34.43,9.72c18.84,0,37.55-8.02,50.61-23.58c23.44-27.93,19.79-69.57-8.14-93.01" & \
+   		"C101.91,10.87,86.86,5.81,71.88,5.81c-18.84,0-37.55,8.02-50.61,23.58c-21.51,25.63-20.19,62.8,1.75,86.86 c0.19,1.21,0.55,2.39,1.08,3.53C-0.54,95.26-2.74,55.42,20,28.32C32.89,12.96,51.8,4.14,71.88,4.14h0" & \
+   		 "c15.86,0,31.29,5.62,43.46,15.84c13.85,11.62,22.34,27.94,23.92,45.95c1.58,18.01-3.96,35.55-15.58,49.4 c-12.89,15.37-31.8,24.18-51.88,24.18C58.08,139.51,44.67,135.28,33.41,127.52z" into mSVGPath
+       put 290 into mMaxRotatiom
+       put [0.50,0.50] into mIconOrigin
+    else if pStyle is "pointy" then
+      put path "M13.45,75.77c-1.82,7.43-2.22,18.61-1.03,28.49c1.37,11.35,4.87,22.21,5.74,24.96l-5.28,14.48l14.61,2.06 " & \
+      	"c1.89,2.21,8.07,9.38,16.19,15.76c8.99,7.03,20.62,13.33,29,15.68c22.11,6.2,45.25,3.3,65.12-8.19 " & \
+      	"c40.36-23.29,54.23-75.07,30.93-115.44C145.44,13.21,93.64-0.67,53.29,22.64C33.12,34.29,18.98,53.14,13.45,75.77z M164.41,56.06 " & \
+      	"c21.91,37.97,8.87,86.7-29.1,108.62c-18.71,10.79-40.47,13.52-61.27,7.69c-7.68-2.17-18.89-8.25-27.26-14.81 " & \
+      	"c-7.35-5.76-12.85-11.79-14.91-14.18l13.07-7.52c19.6,24.83,55.04,32.21,83.22,15.94c30.93-17.85,41.56-57.55,23.71-88.49 " & \
+      	"c-17.87-30.93-57.57-41.56-88.5-23.72c-28.09,16.22-39.44,50.46-27.92,79.78l-13.07,7.55c-0.64-2.11-3.62-12-4.99-23.23 " & \
+      	"c-1.13-9.35-0.77-19.84,0.92-26.72c5.19-21.29,18.49-39.05,37.47-49.99C93.76,5.03,142.49,18.1,164.41,56.06z M41.39,127.11 " & \
+      	"c-17.31-30-6.99-68.47,22.98-85.79c29.99-17.31,68.45-7.01,85.76,22.99c17.32,29.97,7.01,68.45-22.97,85.77 " & \
+      	"C97.19,167.38,58.7,157.07,41.39,127.11z M38.94,126.78l-22.31,13.93l5.67-12.46l13.92-7.02C37.04,123.1,37.94,124.96,38.94,126.78z " & \
+      	 "M40.43,129.37c1.05,1.69,2.14,3.32,3.29,4.9l-12.65,8.32l-13.77-0.81L40.43,129.37z" into mSVGPath
+
+      put path "M13.45,75.77c-1.82,7.43-2.22,18.61-1.03,28.49c1.37,11.35,4.87,22.21,5.74,24.96l-5.28,14.48l14.61,2.06 c1.89,2.21,8.07,9.38,16.19,15.76c8.99,7.03,20.62,13.33,29,15.68c22.11,6.2,45.25,3.3,65.12-8.19 " & \
+          "c40.36-23.29,54.23-75.07,30.93-115.44C145.44,13.21,93.64-0.67,53.29,22.64C33.12,34.29,18.98,53.14,13.45,75.77z" into mSVGCircleBase
+          put 240 into mMaxRotatiom
+          put [0.4666,0.524] into mIconOrigin
+    else if pStyle is "knob2" then
+ 		put path "M138.96,45.44c-4.38-11.08-11.53-20.96-20.65-28.61C101.39,2.63,78.36-3.06,56.77,1.59c-20,4.31-37.54,17.27-47.58,35.09 " & \
+   		"C0.25,52.56-2.27,71.62,2.08,89.31c4.61,18.72,16.8,35.06,33.42,44.81c18.78,11.03,42.07,12.95,62.4,5.13 " & \
+   		"c18.7-7.19,33.88-22.27,41.18-40.93C145.69,81.45,145.62,62.29,138.96,45.44z M139.1,60.28c0.41,2.33,0.69,4.69,0.85,7.05 " & \
+   		"l-7.77,0.49c-0.14-2.04-0.38-4.06-0.73-6.08L139.1,60.28z M138.83,58.85l-7.65,1.46c-0.39-2-0.89-3.99-1.49-5.94l7.4-2.41 " & \
+   		"C137.8,54.23,138.38,56.52,138.83,58.85z M136.67,50.56l-7.4,2.41c-0.64-1.94-1.38-3.85-2.22-5.72l7.05-3.32 " & \
+   		"C135.08,46.1,135.93,48.31,136.67,50.56z M133.47,42.61l-7.05,3.31c-0.88-1.84-1.86-3.64-2.93-5.4l6.58-4.17 " & \
+   		"C131.32,38.39,132.45,40.48,133.47,42.61z M129.31,35.11l-6.58,4.17c-1.11-1.71-2.3-3.37-3.59-4.99l6-4.96 " & \
+   		"C126.63,31.2,128.03,33.12,129.31,35.11z M119.34,23c1.73,1.67,3.35,3.4,4.86,5.21l-6,4.96c-1.31-1.56-2.71-3.05-4.2-4.5L119.34,23" & \
+   		"z M116.01,19.97c-0.01-0.01-0.03-0.02-0.05-0.04C115.98,19.95,116,19.96,116.01,19.97z M115.81,19.81 " & \
+   		"c0.85,0.71,1.67,1.44,2.47,2.18l-5.33,5.68c-1.51-1.39-3.09-2.7-4.73-3.93l4.58-6.3C113.82,18.2,114.83,18.98,115.81,19.81z " & \
+   		" M111.62,16.57l-4.58,6.3c-1.67-1.19-3.41-2.3-5.19-3.31l3.75-6.82C107.67,13.9,109.68,15.19,111.62,16.57z M104.32,12.03 " & \
+   		"l-3.75,6.82c-1.81-0.97-3.67-1.86-5.56-2.64l2.87-7.24C100.08,9.88,102.23,10.9,104.32,12.03z M96.51,8.44l-2.87,7.24 " & \
+   		"c-1.92-0.74-3.87-1.39-5.85-1.92l1.94-7.55C92.03,6.83,94.29,7.59,96.51,8.44z M81.3,4.51c2.36,0.33,4.7,0.79,7.01,1.35l-1.94,7.54 " & \
+   		"c-1.99-0.49-4.01-0.89-6.05-1.17L81.3,4.51z M72.73,3.88c2.39,0.02,4.76,0.18,7.12,0.45l-0.98,7.73c-2.04-0.23-4.09-0.37-6.15-0.39 " & \
+   		"V3.88z M71.27,3.88v7.79c-2.07,0.03-4.12,0.15-6.15,0.38l-0.98-7.73C66.49,4.05,68.87,3.91,71.27,3.88z M62.69,4.52l0.98,7.73 " & \
+   		"c-2.04,0.28-4.06,0.67-6.05,1.15l-1.94-7.54C57.99,5.3,60.33,4.85,62.69,4.52z M54.27,6.22l1.94,7.54 " & \
+   		"c-1.99,0.54-3.94,1.18-5.86,1.92l-2.87-7.24C49.7,7.58,51.96,6.84,54.27,6.22z M46.12,8.97l2.87,7.24 " & \
+   		"c-1.9,0.78-3.76,1.65-5.57,2.63l-3.75-6.82C41.76,10.89,43.91,9.87,46.12,8.97z M38.39,12.74l3.75,6.82 " & \
+   		"c-1.78,1.02-3.51,2.12-5.19,3.31l-4.58-6.3C34.32,15.19,36.33,13.91,38.39,12.74z M31.2,17.43l4.58,6.3 " & \
+   		"c-1.64,1.23-3.21,2.55-4.72,3.95L25.72,22C27.47,20.38,29.3,18.85,31.2,17.43z M24.65,23l5.33,5.68c-1.46,1.42-2.87,2.91-4.2,4.49 " & \
+   		"l-6-4.96C21.32,26.37,22.95,24.64,24.65,23z M18.88,29.35l6,4.96c-1.29,1.62-2.49,3.28-3.59,4.98l-6.57-4.17 " & \
+   		"C15.98,33.15,17.37,31.22,18.88,29.35z M13.92,36.35l6.58,4.17c-1.08,1.76-2.06,3.56-2.94,5.39l-7.05-3.32 " & \
+   		"C11.52,40.47,12.66,38.39,13.92,36.35z M9.91,43.93l7.05,3.31c-0.84,1.88-1.59,3.78-2.23,5.72l-7.4-2.41 " & \
+   		"C8.06,48.32,8.93,46.11,9.91,43.93z M6.86,51.95l7.41,2.41c-0.6,1.96-1.09,3.95-1.48,5.95l-7.65-1.46 " & \
+   		"C5.6,56.52,6.16,54.22,6.86,51.95z M4.89,60.28l7.65,1.46c-0.35,2.02-0.59,4.04-0.73,6.08l-7.77-0.49 " & \
+   		"C4.2,64.97,4.48,62.62,4.89,60.28z M3.95,68.79l7.77,0.49c-0.09,2.04-0.07,4.08,0.04,6.12L4,75.88 " & \
+   		"C3.86,73.52,3.85,71.16,3.95,68.79z M4.09,77.34l7.77-0.49c0.16,2.03,0.42,4.05,0.79,6.06L5,84.37C4.57,82.04,4.28,79.7,4.09,77.34z " & \
+   		"M5.3,85.8l7.65-1.46c0.39,1.86,0.86,3.7,1.42,5.52l-1.73,1l-5.19,2.99C6.57,91.22,5.86,88.52,5.3,85.8z M13.08,104.42l-1.83-8 " & \
+   		"l27.66-13.47l5.61,9.43L19.08,109.5L13.08,104.42z M40.71,109.29c-1.62-1.36-3.14-2.82-4.55-4.36c0.01-0.01,0.02-0.02,0.03-0.03 " & \
+   		"c3.92-3.34,7.85-6.68,11.77-10.02c0.69-0.59,1.38-1.18,2.07-1.77c0.33-0.29,0.2-0.29-0.04-0.67c-1.36-2.19-2.73-4.38-4.09-6.58 " & \
+   		"c-1.5-2.41-3-4.82-4.5-7.23c-0.07-0.11-0.54-1.02-0.66-0.97c-0.67,0.27-1.34,0.55-2.01,0.82c-4.62,1.88-9.24,3.77-13.86,5.65 " & \
+   		"c-1.56-6.13-1.95-12.54-1.09-18.81c2.92-21.49,20.5-38.82,41.98-41.58c10.92-1.4,22.15,0.98,31.55,6.7 " & \
+   		"c9,5.48,16.12,13.88,19.97,23.7c3.92,10,4.45,21.27,1.43,31.59c-3.02,10.34-9.58,19.53-18.32,25.82 " & \
+   		"c-8.42,6.06-18.72,9.27-29.09,9.13C60.17,120.52,49.24,116.45,40.71,109.29C49.46,116.63,39.09,107.93,40.71,109.29z M20.12,116.19 " & \
+   		"l6-4.96c1.31,1.53,2.71,3,4.19,4.42l-5.33,5.68C23.26,119.69,21.64,117.97,20.12,116.19z M28.19,124.21 " & \
+   		"C27.89,123.96,28.01,124.06,28.19,124.21c-0.73-0.62-1.44-1.25-2.14-1.89l5.33-5.68c1.5,1.37,3.07,2.65,4.71,3.86l-4.58,6.3 " & \
+   		"C30.38,125.98,29.27,125.12,28.19,124.21C28.45,124.43,28.83,124.75,28.19,124.21z M32.69,127.67l4.58-6.3 " & \
+   		"c1.67,1.17,3.39,2.25,5.15,3.24l-3.75,6.82C36.62,130.28,34.62,129.03,32.69,127.67z M39.95,132.14l3.75-6.82 " & \
+   		"c1.8,0.95,3.63,1.81,5.51,2.58l-2.87,7.24C44.16,134.25,42.03,133.25,39.95,132.14z M47.71,135.66l2.87-7.24 " & \
+   		"c1.9,0.72,3.82,1.36,5.78,1.88l-1.94,7.54C52.14,137.24,49.91,136.5,47.71,135.66z M62.77,139.53c-2.34-0.32-4.65-0.77-6.93-1.33 " & \
+   		"l1.94-7.54c1.97,0.48,3.96,0.87,5.97,1.14L62.77,139.53z M71.27,140.14c-2.36-0.03-4.71-0.18-7.04-0.44l0.98-7.73 " & \
+   		"c2.01,0.23,4.04,0.36,6.07,0.38V140.14z M71.96,125.55c-15.12-0.04-29.75-6.58-39.86-17.83c1-0.69,1.99-1.37,2.99-2.06 " & \
+   		"c0.28-0.19,0.18-0.22,0.48,0.1c0.5,0.53,1,1.06,1.52,1.57c1.11,1.1,2.28,2.16,3.49,3.15c4.3,3.51,9.2,6.29,14.42,8.19 " & \
+   		"c10.14,3.69,21.38,3.97,31.68,0.79c9.95-3.07,18.78-9.31,25.04-17.63c6.64-8.83,10.16-19.75,9.92-30.8 " & \
+   		"c-0.22-10.5-3.75-20.81-10.14-29.16c-6.63-8.67-16.09-15.01-26.63-17.84c-10.31-2.77-21.42-2.12-31.34,1.84 " & \
+   		"c-9.77,3.9-18.14,10.94-23.72,19.86c-4.31,6.89-6.85,14.81-7.38,22.91c-0.28,4.34,0,8.71,0.85,12.98c0.05,0.27,0.74,2.92,0.66,2.96 " & \
+   		"c-0.36,0.18-0.72,0.36-1.07,0.54c-0.83,0.41-1.65,0.83-2.48,1.24c-3.3-11.95-2.38-24.92,2.7-36.23 " & \
+   		"c5.07-11.3,14.14-20.75,25.28-26.19c11.09-5.41,23.91-6.88,35.93-4.04c12.23,2.9,23.24,10.13,30.72,20.23 " & \
+   		"c7.4,10,11.26,22.74,10.38,35.18c-0.87,12.39-5.82,24.12-14.3,33.23C101.08,119.33,86.67,125.55,71.96,125.55z M72.73,140.14v-7.79 " & \
+   		"c2.04-0.03,4.07-0.14,6.07-0.37l0.98,7.72C77.45,139.97,75.1,140.11,72.73,140.14z M81.22,139.51l-0.97-7.73 " & \
+   		"c2.02-0.28,4.01-0.65,5.97-1.13l1.94,7.54C85.88,138.75,83.57,139.19,81.22,139.51z M89.58,137.84l-1.94-7.54 " & \
+   		"c1.96-0.53,3.89-1.16,5.79-1.87l2.87,7.24C94.1,136.51,91.86,137.24,89.58,137.84z M97.66,135.15l-2.87-7.25 " & \
+   		"c1.88-0.77,3.72-1.62,5.51-2.57l3.76,6.83C101.98,133.27,99.84,134.26,97.66,135.15z M105.33,131.44l-3.75-6.83 " & \
+   		"c1.77-0.99,3.49-2.07,5.15-3.24l4.58,6.3C109.38,129.03,107.38,130.29,105.33,131.44z M112.49,126.82l-4.58-6.3 " & \
+   		"c1.63-1.2,3.19-2.5,4.7-3.87l5.33,5.68C116.2,123.92,114.38,125.42,112.49,126.82z M119.03,121.34l-5.33-5.68 " & \
+   		"c1.46-1.4,2.85-2.88,4.18-4.43l6,4.96C122.34,118,120.72,119.72,119.03,121.34z M124.81,115.07l-6-4.96 " & \
+   		"c1.3-1.59,2.5-3.23,3.61-4.91l6.57,4.17C127.71,111.31,126.32,113.22,124.81,115.07z M129.78,108.13l-6.57-4.17 " & \
+   		"c1.09-1.74,2.08-3.52,2.97-5.33l7.05,3.32C132.2,104.05,131.05,106.12,129.78,108.13z M133.85,100.63l-7.05-3.32 " & \
+   		"c0.86-1.86,1.61-3.75,2.27-5.67l7.41,2.4C135.72,96.28,134.85,98.47,133.85,100.63z M136.94,92.67l-7.41-2.41 " & \
+   		"c0.62-1.95,1.14-3.92,1.55-5.91l7.65,1.46C138.26,88.12,137.66,90.4,136.94,92.67z M139,84.37l-7.65-1.46 " & \
+   		 "c0.37-2.01,0.63-4.03,0.79-6.06l7.77,0.49C139.73,79.69,139.42,82.04,139,84.37z M132.25,75.4c0.11-2.04,0.11-4.08,0.02-6.12 " & \
+   		 "l7.77-0.49c0.11,2.36,0.12,4.73-0.02,7.1L132.25,75.4z" into mSVGPath
+       put 240 into mMaxRotatiom
+       put [0.50,0.50] into mIconOrigin
+    else if pStyle is "classic knob" then
+      put path "M39.64,21.48l0.06-1.03l-0.53-0.03c0.01-0.46,0.01-0.93-0.01-1.39l0.53-0.04l-0.07-1.03l-0.52,0.04" & \
+      	" c-0.04-0.46-0.12-0.92-0.2-1.38l0.52-0.1l-0.2-1.02l-0.51,0.1c-0.1-0.45-0.21-0.9-0.34-1.35l0.49-0.16l-0.33-0.98l-0.5,0.17" & \
+      	" c-0.16-0.44-0.33-0.87-0.52-1.29l0.47-0.23l-0.45-0.93l-0.47,0.23c-0.21-0.41-0.45-0.81-0.69-1.21l0.45-0.29l-0.56-0.87l-0.43,0.28" & \
+      	" c-0.26-0.38-0.55-0.75-0.84-1.11l0.41-0.34L34.72,6.7l-0.41,0.34c-0.31-0.35-0.62-0.7-0.95-1.02l0.35-0.38l-0.76-0.7l-0.36,0.39" & \
+      	" c-0.35-0.31-0.71-0.61-1.07-0.89l0.31-0.43l-0.84-0.6l-0.31,0.43c-0.39-0.26-0.78-0.5-1.18-0.73l0.25-0.47l-0.91-0.49L28.59,2.6" & \
+      	" c-0.42-0.21-0.84-0.39-1.27-0.57l0.19-0.49l-0.97-0.37l-0.19,0.49c-0.44-0.16-0.88-0.31-1.32-0.43l0.13-0.5l-1-0.25l-0.13,0.52" & \
+      	" c-0.45-0.1-0.91-0.18-1.37-0.25l0.06-0.53l-1.03-0.12L21.62,0.6c-0.46-0.04-0.93-0.05-1.39-0.06l0-0.53l-1.04,0.01l0,0.53" & \
+      	" c-0.46,0.02-0.93,0.03-1.39,0.08l-0.07-0.51l-1.03,0.14l0.07,0.53c-0.46,0.07-0.91,0.16-1.37,0.27l-0.14-0.51l-1,0.26l0.13,0.5" & \
+      	" c-0.44,0.13-0.88,0.29-1.32,0.45l-0.2-0.49l-0.96,0.39l0.19,0.48c-0.42,0.18-0.84,0.38-1.26,0.6l-0.25-0.45l-0.9,0.51l0.26,0.47" & \
+      	" C9.58,3.48,9.18,3.72,8.8,3.99L8.49,3.57L7.65,4.18l0.32,0.43C7.79,4.76,7.59,4.88,7.41,5.04C7.23,5.19,7.08,5.35,6.9,5.51" & \
+      	" L6.53,5.12L5.78,5.84l0.36,0.38C5.81,6.55,5.51,6.89,5.21,7.24L4.79,6.91l-0.65,0.8l0.4,0.33C4.26,8.41,3.99,8.79,3.73,9.17" & \
+      	" L3.29,8.9L2.74,9.77l0.45,0.28c-0.24,0.4-0.47,0.81-0.67,1.22l-0.47-0.22L1.61,12l0.48,0.22c-0.18,0.43-0.35,0.86-0.5,1.3" & \
+      	" l-0.51-0.16l-0.31,0.99l0.49,0.15c-0.13,0.45-0.22,0.9-0.32,1.36l-0.52-0.1l-0.19,1.02l0.52,0.1c-0.07,0.46-0.14,0.92-0.18,1.38" & \
+      	" l-0.52-0.03L0,19.26l0.53,0.03c-0.01,0.46-0.01,0.93,0.01,1.39l-0.53,0.04l0.07,1.03l0.52-0.04c0.04,0.46,0.12,0.92,0.2,1.38" & \
+      	" l-0.52,0.1l0.2,1.02l0.51-0.1c0.1,0.45,0.21,0.9,0.34,1.35l-0.49,0.16l0.33,0.98l0.5-0.17c0.16,0.44,0.33,0.87,0.52,1.29" & \
+      	" l-0.47,0.23l0.45,0.93l0.47-0.23c0.21,0.41,0.45,0.81,0.69,1.21l-0.45,0.29l0.56,0.87l0.43-0.28c0.26,0.38,0.55,0.75,0.84,1.11" & \
+      	" l-0.41,0.34l0.67,0.79l0.41-0.34c0.31,0.35,0.62,0.7,0.95,1.02l-0.35,0.38l0.76,0.7l0.36-0.39c0.35,0.31,0.71,0.61,1.07,0.89" & \
+      	" l-0.31,0.43l0.84,0.6l0.31-0.43c0.39,0.26,0.78,0.5,1.18,0.73l-0.25,0.47l0.91,0.49l0.24-0.45c0.42,0.21,0.84,0.39,1.27,0.57" & \
+      	" l-0.19,0.49l0.97,0.37l0.19-0.49c0.44,0.16,0.88,0.31,1.32,0.43l-0.13,0.5l1,0.25l0.13-0.52c0.45,0.1,0.91,0.18,1.37,0.25" & \
+      	" l-0.06,0.53l1.03,0.12l0.06-0.51c0.46,0.04,0.93,0.05,1.39,0.06l0,0.53l1.04-0.01l0-0.53c0.46-0.02,0.93-0.03,1.39-0.08l0.07,0.51" & \
+      	" l1.03-0.14l-0.07-0.53c0.46-0.07,0.91-0.16,1.37-0.27l0.14,0.51l1-0.26l-0.13-0.5c0.44-0.13,0.88-0.29,1.32-0.45l0.2,0.49" & \
+      	" l0.96-0.39l-0.19-0.48c0.42-0.18,0.84-0.38,1.26-0.6l0.25,0.45l0.9-0.51l-0.26-0.47c0.4-0.24,0.79-0.48,1.18-0.75l0.31,0.42" & \
+      	" l0.83-0.61l-0.32-0.43c0.18-0.14,0.38-0.27,0.56-0.42s0.34-0.32,0.51-0.47l0.37,0.39l0.75-0.71l-0.36-0.38" & \
+      	" c0.33-0.33,0.64-0.68,0.94-1.03l0.41,0.34l0.65-0.8l-0.4-0.33c0.29-0.37,0.56-0.75,0.81-1.13l0.44,0.28l0.55-0.88l-0.45-0.28" & \
+      	" c0.24-0.4,0.47-0.81,0.67-1.22l0.47,0.22l0.43-0.94l-0.48-0.22c0.18-0.43,0.35-0.86,0.5-1.3l0.51,0.16l0.31-0.99l-0.49-0.15" & \
+      	" c0.13-0.45,0.22-0.9,0.32-1.36l0.52,0.1l0.19-1.02l-0.52-0.1c0.07-0.46,0.14-0.92,0.18-1.38L39.64,21.48z" into mSVGCircleBase
+         scale mSVGCircleBase by [0.90,0.90]
+      put path "M39.64,21.48l0.06-1.03l-0.53-0.03c0.01-0.46,0.01-0.93-0.01-1.39l0.53-0.04l-0.07-1.03l-0.52,0.04" & \
+      	" c-0.04-0.46-0.12-0.92-0.2-1.38l0.52-0.1l-0.2-1.02l-0.51,0.1c-0.1-0.45-0.21-0.9-0.34-1.35l0.49-0.16l-0.33-0.98l-0.5,0.17" & \
+      	" c-0.16-0.44-0.33-0.87-0.52-1.29l0.47-0.23l-0.45-0.93l-0.47,0.23c-0.21-0.41-0.45-0.81-0.69-1.21l0.45-0.29l-0.56-0.87l-0.43,0.28" & \
+      	" c-0.26-0.38-0.55-0.75-0.84-1.11l0.41-0.34L34.72,6.7l-0.41,0.34c-0.31-0.35-0.62-0.7-0.95-1.02l0.35-0.38l-0.76-0.7l-0.36,0.39" & \
+      	" c-0.35-0.31-0.71-0.61-1.07-0.89l0.31-0.43l-0.84-0.6l-0.31,0.43c-0.39-0.26-0.78-0.5-1.18-0.73l0.25-0.47l-0.91-0.49L28.59,2.6" & \
+      	" c-0.42-0.21-0.84-0.39-1.27-0.57l0.19-0.49l-0.97-0.37l-0.19,0.49c-0.44-0.16-0.88-0.31-1.32-0.43l0.13-0.5l-1-0.25l-0.13,0.52" & \
+      	" c-0.45-0.1-0.91-0.18-1.37-0.25l0.06-0.53l-1.03-0.12L21.62,0.6c-0.46-0.04-0.93-0.05-1.39-0.06l0-0.53l-1.04,0.01l0,0.53" & \
+      	" c-0.46,0.02-0.93,0.03-1.39,0.08l-0.07-0.51l-1.03,0.14l0.07,0.53c-0.46,0.07-0.91,0.16-1.37,0.27l-0.14-0.51l-1,0.26l0.13,0.5" & \
+      	" c-0.44,0.13-0.88,0.29-1.32,0.45l-0.2-0.49l-0.96,0.39l0.19,0.48c-0.42,0.18-0.84,0.38-1.26,0.6l-0.25-0.45l-0.9,0.51l0.26,0.47" & \
+      	" C9.58,3.48,9.18,3.72,8.8,3.99L8.49,3.57L7.65,4.18l0.32,0.43C7.79,4.76,7.59,4.88,7.41,5.04C7.23,5.19,7.08,5.35,6.9,5.51" & \
+      	" L6.53,5.12L5.78,5.84l0.36,0.38C5.81,6.55,5.51,6.89,5.21,7.24L4.79,6.91l-0.65,0.8l0.4,0.33C4.26,8.41,3.99,8.79,3.73,9.17" & \
+      	" L3.29,8.9L2.74,9.77l0.45,0.28c-0.24,0.4-0.47,0.81-0.67,1.22l-0.47-0.22L1.61,12l0.48,0.22c-0.18,0.43-0.35,0.86-0.5,1.3" & \
+      	" l-0.51-0.16l-0.31,0.99l0.49,0.15c-0.13,0.45-0.22,0.9-0.32,1.36l-0.52-0.1l-0.19,1.02l0.52,0.1c-0.07,0.46-0.14,0.92-0.18,1.38" & \
+      	" l-0.52-0.03L0,19.26l0.53,0.03c-0.01,0.46-0.01,0.93,0.01,1.39l-0.53,0.04l0.07,1.03l0.52-0.04c0.04,0.46,0.12,0.92,0.2,1.38" & \
+      	" l-0.52,0.1l0.2,1.02l0.51-0.1c0.1,0.45,0.21,0.9,0.34,1.35l-0.49,0.16l0.33,0.98l0.5-0.17c0.16,0.44,0.33,0.87,0.52,1.29" & \
+      	" l-0.47,0.23l0.45,0.93l0.47-0.23c0.21,0.41,0.45,0.81,0.69,1.21l-0.45,0.29l0.56,0.87l0.43-0.28c0.26,0.38,0.55,0.75,0.84,1.11" & \
+      	" l-0.41,0.34l0.67,0.79l0.41-0.34c0.31,0.35,0.62,0.7,0.95,1.02l-0.35,0.38l0.76,0.7l0.36-0.39c0.35,0.31,0.71,0.61,1.07,0.89" & \
+      	" l-0.31,0.43l0.84,0.6l0.31-0.43c0.39,0.26,0.78,0.5,1.18,0.73l-0.25,0.47l0.91,0.49l0.24-0.45c0.42,0.21,0.84,0.39,1.27,0.57" & \
+      	" l-0.19,0.49l0.97,0.37l0.19-0.49c0.44,0.16,0.88,0.31,1.32,0.43l-0.13,0.5l1,0.25l0.13-0.52c0.45,0.1,0.91,0.18,1.37,0.25" & \
+      	" l-0.06,0.53l1.03,0.12l0.06-0.51c0.46,0.04,0.93,0.05,1.39,0.06l0,0.53l1.04-0.01l0-0.53c0.46-0.02,0.93-0.03,1.39-0.08l0.07,0.51" & \
+      	" l1.03-0.14l-0.07-0.53c0.46-0.07,0.91-0.16,1.37-0.27l0.14,0.51l1-0.26l-0.13-0.5c0.44-0.13,0.88-0.29,1.32-0.45l0.2,0.49" & \
+      	" l0.96-0.39l-0.19-0.48c0.42-0.18,0.84-0.38,1.26-0.6l0.25,0.45l0.9-0.51l-0.26-0.47c0.4-0.24,0.79-0.48,1.18-0.75l0.31,0.42" & \
+      	" l0.83-0.61l-0.32-0.43c0.18-0.14,0.38-0.27,0.56-0.42s0.34-0.32,0.51-0.47l0.37,0.39l0.75-0.71l-0.36-0.38" & \
+      	" c0.33-0.33,0.64-0.68,0.94-1.03l0.41,0.34l0.65-0.8l-0.4-0.33c0.29-0.37,0.56-0.75,0.81-1.13l0.44,0.28l0.55-0.88l-0.45-0.28" & \
+      	" c0.24-0.4,0.47-0.81,0.67-1.22l0.47,0.22l0.43-0.94l-0.48-0.22c0.18-0.43,0.35-0.86,0.5-1.3l0.51,0.16l0.31-0.99l-0.49-0.15" & \
+      	" c0.13-0.45,0.22-0.9,0.32-1.36l0.52,0.1l0.19-1.02l-0.52-0.1c0.07-0.46,0.14-0.92,0.18-1.38L39.64,21.48z M31.61,33.87" & \
+      	" c-7.74,6.5-19.29,5.49-25.78-2.26c-6.5-7.74-5.49-19.29,2.26-25.78c7.74-6.5,19.29-5.49,25.78,2.26S39.36,27.38,31.61,33.87z" & \
+      	"  M30.94,10.55c2.49,2.96,3.67,6.71,3.33,10.57c-0.34,3.85-2.15,7.34-5.12,9.83c-2.96,2.49-6.71,3.67-10.57,3.33" & \
+      	" c-3.21-0.28-6.16-1.6-8.49-3.74l9.85-8.26l-2.46-2.93L7.64,27.6c-3.83-6.03-2.71-14.13,2.91-18.84c2.96-2.48,6.71-3.67,10.57-3.33" & \
+      	" C24.96,5.77,28.45,7.59,30.94,10.55z M31.77,9.86C26.25,3.29,16.42,2.43,9.85,7.94c-6.57,5.51-7.43,15.34-1.92,21.91" & \
+      	" c2.67,3.18,6.42,5.14,10.56,5.5c0.46,0.04,0.92,0.06,1.38,0.06c3.65,0,7.15-1.27,9.97-3.64c3.18-2.67,5.14-6.42,5.5-10.56" & \
+      	" C35.71,17.07,34.44,13.04,31.77,9.86z" into mSVGPath
+         put 250 into mMaxRotatiom
+        put [0.50,0.50] into mIconOrigin
+	end if
+end handler
+
+public handler OnCreate()
+	_setIconStyle("pointy")
+	variable tEffect as Effect
+	put color [0.5, 0.5, 0.5] into mSVGPathColor
+	-- put [0.50,0.50] into mIconOrigin
+	put 120 into mIconSize
+	-- put 90 into mRotation
+	put color [0.9, 0.9, 0.9, 1.0] into mFillColor
+	-- put outer shadow effect into tEffect
+
+   put color [0.1, 0.1, 0.1] into mOuterShadowColor
+	put 105 into mOuterShadowAngle -- 90
+	-- put the angle of tEffect into mOuterShadowAngle -- 90
+   -- put the spread of tEffect into mShadowSpread -- 0
+	-- put 0 into mShadowSpread -- 0
+	-- put the size of tEffect into mOuterShadowSize -- 20
+   put 20 into mOuterShadowSize -- 20
+	-- put the distance of tEffect into mOuterShadowDistance
+	put 7 into mOuterShadowDistance
+
+	-- put the color of my shadow paint into mOuterShadowColor
+	-- put color [0.25,0.25,0.25] into mOuterShadowColor
+
+	-- set the angle of mEffect to 90
+	-- set the spread of mEffect to 0
+	-- set the size of mEffect to 20
+	-- set the distance of mEffect to 7
+
+end handler
+
+public handler OnSave(out rProperties as Array)
+	put the empty array into rProperties
+	put colorToString(mSVGPathColor, true) into rProperties["SVGPathColor"]
+   put colorToString(mFillColor, true) into rProperties["fillColor"]
+
+	put the instructions of mSVGPath into rProperties["svgPath"]
+	put mIconOrigin into rProperties["iconOrigin"]
+	put mIconSize into rProperties["iconSize"]
+	put mIconStyle into rProperties["iconStyle"]
+	put mCurrentRotation into rProperties["currentRotation"]
+
+	put colorToString(mOuterShadowColor, false) into rProperties["shadowColor"]
+	-- put "source over" into tProps["blend mode"]
+	-- put mShadowSpread into rProperties["effectSpread"]
+	put mOuterShadowSize into rProperties["shadowSize"]
+	put mOuterShadowDistance into rProperties["shadowDistance"]
+	put mOuterShadowAngle into rProperties["shadowAngle"]
+
+	redraw all
+end handler
+
+public handler OnLoad(in pProperties as Array)
+	put path pProperties["svgPath"] into mSVGPath
+	put stringToColor(pProperties["SVGPathColor"]) into mSVGPathColor
+   put stringToColor(pProperties["fillColor"]) into mFillColor
+	put pProperties["iconOrigin"] into mIconOrigin
+	put pProperties["iconSize"] into mIconSize
+	put pProperties["iconStyle"] into mIconStyle
+	put pProperties["currentRotation"] into mCurrentRotation
+   put stringToColor(pProperties["shadowColor"]) into mOuterShadowColor
+	-- put pProperties["DropShaowSpread"] into mShadowSpread
+	put pProperties["shadowSize"] into mOuterShadowSize
+	put pProperties["shadowDistance"] into mOuterShadowDistance
+	put pProperties["shadowAngle"] into mOuterShadowAngle
+
+	redraw all
+end handler
+
+public handler OnOpen()
+	initializationCalculations()
+	-- schedule timer in mFrequency seconds
+end handler
+
+public handler OnGeometryChanged()
+	initializationCalculations()
+end handler
+
+-- this message doesn't seem to be firing yet
+-- public handler OnVisibilityChanged(in pVisible as Boolean)
+-- end handler
+
+public handler OnMouseUp()
+   put nothing into mPrevMouseH
+   put nothing into mPrevMouseV
+   put false into mMouseDown
+	if the mouse position is within my bounds then
+		post "mouseUp" with [the click button] -- to my script object
+	else
+		post "mouseRelease" with [the click button]
+	end if
+	redraw all
+end handler
+
+private variable mPrevMouseH as optional Number
+private variable mPrevMouseV as optional Number
+private variable mMouseDown as optional Boolean
+
+public handler OnMouseMove()
+   if mMouseDown is not nothing and mMouseDown is true then
+      variable tMouseH as Number
+      variable tMouseV as Number
+      variable tMouseLoc as List
+      variable tDiff as Number
+      execute script "return mouseLoc()"
+      split the result by "," into tMouseLoc
+      parse tMouseLoc as list of number into tMouseLoc
+      put tMouseLoc[1] into tMouseH
+      put tMouseLoc[2] into tMouseV
+      -- put the x of the mouse position / my pixel scale into tMouseH
+      -- put the y of the mouse position / my pixel scale into tMouseV
+      if mPrevMouseH < tMouseH then -- moving right
+         --log "right"
+         put tMouseH - mPrevMouseH into tDiff
+         add tDiff to mCurrentRotation
+      else if mPrevMouseH > tMouseH then -- moving left
+         --log "left"
+         put mPrevMouseH - tMouseH into tDiff
+         subtract tDiff from mCurrentRotation
+      end if
+      if tMouseV < mPrevMouseV then -- moving up
+         --log "up"
+         put mPrevMouseV - tMouseV into tDiff
+         add tDiff to mCurrentRotation
+      else if tMouseV > mPrevMouseV then -- moving down
+         --log "down"
+         put tMouseV - mPrevMouseV into tDiff
+         subtract tDiff from mCurrentRotation
+      end if
+      if mCurrentRotation > mMaxRotatiom then
+         put mMaxRotatiom into mCurrentRotation
+      end if
+      if mCurrentRotation < 0 then
+         put 0 into mCurrentRotation
+      end if
+      variable tDivisor as Number
+      variable tPercentage as Number
+      -- put trunc( 1.27 * ( lRotate / 2.9) ) into fld 1
+      put mMaxRotatiom / 100 into tDivisor
+      put mCurrentRotation / tDivisor into tPercentage
+      -- log [tPercentage]
+      -- calculateRotatedPath(mWorkingPath, mCurrentRotation, mCenter, true)
+      -- put preparePathForRotation(mSVGCircleBase, mIconOrigin, rectangle [0,0,mIconSize,mIconSize], my rectangle) into mCenter
+      -- put preparePathForRotation(mWorkingPath, mIconOrigin, rectangle [0,0,mIconSize,mIconSize], my rectangle) into mCenter
+      setRotation(mCurrentRotation)
+      put tMouseH into mPrevMouseH
+      put tMouseV into mPrevMouseV
+      redraw all
+      post "mouseMove" to my script object with [tMouseH,tMouseV] -- to my script object
+      post "knobTurned" to my script object with [tPercentage] -- to my script object
+   end if
+end handler
+
+public handler OnMouseCancel()
+   put nothing into mPrevMouseH
+   put nothing into mPrevMouseV
+   put false into mMouseDown
+	post "mouseRelease" to my script object with [the click button] -- to my script object
+end handler
+
+public handler OnMouseDown()
+   variable tMouseH as Number
+   variable tMouseV as Number
+   variable tMouseLoc as List
+   -- variable tListOfNum as List
+   execute script "return mouseLoc()"
+   -- put the result into tMouseLocStr
+   split the result by "," into tMouseLoc
+   parse tMouseLoc as list of number into tMouseLoc
+   put tMouseLoc[1] into mPrevMouseH
+   put tMouseLoc[2] into mPrevMouseV
+   --put the x of the mouse position / my pixel scale into mPrevMouseH
+   --put the y of the mouse position / my pixel scale into mPrevMouseV
+   put true into mMouseDown
+   post "mouseDown" to my script object with [the click button] -- to my script object
+	redraw all
+end handler
+
+private handler initializationCalculations()
+	-- Always start with the shape at original position.
+	put mSVGPath into mWorkingPath
+   put mSVGCircleBase into mWorkingBasePath
+	put preparePathForRotation(mWorkingBasePath, mIconOrigin, rectangle [0,0,mIconSize,mIconSize], my rectangle) into mCenter
+	put preparePathForRotation(mWorkingPath, mIconOrigin, rectangle [0,0,mIconSize,mIconSize], my rectangle) into mCenter
+	-- put 0 into mRotation
+end handler
+
+	----------
+	-- called whenever LiveCode needs to redraw the widget
+public handler OnPaint()
+	set the antialias of this canvas to true
+	variable tProps as Array
+	put the empty array into tProps
+
+	-- put colorToString(mOuterShadowColor,false) into tProps["color"]
+   put mOuterShadowColor into tProps["color"]
+   put mOuterShadowAngle into tProps["angle"]
+
+	-- put "source over" into tProps["blend mode"]
+	put 0 into tProps["spread"]
+	put mOuterShadowSize into tProps["size"]
+	put mOuterShadowDistance into tProps["distance"]
+
+	variable tEffect as Effect
+	put outer shadow effect with properties tProps into tEffect
+	-- put outer shadow effect into tEffect --> shadow (fix)
+   --set the color of tEffect to mOuterShadowColor -- color [0.0,1.0,0.0] --  color [0.7,0.7,0.7] -- tEffectColor
+   -- set the angle of tEffect to mOuterShadowAngle -- 90
+	-- set the spread of tEffect to mShadowSpread
+	--set the size of tEffect to mOuterShadowSize
+	--set the distance of tEffect to mOuterShadowDistance
+	begin layer with tEffect on this canvas
+		set the paint of this canvas to solid paint with mOuterShadowColor -- color [1.0, 1.0, 1.0, 1.0]
+      put inner shadow effect with properties tProps into tEffect
+      put 15 into tProps["size"]
+      put 180 - mOuterShadowAngle into tProps["angle"]
+      put mOuterShadowDistance into tProps["distance"]
+		fill mWorkingBasePath on this canvas
+   end layer on this canvas
+   begin layer with tEffect on this canvas
+      set the paint of this canvas to solid paint with color [1.0,1.0,1.0,0.5 ] -- mFillColor
+      fill mWorkingBasePath on this canvas
+   end layer on this canvas
+   set the paint of this canvas to solid paint with mFillColor -- color [1.0, 1.0, 1.0, 1.0]
+   -- set the stroke width of this canvas to 2
+   -- stroke mWorkingBasePath on this canvas
+   fill mWorkingBasePath on this canvas
+      -- set the paint of this canvas to solid paint with color [0, 0, 0, 1.0]
+	set the paint of this canvas to solid paint with mSVGPathColor
+	fill mWorkingPath on this canvas
+end handler
+
+public handler OnClose()
+	cancel timer
+end handler
+
+----------
+-- this handler is called when the timer scheduled with 'schedule timer' fires
+--public handler OnTimer()
+--end handler
+----------
+
+-- this handler returns the amount of time until the seconds change
+--handler computeNextTimer() returns Number
+	-- use the 'execute script' command
+	--execute script "return 1 - (the long seconds - round(the long seconds - 0.5))"
+	--return the result
+--end handler
+
+	-- Translated from some Skia code
+public handler scaleAndMaintainAspectRatioTransform(in pSrcBounds as Rectangle, in pDestBounds as Rectangle, in pConstraintBounds as Rectangle) returns Transform
+	// Prepare values for matrix transformations
+	variable isLarger as Boolean
+	variable sX as Number
+	variable sY as Number
+
+	put false into isLarger
+	put the width of pDestBounds / the width of pSrcBounds into sX
+	put the height of pDestBounds / the height of pSrcBounds into sY
+
+	if sX > sY then
+		put true into isLarger
+		put sY into sX
+	else
+		put sX into sY
+	end if
+
+	variable tX as Number
+	variable tY as Number
+
+	put the left of pDestBounds - (the left of pSrcBounds*sX) into tX
+	put the top of pDestBounds - (the top of pSrcBounds*sY) into tY
+
+	variable tDiff as Number
+
+	if isLarger then
+		put the width of pConstraintBounds - (the width of pSrcBounds*sY) into tDiff
+	else
+		put the height of pConstraintBounds - (the height of pSrcBounds*sY) into tDiff
+	end if
+
+	// align center
+	divide tDiff by 2
+
+	if isLarger then
+		add tDiff to tX
+	else
+		add tDiff to tY
+	end if
+
+	// create transformation matrix and apply
+	variable tTransform as Transform
+	put transform with matrix [sX, 0, 0, sY, tX, tY] into tTransform
+
+	return tTransform
+end handler
+
+private handler colorToString(in pColor as Color, in pIncludeAlpha as Boolean) returns String
+	variable tColor as String
+
+	put the rounded of ((the red of pColor) * 255) into tColor
+	put "," & the rounded of ((the green of pColor) * 255) after tColor
+	put "," & the rounded of ((the blue of pColor) * 255) after tColor
+
+	if pIncludeAlpha then
+		put "," & the rounded of ((the alpha of pColor) * 255) after tColor
+	end if
+
+	return tColor
+end handler
+
+----------
+-- this handler converts a String of numbers to an RGBA color
+private handler stringToColor(in pString as String) returns Color
+variable tRed as Real
+variable tGreen as Real
+variable tBlue as Real
+variable tAlpha as Real
+
+variable tComponentList as List
+split pString by "," into tComponentList
+
+variable tComponentCount
+put the number of elements in tComponentList into tComponentCount
+if tComponentCount is not 3 and tComponentCount is not 4 then
+	// Invalid number of components detected
+	throw "Invalid color"
+end if
+
+put (element 1 of tComponentList) parsed as number into tRed
+put (element 2 of tComponentList) parsed as number into tGreen
+put (element 3 of tComponentList) parsed as number into tBlue
+
+if tComponentCount is 4 then
+	put (element 4 of tComponentList) parsed as number into tAlpha
+else
+	put 255 into tAlpha
+end if
+
+return color [ tRed/255, tGreen/255, tBlue/255, tAlpha/255 ]
+end handler
+
+-- Very useful article: http://docs.rainmeter.net/tips/transformation-matrix-guide
+public handler calculateRotatedPath(inout pPath as Path, in pRotation as Number, in pCenter as Point, in pRotateClockwise as Boolean)
+   variable tTransform as Transform
+   put rotatedTransformation(pRotation, pCenter, pRotateClockwise) into tTransform
+   transform pPath by tTransform
+end handler
+
+
+public handler rotatedTransformation(in pRotation as Number, in pCenter as Point, in pRotateClockwise as Boolean) returns Transform
+  variable tX as Number
+  variable tY as Number
+  variable tOriginX as Number
+  variable tOriginY as Number
+  variable tMatrix as List
+  variable tA as Number
+  variable tB as Number
+  variable tC as Number
+  variable tD as Number
+
+  -- Clockwise: sin for B, -sin for C
+  -- Counterclockwise: -sin for B, sin for C
+  variable tAngle as Number
+  put (pRotation mod 360)/360*2*pi into tAngle
+
+  put cos(tAngle) into tA -- scale the x
+
+  if pRotateClockwise then
+     put sin(tAngle) into tB -- scale the y
+     put -sin(tAngle) into tC -- skew the x
+  else
+     put -sin(tAngle) into tB -- scale the y
+     put sin(tAngle) into tC -- skew the x
+  end if
+  put cos(tAngle) into tD -- skew the y
+  put the x of pCenter into tOriginX
+  put the y of pCenter into tOriginY
+
+  put tOriginX - tOriginX*tA - tOriginY*tC into tX
+  put tOriginY - tOriginX*tB - tOriginY*tD into tY
+
+  variable tTransform as Transform
+  put transform with matrix [tA,tB,tC,tD,tX,tY] into tTransform
+
+  return tTransform
+end handler
+
+
+-- mIconOrigin Element 1 is percent of icon width that represents center X (e.g. 0.5). Element 2 is percent of icon height that represents center Y (e.g. 0.5).
+-- pDestBounds Rectangle to constrain the path to.
+-- pConstraintBounds The rect to center the path in.
+public handler preparePathForRotation(inout xPath as Path, in pIconOrgin as List, in pDestBounds as Rectangle, in pConstraintBounds as Rectangle) returns Point
+  transform xPath by scaleAndMaintainAspectRatioTransform(the bounding box of xPath, pDestBounds, pConstraintBounds)
+  -- Reset to 0,0
+  translate xPath by [- the x of the bounding box of xPath, \
+                                - the y of the bounding box of xPath]
+  -- Find center point to rotate around and center path
+  variable tCenterX as Number
+  variable tCenterY as Number
+
+  put (the width of the bounding box of xPath * element 1 of pIconOrgin) into tCenterX
+  put (the height of the bounding box of xPath * element 2 of pIconOrgin) into tCenterY
+  translate xPath by [the width of pConstraintBounds/2-tCenterX, the height of pConstraintBounds/2-tCenterY]
+  return point [(the left of the bounding box of xPath) + tCenterX, \
+                    (the top of the bounding box of xPath) + tCenterY]
+end handler
+
+end widget

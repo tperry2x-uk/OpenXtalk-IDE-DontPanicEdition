@@ -1,0 +1,1 @@
+This is a demo of using the older (deprecated) revBrowser API for creating Web Browser views inside stack windows. In most cases you'll want to use the Browser Widget instead.

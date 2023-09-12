@@ -1,2 +1,2 @@
 Balloon Game
-This stack demonstrates how to create a game/ebook. The stack consists of a number of cards explaining how to create animations, use sound, use game loops, control and object on screen and detect collisions.
+This stack demonstrates how to create a game or ebook. The stack consists of a number of cards explaining how to create animations, use sound, use game loops, control and object on screen and detect collisions.

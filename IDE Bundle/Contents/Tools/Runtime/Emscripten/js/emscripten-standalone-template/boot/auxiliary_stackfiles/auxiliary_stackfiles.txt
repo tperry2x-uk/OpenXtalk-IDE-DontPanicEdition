@@ -1,0 +1,2 @@
+revgeometrylibrary.livecodescript
+revtablelibrary.livecodescript

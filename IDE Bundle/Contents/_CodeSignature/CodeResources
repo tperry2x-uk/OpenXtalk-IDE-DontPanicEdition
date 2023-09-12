@@ -15648,7 +15648,7 @@
 			CCxeeS7pOC/is/8gcRAKHOV+wLhIwEewBoDPXtjVAgk=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/api.lcdoc</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/api.lcdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15659,7 +15659,7 @@
 			REA7t9eiZjQB8ouVKFiJpt6oSRUpgHcf1gHAqEqVp20=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libFLAC.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libFLAC.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15670,7 +15670,7 @@
 			g+yaQwbVzzpLVwavIgdcGVfqZ+yus99dd2F8adVOv/0=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libc++_shared.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libc++_shared.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15681,7 +15681,7 @@
 			pq618IzvMW+pDlTfvFaHgbKvMov4iOJa7kmWhR5Uy80=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libcharset.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libcharset.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15692,7 +15692,7 @@
 			D+6uZx7u+PQEfoycpLIUMt48sbh8iVhBtd8eYkQqzcc=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libffi.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libffi.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15703,7 +15703,7 @@
 			nlilSzb/32FNKC8oYht3eeS7lm4TK2inPgntlR6Py1w=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libfluidsynth-assetloader.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libfluidsynth-assetloader.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15714,7 +15714,7 @@
 			BVE8P4YtL9ggaXWVNB5cu45hRNI0IzQl7YsCc1RWNu0=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libfluidsynth.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libfluidsynth.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15725,7 +15725,7 @@
 			dtUDbNlpmo1V7jDuun8YQBuYVq5122BfBV48Rp/H8go=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libgio-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libgio-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15736,7 +15736,7 @@
 			wJ9ewPLb+IaYwNkMiNTfV5Fc9w362e2DiMCZ6Zbp55U=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libglib-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libglib-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15747,7 +15747,7 @@
 			rUDMvFP0hc3e4jrz9227Fc9avKC6zAt50YVZxmKOA98=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libgmodule-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libgmodule-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15758,7 +15758,7 @@
 			b9x1pcJyGwRqK4fbiZqkGHZOvpY8Ebemf38ZZb0Sqxw=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libgobject-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libgobject-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15769,7 +15769,7 @@
 			aDI9MHiANJBMpLYwhKQ/4pglIZlFFVJwBKoj83C91cE=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libgthread-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libgthread-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15780,7 +15780,7 @@
 			GiRYD/JQBDtEVh66k4PgQmb0X8f+HcQinBVXvGZSTkI=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libiconv.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libiconv.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15791,7 +15791,7 @@
 			hBX8H6SWGwpGLAAzh6rtEJnddZsJRp+99R0YAC+7/ko=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libintl.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libintl.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15802,7 +15802,7 @@
 			Frx3CE5v/OWQ8lQ38LmLLyABBPrEvztoNr9VixJ+odE=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/liboboe.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/liboboe.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15813,7 +15813,7 @@
 			xaUkcOSty0HKNJZtVtCu01Y6JBvqTrrIZ0NvutLgN7g=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libogg.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libogg.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15824,7 +15824,7 @@
 			i6SqJ3JncR7R+P+f/zFx40afvzrnq3mNtZ3a6T9bYY0=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libsndfile.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libsndfile.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15835,7 +15835,7 @@
 			MW77RypOWY5MPq9YmqIUo/LGYMBIcbIhmMU24dhwz2k=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libvorbis.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libvorbis.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15846,7 +15846,7 @@
 			RuhRrtTlhy4ZwznJVgbcJh2sgOOMMSNAhfWWKjgkv1Y=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libvorbisenc.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libvorbisenc.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15857,7 +15857,7 @@
 			WXafBGq44jOomt9uqu1bqpM6Vz9SJ+9ciV1w8yiwLao=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libvorbisfile.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libvorbisfile.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15868,7 +15868,7 @@
 			VoX7u8cxEr92m6XrgcLAqs+EkJADQ+upKeJ69vmNSII=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/libz.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/libz.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15879,7 +15879,7 @@
 			faZaGT5h8KLEabT+zTWfz40ZAzR0uT2FLwPjNduu73c=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/arm64-android/preloadable_libiconv.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/arm64-android/preloadable_libiconv.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15890,7 +15890,7 @@
 			G1WBqU/l35SRch0aI4zodkexN4Zwg8BYTmV20tZ7RAY=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libFLAC.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libFLAC.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15901,7 +15901,7 @@
 			ywlESc8xwdNeVPUuL1hOywRCK+OOaoVurjMsONQcZ3M=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libc++_shared.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libc++_shared.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15912,7 +15912,7 @@
 			PSCQg0e7JSFMtC4rwOrlj7t3iONWv4f6yp8L6dXkysc=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libcharset.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libcharset.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15923,7 +15923,7 @@
 			+rbTf/5qCyGuFBBoIJpFT9je8JF+/pdwIpTS80lkgTs=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libffi.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libffi.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15934,7 +15934,7 @@
 			3oI7gCLmqtNy/UPfZOFPrh/obP1APkFZuWYjswUnx78=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libfluidsynth-assetloader.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libfluidsynth-assetloader.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15945,7 +15945,7 @@
 			yptR3KeEfn+l22YCOERH4R25/XnuZDJU6RdT3vrCkMs=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libfluidsynth.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libfluidsynth.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15956,7 +15956,7 @@
 			5e0Gq/fzW1G33+PRPyJdXvohKRviZV7u7AXYjKhP9qY=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libgio-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libgio-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15967,7 +15967,7 @@
 			EmVuuI9nFXGsnS/jt9zaPZwUxTw9bGzx/WMxBnud6oE=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libglib-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libglib-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15978,7 +15978,7 @@
 			QNEgQMB+FgZZ3cQkn9ei0yYYCRHE2b+pqUx5w0UhFN4=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libgmodule-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libgmodule-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -15989,7 +15989,7 @@
 			4Qs7wNftq/hUDmrxdu8s8V+vxyT0Ch0cHaxz0jsbXOM=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libgobject-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libgobject-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16000,7 +16000,7 @@
 			xQNfpgq4WFfafd8wkEG00AXdyQMZ6FqFzdsiPPS+K1k=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libgthread-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libgthread-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16011,7 +16011,7 @@
 			KiWhnrGL9er52C8IAs6uewRfxv/HxmJ7OKrqoSFOmvc=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libiconv.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libiconv.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16022,7 +16022,7 @@
 			bv/ezTXBmMoLioVfnwh7J94bX2M2BFJpljg/dB/uhqg=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libintl.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libintl.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16033,7 +16033,7 @@
 			wzWXcjEl6PRsCTMNbBUKAgquMFrlwSxDjvwFaHj7QpE=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/liboboe.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/liboboe.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16044,7 +16044,7 @@
 			UuHVJvxCSwmKgW34TqHyhVKRNr1erj7/BI+e/v1SDyk=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libogg.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libogg.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16055,7 +16055,7 @@
 			ezNXGOroUpvt5LXV8TB5l1aI7Y21yOt1WcBCkkl05mY=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libsndfile.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libsndfile.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16066,7 +16066,7 @@
 			aLw4c89x53RQI54jSye9zpf481Oo044fg1hlTXlVnvM=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libvorbis.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libvorbis.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16077,7 +16077,7 @@
 			FkM/AS6V5cOoI5YeI8NM/tFybm/oOClRqR22H2oWz/A=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libvorbisenc.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libvorbisenc.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16088,7 +16088,7 @@
 			FJxmGi2eqeZxv22dusySUD9boSG2qvS5rykoOfyTMQo=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libvorbisfile.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libvorbisfile.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16099,7 +16099,7 @@
 			3U1jwv4pU+yfF8Yo/893PRqKED+87u1iR8VspKInEYY=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/libz.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/libz.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16110,7 +16110,7 @@
 			2gy6e5SOQjl8Ks53CegHIAWzH6sjIii2+pM0chtQnUA=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/armv7-android/preloadable_libiconv.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/armv7-android/preloadable_libiconv.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16121,7 +16121,7 @@
 			A+TdyCJ2eoT6H8y6yH65meBG7fdbxl1i5ywSSSeCLMg=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libFLAC.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libFLAC.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16132,7 +16132,7 @@
 			EBBfc5M3TgfRFZNdOT8/D3kCE7oARzPSHM7+MxDXtcU=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libc++_shared.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libc++_shared.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16143,7 +16143,7 @@
 			nxpRKTFDBnqMaV++nga2XvPbNR0ImsPGYk4bMj0jaog=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libcharset.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libcharset.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16154,7 +16154,7 @@
 			XGIDRxjpsFj2PRkGPOa56UJs3SgnhwP6/Pz6Xst/TE4=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libffi.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libffi.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16165,7 +16165,7 @@
 			s3L/dHWs5cDyjmKoID5SCTZkJDb25KGkE1MsPy8R+U4=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libfluidsynth-assetloader.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libfluidsynth-assetloader.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16176,7 +16176,7 @@
 			RrcSoef1TC/lzi6vIqhHoHFFKVlKTjmZGmZcMCXlwSY=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libfluidsynth.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libfluidsynth.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16187,7 +16187,7 @@
 			wdZPb8vmEwChKfSzQzi7Gp1VUJ4zWJFEP0ooH/ZaEkw=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libgio-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libgio-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16198,7 +16198,7 @@
 			v7Zqbr0zW/IgF7IJ8Z3/jCnsMf27RB8AGAL6uxUYM5E=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libglib-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libglib-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16209,7 +16209,7 @@
 			T7eUvFhQZLGqBrHfJ3qkt4dgOBSjvbLnPiIbELCVBGA=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libgmodule-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libgmodule-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16220,7 +16220,7 @@
 			yP00LCSWdzW/q4HzzMIDE5Ros2N+CSIQYkfbmyS8XZs=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libgobject-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libgobject-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16231,7 +16231,7 @@
 			hNcwjHFC4AAm5sdXlElBvcmgWCAiqiz46X5cIH/+e10=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libgthread-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libgthread-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16242,7 +16242,7 @@
 			X6RXGdLGxrw86VBeEHVfqfVnKAHQIww++SmBjhccuXs=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libiconv.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libiconv.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16253,7 +16253,7 @@
 			DCEFXLQYOUR8uK6b6LwK6nbxdBc/jGw//YtfVZXjBc0=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libintl.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libintl.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16264,7 +16264,7 @@
 			bvlnk+SBz9GdHpZEtr4J/2rVU0kQXItMfc30x7PEdr4=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/liboboe.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/liboboe.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16275,7 +16275,7 @@
 			Cg0fH+/xr5NVwPTSDR3PEaOOP+5CFxKR0YX9dwaufuU=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libogg.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libogg.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16286,7 +16286,7 @@
 			yl/FJZYg317fivA6iVwR1hFTAbBpjwNANqBdpLgodUg=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libsndfile.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libsndfile.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16297,7 +16297,7 @@
 			2CBndckZlaAog73B1JylUNZM7x9wh/b+5FMyubUNOZM=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libvorbis.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libvorbis.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16308,7 +16308,7 @@
 			wTUnHah7p0mQ+7ieBpW8cG8cCrQZaAXR9Q6EtOZ97TI=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libvorbisenc.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libvorbisenc.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16319,7 +16319,7 @@
 			OJ1EYB6jIaO0TJwJDG4G4m60tpp8/fhxo39iZpk6+Cg=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libvorbisfile.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libvorbisfile.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16330,7 +16330,7 @@
 			1AMbfPkxe0/O3j7V+K06FL/ZalPe11BIs0CW2XZ+lzs=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/libz.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/libz.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16341,7 +16341,7 @@
 			f7shT+7XYXfSV/bqDmlV1zKQJQ6IIv3UnES0tgggrkQ=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-android/preloadable_libiconv.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-android/preloadable_libiconv.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16352,7 +16352,7 @@
 			XcgdXufglZpKk+57FUvemb8ScV1GwcR/GbdOyKgeoyQ=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/intl.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-win32/intl.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16363,7 +16363,7 @@
 			aC1CdwkkcsrJQFWPnmebRKY5QVnknJu9opnjO/xv3JI=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libfluidsynth-2.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-win32/libfluidsynth-2.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16374,7 +16374,7 @@
 			sjjcfbzrz6tKu5lHmV1hEWvRQJbtLGbYWXpcWEJCnyk=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libglib-2.0-0.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-win32/libglib-2.0-0.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16385,7 +16385,7 @@
 			wPNbDl+bJfNr+e+IWoE159zbd9Ql+KyIEk2QzyvzL94=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libgobject-2.0-0.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-win32/libgobject-2.0-0.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16396,7 +16396,7 @@
 			dbTooHV/fbJu8ZXzxeLaV3DZXDrwgcLNrg7BW0YKqeo=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libgthread-2.0-0.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-win32/libgthread-2.0-0.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16407,7 +16407,7 @@
 			7i6Ehf2/ssViYJnMr83EGsYEFN/9XGw77694ZjS69cM=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libinstpatch-2.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-win32/libinstpatch-2.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16418,7 +16418,7 @@
 			6u8SCpRedi/oFj3SrgOObF3vcwlaJuKCRu8XTLswknU=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86-win32/libsndfile-1.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86-win32/libsndfile-1.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16429,7 +16429,7 @@
 			2G3kNQydbUKx7EIk8ronAHBlNLip9aaQAjB4kP1XYC4=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libFLAC.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libFLAC.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16440,7 +16440,7 @@
 			6s/Yz20Nz6kYtEabJpesoAiOaSIfIwSVd5rJV2tfBcc=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libc++_shared.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libc++_shared.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16451,7 +16451,7 @@
 			+9n4QTXWYLrX6WkAORqFbFhZzt0EKfD3GQMjaIZOhlo=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libcharset.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libcharset.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16462,7 +16462,7 @@
 			/B8Yf7Aax6PQGaj2ktKzVhH70tju+2gv9YZ65LpWVl4=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libffi.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libffi.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16473,7 +16473,7 @@
 			2uIzMV2g7Z6fKAHQNCpYWugLvKXRCDQjZujdUC9EHb4=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libfluidsynth-assetloader.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libfluidsynth-assetloader.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16484,7 +16484,7 @@
 			FB7dMPg9Ybyexa+pYXvGGtRGROKZ/mxnzTN5oI5utCE=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libfluidsynth.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libfluidsynth.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16495,7 +16495,7 @@
 			ikJ/QGAwu2xt3MAxQTXDYyyVO9yCHy09oTg88Z9nYrs=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libgio-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libgio-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16506,7 +16506,7 @@
 			hlpVjNTAAdHoQ84ML21OIuRdHJXQhd0hqo6MRLBrB1M=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libglib-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libglib-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16517,7 +16517,7 @@
 			4ESV+axrE3mUd5HEl81gplE0Zl6MqniOBcX8DBJIIAQ=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libgmodule-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libgmodule-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16528,7 +16528,7 @@
 			L+yc45X2RXMgPfYxQd9YH23fHBf9dYquHpIFGIAJmM4=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libgobject-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libgobject-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16539,7 +16539,7 @@
 			sfcZCJDjl6IZ9ZbA3nA9LyWttQmko7h5IZ9m5meoi9E=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libgthread-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libgthread-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16550,7 +16550,7 @@
 			8XbgG5RkiTm0UwlUwji2Bm1qTpM+AnE0D2EzwgONP9c=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libiconv.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libiconv.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16561,7 +16561,7 @@
 			a7cDeQSsyV+suC/lST9KsfqA8L4l3I39eKkF8MraJB4=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libintl.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libintl.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16572,7 +16572,7 @@
 			8Fd41SPo1LNuxoA0oG1lCJaHaYAaw5OvbGfFgCrPPzA=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/liboboe.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/liboboe.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16583,7 +16583,7 @@
 			5R7c1SZPEFsEknHAma9eHW6oQoX6Bo84bnIPqVuOtto=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libogg.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libogg.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16594,7 +16594,7 @@
 			ZKFPszwA0glbPE0dZe6ykGHxwH5I+U0YOeUp2pA1jiw=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libsndfile.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libsndfile.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16605,7 +16605,7 @@
 			cLAc8UE6Ivd7yhZxaudZ8Ig16wODNNLvrdTmlWc7elM=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libvorbis.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libvorbis.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16616,7 +16616,7 @@
 			ZddScYTDUfrHzqo6qwJFTix5gUtY1u4ZnZtze3c9yvg=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libvorbisenc.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libvorbisenc.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16627,7 +16627,7 @@
 			li3Ng85Yb/Huk4UySX6lhR70sZLy6vLZz116Z20VP4A=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libvorbisfile.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libvorbisfile.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16638,7 +16638,7 @@
 			mh3AYLeTf2HrFypE9tgXFcWpqpOsbCBbi7tC0AZHXwc=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/libz.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/libz.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16649,7 +16649,7 @@
 			YwctaFkdbW++dshBqLkdPwvZNKnXedd4yQ0I8dCnJyo=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-android/preloadable_libiconv.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-android/preloadable_libiconv.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16660,7 +16660,7 @@
 			IEzoFwFb7SrBEOUtN8lGSpYBcNQ0O+af/mW7erMW4mk=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libFLAC.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-linux/libFLAC.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16671,7 +16671,7 @@
 			MGIIQ0P9UuduJyD0h60jdl29DQevQ3TFTGdODUjFHSo=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libfluidsynth.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-linux/libfluidsynth.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16682,7 +16682,7 @@
 			c5ZI8/Y165uWTKKycvGfnGOYkxzQboH8q2joRaJnZb8=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libgio-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-linux/libgio-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16693,7 +16693,7 @@
 			tM1FUrLq2nW+PfhIYzilovOuTNDkaEMPrT/1I7Zg/T8=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libglib-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-linux/libglib-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16704,7 +16704,7 @@
 			9LXVVACq+4FGXmAi3EB1/scKEeQFRB1ZM5yqfZhiiGY=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libgmodule-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-linux/libgmodule-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16715,7 +16715,7 @@
 			l0HuUYMRrNP7ePHKxL0B3IIEeX64tdZyQfOybrYPmgc=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libgobject-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-linux/libgobject-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16726,7 +16726,7 @@
 			oIExRsrqp5jUIe67US4QdgLe99YQDNvXu4Xewly+56I=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libgthread-2.0.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-linux/libgthread-2.0.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16737,7 +16737,7 @@
 			iDJFnGPjG6OpqC3M8HlwocRmeeWDXftkCL/t8iH2P7E=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libogg.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-linux/libogg.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16748,7 +16748,7 @@
 			Pd5igb1AFMBFGfeGDxWSbXIoYODQcFXydoBb1wE+Hm8=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libreadline.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-linux/libreadline.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16759,7 +16759,7 @@
 			Gok4rkzfxFsUIpYn50foJ1bAsXO4uQEKM7iIA2G8aZc=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libsndfile.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-linux/libsndfile.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16770,7 +16770,7 @@
 			Y2pBXNK8DwhpbO4yna4Kqd4WQfu/k38jBATuo8S9lo0=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-linux/libvorbis.so</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-linux/libvorbis.so</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16781,7 +16781,7 @@
 			5urIfII2N6lQX+YxgeegP9b+xVa155FjmvYhtkXqRR4=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/editpath.sh</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/editpath.sh</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16792,7 +16792,7 @@
 			P5qxyO0VPSbJQvKUVKI7jiF+VnI2paBQbQQh4PQ0Ofo=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libFLAC.8.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libFLAC.8.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16803,7 +16803,7 @@
 			pYI/78Dir50IU5yg4BjhThceOvs6Dl4Bu90I0M4mkjs=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libfluidsynth.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libfluidsynth.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16814,7 +16814,7 @@
 			Vu+UY4EtwXzhtVRCP6grybuOKB+YMVYqv64qMEf3dWw=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libfluidsynth.dylib~</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libfluidsynth.dylib~</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16825,7 +16825,7 @@
 			NkAr2wvpcSDAbuO9tbvWzaj8cQIFwbGng1unIR4HtFg=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libglib-2.0.0.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libglib-2.0.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16836,7 +16836,7 @@
 			WdkbU5Yq2Hat9FsEY4bFHmeDIz6i5v8+QyzYX9Jh/yM=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libgthread-2.0.0.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libgthread-2.0.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16847,7 +16847,7 @@
 			jupCDCkA9ahs0JMqYvrU9rkBocSeeEtn0QjMrLFSqK4=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libhistory.8.0.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libhistory.8.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16858,7 +16858,7 @@
 			uNM1W8oPnp6LyRR/pN2AvIjks3N/e3e6cdTnlw65NdY=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libinstpatch.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libinstpatch.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16869,7 +16869,7 @@
 			zot9ShjR3sU9z2gHmkRgnCLsb8fewxr8zopPOzL01SE=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libintl.8.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libintl.8.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16880,7 +16880,7 @@
 			ZVbWCHRb7juYIl+il5d+9VE8nKxN5Fh3LmdyY03Akfg=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/liblzma.5.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/liblzma.5.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16891,7 +16891,7 @@
 			zv44p++VjcN8sy4QwlGJ8/WPERSokC4F0glprD6dCbo=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libogg.0.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libogg.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16902,7 +16902,7 @@
 			tiSL4rNGk5pVliMG3BRRqfmPt74coO+f1DbFOZDHCBA=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libopus.0.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libopus.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16913,7 +16913,7 @@
 			bvdN9NWJONQOXcfOLHC+8DBbSXATxUHMCWC7Y8zjqBI=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libpcre.1.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libpcre.1.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16924,7 +16924,7 @@
 			cR2MbjyTfm1t1mt21MG99kbc9szonTGWjCgVMIJLa8o=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libpcre16.0.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libpcre16.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16935,7 +16935,7 @@
 			a8gZDRP+sm89pVZq2qDEKQ/P+qc66xliEbkGn6f+yDg=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libpcre32.0.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libpcre32.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16946,7 +16946,7 @@
 			ic+VauuD27+FkP0ZZQARzbW0BzhE8pdc9jKaDwr0S6Y=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libpcrecpp.0.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libpcrecpp.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16957,7 +16957,7 @@
 			KjOC8PouZNWQjB8JQFYYKO596LltHUQHbCQ3Wzn2IaE=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libpcreposix.0.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libpcreposix.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16968,7 +16968,7 @@
 			HFEA6nhWaCDW4fhtli1jUAuq5BfgOsCkUHXvDHCkU24=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libportaudio.2.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libportaudio.2.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16979,7 +16979,7 @@
 			1QmFgGiVamDlFt88HHXUNLHhcmyFc7Aiqj41E3cP43E=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libportaudiocpp.0.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libportaudiocpp.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -16990,7 +16990,7 @@
 			G9cvdNIE09WAMg2Ru2eauvIISxFUqavO2IhiXshjyL0=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libreadline.8.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libreadline.8.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17001,7 +17001,7 @@
 			LmzQgEaJdRLQDkp24YdAvQgwOXIGJpj9A7L/spfBBf8=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libsndfile.1.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libsndfile.1.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17012,7 +17012,7 @@
 			Tr8M2ZU/Cc+C+0L7LojwtMy2xnFzauSzt1sy4o4e8mY=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libsndfile.1.dylib~</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libsndfile.1.dylib~</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17023,7 +17023,7 @@
 			5aTS+8tbCRr46IvKpKTjLnPtm27KTuf2/X3DNmxneNo=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libvorbis.0.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libvorbis.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17034,7 +17034,7 @@
 			l0/J/+3wB3iJGOf9Is9mFa9ulWNU7MU0XE5T9yJt0nk=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libvorbisenc.2.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libvorbisenc.2.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17045,7 +17045,7 @@
 			H7A/pYjWnOgJNjr03PQwsCpAl6PxeyKJe36ZYFAhJUA=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac/libvorbisfile.3.dylib</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac/libvorbisfile.3.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17056,7 +17056,7 @@
 			zA0gshmMZq3pZ29Ao/MDRQAVeADntWzzvUQXhAU4tpI=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-mac_10.14.zip</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-mac_10.14.zip</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17067,7 +17067,7 @@
 			BYoFcpJ3zBNLjiBgFZS9adnzUFmgdkVzbdhh4RU7kPI=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libfluidsynth-2.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-win32/libfluidsynth-2.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17078,7 +17078,7 @@
 			vgb+H5sNop0BOdoS6Ep3RKFw43w2TiflLima/jtrNBw=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libfluidsynth.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-win32/libfluidsynth.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17089,7 +17089,7 @@
 			vgb+H5sNop0BOdoS6Ep3RKFw43w2TiflLima/jtrNBw=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libglib-2.0-0.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-win32/libglib-2.0-0.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17100,7 +17100,7 @@
 			DDcgtYiHT8PGD2a0hsQXLEl2xWsLDwSQj3MNchXJNAA=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libgobject-2.0-0.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-win32/libgobject-2.0-0.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17111,7 +17111,7 @@
 			KMo/5Tktzi6MSLYVe6qdox+I67cQPcLOf+7KfVo7F8o=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libgthread-2.0-0.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-win32/libgthread-2.0-0.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17122,7 +17122,7 @@
 			9Jqr+deAvKro9yhwovKmgX6Yfv0RWq7myUQtQBq0uzQ=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libinstpatch-2.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-win32/libinstpatch-2.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17133,7 +17133,7 @@
 			qvQ2h3BVmp7SKAWRoGQLM8x4pz2bySknGOD3zKlCEGw=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libintl-8.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-win32/libintl-8.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17144,7 +17144,7 @@
 			fPWnBcgl4ILY57V9ET68uol6lCH0ZafkOtYQuJo1mxQ=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/code/x86_64-win32/libsndfile-1.dll</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/code/x86_64-win32/libsndfile-1.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17155,7 +17155,7 @@
 			dA3HlYmBPIP1prjqIUtcEDEEGIG03JZwPilafATQn1s=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/fluidsynth_MIDIINTests.lcb</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/fluidsynth_MIDIINTests.lcb</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17166,7 +17166,7 @@
 			tDcJJLeKVQjX8xyjhSRBN9ZhxzLTbnih4Ln/MUxtDHA=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/manifest.xml</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/manifest.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17177,7 +17177,7 @@
 			kobjwYwjzQ8XboDZTa96lyM3B4L90714C/1vXJ5XWm0=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/module.2.lcm</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/module.2.lcm</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17188,7 +17188,7 @@
 			4PJZchEslYytADKAQa1f4qeB/hED7e1Ql8XM6c076OM=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/org.openxtalk.library.fluidsynth.lci</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/org.openxtalk.library.fluidsynth.lci</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17199,7 +17199,7 @@
 			I+ucf9fsUp0dGfuGjCZMIhrTWyVd4IYIAxspXGSiNfc=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/1OctaveKeyboardCoreMIDI 0.5.livecode</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/samples/1OctaveKeyboardCoreMIDI 0.5.livecode</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17210,7 +17210,7 @@
 			64vJlaGVDn346FDP9yax/HEsRYoLZcgWIdrpa1aJEmA=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/BASSGTRKeyboard 0.6.livecode</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/samples/BASSGTRKeyboard 0.6.livecode</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17221,7 +17221,7 @@
 			GIus+jQqRNoQ8r4PV6wJ5D1LkB1sVXHb6x0vVd9iWWA=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/BASSGTRKeyboard_0.5.2.livecode</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/samples/BASSGTRKeyboard_0.5.2.livecode</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17232,7 +17232,7 @@
 			TJfBeUltsKvwuOFEJ1Fht0OwsQkBJoinN6d2tKLyYAA=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/BASSGTRKeyboard_0.6.1.livecode</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/samples/BASSGTRKeyboard_0.6.1.livecode</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17243,7 +17243,7 @@
 			Ns8Fzts/WP7V4dZ7oU8tsKhZ07j8QWM8I5XVG7d21xg=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/My MIDI Data Grid LCBFLUIDSYNTH.livecode</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/samples/My MIDI Data Grid LCBFLUIDSYNTH.livecode</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -17254,7 +17254,7 @@
 			0QA0YgWHjCDyTiVMW1fsyUUR9hN987DnoxIpOjX4Taw=
 			</data>
 		</dict>
-		<key>Tools/Extensions/org.openxtalk.library.fluidsynth.0.5/samples/My MIDI Data Grid LCBFLUIDSYNTH2.livecode</key>
+		<key>Tools/Extensions/org.openxtalk.library.fluidsynth/samples/My MIDI Data Grid LCBFLUIDSYNTH2.livecode</key>
 		<dict>
 			<key>hash</key>
 			<data>

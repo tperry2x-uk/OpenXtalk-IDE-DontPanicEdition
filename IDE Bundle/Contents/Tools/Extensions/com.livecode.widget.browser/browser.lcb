@@ -1,26 +1,26 @@
 /*
 Copyright (C) 2015-2016 LiveCode Ltd.
 
-This file is part of LiveCode.
+This file is part of OpenXTalk.
 
-LiveCode is free software; you can redistribute it and/or modify it under
+OpenXTalk is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License v3 as published by the Free
 Software Foundation.
 
-LiveCode is distributed in the hope that it will be useful, but WITHOUT ANY
+OpenXTalk is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or
 FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 for more details.
 
 You should have received a copy of the GNU General Public License
-along with LiveCode.  If not see <http://www.gnu.org/licenses/>.  */
+along with OpenXTalk.  If not see <http://www.gnu.org/licenses/>.  */
 
 /**
 This widget displays web content within a native web browser view.
 
-The browser widget can display HTML content generated in LiveCode, or
+The browser widget can display HTML content generated on your card, or
 fetch content over the Internet.  It supports JavaScript and allows
-for interaction between LiveCode scripts and JavaScript code.
+for interaction between XTalk scripts and JavaScript code.
 
 The [browser SVG icon](https://www.iconfinder.com/icons/309064/browser_globe_international_internet_web_world_icon)
 is copyright © Ivan Boyko, and is licensed under the terms of the
@@ -36,9 +36,9 @@ Parameters:
 pUrl (string): The URL of the loading document.
 
 Description:
-The <browserDocumentLoadBegin> message is sent to the widget's script 
-object when a new document begins to load in the browser. This will 
-happen whenever the browser navigates to a new page. The <pUrl> 
+The <browserDocumentLoadBegin> message is sent to the widget's script
+object when a new document begins to load in the browser. This will
+happen whenever the browser navigates to a new page. The <pUrl>
 parameter contains the URL of the loading document.
 
 Name: browserDocumentLoadComplete
@@ -51,8 +51,8 @@ Parameters:
 pUrl (string): The URL of the loaded document.
 
 Description:
-The <browserDocumentLoadComplete> message is sent to the widget's script 
-object when a new document has completed loading in the browser. The 
+The <browserDocumentLoadComplete> message is sent to the widget's script
+object when a new document has completed loading in the browser. The
 <pUrl> parameter contains the URL of the loaded document.
 
 
@@ -67,9 +67,9 @@ pUrl (string): The URL of the document.
 pError (string): An error message describing the reason for the failure.
 
 Description:
-The <browserDocumentLoadFailed> message is sent to the widget's script 
-object when a new document has failed to load in the browser. The <pUrl> 
-parameter contains the URL of the document, and the <pError> parameter 
+The <browserDocumentLoadFailed> message is sent to the widget's script
+object when a new document has failed to load in the browser. The <pUrl>
+parameter contains the URL of the document, and the <pError> parameter
 gives the reason for the failure.
 
 
@@ -83,10 +83,10 @@ Parameters:
 pUrl (string): The URL of the loading document.
 
 Description:
-The <browserFrameDocumentLoadBegin> message is sent to the widget's 
-script object when a new document begins to load in a frame of the 
-browser. This will happen whenever the browser navigates to a new page 
-with multiple frames. The <pUrl> parameter contains the URL of the 
+The <browserFrameDocumentLoadBegin> message is sent to the widget's
+script object when a new document begins to load in a frame of the
+browser. This will happen whenever the browser navigates to a new page
+with multiple frames. The <pUrl> parameter contains the URL of the
 loading document.
 
 
@@ -100,9 +100,9 @@ Parameters:
 pUrl (string): The URL of the loaded document.
 
 Description:
-The <browserFrameDocumentLoadComplete> message is sent to the widget's 
-script object when a new document has completed loading in a frame of 
-the browser. The <pUrl> parameter contains the URL of the loaded 
+The <browserFrameDocumentLoadComplete> message is sent to the widget's
+script object when a new document has completed loading in a frame of
+the browser. The <pUrl> parameter contains the URL of the loaded
 document.
 
 
@@ -110,7 +110,7 @@ Name: browserFrameDocumentLoadFailed
 Type: message
 Syntax: browserFrameDocumentLoadFailed <pUrl>, <pError>
 
-Summary: Sent when a document has failed to load in a frame of the 
+Summary: Sent when a document has failed to load in a frame of the
 browser.
 
 Parameters:
@@ -118,9 +118,9 @@ pUrl (string): The URL of the document.
 pError (string): An error message describing the reason for the failure.
 
 Description:
-The <browserFrameDocumentLoadFailed> message is sent to the widget's 
-script object when a new document has failed to load in a frame of the 
-browser. The <pUrl> parameter contains the URL of the document, and the 
+The <browserFrameDocumentLoadFailed> message is sent to the widget's
+script object when a new document has failed to load in a frame of the
+browser. The <pUrl> parameter contains the URL of the document, and the
 <pError> parameter gives the reason for the failure.
 
 
@@ -134,9 +134,9 @@ Parameters:
 pUrl (string): The URL of the new page.
 
 Description:
-The <browserNavigateBegin> message is sent to the widget's script object 
-when the browser begins navigation to a new page. This can be triggered 
-by launching a URL in the browser, or clicking a link within the 
+The <browserNavigateBegin> message is sent to the widget's script object
+when the browser begins navigation to a new page. This can be triggered
+by launching a URL in the browser, or clicking a link within the
 browser. The <pUrl> parameter contains the URL of the new page.
 
 
@@ -150,8 +150,8 @@ Parameters:
 pUrl (string): The URL of the new page.
 
 Description:
-The <browserNavigateComplete> message is sent to the widget's script 
-object when the browser successfully navigates to a new page. The <pUrl> 
+The <browserNavigateComplete> message is sent to the widget's script
+object when the browser successfully navigates to a new page. The <pUrl>
 parameter contains the URL of the new page.
 
 
@@ -166,9 +166,9 @@ pUrl (string): The URL of the document.
 pError (string): An error message describing the reason for the failure.
 
 Description:
-The <browserNavigateFailed> message is sent to the widget's script 
-object when the browser has failed to navigate to a new page. The <pUrl> 
-parameter contains the URL of the new page, and the <pError> parameter 
+The <browserNavigateFailed> message is sent to the widget's script
+object when the browser has failed to navigate to a new page. The <pUrl>
+parameter contains the URL of the new page, and the <pError> parameter
 gives the reason for the failure.
 
 
@@ -182,9 +182,9 @@ Parameters:
 pUrl (string): The URL of the request.
 
 Description:
-The <browserUnhandledLoadRequest> message is sent to the widget's script 
-object when the browser is unable to load a URL, typically due to an 
-unrecognised URL scheme. The <pUrl> parameter contains the URL of the 
+The <browserUnhandledLoadRequest> message is sent to the widget's script
+object when the browser is unable to load a URL, typically due to an
+unrecognised URL scheme. The <pUrl> parameter contains the URL of the
 unhandled request.
 
 
@@ -241,31 +241,31 @@ Parameters:
 pUrl (string): A string specifying a URL.
 
 Example:
-	-- Navigate to livecode.com by setting the url property,
+	-- Navigate to OpenXTalk.org by setting the url property,
 	-- keeping a copy of the previous URL
 	local tOldUrl
 	put the URL of widget "myBrowser" into tOldUrl
-	set the URL of widget "myBrowser" to "https://livecode.com"
+	set the URL of widget "myBrowser" to "https://www.OpenXTalk.org"
 
 Description:
 The <URL> is the URL of the content be displayed in the browser.
 
->*Note:* The <URL> must be a standards-compliant URL.  In particular, 
-> `file:` URLs must be of the form `file://<absolute path>`, and the 
-> path should be URL-encoded.  
+>*Note:* The <URL> must be a standards-compliant URL.  In particular,
+> `file:` URLs must be of the form `file://<absolute path>`, and the
+> path should be URL-encoded.
 > See [RFC 1738, section 2.2](https://tools.ietf.org/html/rfc1738#section-2.2).
 
->*Note:* The <URL> reflects the currently displaying page in the 
-> browser, and will change when navigating to another page. Setting the 
+>*Note:* The <URL> reflects the currently displaying page in the
+> browser, and will change when navigating to another page. Setting the
 > htmlText will result in the <URL> being empty.
 
 >*Note:* Setting the <URL> won't necessarily cause resources to be
-> reloaded unless URLs of the resources explicitly change. However, 
-> you can force the browser widget to reload a page using 
+> reloaded unless URLs of the resources explicitly change. However,
+> you can force the browser widget to reload a page using
 > `do "location.reload()" in widget "browser"` after setting the url.
 
->*Note:* Setting the <URL> to empty will clear the currently loaded 
-> page, resulting in a blank page being displayed and the <URL> and 
+>*Note:* Setting the <URL> to empty will clear the currently loaded
+> page, resulting in a blank page being displayed and the <URL> and
 > <htmlText> of the widget being empty.
 
 References: htmlText (property)
@@ -284,7 +284,7 @@ get the htmlText of <widget>
 Summary: The HTML text of the content displayed by the browser.
 
 Parameters:
-pHtmlText (string): A string containing HTML data to be displayed by the 
+pHtmlText (string): A string containing HTML data to be displayed by the
 browser.
 
 Example:
@@ -297,7 +297,7 @@ Example:
 	set the htmlText of widget "myBrowser" to tHTML
 
 Description:
-The <htmlText> is the HTML representation of the content displayed in 
+The <htmlText> is the HTML representation of the content displayed in
 the browser.
 
 *Note:* When the <htmlText> has been set, the <URL> property will be
@@ -321,8 +321,8 @@ get the vScrollbar of <widget>
 
 Summary: Controls the visibility of the browser's vertical scrollbar.
 
-Value (boolean): 
-`true` if the vertical scrollbar should be enabled and displayed; 
+Value (boolean):
+`true` if the vertical scrollbar should be enabled and displayed;
 `false` otherwise.
 
 Description:
@@ -346,8 +346,8 @@ get the hScrollbar of <widget>
 
 Summary: Controls the visibility of the browser's horizontal scrollbar.
 
-Value (boolean): 
-`true` if the horizontal scrollbar should be enabled and displayed; 
+Value (boolean):
+`true` if the horizontal scrollbar should be enabled and displayed;
 `false` otherwise.
 
 Description:
@@ -449,7 +449,7 @@ Syntax:
 set the javascriptHandlers of <widget> to <pHanderList>
 get the javascriptHandlers of <widget>
 
-Summary: A list of LiveCode handlers that are made available to JavaScript calls within the browser.
+Summary: A list of XTalk handlers that are made available to JavaScript calls within the browser.
 
 Value (string): A return-separated list of handler names.
 
@@ -468,7 +468,7 @@ Example:
 	liveCode.myJSHandler("myMessage", 12345);
 
 Description:
-The <javascriptHandlers> is a list of LiveCode handlers that are made
+The <javascriptHandlers> is a list of xTalk handlers that are made
 available to JavaScript calls within the browser. The handlers will
 appear as methods attached to a global `liveCode` object. You can call
 these methods as you would any other JavaScript function and pass
@@ -549,11 +549,11 @@ private unsafe handler InitBrowserView()
 		throw "error creating browser"
 	end if
 	put kOpenStateOpen into mOpenState
-	
+
 	variable tBrowserView as Pointer
 	put MCBrowserGetNativeLayer(mBrowser) into tBrowserView
 	set my native layer to tBrowserView
-	
+
 	// tell native layer that we can't render a snapshot of the browser view.
 	MCWidgetSetMyNativeLayerCanRenderToContext(false)
 
@@ -576,7 +576,7 @@ private unsafe handler FinalizeBrowserView()
 			MCBrowserRelease(mBrowser)
 			put nothing into mBrowser
 		end if
-		
+
 		put kOpenStateClosed into mOpenState
 	else
 		schedule timer in 0.1 seconds

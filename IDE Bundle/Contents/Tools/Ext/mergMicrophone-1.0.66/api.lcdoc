@@ -6,11 +6,11 @@ Description:
 mergMicrophone is a basic
 wrapper around the iOS AVAudioRecorder class, enabling audio recording
 to be performed in iOS applications. It is a modified version of
-rremicrophone which is provided as part of the LiveCode SDK. The
+rremicrophone which was provided as part of the LiveCode SDK. The
 rremicrophone license requires modified source versions to be
 distributed without the rre handler prefix or com_runrev class prefix.
 The changes ar licensed under the extremely permissive Boost Software
-License http://www.boost.org/LICENSE_1_0.txt 
+License http://www.boost.org/LICENSE_1_0.txt
 
 
 
@@ -49,7 +49,7 @@ Type: command
 Syntax: mergMicrophoneSetNumberOfChannels <channelCount>
 
 Summary:  Set the number of channels to record (either mono - 1 channel, or
-stereo - 2 channels) 
+stereo - 2 channels)
 
 Introduced: 8.0
 
@@ -61,14 +61,14 @@ Edition: Community
 
 
 
-Description: 
+Description:
  Setting the number of channels only has effect the next time recording
-is started. 
+is started.
 
 
 
 Parameters:
-channelCount: 
+channelCount:
  - Mono
  - Stereo
 
@@ -84,7 +84,7 @@ Type: function
 Syntax: mergMicrophoneGetNumberOfChannels()
 
 Summary:  Get the number of channels to record (either mono - 1 channel, or
-stereo - 2 channels) 
+stereo - 2 channels)
 
 Introduced: 8.0
 
@@ -111,7 +111,7 @@ Type: command
 Syntax: mergMicrophoneSetSampleRate <sampleRate>
 
 Summary:  Set the sample rate measure in hertz (number of samples to take per
-second - 44100 is CD quality) 
+second - 44100 is CD quality)
 
 Introduced: 8.0
 
@@ -123,14 +123,14 @@ Edition: Community
 
 
 
-Description: 
+Description:
  Setting the sample rate only has effect the next time recording is
-started. 
+started.
 
 
 
 Parameters:
-sampleRate: 
+sampleRate:
 
 
 
@@ -142,7 +142,7 @@ Type: function
 Syntax: mergMicrophoneGetSampleRate()
 
 Summary:  Get the sample rate measure in hertz (number of samples to take per
-second - 44100 is CD quality) 
+second - 44100 is CD quality)
 
 Introduced: 8.0
 
@@ -180,14 +180,14 @@ Edition: Community
 
 
 
-Description: 
+Description:
  Setting the audio format only has effect the next time recording is
-started. 
+started.
 
 
 
 Parameters:
-formatName: 
+formatName:
  - Linear PCM
  - Apple Lossless
  - MP4-AAC
@@ -231,7 +231,7 @@ Type: command
 Syntax: mergMicrophoneSetTargetBitRate <bitRate>
 
 Summary:  Set the target bit rate to use formats that have such a notion
-specified in combined (all changes) bits per second 
+specified in combined (all changes) bits per second
 
 Introduced: 8.0
 
@@ -243,14 +243,14 @@ Edition: Community
 
 
 
-Description: 
+Description:
  Setting the target bit rate only has effect the next time recording is
-started. 
+started.
 
 
 
 Parameters:
-bitRate: 
+bitRate:
 
 
 
@@ -262,7 +262,7 @@ Type: function
 Syntax: mergMicrophoneGetTargetBitRate()
 
 Summary:  Get the target bit rate to use formats that have such a notion
-specified in combined (all changes) bits per second 
+specified in combined (all changes) bits per second
 
 Introduced: 8.0
 
@@ -274,8 +274,8 @@ Edition: Community
 
 
 
-Description: 
- 
+Description:
+
 
 
 
@@ -301,14 +301,14 @@ Edition: Community
 
 
 
-Description: 
+Description:
  Setting the audio quality only has effect the next time recording is
-started. 
+started.
 
 
 
 Parameters:
-audioQuality: 
+audioQuality:
  - Min
  - Low
  - Medium
@@ -353,7 +353,7 @@ Type: command
 Syntax: mergMicrophoneStartRecording <filename>
 
 Summary:  This handler starts recording audio using any previously configured
-settings to the given output file 
+settings to the given output file
 
 Introduced: 8.0
 
@@ -365,16 +365,16 @@ Edition: Community
 
 
 
-Description: 
+Description:
  If audio recording has already been started, then 'already recording'
 is returned in the result. If recording could not be started, then
 'recording failed' is returned in the result. If recording is
-successfully started, the result is empty. 
+successfully started, the result is empty.
 
 
 
 Parameters:
-filename: 
+filename:
 Returns: recording-status-enum
 
 
@@ -383,7 +383,7 @@ Name: mergMicrophoneStopRecording
 
 Type: command
 
-Syntax: mergMicrophoneStopRecording 
+Syntax: mergMicrophoneStopRecording
 
 Summary:  This handler stop any current recording operation
 
@@ -397,11 +397,11 @@ Edition: Community
 
 
 
-Description: 
+Description:
  If audio recording is not currently in progress, then 'not recording'
 is returned in the result. If finishing record failed, then 'recording
 failed' is returned in the result. If recording successfully finished,
-the result is empty. 
+the result is empty.
 
 
 
@@ -416,7 +416,7 @@ Type: function
 Syntax: mergMicrophoneIsRecording()
 
 Summary:  This handler returns true if recording is currently in progress and
-false if it is not 
+false if it is not
 
 Introduced: 8.0
 
@@ -461,9 +461,9 @@ Edition: Community
 Parameters:
 pChannel: (optional with 0 default)  The channel who's power you need to
 return. In most cases the default channel of 0 will be what you want
-(iPhones only record in mono unless they have a mic accessory. 
+(iPhones only record in mono unless they have a mic accessory.
 Returns:  The average power reading in decibels. Usually between -160
-(min) and 0 (max) but may be positive in some circumstances. 
+(min) and 0 (max) but may be positive in some circumstances.
 
 
 
@@ -492,9 +492,6 @@ Edition: Community
 Parameters:
 pChannel: (optional with 0 default)  The channel who's power you need to
 return. In most cases the default channel of 0 will be what you want
-(iPhones only record in mono unless they have a mic accessory. 
+(iPhones only record in mono unless they have a mic accessory.
 Returns:  The peak power reading in decibels. Usually between -160 (min)
-and 0 (max) but may be positive in some circumstances. 
-
-
-
+and 0 (max) but may be positive in some circumstances.

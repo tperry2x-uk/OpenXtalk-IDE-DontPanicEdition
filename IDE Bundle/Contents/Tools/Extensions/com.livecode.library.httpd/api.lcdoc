@@ -23,7 +23,7 @@ Description:
 Stop all or some HTTP servers by closing the socket and deleting
 server metadata.
 
-Parameters: 
+Parameters:
 
 pPorts:
 A return delimited list of server ports to stop. If empty all servers are
@@ -64,7 +64,7 @@ end NewRequest
 
 Description: Handle the callback set when starting the server and respond to the request according to your requirements.
 
-Parameters: 
+Parameters:
 
 pSocketID: The socket ID sent to the request callback
 
@@ -109,7 +109,7 @@ this key will be an array of parameters
 - "headers": An array of request headers
 - "content": The request body (empty for application/x-www-form-urlencoded)
 
-Parameters: 
+Parameters:
 
 pCallback:
 A handler name to be sent to the caller when a new HTTP request
@@ -121,13 +121,10 @@ used and if the accept command fails with 8080 an available ephemeral
 port will be used. If pPort is 0 an available ephemeral port will be
 used.
 
-pServerName: Optional server name defaults to `LiveCode`
+pServerName: Optional server name defaults to `OpenXTalk`
 
 The result: An error string if an error occurred
 
 It:
 The port the server was started on. Use this if pPort was empty or 0 to
 determine which port was used.
-
-
-

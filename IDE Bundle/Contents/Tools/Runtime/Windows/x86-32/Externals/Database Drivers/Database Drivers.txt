@@ -1,4 +1,1 @@
-MySQL,dbmysql.dll
-ODBC,dbodbc.dll
-PostgreSQL,dbpostgresql.dll
-SqLite,dbsqlite.dll
+MySQL,dbmysql.dllODBC,dbodbc.dllPostgreSQL,dbpostgresql.dllSqLite,dbsqlite.dll

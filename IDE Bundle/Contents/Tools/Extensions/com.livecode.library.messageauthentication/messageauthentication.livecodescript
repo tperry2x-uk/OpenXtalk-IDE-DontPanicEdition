@@ -2,28 +2,28 @@
 /*
 Copyright (C) 2017 LiveCode Ltd.
 
-This file is part of LiveCode.
+This file is part of OpenXTalk.
 
-LiveCode is free software; you can redistribute it and/or modify it under
+OpenXTalk is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License v3 as published by the Free
 Software Foundation.
 
-LiveCode is distributed in the hope that it will be useful, but WITHOUT ANY
+OpenXTalk is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or
 FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 for more details.
 
 You should have received a copy of the GNU General Public License
-along with LiveCode.  If not see <http://www.gnu.org/licenses/>. 
+along with OpenXTalk.  If not see <http://www.gnu.org/licenses/>.
 */
 
 on extensionInitialize
    if the target is not me then
       pass extensionInitialize
    end if
-   
+
    insert the script of me into back
-   
+
    if the environment contains "development" then
       set the _ideoverride of me to true
    end if
@@ -33,7 +33,7 @@ on extensionFinalize
    if the target is not me then
       pass extensionFinalize
    end if
-   
+
    remove the script of me from back
 end extensionFinalize
 
@@ -112,54 +112,54 @@ private function __HMAC pMessage, pKey, pDigestType
    if the result is not empty then
       throw the result
    end if
-   
+
    --    (1) append zeros to the end of K to create a B byte string
    --    (e.g., if K is of length 20 bytes and B=64, then K will be
    --    appended with 44 zero bytes 0x00)
-   
+
    if the length of pKey > tBlockSize then
       put messageDigest(pKey, pDigestType) into pKey
    end if
-   
+
    repeat while the length of pKey < tBlockSize
       put null after pKey
    end repeat
-   
+
    --    (2) XOR (bitwise exclusive-OR) the B byte string computed in step
    --    (1) with ipad
-   
+
    local tByte
    local tIpadSecret
    repeat for each byte tByte in pKey
       put numToByte(byteToNum(tByte) bitXOR kIpad) after tIpadSecret
    end repeat
-   
+
    --    (3) append the stream of data 'text' to the B byte string resulting
    --    from step (2)
-   
+
    put tIpadSecret before pMessage
-   
+
    --    (4) apply H to the stream generated in step (3)
-   
+
    local tHash
    put messageDigest(pMessage, pDigestType) into tHash
-   
+
    --    (5) XOR (bitwise exclusive-OR) the B byte string computed in
    --    step (1) with opad
-   
+
    local tOpadSecret
    repeat for each byte tByte in pKey
       put numToByte(byteToNum(tByte) bitXOR kOpad) after tOpadSecret
    end repeat
-   
+
    --    (6) append the H result from step (4) to the B byte string
    --    resulting from step (5)
-   
+
    put tOpadSecret before tHash
-   
+
    --    (7) apply H to the stream generated in step (6) and output
    --    the result
-   
+
    return messageDigest(tHash, pDigestType)
 end __HMAC
 
@@ -182,6 +182,6 @@ private function __BlockSize pDigestType
       case "SHA3-512"
          return 72 for value
    end switch
-   
+
    return "Unimplemented message digest type" for error
 end __BlockSize

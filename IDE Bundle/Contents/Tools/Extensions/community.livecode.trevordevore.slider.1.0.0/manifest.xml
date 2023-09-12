@@ -1,0 +1,47 @@
+<package version="0.0">
+  <name>community.livecode.trevordevore.slider</name>
+  <title>Slider</title>
+  <author>Trevor DeVore</author>
+  <version>1.0.0</version>
+  <license>community</license>
+  <type>widget</type>
+  <requires name="com.livecode.canvas"/>
+  <requires name="com.livecode.arithmetic"/>
+  <requires name="com.livecode.array"/>
+  <requires name="com.livecode.list"/>
+  <requires name="com.livecode.widget"/>
+  <requires name="com.livecode.binary"/>
+  <requires name="com.livecode.logic"/>
+  <requires name="com.livecode.string"/>
+  <requires name="com.livecode.type"/>
+  <requires name="com.livecode.engine"/>
+  <requires name="com.livecode.typeconvert"/>
+  <requires name="com.livecode.math"/>
+  <requires name="com.livecode.mathfoundation"/>
+  <requires name="com.livecode.char"/>
+  <requires name="com.livecode.byte"/>
+  <property name="cornerRadius" get="number" set="number"/>
+  <property name="barColor" get="string" set="string"/>
+  <property name="knobColor" get="string" set="string"/>
+  <property name="knobHiliteColor" get="string" set="string"/>
+  <property name="knobBorderColor" get="string" set="string"/>
+  <property name="knobBorderHiliteColor" get="string" set="string"/>
+  <property name="knobBorderSize" get="number" set="number"/>
+  <property name="sliderPercent" get="number" set="number"/>
+  <property name="valueRange" get="string" set="string"/>
+  <property name="sliderValue" get="integer" set="number"/>
+  <metadata key="barColor.editor">com.livecode.pi.color</metadata>
+  <metadata key="knobColor.editor">com.livecode.pi.color</metadata>
+  <metadata key="knobHiliteColor.editor">com.livecode.pi.color</metadata>
+  <metadata key="knobBorderColor.editor">com.livecode.pi.color</metadata>
+  <metadata key="knobBorderHiliteColor.editor">com.livecode.pi.color</metadata>
+  <handler name="OnCreate" parameters="" return="any"/>
+  <handler name="OnSave" parameters="out array" return="any"/>
+  <handler name="OnLoad" parameters="in array" return="any"/>
+  <handler name="OnGeometryChanged" parameters="" return="any"/>
+  <handler name="OnPaint" parameters="" return="any"/>
+  <handler name="OnMouseMove" parameters="" return="any"/>
+  <handler name="OnMouseUp" parameters="" return="any"/>
+  <handler name="OnMouseCancel" parameters="" return="any"/>
+  <handler name="OnMouseDown" parameters="" return="any"/>
+</package>

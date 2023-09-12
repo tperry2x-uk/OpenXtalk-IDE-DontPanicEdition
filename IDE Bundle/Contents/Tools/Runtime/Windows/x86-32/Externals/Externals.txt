@@ -1,5 +1,1 @@
-Speech,revspeech.dll
-XML,revxml.dll
-Browser,revbrowser.dll
-Revolution Zip,revzip.dll
-Database,revdb.dll
+Speech,revspeech.dllXML,revxml.dllBrowser,revbrowser.dllRevolution Zip,revzip.dllDatabase,revdb.dll

@@ -2,19 +2,19 @@
 /*
 Copyright (C) 2017 LiveCode Ltd.
 
-This file is part of LiveCode.
+This file is part of OpenXTalk.
 
-LiveCode is free software; you can redistribute it and/or modify it under
+OpenXTalk is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License v3 as published by the Free
 Software Foundation.
 
-LiveCode is distributed in the hope that it will be useful, but WITHOUT ANY
+OpenXTalk is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or
 FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 for more details.
 
 You should have received a copy of the GNU General Public License
-along with LiveCode.  If not see <http://www.gnu.org/licenses/>.  */
+along with OpenXTalk.  If not see <http://www.gnu.org/licenses/>.  */
 
 on extensionInitialize
    if the target is not me then
@@ -92,7 +92,7 @@ port will be used. If pPort is 0 an available ephemeral port will be
 used.
 
 pServerName (optional string):
-Optional server name defaults to `LiveCode`
+Optional server name defaults to `OpenXTalk`
 
 The result:
 An error string if an error occurred
@@ -104,7 +104,7 @@ determine which port was used.
 */
 command httpdStart pCallback, pPort, pServerName
    if pServerName is empty then
-      put "LiveCode" into pServerName
+      put "OpenXTalk" into pServerName
    end if
 
    local tPort
@@ -465,7 +465,7 @@ private function __ResponseCodeString pCode
       case 424
          return "Failed Dependency"
       case 426
-         return "Not Available in Community"
+         return "Upgrade Required"
       case 428
          return "Precondition Required"
       case 429

@@ -1,0 +1,54 @@
+/*
+Librería que integra el proyecto ZXing ("zebra crossing") con LiveCode para  leer QR CODE
+desarrollada por Yunior Portilla Rodríguez en el 2020.
+
+URL de ZXing: https://github.com/zxing/zxing
+*/
+
+/**
+Summary: Librería para leer códigos Qr en la platadorma Android desde LiveCode.
+
+Platforms: android 5.0 o superior
+
+Description:
+La librería integra la core 3.4.0 de ZXing y funcionalidades del SDK Android para leer el código Qr Code de una imagen.
+*/
+
+library cu.tgraf.library.ybarcode
+
+metadata title is "ZXing for Android Barcode"
+metadata author is "Yunior Portilla Rodriguez"
+metadata version is "1.0"
+
+use com.livecode.foreign
+use com.livecode.java
+
+__safe foreign handler _JNI_readQRCodeFromImage(in pPathFile as JString) returns JString binds to "java:cu.tgraf.livecode.zxing.YBarcode>decodeQRFromFile(Ljava/lang/String;)Ljava/lang/String;!static"
+
+/**
+Summary: Se obtiene el texto que contiene la imagen del Qr Code .
+
+Platforms: android 5.0 o superior
+
+Example:
+getQrCodeFromImage("/storage/emulated/0/Android/data/cu.tgraf.zxingintegration/files/test.jpeg")
+
+Parameters:
+pPath: Un string que contiene el camino físico de la imagen.
+
+Returns: Devuelve un string con el valor del Qr si es satisfactoria la lectura del Qr Code;
+"Not found." en caso de que no se encuentre un Qr Code en la imagen;
+"Error: Invalid image format." si el formato de la imagen no es válido;
+"Error: Image file does not exist." si el camino del fichero no existe.
+
+Description:
+Para que funcione correctamente el método hay que darle permisos a la aplicación para que "Write External Storage".
+*/
+
+public handler getQrCodeFromImage(in pPath as String) returns String
+   variable tResult as JString
+
+   put _JNI_readQRCodeFromImage(StringToJString(pPath)) into tResult
+   return StringFromJString(tResult)
+end handler
+end library

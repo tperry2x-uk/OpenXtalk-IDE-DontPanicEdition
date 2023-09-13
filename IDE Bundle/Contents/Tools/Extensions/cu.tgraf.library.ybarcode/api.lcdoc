@@ -1,0 +1,42 @@
+Library: cu.tgraf.library.ybarcode
+
+Type: library
+
+Summary: Librería para leer códigos Qr en la platadorma Android desde LiveCode.
+
+Platforms: android 5.0 o superior
+
+Description: La librería integra la core 3.4.0 de ZXing y funcionalidades del SDK Android para leer el código Qr Code de una imagen.
+
+author: Yunior Portilla Rodriguez
+
+version: 1.0
+
+
+Name: getQrCodeFromImage
+
+Type: handler
+
+Syntax: getQrCodeFromImage(<pPath>)
+
+Summary: Se obtiene el texto que contiene la imagen del Qr Code .
+
+Platforms: android 5.0 o superior
+
+Example: getQrCodeFromImage("/storage/emulated/0/Android/data/cu.tgraf.zxingintegration/files/test.jpeg")
+
+Parameters: 
+
+pPath: Un string que contiene el camino físico de la imagen.
+
+Returns:
+Devuelve un string con el valor del Qr si es satisfactoria la lectura del Qr Code;
+"Not found." en caso de que no se encuentre un Qr Code en la imagen;
+"Error: Invalid image format." si el formato de la imagen no es válido;
+"Error: Image file does not exist." si el camino del fichero no existe.
+
+Description: Para que funcione correctamente el método hay que darle permisos a la aplicación para que "Write External Storage".
+
+
+
+

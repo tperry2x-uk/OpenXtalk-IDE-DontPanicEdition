@@ -1,0 +1,4 @@
+import module cu.tgraf.library.ybarcode
+  use com.livecode.java
+  handler getQrCodeFromImage(in pPath as String) returns String
+end module

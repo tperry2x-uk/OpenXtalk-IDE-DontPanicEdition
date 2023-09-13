@@ -1,0 +1,10 @@
+<package version="0.0">
+  <name>cu.tgraf.library.ybarcode</name>
+  <title>ZXing for Android Barcode</title>
+  <author>Yunior Portilla Rodriguez</author>
+  <version>1.0</version>
+  <license>community</license>
+  <type>library</type>
+  <requires name="com.livecode.java"/>
+  <handler name="getQrCodeFromImage" parameters="in string" return="string"/>
+</package>

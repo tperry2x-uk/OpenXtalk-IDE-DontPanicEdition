@@ -1,0 +1,8 @@
+<package version="0.0">
+  <name>org.openxtalk.library.generalmusic</name>
+  <title>OpenXTalk.org General Music Library</title>
+  <author>OpenXTalk.org</author>
+  <version>1.0.0</version>
+  <type>library</type>
+  <license>community</license>
+</package>

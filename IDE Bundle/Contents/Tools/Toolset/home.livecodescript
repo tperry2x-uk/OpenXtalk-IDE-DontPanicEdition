@@ -323,20 +323,22 @@ on revInternal__openStack
    -- if revIDEGetPreference("welcomeScreenShown") is not "false" then
    --    revIDEOpenPalette "Welcome" <--------------------------- The "Welcome" stack is an obsoleted part of the IDE that could be used for something else
    --    else if revIDEPrefGet("StartPageShow") is not "false" then
-   -- if revIDEGetPreference("cStartPageShow") is not "false" then
-   --    revIDEOpenPalette "Start Center"
-   -- end if
-   --if revIDEGetPreference("cStartPageShow") is not "false" then  --  <---------------------------- TO DO: Customize Start Stack Here!!! Paul McClernan 9/22/21
-      -- if there is a file (revEnvironmentCustomizationPath() & "/StartCenter.oxtstack") then
-         -- put revInternal__StackFiles() into tTempStackFiles
-         --filter lines of (the stackFiles of me) without "revStartCenter*" into tTempStackFiles
-         --put cr & "revStartCenter," & ( revEnvironmentCustomizationPath() & "/StartCenter.oxtstack") after tTempStackFiles
-         --set the stackFiles of me to tTempStackFiles
-         -- put tTempStackFiles
-      --   open (revEnvironmentCustomizationPath() & "/Start Center.oxtstack")
-      --- else
-      --   revIDEOpenPalette "revStartCenter"
-      -- end if
+   --   if there is a file (revEnvironmentCustomizationPath() & "/Start Center.oxtstack") then
+   --      --         -- put revInternal__StackFiles() into tTempStackFiles
+   --      filter lines of (the stackFiles of me) without "revStartCenter*" into tTempStackFiles
+   --       -- if revIDEGetPreference("cStartPageShow") is not "false" then
+      --    revIDEOpenPalette "Start Center"
+      -- end if  put cr & "revStartCenter," & ( revEnvironmentCustomizationPath() & "/Start Center.oxtstack") after tTempStackFiles
+   --      set the stackFiles of me to tTempStackFiles
+   --   END IF
+   --   if revIDEGetPreference("cStartPageShow") is not "false" then  --  <---------------------------- TO DO: Customize Start Stack Here!!! Paul McClernan 9/22/21
+
+   --      --         -- put tTempStackFiles
+   --      palette stack (revEnvironmentCustomizationPath() & "/Start Center.oxtstack")
+   --      --         -- open (revEnvironmentCustomizationPath() & "/Start Center.oxtstack")
+   --      --      else
+   --      -- revIDEOpenPalette "revStartCenter"
+   --   end if
    --end if
 
    -- MM-2011-09-27: The new auto update process is handled entirely by the installer.
@@ -372,11 +374,15 @@ on revInternal__openStack
 
    close stack "revSplash"
 
-   -- if revIDEGetPreference("cStartPageShow") is not "false" then
-   --    revIDEOpenPalette "Start Center"
-   -- end if
    -- revInternal__Log "Leave", "revInternal__openStack"
    revInternal__Log "End"
+   put $PATH &":/usr/local/bin" into $PATH -- Add 'HomeBrew' path
+   -- beware this adds onto the tail end of the shell search paths list,
+   -- which means that the operating system's versions of a shell command would overide the same in Homebrew's path)
+
+   -- revInternal__Log "Leave", "revInternal__openStack"
+   revInternal__Log "End"
+
 
    set the cREVLaunching of stack "Home" to false
 
@@ -831,7 +837,11 @@ command revInternal__ResetPreferences
    put "modification date" into tPropsArray["cRecentSort"]
    put "true" into tPropsArray["cDocsFirstRun"]
    put "86400" into tPropsArray["cUpdate,MaxAutoPopupFrequency"]
-   put "true" into tPropsArray["cDarkMode"] -- Added Dark Mode Setting 11/8/2021 - Paul McClernan
+   if "Win" is in the platform then  -- default DarkMode to false on Windows because Win10 can't easily do dark window frames 8/16/2023 - Paul McClernan
+      put "false" into tPropsArray["cDarkMode"]  -- Added Dark Mode Setting 11/8/2021 - Paul McClernan
+   else
+      put "true" into tPropsArray["cDarkMode"]
+   end if
    put "true" into tPropsArray["cLayoutGuides"]
    put "true" into tPropsArray["cREVExtension"]
    put "102" into tPropsArray["cMenuWidth"]
@@ -1502,13 +1512,18 @@ end revInternal__SetupExternals
 private command revInternal__SetupStackFiles
    revInternal__Log "Enter", "Stack Files Setup"
 
-   --- put revInternal__StackFiles() into tTempStackFiles
-   -- if there is a file ( revEnvironmentCustomizationPath() & "/Start Center.oxtstack") then
-   --   filter lines of tTempStackFiles without "revStartCenter*" into tTempStackFiles
-   --   put cr & "revStartCenter," & ( revEnvironmentCustomizationPath() & "/Start Center.oxtstack") after tTempStackFiles
-   -- end if
-   -- set the stackFiles of stack "Home" to tTempStackFiles
-   set the stackFiles of stack "Home" to revInternal__StackFiles()
+   put revInternal__StackFiles() into tTempStackFiles
+   if there is a file ( revEnvironmentCustomizationPath() & "/Start Center.oxtstack") then
+      filter lines of tTempStackFiles without "revStartCenter*" into tTempStackFiles
+      put cr & "revStartCenter," & ( revEnvironmentCustomizationPath() & "/Start Center.oxtstack") after tTempStackFiles
+   else
+      if there is a file ( revEnvironmentToolsetPath() & "/palettes/start center/Start Center.oxtstack") then
+         filter lines of tTempStackFiles without "revStartCenter*" into tTempStackFiles
+         put cr & "revStartCenter," &  ( revEnvironmentToolsetPath() & "/palettes/start center/Start Center.oxtstack")  after tTempStackFiles
+      end if
+   end if
+   set the stackFiles of stack "Home" to tTempStackFiles
+   -- set the stackFiles of stack "Home" to revInternal__StackFiles()
 
    local tStackFile
    set the itemDelimiter to comma
@@ -1868,7 +1883,7 @@ command revInternal__InitialiseOptions
 
       revInternal__Log "Message", "Closing Splash"
       if the milliseconds - sSplashStartTime < 500 then
-         wait 500 - (the milliseconds - sSplashStartTime) milliseconds
+         wait 500 - (the milliseconds - sSplashStartTime) milliseconds with messages
       end if
       close stack "home"
 
@@ -2022,67 +2037,67 @@ command revInternal__InitialiseOptions
       return hookToolsPath("toolset", sToolsPath & "/Toolset")
    end revEnvironmentToolsetPath
 
-   function revEnvironmentEditionProperty pProp, pEdition
-      if pEdition is empty then
-         put the editionType into pEdition
-      end if
+function revEnvironmentEditionProperty pProp, pEdition
+   if pEdition is empty then
+      put the editionType into pEdition
+   end if
 
-      if pProp is "skin" then
-         return revEnvironmentToolsetPath() & "/resources/" & pEdition & "/ideSkin"
-      end if
-      switch pEdition
-         case "community"
-            switch pProp
-               case "name"
-                  return "Community"
-               case "color" -- the following colos seem to be for highlighting and drag & drop operations in the IDE, make user customizeable later - Paul McClernan 9/23/21
-                  return 117,97,192
-               case "pb_line_selected_color"
-                  return 208,82,165
-               case "revonline_hilite_color"
-                  return 156,199,45
-               case "revabout_hilite_color"
-                  return 156,199,45
-               case "revsplash_text_color"
-                  return 0,0,0
-               -- case "start_center_tile_color_step"
-               --    return - 9 -- This affects the tints in the blocks of the original startcenter
-               case "password_protection" -- not sure if FOSS needs this at all
-                  return false
-               case "open_source_required"
-                  return true
-               case "splash_strap"
-                  return "<b>DON'T PANIC</b>" -- return empty
-               case "upgrade_mini_url"
-                  -- return ""
-                  -- return "https://openxtalk.org"
-                  return "OpenXTalk" -- https://livecode.com/products/community-plus-ide-2/
-               case "upgrade_url"
-                   -- return ""
-                  -- return "https://openxtalk.org"
-                  return "OpenXTalk" -- https://livecode.com/products/community-plus-ide/
-               case "upgrade_edition"
-                 -- return  "OpemXTalk"
-                  return "Community" -- "communityplus"
-               case "edition_external_url"
-                  -- return ""
-                  return "OpenXTalk"
-                  -- return "https://openxtalk.org" -- https://livecode.com/products/community-edition/
-               case "autocomplete"     ---      <--------------------------------------------  Insert New Autocomplete Script Here !!!
-                  return false
-                  --  return true
-               case "autocomplete_pro" --- <------------------------------------------  Personaly I found LC's autocomplete to be annoying -- PM
-                  return false
-               case "script_profiler"
-                  return false
-               default
-                  break
-            end switch
-         default
-            throw "Unknown edition property"
-            break
-      end switch
-   end revEnvironmentEditionProperty
+   if pProp is "skin" then
+      return revEnvironmentToolsetPath() & "/resources/" & pEdition & "/ideSkin"
+   end if
+   switch pEdition
+      case "community"
+         switch pProp
+            case "name"
+               return "Community"
+            case "color" -- the following colos seem to be for highlighting and drag & drop operations in the IDE, make user customizeable later - Paul McClernan 9/23/21
+               return 117,97,192
+            case "pb_line_selected_color"
+               return 208,82,165
+            case "revonline_hilite_color"
+               return 156,199,45
+            case "revabout_hilite_color"
+               return 156,199,45
+            case "revsplash_text_color"
+               return 0,0,0
+            case "start_center_tile_color_step"
+               return - 9 -- This affects the tints in the blocks of the original startcenter
+            case "password_protection" -- not sure if FOSS needs this at all
+               return false
+            case "open_source_required"
+               return true
+            case "splash_strap"
+               return "<b>DON'T PANIC</b>" -- return empty
+            case "upgrade_mini_url"
+               -- return ""
+               -- return "https://openxtalk.org"
+               return "OpenXTalk" -- https://livecode.com/products/community-plus-ide-2/
+            case "upgrade_url"
+               -- return ""
+               -- return "https://openxtalk.org"
+               return "OpenXTalk" -- https://livecode.com/products/community-plus-ide/
+            case "upgrade_edition"
+               -- return  "OpemXTalk"
+               return "Community" -- "communityplus"
+            case "edition_external_url"
+               -- return ""
+               return "OpenXTalk"
+               -- return "https://openxtalk.org" -- https://livecode.com/products/community-edition/
+            case "autocomplete"     ---      <--------------------------------------------  Insert New Autocomplete Script Here !!!
+               return false
+               --  return true
+            case "autocomplete_pro" --- <------------------------------------------  Personaly I found LC's autocomplete to be annoying -- PM
+               return false
+            case "script_profiler"
+               return false
+            default
+               break
+         end switch
+      default
+         throw "Unknown edition property"
+         break
+   end switch
+end revEnvironmentEditionProperty
 
    function revEnvironmentPluginsPath
       return hookToolsPath("plugins", sToolsPath & "/Plugins")
@@ -2406,7 +2421,7 @@ command revInternal__InitialiseOptions
 
 on updateMenuToolBar
    if the cREVLaunching of me is true then exit updateMenuToolBar -- cREVLaunching is true while starting up
-   send "layoutMenu" to stack "revMenuBar" in 300 millisecs
+   send "layoutMenu" to stack "revMenuBar" in 60 millisecs
 end updateMenuToolBar
 
 on IDEToLightMode

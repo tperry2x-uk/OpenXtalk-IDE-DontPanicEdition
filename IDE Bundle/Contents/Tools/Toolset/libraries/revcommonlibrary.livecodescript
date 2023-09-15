@@ -130,7 +130,6 @@ command revMailUnicode pTo, pCC, pSubject, pBody
    end if
 end revMailUnicode
 
-
 function revRunningWindowsNT
   if the platform is not "Win32" then return false
   if word 1 of the systemVersion is "Windows"
@@ -143,7 +142,6 @@ on revSetWindowsShellCommand
   set the hideConsoleWindows to true
   set the shellCommand to $COMSPEC
 end revSetWindowsShellCommand
-
 
 getProp revProfile
   return the cREVGeneral["profile"] of the target
@@ -693,9 +691,6 @@ function revMacFromUnixPath thePath
   return thePath
 end revMacFromUnixPath
 
-
-
-
 --- convert Posix style file path to Windows OS path format
 function revWindowsFromUnixPath pUnixPath
   replace "/" with "\" in pUnixPath
@@ -860,8 +855,6 @@ on revCopyFolder__Standalone pSrcFolder, pDestFolder
    end if
    return the result
 end revCopyFolder__Standalone
-
-
 
 on revCopyPackage pSrcFolder, pDestFolder
    if the platform is "MacOS" then
@@ -1194,7 +1187,7 @@ function revAnswerFile pType, pPrompt
       case "stack"
          answer file pPrompt with type "Stacks|livecode,rev,mc,livecodescript,oxtstack,oxtscript|RSTK,MSTK,STAK" or type "All Files|"
          break
-      case "image" -- need to add SVG here
+      case "image" -- add svg
          answer file pPrompt with type "All Picture Files|png,gif,jpg,jpeg,bmp,pct,xbm,xpm,xwd,pbm,ppm,pgm" or type "Portable Network Graphics|png" or type "Joint Photographics Experts Group|jpg,jpeg" or type "Graphics Interchange Format|gif" or type "Windows Bitmap|bmp" or type "Unix Formats|xbm,xpm,xwd,pbm,ppm,pgm" or type "Macintosh PICT - displays on MacOS only|pct" or type "All Files|"
          break
       case "quicktime"
@@ -1225,7 +1218,9 @@ function revAnswerFiles pType, pPrompt
       case "quicktime"
          answer files pPrompt with type "QuickTime Movies|mov" or type "All Files|"
          break
-      case "audio" -- implement later
+      case "audio" -- implement - Paul
+         answer files pPrompt with type "Wave Auidio|wav" or type "Audio Imterchange|aif,aiff" or type "AU (*nix)|au" or type "MP3 Compressed|mp3" or type "All Auidio Files|wav,au,aif,mp3,m4a" or type "All Files|"
+         break
       case "video"
       case "text"
       case "eps"
@@ -1235,7 +1230,6 @@ function revAnswerFiles pType, pPrompt
    end switch
    return it
 end revAnswerFiles
-
 
 command scrollUp
    local tScrollValue

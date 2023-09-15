@@ -13,7 +13,7 @@ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
 for more details.
 
 You should have received a copy of the GNU General Public License
-along with LiveCode.  If not see <http://www.gnu.org/licenses/>.  */
+along with OpenXTalk.  If not see <http://www.gnu.org/licenses/>.  */
 
 /**
 
@@ -115,14 +115,14 @@ constant kParseObjectNext is 24
 constant kMaxRecursion is 500
 
 /**
-Summary: Parse JSON text into a LiveCode value.
+Summary: Parse JSON text into a xTalk value.
 
 pJson:   String containing JSON text
 
 Returns: The top level value.  The type depends on the JSON content.
 
 Description:
-<JsonImport> is used to convert data encoded in JSON format into a LiveCode
+<JsonImport> is used to convert data encoded in JSON format into an xTalk
 value.  It parses <pJson> and returns the first top-level value found.  If any
 syntax errors are found in <pJson>, an error is thrown.
 
@@ -172,7 +172,7 @@ public handler JsonImport(in pJson as String) returns optional any
   --
   -- The single "repeat" loop is needed because LCB strings are
   -- grapheme-based, and a single grapheme may be composed of multiple
-  -- codepoints.  LiveCode has to run a grapheme break iterator from
+  -- codepoints.  The engine has to run a grapheme break iterator from
   -- the start of "pJson" for every "char N of pJson", which requires
   -- O(N) time.  Looping over all the graphemes using offsets
   -- therefore requires O(N^2) time.  However, using a "repeat for
@@ -699,14 +699,14 @@ private handler JsonExportArray(in pValue as Array) returns String
 end handler
 
 /**
-Summary: Format a LiveCode value as JSON text
+Summary: Format a xTalk value as JSON text
 
-pValue:  A LiveCode value (Array, List, String, Number, Boolean, or nothing)
+pValue:  A xTalk value (Array, List, String, Number, Boolean, or nothing)
 
 Returns: A string containing JSON-formatted text.
 
 Description:
-<JsonExport> is used to convert a LiveCode value into data encoded in JSON
+<JsonExport> is used to convert a xTalk value into data encoded in JSON
 format.  If <pValue> is of a type that cannot be converted to JSON, an error is
 thrown.
 

@@ -13,6 +13,33 @@ on extensionFinalize
    remove the script of me from front
 end extensionFinalize
 
+------------- IDE Messages (must be subscribed to first): ------------- 
+-- ideObjectSelectionStarted
+-- ideSelectedObjectChanged
+-- ideResizeControl
+-- ideResumeStack
+-- ideNewCard
+-- ideNewControl
+-- ideControlDeleted
+-- ideStackDeleted
+-- ideLibraryStack
+-- ideReleaseStack
+-- ideNameChanged
+-- ideOpenCard
+-- ideOpenStack
+-- ideToolChanged
+-- ideMainstackChanged
+-- ideStackMoved
+-- ideControlMoved
+-- ideMouseMove
+-- ideMouseDown
+-- ideMouseUp
+-- ideMouseDoubleUp
+-- ideCloseStackRequest
+-- ideMsgChanged
+-- ideExtensionLog
+-- ideDesktopChanged
+
 #################################
 # Messages handled and sent on to object
 #################################
@@ -68,6 +95,7 @@ on newCard
    pass newCard
 end newCard
 
+-- ideNewStack
 on newStack
    local tTarget
    put the long id of the target into tTarget

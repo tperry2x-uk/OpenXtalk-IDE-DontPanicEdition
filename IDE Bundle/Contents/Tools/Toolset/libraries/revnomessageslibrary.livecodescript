@@ -59,7 +59,7 @@ on mouseDown pButtonNumber
       writeError (tError)
     end if
   end try
-  
+
   # OK-2008-03-06 : Bug 6007 and 6009, Exit here to allow engine to handle the mouseDown as normal
   pass mouseDown to metacard
 end mouseDown
@@ -252,7 +252,7 @@ on commandKeyDown pWhich
       writeError (tError)
     end if
   end try
-  
+
   pass commandKeyDown to metacard
 end commandKeyDown
 
@@ -358,7 +358,7 @@ on returnInField
       writeError (tError)
     end if
   end try
-  
+
   pass returnInField to metacard
 end returnInField
 
@@ -372,7 +372,7 @@ on enterInField
       writeError (tError)
     end if
   end try
-  
+
   pass enterInField to metacard
 end enterInField
 
@@ -386,7 +386,7 @@ on returnKey
       writeError (tError)
     end if
   end try
-  
+
   pass returnKey to metacard
 end returnKey
 
@@ -400,7 +400,7 @@ on enterKey
       writeError (tError)
     end if
   end try
-  
+
   pass enterKey to metacard
 end enterKey
 
@@ -426,7 +426,7 @@ on controlKeyDown pKey
       writeError (tError)
     end if
   end try
-  
+
   pass controlKeyDown to metacard
 end controlKeyDown
 
@@ -549,7 +549,7 @@ on closeStackRequest
   if revOKTarget() then
     pass closeStackRequest
   end if
-   
+
   local tTarget
   put the long id of the target into tTarget
   try
@@ -564,8 +564,20 @@ on closeStackRequest
 end closeStackRequest
 
 on quitMC
-  if revOKTarget() then pass quitMC
-  try
+   -- #bug on exit with older Mac OS X 10.7 - 10.8 - TPerry
+   -- This may be a work around for this problem (membory leak? pending messages?) but
+   -- idealy the cause of this problem should be found out and fixed. -- Paul McClernan
+   if the platform contains "mac" then
+      put the systemversion into tMacOSvers
+      replace "." with "" in tMacOSvers
+      if tMacOSvers < 1090 then
+         set the hideconsolewindows to true
+         put shell("pkill -9 -f " & QUOTE & "OpenXTalk Lite" & QUOTE)
+      end if
+   end if
+
+   if revOKTarget() then pass quitMC
+   try
     if "quitMC" is among the lines of the cREVGeneral["handlerlist"] of stack "revFrontScriptLibrary" then send "quitMC" to stack "revFrontScriptLibrary"
     if "quitMC" is among the lines of the cREVGeneral["handlerlist"] of stack "revBackScriptLibrary" then send "quitMC" to stack "revBackScriptLibrary"
   catch tError
@@ -1279,7 +1291,7 @@ on tabKey
       writeError (tError)
     end if
   end try
-  
+
   pass tabKey to metacard
 end tabKey
 
@@ -1293,7 +1305,7 @@ on undoKey
       writeError (tError)
     end if
   end try
-  
+
   pass undoKey to metacard
 end undoKey
 
@@ -1313,20 +1325,15 @@ end uniconifyStack
 # extended to allow a target to be explicity passed.
 function revOKTarget pWhich
    local tTarget
-   if pWhich is not empty then 
+   if pWhich is not empty then
       put pWhich into tTarget
-   else 
+   else
       put the long id of the target into tTarget
    end if
-   
+
    return revIDEObjectIsOnIDEStack(tTarget)
 end revOKTarget
 
 command writeError tError
   write tError & return to stderr
 end writeError
-
-
-
-
-

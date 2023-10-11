@@ -83,7 +83,6 @@ end itemInit
 
 command itemHilite
    --   set the backgroundColor of field 1 of me to "210,210,210"
-
    # OK-2009-03-11 : Bug 7499
    local tHiliteColor
    put sePrefGet("editor,hiliteColor") into tHiliteColor
@@ -92,11 +91,13 @@ command itemHilite
    end if
 
    if tHiliteColor is empty then
-      put "210,210,210" into tHiliteColor
+      put "127,127,127" into tHiliteColor
    end if
 
    if seGetPlatform() is not "MacOS" then
-      set the textColor of field 1 of me to "210,210,210"
+      -- set the textColor of field 1 of me to "255,255,255"
+      set the textColor of field 1 of me to empty
+
    end if
    set the backgroundColor of field 1 of me to tHiliteColor
 end itemHilite
@@ -106,7 +107,9 @@ command itemUnhilite
    if seGetPlatform() is not "MacOS" then
       -- set the textColor of field 1 of me to "0,0,0"
    end if
-   set the backgroundColor of field 1 of me to "255,255,255"
+   -- set the backgroundColor of field 1 of me to "255,255,255"
+   set the backgroundColor of field 1 of me to empty
+
 end itemUnhilite
 
 

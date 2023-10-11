@@ -42,7 +42,7 @@ command update pDontUpdateSelectedHandler, pClearFilter
   local tObject, tFilter
   put the long id of group "Left Handler List" of me into tObject
   put the long id of field "Filter" of me into tFilter
-  set the foregroundColor of tObject to "Black"
+  -- set the foregroundColor of tObject to "Black"
   
   set the cCallback of tObject to "handlerSelected"
   set the cCallbackTarget of tObject to the long id of me

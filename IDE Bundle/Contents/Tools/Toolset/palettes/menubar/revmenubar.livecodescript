@@ -1,6 +1,7 @@
 ﻿script "revMenuBar"
 local sMenuTarget
 on preOpenStack
+   -- set the backGroundColor of me to 248,255,204 - Richmond
    global gREVDontLoadMenus
    if gREVDontLoadMenus then
       put false into gREVDontLoadMenus
@@ -15,6 +16,7 @@ on preOpenStack
    revMenubarBuildMenus
    updateMenubarPreference
    layoutMenu
+
    revIDEPositionPalette the short name of me
    # Since the menubar is topleveled on Linux and Windows, set the cantModify to true
    # to prevent users being able to alter the menubar stack.
@@ -263,11 +265,14 @@ on setMenuProperties
    end if
 
    if the platform is "MacOS" then
-      set the decorations of me to empty
+      -- set the decorations of me to "title, minimize" -- Richmonds revMenuBar check
+       set the decorations of me to empty
       set the topLeft of me to item 1 to 2 of tScreenRect
    else
+      -- set the decorations of me to "title, minimize"
       set the decorations of me to "default"
    end if
+
 end setMenuProperties
 
 on ideSelectedObjectChanged
@@ -541,6 +546,9 @@ on generateMenuGroup
       show group "revMenuBar" of me
    end if
    set the menubar of me to "revMenuBar"
+   -- try
+   --   get getNSAppsWindowsMenu()
+   -- end try
 
    reset the templatebutton
    set the style of the templatebutton to "rectangle"
@@ -557,6 +565,7 @@ on generateMenuGroup
    end if
    reset the templatebutton
    unlock messages
+
 end generateMenuGroup
 
 on generateContextMenu
@@ -1409,12 +1418,22 @@ private function revMenubarFileMenu pContext
    put "&New Stack" & return after tFile
    put tab & "Default Size/cmd shift n" & return after tFile
    put tab & "-" & return after tFile
-   put tab & "iPhone 4 (320x480)" & return after tFile
-   put tab & "iPhone 5 (320x568)" & return after tFile
-   put tab & "iPhone 6 (375x667)" & return after tFile
-   put tab & "iPhone 6 Plus (414x736)" & return after tFile
-   put tab & "iPad//Tablet Portrait (768x1024)" & return after tFile
-   put tab & "iPad//Tablet Landscape (1024x768)" & return after tFile
+   put tab & "HVGA (320x480)" & return after tFile
+   put tab & "iPhone 5 viewport (320x568)" & return after tFile
+   put tab & "iPhone 6 viewport (375x667)" & return after tFile
+   put tab & "iPhone 6 Plus viewport (414x736)" & return after tFile
+   put tab & "VGA (640x480)" & return after tFile
+   put tab & "Letter paper-portrait (612x792)" & return after tFile
+   put tab & "Legal paper-portrait (612x1008)" & return after tFile
+   put tab & "WVGA (768x480)" & return after tFile
+   put tab & "Letter paper-landscape (792x612)" & return after tFile
+   put tab & "Legal paper-landscape (1008x612)" & return after tFile
+   put tab & "WSVGA (1024x600)" & return after tFile
+   put tab & "XGA Tablet Portrait (768x1024)" & return after tFile
+   put tab & "XGA (1024x768)" & return after tFile
+   put tab & "WXGA HDTV 16:9 (1280x720)" & return after tFile
+   put tab & "SXGA 5:4 (1280x1024)" & return after tFile
+   put tab & "WXGA HD 16:9 (1366x768)" & return after tFile
    put tab & "-" & return after tFile
    put tab & "Script only Stack" & return after tFile
 
@@ -2017,6 +2036,7 @@ private function revMenubarDevelopmentMenu pContext
    put "Object Library" & return after tDevelopment
    put "Image Library" & return after tDevelopment
    put "SVG Glyph Browser" & return after tDevelopment
+   put "Color Swatches" & return after tDevelopment
    put "Plugins" & return after tDevelopment
    if sPluginMenuText is not empty then
       put sPluginMenuText & return after tDevelopment
@@ -3159,6 +3179,12 @@ on revMenubarDevelopmentMenuPick pWhich
          break
       case "SVG Glyph Browser"
          open stack "revSVGGlyphsBrowser" as palette -- modeless
+         -- go cd 1 of stack "revSVGGlyphBrowser" as palette -- modeless
+         lock messages
+         unlock messages
+         break
+      case "Color Swatches"
+         open stack "revColorSwatches" as palette -- modeless
          -- go cd 1 of stack "revSVGGlyphBrowser" as palette -- modeless
          lock messages
          unlock messages

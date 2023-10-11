@@ -427,7 +427,7 @@ private command __revSBCopyFile pSourceFile, pTargetFile, pCallback, pCallbackTa
    -- Remove unneeded slices from the MacOS externals
    set the itemDel to slash
    if pSettings["externals"] contains item -1 of pTargetFile then
-      revSBRemoveUnneededSlicesFromMacCode pTargetFile, pSettings
+      -- revSBRemoveUnneededSlicesFromMacCode pTargetFile, pSettings
    end if
 
    if tOldFolder is not empty then
@@ -456,22 +456,21 @@ on revSBEnsureFolder pFolder
 end revSBEnsureFolder
 
 command revSBRemoveUnneededSlicesFromMacCode pTargetFile, pSettings
-   if the platform is "macos" and pSettings is not empty then
-      local tRemove
-      if pSettings["MacOSX x86-64"] is true and pSettings["MacOSX x86-32"] is not true then
-         put "i386" into tRemove
-      else if pSettings["MacOSX x86-32"] is true and pSettings["MacOSX x86-64"] is not true then
-         put "x86_64" into tRemove
-      end if
+   -- if the platform is "macos" and pSettings is not empty then
+   --   local tRemove
+   --   if pSettings["MacOSX x86-64"] is true and pSettings["MacOSX x86-32"] is not true then
+   --      put "i386" into tRemove
+   --   else if pSettings["MacOSX x86-32"] is true and pSettings["MacOSX x86-64"] is not true then
+   --      put "x86_64" into tRemove
+   --   end if
 
-      if tRemove is not empty then
-         replace " " with "\ " in pTargetFile
-         local tShell
-         put "lipo " & pTargetFile & " -remove " & tRemove & " -output " & pTargetFile into tShell
-         get shell(tShell)
-      end if
-   end if
-
+   --   if tRemove is not empty then
+   --      replace " " with "\ " in pTargetFile
+   --      local tShell
+         -- put "lipo " & pTargetFile & " -remove " & tRemove & " -output " & pTargetFile into tShell
+         -- get shell(tShell)
+   --   end if
+   -- end if
 end revSBRemoveUnneededSlicesFromMacCode
 
 private command __revSBEnsureFolder pFolder
@@ -695,6 +694,7 @@ function revFolderNameIsIllegal pName
 
    # This appears to be the max length from looking at older code. There was also a limit of
    # 27 chars on Mac, but i think this is left over from classic so removed it.
+   -- makes sese but old mac up to system 9 actually had 32 char filename limit (not 27) -- Paul
    if the length of pName > 246 then
       return true
    end if
@@ -714,7 +714,7 @@ function revFolderNameMakeLegal pName
 end revFolderNameMakeLegal
 
 // List of all desktop target platforms + architecture
-constant kDesktopTargets = "Windows,Windows x86-64,MacOSX x86-64,Linux,Linux x64,Linux armv6-hf"
+constant kDesktopTargets = "Windows,Windows x86-64,MacOSX x86-32,MacOSX x86-64,Linux,Linux x64,Linux armv6-hf"
 function revSBDesktopTargets
    return kDesktopTargets
 end revSBDesktopTargets
@@ -811,7 +811,6 @@ private command __ExternalArchitecture pPlatform, @xName, @rArchitecture
          put item 1 of tArchitectures into tFoundArchitecture
       end if
    end if
-
    put tFoundArchitecture into rArchitecture
 end __ExternalArchitecture
 
@@ -1020,6 +1019,7 @@ function revEngineCheck pEngine
          case "MacOSX"
          case "MacOSX PowerPC-32"
          case "MacOSX x86-32"
+            return there is a directory (tPath & "/Mac OS X/x86-32/Standalone.app")
          case "MacOSX x86-64"
             return there is a directory (tPath & "/Mac OS X/x86-64/Standalone.app")
          case "Windows"
@@ -3034,7 +3034,7 @@ function revSBEnginePath pPlatform
    if tEdition is not "community" then
       put "Commercial" into tEdition
    end if
-
+   
    -- MW-2013-06-13: [[ CloneAndRun ]] If not installed, then fetch the engine locally.
    if revEnvironmentIsInstalled() then
       # MW-2009-06-24: For Mac OS X, engine source is two lines, first is PPC (if any), second
@@ -3046,11 +3046,16 @@ function revSBEnginePath pPlatform
          case "MacOSX"
          case "MacOSX PowerPC-32"
          case "MacOSX x86-32"
+            // SN-2015-07-09: [[ StandaloneDeployment ]] Gypified Standalone-<edition>.app building does not
+            //  allow to create broken applications, so that the executable file in it bears the edition.
+            put the upper of char 1 of tEdition into char 1 of tEdition
+            return tRuntimePath & "/Mac OS X/x86-32/Standalone.app/Contents/MacOS/Standalone-Community" -- & tEdition
+            break
          case "MacOSX x86-64"
             // SN-2015-07-09: [[ StandaloneDeployment ]] Gypified Standalone-<edition>.app building does not
             //  allow to create broken applications, so that the executable file in it bears the edition.
             put the upper of char 1 of tEdition into char 1 of tEdition
-            return tRuntimePath & "/Mac OS X/x86-64/Standalone.app/Contents/MacOS/Standalone-" & tEdition
+            return tRuntimePath & "/Mac OS X/x86-64/Standalone.app/Contents/MacOS/Standalone-Community" --  & tEdition
             break
          case "Windows"
             return tRuntimePath & "/Windows/x86-32/Standalone"
@@ -3078,7 +3083,7 @@ function revSBEnginePath pPlatform
       // SN-2015-05-15: [[ DeployAllPlatforms ]] Allow the deployment to happen
       //  for another platform, from the repository.
       local tBinariesPath
-
+      
       if pPlatform contains "MacOSX" and the platform is not "macos" or \
             pPlatform contains "Linux" and the platform is not "linux" or \
             pPlatform is "Windows" and the platform is not "win32" then
@@ -3086,7 +3091,7 @@ function revSBEnginePath pPlatform
       else
          put revEnvironmentBinariesPath() into tBinariesPath
       end if
-
+      
       switch word 1 of pPlatform
          case "MacOSX"
             put the upper of char 1 of tEdition into char 1 of tEdition

@@ -468,12 +468,16 @@ private command revInternal__SetupPaths
    set the itemDelimiter to "/"
    put item 1 to -3 of tHomePath into sToolsPath
 
-   -- MW-2013-06-13: Extract the engine path from 'the address' (needs adjustment
-   --    per platform).
+  -- MW-2013-06-13: Extract the engine path from 'the address' (needs adjustment per platform).
+      -- adjustments by Paul McClernan (& pasted into here by tperry 3-11-23)
    local tEnginePath
    set the itemDelimiter to ":"
    put item 2 to -1 of the address into tEnginePath
    set the itemDelimiter to "/"
+   -- (tperry 20-11-23) change this to the name of whatever fork you want to use.
+   -- I'm simply using openxtalk here to make it as generic as possible
+   put "openxtalk" into tForkName
+   --
    switch revEnvironmentPlatform()
       case "Linux"
          local tOldFolder
@@ -486,12 +490,11 @@ private command revInternal__SetupPaths
          if there is no folder sOldPreferencesPath then
             put the folder & slash & ".runrev/revolution/media/preferences" into sOldPreferencesPath
          end if
-         put the folder & slash & ".openxtalk/preferences" into sPreferencesPath
-         put the folder & slash & ".openxtalk/cache" into sCachePath
-         put the folder & slash & ".openxtalk/crashlogs" into sCrashLogPath
-         put the folder & slash & ".openxtalk/documentationcache" into sUserDocsPath
+         put the folder & slash & "." & tForkName & "/preferences" into sPreferencesPath
+         put the folder & slash & "." & tForkName & "/cache" into sCachePath
+         put the folder & slash & "." & tForkName & "/crashlogs" into sCrashLogPath
+         put the folder & slash & "." & tForkName & "/documentationcache" into sUserDocsPath
          set the folder to tOldFolder
-
          -- MW-2013-06-13: Adjust the engine path for Linux
          put item 1 to -2 of tEnginePath into tEnginePath
          break
@@ -503,16 +506,15 @@ private command revInternal__SetupPaths
          if there is no folder sOldPreferencesPath then
             put specialFolderPath("Preferences") & "/Runtime Revolution/Revolution Media" into sOldPreferencesPath
          end if
-         put specialFolderPath("Preferences") & "/OpenXtalk" into sPreferencesPath
-         put specialFolderPath("cusr") & "/Library/Application Support/OpenXtalk/Cache" into sCachePath
-         put specialFolderPath("cusr") & "/Library/Application Support/OpenXtalk/Crash Logs" into sCrashLogPath
-         put specialFolderPath("cusr") & "/Library/Application Support/OpenXtalk/Documentation Cache" into sUserDocsPath
-
+         put specialFolderPath("Preferences") & "/" & tForkName into sPreferencesPath
+         put specialFolderPath("cusr") & "/Library/Application Support/" & tForkName & "/Cache" into sCachePath
+         put specialFolderPath("cusr") & "/Library/Application Support/" & tForkName & "/Crash Logs" into sCrashLogPath
+         put specialFolderPath("cusr") & "/Library/Application Support/" & tForkName & "/Documentation Cache" into sUserDocsPath
          -- MW-2013-06-13: Adjust the engine path for Mac
          put item 1 to -5 of tEnginePath into tEnginePath
          break
       case "Windows"
-         -- We put prefereces into the 'Roaming' AppData folder.
+         -- We put preferences into the 'Roaming' AppData folder.
          put specialFolderPath(0x001a) & "/Runtime Revolution/Revolution Enterprise/Preferences" into sOldPreferencesPath
          if there is no folder sOldPreferencesPath then
             put specialFolderPath(0x001a) & "/Runtime Revolution/Revolution Studio/Preferences" into sOldPreferencesPath
@@ -520,12 +522,11 @@ private command revInternal__SetupPaths
          if there is no folder sOldPreferencesPath then
             put specialFolderPath(0x001a) & "/Runtime Revolution/Revolution Media/Preferences" into sOldPreferencesPath
          end if
-         put specialFolderPath(0x001a) & "/OpenXtalk/Preferences" into sPreferencesPath
+         put specialFolderPath(0x001a) & "/" & tForkName & "/Preferences" into sPreferencesPath
          -- We put everything else in the 'Local' AppData folder.
-         put specialFolderPath(0x001c) & "/OpenXtalk/Cache" into sCachePath
-         put specialFolderPath(0x001c) & "/OpenXtalk/Crash Logs" into sCrashLogPath
-         put specialFolderPath(0x001c) & "/OpenXtalk/Documentation Cache" into sUserDocsPath
-
+         put specialFolderPath(0x001c) & "/" & tForkName & "/Cache" into sCachePath
+         put specialFolderPath(0x001c) & "/" & tForkName & "/Crash Logs" into sCrashLogPath
+         put specialFolderPath(0x001c) & "/" & tForkName & "/Documentation Cache" into sUserDocsPath
          -- MW-2013-06-13: Adjust the engine path for Windows
          put item 1 to -2 of tEnginePath into tEnginePath
          break
